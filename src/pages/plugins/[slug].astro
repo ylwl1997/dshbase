@@ -84,8 +84,21 @@ const review = p.archived
           ? `${desc} Note: it currently fails to install (a dependency is missing or the build is broken) — check the repo before relying on it.`
           : `${desc} It ships as GitHub source — install with \`dsh plugin add github:owner/repo\`.`;
 const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6);
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: p.name,
+  description: desc,
+  url: `https://dshbase.com/plugins/${p.name}/`,
+  applicationCategory: 'DeveloperApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  ...(p.ver ? { softwareVersion: p.ver } : {}),
+  ...(p.stars > 0 ? { aggregateRating: { '@type': 'AggregateRating', ratingValue: p.stars, bestRating: 1000, ratingCount: p.stars } } : {}),
+};
 ---
-<Base title={`${p.name} — DeepSeek Harness Plugin, Install, Test Report & Review | dshbase`} description={`${desc} — install with ${p.npm ? `dsh plugin add ${p.pkg}` : 'npm (source)'}. ${verdict.label}.`} currentPath={`/plugins/${p.name}/`}>
+<Base title={`${p.name} — DSH Plugin Install Guide & Compatibility Review | dshbase`} description={`${desc} — how to install ${p.name} (${p.npm ? `dsh plugin add ${p.pkg}` : 'npm source'}) and compatibility with dsh 0.1.0-rc.6.`} currentPath={`/plugins/${p.name}/`}>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <section class="hero wrap">
     <p class="eyebrow"><a href={dirUrl}>Plugin directory</a> / <a href={catUrl}>{cat}</a> / {p.name}</p>
     <h1>{p.name}</h1>

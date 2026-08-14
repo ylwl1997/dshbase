@@ -185,6 +185,13 @@ h2 .anchor { color: var(--primary); font-size: 18px; }
   padding: 14px 16px; font-family: var(--mono); font-size: 12.5px;
   overflow-x: auto; color: #E2E8F0; line-height: 1.7; margin: 12px 0;
 }
+.copy-btn {
+  position: absolute; top: 8px; right: 8px;
+  font-size: 11px; padding: 3px 10px; border-radius: 6px;
+  background: #1E293B; color: #94A3B8; border: 1px solid #334155; cursor: pointer;
+  transition: color .15s, border-color .15s;
+}
+.copy-btn:hover { color: #E2E8F0; border-color: #64748B; }
 
 /* ---------- table ---------- */
 .ztable {

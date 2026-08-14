@@ -83,8 +83,21 @@ const review = p.archived
           ? `${desc} 注意：目前安装失败（依赖缺失或构建损坏）——依赖它之前先看仓库。`
           : `${desc} 以 GitHub 源码分发——用 \`dsh plugin add github:owner/repo\` 安装。`;
 const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6);
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: p.name,
+  description: desc,
+  url: `https://dshbase.com/plugins/${p.name}/`,
+  applicationCategory: 'DeveloperApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  ...(p.ver ? { softwareVersion: p.ver } : {}),
+  ...(p.stars > 0 ? { aggregateRating: { '@type': 'AggregateRating', ratingValue: p.stars, bestRating: 1000, ratingCount: p.stars } } : {}),
+};
 ---
-<Base title={`${p.name} — DeepSeek Harness 插件安装、实测报告与评价 | dshbase 中文`} description={`${desc} — 安装：${p.npm ? `dsh plugin add ${p.pkg}` : 'npm（源码）'}。${verdict.label}。`} currentPath={`/plugins/${p.name}/`}>
+<Base title={`${p.name} — DSH 插件安装指南与兼容性评估 | dshbase 中文`} description={`${desc} — 如何安装 ${p.name}（${p.npm ? `dsh plugin add ${p.pkg}` : 'npm 源码'}）及其与 dsh 0.1.0-rc.6 的兼容性。`} currentPath={`/plugins/${p.name}/`}>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <section class="hero wrap">
     <p class="eyebrow"><a href={dirUrl}>插件目录</a> / <a href={catUrl}>{cat}</a> / {p.name}</p>
     <h1>{p.name}</h1>
