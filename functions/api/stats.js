@@ -1,6 +1,6 @@
 // CF Pages Function: real-time GitHub stats for the plugin directory.
 // Endpoint: /api/stats  ->  { "<plugin>": {"stars": N, "forks": N, "issues": N} }
-import repos from './repos.json';
+import repos from './repos.json' with { type: 'json' };
 
 export async function onRequest(context) {
   const { env } = context;
