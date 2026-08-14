@@ -1,0 +1,52 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness vs 12 Agents Compared — Claude Code, Codex, Cline, Pi &amp; More | dshbase" description="A practical comparison of DeepSeek Harness against 12 coding agents: Claude Code, Codex, Cline, Zed, Pi, Reasonix, CodeWhale, OpenCode, Kimi Code, and more. The real insight: harness choice moves cost more than the model." currentPath="/blog/deepseek-harness-comparison/" category="Comparison">
+  <h1>DeepSeek Harness vs <span class="accent">12 coding agents</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+  <p>When DeepSeek V4 launched, a wave of tools rushed to run it — and the results revealed something counterintuitive: <strong>the harness you choose moves cost and capability more than the model itself</strong>. Same DeepSeek model, different tool, up to 7x cost difference. Here's the landscape.</p>
+
+  <h2>The three camps</h2>
+  <p>Every tool here fits one of three groups:</p>
+  <ul>
+    <li><strong>General-purpose agent products</strong> — polished, tied to their own ecosystem, but not optimized for DeepSeek.</li>
+    <li><strong>DeepSeek-native / cost-optimized tools</strong> — built specifically to make DeepSeek cheap and reliable.</li>
+    <li><strong>DSH itself</strong> — the official, everything-is-a-plugin harness.</li>
+  </ul>
+
+  <h2>The comparison table</h2>
+  <table class="ztable">
+    <tr><th>Tool</th><th>Type</th><th>Open source</th><th>DeepSeek optimization</th></tr>
+    <tr><td><strong>DeepSeek Harness</strong></td><td>Official harness</td><td>✅ MIT</td><td>Everything-is-a-plugin + PTC (token saving)</td></tr>
+    <tr><td><strong>Claude Code</strong></td><td>Closed product</td><td>❌</td><td>None — most expensive on DeepSeek (~7x Pi)</td></tr>
+    <tr><td><strong>Codex</strong></td><td>Closed product</td><td>❌</td><td>None — tied to OpenAI models</td></tr>
+    <tr><td><strong>Cline</strong></td><td>VS Code extension</td><td>✅</td><td>Limited</td></tr>
+    <tr><td><strong>Zed</strong></td><td>Editor + agent</td><td>Partial</td><td>Limited — editor-first</td></tr>
+    <tr><td><strong>Pi</strong></td><td>Open-source harness</td><td>✅</td><td>99.93% cache hit rate (~86k stars)</td></tr>
+    <tr><td><strong>Reasonix</strong></td><td>Terminal tool</td><td>—</td><td>99%+ cache hit architecture</td></tr>
+    <tr><td><strong>CodeWhale</strong></td><td>Terminal tool</td><td>—</td><td>Reported ~80% token-cost reduction</td></tr>
+    <tr><td><strong>OpenCode</strong></td><td>Open-source terminal</td><td>✅</td><td>DeepSeek-adapted</td></tr>
+    <tr><td><strong>Kimi Code</strong></td><td>Moonshot tool</td><td>—</td><td>Tied to Moonshot / DeepSeek</td></tr>
+    <tr><td><strong>smol / DreamCoder / bb</strong></td><td>Emerging</td><td>—</td><td>Early-stage, fast-moving</td></tr>
+  </table>
+
+  <h2>General-purpose products: polished, but wrong fit for DeepSeek</h2>
+  <p><strong>Claude Code</strong> and <strong>Codex</strong> are the benchmarks for agent UX — but both are workflows tuned for their own models. A third-party benchmark running <strong>DeepSeek V4 Flash</strong> across 8 harnesses found Claude Code cost nearly <strong>7x</strong> the cheapest option per successful task (~$0.195 vs ~$0.028). Not a quality knock — it just doesn't capture DeepSeek's low-cost, cache-friendly design.</p>
+  <p><strong>Cline</strong> and <strong>Zed</strong> are strong open-source options that live inside your editor, but neither is specifically optimized for DeepSeek's caching.</p>
+
+  <h2>DeepSeek-native tools: the cost race</h2>
+  <p>This is where the interesting competition is. <strong>Pi</strong> (open source, ~86k stars) leads with a deliberately minimal design — four default tools, append-only sessions — hitting a reported <strong>99.93% prefix-cache hit rate</strong>. <strong>Reasonix</strong> follows a similar 99%+ cache-hit architecture. <strong>CodeWhale</strong> reports ~80% token-cost reductions. <strong>OpenCode</strong> and <strong>Kimi Code</strong> also target DeepSeek users.</p>
+  <p>The lesson from all of them: <strong>small tool sets + append-only sessions = cheap DeepSeek</strong>. See our <a href="/blog/pi-deepseek-cache/">cache optimization deep dive</a>.</p>
+
+  <h2>Where DSH fits</h2>
+  <p>DeepSeek Harness is the official answer: an <strong>everything-is-a-plugin</strong> harness (see the <a href="/blog/deepseek-harness-architecture/">architecture deep dive</a>) that doesn't lock you to DeepSeek models. Its minimal mode mirrors Pi's philosophy, and its PTC mode keeps intermediate data out of context for the same token-saving reason. Unlike the terminal tools, DSH is a full <strong>framework</strong> — 100+ first-party plugins and an ecosystem you extend.</p>
+
+  <h2>Which should you choose?</h2>
+  <ul>
+    <li><strong>Want a finished product</strong> — Claude Code or Codex, if you're in their ecosystem.</li>
+    <li><strong>Want cheap DeepSeek in a minimal tool</strong> — Pi, Reasonix, or CodeWhale.</li>
+    <li><strong>Want a framework to build on</strong> — DeepSeek Harness.</li>
+  </ul>
+  <p class="muted small">Cost numbers are community-reported third-party measurements — verify current figures before committing. Several tools here are early-stage and moving fast.</p>
+</BlogPost>

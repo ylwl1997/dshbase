@@ -1,0 +1,28 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="Why TypeScript? Why Every Agent Harness Picks Node.js for Plugins | dshbase" description="HN keeps asking why DeepSeek Harness — and every agent harness — is built in TypeScript/Node.js instead of Rust, Go, or Python. The real answer: npm is the plugin distribution layer." currentPath="/blog/why-typescript-agent-harness/" category="Analysis">
+  <h1>Why TypeScript? <span class="accent">Why every agent harness picks Node.js</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+  <p>One of the most common HN complaints about DeepSeek Harness: "Guh, why TypeScript?" — with some people closing the tab the moment they see npm. It's a fair question. Here's the real answer.</p>
+
+  <h2>The mistake: thinking of it as a runtime choice</h2>
+  <p>The "Rust vs Go vs Python" framing misses the point. DeepSeek Harness isn't picking a language for <strong>performance</strong> — it's picking a language for its <strong>plugin ecosystem</strong>. And the answer to "which language has the best plugin distribution?" is overwhelmingly JavaScript/TypeScript, because of <strong>npm</strong>.</p>
+
+  <h2>npm is the distribution layer</h2>
+  <p>DSH's entire thesis is <em>everything is a plugin</em>. For that to work, plugins need to be trivially installable, versioned, and dependency-resolved. npm already solved that:</p>
+  <ul>
+    <li><strong>Install</strong> — <code>dsh add &lt;plugin&gt;</code> just forwards to pnpm in the profile.</li>
+    <li><strong>Dependencies</strong> — plugins that depend on other plugins resolve automatically.</li>
+    <li><strong>Publishing</strong> — a <code>dsh-plugin</code> GitHub topic is all a developer needs to be discoverable.</li>
+  </ul>
+  <p>Rust has crates.io, Go has modules, Python has PyPI — but none has npm's combination of zero-config publishing, huge existing ecosystem, and the JavaScript community's comfort with "install random packages at runtime." That last part matters: an agent that hot-swaps its own capabilities is, essentially, an <code>npm install</code> at runtime.</p>
+
+  <h2>The TypeScript tradeoff</h2>
+  <p>The critics have a real point about the downsides: startup cost, the node_modules weight, and a language with sharp edges. But the alternative — a plugin system in Rust or Go — would mean slower iteration, a thinner ecosystem, and a higher bar for third-party developers. For an agent framework whose whole bet is community plugins, that's the wrong trade.</p>
+
+  <h2>The honest take</h2>
+  <p>"Why TypeScript?" is really "why prioritize ecosystem over runtime performance?" — and for an everything-is-a-plugin framework, ecosystem <em>is</em> the product. The teams that pick Rust/Go are optimizing for the agent's inner loop; the teams that pick TypeScript are optimizing for the plugin ecosystem. DeepSeek chose the latter, and given the 120+ community plugins that appeared within days, the bet is paying off.</p>
+  <p>Related: <a href="/blog/dsh-plugin-philosophy/">the plugin philosophy</a> · <a href="/blog/deepseek-harness-architecture/">the Cordis kernel</a>.</p>
+</BlogPost>

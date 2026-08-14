@@ -1,0 +1,51 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness 横向对比 12 个 AI 编程工具 — Claude Code / Codex / Cline / Pi 等 | dshbase 中文" description="DeepSeek Harness 与 12 个编程 Agent 的实用对比：Claude Code、Codex、Cline、Zed、Pi、Reasonix、CodeWhale、OpenCode、Kimi Code 等。核心洞察：harness 的选择比模型本身更影响成本。" currentPath="/blog/deepseek-harness-comparison/" category="对比">
+  <h1>DeepSeek Harness <span class="accent">横向对比 12 个编程工具</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+
+  <p>DeepSeek V4 发布后，一大批工具争相接它——结果暴露了一个反常识的事实：<strong>你选的 harness 比模型本身更影响成本和能力</strong>。同一个 DeepSeek 模型，不同工具，成本最多差 7 倍。这是全景。</p>
+
+  <h2>三个阵营</h2>
+  <ul>
+    <li><strong>通用 Agent 产品</strong>——精致、绑定自家生态，但没有为 DeepSeek 优化。</li>
+    <li><strong>DeepSeek 原生 / 省钱型工具</strong>——专门为让 DeepSeek 更便宜、更可靠而生。</li>
+    <li><strong>DSH 本身</strong>——官方、一切皆插件的 harness。</li>
+  </ul>
+
+  <h2>对比表</h2>
+  <table class="ztable">
+    <tr><th>工具</th><th>类型</th><th>开源</th><th>DeepSeek 优化</th></tr>
+    <tr><td><strong>DeepSeek Harness</strong></td><td>官方 harness</td><td>✅ MIT</td><td>一切皆插件 + PTC（省 token）</td></tr>
+    <tr><td><strong>Claude Code</strong></td><td>闭源产品</td><td>❌</td><td>无——接 DeepSeek 最贵（约 Pi 的 7 倍）</td></tr>
+    <tr><td><strong>Codex</strong></td><td>闭源产品</td><td>❌</td><td>无——绑定 OpenAI 模型</td></tr>
+    <tr><td><strong>Cline</strong></td><td>VS Code 扩展</td><td>✅</td><td>有限</td></tr>
+    <tr><td><strong>Zed</strong></td><td>编辑器 + Agent</td><td>部分</td><td>有限——编辑器优先</td></tr>
+    <tr><td><strong>Pi</strong></td><td>开源 harness</td><td>✅</td><td>99.93% 缓存命中率（约 8.6 万 star）</td></tr>
+    <tr><td><strong>Reasonix</strong></td><td>终端工具</td><td>—</td><td>99%+ 缓存命中架构</td></tr>
+    <tr><td><strong>CodeWhale</strong></td><td>终端工具</td><td>—</td><td>报告约 80% token 成本降低</td></tr>
+    <tr><td><strong>OpenCode</strong></td><td>开源终端</td><td>✅</td><td>适配 DeepSeek</td></tr>
+    <tr><td><strong>Kimi Code</strong></td><td>Moonshot 工具</td><td>—</td><td>绑定 Moonshot / DeepSeek</td></tr>
+    <tr><td><strong>smol / DreamCoder / bb</strong></td><td>新兴</td><td>—</td><td>早期、快速迭代</td></tr>
+  </table>
+
+  <h2>通用产品：精致，但对 DeepSeek 不对路</h2>
+  <p><strong>Claude Code</strong> 和 <strong>Codex</strong> 是 Agent 体验的标杆——但两者都是为自家模型调优的工作流。Composio 把 <strong>DeepSeek V4 Flash</strong> 接进 8 款 harness 跑真实任务，Claude Code 每次成功任务成本接近最便宜的 <strong>7 倍</strong>（约 $0.195 vs $0.028）。不是质量差——只是它没吃到 DeepSeek 低成本、高缓存效率的红利。</p>
+  <p><strong>Cline</strong> 和 <strong>Zed</strong> 是住在编辑器里的强开源选项，但都没有专门优化 DeepSeek 缓存。</p>
+
+  <h2>DeepSeek 原生工具：成本竞赛</h2>
+  <p>有意思的竞争在这里。<strong>Pi</strong>（开源，约 8.6 万 star）靠刻意极简的设计领跑——四个默认工具、只追加会话，实测约 <strong>99.93% 前缀缓存命中率</strong>。<strong>Reasonix</strong> 采用类似的 99%+ 缓存命中架构。<strong>CodeWhale</strong> 报告约 80% token 成本降低。<strong>OpenCode</strong> 和 <strong>Kimi Code</strong> 也面向 DeepSeek 用户。</p>
+  <p>它们的共同经验：<strong>小工具集 + 只追加会话 = 便宜的 DeepSeek</strong>。见我们的<a href="/blog/pi-deepseek-cache/">缓存优化深度解析</a>。</p>
+
+  <h2>DSH 的位置</h2>
+  <p>DeepSeek Harness 是官方答案：一个<strong>一切皆插件</strong>的 harness（见<a href="/blog/deepseek-harness-architecture/">架构深度解析</a>），不把你锁死在 DeepSeek 模型上。它的极简模式呼应 Pi 的理念，PTC 模式把中间数据留在上下文外省 token。与终端工具不同，DSH 是完整的<strong>框架</strong>——100+ 一方插件 + 可扩展的生态。</p>
+
+  <h2>怎么选？</h2>
+  <ul>
+    <li><strong>想要成品</strong>——Claude Code 或 Codex（如果你在它们生态里）。</li>
+    <li><strong>想要便宜跑 DeepSeek 的极简工具</strong>——Pi、Reasonix 或 CodeWhale。</li>
+    <li><strong>想要可构建的框架</strong>——DeepSeek Harness。</li>
+  </ul>
+  <p class="muted small">成本数字为社区实测，投入前请核实当前数据。表中部分工具处于早期、迭代很快。</p>
+</BlogPost>

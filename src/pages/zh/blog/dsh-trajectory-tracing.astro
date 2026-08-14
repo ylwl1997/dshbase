@@ -1,0 +1,36 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="DSH Trajectory 追踪 — 竞品隐藏的 killer feature | dshbase 中文" description="DeepSeek Harness 的轨迹视图是它的 killer feature：每次运行都可追踪，而美国模型把这些信息加密隐藏。如何用轨迹追踪调试 Agent、削减 token 浪费。" currentPath="/blog/dsh-trajectory-tracing/" category="教程">
+  <h1>Trajectory 追踪：<span class="accent">竞品隐藏的 killer feature</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+
+  <p>DeepSeek Harness 反复被提及的最大差异化特性是：<strong>每次运行都可追踪</strong>。当 Agent 失败或死循环时，你能看到它具体在哪一步跑偏——而 OpenAI、Anthropic 把这类信息加密隐藏起来，不给你看。</p>
+
+  <h2>轨迹追踪到底是什么</h2>
+  <p>DSH 把会话存成<strong>只追加的事件日志</strong>。每个系统提示词、用户消息、推理步骤、工具调用和结果、权限变化、上下文注入、压缩、子 Agent 调度都成为事件。模型下一轮的历史是<em>从这个日志重新推导</em>的，而不是来自黑盒。轨迹视图让你按来源检查每次运行。</p>
+  <p>完整拆解见<a href="/blog/deepseek-harness-session-log/">日志里有什么</a>。</p>
+
+  <h2>为什么重要：竞品把信息加密藏起来了</h2>
+  <p>美国模型（OpenAI、Anthropic）把这当作隐藏的内部状态——你看不到中间推理、工具调用，也不知道任务在哪一步跑偏。你只拿到一个最终答案，失败时就是一个含糊的报错。DSH 给你完整轨迹。对调试和研究来说，这是实打实的优势。</p>
+
+  <h2>用它来调试</h2>
+  <ul>
+    <li><strong>定位跑偏点</strong>——打开轨迹视图按顺序走事件；失败几乎总是某个具体的工具调用或权限决策，而不是最后一行。</li>
+    <li><strong>检查工具结果</strong>——答案错误往往是工具返回了坏数据，而不是模型出错。追溯工具的输出。</li>
+    <li><strong>审查权限变化</strong>——如果 Agent 做了意外的事，权限事件会显示何时、为什么被允许。</li>
+  </ul>
+
+  <h2>用它来省 token</h2>
+  <p>轨迹日志也是一个成本分析器。每个事件显示什么进了上下文：</p>
+  <ul>
+    <li><strong>发现重复发送的上下文</strong>——同一大段内容反复出现，说明它被反复注入（也反复计费）。</li>
+    <li><strong>找多余的工具往返</strong>——长长的读/搜索调用链可以合并成一次（这正是 PTC 模式的用途）。</li>
+    <li><strong>检查压缩</strong>——看上下文何时被压缩、是否丢掉了有用的历史。</li>
+  </ul>
+  <p>配合缓存友好的 harness 设计（最小工具集、只追加会话），你就能复现<a href="/blog/pi-deepseek-cache/">99.93% 缓存命中率</a>的打法。</p>
+
+  <h2>结论</h2>
+  <p>轨迹追踪把一个不透明的 Agent 变成可检查的 Agent。对认真跑 Agent 的人来说——调试失败或优化成本——它不是锦上添花，而是选择「不隐藏自己工作」的 harness 的理由。</p>
+  <p>相关：<a href="/blog/deepseek-harness-session-log/">会话日志可观测性</a> · <a href="/blog/deepseek-harness-modes/">模式指南</a>。</p>
+</BlogPost>

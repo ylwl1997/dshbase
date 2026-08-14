@@ -1,0 +1,29 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="Everything-is-a-Plugin vs Plugin Fatigue — DSH's Plugin Philosophy | dshbase" description="The sharpest HN debate about DeepSeek Harness: is everything-is-a-plugin 'genuinely new' or a path to chaos? How DSH differs from VS Code and Claude Code plugin systems — and the 'Android of agents' narrative." currentPath="/blog/dsh-plugin-philosophy/" category="Concept">
+  <h1>Everything-is-a-plugin vs <span class="accent">plugin fatigue</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+  <p>The sharpest line in DeepSeek Harness's Hacker News discussion is about its plugin architecture. Supporters call it a <em>genuinely new thing</em>; critics predict plugin fatigue and eventual chaos. Both have a point — the question is what "everything is a plugin" actually means, and whether it's different from what came before.</p>
+
+  <h2>Why it's not VS Code's plugin system</h2>
+  <p>VS Code has thousands of extensions, but they bolt onto a fixed core: the editor, the debugger, the terminal. You can't replace the core. Claude Code is the same — you customize Skills and MCP, but the product shell is fixed.</p>
+  <p>DeepSeek Harness inverts this. <strong>The core itself — the agent loop, the tools, the UI, the sandbox — is made of plugins.</strong> The only fixed piece is Cordis, a kernel that does nothing but load, unload, and resolve plugin dependencies. That's not "plugins on a product"; it's "the product is plugins."</p>
+
+  <h2>The "Android of agents" narrative</h2>
+  <p>The closest analogy is Android vs iPhone. Android made the OS modular so OEMs and users could swap parts; iPhone kept a sealed whole. DSH's bet is that agents go the Android way — a common kernel with swappable capabilities — rather than the sealed-appliance way. Whether that bet pays off is the open question.</p>
+
+  <h2>The legitimate concern: plugin fatigue</h2>
+  <p>The critics aren't wrong. Too much modularity has real costs:</p>
+  <ul>
+    <li><strong>Choice paralysis</strong> — if everything is a plugin, what do you install first?</li>
+    <li><strong>Compatibility drift</strong> — plugins that break when dependencies change.</li>
+    <li><strong>Quality variance</strong> — an open ecosystem means uneven quality.</li>
+  </ul>
+  <p>DSH's answer so far is <strong>presets</strong>: the four built-in modes bundle sensible plugin sets so you don't start from zero. You only reach for raw plugins when you need to. That's the pragmatic middle: modular underneath, sensible defaults on top.</p>
+
+  <h2>The honest take</h2>
+  <p>The plugin architecture is genuinely different from VS Code and Claude Code — but "different" doesn't automatically mean "better." The real test is whether presets + the community keep the chaos at bay while the composability pays off. Watch the ecosystem: it'll decide this argument faster than any blog post.</p>
+  <p>Related: <a href="/blog/deepseek-harness-architecture/">the architecture deep dive</a>.</p>
+</BlogPost>

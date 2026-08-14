@@ -1,0 +1,28 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="为什么是 TypeScript？为什么每个 Agent Harness 都选 Node.js | dshbase 中文" description="HN 上反复在问为什么 DeepSeek Harness——以及每个 agent harness——都用 TypeScript/Node.js 而不是 Rust、Go、Python。真正的答案：npm 是插件分发层。" currentPath="/blog/why-typescript-agent-harness/" category="分析">
+  <h1>为什么是 TypeScript？<span class="accent">为什么每个 harness 都选 Node.js</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+
+  <p>DeepSeek Harness 在 HN 上最常见的吐槽之一：「Guh，为什么是 TypeScript？」——有人一看到 npm 就关掉标签页。这个问题问得对。这是真正的答案。</p>
+
+  <h2>误区：把它当成运行时选择</h2>
+  <p>「Rust vs Go vs Python」的框架没抓住重点。DeepSeek Harness 不是为了<strong>性能</strong>选语言——而是为了它的<strong>插件生态</strong>选语言。而「哪种语言的插件分发最好」的答案，压倒性的是 JavaScript/TypeScript，因为 <strong>npm</strong>。</p>
+
+  <h2>npm 是分发层</h2>
+  <p>DSH 的整个论点是<em>一切皆插件</em>。要让这一点成立，插件必须能轻松安装、版本管理、依赖解析。npm 早就解决了：</p>
+  <ul>
+    <li><strong>安装</strong>——<code>dsh add &lt;plugin&gt;</code> 就是转发给 profile 里的 pnpm。</li>
+    <li><strong>依赖</strong>——依赖其他插件的插件自动解析。</li>
+    <li><strong>发布</strong>——一个 <code>dsh-plugin</code> GitHub 话题就够了。</li>
+  </ul>
+  <p>Rust 有 crates.io、Go 有 modules、Python 有 PyPI——但没有一个像 npm 这样同时具备零配置发布、庞大的现有生态，以及 JS 社区对「运行时装随机包」的习以为常。最后一点很关键：一个能热换自己能力的 Agent，本质上就是一次运行时的 <code>npm install</code>。</p>
+
+  <h2>TypeScript 的取舍</h2>
+  <p>反对方对缺点说得很实在：启动成本、node_modules 体积、语言本身的坑。但替代方案——Rust 或 Go 的插件系统——意味着更慢的迭代、更薄的生态、对第三方开发者更高的门槛。对于一个赌注全在社区插件的 Agent 框架来说，这是错误的取舍。</p>
+
+  <h2>诚实的判断</h2>
+  <p>「为什么是 TypeScript」其实是「为什么把生态优先于运行时性能」——对一个一切皆插件的框架来说，生态<em>就是</em>产品。选 Rust/Go 的团队是在优化 Agent 的内循环；选 TypeScript 的团队是在优化插件生态。DeepSeek 选了后者，而几天内出现的 120+ 社区插件，说明这个赌注正在兑现。</p>
+  <p>相关：<a href="/blog/dsh-plugin-philosophy/">插件哲学</a> · <a href="/blog/deepseek-harness-architecture/">Cordis 内核</a>。</p>
+</BlogPost>

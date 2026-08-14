@@ -1,0 +1,29 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="自进化软件 — 福音还是灾难？DSH 的争论 | dshbase 中文" description="DeepSeek Harness 被称为「自进化软件的雏形」，也被称为「只会带来更大的混乱」。创造模式和 Cordis 到底能做什么、为什么 OpenClaw 的失败是警示，以及自进化的实践指南。" currentPath="/blog/dsh-self-evolving-software/" category="概念">
+  <h1>自进化软件：<span class="accent">福音还是灾难？</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+
+  <p>DeepSeek Harness 既被称作<em>自进化软件的雏形</em>，也被称作<em>只会带来更大的混乱</em>。分歧都指向同一个特性：一个能改造自己运行能力的 Agent。这到底意味着什么——以及为什么那些警示案例值得重视。</p>
+
+  <h2>DSH 里「自进化」到底指什么</h2>
+  <p>这不是科幻。在创造模式下，Agent 能检查自己正在运行的 Cordis 环境、在内存中试验插件，关键是——<strong>创造一个插件并热挂载到正在运行的流程中</strong>。「现场造扳手」的比喻：Agent 发现自己没有扳手，现场造一把，插到自己手上，继续干活。</p>
+  <p>这之所以可行，是因为 Cordis 保证两个特性：<strong>时间可组合性</strong>（卸载插件时完整撤销其副作用）和<strong>空间可组合性</strong>（依赖随兄弟插件变化而重新解析）。没有这两点，运行中热换自己的代码会污染状态。</p>
+
+  <h2>警示案例：OpenClaw</h2>
+  <p>质疑不是凭空而来。OpenClaw，一个早前承诺类似「一切皆模块化」愿景的 Agent，正好陷入了批评者预言的混乱——提醒我们<strong>没有安全护栏的自我修改产出的是不可维护的状态，而不是进化</strong>。DSH 主张的差异是 Cordis 的可组合性保证，但这是个仍需大规模验证的说法。</p>
+
+  <h2>自进化的实践指南</h2>
+  <p>如果想谨慎地用它，把它当作受控实验，而不是放任：</p>
+  <ul>
+    <li><strong>收窄范围</strong>——先做只读预设（如「只能读代码、不能改文件」），再碰会写入的。</li>
+    <li><strong>用轨迹日志</strong>——每次工具调用和权限变化都是事件；检查 Agent 到底对自己做了什么。</li>
+    <li><strong>一次只改一处</strong>——让 Agent 一次加一个插件，验证后再继续，别让它一次重写所有东西。</li>
+    <li><strong>保留回退路径</strong>——profile 和预设意味着你能随时回到一个已知良好的配置。</li>
+  </ul>
+
+  <h2>诚实的判断</h2>
+  <p>自进化软件既不是奇迹、也不会自动变成灾难——它是一种带失败模式的能力。「奇迹」的说法高估了它；「混乱」的说法低估了 Cordis 的安全护栏。真相会体现在真实团队能否用而不失控上。眼下，务实的路径是<strong>收窄、留痕、可回退</strong>的自我修改。</p>
+  <p>相关：<a href="/blog/deepseek-harness-session-log/">会话日志可观测性</a> · <a href="/blog/deepseek-harness-modes/">创造模式</a>。</p>
+</BlogPost>

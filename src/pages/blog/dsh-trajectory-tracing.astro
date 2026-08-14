@@ -1,0 +1,36 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="DSH Trajectory Tracing — the Killer Feature Rival Models Hide | dshbase" description="DeepSeek Harness's trajectory view is its killer feature: every run is traceable, while US models encrypt this away. How to use trajectory tracing to debug agents and cut token waste." currentPath="/blog/dsh-trajectory-tracing/" category="Tutorial">
+  <h1>Trajectory tracing: <span class="accent">the killer feature rivals hide</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+  <p>One feature of DeepSeek Harness keeps coming up as its biggest differentiator: <strong>every run is traceable</strong>. When an agent fails or loops, you can see the exact step it went wrong — information that OpenAI and Anthropic encrypt away from you.</p>
+
+  <h2>What trajectory tracing actually is</h2>
+  <p>DSH stores sessions as an <strong>append-only event log</strong>. Every system prompt, user message, reasoning step, tool call and result, permission change, context injection, compression, and sub-agent schedule becomes an event. The model's next-turn history is <em>re-derived from that log</em>, not from a black box. The trajectory view lets you inspect each run by source.</p>
+  <p>See <a href="/blog/deepseek-harness-session-log/">what's in the log</a> for the full breakdown.</p>
+
+  <h2>Why this matters: rivals encrypt it away</h2>
+  <p>US models (OpenAI, Anthropic) treat this as hidden internal state — you can't see the intermediate reasoning, tool calls, or where a task derailed. You get a final answer and, if it failed, a vague error. DSH gives you the whole trail. For debugging and research, that's a genuine advantage.</p>
+
+  <h2>How to use it to debug</h2>
+  <ul>
+    <li><strong>Find the derailment point</strong> — open the trajectory view and walk the events in order; the failure is almost always a specific tool call or permission decision, not the final line.</li>
+    <li><strong>Check tool results</strong> — a wrong answer is often a tool returning bad data, not a model error. Trace the tool's output.</li>
+    <li><strong>Review permission changes</strong> — if the agent did something unexpected, the permission events show when and why it was allowed.</li>
+  </ul>
+
+  <h2>How to use it to cut token waste</h2>
+  <p>The trajectory log is also a cost profiler. Each event shows what went into context:</p>
+  <ul>
+    <li><strong>Spot re-sent context</strong> — if the same large block appears repeatedly, it's being re-injected (and re-billed).</li>
+    <li><strong>Find unnecessary tool round-trips</strong> — long chains of read/search calls that could collapse into one (that's what PTC mode is for).</li>
+    <li><strong>Check compression</strong> — see when context gets compressed and whether it's dropping useful history.</li>
+  </ul>
+  <p>Combine this with a cache-friendly harness design (minimal tools, append-only sessions) and you get the <a href="/blog/pi-deepseek-cache/">99.93% cache hit rate</a> playbook.</p>
+
+  <h2>The takeaway</h2>
+  <p>Trajectory tracing turns an opaque agent into an inspectable one. For anyone running agents seriously — debugging failures or optimizing cost — it's not a nice-to-have; it's the reason to pick a harness that doesn't hide its work.</p>
+  <p>Related: <a href="/blog/deepseek-harness-session-log/">session log observability</a> · <a href="/blog/deepseek-harness-modes/">the modes guide</a>.</p>
+</BlogPost>

@@ -1,0 +1,29 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="Self-Evolving Software — Miracle or Chaos? The DSH Debate | dshbase" description="DeepSeek Harness is called 'the prototype of self-evolving software' — and also 'a recipe for more chaos'. What the Create mode and Cordis really enable, why OpenClaw's failure is a warning, and a practical guide to self-evolution." currentPath="/blog/dsh-self-evolving-software/" category="Concept">
+  <h1>Self-evolving software: <span class="accent">miracle or chaos?</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+  <p>DeepSeek Harness has been called both <em>the prototype of self-evolving software</em> and <em>a recipe for even more chaos</em>. The split comes down to one feature: an agent that can modify its own running capabilities. Here's what that actually means — and why the cautionary tales matter.</p>
+
+  <h2>What "self-evolving" actually means in DSH</h2>
+  <p>It's not science fiction. In Create mode, the agent can inspect its own running Cordis environment, experiment with plugins in memory, and — critically — <strong>create a plugin and hot-attach it to the running flow</strong>. The "make your own wrench" metaphor: the agent notices it has no wrench, forges one, attaches it to its hand, and keeps working.</p>
+  <p>This works because Cordis guarantees two properties: <strong>temporal composability</strong> (unloading a plugin fully undoes its side effects) and <strong>spatial composability</strong> (dependencies re-resolve as siblings change). Without those, hot-swapping your own code mid-run would corrupt state.</p>
+
+  <h2>The cautionary tale: OpenClaw</h2>
+  <p>The skepticism isn't hypothetical. OpenClaw, an earlier agent that promised a similar "everything is modular" vision, ran into exactly the chaos critics predict — a reminder that <strong>self-modification without safety rails produces unmaintainable state, not evolution</strong>. The difference DSH argues for is Cordis's composability guarantees, but that's a claim that still needs proving at scale.</p>
+
+  <h2>A practical guide to self-evolution</h2>
+  <p>If you want to use this carefully, treat it as a controlled experiment, not free rein:</p>
+  <ul>
+    <li><strong>Scope it down</strong> — start with read-only presets (e.g. "read code, never modify files") before anything that writes.</li>
+    <li><strong>Use the trajectory log</strong> — every tool call and permission change is an event; review what the agent actually did to itself.</li>
+    <li><strong>One change at a time</strong> — have the agent add a single plugin, verify, then continue, rather than letting it rewrite everything at once.</li>
+    <li><strong>Keep a restore path</strong> — profiles and presets mean you can always revert to a known-good config.</li>
+  </ul>
+
+  <h2>The honest take</h2>
+  <p>Self-evolving software is neither a miracle nor automatically chaos — it's a capability with a failure mode. The miracle framing oversells it; the chaos framing underestimates Cordis's safeguards. The truth will show up in whether real teams can use it without losing control. For now, the practical path is <strong>scoped, logged, reversible</strong> self-modification.</p>
+  <p>Related: <a href="/blog/deepseek-harness-session-log/">session log observability</a> · <a href="/blog/deepseek-harness-modes/">the Create mode</a>.</p>
+</BlogPost>
