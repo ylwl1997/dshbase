@@ -1,0 +1,272 @@
+[
+ {
+  "name": "dsh-tianshu-tui",
+  "status": "OK",
+  "file": "huiliyi37-dsh-tianshu-tui-0.1.1-rc.6.tgz"
+ },
+ {
+  "name": "deepseek-harness-tui",
+  "status": "ERR",
+  "file": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Administrator\\\\build-work\\\\deep"
+ },
+ {
+  "name": "dsh-at-file",
+  "status": "OK",
+  "file": "dsh-at-file-0.4.0.tgz"
+ },
+ {
+  "name": "dsh-openpencil",
+  "status": "OK",
+  "file": "zseven-w-dsh-openpencil-0.1.0-rc.1.tgz"
+ },
+ {
+  "name": "dsh-annotation",
+  "status": "OK",
+  "file": "omdsh-dev-dsh-annotation-1.3.13.tgz"
+ },
+ {
+  "name": "dsh-spotlight",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_40_46_277Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-101",
+  "status": "OK",
+  "file": "bill9109-dsh-101-0.1.7.tgz"
+ },
+ {
+  "name": "ex-setting",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_41_56_015Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-turn-navigator",
+  "status": "OK",
+  "file": "deepseek-ai-dsh-turn-navigator-0.0.1.tgz"
+ },
+ {
+  "name": "DSH-better-sidebar",
+  "status": "ERR",
+  "file": "Command '['C:\\\\Users\\\\Administrator\\\\.nodejs\\\\node-v24.19.0-win-x64\\\\node.exe', "
+ },
+ {
+  "name": "dsh-share",
+  "status": "OK",
+  "file": "dsh-external-dsh-share-0.1.0.tgz"
+ },
+ {
+  "name": "dsh-sidechain",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_45_44_153Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-explain",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_46_31_840Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-vision-toolkit",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_46_41_182Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-computer-use",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_46_44_541Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-toolkit",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_46_51_555Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-tool-csv",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_46_53_898Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-tool-calculator",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_46_56_735Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-tool-diff",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_46_59_123Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-tool-encoding",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_47_01_442Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-tool-json",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_47_04_174Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-tool-markdown",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_47_06_606Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-tool-regex",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_47_09_441Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-tool-schema",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_47_12_955Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-tool-stat",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_47_15_288Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-tool-time",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_47_18_333Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-kb-sieve",
+  "status": "OK",
+  "file": "dsh-external-dsh-kb-sieve-0.1.0.tgz"
+ },
+ {
+  "name": "dsh-cowork",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_47_25_180Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-tool-search",
+  "status": "OK",
+  "file": "deepseek-ai-dsh-tool-search-0.0.1.tgz"
+ },
+ {
+  "name": "dsh-openmaic",
+  "status": "OK",
+  "file": "openmaic-dsh-openmaic-0.4.0.tgz"
+ },
+ {
+  "name": "dsh_workflow",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_47_34_645Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-automation",
+  "status": "OK",
+  "file": "dsh-external-dsh-automation-0.1.5.tgz"
+ },
+ {
+  "name": "dsh-routines",
+  "status": "OK",
+  "file": "dsh-routines-bundle-0.1.0.tgz"
+ },
+ {
+  "name": "dsh-plannotator",
+  "status": "OK",
+  "file": "dsh-external-dsh-plannotator-0.1.3.tgz"
+ },
+ {
+  "name": "dsh-deep-research",
+  "status": "OK",
+  "file": "dsh-external-dsh-deep-research-0.1.0.tgz"
+ },
+ {
+  "name": "dsh-inspect",
+  "status": "OK",
+  "file": "dsh-external-dsh-inspect-0.1.0.tgz"
+ },
+ {
+  "name": "dsh-track",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_48_02_307Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-acp-for-bitfun",
+  "status": "OK",
+  "file": "dsh-acp-for-bitfun-0.1.0.tgz"
+ },
+ {
+  "name": "dsh-chatnode-wechat",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_48_17_567Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-webbridge",
+  "status": "OK",
+  "file": "bill9109-dsh-webbridge-0.0.2.tgz"
+ },
+ {
+  "name": "dsh-context-doctor",
+  "status": "OK",
+  "file": "dsh-context-doctor-0.5.0.tgz"
+ },
+ {
+  "name": "dsh-plugin-check",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_48_25_589Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-security-audit",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_48_28_103Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-trace",
+  "status": "OK",
+  "file": "deepseek-ai-dsh-trace-0.0.1.tgz"
+ },
+ {
+  "name": "plugin-template",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_48_42_124Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-tps",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_48_52_247Z-debug-0.log\n"
+ },
+ {
+  "name": "oh-dsh",
+  "status": "OK",
+  "file": "oh-dsh-desktop-0.1.4.tgz"
+ },
+ {
+  "name": "dsh-annotate",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_51_07_582Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-prompt-profile",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_51_16_159Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-revdiff",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_51_25_820Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-gomoku",
+  "status": "OK",
+  "file": "deepseek-ai-dsh-gomoku-0.0.1.tgz"
+ },
+ {
+  "name": "dsh-stock-market",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_51_53_463Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-stickers",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_53_45_215Z-debug-0.log\n"
+ },
+ {
+  "name": "dsh-auto-chess",
+  "status": "FAIL",
+  "file": "mplete log of this run can be found in: D:\\dsh\\npm-cache\\_logs\\2026-08-14T09_54_10_395Z-debug-0.log\n"
+ }
+]
