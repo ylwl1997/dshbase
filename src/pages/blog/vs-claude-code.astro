@@ -2,29 +2,52 @@
 import BlogPost from '../../layouts/BlogPost.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const tutorialUrl = getRelativeLocaleUrl('en', '/tutorial/');
+const installUrl = getRelativeLocaleUrl('en', '/install/');
 ---
-<BlogPost title="DeepSeek Harness vs Claude Code — Plugins vs MCP Compared | dshbase" description="DeepSeek Harness vs Claude Code: everything-is-a-plugin npm architecture vs MCP-centric design. Open source, pricing, extensibility, and which to choose in 2026." currentPath="/blog/vs-claude-code/" category="Comparison">
+<BlogPost title="DeepSeek Harness vs Claude Code — Full 2026 Comparison | dshbase" description="DeepSeek Harness vs Claude Code compared in depth: architecture (plugins vs MCP), open source, pricing, extensibility, tooling, and a decision guide. Which agent harness should you choose in 2026?" currentPath="/blog/vs-claude-code/" category="Comparison">
   <h1>DeepSeek Harness <span class="accent">vs Claude Code</span></h1>
   <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
 
-  <p>DeepSeek Harness (DSH) launched in August 2026 as an open-source agent framework positioned squarely against Claude Code. Both let an AI agent read files, run commands, and work through tasks — but they extend fundamentally differently.</p>
+  <p>DeepSeek Harness (DSH) launched in August 2026 as an open-source agent framework positioned squarely against Claude Code. Both let an AI agent read files, run commands, and work through multi-step tasks — but their architecture, licensing, and extension models differ fundamentally. This is the detailed comparison.</p>
+
+  <h2>At a glance</h2>
+  <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th></th><th>DeepSeek Harness</th><th>Claude Code</th></tr></thead>
+      <tbody>
+        <tr><td><strong>License</strong></td><td>MIT, fully open source</td><td>Closed source</td></tr>
+        <tr><td><strong>Extension model</strong></td><td>Everything-is-a-plugin (npm)</td><td>MCP servers + plugins</td></tr>
+        <tr><td><strong>Kernel</strong></td><td>Cordis plugin kernel</td><td>Proprietary</td></tr>
+        <tr><td><strong>Interfaces</strong></td><td>Web UI, headless, TUI, Python SDK</td><td>CLI, Web, IDE extensions</td></tr>
+        <tr><td><strong>Language</strong></td><td>TypeScript</td><td>TypeScript/Node</td></tr>
+        <tr><td><strong>Maturity</strong></td><td>Developer preview (fast-moving)</td><td>Mature, widely deployed</td></tr>
+        <tr><td><strong>Cost</strong></td><td>Free + model API</td><td>Subscription + model API</td></tr>
+        <tr><td><strong>Models</strong></td><td>DeepSeek + any OpenAI-compatible</td><td>Claude + Bedrock/Vertex/custom</td></tr>
+      </tbody>
+    </table>
+  </div>
 
   <h2>The core difference: plugins vs MCP</h2>
-  <p><strong>DeepSeek Harness</strong>: every capability is an npm plugin installed with <code>dsh add &lt;plugin&gt;</code>, built on the Cordis kernel. <strong>Claude Code</strong>: extensibility centers on <strong>MCP servers</strong>. Plugin-style is simpler for in-process tools; MCP is more portable across clients.</p>
+  <p><strong>DeepSeek Harness</strong> treats <em>everything</em> as a plugin — models, tools, sandboxes, session storage, UI, even the agent loop itself are npm plugins installed with <code>dsh plugin add</code>. 123+ plugins ship with the default install. This makes in-process tools trivial to add: one TypeScript module with an <code>apply</code> function.</p>
+  <p><strong>Claude Code</strong> extends through <strong>MCP (Model Context Protocol)</strong> servers — separate processes exposing tools over a standard protocol. MCP is portable across every MCP-compatible client; plugins are simpler but live inside the dsh process.</p>
+  <p>The practical trade-off: <strong>dsh plugins are easier to write and share</strong> (it's just npm), while <strong>MCP is more portable</strong> (one server works in Claude Code, Cursor, and any MCP client).</p>
 
-  <h2>Open source</h2>
-  <p>DSH is <strong>fully open source</strong> (MIT) at <a href="https://github.com/deepseek-ai/deepseek-harness" target="_blank" rel="noopener">deepseek-ai/deepseek-harness</a>. Claude Code is closed source.</p>
+  <h2>Open source &amp; control</h2>
+  <p>DSH is <strong>fully open source (MIT)</strong> at <a href="https://github.com/deepseek-ai/deepseek-harness" target="_blank" rel="noopener">deepseek-ai/deepseek-harness</a>. You can read the agent loop, fork it, and swap out core parts. Claude Code is closed source — you extend it, you don't own it.</p>
 
-  <h2>Maturity</h2>
-  <p>DSH is in <strong>developer preview</strong> — breaking changes will come. Claude Code is mature and widely deployed.</p>
+  <h2>Extensibility in practice</h2>
+  <ul>
+    <li><strong>dsh</strong>: <code>dsh plugin add dsh-claude-marketplace</code> — 122 community plugins with verified test results live in the <a href="/plugins/directory/">plugin directory</a>.</li>
+    <li><strong>Claude Code</strong>: add MCP servers, write slash commands and skills, install plugins from marketplaces.</li>
+  </ul>
 
   <h2>Pricing</h2>
-  <p>DSH itself is free; you pay for the DeepSeek API. Claude Code is included with Claude subscriptions. The real comparison is the underlying models — check current API pricing.</p>
+  <p>DSH is free — you pay only for the DeepSeek API (or whatever model you point it at). Claude Code is bundled with Claude subscriptions (Pro/Max). The real cost difference is the underlying model pricing, which changes frequently — check current rates before deciding.</p>
 
-  <h2>Which to choose?</h2>
-  <ul>
-    <li><strong>DSH</strong>: want open-source, everything-is-a-plugin, full control, or you're in the DeepSeek ecosystem.</li>
-    <li><strong>Claude Code</strong>: need stability and the mature Claude/MCP ecosystem.</li>
-  </ul>
-  <p>This is fast-moving — DSH iterates weekly. <a href={tutorialUrl}>Try DSH</a> for yourself.</p>
+  <h2>Which should you choose?</h2>
+  <p><strong>Choose DeepSeek Harness</strong> if you want: open source, everything-is-a-plugin, full control, self-hosting, or you're in the DeepSeek ecosystem.</p>
+  <p><strong>Choose Claude Code</strong> if you need: stability, the mature Claude/MCP ecosystem, or tight IDE integration.</p>
+
+  <h2>Bottom line</h2>
+  <p>DSH is the more open, hackable, and rapidly-evolving option — ideal for developers who want to read and modify the internals. Claude Code is the more polished, stable choice. Given DSH's weekly iteration cadence, this comparison will shift fast. <a href={installUrl}>Try DSH</a> and judge for yourself.</p>
 </BlogPost>

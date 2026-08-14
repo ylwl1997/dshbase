@@ -1,0 +1,77 @@
+---
+import Base from '../layouts/Base.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const installUrl = getRelativeLocaleUrl('en', '/install/');
+const pluginsUrl = getRelativeLocaleUrl('en', '/plugins/');
+const tutorialUrl = getRelativeLocaleUrl('en', '/tutorial/');
+---
+<Base
+  title="DeepSeek Harness Troubleshooting — Fix Common dsh Errors | dshbase"
+  description="Fix common DeepSeek Harness (dsh) errors: ERR_PNPM_FETCH_404, ERR_REQUIRE_ESM, plugin not activating, MISSING_CREDENTIAL, pnpm not found, allowBuilds, and more — verified fixes from real testing."
+  currentPath="/troubleshooting/"
+>
+  <section class="hero wrap">
+    <p class="eyebrow">Troubleshooting</p>
+    <h1>Fix common <span class="accent">dsh</span> errors</h1>
+    <p class="lede">Every fix below comes from actually running dsh 0.1.0-rc.6 — not from reading docs. Each entry shows the exact error message, why it happens, and the one-line fix.</p>
+  </section>
+
+  <section class="info wrap">
+    <h2>Install &amp; environment</h2>
+
+    <h3><code>ERR_PNPM_FETCH_404</code> — package not found</h3>
+    <p>Your npm registry mirror lags behind the official one, so a just-published package returns 404.</p>
+    <pre class="code-block"><code>dsh plugin add &lt;package&gt; --registry=https://registry.npmjs.org</code></pre>
+
+    <h3><code>'pnpm' is not recognized</code></h3>
+    <p><code>dsh plugin</code> forwards to pnpm, which isn't installed.</p>
+    <pre class="code-block"><code>npm install -g pnpm</code></pre>
+
+    <h3><code>node: command not found</code></h3>
+    <p>The <code>dsh</code> launcher needs Node.js on your PATH. Add your Node folder (and npm global bin) to PATH. Find them with <code>npm prefix -g</code>.</p>
+
+    <h3>Port 3080 already in use</h3>
+    <p>A stale dsh process holds the port — the page even loads normally but talks to the old instance, so config changes never appear.</p>
+    <pre class="code-block"><code>dsh web --port 8080</code></pre>
+    <p>Kill the old process first, or use a fresh port.</p>
+
+    <h2 style="margin-top:28px">Credentials &amp; models</h2>
+
+    <h3><code>MISSING_CREDENTIAL</code></h3>
+    <p>No API key is stored. Set it in <strong>Settings → Models</strong>, or in <code>~/.dsh/.credentials.yaml</code>:</p>
+    <pre class="code-block"><code>DEEPSEEK_API_KEY: sk-your-key-here</code></pre>
+
+    <h3><code>UNKNOWN_MODEL</code></h3>
+    <p>You picked a model that isn't configured. Add it to your provider, or select a configured model.</p>
+
+    <h3>"Get available models" returns 401</h3>
+    <p>The key is wrong — model discovery calls the OpenAI-compatible <code>GET /models</code> endpoint. The three settings (base URL, key, model name) must all match.</p>
+
+    <h2 style="margin-top:28px">Plugins (verified in the field)</h2>
+
+    <h3>Plugin installs but doesn't activate</h3>
+    <p>The package has no <code>dsh.bundle</code> manifest. Without it, <code>dsh plugin add</code> installs it as a plain dependency — never loaded. The plugin must ship a <code>cordis.patch.yml</code> and declare <code>dsh.bundle.patch</code> in its <code>package.json</code>.</p>
+
+    <h3><code>ERR_REQUIRE_ESM</code> when a plugin loads</h3>
+    <p>The plugin was compiled to CommonJS but depends on ESM-only packages like <code>@deepseek-ai/dsh-tools</code>. The plugin must be built as ESM (<code>"type": "module"</code>).</p>
+
+    <h3><code>cannot get property "systemPrompt" without inject</code></h3>
+    <p>Plugin code calls <code>ctx.systemPrompt</code> without declaring <code>inject: ["systemPrompt"]</code>. It's a plugin bug — report it to the author with this exact message.</p>
+
+    <h3><code>allowBuilds</code> prompt for git-hosted plugins</h3>
+    <p>A plugin installed from GitHub ships a <code>prepare</code> build script, which pnpm blocks by default. Add the key pnpm prints to <code>allowBuilds</code> in <code>pnpm-workspace.yaml</code>, then re-run.</p>
+
+    <h3>Dependency "<code>@deepseek-ai/dsh-type-meta</code>" not found</h3>
+    <p>A plugin depends on a package that isn't published to npm yet. Nothing you can do client-side — the author must publish it first.</p>
+
+    <h2 style="margin-top:28px">Runtime</h2>
+
+    <h3>Web UI send button stays disabled</h3>
+    <p>The web profile requires a workspace before sending. Click <strong>Choose workspace</strong> and select a directory.</p>
+
+    <h3>Skills work in the CLI but not the web UI</h3>
+    <p>The web profile ships with <code>tool-skill</code> and <code>skill-filesystem</code> <strong>disabled</strong>; the headless/CLI profile has them on. Same skill works in one, silently does nothing in the other.</p>
+
+    <p style="margin-top:28px">Still stuck? Check the <a href={installUrl}>install guide</a>, the <a href={pluginsUrl}>plugin guide</a>, or the <a href={tutorialUrl}>tutorial</a>.</p>
+  </section>
+</Base>
