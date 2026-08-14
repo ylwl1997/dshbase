@@ -2,12 +2,13 @@
 import BlogPost from '../../../layouts/BlogPost.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const installUrl = getRelativeLocaleUrl('zh', '/install/');
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
 ---
-<BlogPost title="DeepSeek Harness vs Claude Cowork — 开源 vs 闭源 Agent 平台 | dshbase 中文" description="DeepSeek Harness 与 Claude Cowork 对比：开源 Agent 框架 vs Anthropic 协作 Agent 平台。架构、许可、协作模式与怎么选。" currentPath="/blog/vs-cowork/" category="对比">
+<BlogPost title="DeepSeek Harness vs Claude Cowork — 开源 vs 闭源 Agent 平台 | dshbase 中文" description="DeepSeek Harness 与 Claude Cowork 对比：开源 Agent 框架 vs Anthropic 协作 Agent 平台。架构、许可、协作模式与怎么选——基于 dsh 0.1.0-rc.6 实测。" currentPath="/blog/vs-cowork/" category="对比">
   <h1>DeepSeek Harness <span class="accent">vs Claude Cowork</span></h1>
   <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
 
-  <p>DeepSeek Harness（DSH）明确对标 Claude Code 和 <strong>Claude Cowork</strong>——Anthropic 的协作 Agent 平台。两者都编排做实际工作的 AI agent，但在开放性、扩展和运行方式上根本不同。</p>
+  <p>DeepSeek Harness（DSH）明确对标 Claude Code 和 <strong>Claude Cowork</strong>——Anthropic 的协作 Agent 平台。两者都编排做实际工作的 AI agent，但在 2026 年最关键的问题上分道扬镳：你是<em>拥有</em>这套栈，还是<em>租用</em>它？</p>
 
   <h2>速览</h2>
   <div style="overflow-x:auto">
@@ -25,15 +26,33 @@ const installUrl = getRelativeLocaleUrl('zh', '/install/');
   </div>
 
   <h2>核心区别：开源 vs 闭源</h2>
-  <p><strong>DSH</strong> 是<strong>你拥有的框架</strong>——MIT 许可、可自托管，模型、工具、沙箱甚至 agent 循环本身都是可替换的 npm 插件。你能读和改整个东西。</p>
-  <p><strong>Cowork</strong> 是<strong>你租用的平台</strong>——Anthropic 托管的 Claude agent 协作层。体验精良，但没有源码、不能自托管，且锁定 Claude 模型。</p>
+  <p><strong>DSH</strong> 是<strong>你拥有的框架</strong>——MIT 许可、可自托管，模型、工具、沙箱甚至 agent 循环本身都是可替换的 npm 插件。我们直接验证过：在 dsh 0.1.0-rc.6 上，<code>dsh plugin add</code> 装一个能力，下次启动它就在配置树里了——不用重建、不用厂商审批。</p>
+  <p><strong>Cowork</strong> 是<strong>你租用的平台</strong>——Anthropic 托管的 Claude agent 协作层。体验精良，但没有源码、不能自托管，且硬锁定 Claude 模型。</p>
 
   <h2>可扩展性</h2>
-  <p>DSH 通过 <code>dsh plugin add</code> 扩展——122 个社区插件带实测结果。Cowork 通过 MCP 服务器和技能扩展。</p>
+  <p>DSH 通过 <code>dsh plugin add</code> 扩展——一个我们实测过的社区生态：<strong>101 个插件</strong>（20 个在 npm、81 个 GitHub 源码），带实测安装结果的<a href={directoryUrl}>插件目录</a>。Cowork 通过 MCP 服务器和技能扩展，全在 Anthropic 的管理环境里。</p>
+
+  <h2>数据与掌控</h2>
+  <p>DSH 完全跑在你的基础设施上——你的 key、你的日志、你的数据留在你手里。这是很多团队的决定性因素。Cowork 的会话数据和编排在 Anthropic 的服务器上。</p>
+
+  <h2>协作模式</h2>
+  <p>两个工具通向「多 agent 协同」的路径不同。<strong>Cowork</strong> 把协作做成一等公民：共享会话、团队工作流、agent 在 Anthropic 托管环境里互相交接任务。</p>
+  <p><strong>DSH</strong> 通过插件架构到达同一目标——<code>dsh-tool-subagent</code> 和 <code>dsh-workflow</code> 本身就是插件，多 agent 编排是你能开启、扩展或替换的能力，而不是固定的平台功能。权衡还是同一个：Cowork 开箱即用给协作；DSH 给你积木，让你搭出任意形状的协作。</p>
+
+  <h2>迁移与锁定</h2>
+  <p>锁定是两者分歧最大的地方。Cowork 把会话、技能、编排留在 Anthropic 服务器上——迁走意味着导出能导的，剩下的留不下。DSH 是 MIT 且自托管，没有这种护城河：会话存在你磁盘上的追加式 JSONL 日志里，插件是你已经拥有的 npm 包。想走就走，带走一切。</p>
 
   <h2>该用哪个？</h2>
-  <p><strong>选 DeepSeek Harness</strong>：开源、自托管、任意模型灵活、深度定制。</p>
-  <p><strong>选 Claude Cowork</strong>：托管的协作体验，不想自己跑基础设施。</p>
+  <p><strong>选 DeepSeek Harness</strong>：开源、自托管、任意模型灵活、数据掌控、深度定制。</p>
+  <p><strong>选 Claude Cowork</strong>：托管的协作体验，不想自己跑基础设施，且已在 Claude 生态里。</p>
+
+  <h2>FAQ</h2>
+  <h3>Claude Cowork 就是 Claude Code 吗？</h3>
+  <p>不是——Cowork 是协作层（多 agent、共享会话、团队工作流），构建在 Claude 的 agent 栈之上；Claude Code 是单 agent 的 CLI。</p>
+  <h3>能在自己的服务器上跑 DeepSeek Harness 吗？</h3>
+  <p>能——这是核心卖点。headless、TUI、Python SDK 都跑在你的基础设施上；只有模型 API 调用离开你的机器。</p>
+  <h3>哪个更便宜？</h3>
+  <p>DSH 无订阅费——只付 DeepSeek（或任意 OpenAI 兼容端点）的模型 API 费用。Cowork 捆绑在 Anthropic 订阅里。</p>
 
   <p>DSH 赌的是开源会赢——自己判断。<a href={installUrl}>试试 DSH</a>。</p>
 </BlogPost>
