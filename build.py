@@ -10,7 +10,7 @@ NAV = (TPL / "nav.html").read_text(encoding="utf-8").strip()
 FOOT = (TPL / "footer.html").read_text(encoding="utf-8").strip()
 NAV_RE = re.compile(r'<header class="top">.*?</header>', re.S)
 FOOT_RE = re.compile(r'<footer class="foot">.*?</footer>', re.S)
-EXCLUDE = {"templates", "node_modules", "functions", "research", "test-files"}
+EXCLUDE = {"templates", "node_modules", "functions", "research", "test-files", "zh"}
 
 
 def pages():

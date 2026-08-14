@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DeepSeek Harness（DSH）— 一切皆插件的开源 Agent 框架 | dshbase 中文</title>
+<meta name="description" content="DeepSeek Harness（DSH）是什么？开源 Agent 框架，一切皆插件，npm 插件生态。中文教程：安装、使用、对比 Claude Code、插件开发。">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://dshbase.com/zh/">
+<link rel="alternate" hreflang="en" href="https://dshbase.com/">
+<link rel="alternate" hreflang="zh-CN" href="https://dshbase.com/zh/">
+<link rel="icon" href="/logo.svg" type="image/svg+xml">
+<meta property="og:title" content="DeepSeek Harness（DSH）— 一切皆插件的开源 Agent 框架">
+<meta property="og:description" content="中文教程：安装、使用、对比 Claude Code、插件生态。">
+<meta property="og:url" content="https://dshbase.com/zh/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebPage","name":"DeepSeek Harness 中文指南","url":"https://dshbase.com/zh/"},
+{"@type":"TechArticle","headline":"DeepSeek Harness（DSH）— 一切皆插件的开源 Agent 框架","description":"DeepSeek Harness 是什么、如何安装使用、插件生态与 Claude Code 对比。"},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"DeepSeek Harness（DSH）是什么？","acceptedAnswer":{"@type":"Answer","text":"DeepSeek Harness（DSH）是 DeepSeek 于 2026 年 8 月发布的开源 Agent 框架，核心理念是『一切皆插件』——工具、能力、集成都以 npm 插件形式安装，对标 Claude Code。"}},
+{"@type":"Question","name":"如何安装 DeepSeek Harness？","acceptedAnswer":{"@type":"Answer","text":"运行 npx @deepseek-ai/dsh web，然后在浏览器打开 http://127.0.0.1:3080，填入 DeepSeek API Key 即可。"}},
+{"@type":"Question","name":"DeepSeek Harness 和 Claude Code 有什么区别？","acceptedAnswer":{"@type":"Answer","text":"核心区别是架构：DSH 是『一切皆插件』（npm 插件），Claude Code 以 MCP 为中心。"}}
+]}]}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="app">
+  <header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="/"><img class="brand-logo" src="/logo.svg" alt="dshbase logo" width="30" height="30"><span>dsh</span><strong>base</strong></a>
+    <nav class="nav" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="/tutorial/">Tutorial</a>
+      <a href="/plugins/">Plugins</a>
+      <a href="/install/">Install</a>
+      <a href="/blog/">Blog</a>
+      <a href="/zh/" class="lang">中文</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    <section class="hero wrap">
+      <p class="eyebrow">DeepSeek Harness · DSH · 中文指南</p>
+      <h1>一切皆插件的 <span class="accent">开源 Agent 框架</span></h1>
+      <p class="lede">DeepSeek Harness（DSH）是 DeepSeek 开源的 Agent 框架，核心理念「一切皆插件」——每个能力都是一个 npm 插件，可自由插拔、替换和定制。这是独立的中文教程站。</p>
+      <div class="badge-row">
+        <span class="badge">&#x1F4E6; <b>npm</b> 插件生态</span>
+        <span class="badge">&#x1F680; <b>开源</b>（MIT）</span>
+        <span class="badge">&#x2696;&#xFE0F; 对标 <b>Claude Code</b></span>
+      </div>
+      <div class="browsers">
+        <a class="btn btn-primary btn-lg" href="/tutorial/">&#x1F4D6; 中文教程 &rarr;</a>
+        <a class="btn btn-ghost btn-lg" href="/install/">&#x2B07; 安装指南</a>
+      </div>
+    </section>
+
+    <section class="info wrap">
+      <h2>什么是 <span class="accent">DeepSeek Harness？</span></h2>
+      <p>DeepSeek Harness（DSH）是 DeepSeek 于 2026 年 8 月发布的开源 Agent 框架（开发者预览版），核心理念是 <strong>Agent = Model + Harness</strong>：模型负责推理，Harness 负责把模型接入真实世界（文件、终端、浏览器）。它的特别之处在于——<strong>Harness 的每个组成部分都是插件</strong>，包括 UI 本身。</p>
+      <div class="grid3">
+        <div class="card"><h3>&#x1F9E9; 一切皆插件</h3><p>工具、技能、会话、沙箱、Agent 循环都是 npm 插件，可自由拼装替换。</p></div>
+        <div class="card"><h3>&#x1F680; 开源 &amp; 自进化</h3><p>基于 Cordis 内核，Agent 可在运行中装卸插件、改造自身。</p></div>
+        <div class="card"><h3>&#x1F4E6; npm 生态</h3><p>官方 + 社区 120+ 个插件，标注 <code>dsh-plugin</code> 话题即可被发现。</p></div>
+      </div>
+    </section>
+
+    <section class="info wrap">
+      <h2>快速 <span class="accent">开始</span></h2>
+      <p>一条命令启动 Web UI（详见<a href="/install/">安装指南</a>）：</p>
+      <pre class="code-block"><code>npx @deepseek-ai/dsh web</code></pre>
+      <ol class="steps">
+        <li>浏览器打开 <code>http://127.0.0.1:3080</code>，填入 DeepSeek API Key。</li>
+        <li><strong>设置 → 模型</strong> 配置模型，<strong>选择工作区</strong> 添加项目目录。</li>
+        <li>发送任务，Agent 开始读写文件、运行命令、执行任务。</li>
+      </ol>
+    </section>
+
+    <section class="info wrap">
+      <h2>指南与 <span class="accent">资源</span></h2>
+      <div class="grid3">
+        <a class="card card-link card-accent" href="/tutorial/"><span class="cat">教程</span><h3>DSH 教程</h3><p>Web UI 使用、模型配置、首次任务——逐步讲解。 <span class="arr">&rarr;</span></p></a>
+        <a class="card card-link" href="/plugins/"><span class="cat">插件</span><h3>插件开发</h3><p>插件是什么、第一个插件、用 defineTool 注册工具。 <span class="arr">&rarr;</span></p></a>
+        <a class="card card-link" href="/plugins/directory/"><span class="cat">生态</span><h3>插件目录</h3><p>7 大类 120+ 个社区插件，一站式浏览。 <span class="arr">&rarr;</span></p></a>
+        <a class="card card-link" href="/blog/"><span class="cat">博客</span><h3>文章与对比</h3><p>vs Claude Code、四种模式、成本缓存、架构解析。 <span class="arr">&rarr;</span></p></a>
+      </div>
+    </section>
+
+    <section class="faq wrap">
+      <h2>常见问题</h2>
+      <details><summary>DeepSeek Harness（DSH）是什么？</summary><p>DeepSeek 于 2026 年 8 月发布的开源 Agent 框架（开发者预览版），核心理念「一切皆插件」。每个能力都是 npm 插件，可自由插拔，对标 Claude Code / Codex。</p></details>
+      <details><summary>怎么安装 DeepSeek Harness？</summary><p>运行 <code>npx @deepseek-ai/dsh web</code>，打开 <code>http://127.0.0.1:3080</code>，填入 DeepSeek API Key 即可。也可从源码构建。</p></details>
+      <details><summary>DSH 和 Claude Code 有什么不同？</summary><p>架构上：DSH 是「一切皆插件」（npm），Claude Code 以 MCP 为中心。详见<a href="/blog/vs-claude-code/">完整对比</a>。</p></details>
+      <details><summary>DSH 免费吗？</summary><p>DSH 开源免费；底层 DeepSeek API（V4 Pro 等）按官方定价收费。</p></details>
+    </section>
+  </main>
+
+  <footer class="foot">
+  <div class="wrap foot-grid">
+    <div class="foot-col">
+      <p class="foot-brand"><img class="foot-logo" src="/logo.svg" alt="dshbase logo" width="24" height="24"><span>dsh</span><strong>base</strong></p>
+      <p class="muted small">DeepSeek Harness 中文指南、教程与插件生态。</p>
+    </div>
+    <div class="foot-col">
+      <b>指南</b>
+      <a href="/tutorial/">教程</a>
+      <a href="/install/">安装</a>
+      <a href="/plugins/">插件</a>
+    </div>
+    <div class="foot-col">
+      <b>资源</b>
+      <a href="/plugins/directory/">插件目录</a>
+      <a href="/">What is DSH</a>
+      <a href="/blog/">博客</a>
+      <a href="/blog/vs-claude-code/">vs Claude Code</a>
+    </div>
+    <div class="foot-col">
+      <b>关于</b>
+      <a href="mailto:hello@dshbase.com">联系</a>
+      <a href="/privacy/">隐私</a>
+    </div>
+  </div>
+  <div class="wrap foot-in">
+    <p class="muted small">非官方社区资源。内容基于官方 DeepSeek Harness 文档。与 DeepSeek 无关。</p>
+  </div>
+</footer>
+</div>
+</body>
+</html>
