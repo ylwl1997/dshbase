@@ -1,0 +1,58 @@
+---
+name: 插件收录提交 / Plugin submission
+description: 提交一个 DeepSeek Harness 插件到 dshbase 插件目录
+title: "[收录] 插件名称"
+labels: ["plugin-submission"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: 插件名称
+      description: 插件的 npm 包名或仓库名
+      placeholder: dsh-xxx
+    validations:
+      required: true
+  - type: input
+    id: repo
+    attributes:
+      label: GitHub 仓库
+      description: 仓库完整地址
+      placeholder: https://github.com/owner/repo
+    validations:
+      required: true
+  - type: input
+    id: npm
+    attributes:
+      label: npm 包名（可选）
+      description: 如果发布到了 npm，填包名（含 scope）
+      placeholder: "@owner/pkg"
+  - type: textarea
+    id: desc
+    attributes:
+      label: 功能描述
+      description: 一句话说明这个插件做什么、解决什么问题
+      placeholder: 一句话功能描述
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: 分类
+      options:
+        - UI Enhancements（界面增强）
+        - Sessions & Messages（会话与消息）
+        - Tools & Capabilities（工具与能力）
+        - Workflow & Automation（工作流与自动化）
+        - Notifications & Integrations（通知与集成）
+        - Development & Runtime（开发与运行时）
+        - Just for Fun（趣味）
+    validations:
+      required: true
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: 确认
+      options:
+        - label: 仓库已加 dsh-plugin topic
+        - label: 插件带 dsh.bundle 清单（cordis.patch.yml）
+        - label: 仓库有 LICENSE 许可
