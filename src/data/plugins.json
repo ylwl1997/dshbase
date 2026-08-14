@@ -481,6 +481,21 @@
    "language": "TypeScript",
    "updated": "2026-08-14",
    "archived": false
+  },
+  {
+   "name": "dsh-sgme",
+   "url": "https://github.com/freehul/sgme",
+   "pkg": "dsh-sgme",
+   "ver": "0.1.0",
+   "npm": true,
+   "test": "ok",
+   "desc": "拾光记忆引擎（SGME）桥接：多智能体共享长期记忆——L0/L1/L1.5/L2 分层提炼（去重/合并/冲突裁决）、按场景注入（零 LLM 成本）、统一检索（BM25+向量）、主动关怀信号（signal_pull/claim/ack）。npm 已发布，dsh plugin add dsh-sgme 即装。",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "Python",
+   "updated": "2026-08-14",
+   "archived": false
   }
  ],
  "Tools & Capabilities": [
