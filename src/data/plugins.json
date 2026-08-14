@@ -7,7 +7,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "dsh-tianshu-tui — DeepSeek Harness terminal UI +harness workflow。是官方 DeepSeek Harness 上的交互式终端 UI 插件。渲染核心从本仓库自研的harness agent  Tianshu-Tui 演进而来，在官方的基础上增加了TDD与证据门等工作流。"
+   "desc": "dsh-tianshu-tui — DeepSeek Harness terminal UI +harness workflow。是官方 DeepSeek Harness 上的交互式终端 UI 插件。渲染核心从本仓库自研的harness agent  Tianshu-Tui 演进而来，在官方的基础上增加了TDD与证据门等工作流。",
+   "stars": 100,
+   "forks": 4,
+   "issues": 1,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "deepseek-harness-tui",
@@ -16,7 +22,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "TUI Plugin of DeepSeek Harness"
+   "desc": "TUI Plugin of DeepSeek Harness",
+   "stars": 6,
+   "forks": 0,
+   "issues": 0,
+   "language": "Rust",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-at-file",
@@ -25,7 +37,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "Codex-style @file mentions for DeepSeek Harness: search workspace files in the composer and attach their contents to prompts."
+   "desc": "Codex-style @file mentions for DeepSeek Harness: search workspace files in the composer and attach their contents to prompts.",
+   "stars": 78,
+   "forks": 3,
+   "issues": 1,
+   "language": "JavaScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-openpencil",
@@ -34,7 +52,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "OpenPencil design preview and editing plugin for DSH"
+   "desc": "OpenPencil design preview and editing plugin for DSH",
+   "stars": 53,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-side-panel",
@@ -43,7 +67,13 @@
    "ver": "1.0.0",
    "npm": true,
    "test": "ui",
-   "desc": "DSH 侧边栏，集成文件浏览器、终端和 Git 审查，方便预览文件。"
+   "desc": "DSH 侧边栏，集成文件浏览器、终端和 Git 审查，方便预览文件。",
+   "stars": 13,
+   "forks": 2,
+   "issues": 3,
+   "language": "JavaScript",
+   "updated": "2026-08-12",
+   "archived": false
   },
   {
    "name": "dsh-genui",
@@ -52,7 +82,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "GenUI for DeepSeek Harness: interactive UI components rendered inline in assistant replies via the dsh-ui fence — layout, charts, plots, forms, quizzes, mermaid, 3D scenes, and an action event loop back to the model. Ships the fence-teaching host plugin, the browser renderer (client half), and the genui skill."
+   "desc": "GenUI for DeepSeek Harness: interactive UI components rendered inline in assistant replies via the dsh-ui fence — layout, charts, plots, forms, quizzes, mermaid, 3D scenes, and an action event loop back to the model. Ships the fence-teaching host plugin, the browser renderer (client half), and the genui skill.",
+   "stars": 48,
+   "forks": 3,
+   "issues": 1,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-annotation",
@@ -61,7 +97,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH Web 选中批注插件：选文字→批注→回车随消息发送；气泡隐藏批注块（零闪烁）；回复按 Annotation N 逐条对照（可悬浮芯片）。官方 bundle，零核心改动"
+   "desc": "DSH Web 选中批注插件：选文字→批注→回车随消息发送；气泡隐藏批注块（零闪烁）；回复按 Annotation N 逐条对照（可悬浮芯片）。官方 bundle，零核心改动",
+   "stars": 25,
+   "forks": 0,
+   "issues": 1,
+   "language": "JavaScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-navbar",
@@ -70,7 +112,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH 插件：对话节点导航条（右缘节点串快速跳转 user 消息）。官方 bundle 插件，dsh plugin --profile web add 安装"
+   "desc": "DSH 插件：对话节点导航条（右缘节点串快速跳转 user 消息）。官方 bundle 插件，dsh plugin --profile web add 安装",
+   "stars": 9,
+   "forks": 1,
+   "issues": 1,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-task-status",
@@ -79,7 +127,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH 插件：后台任务状态条（对话页任务进度 + 实时输出 tail）。官方 bundle 插件，dsh plugin --profile web add 安装"
+   "desc": "DSH 插件：后台任务状态条（对话页任务进度 + 实时输出 tail）。官方 bundle 插件，dsh plugin --profile web add 安装",
+   "stars": 7,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-spotlight",
@@ -88,7 +142,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "Keyboard-first command palette for DeepSeek Harness Web"
+   "desc": "Keyboard-first command palette for DeepSeek Harness Web",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-101",
@@ -97,7 +157,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH 文档阅读模式"
+   "desc": "DSH 文档阅读模式",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-drag-and-drop",
@@ -106,7 +172,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "为 DSH Web UI 增加跨平台文件拖拽与原始路径插入能力，无需复制文件"
+   "desc": "为 DSH Web UI 增加跨平台文件拖拽与原始路径插入能力，无需复制文件",
+   "stars": 2,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-deeplink",
@@ -115,7 +187,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH WebUI 深链插件：?session=/?workspace= 直接打开指定项目对话"
+   "desc": "DSH WebUI 深链插件：?session=/?workspace= 直接打开指定项目对话",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "ex-setting",
@@ -124,7 +202,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH的设置扩展"
+   "desc": "DSH的设置扩展",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-turn-navigator",
@@ -133,7 +217,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "Private DSH Web turn navigation plugin"
+   "desc": "Private DSH Web turn navigation plugin",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-12",
+   "archived": false
   },
   {
    "name": "dsh-milestone",
@@ -142,7 +232,13 @@
    "ver": "0.6.0",
    "npm": true,
    "test": "ok",
-   "desc": "Git-style milestone timeline for DeepSeek Harness - hover for metadata, click to jump to any message. 会话里程碑导航条：像 Git 提交图一眼定位每条提问，悬停看时间/轮次/耗时/TTFT，点击即跳转。"
+   "desc": "Git-style milestone timeline for DeepSeek Harness - hover for metadata, click to jump to any message. 会话里程碑导航条：像 Git 提交图一眼定位每条提问，悬停看时间/轮次/耗时/TTFT，点击即跳转。",
+   "stars": 5,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-balance-meter",
@@ -151,7 +247,13 @@
    "ver": "0.1.0",
    "npm": true,
    "test": "ui",
-   "desc": "DeepSeek account balance and session cost readout for the DeepSeek Harness Web GUI"
+   "desc": "DeepSeek account balance and session cost readout for the DeepSeek Harness Web GUI",
+   "stars": 7,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-cc-tui",
@@ -160,7 +262,13 @@
    "ver": "0.3.5",
    "npm": true,
    "test": "ui",
-   "desc": "解决DSH 官方尚无终端 TUI 痛点的补位之作，献给偏爱cli的各位极客：Claude Code 风格全屏交互终端插件——像素鲸鱼顶栏、实时工作状态行、思考流式展开、双击 Esc 回滚、上下文进度条 + TPS 仪表。npm 一键安装。"
+   "desc": "解决DSH 官方尚无终端 TUI 痛点的补位之作，献给偏爱cli的各位极客：Claude Code 风格全屏交互终端插件——像素鲸鱼顶栏、实时工作状态行、思考流式展开、双击 Esc 回滚、上下文进度条 + TPS 仪表。npm 一键安装。",
+   "stars": 586,
+   "forks": 24,
+   "issues": 25,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "DSH-better-sidebar",
@@ -169,7 +277,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "一个侧边栏的完整工作台，支持三方拓展注册新Tab页面，内置文件渲染编辑/终端/Git/子代理"
+   "desc": "一个侧边栏的完整工作台，支持三方拓展注册新Tab页面，内置文件渲染编辑/终端/Git/子代理",
+   "stars": 476,
+   "forks": 18,
+   "issues": 14,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   }
  ],
  "Sessions & Messages": [
@@ -180,7 +294,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "deepseek harness对话和代码状态回退插件 | DSH — rewind conversation and workspace state, powered by a persistent Change Ledger"
+   "desc": "deepseek harness对话和代码状态回退插件 | DSH — rewind conversation and workspace state, powered by a persistent Change Ledger",
+   "stars": 27,
+   "forks": 0,
+   "issues": 1,
+   "language": "JavaScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-crosstalk",
@@ -189,7 +309,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "Cross-session messaging for DSH — any session on the machine can list and message any other, Claude Code-style"
+   "desc": "Cross-session messaging for DSH — any session on the machine can list and message any other, Claude Code-style",
+   "stars": 0,
+   "forks": 0,
+   "issues": 1,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-share",
@@ -198,7 +324,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "dsh对话分享插件，一键分享你的对话"
+   "desc": "dsh对话分享插件，一键分享你的对话",
+   "stars": 14,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-mnemon",
@@ -207,7 +339,13 @@
    "ver": "0.1.0",
    "npm": true,
    "test": "ok",
-   "desc": "Mnemon 与 DSH 的深度集成插件，为 DSH 提供完备的本地记忆系统：运行时记忆、可检索档案与受监督记忆体。"
+   "desc": "Mnemon 与 DSH 的深度集成插件，为 DSH 提供完备的本地记忆系统：运行时记忆、可检索档案与受监督记忆体。",
+   "stars": 3,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-memory",
@@ -216,7 +354,13 @@
    "ver": "0.1.0",
    "npm": true,
    "test": "ok",
-   "desc": "Cited memory over DSH's lossless session log — distilled, human-auditable facts with citations back to the exact source events; memory_read/memory_expand tools, recall index, and a dsh-memory CLI."
+   "desc": "Cited memory over DSH's lossless session log — distilled, human-auditable facts with citations back to the exact source events; memory_read/memory_expand tools, recall index, and a dsh-memory CLI.",
+   "stars": 1,
+   "forks": 0,
+   "issues": 2,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-sidechain",
@@ -225,7 +369,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH 侧会话插件：/side 持续性侧会话（Codex 风格）与 /btw 一次性侧问（Claude 风格）——在临时 fork 中运行、不写入主会话历史；Web UI 右侧链面板内嵌对话，主会话保持不变"
+   "desc": "DSH 侧会话插件：/side 持续性侧会话（Codex 风格）与 /btw 一次性侧问（Claude 风格）——在临时 fork 中运行、不写入主会话历史；Web UI 右侧链面板内嵌对话，主会话保持不变",
+   "stars": 3,
+   "forks": 0,
+   "issues": 1,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-conversation-share",
@@ -234,7 +384,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "分享任意段落的 DSH 对话"
+   "desc": "分享任意段落的 DSH 对话",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-explain",
@@ -243,7 +399,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH 本地优先学习模式插件：跨会话全局学习线程、按来源讲解、ExplainContext、压缩与可诊断设置界面"
+   "desc": "DSH 本地优先学习模式插件：跨会话全局学习线程、按来源讲解、ExplainContext、压缩与可诊断设置界面",
+   "stars": 3,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-prompt-studio",
@@ -252,7 +414,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH plugin: edit user and built-in system-prompt sections with live preview (Prompt Studio)"
+   "desc": "DSH plugin: edit user and built-in system-prompt sections with live preview (Prompt Studio)",
+   "stars": 2,
+   "forks": 0,
+   "issues": 1,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-chat-import",
@@ -261,7 +429,13 @@
    "ver": "0.2.0",
    "npm": true,
    "test": "ok",
-   "desc": "从Claude Code、Codex、Reasonix等Agent工具导入历史消息，并在DSH中继续对话"
+   "desc": "从Claude Code、Codex、Reasonix等Agent工具导入历史消息，并在DSH中继续对话",
+   "stars": 10,
+   "forks": 2,
+   "issues": 1,
+   "language": "JavaScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-interconnect",
@@ -270,7 +444,13 @@
    "ver": "0.1.0",
    "npm": true,
    "test": "install-fail",
-   "desc": "Cross-instance message/event handoff plugins for DSH (interconnect service + tools)"
+   "desc": "Cross-instance message/event handoff plugins for DSH (interconnect service + tools)",
+   "stars": 20,
+   "forks": 2,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   }
  ],
  "Tools & Capabilities": [
@@ -281,7 +461,13 @@
    "ver": "0.1.0",
    "npm": true,
    "test": "ok",
-   "desc": "Text hygiene as a dsh plugin: sanitize untrusted text, scan invisible characters, clean LLM formatting, and escape CSV formula injection."
+   "desc": "Text hygiene as a dsh plugin: sanitize untrusted text, scan invisible characters, clean LLM formatting, and escape CSV formula injection.",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-bash-terminal",
@@ -290,7 +476,13 @@
    "ver": "0.3.11",
    "npm": true,
    "test": "ok",
-   "desc": "One shell tool for PowerShell / Git Bash / WSL on Windows plus an interactive PTY terminal."
+   "desc": "One shell tool for PowerShell / Git Bash / WSL on Windows plus an interactive PTY terminal.",
+   "stars": 1,
+   "forks": 0,
+   "issues": 1,
+   "language": "JavaScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-vision-toolkit",
@@ -299,7 +491,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "让纯文本模型更好地做视觉任务的DeepSeek Harness插件：带意图的图片问答、长截图 OCR、UI 还原等｜DeepSeek Harness-native integration for agent-vision-toolkit: image Q&A, long-screenshot OCR, UI restoration, grounding, pixel diff, Artifacts, and Web UI."
+   "desc": "让纯文本模型更好地做视觉任务的DeepSeek Harness插件：带意图的图片问答、长截图 OCR、UI 还原等｜DeepSeek Harness-native integration for agent-vision-toolkit: image Q&A, long-screenshot OCR, UI restoration, grounding, pixel diff, Artifacts, and Web UI.",
+   "stars": 256,
+   "forks": 17,
+   "issues": 4,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-custom-tool",
@@ -308,7 +506,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "Create and manage sandboxed JavaScript tools for DeepSeek Harness with a Monaco editor and model-driven tool lifecycle."
+   "desc": "Create and manage sandboxed JavaScript tools for DeepSeek Harness with a Monaco editor and model-driven tool lifecycle.",
+   "stars": 19,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-computer-use",
@@ -317,7 +521,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "为 DeepSeek Harness 提供电脑控制插件：新鲜 Accessibility 观测、过期状态拒绝、作用域权限与安全输入（目前支持macos）｜Accessibility-first macOS Computer Use bundle for DSH with fresh observations, stale-state rejection, scoped permissions, and safe input."
+   "desc": "为 DeepSeek Harness 提供电脑控制插件：新鲜 Accessibility 观测、过期状态拒绝、作用域权限与安全输入（目前支持macos）｜Accessibility-first macOS Computer Use bundle for DSH with fresh observations, stale-state rejection, scoped permissions, and safe input.",
+   "stars": 15,
+   "forks": 1,
+   "issues": 1,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-data-agent",
@@ -326,7 +536,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "定义了专用的Data Agent预设，让AI帮你查询、更新、分析。"
+   "desc": "定义了专用的Data Agent预设，让AI帮你查询、更新、分析。",
+   "stars": 10,
+   "forks": 1,
+   "issues": 2,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-toolkit",
@@ -335,7 +551,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH 零依赖工具包 collection —— time / encoding / json / calculator / csv / regex / markdown / diff / stat / schema 十个确定性工具，统一入口一键安装"
+   "desc": "DSH 零依赖工具包 collection —— time / encoding / json / calculator / csv / regex / markdown / diff / stat / schema 十个确定性工具，统一入口一键安装",
+   "stars": 13,
+   "forks": 0,
+   "issues": 3,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-tool-csv",
@@ -344,7 +566,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH CSV 数据工具插件：解析/查询/统计/转换 CSV 文本（RFC 4180），零依赖状态机解析器，注册 csv 工具"
+   "desc": "DSH CSV 数据工具插件：解析/查询/统计/转换 CSV 文本（RFC 4180），零依赖状态机解析器，注册 csv 工具",
+   "stars": 3,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-tool-calculator",
@@ -353,7 +581,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH 计算器工具插件：安全的数学表达式求值器，零依赖递归下降解析器"
+   "desc": "DSH 计算器工具插件：安全的数学表达式求值器，零依赖递归下降解析器",
+   "stars": 4,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-tool-diff",
@@ -362,7 +596,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH Diff 工具插件：文本/JSON/CSV/Markdown 结构化比较与 unified diff，零依赖只读，注册 diff 工具"
+   "desc": "DSH Diff 工具插件：文本/JSON/CSV/Markdown 结构化比较与 unified diff，零依赖只读，注册 diff 工具",
+   "stars": 2,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-tool-encoding",
@@ -371,7 +611,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH 编码/哈希工具插件：base64/base64url/url/hex 编解码、md5/sha1/sha256/sha512 哈希、UUID 生成，零依赖"
+   "desc": "DSH 编码/哈希工具插件：base64/base64url/url/hex 编解码、md5/sha1/sha256/sha512 哈希、UUID 生成，零依赖",
+   "stars": 2,
+   "forks": 0,
+   "issues": 1,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-tool-json",
@@ -380,7 +626,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH JSON 查询工具插件：JMESPath 子集查询，零依赖递归下降解析器"
+   "desc": "DSH JSON 查询工具插件：JMESPath 子集查询，零依赖递归下降解析器",
+   "stars": 2,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-tool-markdown",
@@ -389,7 +641,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH Markdown 工具插件：HTML↔Markdown 转换、GFM 表格规范化、目录生成，零依赖轻量解析器，注册 markdown 工具"
+   "desc": "DSH Markdown 工具插件：HTML↔Markdown 转换、GFM 表格规范化、目录生成，零依赖轻量解析器，注册 markdown 工具",
+   "stars": 2,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-tool-regex",
@@ -398,7 +656,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH 正则工具插件：测试匹配/提取捕获组/安全替换/静态解释正则（不执行代码），零依赖，注册 regex 工具"
+   "desc": "DSH 正则工具插件：测试匹配/提取捕获组/安全替换/静态解释正则（不执行代码），零依赖，注册 regex 工具",
+   "stars": 2,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-tool-schema",
@@ -407,7 +671,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH JSON Schema 验证工具插件：validate/paths/explain/normalize，零网络零动态执行"
+   "desc": "DSH JSON Schema 验证工具插件：validate/paths/explain/normalize，零网络零动态执行",
+   "stars": 2,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-tool-stat",
@@ -416,7 +686,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH 统计工具插件：描述统计/百分位数/频数分布/相关性，零依赖纯函数确定性"
+   "desc": "DSH 统计工具插件：描述统计/百分位数/频数分布/相关性，零依赖纯函数确定性",
+   "stars": 3,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-tool-time",
@@ -425,7 +701,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH 时间工具插件：严格 ISO 8601 解析、IANA 时区转换、UTC 日历运算、固定时长差，零依赖"
+   "desc": "DSH 时间工具插件：严格 ISO 8601 解析、IANA 时区转换、UTC 日历运算、固定时长差，零依赖",
+   "stars": 2,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-kb-sieve",
@@ -434,7 +716,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH knowledge-base plugin: build audit-able KB packs (references + SQLite FTS5) from md/txt/docx/pdf, deterministic retrieval (kb_query) and original-text reading (kb_read), zero-script generated skills. Apache-2.0."
+   "desc": "DSH knowledge-base plugin: build audit-able KB packs (references + SQLite FTS5) from md/txt/docx/pdf, deterministic retrieval (kb_query) and original-text reading (kb_read), zero-script generated skills. Apache-2.0.",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-12",
+   "archived": false
   },
   {
    "name": "dsh-plugin-mineru",
@@ -443,7 +731,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "向模型暴露 MinerU 文档解析工具，将 PDF/图片/DOCX/PPTX/XLSX 转为结构化 Markdown/JSON | Exposes MinerU document-parsing tools to the model, converting PDF/images/DOCX/PPTX/XLSX into structured Markdown/JSON"
+   "desc": "向模型暴露 MinerU 文档解析工具，将 PDF/图片/DOCX/PPTX/XLSX 转为结构化 Markdown/JSON | Exposes MinerU document-parsing tools to the model, converting PDF/images/DOCX/PPTX/XLSX into structured Markdown/JSON",
+   "stars": 7,
+   "forks": 1,
+   "issues": 1,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-cowork",
@@ -452,7 +746,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "READ + WRITE for office documents & notebooks in DeepSeek Harness — doc_read/doc_write tools (xlsx, pdf, docx, pptx, ipynb) plus MCP server and CLI"
+   "desc": "READ + WRITE for office documents & notebooks in DeepSeek Harness — doc_read/doc_write tools (xlsx, pdf, docx, pptx, ipynb) plus MCP server and CLI",
+   "stars": 1,
+   "forks": 0,
+   "issues": 1,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-skillport",
@@ -461,7 +761,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "Every skill you already have — Claude Code, Codex, Cursor, Gemini CLI — works in DSH: Agent Skills SKILL.md discovery, Tier-2 conversions, find_skill search, and a skills doctor"
+   "desc": "Every skill you already have — Claude Code, Codex, Cursor, Gemini CLI — works in DSH: Agent Skills SKILL.md discovery, Tier-2 conversions, find_skill search, and a skills doctor",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-tool-search",
@@ -470,7 +776,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "Per-agent on-demand tool discovery and progressive schema disclosure for DeepSeek Harness"
+   "desc": "Per-agent on-demand tool discovery and progressive schema disclosure for DeepSeek Harness",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-12",
+   "archived": false
   },
   {
    "name": "dsh-openmaic",
@@ -479,7 +791,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "OpenMAIC for DeepSeek Harness: classrooms, slides, interactive widgets, and Socratic teaching"
+   "desc": "OpenMAIC for DeepSeek Harness: classrooms, slides, interactive widgets, and Socratic teaching",
+   "stars": 5,
+   "forks": 1,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-scholar",
@@ -488,7 +806,13 @@
    "ver": "0.1.0",
    "npm": true,
    "test": "ok",
-   "desc": "Academic assistant plugin — search and summarize research papers from arXiv, OpenAlex and PDF files."
+   "desc": "Academic assistant plugin — search and summarize research papers from arXiv, OpenAlex and PDF files.",
+   "stars": 7,
+   "forks": 1,
+   "issues": 1,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-apple-mode",
@@ -497,7 +821,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": ""
+   "desc": "",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "Shell",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-continual-evolve",
@@ -506,7 +836,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "Continual self-evolution plugin for DeepSeek Harness: versioned, auditable, rollback-safe harness state refined from session trajectories, with a benchmark-driven validation loop."
+   "desc": "Continual self-evolution plugin for DeepSeek Harness: versioned, auditable, rollback-safe harness state refined from session trajectories, with a benchmark-driven validation loop.",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-recommend",
@@ -515,7 +851,13 @@
    "ver": "0.2.0",
    "npm": true,
    "test": "ui",
-   "desc": "DSH 插件生态透明排行与推荐：每日自动抓取 dsh-plugin 话题 + 公开评分模型 + 排行/推荐插件与静态站"
+   "desc": "DSH 插件生态透明排行与推荐：每日自动抓取 dsh-plugin 话题 + 公开评分模型 + 排行/推荐插件与静态站",
+   "stars": 3,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "modlens",
@@ -524,7 +866,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "The first vision plugin for DeepSeek Harness, and the vision bridge for every text-only coding agent. Paste an image, get structured JSON evidence (OCR, layout, semantics)."
+   "desc": "The first vision plugin for DeepSeek Harness, and the vision bridge for every text-only coding agent. Paste an image, get structured JSON evidence (OCR, layout, semantics).",
+   "stars": 939,
+   "forks": 32,
+   "issues": 5,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-find-plugin",
@@ -533,7 +881,13 @@
    "ver": "0.3.4",
    "npm": true,
    "test": "install-fail",
-   "desc": "Find DSH plugins inside the agent — live GitHub dsh-plugin topic search, star-ranked / 会话内搜索发现 DSH 插件"
+   "desc": "Find DSH plugins inside the agent — live GitHub dsh-plugin topic search, star-ranked / 会话内搜索发现 DSH 插件",
+   "stars": 6,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   }
  ],
  "Workflow & Automation": [
@@ -544,7 +898,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "把Claude Code的UltraCode模式带给DSH，把 DSH 的一次性多 Agent 调度，升级为可生成、可保存、可治理、可观察、可恢复的 Workflow 层"
+   "desc": "把Claude Code的UltraCode模式带给DSH，把 DSH 的一次性多 Agent 调度，升级为可生成、可保存、可治理、可观察、可恢复的 Workflow 层",
+   "stars": 49,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-automation",
@@ -553,7 +913,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH 自动化插件：让 Coding 任务按计划在全新 Agent Session 中运行，并由用户或 Agent 创建和管理定时任务。 / Run coding tasks in fresh Agent sessions and manage schedules from DSH Web or an Agent."
+   "desc": "DSH 自动化插件：让 Coding 任务按计划在全新 Agent Session 中运行，并由用户或 Agent 创建和管理定时任务。 / Run coding tasks in fresh Agent sessions and manage schedules from DSH Web or an Agent.",
+   "stars": 21,
+   "forks": 1,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-routines",
@@ -562,7 +928,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "dsh-routines — scheduled agents for DSH: run a prompt on a cron, get the digest where you already are (file digests, chatnode delivery, unattended-safe)"
+   "desc": "dsh-routines — scheduled agents for DSH: run a prompt on a cron, get the digest where you already are (file digests, chatnode delivery, unattended-safe)",
+   "stars": 1,
+   "forks": 0,
+   "issues": 1,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-plannotator",
@@ -571,7 +943,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH 计划批注插件：选中计划原文、逐条批注，并把结构化反馈送回 Agent。 / A DSH plan-review plugin for anchored annotations and structured Agent feedback."
+   "desc": "DSH 计划批注插件：选中计划原文、逐条批注，并把结构化反馈送回 Agent。 / A DSH plan-review plugin for anchored annotations and structured Agent feedback.",
+   "stars": 2,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-loop",
@@ -580,7 +958,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH 插件：定时循环（/loop 命令 + loop 工具 + 活动状态条）。官方 bundle 插件，dsh plugin --profile web add 安装"
+   "desc": "DSH 插件：定时循环（/loop 命令 + loop 工具 + 活动状态条）。官方 bundle 插件，dsh plugin --profile web add 安装",
+   "stars": 2,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-sentinel",
@@ -589,7 +973,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "Condition-driven wakeup for DeepSeek Harness: durable file/command/http/process/webhook watches that wake the agent, with dock, sidebar branch, and a global dashboard."
+   "desc": "Condition-driven wakeup for DeepSeek Harness: durable file/command/http/process/webhook watches that wake the agent, with dock, sidebar branch, and a global dashboard.",
+   "stars": 4,
+   "forks": 0,
+   "issues": 1,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-deep-research",
@@ -598,7 +988,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "Adaptive deep-research orchestrator plugin for DeepSeek Harness (official workflow engine, cybernetics/information-theory design)"
+   "desc": "Adaptive deep-research orchestrator plugin for DeepSeek Harness (official workflow engine, cybernetics/information-theory design)",
+   "stars": 6,
+   "forks": 0,
+   "issues": 2,
+   "language": "TypeScript",
+   "updated": "2026-08-12",
+   "archived": false
   },
   {
    "name": "dsh-inspect",
@@ -607,7 +1003,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "发现问题(checkup) → 修复交付(fix) → 质量复查(review) 的对抗式闭环插件：基于官方 workflow 引擎的检查/修复/复查工具集"
+   "desc": "发现问题(checkup) → 修复交付(fix) → 质量复查(review) 的对抗式闭环插件：基于官方 workflow 引擎的检查/修复/复查工具集",
+   "stars": 2,
+   "forks": 0,
+   "issues": 2,
+   "language": "JavaScript",
+   "updated": "2026-08-12",
+   "archived": false
   },
   {
    "name": "dsh-track",
@@ -616,7 +1018,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH Track Bridge 插件：嵌入式任务管理引擎——决策点协议、念头捕获墙、Linear 形 issue 存储（bundle），AI 与人之间的任务轨道"
+   "desc": "DSH Track Bridge 插件：嵌入式任务管理引擎——决策点协议、念头捕获墙、Linear 形 issue 存储（bundle），AI 与人之间的任务轨道",
+   "stars": 3,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-advisor",
@@ -625,7 +1033,13 @@
    "ver": "0.1.0",
    "npm": true,
    "test": "ok",
-   "desc": "Advisor - Pair a second model that passively reviews each turn and injects notes.  搭配一个会在每轮对话被动注入见解和审查的副模型。"
+   "desc": "Advisor - Pair a second model that passively reviews each turn and injects notes.  搭配一个会在每轮对话被动注入见解和审查的副模型。",
+   "stars": 4,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   }
  ],
  "Notifications & Integrations": [
@@ -636,7 +1050,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "Open DeepSeek Harness workspace directories in VS Code directly from the web GUI."
+   "desc": "Open DeepSeek Harness workspace directories in VS Code directly from the web GUI.",
+   "stars": 37,
+   "forks": 3,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-notification",
@@ -645,7 +1065,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "Desktop notifications for DeepSeek Harness turn completions, with per-outcome controls and include/exclude keyword rules."
+   "desc": "Desktop notifications for DeepSeek Harness turn completions, with per-outcome controls and include/exclude keyword rules.",
+   "stars": 28,
+   "forks": 3,
+   "issues": 1,
+   "language": "JavaScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-acp-for-bitfun",
@@ -654,7 +1080,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "BitFun 与 DSH ACP 交互对接 插件"
+   "desc": "BitFun 与 DSH ACP 交互对接 插件",
+   "stars": 9,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-chatnode-wechat",
@@ -663,7 +1095,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "Chat with, monitor, and approve your DSH agents from WeChat — an iLink gateway + conversation node bundle for DeepSeek Harness"
+   "desc": "Chat with, monitor, and approve your DSH agents from WeChat — an iLink gateway + conversation node bundle for DeepSeek Harness",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-web-ui-notify",
@@ -672,7 +1110,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "为 DSH 增加桌面通知提醒"
+   "desc": "为 DSH 增加桌面通知提醒",
+   "stars": 4,
+   "forks": 0,
+   "issues": 1,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-webbridge",
@@ -681,7 +1125,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH 结合 Kimi WebBridge"
+   "desc": "DSH 结合 Kimi WebBridge",
+   "stars": 3,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-08-13",
+   "archived": false
   }
  ],
  "Development & Runtime": [
@@ -692,7 +1142,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH 上下文注入审计插件：统计 AGENTS.md 指令链/技能目录/工具 schema 的 token 成本，检测重复与冲突；Web UI 圆环面板 + context_audit 工具。Context Doctor for DeepSeek Harness: audit instruction-chain / skill catalog / tool schemas token cost."
+   "desc": "DSH 上下文注入审计插件：统计 AGENTS.md 指令链/技能目录/工具 schema 的 token 成本，检测重复与冲突；Web UI 圆环面板 + context_audit 工具。Context Doctor for DeepSeek Harness: audit instruction-chain / skill catalog / tool schemas token cost.",
+   "stars": 6,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-plugin-check",
@@ -701,7 +1157,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH 插件健康检查工具：扫描插件仓库的清单协议 / patch 格式 / 构建陷阱 / hub 收录状态，零依赖只读，注册 plugin_check 工具"
+   "desc": "DSH 插件健康检查工具：扫描插件仓库的清单协议 / patch 格式 / 构建陷阱 / hub 收录状态，零依赖只读，注册 plugin_check 工具",
+   "stars": 13,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-security-audit",
@@ -710,7 +1172,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH 本机安全审计插件：配置/插件来源/会话/网络暴露面，只读脱敏风险报告"
+   "desc": "DSH 本机安全审计插件：配置/插件来源/会话/网络暴露面，只读脱敏风险报告",
+   "stars": 9,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-session-health",
@@ -719,7 +1187,13 @@
    "ver": "0.1.2",
    "npm": true,
    "test": "ok",
-   "desc": "DSH 会话健康检查插件：多帧 zstd 会话文件的帧级扫描诊断（torn/损坏/空会话检测），零依赖只读，注册 session_health 工具"
+   "desc": "DSH 会话健康检查插件：多帧 zstd 会话文件的帧级扫描诊断（torn/损坏/空会话检测），零依赖只读，注册 session_health 工具",
+   "stars": 8,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-trace",
@@ -728,7 +1202,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DeepSeek Harness telemetry backend that exports turns, model steps, and tool calls to yiTrace over HTTP."
+   "desc": "DeepSeek Harness telemetry backend that exports turns, model steps, and tool calls to yiTrace over HTTP.",
+   "stars": 2,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-12",
+   "archived": false
   },
   {
    "name": "dsh-llm-fallbacks",
@@ -737,7 +1217,13 @@
    "ver": "0.1.0-alpha.1",
    "npm": true,
    "test": "ok",
-   "desc": "An dsh plugin for role-based LLM retry&fallback strategy. 基于角色的模型重试备用策略插件"
+   "desc": "An dsh plugin for role-based LLM retry&fallback strategy. 基于角色的模型重试备用策略插件",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-polyglot",
@@ -746,7 +1232,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "dsh-polyglot — the model switch for DSH: generic OpenAI-compatible ctx.llm adapter, curated free/cheap DeepSeek presets, automatic provider fallback on rate limits"
+   "desc": "dsh-polyglot — the model switch for DSH: generic OpenAI-compatible ctx.llm adapter, curated free/cheap DeepSeek presets, automatic provider fallback on rate limits",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-tool-approval",
@@ -755,7 +1247,13 @@
    "ver": "0.1.0",
    "npm": true,
    "test": "install-fail",
-   "desc": "Manual approval for Deepseek Harness (aka \"Manual Mode\"/\"Ask Mode\")"
+   "desc": "Manual approval for Deepseek Harness (aka \"Manual Mode\"/\"Ask Mode\")",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "plugin-template",
@@ -764,7 +1262,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "基于原turtle ui官方仓库创建的plugin模板仓库"
+   "desc": "基于原turtle ui官方仓库创建的plugin模板仓库",
+   "stars": 4,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-08-12",
+   "archived": false
   },
   {
    "name": "dsh-tps",
@@ -773,7 +1277,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "只是一个 tps 插件"
+   "desc": "只是一个 tps 插件",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-fail-logger",
@@ -782,7 +1292,13 @@
    "ver": "0.4.1",
    "npm": true,
    "test": "ok",
-   "desc": "DeepSeek Harness（DSH）插件：自动记录所有执行模式（原生工具 / PTC run_code / 代码内嵌工具调用）的工具失败错因，去重、计数、确定性排序后沉淀进 skill 的机器维护实录区段——让 Agent 越用越少错。"
+   "desc": "DeepSeek Harness（DSH）插件：自动记录所有执行模式（原生工具 / PTC run_code / 代码内嵌工具调用）的工具失败错因，去重、计数、确定性排序后沉淀进 skill 的机器维护实录区段——让 Agent 越用越少错。",
+   "stars": 4,
+   "forks": 0,
+   "issues": 1,
+   "language": "JavaScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "oh-dsh",
@@ -791,7 +1307,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "一站式 DeepSeek Harness 社区发行版：TUI、桌面端与 Web UI 三种形态统一体验，支持分层安装、一步到位，免去手工整合打包。"
+   "desc": "一站式 DeepSeek Harness 社区发行版：TUI、桌面端与 Web UI 三种形态统一体验，支持分层安装、一步到位，免去手工整合打包。",
+   "stars": 123,
+   "forks": 11,
+   "issues": 6,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-annotate",
@@ -800,7 +1322,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "Visual browser element annotation for DeepSeek Harness, capturing DOM, styles, accessibility data, comments, and viewport screenshots. DeepSeek Harness 浏览器元素标注插件，捕获 DOM、样式、可访问性数据、评论和视口截图。"
+   "desc": "Visual browser element annotation for DeepSeek Harness, capturing DOM, styles, accessibility data, comments, and viewport screenshots. DeepSeek Harness 浏览器元素标注插件，捕获 DOM、样式、可访问性数据、评论和视口截图。",
+   "stars": 2,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-prompt-profile",
@@ -809,7 +1337,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "Reusable Markdown prompt profiles for DeepSeek Harness with per-turn model selection, argument substitution, and state restoration. DeepSeek Harness 可复用 Markdown Prompt Profile，支持单轮模型选择、参数替换和状态恢复。"
+   "desc": "Reusable Markdown prompt profiles for DeepSeek Harness with per-turn model selection, argument substitution, and state restoration. DeepSeek Harness 可复用 Markdown Prompt Profile，支持单轮模型选择、参数替换和状态恢复。",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-revdiff",
@@ -818,7 +1352,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "Native interactive Git diff review for DeepSeek Harness with structured annotations sent back to the current Agent session. DeepSeek Harness 原生交互式 Git diff 审查，支持结构化批注并回传当前 Agent 会话。"
+   "desc": "Native interactive Git diff review for DeepSeek Harness with structured annotations sent back to the current Agent session. DeepSeek Harness 原生交互式 Git diff 审查，支持结构化批注并回传当前 Agent 会话。",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   }
  ],
  "Just for Fun": [
@@ -829,7 +1369,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "在DSH中与AI下五子棋，也可以让AI对局，看哪个AI棋力更强"
+   "desc": "在DSH中与AI下五子棋，也可以让AI对局，看哪个AI棋力更强",
+   "stars": 8,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-stock-market",
@@ -838,7 +1384,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "有效解决了写代码的时候账户不能同时亏钱的BUG"
+   "desc": "有效解决了写代码的时候账户不能同时亏钱的BUG",
+   "stars": 9,
+   "forks": 3,
+   "issues": 2,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-emoji",
@@ -847,7 +1399,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "为 DSH 的回复加入自定义的行内表情"
+   "desc": "为 DSH 的回复加入自定义的行内表情",
+   "stars": 9,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-minigames",
@@ -856,7 +1414,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH Web UI 右侧小游戏面板：18 款离线小游戏（恐龙跳一跳 / 俄罗斯方块 / 坦克大战 / 扫雷 / 2048 / 数独 / 吃豆人 / 跟枪练习等），可扩展游戏注册表，等待模型回复或修 bug 时的摸鱼神器"
+   "desc": "DSH Web UI 右侧小游戏面板：18 款离线小游戏（恐龙跳一跳 / 俄罗斯方块 / 坦克大战 / 扫雷 / 2048 / 数独 / 吃豆人 / 跟枪练习等），可扩展游戏注册表，等待模型回复或修 bug 时的摸鱼神器",
+   "stars": 10,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-stickers",
@@ -865,7 +1429,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH WebUI sticker plugin for bidirectional user and agent reactions"
+   "desc": "DSH WebUI sticker plugin for bidirectional user and agent reactions",
+   "stars": 9,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "whale-girl",
@@ -874,7 +1444,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH Web GUI 桌面宠物插件（QQ 宠物形态）：右下角悬浮、可拖拽/投喂/玩耍的积累型伙伴。官方 repository-plugin（.dsh-plugin 格式），config.yaml 安装：github:dsh-external/whale-girl#<ref>&path:/.dsh-plugin"
+   "desc": "DSH Web GUI 桌面宠物插件（QQ 宠物形态）：右下角悬浮、可拖拽/投喂/玩耍的积累型伙伴。官方 repository-plugin（.dsh-plugin 格式），config.yaml 安装：github:dsh-external/whale-girl#<ref>&path:/.dsh-plugin",
+   "stars": 84,
+   "forks": 4,
+   "issues": 1,
+   "language": "JavaScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-plugin-d399",
@@ -883,7 +1459,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "模型生成时右下角弹出小游戏菜单（Wordle/消消乐/192 款参数化小游戏，可拓展注册表） | Pops up a mini-game menu while the model generates (Wordle/Match-3/192 parametric mini-games, extensible registry)"
+   "desc": "模型生成时右下角弹出小游戏菜单（Wordle/消消乐/192 款参数化小游戏，可拓展注册表） | Pops up a mini-game menu while the model generates (Wordle/Match-3/192 parametric mini-games, extensible registry)",
+   "stars": 4,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-08-14",
+   "archived": false
   },
   {
    "name": "dsh-auto-chess",
@@ -892,7 +1474,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH Web里的自走棋插件：人机对战或双AI对弈"
+   "desc": "DSH Web里的自走棋插件：人机对战或双AI对弈",
+   "stars": 2,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   },
   {
    "name": "dsh-douyin",
@@ -901,7 +1489,13 @@
    "ver": "",
    "npm": false,
    "test": "not-on-npm",
-   "desc": "DSH WebUI 侧栏短视频插件：原生播放器、系列导航、直链解析与精确历史回放"
+   "desc": "DSH WebUI 侧栏短视频插件：原生播放器、系列导航、直链解析与精确历史回放",
+   "stars": 2,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
   }
  ]
 }

@@ -28,9 +28,28 @@ const statusClass = {
   'not-on-npm': 'st-src',
 };
 const desc = p.desc || `${cat} 类别的 DeepSeek Harness 插件。`;
+const fmt = (n) => (n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n ?? 0));
+const stars = p.stars ?? 0;
+const verdict = p.archived
+  ? { label: '已归档 — 不再维护，谨慎使用', cls: 'v-warn', icon: '⚠️' }
+  : p.test === 'ok'
+    ? stars >= 100
+      ? { label: '推荐 — 实测可用且热门', cls: 'v-ok', icon: '✅' }
+      : stars >= 20
+        ? { label: '可用 — 实测通过，社区增长中', cls: 'v-ok', icon: '✅' }
+        : { label: '可用 — 实测通过，早期项目', cls: 'v-ok', icon: '✅' }
+    : p.test === 'ui'
+      ? { label: '界面插件 — 可安装激活，需 Web/TUI 界面', cls: 'v-warn', icon: '🖥️' }
+      : p.test === 'install-fail'
+        ? { label: '安装异常 — 依赖未发布到 npm', cls: 'v-warn', icon: '⚠️' }
+        : stars >= 50
+          ? { label: '源码插件 — 活跃项目，从 GitHub 安装', cls: 'v-src', icon: '📦' }
+          : stars >= 10
+            ? { label: '源码插件 — 从 GitHub 安装', cls: 'v-src', icon: '📦' }
+            : { label: '源码插件 — 早期项目，从 GitHub 安装', cls: 'v-src', icon: '📦' };
 const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6);
 ---
-<Base title={`${p.name} — DeepSeek Harness 插件安装与实测状态 | dshbase 中文`} description={`${desc} — 安装：${p.npm ? `dsh plugin add ${p.pkg}` : 'npm（源码）'}。状态：${statusLabel[p.test]}。`} currentPath={`/plugins/${p.name}/`}>
+<Base title={`${p.name} — DeepSeek Harness 插件安装、实测报告与评价 | dshbase 中文`} description={`${desc} — 安装：${p.npm ? `dsh plugin add ${p.pkg}` : 'npm（源码）'}。${verdict.label}。`} currentPath={`/plugins/${p.name}/`}>
   <section class="hero wrap">
     <p class="eyebrow"><a href={dirUrl}>插件目录</a> / <a href={catUrl}>{cat}</a> / {p.name}</p>
     <h1>{p.name}</h1>
@@ -41,9 +60,25 @@ const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6
     <p style="margin-top:14px"><a class="btn btn-ghost btn-sm" href={dirUrl}>&larr; 返回插件目录</a></p>
   </section>
 
+  <section class="wrap">
+    <div class="metrics">
+      <div class="metric"><span class="m-val">{fmt(stars)}</span><span class="m-lab">Stars</span></div>
+      <div class="metric"><span class="m-val">{fmt(p.forks)}</span><span class="m-lab">Forks</span></div>
+      <div class="metric"><span class="m-val">{fmt(p.issues)}</span><span class="m-lab">未关闭 issue</span></div>
+      <div class="metric"><span class="m-val">{p.language || '—'}</span><span class="m-lab">语言</span></div>
+      <div class="metric"><span class="m-val">{p.updated || '—'}</span><span class="m-lab">最近推送</span></div>
+    </div>
+  </section>
+
   <section class="info wrap">
     <h2>功能简介</h2>
     <p class="what-it-does">{desc}</p>
+
+    <div class={`verdict ${verdict.cls}`}>
+      <span class="v-icon">{verdict.icon}</span>
+      <div><strong>我们的评价</strong><br/>{verdict.label}</div>
+    </div>
+
     {p.npm && p.pkg ? (
       <Fragment>
         <h2>安装</h2>
@@ -56,7 +91,7 @@ const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6
         </ol>
         <h2 style="margin-top:24px">包信息</h2>
         <p>npm：<a href={npmHome} target="_blank" rel="noopener">{p.pkg}</a> · 版本 <strong>{p.ver || '—'}</strong> · 实测环境 dsh <strong>0.1.0-rc.6</strong></p>
-        <h2 style="margin-top:24px">实测结果</h2>
+        <h2 style="margin-top:24px">实测报告</h2>
         <p>{p.test === 'ok' && '端到端验证通过：`dsh plugin add` 安装成功、进入 profile 配置树、启动任务正常。'}
            {p.test === 'ui' && '可安装并激活，但在 headless 测试环境无法启动——它需要 Web/TUI 界面。正常 `dsh web` 里应该能用。'}
            {p.test === 'install-fail' && '安装失败——依赖树里有包没发到 npm。可到仓库看是否有待发布的依赖。'}</p>
@@ -75,6 +110,9 @@ const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6
       </Fragment>
     )}
 
+    <h2 style="margin-top:28px">仓库</h2>
+    <p><a href={p.url} target="_blank" rel="noopener">github.com/{repo} ↗</a>{p.archived ? ' · <span class="muted">已归档</span>' : ''}</p>
+
     {related.length > 0 && (
       <Fragment>
         <h2 style="margin-top:28px">{cat} 里更多</h2>
@@ -82,7 +120,7 @@ const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6
           {related.map((r) => (
             <a class="card card-link" href={`/zh/plugins/${r.name}/`}>
               <h3>{r.name}</h3>
-              <p>{r.test === 'ok' ? '✅ 已验证' : r.npm ? 'npm 可装' : 'GitHub 源码'}</p>
+              <p>{r.test === 'ok' ? '✅ 已验证' : r.npm ? 'npm 可装' : 'GitHub 源码'} · ★{r.stars ?? 0}</p>
             </a>
           ))}
         </div>
@@ -97,5 +135,14 @@ const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6
   .st-ok { color: #1a7f37; border-color: #b7e0c0; background: #f0fff4; }
   .st-src { color: var(--ink-2); background: #f7f8fa; }
   .st-warn { color: #9a6700; border-color: #e5c27a; background: #fff8e6; }
-  .what-it-does { font-size: 15px; line-height: 1.7; color: var(--ink); background: var(--bg-soft, #f7f8fc); border-left: 3px solid var(--primary); padding: 14px 16px; border-radius: 8px; }
+  .what-it-does { font-size: 15px; line-height: 1.7; color: var(--ink); background: #f7f8fc; border-left: 3px solid var(--primary); padding: 14px 16px; border-radius: 8px; }
+  .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin: 4px 0; }
+  .metric { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 12px; text-align: center; }
+  .m-val { display: block; font-size: 20px; font-weight: 800; color: var(--ink); }
+  .m-lab { font-size: 11px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .03em; }
+  .verdict { display: flex; align-items: center; gap: 12px; margin: 18px 0 6px; padding: 14px 16px; border-radius: 10px; font-size: 14px; line-height: 1.5; }
+  .v-icon { font-size: 22px; }
+  .v-ok { background: #f0fff4; border: 1px solid #b7e0c0; color: #1a4d2e; }
+  .v-warn { background: #fff8e6; border: 1px solid #e5c27a; color: #6b4d00; }
+  .v-src { background: #f1f5f9; border: 1px solid #e2e8f0; color: #334155; }
 </style>

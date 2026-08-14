@@ -28,9 +28,28 @@ const statusClass = {
   'not-on-npm': 'st-src',
 };
 const desc = p.desc || `A plugin in the ${cat} category for DeepSeek Harness.`;
+const fmt = (n) => (n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n ?? 0));
+const stars = p.stars ?? 0;
+const verdict = p.archived
+  ? { label: 'Archived — no longer maintained, use with caution', cls: 'v-warn', icon: '⚠️' }
+  : p.test === 'ok'
+    ? stars >= 100
+      ? { label: 'Recommended — verified working and popular', cls: 'v-ok', icon: '✅' }
+      : stars >= 20
+        ? { label: 'Works — verified, growing community', cls: 'v-ok', icon: '✅' }
+        : { label: 'Works — verified, early-stage project', cls: 'v-ok', icon: '✅' }
+    : p.test === 'ui'
+      ? { label: 'UI plugin — installs & activates, needs the web/TUI surface', cls: 'v-warn', icon: '🖥️' }
+      : p.test === 'install-fail'
+        ? { label: 'Install issue — a dependency is missing from npm', cls: 'v-warn', icon: '⚠️' }
+        : stars >= 50
+          ? { label: 'Source-only — active project, install from GitHub', cls: 'v-src', icon: '📦' }
+          : stars >= 10
+            ? { label: 'Source-only — install from GitHub', cls: 'v-src', icon: '📦' }
+            : { label: 'Source-only — early-stage, install from GitHub', cls: 'v-src', icon: '📦' };
 const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6);
 ---
-<Base title={`${p.name} — DeepSeek Harness Plugin, Install &amp; Test Status | dshbase`} description={`${desc} — install with ${p.npm ? `dsh plugin add ${p.pkg}` : 'npm (source)'}. Status: ${statusLabel[p.test]}.`} currentPath={`/plugins/${p.name}/`}>
+<Base title={`${p.name} — DeepSeek Harness Plugin, Install, Test Report & Review | dshbase`} description={`${desc} — install with ${p.npm ? `dsh plugin add ${p.pkg}` : 'npm (source)'}. ${verdict.label}.`} currentPath={`/plugins/${p.name}/`}>
   <section class="hero wrap">
     <p class="eyebrow"><a href={dirUrl}>Plugin directory</a> / <a href={catUrl}>{cat}</a> / {p.name}</p>
     <h1>{p.name}</h1>
@@ -41,9 +60,25 @@ const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6
     <p style="margin-top:14px"><a class="btn btn-ghost btn-sm" href={dirUrl}>&larr; Back to plugin directory</a></p>
   </section>
 
+  <section class="wrap">
+    <div class="metrics">
+      <div class="metric"><span class="m-val">{fmt(stars)}</span><span class="m-lab">Stars</span></div>
+      <div class="metric"><span class="m-val">{fmt(p.forks)}</span><span class="m-lab">Forks</span></div>
+      <div class="metric"><span class="m-val">{fmt(p.issues)}</span><span class="m-lab">Open issues</span></div>
+      <div class="metric"><span class="m-val">{p.language || '—'}</span><span class="m-lab">Language</span></div>
+      <div class="metric"><span class="m-val">{p.updated || '—'}</span><span class="m-lab">Last push</span></div>
+    </div>
+  </section>
+
   <section class="info wrap">
     <h2>What it does</h2>
     <p class="what-it-does">{desc}</p>
+
+    <div class={`verdict ${verdict.cls}`}>
+      <span class="v-icon">{verdict.icon}</span>
+      <div><strong>Our take</strong><br/>{verdict.label}</div>
+    </div>
+
     {p.npm && p.pkg ? (
       <Fragment>
         <h2>Install</h2>
@@ -56,7 +91,7 @@ const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6
         </ol>
         <h2 style="margin-top:24px">Package</h2>
         <p>npm: <a href={npmHome} target="_blank" rel="noopener">{p.pkg}</a> · version <strong>{p.ver || '—'}</strong> · tested on dsh <strong>0.1.0-rc.6</strong></p>
-        <h2 style="margin-top:24px">Test result</h2>
+        <h2 style="margin-top:24px">Test report</h2>
         <p>{p.test === 'ok' && 'Verified end-to-end: installed via `dsh plugin add`, activated in the profile, and booted a task successfully.'}
            {p.test === 'ui' && 'Installs and activates, but did not boot in the headless test environment — it expects a Web/TUI surface. It should work in the normal `dsh web` UI.'}
            {p.test === 'install-fail' && 'Could not be installed — a dependency in its tree is not published to npm. Check the repository for a pending publish.'}</p>
@@ -75,6 +110,9 @@ const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6
       </Fragment>
     )}
 
+    <h2 style="margin-top:28px">Repository</h2>
+    <p><a href={p.url} target="_blank" rel="noopener">github.com/{repo} ↗</a>{p.archived ? ' · <span class="muted">archived</span>' : ''}</p>
+
     {related.length > 0 && (
       <Fragment>
         <h2 style="margin-top:28px">More in {cat}</h2>
@@ -82,7 +120,7 @@ const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6
           {related.map((r) => (
             <a class="card card-link" href={`/plugins/${r.name}/`}>
               <h3>{r.name}</h3>
-              <p>{r.test === 'ok' ? '✅ verified' : r.npm ? 'on npm' : 'GitHub source'}</p>
+              <p>{r.test === 'ok' ? '✅ verified' : r.npm ? 'on npm' : 'GitHub source'} · ★{r.stars ?? 0}</p>
             </a>
           ))}
         </div>
@@ -97,5 +135,14 @@ const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6
   .st-ok { color: #1a7f37; border-color: #b7e0c0; background: #f0fff4; }
   .st-src { color: var(--ink-2); background: #f7f8fa; }
   .st-warn { color: #9a6700; border-color: #e5c27a; background: #fff8e6; }
-  .what-it-does { font-size: 15px; line-height: 1.7; color: var(--ink); background: var(--bg-soft, #f7f8fc); border-left: 3px solid var(--primary); padding: 14px 16px; border-radius: 8px; }
+  .what-it-does { font-size: 15px; line-height: 1.7; color: var(--ink); background: #f7f8fc; border-left: 3px solid var(--primary); padding: 14px 16px; border-radius: 8px; }
+  .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin: 4px 0; }
+  .metric { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 12px; text-align: center; }
+  .m-val { display: block; font-size: 20px; font-weight: 800; color: var(--ink); }
+  .m-lab { font-size: 11px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .03em; }
+  .verdict { display: flex; align-items: center; gap: 12px; margin: 18px 0 6px; padding: 14px 16px; border-radius: 10px; font-size: 14px; line-height: 1.5; }
+  .v-icon { font-size: 22px; }
+  .v-ok { background: #f0fff4; border: 1px solid #b7e0c0; color: #1a4d2e; }
+  .v-warn { background: #fff8e6; border: 1px solid #e5c27a; color: #6b4d00; }
+  .v-src { background: #f1f5f9; border: 1px solid #e2e8f0; color: #334155; }
 </style>
