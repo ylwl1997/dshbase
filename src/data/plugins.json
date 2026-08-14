@@ -1159,6 +1159,23 @@
    "language": "",
    "updated": "2026-08-14",
    "archived": false
+  },
+  {
+   "name": "dsh-browser-bsk",
+   "url": "https://github.com/ylwl1997/dsh-browser",
+   "pkg": "dsh-browser-bsk",
+   "ver": "0.1.0",
+   "npm": true,
+   "test": "ok",
+   "desc": "Browser automation for DSH via bsk — navigate, snapshot, click, fill, screenshot the real Chromium browser.",
+   "desc_en": "Browser automation for DeepSeek Harness via bsk — navigate, snapshot, click, fill, and screenshot the user's real browser (with logins).",
+   "desc_zh": "基于 bsk 的 DSH 浏览器自动化插件——导航、快照、点击、填表、截图，操作带登录态的真实浏览器。",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   }
  ],
  "Workflow & Automation": [
