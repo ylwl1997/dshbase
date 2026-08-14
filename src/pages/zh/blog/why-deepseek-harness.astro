@@ -1,22 +1,42 @@
 ---
 import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
 ---
-<BlogPost title="为什么 DeepSeek Harness 叫 Harness — Agent = Model + Harness | dshbase 中文" description="为什么 DeepSeek Harness 叫 harness 而不叫 code：Agent = Model + Harness、Cordis 插件内核、时间/空间可组合性让 Agent 可以自进化。" currentPath="/blog/why-deepseek-harness/" category="概念">
+<BlogPost title="为什么 DeepSeek Harness 叫 Harness — Agent = 模型 + 框架 | dshbase 中文" description="为什么 DeepSeek Harness 取名 harness 而不是 code 工具：Agent = 模型 + 框架、Cordis 插件内核、时间/空间可组合性，以及它如何让 Agent 自我进化。" currentPath="/blog/why-deepseek-harness/" category="概念">
   <h1>为什么它叫 <span class="accent">harness</span></h1>
   <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
 
-  <p>DeepSeek 没叫它 DeepSeek Code 或 DeepSeek Build，而是叫 <strong>harness</strong>——这个命名本身就是全部答案。</p>
+  <p>DeepSeek 没把它叫 DeepSeek Code，也没叫 DeepSeek Build。它叫 <strong>harness</strong>——这个命名就是全部论点。多数人忽略了它。这个名字是一个精确的技术声明，不是营销话术。</p>
 
-  <h2>Agent = Model + Harness</h2>
-  <p><strong>模型是大脑</strong>；<strong>harness 负责把大脑接到文件、终端和工具</strong>。Claude Code、Codex、DSH 本质上都是 harness。</p>
-
-  <h2>Cordis 内核：会自己拼装自己的 Agent</h2>
-  <p>DSH 构建在 <strong>Cordis</strong> 之上——一个只负责插件加载、卸载和依赖管理的最小内核，其他一切皆插件。两个关键特性：</p>
+  <h2>Agent = 模型 + 框架</h2>
+  <p>每个 AI 编程 agent 本质上是两个东西拼在一起。<strong>模型是大脑</strong>——决定做什么的推理引擎。<strong>框架（harness）是其余的一切</strong>——把大脑连接到文件、终端、工具和外部世界的代码。</p>
+  <p>Claude Code、Codex 和 DSH 都是 harness。区别在于每个怎么<em>对待</em> harness 这一层：</p>
   <ul>
-    <li><strong>时间可组合性</strong>——插件卸载时完整撤销其副作用。</li>
-    <li><strong>空间可组合性</strong>——插件在兄弟插件变化时动态重新解析依赖。</li>
+    <li><strong>Claude Code</strong> 把 harness 保持私有——你通过 MCP 服务器扩展，但永远看不到、改不了核心。</li>
+    <li><strong>Codex</strong> 类似——闭源 harness + 扩展 API。</li>
+    <li><strong>DSH</strong> 把 harness 本身做成产品——开源，而且<em>每一部分都是可替换的插件</em>。</li>
   </ul>
-  <p>结果：Agent 可以在<strong>运行中安装和移除自己的能力</strong>——某种意义上的自进化。这就是为什么它是 harness 而不是产品：为 Agent 而生的基础设施，附带约 100 个一方插件，邀请社区共建其余部分。</p>
+
+  <h2>Cordis 内核：一个自我组装的 agent</h2>
+  <p>DSH 构建在 <strong>Cordis</strong> 上，一个极简插件内核，只做一件事：管理插件的加载、卸载和依赖解析。其余一切——模型、工具、沙箱、会话存储、UI，甚至 agent 循环本身——都是内核之上的插件。</p>
+  <p>Cordis 的两个特性让 DSH 从根本上不同于普通应用：</p>
+  <ul>
+    <li><strong>时间可组合性</strong>——插件卸载时，副作用完全撤销。你能移除一个能力，系统回到添加它之前的状态。</li>
+    <li><strong>空间可组合性</strong>——一个插件变化时，依赖它的插件自动重新解析。加或换一个工具，所有使用它的地方无需重启就生效。</li>
+  </ul>
+
+  <h2>这在实践里长什么样</h2>
+  <p>我们在 dsh 0.1.0-rc.6 上直接验证过这个行为。跑 <code>dsh plugin add dsh-memory</code> 会安装包、写进 profile 的 <code>package.json</code>，然后——下次启动——插件<strong>已经在配置树里了</strong>。不用重新构建，不用重启折腾，不用手动接线。内核自己发现并加载它。</p>
+  <p>我们也踩到了另一面：一个没有 <code>dsh.bundle</code> 清单的插件会<em>静默地作为普通依赖装进去</em>——永远不激活。harness 的好坏取决于 manifest 契约。这种细节只有真正跑过才知道，所以我们把它记录在<a href={directoryUrl}>插件目录</a>和排错指南里。</p>
+
+  <h2>自我进化，不只是扩展</h2>
+  <p>结果是：一个 agent 能<strong>在运行中安装和移除自己的能力</strong>。给它一个任务，它能加一个插件来解决，然后再卸载。这是一种<strong>自我进化</strong>——和 DSH 其他文章讲的自我进化循环、轨迹追踪是同一个想法。</p>
+  <p>这就是为什么它叫 <em>harness</em> 而不是产品。它是 agent 的基础设施：一个极简内核 + 约 100 个官方插件，明确邀请社区来构建其余部分。这个名字告诉你它的野心——这不是一个你「使用」的应用，而是你<em>拥有</em>的脚手架。</p>
+
+  <h2>FAQ</h2>
+  <p><strong>「harness」和「框架」是一回事吗？</strong>接近，但 harness 更强调运行时接线（文件、终端、工具），比泛泛的 framework 更具体。DSH 交付的是一个完整可运行的 agent，不只是库。</p>
+  <p><strong>用 DSH 需要懂 Cordis 吗？</strong>不需要。你可以当普通 agent 用。只有写插件或替换核心部件时才需要关心 Cordis。</p>
 
   <h2>资源</h2>
   <ul>

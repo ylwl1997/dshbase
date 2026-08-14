@@ -1,22 +1,42 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
 ---
-<BlogPost title="Why DeepSeek Harness Is Called a Harness — Agent = Model + Harness | dshbase" description="Why DeepSeek Harness is named a harness, not a code tool: Agent = Model + Harness, the Cordis plugin kernel, and time/spatial composability that lets agents self-evolve." currentPath="/blog/why-deepseek-harness/" category="Concept">
+<BlogPost title="Why DeepSeek Harness Is Called a Harness — Agent = Model + Harness | dshbase" description="Why DeepSeek Harness is named a harness, not a code tool: Agent = Model + Harness, the Cordis plugin kernel, temporal/spatial composability, and how it enables agents that self-evolve." currentPath="/blog/why-deepseek-harness/" category="Concept">
   <h1>Why it's called a <span class="accent">harness</span></h1>
   <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
 
-  <p>DeepSeek didn't call it DeepSeek Code or DeepSeek Build. It called it a <strong>harness</strong> — and that naming is the whole story.</p>
+  <p>DeepSeek didn't call it DeepSeek Code or DeepSeek Build. It called it a <strong>harness</strong> — and that naming is the entire thesis. Most people miss it. The name is a precise technical claim, not marketing.</p>
 
   <h2>Agent = Model + Harness</h2>
-  <p>The <strong>model is the brain</strong>; the <strong>harness connects that brain to files, terminals, and tools</strong>. Claude Code, Codex, and DSH are all harnesses.</p>
+  <p>Every AI coding agent is really two things bolted together. The <strong>model is the brain</strong> — the reasoning engine that decides what to do. The <strong>harness is everything else</strong> — the code that connects that brain to files, terminals, tools, and the outside world.</p>
+  <p>Claude Code, Codex, and DSH are all harnesses. The difference is what each one <em>does with</em> the harness layer:</p>
+  <ul>
+    <li><strong>Claude Code</strong> keeps the harness proprietary — you extend it through MCP servers, but you never see or change the core.</li>
+    <li><strong>Codex</strong> is similar — a closed harness with an extension API.</li>
+    <li><strong>DSH</strong> makes the harness itself the product — open source, and <em>every part of it is a plugin you can swap</em>.</li>
+  </ul>
 
   <h2>The Cordis kernel: an agent that plugs itself together</h2>
-  <p>DSH is built on <strong>Cordis</strong>, a minimal kernel that only manages plugin loading, unloading, and dependencies. Everything else is a plugin. Two properties matter:</p>
+  <p>DSH is built on <strong>Cordis</strong>, a minimal plugin kernel that does exactly one job: manage plugin loading, unloading, and dependency resolution. Everything else — models, tools, sandboxes, session storage, the UI, even the agent loop itself — is a plugin on top of that kernel.</p>
+  <p>Two properties of Cordis make DSH fundamentally different from a normal app:</p>
   <ul>
-    <li><strong>Temporal composability</strong> — plugin unloads fully undo their side effects.</li>
-    <li><strong>Spatial composability</strong> — a plugin re-resolves dependencies as siblings change.</li>
+    <li><strong>Temporal composability</strong> — when a plugin unloads, its side effects fully undo. You can remove a capability and the system returns to the state before it was added.</li>
+    <li><strong>Spatial composability</strong> — when one plugin changes, its dependents re-resolve automatically. Add or swap a tool, and everything that uses it picks up the change without a restart.</li>
   </ul>
-  <p>Result: an agent can <strong>install and remove its own capabilities while running</strong> — a form of self-evolution. That's why it's a harness, not a product: infrastructure for agents, plus ~100 first-party plugins, inviting the community to build the rest.</p>
+
+  <h2>What this looks like in practice</h2>
+  <p>We've verified this behavior directly on dsh 0.1.0-rc.6. Running <code>dsh plugin add dsh-memory</code> installs the package, records it in the profile's <code>package.json</code>, and — on the next launch — the plugin is <strong>already in the config tree</strong>. No rebuild, no restart dance, no manual wiring. The kernel discovers and loads it.</p>
+  <p>The flip side we also hit: a plugin without a <code>dsh.bundle</code> manifest installs <em>silently as a plain dependency</em> — it never activates. The harness is only as good as the manifest contract. That's the kind of detail you only learn by running it, which is why we document it in the <a href={directoryUrl}>plugin directory</a> and the troubleshooting guide.</p>
+
+  <h2>Self-evolution, not just extension</h2>
+  <p>The result is an agent that can <strong>install and remove its own capabilities while running</strong>. Give it a task, and it can add a plugin to solve that task, then shed it. This is a form of <strong>self-evolution</strong> — the same idea behind DSH's other articles on the self-evolving loop and trajectory tracing.</p>
+  <p>That's why it's a <em>harness</em>, not a product. It's infrastructure for agents: a minimal kernel plus ~100 first-party plugins, explicitly inviting the community to build the rest. The name tells you the ambition — this isn't an app you use; it's scaffolding you <em>own</em>.</p>
+
+  <h2>FAQ</h2>
+  <p><strong>Is "harness" the same as "framework"?</strong> Close, but a harness emphasizes the runtime wiring (files, terminals, tools) more than a generic framework does. DSH ships a full runnable agent, not just libraries.</p>
+  <p><strong>Do I need to understand Cordis to use DSH?</strong> No. You can use it as a normal agent. Cordis only matters when you start writing plugins or swapping core parts.</p>
 
   <h2>Resources</h2>
   <ul>
