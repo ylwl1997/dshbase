@@ -11,6 +11,9 @@ const catLabels = {
   'Just for Fun': '趣味',
 };
 const catOrder = Object.keys(plugins);
+// sort each category by stars desc
+const sortByStars = (a, b) => (b.stars ?? 0) - (a.stars ?? 0);
+catOrder.forEach((k) => plugins[k].sort(sortByStars));
 const total = catOrder.reduce((s, k) => s + plugins[k].length, 0);
 const all = catOrder.flatMap((k) => plugins[k]);
 const nOk = all.filter((p) => p.test === 'ok' || p.test === 'git-ok').length;
@@ -59,6 +62,18 @@ const statusClass = {
       <span class="badge">⭐ 精选</span>
     </div>
     <p class="stats-line">实测于 dsh 0.1.0-rc.6：<strong class="c-ok">{nOk} 个验证通过</strong>（npm+git）✅ · <strong class="c-warn">{nUi} 个需 Web/TUI 界面</strong> · <strong class="c-warn">{nBuild} 个需构建步骤</strong> · <strong class="c-warn">{nFail} 个安装异常</strong>。其余 <strong>{nSource}</strong> 个为 GitHub 源码——用 <code>dsh plugin add github:owner/repo</code> 即可安装。</p>
+    <div class="top-plugins">
+      <div class="tp-head">🔥 按 Stars 热门 Top 10</div>
+      <div class="tp-grid">
+        {[...all].sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0)).slice(0, 10).map((t, i) => (
+          <a class="tp-item" href={`/zh/plugins/${t.name}/`}>
+            <span class="tp-rank">{i + 1}</span>
+            <span class="tp-name">{t.name}</span>
+            <span class="tp-stars">★{t.stars ?? 0}</span>
+          </a>
+        ))}
+      </div>
+    </div>
     <div class="cat-nav">
       {catOrder.map((cat) => (
         <a class="chip" href={`#${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>{catLabels[cat] || cat}</a>
@@ -125,6 +140,14 @@ const statusClass = {
   .fcount { opacity: .7; font-size: 12px; }
   .pcard[hidden] { display: none; }
   .cat-head[hidden] { display: none; }
+  .top-plugins { margin: 22px 0 6px; }
+  .tp-head { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
+  .tp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px; }
+  .tp-item { display: flex; align-items: center; gap: 8px; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; text-decoration: none; color: inherit; font-size: 13px; }
+  .tp-item:hover { border-color: var(--primary); }
+  .tp-rank { font-weight: 800; color: var(--primary); font-size: 12px; min-width: 14px; }
+  .tp-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tp-stars { color: #b45309; font-weight: 600; }
   .install-chip { margin: 0; font-size: 12px; padding: 6px 10px; background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 6px; color: #334155; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
   .badge { font-size: 11px; padding: 3px 9px; white-space: nowrap; }
   .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; }
