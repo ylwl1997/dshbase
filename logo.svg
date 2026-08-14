@@ -1,0 +1,18 @@
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="dshg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4D6BFE"/>
+      <stop offset="1" stop-color="#7A5CFF"/>
+    </linearGradient>
+  </defs>
+  <rect width="36" height="36" rx="10" fill="url(#dshg)"/>
+  <g fill="#FFFFFF">
+    <!-- 鲸鱼身体：圆头 → 渐细到尾 -->
+    <path d="M9 20.5 C9 14.5 13.5 12.5 19 12.5 C25.5 12.5 29.5 15 29.5 19 C29.5 22.5 27 23.5 23 23.5 L14 23.5 C11 23.5 9 22.5 9 20.5 Z"/>
+    <!-- 上翘鲸尾 -->
+    <path d="M29.5 18.5 C31.5 16 34 15 35.5 16 C34 17.5 33.5 19 34.5 21 C33.5 21.5 31.5 21 30 19.5 Z"/>
+    <!-- 喷水 -->
+    <path d="M13 12.5 C12 9.5 14 8 12.5 5 M16 12.5 C16.5 9.5 17.5 8 17.5 6.5 M19.5 12.5 C21 10 22 9 21.5 7" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+  </g>
+  <circle cx="14" cy="18" r="1.5" fill="#4D6BFE"/>
+</svg>

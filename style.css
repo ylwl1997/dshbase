@@ -293,8 +293,9 @@ h2 .anchor { color: var(--primary-light); font-size: 18px; }
 .foot-col b { color: var(--text-2); font-size: 13px; margin-bottom: 4px; }
 .foot-col a { color: var(--muted); font-size: 13px; }
 .foot-col a:hover { color: var(--primary-light); }
-.foot-brand { font-family: var(--font-display); font-weight: 700; font-size: 18px; margin: 0 0 6px; }
+.foot-brand { font-family: var(--font-display); font-weight: 700; font-size: 18px; margin: 0 0 6px; display: flex; align-items: center; gap: 8px; }
 .foot-brand strong { color: var(--primary-light); }
+.foot-logo { width: 24px; height: 24px; flex: none; border-radius: 6px; }
 .foot-in { padding: 0 22px 24px; text-align: center; }
 
 /* ---------- status / misc ---------- */
