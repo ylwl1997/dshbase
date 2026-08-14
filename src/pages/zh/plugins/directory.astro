@@ -13,27 +13,86 @@ const catLabels = {
 const catOrder = Object.keys(plugins);
 const total = catOrder.reduce((s, k) => s + plugins[k].length, 0);
 const repo = (u) => u.replace('https://github.com/', '');
+const npmHome = (p) => p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
 const featured = new Set(['huiliyi37/dsh-tianshu-tui', 'omdsh-dev/dsh-at-file', 'omdsh-dev/dsh-genui', 'titanwings/dsh-automation', 'omdsh-dev/DSH-better-sidebar', 'liustack/modlens', 'zhu1090093659/dsh-web-ui', 'Anionex/dsh-computer-use', 'omdsh-dev/dsh-tool-csv', 'ccch1mneyyy/dsh-cc-tui']);
+const statusLabel = {
+  ok: '已验证 · npm 可装',
+  ui: '可安装 · 需界面',
+  'load-fail': '加载异常',
+  'install-fail': '安装失败',
+  'not-on-npm': '仅源码',
+};
+const statusClass = {
+  ok: 'st-ok',
+  ui: 'st-warn',
+  'load-fail': 'st-warn',
+  'install-fail': 'st-warn',
+  'not-on-npm': 'st-src',
+};
 ---
-<Base title={`DeepSeek Harness 插件目录 — ${total} 个插件、${catOrder.length} 大类 | dshbase 中文`} description={`DeepSeek Harness（dsh）插件生态目录：${catOrder.length} 大类 ${total} 个插件，来自 awesome-dsh-plugin 精选列表。`} currentPath="/plugins/directory/">
+<Base title={`DeepSeek Harness 插件目录 — ${total} 个插件、含实测结果与安装命令 | dshbase 中文`} description={`DeepSeek Harness（dsh）插件生态目录：${catOrder.length} 大类 ${total} 个插件，每张卡片标注 npm 可装状态、实测结果与安装命令，来自 awesome-dsh-plugin 精选列表。`} currentPath="/plugins/directory/">
   <section class="hero wrap">
     <p class="eyebrow">插件目录</p>
     <h1>DeepSeek Harness <span class="accent">插件生态</span></h1>
-    <p class="lede">来自 <a href="https://github.com/awesome-dsh-plugin/awesome-dsh-plugin" target="_blank" rel="noopener">awesome-dsh-plugin</a> 精选列表——{catOrder.length} 大类、{total} 个插件。给你的仓库打上 <a href="https://github.com/topics/dsh-plugin" target="_blank" rel="noopener">dsh-plugin</a> 话题即可收录。⭐ = 精选。</p>
+    <p class="lede">来自 <a href="https://github.com/awesome-dsh-plugin/awesome-dsh-plugin" target="_blank" rel="noopener">awesome-dsh-plugin</a> 精选列表——{catOrder.length} 大类、{total} 个插件。每张卡片直接标注插件是否<strong>已发布到 npm</strong>、<strong>实测结果</strong>和<strong>安装命令</strong>，不用点进仓库再确认。</p>
   </section>
   <section class="info wrap">
+    <div class="badge-row legend">
+      <span class="badge"><span class="dot st-ok"></span>已验证——可安装并启动</span>
+      <span class="badge"><span class="dot st-src"></span>GitHub 源码（未发 npm）</span>
+      <span class="badge"><span class="dot st-warn"></span>加载 / 安装异常</span>
+      <span class="badge">⭐ 精选</span>
+    </div>
+    <p class="stats-line">npm 上现可安装：<strong>17</strong> 个——<strong class="c-ok">10 个已验证</strong> ✅ · <strong class="c-warn">4 个需 Web/TUI 界面</strong> · <strong class="c-warn">3 个安装异常</strong>（依赖未发布）。其余 <strong>105</strong> 个为 GitHub 源码。</p>
     {catOrder.map((cat) => (
       <Fragment>
         <h3 style="margin-top:26px">{catLabels[cat] || cat} <span class="muted" style="font-size:13px;font-weight:400">({plugins[cat].length})</span></h3>
         <div class="grid3">
-          {plugins[cat].map(([name, url]) => (
-            <a class="card card-link" href={url} target="_blank" rel="noopener">
-              <h3>{name}{featured.has(repo(url)) ? ' ⭐' : ''}</h3>
-              <p>{repo(url)}</p>
-            </a>
-          ))}
+          {plugins[cat].map((p) => {
+            const r = repo(p.url);
+            return (
+              <div class="card pcard">
+                <div class="pcard-head">
+                  <a class="pcard-name" href={p.url} target="_blank" rel="noopener">{p.name}{featured.has(r) ? ' ⭐' : ''}</a>
+                  <span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span>
+                </div>
+                <p class="pcard-repo">{r}</p>
+                {p.desc && <p class="pcard-desc">{p.desc}</p>}
+                <div class="pcard-install">
+                  {p.npm && p.pkg ? (
+                    <pre class="code-block install-chip"><code>dsh plugin add {p.pkg}</code></pre>
+                  ) : (
+                    <span class="muted small">未发布到 npm——从<a href={p.url} target="_blank" rel="noopener">源码</a>构建</span>
+                  )}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </Fragment>
     ))}
   </section>
 </Base>
+
+<style>
+  .pcard { display: flex; flex-direction: column; gap: 8px; }
+  .pcard-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+  .pcard-name { font-weight: 700; font-size: 15px; color: var(--ink); text-decoration: none; }
+  .pcard-name:hover { color: var(--primary); }
+  .pcard-repo { font-size: 12px; color: var(--ink-3); font-family: var(--mono, monospace); }
+  .pcard-desc { font-size: 13px; color: var(--ink-2); margin: 0; line-height: 1.55; }
+  .pcard-install { margin-top: auto; }
+  .install-chip { margin: 0; font-size: 12px; padding: 6px 10px; }
+  .badge { font-size: 11px; padding: 3px 9px; white-space: nowrap; }
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; }
+  .st-ok { color: #1a7f37; border-color: #b7e0c0; background: #f0fff4; }
+  .st-ok .dot { background: #1a7f37; }
+  .st-src { color: var(--ink-2); background: #f7f8fa; }
+  .st-src .dot { background: #9aa1ad; }
+  .st-warn { color: #9a6700; border-color: #e5c27a; background: #fff8e6; }
+  .st-warn .dot { background: #d4a72c; }
+  .legend .badge { color: var(--ink-2); }
+  .stats-line { font-size: 14px; color: var(--ink-2); margin: 18px 0 0; text-align: center; }
+  .c-ok { color: #1a7f37; }
+  .c-warn { color: #9a6700; }
+</style>

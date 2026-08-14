@@ -4,27 +4,86 @@ import plugins from '../../data/plugins.json';
 const catOrder = Object.keys(plugins);
 const total = catOrder.reduce((s, k) => s + plugins[k].length, 0);
 const repo = (u) => u.replace('https://github.com/', '');
+const npmHome = (p) => p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
 const featured = new Set(['huiliyi37/dsh-tianshu-tui', 'omdsh-dev/dsh-at-file', 'omdsh-dev/dsh-genui', 'titanwings/dsh-automation', 'omdsh-dev/DSH-better-sidebar', 'liustack/modlens', 'zhu1090093659/dsh-web-ui', 'Anionex/dsh-computer-use', 'omdsh-dev/dsh-tool-csv', 'ccch1mneyyy/dsh-cc-tui']);
+const statusLabel = {
+  ok: 'Verified · npm',
+  ui: 'Installs · needs Web/TUI',
+  'load-fail': 'Load issue',
+  'install-fail': 'Install failed',
+  'not-on-npm': 'Source only',
+};
+const statusClass = {
+  ok: 'st-ok',
+  ui: 'st-warn',
+  'load-fail': 'st-warn',
+  'install-fail': 'st-warn',
+  'not-on-npm': 'st-src',
+};
 ---
-<Base title={`DeepSeek Harness Plugin Directory — ${total} Plugins in ${catOrder.length} Categories | dshbase`} description={`Browse the DeepSeek Harness (dsh) plugin ecosystem: ${catOrder.length} categories, ${total} plugins, curated from the awesome-dsh-plugin list.`} currentPath="/plugins/directory/">
+<Base title={`DeepSeek Harness Plugin Directory — ${total} Plugins, Verified Test Results & Install Commands | dshbase`} description={`Browse the DeepSeek Harness (dsh) plugin ecosystem: ${catOrder.length} categories, ${total} plugins, each with npm install status, verified test results, and the exact install command.`} currentPath="/plugins/directory/">
   <section class="hero wrap">
     <p class="eyebrow">Plugin directory</p>
     <h1>DeepSeek Harness <span class="accent">plugin ecosystem</span></h1>
-    <p class="lede">Curated from the <a href="https://github.com/awesome-dsh-plugin/awesome-dsh-plugin" target="_blank" rel="noopener">awesome-dsh-plugin</a> list — {catOrder.length} categories, {total} plugins. Tag your repo with <a href="https://github.com/topics/dsh-plugin" target="_blank" rel="noopener">dsh-plugin</a> to be listed. ⭐ = featured.</p>
+    <p class="lede">Curated from the <a href="https://github.com/awesome-dsh-plugin/awesome-dsh-plugin" target="_blank" rel="noopener">awesome-dsh-plugin</a> list — {catOrder.length} categories, {total} plugins. Every card shows whether the plugin ships on <strong>npm</strong>, its <strong>verified test status</strong>, and the exact install command — no clicking through to check.</p>
   </section>
   <section class="info wrap">
+    <div class="badge-row legend">
+      <span class="badge"><span class="dot st-ok"></span>Verified — installed &amp; boots</span>
+      <span class="badge"><span class="dot st-src"></span>GitHub source (not on npm)</span>
+      <span class="badge"><span class="dot st-warn"></span>Load / install issue</span>
+      <span class="badge">⭐ Featured</span>
+    </div>
+    <p class="stats-line">On npm today: <strong>17</strong> plugins — <strong class="c-ok">10 verified</strong> ✅ · <strong class="c-warn">4 need a Web/TUI surface</strong> · <strong class="c-warn">3 install issues</strong> (missing deps on npm). The other <strong>105</strong> are GitHub source.</p>
     {catOrder.map((cat) => (
       <Fragment>
         <h3 style="margin-top:26px">{cat} <span class="muted" style="font-size:13px;font-weight:400">({plugins[cat].length})</span></h3>
         <div class="grid3">
-          {plugins[cat].map(([name, url]) => (
-            <a class="card card-link" href={url} target="_blank" rel="noopener">
-              <h3>{name}{featured.has(repo(url)) ? ' ⭐' : ''}</h3>
-              <p>{repo(url)}</p>
-            </a>
-          ))}
+          {plugins[cat].map((p) => {
+            const r = repo(p.url);
+            return (
+              <div class="card pcard">
+                <div class="pcard-head">
+                  <a class="pcard-name" href={p.url} target="_blank" rel="noopener">{p.name}{featured.has(r) ? ' ⭐' : ''}</a>
+                  <span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span>
+                </div>
+                <p class="pcard-repo">{r}</p>
+                {p.desc && <p class="pcard-desc">{p.desc}</p>}
+                <div class="pcard-install">
+                  {p.npm && p.pkg ? (
+                    <pre class="code-block install-chip"><code>dsh plugin add {p.pkg}</code></pre>
+                  ) : (
+                    <span class="muted small">Not published to npm — build from <a href={p.url} target="_blank" rel="noopener">source</a></span>
+                  )}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </Fragment>
     ))}
   </section>
 </Base>
+
+<style>
+  .pcard { display: flex; flex-direction: column; gap: 8px; }
+  .pcard-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+  .pcard-name { font-weight: 700; font-size: 15px; color: var(--ink); text-decoration: none; }
+  .pcard-name:hover { color: var(--primary); }
+  .pcard-repo { font-size: 12px; color: var(--ink-3); font-family: var(--mono, monospace); }
+  .pcard-desc { font-size: 13px; color: var(--ink-2); margin: 0; line-height: 1.55; }
+  .pcard-install { margin-top: auto; }
+  .install-chip { margin: 0; font-size: 12px; padding: 6px 10px; }
+  .badge { font-size: 11px; padding: 3px 9px; white-space: nowrap; }
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; }
+  .st-ok { color: #1a7f37; border-color: #b7e0c0; background: #f0fff4; }
+  .st-ok .dot { background: #1a7f37; }
+  .st-src { color: var(--ink-2); background: #f7f8fa; }
+  .st-src .dot { background: #9aa1ad; }
+  .st-warn { color: #9a6700; border-color: #e5c27a; background: #fff8e6; }
+  .st-warn .dot { background: #d4a72c; }
+  .legend .badge { color: var(--ink-2); }
+  .stats-line { font-size: 14px; color: var(--ink-2); margin: 18px 0 0; text-align: center; }
+  .c-ok { color: #1a7f37; }
+  .c-warn { color: #9a6700; }
+</style>
