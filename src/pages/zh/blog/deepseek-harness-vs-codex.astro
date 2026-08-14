@@ -1,0 +1,27 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness vs Codex — Agent 预设而非场景模式 | dshbase 中文" description="DeepSeek Harness 与 Codex 对比：为什么「不想做下一个 Codex」。Agent 预设 vs 场景模式、可重建会话、插件模型，以及这对你的工作方式意味着什么。" currentPath="/blog/deepseek-harness-vs-codex/" category="对比">
+  <h1>「它不想做下一个 Codex」—— <span class="accent">DSH vs Codex</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+
+  <p>「DeepSeek 版 Codex」是大多数人第一反应——也是这个项目最想反驳的。区别不是表面的，而是对「Agent 应该怎么配置」的不同理解。</p>
+
+  <h2>Agent 预设，而非场景</h2>
+  <p>Codex 类产品按<strong>场景</strong>区分模式（日常/办公、办公/代码）。DSH 改用 <strong>Agent 预设</strong>：一个 Agent 所运行的插件集合——工具、提示词、能力。你可以复制一个改改，或建一个全新的，包括非编码的预设（比如写作工作台）。</p>
+
+  <h2>可重建的会话</h2>
+  <p>Codex 的会话是不透明的。DSH 的会话是<strong>只追加的事件日志</strong>——系统提示词、推理、工具调用、权限变化都成为事件。Agent 失败或死循环时，你能定位到具体跑偏的步骤。这是 Codex 没有的观测优势。</p>
+
+  <h2>插件模型</h2>
+  <p>Codex 让用户自定义 Skills 和 MCP，但其余是封装好的。DSH 把<strong>一切</strong>都做成插件——UI、工具、工作流。你不是租一个 Agent，而是组装一个 Agent。</p>
+
+  <h2>模型灵活性</h2>
+  <p>DSH 支持目录和自定义提供方——你可以在里面跑 GLM。Codex 绑定 OpenAI 模型。</p>
+
+  <h2>实操上</h2>
+  <ul>
+    <li><strong>Codex 类</strong>：精致、场景驱动、配置最少。</li>
+    <li><strong>DSH</strong>：组装预设、重建会话、审计每一步、扩展 Agent 本身。</li>
+  </ul>
+</BlogPost>

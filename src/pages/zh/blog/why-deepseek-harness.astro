@@ -1,0 +1,26 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="为什么 DeepSeek Harness 叫 Harness — Agent = Model + Harness | dshbase 中文" description="为什么 DeepSeek Harness 叫 harness 而不叫 code：Agent = Model + Harness、Cordis 插件内核、时间/空间可组合性让 Agent 可以自进化。" currentPath="/blog/why-deepseek-harness/" category="概念">
+  <h1>为什么它叫 <span class="accent">harness</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+
+  <p>DeepSeek 没叫它 DeepSeek Code 或 DeepSeek Build，而是叫 <strong>harness</strong>——这个命名本身就是全部答案。</p>
+
+  <h2>Agent = Model + Harness</h2>
+  <p><strong>模型是大脑</strong>；<strong>harness 负责把大脑接到文件、终端和工具</strong>。Claude Code、Codex、DSH 本质上都是 harness。</p>
+
+  <h2>Cordis 内核：会自己拼装自己的 Agent</h2>
+  <p>DSH 构建在 <strong>Cordis</strong> 之上——一个只负责插件加载、卸载和依赖管理的最小内核，其他一切皆插件。两个关键特性：</p>
+  <ul>
+    <li><strong>时间可组合性</strong>——插件卸载时完整撤销其副作用。</li>
+    <li><strong>空间可组合性</strong>——插件在兄弟插件变化时动态重新解析依赖。</li>
+  </ul>
+  <p>结果：Agent 可以在<strong>运行中安装和移除自己的能力</strong>——某种意义上的自进化。这就是为什么它是 harness 而不是产品：为 Agent 而生的基础设施，附带约 100 个一方插件，邀请社区共建其余部分。</p>
+
+  <h2>资源</h2>
+  <ul>
+    <li>官方文档：<a href="https://deepseek-harness.github.io/deepseek-harness/" target="_blank" rel="noopener">deepseek-harness.github.io</a></li>
+    <li>源码：<a href="https://github.com/deepseek-ai/deepseek-harness" target="_blank" rel="noopener">github.com/deepseek-ai/deepseek-harness</a></li>
+  </ul>
+</BlogPost>

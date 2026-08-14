@@ -1,0 +1,25 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness 架构 — 会自我改造的一切皆插件 Agent | dshbase 中文" description="DeepSeek Harness 不是又一个 Claude Code——它是能改造自己的 Agent。架构深度解析：一切皆插件、Cordis 内核、创造模式「现场造扳手」。", currentPath="/blog/deepseek-harness-architecture/" category="架构">
+  <h1>今年最有野心的 Agent 开源：<span class="accent">能自我改造的 Agent</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+
+  <p>DeepSeek 不是在交付一个成品——它交付的是一个<strong>能让 Agent 重建自身的框架</strong>。</p>
+
+  <h2>Agent = Model + Harness</h2>
+  <p><strong>Harness 的每个部分都是插件</strong>——工具、技能、会话、沙箱、Agent 循环、子 Agent、工作流。唯一真正的核心是 <strong>Cordis</strong>：一个只管插件加载、卸载和依赖管理的最小内核。</p>
+
+  <h2>为什么内核重要：自进化 Agent</h2>
+  <ul>
+    <li><strong>时间可组合性</strong>——卸载插件时完整撤销其副作用。</li>
+    <li><strong>空间可组合性</strong>——插件在兄弟插件变化时动态重新解析依赖。</li>
+  </ul>
+  <p>因为 Agent 可以在不破坏状态的前提下热装卸插件，它就能<strong>在运行中扩展自己</strong>：发现自己缺一个能力，现场造出插件，挂到自己身上。</p>
+
+  <h2>创造模式：「现场造扳手」</h2>
+  <p>告诉它「做一个只读、只能审计不能改文件的安全模式」，或「做一个接公司搜索、固定模型、带三种专属 Skills 的研究 Agent」——或让它检查自己的插件，发现缺的现场造一个并热挂载。</p>
+
+  <h2>连 UI 都是插件</h2>
+  <p>社区成员不改核心能力就换上了自定义皮肤——一条命令安装、切换，一键恢复。</p>
+</BlogPost>

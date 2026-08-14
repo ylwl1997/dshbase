@@ -1,0 +1,30 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const tutorialUrl = getRelativeLocaleUrl('en', '/tutorial/');
+---
+<BlogPost title="DeepSeek Harness vs Claude Code — Plugins vs MCP Compared | dshbase" description="DeepSeek Harness vs Claude Code: everything-is-a-plugin npm architecture vs MCP-centric design. Open source, pricing, extensibility, and which to choose in 2026." currentPath="/blog/vs-claude-code/" category="Comparison">
+  <h1>DeepSeek Harness <span class="accent">vs Claude Code</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+  <p>DeepSeek Harness (DSH) launched in August 2026 as an open-source agent framework positioned squarely against Claude Code. Both let an AI agent read files, run commands, and work through tasks — but they extend fundamentally differently.</p>
+
+  <h2>The core difference: plugins vs MCP</h2>
+  <p><strong>DeepSeek Harness</strong>: every capability is an npm plugin installed with <code>dsh add &lt;plugin&gt;</code>, built on the Cordis kernel. <strong>Claude Code</strong>: extensibility centers on <strong>MCP servers</strong>. Plugin-style is simpler for in-process tools; MCP is more portable across clients.</p>
+
+  <h2>Open source</h2>
+  <p>DSH is <strong>fully open source</strong> (MIT) at <a href="https://github.com/deepseek-ai/deepseek-harness" target="_blank" rel="noopener">deepseek-ai/deepseek-harness</a>. Claude Code is closed source.</p>
+
+  <h2>Maturity</h2>
+  <p>DSH is in <strong>developer preview</strong> — breaking changes will come. Claude Code is mature and widely deployed.</p>
+
+  <h2>Pricing</h2>
+  <p>DSH itself is free; you pay for the DeepSeek API. Claude Code is included with Claude subscriptions. The real comparison is the underlying models — check current API pricing.</p>
+
+  <h2>Which to choose?</h2>
+  <ul>
+    <li><strong>DSH</strong>: want open-source, everything-is-a-plugin, full control, or you're in the DeepSeek ecosystem.</li>
+    <li><strong>Claude Code</strong>: need stability and the mature Claude/MCP ecosystem.</li>
+  </ul>
+  <p>This is fast-moving — DSH iterates weekly. <a href={tutorialUrl}>Try DSH</a> for yourself.</p>
+</BlogPost>

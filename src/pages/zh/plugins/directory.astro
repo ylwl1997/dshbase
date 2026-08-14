@@ -1,0 +1,39 @@
+---
+import Base from '../../../layouts/Base.astro';
+import plugins from '../../../data/plugins.json';
+const catLabels = {
+  'UI Enhancements': '界面增强',
+  'Sessions & Messages': '会话与消息',
+  'Tools & Capabilities': '工具与能力',
+  'Workflow & Automation': '工作流与自动化',
+  'Notifications & Integrations': '通知与集成',
+  'Development & Runtime': '开发与运行时',
+  'Just for Fun': '趣味',
+};
+const catOrder = Object.keys(plugins);
+const total = catOrder.reduce((s, k) => s + plugins[k].length, 0);
+const repo = (u) => u.replace('https://github.com/', '');
+const featured = new Set(['huiliyi37/dsh-tianshu-tui', 'omdsh-dev/dsh-at-file', 'omdsh-dev/dsh-genui', 'titanwings/dsh-automation', 'omdsh-dev/DSH-better-sidebar', 'liustack/modlens', 'zhu1090093659/dsh-web-ui', 'Anionex/dsh-computer-use', 'omdsh-dev/dsh-tool-csv', 'ccch1mneyyy/dsh-cc-tui']);
+---
+<Base title={`DeepSeek Harness 插件目录 — ${total} 个插件、${catOrder.length} 大类 | dshbase 中文`} description={`DeepSeek Harness（dsh）插件生态目录：${catOrder.length} 大类 ${total} 个插件，来自 awesome-dsh-plugin 精选列表。`} currentPath="/plugins/directory/">
+  <section class="hero wrap">
+    <p class="eyebrow">插件目录</p>
+    <h1>DeepSeek Harness <span class="accent">插件生态</span></h1>
+    <p class="lede">来自 <a href="https://github.com/awesome-dsh-plugin/awesome-dsh-plugin" target="_blank" rel="noopener">awesome-dsh-plugin</a> 精选列表——{catOrder.length} 大类、{total} 个插件。给你的仓库打上 <a href="https://github.com/topics/dsh-plugin" target="_blank" rel="noopener">dsh-plugin</a> 话题即可收录。⭐ = 精选。</p>
+  </section>
+  <section class="info wrap">
+    {catOrder.map((cat) => (
+      <Fragment>
+        <h3 style="margin-top:26px">{catLabels[cat] || cat} <span class="muted" style="font-size:13px;font-weight:400">({plugins[cat].length})</span></h3>
+        <div class="grid3">
+          {plugins[cat].map(([name, url]) => (
+            <a class="card card-link" href={url} target="_blank" rel="noopener">
+              <h3>{name}{featured.has(repo(url)) ? ' ⭐' : ''}</h3>
+              <p>{repo(url)}</p>
+            </a>
+          ))}
+        </div>
+      </Fragment>
+    ))}
+  </section>
+</Base>

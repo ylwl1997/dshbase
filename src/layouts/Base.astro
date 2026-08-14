@@ -16,6 +16,8 @@ const canonical = getAbsoluteLocaleUrl(locale, currentPath);
 const enUrl = getAbsoluteLocaleUrl('en', currentPath);
 const zhUrl = getAbsoluteLocaleUrl('zh', currentPath);
 const homeUrl = getRelativeLocaleUrl(locale, '/');
+const otherLocale = locale === 'en' ? 'zh' : 'en';
+const otherLangUrl = getRelativeLocaleUrl(otherLocale, currentPath);
 const t = {
   en: { tagline: 'DeepSeek Harness guides, tutorials & plugin ecosystem.', note: 'Unofficial community resource. Not affiliated with DeepSeek.' },
   zh: { tagline: 'DeepSeek Harness 中文指南、教程与插件生态。', note: '非官方社区资源。与 DeepSeek 无关。' },
@@ -50,6 +52,10 @@ const t = {
       <slot />
     </main>
     <Footer tagline={t.tagline} note={t.note} />
+    <a href={otherLangUrl} class="lang-switch" aria-label="Switch language">
+      <span class="lang-switch-ico">&#x1F310;</span>
+      <span>{locale === 'en' ? '中文' : 'English'}</span>
+    </a>
   </div>
 </body>
 </html>

@@ -1,0 +1,25 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness Architecture — the Self-Modifying, Everything-is-a-Plugin Agent | dshbase" description="DeepSeek Harness isn't another Claude Code — it's an agent that can modify itself. Architecture deep dive: everything-is-a-plugin, the Cordis kernel, the Create mode 'make your own wrench' pattern." currentPath="/blog/deepseek-harness-architecture/" category="Architecture">
+  <h1>The most ambitious agent open source of the year: <span class="accent">an agent that modifies itself</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+  <p>DeepSeek isn't shipping a finished product — it's shipping a <strong>framework where the agent can rebuild itself</strong>.</p>
+
+  <h2>Agent = Model + Harness</h2>
+  <p><strong>Every part of the harness is a plugin</strong> — tools, skills, sessions, sandboxes, the agent loop, sub-agents, workflows. The only real core is <strong>Cordis</strong>: a minimal kernel for plugin loading, unloading, and dependency management.</p>
+
+  <h2>Why the kernel matters: self-modifying agents</h2>
+  <ul>
+    <li><strong>Temporal composability</strong> — unloading a plugin fully undoes its side effects.</li>
+    <li><strong>Spatial composability</strong> — a plugin re-resolves dependencies as siblings change.</li>
+  </ul>
+  <p>Because the agent can hot-swap plugins without corrupting state, it can <strong>extend itself while running</strong>: notice it lacks a capability, build the plugin, attach it to its own flow.</p>
+
+  <h2>Create mode: the "make your own wrench" pattern</h2>
+  <p>Tell it "build a read-only, security-audit-only mode" or "build a research agent with company search and three skills" — or have it inspect its own plugins, create a missing one, and hot-attach it.</p>
+
+  <h2>Even the UI is a plugin</h2>
+  <p>Community members swapped in custom skins without touching core capabilities — one-command install, one-click restore.</p>
+</BlogPost>

@@ -1,0 +1,27 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Cache Optimization — How Pi Hits 99.93% Hit Rate | dshbase" description="Why a minimal harness like Pi gets 99.93% DeepSeek prefix-cache hit rates: small tool sets, append-only sessions, and the 7x cost gap between harnesses on the same model." currentPath="/blog/pi-deepseek-cache/" category="Analysis">
+  <h1>How a minimal harness hits a <span class="accent">99.93% cache hit rate</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+  <p>The cheapest way to run DeepSeek isn't just a cheap model — it's a harness that <strong>reuses the work the model already did</strong>. Community measurements of the open-source agent <strong>Pi</strong> showed a <strong>99.93% prefix-cache hit rate</strong>.</p>
+
+  <h2>The cost driver</h2>
+  <p>A coding agent re-sends the system prompt, tool definitions, history, and code on every step. <strong>Automatic prefix caching</strong> reuses the computed prefix if the start of the request is unchanged. The <strong>cache hit rate</strong> is the share of tokens reused — higher is cheaper.</p>
+
+  <h2>Why caching is fragile</h2>
+  <p>Add a timestamp, reorder a tool, or rewrite earlier content and the cache misses. Cache-friendly harnesses <strong>keep the request prefix stable</strong>.</p>
+
+  <h2>Pi's recipe</h2>
+  <p>Pi gives the model just <strong>four tools</strong> by default (read, write, edit, run) with everything else opt-in, and sessions <strong>append rather than rewrite</strong>. Reported result: ~99.93% hit rate, roughly <strong>¥19 per 1B tokens with caching vs ¥900+ without</strong>.</p>
+
+  <h2>The 7x gap</h2>
+  <p>A Composio benchmark ran <strong>DeepSeek V4 Flash</strong> across 8 harnesses: Pi ~<strong>$0.028</strong> per successful task (cheapest), Claude Code ~<strong>$0.195</strong> (nearly 7x). Same model, different harness, very different bill.</p>
+
+  <h2>Takeaway</h2>
+  <ul>
+    <li><strong>Minimal tool sets</strong> + <strong>append-only sessions</strong> = the biggest levers for cache hits.</li>
+    <li>DSH aligns: small active surface, everything-as-plugin, PTC keeps intermediate data out of context.</li>
+  </ul>
+</BlogPost>

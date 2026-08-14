@@ -1,0 +1,27 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek 缓存优化 — Pi 如何做到 99.93% 命中率 | dshbase 中文" description="为什么像 Pi 这样的最小 harness 能做到 DeepSeek 前缀缓存 99.93% 命中率：最小工具集、只追加会话，以及同一模型在不同 harness 下 7 倍的成本差。" currentPath="/blog/pi-deepseek-cache/" category="分析">
+  <h1>最小 harness 如何做到 <span class="accent">99.93% 缓存命中率</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+
+  <p>跑 DeepSeek 最便宜的方式不只是便宜的模型——而是<strong>能复用模型已经算过的内容的 harness</strong>。开源 Agent <strong>Pi</strong> 的社区实测显示<strong>99.93% 前缀缓存命中率</strong>。</p>
+
+  <h2>成本驱动因素</h2>
+  <p>编码 Agent 每一步都要重发系统提示词、工具定义、历史对话和代码。<strong>自动前缀缓存</strong>在请求开头不变时复用已计算的前缀。<strong>缓存命中率</strong>就是复用的 token 占比——越高越便宜。</p>
+
+  <h2>缓存为什么脆弱</h2>
+  <p>加个时间戳、调换工具顺序、或重写前面内容，缓存就失效。缓存友好的 harness 会<strong>保持请求前缀稳定</strong>。</p>
+
+  <h2>Pi 的做法</h2>
+  <p>Pi 默认只给模型<strong>四个工具</strong>（读、写、改、跑），其余全按需开启；会话<strong>只追加不重写</strong>。实测结果：约 99.93% 命中率，有缓存约<strong>每 10 亿 token ¥19，无缓存 ¥900+</strong>。</p>
+
+  <h2>7 倍差距</h2>
+  <p>Composio 把 <strong>DeepSeek V4 Flash</strong> 接进 8 款 harness：Pi 每次成功任务约 <strong>$0.028</strong>（最低），Claude Code 约 <strong>$0.195</strong>（接近 7 倍）。同一个模型、不同 harness、账单天差地别。</p>
+
+  <h2>结论</h2>
+  <ul>
+    <li><strong>最小工具集</strong> + <strong>只追加会话</strong> = 缓存命中的最大杠杆。</li>
+    <li>DSH 方向一致：小活动面、一切皆插件、PTC 把中间数据留在上下文外。</li>
+  </ul>
+</BlogPost>

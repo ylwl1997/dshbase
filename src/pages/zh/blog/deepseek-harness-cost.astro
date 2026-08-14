@@ -1,0 +1,25 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness 成本与缓存 — Agent 如何省 Token | dshbase 中文" description="Agent harness 如何降低 DeepSeek token 成本：前缀缓存、最小工具集，以及同一模型在不同 harness 下成本最多差 7 倍的实测对比。" currentPath="/blog/deepseek-harness-cost/" category="分析">
+  <h1>为什么 Harness 的选择让账单差 <span class="accent">7 倍</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+
+  <p>DeepSeek 模型单 token 已经很便宜——但<strong>你跑它的 harness 可以把账单翻好几倍</strong>。编码 Agent 每一步都要重发系统提示词、工具定义、历史对话和代码。</p>
+
+  <h2>前缀缓存</h2>
+  <p>如果请求开头与之前匹配，提供方直接复用计算结果。<strong>缓存命中率</strong>就是本次输入中复用此前计算的 token 占比——越高越便宜。改个时间戳、调换工具顺序都可能让缓存失效。</p>
+
+  <h2>实测：99.93% 命中率</h2>
+  <p>开源 Agent <strong>Pi</strong>（GitHub 约 8.6 万 star）接 DeepSeek 实测<strong>约 99.93% 缓存命中率</strong>——不命中率 0.07%。Pi 默认只给模型四个工具，会话只追加不重写。据报影响：有缓存约<strong>每 10 亿 token ¥19，无缓存 ¥900+</strong>。</p>
+
+  <h2>7 倍差距</h2>
+  <p>Composio 横向测试把 <strong>DeepSeek V4 Flash</strong> 接进 8 款 harness 跑真实任务：Pi 每次成功任务约 <strong>$0.028</strong>（最低），Claude Code 约 <strong>$0.195</strong>（接近 Pi 的 7 倍）。同一个模型，不同 harness，账单天差地别。</p>
+
+  <h2>结论</h2>
+  <ul>
+    <li><strong>最小工具集</strong> + <strong>只追加会话</strong> = 缓存命中的最大杠杆。</li>
+    <li>DSH 方向一致：小活动面、一切皆插件、PTC 把中间数据留在上下文外。</li>
+  </ul>
+  <p class="muted small">以上为社区实测数据，非官方 DeepSeek 基准——投入前请核实当前价格。</p>
+</BlogPost>

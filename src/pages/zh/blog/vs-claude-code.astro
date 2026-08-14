@@ -1,0 +1,30 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const tutorialUrl = getRelativeLocaleUrl('zh', '/tutorial/');
+---
+<BlogPost title="DeepSeek Harness vs Claude Code — 插件 vs MCP 对比 | dshbase 中文" description="DeepSeek Harness 与 Claude Code 对比：一切皆插件的 npm 架构 vs MCP 中心设计。开源、价格、可扩展性与 2026 年怎么选。" currentPath="/blog/vs-claude-code/" category="对比">
+  <h1>DeepSeek Harness <span class="accent">vs Claude Code</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+
+  <p>DeepSeek Harness（DSH）于 2026 年 8 月发布，作为对标 Claude Code 的开源 Agent 框架。两者都能让 AI Agent 读写文件、运行命令、执行任务——但扩展方式根本不同。</p>
+
+  <h2>核心区别：插件 vs MCP</h2>
+  <p><strong>DeepSeek Harness</strong>：每个能力都是 npm 插件，基于 Cordis 内核。<strong>Claude Code</strong>：扩展以 <strong>MCP 服务器</strong>为中心。插件式对进程内工具更简单；MCP 跨客户端更可移植。</p>
+
+  <h2>开源</h2>
+  <p>DSH <strong>完全开源</strong>（MIT），在 <a href="https://github.com/deepseek-ai/deepseek-harness" target="_blank" rel="noopener">deepseek-ai/deepseek-harness</a>。Claude Code 是闭源的。</p>
+
+  <h2>成熟度</h2>
+  <p>DSH 处于<strong>开发者预览</strong>——会有破坏性变更。Claude Code 成熟且广泛部署。</p>
+
+  <h2>价格</h2>
+  <p>DSH 本身免费，你为 DeepSeek API 付费。Claude Code 包含在 Claude 订阅里。真正的比较是底层模型——先查当前 API 定价。</p>
+
+  <h2>怎么选？</h2>
+  <ul>
+    <li><strong>DSH</strong>：想要开源、一切皆插件、完全控制，或在 DeepSeek 生态里。</li>
+    <li><strong>Claude Code</strong>：需要稳定和成熟的 Claude/MCP 生态。</li>
+  </ul>
+  <p>这个领域变化很快——DSH 每周都在迭代。<a href={tutorialUrl}>亲自试试 DSH</a>。</p>
+</BlogPost>

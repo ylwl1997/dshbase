@@ -1,0 +1,26 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="Why DeepSeek Harness Is Called a Harness — Agent = Model + Harness | dshbase" description="Why DeepSeek Harness is named a harness, not a code tool: Agent = Model + Harness, the Cordis plugin kernel, and time/spatial composability that lets agents self-evolve." currentPath="/blog/why-deepseek-harness/" category="Concept">
+  <h1>Why it's called a <span class="accent">harness</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+  <p>DeepSeek didn't call it DeepSeek Code or DeepSeek Build. It called it a <strong>harness</strong> — and that naming is the whole story.</p>
+
+  <h2>Agent = Model + Harness</h2>
+  <p>The <strong>model is the brain</strong>; the <strong>harness connects that brain to files, terminals, and tools</strong>. Claude Code, Codex, and DSH are all harnesses.</p>
+
+  <h2>The Cordis kernel: an agent that plugs itself together</h2>
+  <p>DSH is built on <strong>Cordis</strong>, a minimal kernel that only manages plugin loading, unloading, and dependencies. Everything else is a plugin. Two properties matter:</p>
+  <ul>
+    <li><strong>Temporal composability</strong> — plugin unloads fully undo their side effects.</li>
+    <li><strong>Spatial composability</strong> — a plugin re-resolves dependencies as siblings change.</li>
+  </ul>
+  <p>Result: an agent can <strong>install and remove its own capabilities while running</strong> — a form of self-evolution. That's why it's a harness, not a product: infrastructure for agents, plus ~100 first-party plugins, inviting the community to build the rest.</p>
+
+  <h2>Resources</h2>
+  <ul>
+    <li>Official docs: <a href="https://deepseek-harness.github.io/deepseek-harness/" target="_blank" rel="noopener">deepseek-harness.github.io</a></li>
+    <li>Source: <a href="https://github.com/deepseek-ai/deepseek-harness" target="_blank" rel="noopener">github.com/deepseek-ai/deepseek-harness</a></li>
+  </ul>
+</BlogPost>

@@ -1,0 +1,25 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness Cost &amp; Caching — How Agents Save on Tokens | dshbase" description="How agent harnesses cut DeepSeek token costs: prefix caching, minimal tool sets, and measured comparisons showing up to 7x cost differences between harnesses on the same model." currentPath="/blog/deepseek-harness-cost/" category="Analysis">
+  <h1>Why harness choice moves the bill <span class="accent">7x</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+  <p>DeepSeek's models are already cheap per token — but the <strong>harness you run them in can multiply the bill anyway</strong>. A coding agent re-sends the system prompt, tool definitions, history, and code on every step.</p>
+
+  <h2>Prefix caching</h2>
+  <p>If the beginning of a request matches a previous one, the provider reuses it. The <strong>cache hit rate</strong> is the share of input tokens that reused prior computation — higher = cheaper. A changed timestamp or reordered tool invalidates the cache.</p>
+
+  <h2>Measured: 99.93% hit rate</h2>
+  <p>The open-source agent <strong>Pi</strong> (on GitHub, ~86k stars) running DeepSeek reported a <strong>~99.93% cache hit rate</strong> — a miss rate of 0.07%. Pi gives the model just four tools by default and keeps sessions append-only. Reported impact: ~<strong>¥19 per 1B tokens with caching vs ¥900+ without</strong>.</p>
+
+  <h2>The 7x gap</h2>
+  <p>A third-party benchmark (Composio) ran <strong>DeepSeek V4 Flash</strong> across 8 harnesses on real tasks: Pi ~<strong>$0.028</strong> per successful task (cheapest), Claude Code ~<strong>$0.195</strong> (nearly 7x Pi). Same model, different harness, very different bill.</p>
+
+  <h2>Takeaway</h2>
+  <ul>
+    <li><strong>Minimal tool sets</strong> and <strong>append-only sessions</strong> are the biggest levers for cache hits.</li>
+    <li>DSH aligns: small active surface, everything-as-plugin, PTC keeps intermediate data out of context.</li>
+  </ul>
+  <p class="muted small">Community-reported measurements, not official DeepSeek benchmarks — verify current pricing.</p>
+</BlogPost>

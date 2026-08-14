@@ -1,0 +1,37 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const locale = Astro.currentLocale ?? 'en';
+const posts = [
+  { path: '/blog/vs-claude-code/', cat: 'Comparison', en: 'DeepSeek Harness vs Claude Code', zh: 'DeepSeek Harness vs Claude Code', desc_en: 'Plugins vs MCP, open source vs closed, pricing, and which to choose.', desc_zh: '插件 vs MCP、开源 vs 闭源、价格与选择。' },
+  { path: '/blog/why-deepseek-harness/', cat: 'Concept', en: "Why it's called a Harness", zh: '为什么叫 Harness', desc_en: 'Agent = Model + Harness, the Cordis kernel, and time/spatial composability.', desc_zh: 'Agent = Model + Harness、Cordis 内核与时间/空间可组合性。' },
+  { path: '/blog/deepseek-harness-modes/', cat: 'Guide', en: 'The four modes', zh: '四种模式', desc_en: 'Standard, PTC, Minimal, and Create — which preset to use.', desc_zh: '标准 / PTC / 极简 / 创造——该用哪个预设。' },
+  { path: '/blog/deepseek-harness-cost/', cat: 'Analysis', en: 'Cost & caching', zh: '成本与缓存', desc_en: 'How harness choice moves the token bill by up to 7x.', desc_zh: 'Harness 的选择如何让 token 成本差到 7 倍。' },
+  { path: '/blog/deepseek-harness-review/', cat: 'Review', en: 'First impressions & V4 Pro pricing', zh: '上手体验与 V4 Pro 定价', desc_en: '37k stars, cache pricing up 12x, the four modes, and the best community plugins.', desc_zh: '37k star、缓存价涨 12 倍、四模式与最佳社区插件。' },
+  { path: '/blog/deepseek-harness-architecture/', cat: 'Architecture', en: 'The self-modifying agent', zh: '自进化 Agent', desc_en: 'Everything-is-a-plugin, Cordis, and the "make your own wrench" Create mode.', desc_zh: '一切皆插件、Cordis 与「现场造扳手」的创造模式。' },
+  { path: '/blog/deepseek-harness-vs-codex/', cat: 'Comparison', en: 'vs Codex', zh: 'vs Codex', desc_en: 'Agent presets vs scenario modes, rebuildable sessions, and the plugin model.', desc_zh: 'Agent 预设 vs 场景模式、可重建会话与插件模型。' },
+  { path: '/blog/pi-deepseek-cache/', cat: 'Analysis', en: 'Pi & the 99.93% cache hit rate', zh: 'Pi 与 99.93% 缓存命中率', desc_en: 'Minimal tools + append-only sessions = cheap DeepSeek.', desc_zh: '最小工具集 + 只追加会话 = 便宜的 DeepSeek。' },
+];
+const title = locale === 'en' ? 'Blog — DeepSeek Harness Guides & Analysis | dshbase' : '博客 — DeepSeek Harness 指南与分析 | dshbase 中文';
+const desc = locale === 'en' ? 'DeepSeek Harness articles: comparisons, deep dives, and analysis.' : 'DeepSeek Harness 文章：对比、深度解析与分析。';
+const heading = locale === 'en' ? 'DeepSeek Harness articles' : 'DeepSeek Harness 文章';
+const sub = locale === 'en' ? 'Comparisons, deep dives, and analysis.' : '对比、深度解析与分析。';
+---
+<Base title={title} description={desc} currentPath="/blog/">
+  <section class="hero wrap">
+    <p class="eyebrow">Blog</p>
+    <h1>{heading}</h1>
+    <p class="lede">{sub}</p>
+  </section>
+  <section class="info wrap">
+    <div class="grid3">
+      {posts.map((p) => (
+        <a class="card card-link" href={getRelativeLocaleUrl(locale, p.path)}>
+          <span class="cat">{p.cat}</span>
+          <h3>{locale === 'en' ? p.en : p.zh}</h3>
+          <p>{locale === 'en' ? p.desc_en : p.desc_zh} <span class="arr">&rarr;</span></p>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>

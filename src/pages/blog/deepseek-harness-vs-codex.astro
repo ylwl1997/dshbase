@@ -1,0 +1,27 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness vs Codex — Agent Presets, Not Scenarios | dshbase" description="DeepSeek Harness vs Codex: why 'it doesn't want to be the next Codex'. Agent presets vs scenario modes, rebuildable sessions, the plugin model, and what that means for how you work." currentPath="/blog/deepseek-harness-vs-codex/" category="Comparison">
+  <h1>"It doesn't want to be the next Codex" — <span class="accent">DSH vs Codex</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+  <p>Calling DeepSeek Harness "a DeepSeek version of Codex" is the first thing people say — and the thing the project most pushes back against.</p>
+
+  <h2>Agent presets, not scenarios</h2>
+  <p>Codex-class products separate modes by <strong>scenario</strong> (daily/office, office/code). DSH instead uses <strong>Agent presets</strong>: the exact set of plugins an agent runs with — tools, prompts, and capabilities. You copy one, tweak it, or build a new one, including non-coding presets like a writing workspace.</p>
+
+  <h2>Rebuildable sessions</h2>
+  <p>Codex sessions are opaque. DSH sessions are <strong>append-only event logs</strong> — system prompts, reasoning, tool calls, permission changes all become events. When an agent fails or loops, you trace the exact step. An observability win Codex doesn't expose.</p>
+
+  <h2>The plugin model</h2>
+  <p>Where Codex lets users customize Skills and MCP but keeps the rest baked in, DSH makes <strong>everything</strong> a plugin — the UI, tools, workflow. You assemble an agent, not rent one.</p>
+
+  <h2>Model flexibility</h2>
+  <p>DSH supports directory and custom providers — you could run GLM inside it. Codex is tied to OpenAI models.</p>
+
+  <h2>Practically</h2>
+  <ul>
+    <li><strong>Codex-class</strong>: polished, scenario-driven, minimal configuration.</li>
+    <li><strong>DSH</strong>: assemble presets, rebuild sessions, audit every step, extend the agent itself.</li>
+  </ul>
+</BlogPost>

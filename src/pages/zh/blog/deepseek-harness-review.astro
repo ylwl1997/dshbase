@@ -1,0 +1,35 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness 上手体验 — 37k Star、V4 Pro 定价与创造模式 | dshbase 中文" description="DeepSeek Harness 上手评测：几天 37k star、V4 Pro 缓存价涨 12 倍、高峰输出 ¥27、四种模式、只追加会话日志与最佳社区插件。" currentPath="/blog/deepseek-harness-review/" category="评测">
+  <h1>上手体验：<span class="accent">37k star、V4 Pro 定价与「现场造扳手」</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+
+  <p><img src="/assets/review3/dsh-main.png" alt="DeepSeek Harness 界面" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0"></p>
+
+  <p>DeepSeek Harness 紧跟在 V4 Pro 之后发布——几天内拿下 <strong>约 37,000 GitHub star</strong>。它很两极：有人说它是未来，有人说太糙。</p>
+
+  <h2>关键数字</h2>
+  <ul>
+    <li>发布几天内<strong>约 37k GitHub star</strong>。</li>
+    <li><strong>V4 Pro 缓存命中价涨了 12 倍</strong>。</li>
+    <li><strong>高峰输出价约 ¥27</strong>，起步整体涨 3 倍。</li>
+  </ul>
+
+  <h2>四种模式</h2>
+  <ul>
+    <li><strong>标准</strong>——功能全开的编码 Agent，直接用它。</li>
+    <li><strong>PTC</strong>——模型写 TypeScript 在一次 <code>run_code</code> 里串联多步工具操作；更少往返、更省 token。</li>
+    <li><strong>极简</strong>——两个工具，用于模型基准测试。</li>
+    <li><strong>创造</strong>——检查运行中的 Cordis 环境、构建新预设，甚至现场创建一个缺失的插件并热挂载：这就是「现场造扳手」模式。</li>
+  </ul>
+
+  <h2>只追加的会话日志</h2>
+  <p>会话是<strong>只追加的事件日志</strong>——系统提示词、推理、工具调用、权限变化都成为事件，下一轮历史从日志重新推导。Agent 失败时能精确定位到哪一步。可观测、可审计、可复现。</p>
+
+  <h2>不锁死 DeepSeek，生态健康</h2>
+  <p>支持自定义提供方（基础 URL、协议、模型列表）——你完全可以在里面跑 GLM。值得装的社区插件：<a href="https://github.com/omdsh-dev/dsh-at-file" target="_blank" rel="noopener">dsh-at-file</a>、<a href="https://github.com/omdsh-dev/dsh-genui" target="_blank" rel="noopener">dsh-genui</a>、<a href="https://github.com/titanwings/dsh-automation" target="_blank" rel="noopener">dsh-automation</a>、<a href="https://github.com/omdsh-dev/DSH-better-sidebar" target="_blank" rel="noopener">DSH-better-sidebar</a>、<a href="https://github.com/liustack/modlens" target="_blank" rel="noopener">ModLens</a>。</p>
+
+  <h2>诚实评价</h2>
+  <p>系统很迷人、插件概念很强——但对开发者不友好：术语密集、学习曲线陡、UI 简陋。这是一个注重科研的团队的取舍。</p>
+</BlogPost>

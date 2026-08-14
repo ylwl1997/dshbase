@@ -1,0 +1,24 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness 四种模式 — 标准 / PTC / 极简 / 创造 | dshbase 中文" description="DeepSeek Harness 的四种模式详解：标准、PTC（程序化工具调用）、极简、创造。该用哪个预设，模式如何切换 Agent 的工具与规则。" currentPath="/blog/deepseek-harness-modes/" category="指南">
+  <h1>DeepSeek Harness 模式：<span class="accent">该用哪个预设？</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+
+  <p>DeepSeek Harness 内置四种预设。切换模式改变的是<strong>Agent 手上有什么工具、按什么规则跑</strong>——不是模型能力。</p>
+
+  <h2>1. 标准模式</h2>
+  <p>功能全开的编码 Agent：文件编辑、Shell、搜索、Skills、计划、目标、子 Agent、工作流。对标 Claude Code 和 Codex。<strong>绝大多数人用这个就够了。</strong></p>
+
+  <h2>2. PTC 模式（程序化工具调用）</h2>
+  <p>PTC 把工具包装成代码 API：模型写一段 TypeScript 程序，在一次 <code>run_code</code> 里串联多步操作，只返回最终结果。中间数据留在执行环境、不进模型上下文——目的是<strong>省 token</strong>。给在意成本的重度用户和自动化开发者。</p>
+
+  <h2>3. 极简模式</h2>
+  <p>只给两个工具：持久 bash + 文件编辑器。用于<strong>模型基准测试</strong>，排除 harness 干扰——不适合日常使用。（V4 Flash 据说就是用极简模式跑的 benchmark。）</p>
+
+  <h2>4. 创造模式</h2>
+  <p>具备标准模式全部能力 + 运行时检查与插件实验——「做模式的模式」，用来创建自定义预设和插件。你甚至可以让它做一个只读的安全审计预设。</p>
+
+  <h2>怎么理解模式</h2>
+  <p>预设就是一个 Agent 所运行的插件集合。复制一份改改，或用创造模式让 Agent 帮你建。不同预设暴露不同的斜杠命令——极简模式只有目标命令，标准/代码/创造模式包含压缩、目标、计划等。</p>
+</BlogPost>

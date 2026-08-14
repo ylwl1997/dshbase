@@ -1,0 +1,24 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness Modes — Standard, PTC, Minimal &amp; Create | dshbase" description="The four DeepSeek Harness modes explained: standard, PTC (Programmatic Tool Calling), minimal, and create. Which preset to use, and how modes switch the agent's tools and rules." currentPath="/blog/deepseek-harness-modes/" category="Guide">
+  <h1>DeepSeek Harness modes: <span class="accent">which preset should you use?</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+  <p>DeepSeek Harness ships four built-in presets. Switching modes changes <strong>which tools the agent holds and what rules it runs by</strong> — not model capability.</p>
+
+  <h2>1. Standard mode</h2>
+  <p>The fully-loaded coding agent: file editing, shell, search, skills, planning, goals, sub-agents, workflows. The direct counterpart to Claude Code and Codex. <strong>Most people should use this.</strong></p>
+
+  <h2>2. PTC mode (Programmatic Tool Calling)</h2>
+  <p>PTC wraps tools as a code API: the model writes a TypeScript program chaining many steps and runs them in one <code>run_code</code>, returning only the final result. Intermediate data stays out of the model context — the goal is <strong>saving tokens</strong>. Built for cost-conscious heavy users and automation.</p>
+
+  <h2>3. Minimal mode</h2>
+  <p>Just two tools: a persistent bash shell and a file editor. For <strong>model benchmarking</strong> without harness interference — not for daily use. (V4 Flash was reportedly benchmarked using minimal mode.)</p>
+
+  <h2>4. Create mode</h2>
+  <p>Standard capabilities plus runtime checks and plugin experimentation — "the mode that makes modes," for building custom presets and plugins. You can even tell it to build a read-only security-audit preset.</p>
+
+  <h2>How to think about modes</h2>
+  <p>A preset is the set of plugins an agent runs with. Copy an existing one, tweak it, or use Create mode. Different presets expose different slash commands — minimal mode has only a goal command, while standard/code/create include compression, goals, and planning.</p>
+</BlogPost>

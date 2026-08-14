@@ -4,13 +4,11 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 interface Props { currentPath: string }
 const { currentPath } = Astro.props;
 const locale = Astro.currentLocale ?? 'en';
-const otherLocale = locale === 'en' ? 'zh' : 'en';
-const otherUrl = getRelativeLocaleUrl(otherLocale, currentPath);
 const homeUrl = getRelativeLocaleUrl(locale, '/');
 
 const labels = {
-  en: { home: 'Home', tutorial: 'Tutorial', plugins: 'Plugins', install: 'Install', blog: 'Blog', langLabel: '中文' },
-  zh: { home: '首页', tutorial: '教程', plugins: '插件', install: '安装', blog: '博客', langLabel: 'English' },
+  en: { home: 'Home', tutorial: 'Tutorial', plugins: 'Plugins', install: 'Install', blog: 'Blog' },
+  zh: { home: '首页', tutorial: '教程', plugins: '插件', install: '安装', blog: '博客' },
 }[locale];
 const items = [
   { key: 'home', path: '/' },
@@ -31,7 +29,6 @@ const items = [
       {items.map((it) => (
         <a href={getRelativeLocaleUrl(locale, it.path)} set:aria-current={currentPath === it.path ? 'page' : undefined}>{labels[it.key]}</a>
       ))}
-      <a href={otherUrl} class="lang">{labels.langLabel}</a>
     </nav>
   </div>
 </header>

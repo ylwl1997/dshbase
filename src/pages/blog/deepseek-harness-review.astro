@@ -1,0 +1,35 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness First Impressions — 37k Stars, V4 Pro Pricing &amp; the Create Mode | dshbase" description="DeepSeek Harness hands-on review: 37k stars in days, V4 Pro cache pricing up 12x and peak output at ¥27, the four modes, append-only session logs, and the best community plugins." currentPath="/blog/deepseek-harness-review/" category="Review">
+  <h1>First impressions: <span class="accent">37k stars, V4 Pro pricing, and "make your own wrench"</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+  <p><img src="/assets/review3/dsh-main.png" alt="DeepSeek Harness interface" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0"></p>
+
+  <p>DeepSeek Harness shipped right after DeepSeek V4 Pro — and within days hit <strong>~37,000 GitHub stars</strong>. It's polarizing: some call it the future, others too raw.</p>
+
+  <h2>The numbers that matter</h2>
+  <ul>
+    <li><strong>~37k GitHub stars</strong> within days.</li>
+    <li><strong>V4 Pro cache pricing rose 12x</strong> at cache-hit prices.</li>
+    <li><strong>Peak output reached ~¥27</strong>, pricing started at 3x across the board.</li>
+  </ul>
+
+  <h2>The four modes</h2>
+  <ul>
+    <li><strong>Standard</strong> — full coding agent. Just use this.</li>
+    <li><strong>PTC</strong> — the model writes TypeScript to chain tool ops in one <code>run_code</code>; fewer round-trips, fewer tokens.</li>
+    <li><strong>Minimal</strong> — two tools, for model benchmarking.</li>
+    <li><strong>Create</strong> — inspect the running Cordis environment, build new presets, even create a missing plugin and hot-attach it: the "make your own wrench" mode.</li>
+  </ul>
+
+  <h2>Append-only session logs</h2>
+  <p>Sessions are <strong>append-only event logs</strong> — system prompts, reasoning, tool calls, permission changes all become events, and the next turn is re-derived from the log. When an agent fails, you can trace the exact step. Observable, auditable, reproducible.</p>
+
+  <h2>Not locked to DeepSeek, and a healthy ecosystem</h2>
+  <p>Add custom providers (base URL, protocol, model list) — you could run GLM inside it. Community plugins worth installing: <a href="https://github.com/omdsh-dev/dsh-at-file" target="_blank" rel="noopener">dsh-at-file</a>, <a href="https://github.com/omdsh-dev/dsh-genui" target="_blank" rel="noopener">dsh-genui</a>, <a href="https://github.com/titanwings/dsh-automation" target="_blank" rel="noopener">dsh-automation</a>, <a href="https://github.com/omdsh-dev/DSH-better-sidebar" target="_blank" rel="noopener">DSH-better-sidebar</a>, <a href="https://github.com/liustack/modlens" target="_blank" rel="noopener">ModLens</a>.</p>
+
+  <h2>The honest take</h2>
+  <p>Fascinating system, strong plugin concept — but developer-unfriendly: dense terminology, steep learning curve, raw UI. That's the trade-off of a team that prioritizes research.</p>
+</BlogPost>
