@@ -56,6 +56,26 @@ pnpm dsh web</code></pre>
     <p>Open <strong><code>http://127.0.0.1:3080</code></strong> and enter your DeepSeek API key. To use a different port, pass it to the app:</p>
     <pre class="code-block"><code>npx @deepseek-ai/dsh web --port 8080</code></pre>
 
+    <h2 style="margin-top:28px">Install as a global command</h2>
+    <p><code>npx</code> re-resolves the package on every launch. For repeated use — especially CLI / headless sessions — install the <code>dsh</code> command once:</p>
+    <pre class="code-block"><code>npm install -g @deepseek-ai/dsh
+dsh --version   # e.g. 0.1.0-rc.6
+dsh web</code></pre>
+    <p>Make sure npm's global bin directory is on your <code>PATH</code> (find it with <code>npm prefix -g</code>). If you run a portable Node.js without a global install, point npm's <code>prefix</code> at a folder you control (<code>npm config set prefix D:\dsh\npm-global</code>) and add both the Node and global <code>bin</code> folders to your user PATH.</p>
+
+    <h2 style="margin-top:28px">Configure the API key</h2>
+    <p>The Web UI stores keys under <strong>Settings &rarr; Models</strong>. For CLI / headless use, put the key in <code>$DSH_HOME/.credentials.yaml</code> (default <code>~/.dsh/.credentials.yaml</code>):</p>
+    <pre class="code-block"><code>DEEPSEEK_API_KEY: sk-your-key-here</code></pre>
+    <p>On macOS / Linux, set the file to <code>chmod 600</code> — DSH refuses a credentials file other users can read. The <code>DEEPSEEK_API_KEY</code> environment variable also works and takes precedence.</p>
+
+    <h2 style="margin-top:28px">Troubleshooting the install</h2>
+    <ul>
+      <li><strong><code>ERR_PNPM_FETCH_404</code> / package not found</strong> — your default npm registry mirror may lag behind the official one. Retry with <code>--registry=https://registry.npmjs.org</code>.</li>
+      <li><strong><code>'pnpm' is not recognized</code></strong> — the plugin manager forwards to pnpm; install it with <code>npm install -g pnpm</code>.</li>
+      <li><strong><code>node: command not found</code></strong> — Node.js isn't on your PATH. Add your Node folder (and npm global bin) to PATH.</li>
+      <li><strong>Port 3080 already in use</strong> — start on another port: <code>dsh web --port 8080</code>.</li>
+    </ul>
+
     <h2 style="margin-top:24px">What to do next</h2>
     <ol class="steps">
       <li>Follow the <a href={tutorialUrl}>tutorial</a> to configure a model and run your first task.</li>

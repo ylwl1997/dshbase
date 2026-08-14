@@ -56,6 +56,26 @@ pnpm dsh web</code></pre>
     <p>打开 <strong><code>http://127.0.0.1:3080</code></strong>，填入 DeepSeek API Key。要换端口，传给应用即可：</p>
     <pre class="code-block"><code>npx @deepseek-ai/dsh web --port 8080</code></pre>
 
+    <h2 style="margin-top:28px">安装为全局命令</h2>
+    <p><code>npx</code> 每次启动都会重新解析包。要长期使用——尤其是 CLI / 无头模式——建议一次性安装 <code>dsh</code> 命令：</p>
+    <pre class="code-block"><code>npm install -g @deepseek-ai/dsh
+dsh --version   # 例如 0.1.0-rc.6
+dsh web</code></pre>
+    <p>确保 npm 全局 bin 目录在你的 <code>PATH</code> 里（用 <code>npm prefix -g</code> 查看）。如果用的是便携版 Node（无全局安装），把 npm 的 <code>prefix</code> 指向你控制的目录（<code>npm config set prefix D:\dsh\npm-global</code>），并把 Node 目录和全局 <code>bin</code> 目录都加进用户 PATH。</p>
+
+    <h2 style="margin-top:28px">配置 API key</h2>
+    <p>Web UI 在 <strong>设置 &rarr; 模型</strong> 里存 key。CLI / 无头模式则写在 <code>$DSH_HOME/.credentials.yaml</code>（默认 <code>~/.dsh/.credentials.yaml</code>）：</p>
+    <pre class="code-block"><code>DEEPSEEK_API_KEY: sk-your-key-here</code></pre>
+    <p>macOS / Linux 上要把文件设为 <code>chmod 600</code>——DSH 会拒绝其他用户可读的凭证文件。<code>DEEPSEEK_API_KEY</code> 环境变量同样生效且优先级更高。</p>
+
+    <h2 style="margin-top:28px">安装排错</h2>
+    <ul>
+      <li><strong><code>ERR_PNPM_FETCH_404</code> / 包找不到</strong>——默认 npm 镜像可能落后于官方。加 <code>--registry=https://registry.npmjs.org</code> 重试。</li>
+      <li><strong><code>'pnpm' 不是内部或外部命令</code></strong>——插件管理会调用 pnpm；先 <code>npm install -g pnpm</code>。</li>
+      <li><strong><code>node: command not found</code></strong>——Node.js 不在 PATH 里。把 Node 目录（和 npm 全局 bin）加进 PATH。</li>
+      <li><strong>3080 端口被占用</strong>——换端口启动：<code>dsh web --port 8080</code>。</li>
+    </ul>
+
     <h2 style="margin-top:24px">下一步</h2>
     <ol class="steps">
       <li>按<a href={tutorialUrl}>教程</a>配置模型并运行第一个任务。</li>

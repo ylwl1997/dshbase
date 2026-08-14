@@ -43,6 +43,11 @@ export function apply(ctx: Context) &#123;
       name: '/absolute/path/to/deepseek-harness/scratch-plugin/src/my-plugin.ts'</code></pre>
     <pre class="code-block"><code>pnpm dsh web --patch ./scratch-plugin/cordis.yml</code></pre>
 
+    <h2 style="margin-top:24px">Install &amp; use a community plugin</h2>
+    <p>No code needed — plugins are npm packages. Add one to a profile (requires pnpm):</p>
+    <pre class="code-block"><code>dsh plugin --profile web add dsh-claude-marketplace</code></pre>
+    <p>DSH installs the package, records it in the profile's <code>package.json</code> (dependency + <code>dsh.profile.bundles</code>), and loads it on the next <code>dsh web</code> launch. Confirm with <code>dsh plugin --profile web list</code>, remove with <code>dsh plugin --profile web remove &lt;package&gt;</code>. Real npm plugins to try: <code>dsh-claude-marketplace</code> (load your <code>.claude</code> skills &amp; commands), <code>dsh-plugin-session-import</code> (import Claude Code / Codex history), <code>dsh-fail-logger</code>, <code>dsh-latex-tools</code>, <code>dsh-cloudflare-browser-run</code>. Search the ecosystem with <code>npm search dsh-plugin</code>.</p>
+
     <h2 style="margin-top:24px">Register a tool</h2>
     <p>Use <code>defineTool</code> to add a tool your agent can call:</p>
     <pre class="code-block"><code>import &#123; defineTool &#125; from '@deepseek-ai/dsh-tools'

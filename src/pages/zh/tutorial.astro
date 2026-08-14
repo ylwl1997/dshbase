@@ -46,6 +46,13 @@ const pluginsUrl = getRelativeLocaleUrl('zh', '/plugins/');
       <li><strong>视觉模型</strong>——在 <code>$DSH_HOME/settings.yaml</code> 给模型加 <code>input: [text, image]</code>。</li>
     </ul>
 
+    <h2 style="margin-top:28px">安装与管理插件</h2>
+    <p>插件就是 npm 包。用 <code>dsh plugin</code> 命令往 profile 里加——参数会转发给 <code>pnpm</code>（先 <code>npm install -g pnpm</code>）：</p>
+    <pre class="code-block"><code>dsh plugin --profile web add dsh-claude-marketplace
+dsh plugin --profile web list              # 确认装了什么
+dsh plugin --profile web remove dsh-claude-marketplace</code></pre>
+    <p><code>--profile</code> 必填，指定要改的 profile（默认 profile 是 <code>web</code>）。DSH 会把插件写进该 profile 的 <code>package.json</code>（既是依赖也进 <code>dsh.profile.bundles</code>），下次启动自动加载。npm 上实测可用的：<code>dsh-claude-marketplace</code>（加载你的 <code>.claude</code> skills 与 commands）、<code>dsh-plugin-session-import</code>（导入 Claude Code/Codex 历史会话）、<code>dsh-fail-logger</code>（记录失败的工具调用）、<code>dsh-latex-tools</code>（Web UI 悬停 LaTeX）、<code>dsh-cloudflare-browser-run</code>（浏览器工具）。更多用 <code>npm search dsh-plugin</code> 搜。</p>
+
     <h2 style="margin-top:28px">常见报错与解决</h2>
     <ul>
       <li><strong><code>MISSING_CREDENTIAL</code></strong>——在模型页存密钥，或设置引用的环境变量。</li>
@@ -53,6 +60,9 @@ const pluginsUrl = getRelativeLocaleUrl('zh', '/plugins/');
       <li><strong>获取可用模型返回 401</strong>——检查密钥；模型发现会调用 OpenAI 兼容的 <code>GET /models</code> 端点。</li>
       <li><strong>图片在发送前被拒绝</strong>——模型未声明图片模态；加 <code>input: [text, image]</code>。</li>
       <li><strong>模型不对 / 连接失败</strong>——基础 URL、API Key、模型名三者必须匹配你的提供方。一个用 <code>curl</code> 能通的 Key，在 UI 里若基础 URL 或模型名不对仍会失败。</li>
+      <li><strong><code>'pnpm' 不是内部或外部命令</code></strong>——<code>dsh plugin</code> 会转发给 pnpm；先 <code>npm install -g pnpm</code>。</li>
+      <li><strong>加插件时报 <code>ERR_PNPM_FETCH_404</code></strong>——包没发布（用 <code>npm view &lt;包名&gt;</code> 查），或镜像落后——加 <code>--registry=https://registry.npmjs.org</code> 重试。</li>
+      <li><strong><code>node: command not found</code></strong>——<code>dsh</code> 启动器需要 Node.js 在 PATH 里；把 Node 目录加进 PATH。</li>
     </ul>
 
     <h2 style="margin-top:28px">进阶：无头模式</h2>

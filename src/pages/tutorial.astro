@@ -46,6 +46,13 @@ const pluginsUrl = getRelativeLocaleUrl('en', '/plugins/');
       <li><strong>Vision models</strong> — add <code>input: [text, image]</code> in <code>$DSH_HOME/settings.yaml</code> for the model.</li>
     </ul>
 
+    <h2 style="margin-top:28px">Install &amp; manage plugins</h2>
+    <p>Plugins are npm packages. Add one to a profile with the <code>dsh plugin</code> command — the arguments are forwarded to <code>pnpm</code> (install it with <code>npm install -g pnpm</code> first):</p>
+    <pre class="code-block"><code>dsh plugin --profile web add dsh-claude-marketplace
+dsh plugin --profile web list              # confirm what's installed
+dsh plugin --profile web remove dsh-claude-marketplace</code></pre>
+    <p>The <code>--profile</code> flag is required and names the profile to modify (default profile: <code>web</code>). DSH records the plugin in the profile's <code>package.json</code> — both as a dependency and in <code>dsh.profile.bundles</code> — and loads it on the next launch. Verified on npm: <code>dsh-claude-marketplace</code> (load your <code>.claude</code> skills &amp; commands), <code>dsh-plugin-session-import</code> (import Claude Code / Codex history), <code>dsh-fail-logger</code> (log failing tool calls), <code>dsh-latex-tools</code> (hover LaTeX in the Web UI), <code>dsh-cloudflare-browser-run</code> (browsing tools). Search more with <code>npm search dsh-plugin</code>.</p>
+
     <h2 style="margin-top:28px">Common errors &amp; fixes</h2>
     <ul>
       <li><strong><code>MISSING_CREDENTIAL</code></strong> — store the provider key on the Models page, or set the referenced environment variable.</li>
@@ -53,6 +60,9 @@ const pluginsUrl = getRelativeLocaleUrl('en', '/plugins/');
       <li><strong>Get available models returns 401</strong> — check the key; model discovery calls the OpenAI-compatible <code>GET /models</code> endpoint.</li>
       <li><strong>Images rejected before sending</strong> — the model doesn't declare the image modality; add <code>input: [text, image]</code>.</li>
       <li><strong>Wrong model / connection fails</strong> — the three settings (base URL, API key, model name) must all match your provider. A key that works via <code>curl</code> can still fail in the UI if the base URL or model name is off.</li>
+      <li><strong><code>'pnpm' is not recognized</code></strong> — <code>dsh plugin</code> forwards to pnpm; run <code>npm install -g pnpm</code> first.</li>
+      <li><strong><code>ERR_PNPM_FETCH_404</code> when adding a plugin</strong> — the package isn't published (check <code>npm view &lt;package&gt;</code>), or your registry mirror lags behind — retry with <code>--registry=https://registry.npmjs.org</code>.</li>
+      <li><strong><code>node: command not found</code></strong> — the <code>dsh</code> launcher needs Node.js on your PATH; add your Node folder to PATH.</li>
     </ul>
 
     <h2 style="margin-top:28px">Advanced: headless mode</h2>
