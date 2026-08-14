@@ -5,40 +5,60 @@ const tutorialUrl = getRelativeLocaleUrl('en', '/tutorial/');
 const pluginsUrl = getRelativeLocaleUrl('en', '/plugins/');
 ---
 <Base
-  title="Install DeepSeek Harness (DSH) — npm &amp; From Source | dshbase"
-  description="How to install DeepSeek Harness (dsh): run the Web UI with one npm command (npx @deepseek-ai/dsh web) or build from source."
+  title="Install DeepSeek Harness (DSH) — Windows, macOS, Linux, WSL One-Line Guides | dshbase"
+  description="Install DeepSeek Harness on Windows, macOS, Linux, and WSL with one-line scripts — or build from source. Node.js required; then run npx @deepseek-ai/dsh web."
   currentPath="/install/"
 >
   <section class="hero wrap">
     <p class="eyebrow">Install</p>
     <h1>Install DeepSeek Harness <span class="accent">(dsh)</span></h1>
-    <p class="lede">Two ways to run DeepSeek Harness: the one-command npm install, or building from source. Based on the official documentation.</p>
+    <p class="lede">DeepSeek Harness is a Node.js package — the only requirement is Node.js. Pick your system for a one-line install, or build from source.</p>
   </section>
 
   <section class="info wrap">
     <h2>Before you start</h2>
     <ul>
-      <li>You need <strong>Node.js</strong> installed.</li>
-      <li>DeepSeek Harness is in <strong>developer preview</strong> — it's iterating fast and <strong>breaking changes will come</strong>.</li>
+      <li>You need <strong>Node.js LTS (18+)</strong> — every script below checks for it first.</li>
+      <li>DeepSeek Harness is in <strong>developer preview</strong> — iterating fast, <strong>breaking changes will come</strong>.</li>
     </ul>
 
-    <h2 style="margin-top:24px">Option 1 — Install &amp; run from npm</h2>
-    <p>Run the Web UI with a single command:</p>
-    <pre class="code-block"><code>npx @deepseek-ai/dsh web</code></pre>
-    <p>This starts the Web UI at <strong><code>http://127.0.0.1:3080</code></strong>.</p>
+    <h2 style="margin-top:28px">Windows — one line (PowerShell)</h2>
+    <p>Open <strong>PowerShell</strong> (right-click Start → Terminal) and paste:</p>
+    <pre class="code-block"><code>if (-not (Get-Command node -ErrorAction SilentlyContinue)) &#123; winget install OpenJS.NodeJS.LTS &#125;
+npx @deepseek-ai/dsh web</code></pre>
+    <p>If <code>winget</code> isn't available, install Node.js manually from <a href="https://nodejs.org" target="_blank" rel="noopener">nodejs.org</a> (LTS installer), then run <code>npx @deepseek-ai/dsh web</code>.</p>
 
-    <h2 style="margin-top:24px">Option 2 — Build &amp; run from source</h2>
-    <p>Clone the repository and build it locally:</p>
+    <h2 style="margin-top:28px">macOS — one line (Terminal)</h2>
+    <pre class="code-block"><code>command -v node &gt;/dev/null 2&gt;&amp;1 || brew install node
+npx @deepseek-ai/dsh web</code></pre>
+    <p>If you don't have <a href="https://brew.sh" target="_blank" rel="noopener">Homebrew</a>, install it first, or grab Node.js from nodejs.org.</p>
+
+    <h2 style="margin-top:28px">Linux — one line (bash)</h2>
+    <p>Debian / Ubuntu (uses NodeSource):</p>
+    <pre class="code-block"><code>command -v node &gt;/dev/null 2&gt;&amp;1 || (curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &amp;&amp; sudo apt-get install -y nodejs)
+npx @deepseek-ai/dsh web</code></pre>
+    <p>Other distros, or to avoid <code>sudo</code>, use <a href="https://github.com/nvm-sh/nvm" target="_blank" rel="noopener">nvm</a> then <code>npx @deepseek-ai/dsh web</code>.</p>
+
+    <h2 style="margin-top:28px">WSL (Ubuntu on WSL) — one line</h2>
+    <p>Inside your WSL Ubuntu terminal:</p>
+    <pre class="code-block"><code>command -v node &gt;/dev/null 2&gt;&amp;1 || (curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &amp;&amp; sudo apt-get install -y nodejs)
+npx @deepseek-ai/dsh web</code></pre>
+
+    <h2 style="margin-top:28px">Build from source (all platforms)</h2>
     <pre class="code-block"><code>git clone https://github.com/deepseek-ai/deepseek-harness.git
 cd deepseek-harness
 pnpm install
 pnpm run build
 pnpm dsh web</code></pre>
-    <p>Uses <code>pnpm</code> — install it if you don't have it (<code>npm install -g pnpm</code>).</p>
+    <p>Uses <code>pnpm</code> — install with <code>npm install -g pnpm</code> if you don't have it.</p>
+
+    <h2 style="margin-top:28px">Verify it's running</h2>
+    <p>Open <strong><code>http://127.0.0.1:3080</code></strong> and enter your DeepSeek API key. To use a different port, pass it to the app:</p>
+    <pre class="code-block"><code>npx @deepseek-ai/dsh web --port 8080</code></pre>
 
     <h2 style="margin-top:24px">What to do next</h2>
     <ol class="steps">
-      <li>Open the Web UI and follow the <a href={tutorialUrl}>tutorial</a> to configure a model and run your first task.</li>
+      <li>Follow the <a href={tutorialUrl}>tutorial</a> to configure a model and run your first task.</li>
       <li>Add your DeepSeek API key under <strong>Settings → Models</strong>.</li>
       <li>Build your own plugins with the <a href={pluginsUrl}>plugin guide</a>.</li>
     </ol>
