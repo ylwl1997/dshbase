@@ -322,6 +322,23 @@
    "language": "TypeScript",
    "updated": "2026-08-14",
    "archived": false
+  },
+  {
+   "name": "dsh-drop-to-path",
+   "url": "https://github.com/loudMore/dsh-drop-to-path",
+   "pkg": "",
+   "ver": "",
+   "npm": false,
+   "test": "not-on-npm",
+   "desc": "DSH plugin: images and files straight to text-only models — drag-drop shows native attachment, auto-converts to path on send.",
+   "desc_en": "DSH plugin: drag images and files straight to text-only models — keeps native attachment UX and auto-converts to a path on send.",
+   "desc_zh": "DSH 插件：图片和文件直达纯文本模型——拖拽保留原生附件体验，发送时自动转为路径。",
+   "stars": 3,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-08-14",
+   "archived": false
   }
  ],
  "Sessions & Messages": [

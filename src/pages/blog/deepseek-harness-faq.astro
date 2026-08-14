@@ -1,0 +1,51 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const troubleshootingUrl = getRelativeLocaleUrl('en', '/troubleshooting/');
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+---
+<BlogPost title="DeepSeek Harness FAQ — Community's Most-Asked Questions, Answered | dshbase" description="The questions the DeepSeek Harness community actually asks — permissions, image input, token cost, install crashes, Docker, memory — with tested answers from real dsh 0.1.0-rc.6 usage." currentPath="/blog/deepseek-harness-faq/" category="Guide">
+  <h1>DeepSeek Harness <span class="accent">FAQ</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+  <p>These are the questions people are actually asking in the DeepSeek Harness community — not the ones in the docs. Every answer below comes from real usage on dsh 0.1.0-rc.6, and from answering these exact questions in the official discussions.</p>
+
+  <h2>1. Why is the permission system so "dumb"?</h2>
+  <p>The most common complaint. dsh doesn't ask for permission when you use git/node — it uses <strong>permission presets</strong>: a fixed policy decided at startup, not per-tool prompting. If git is blocked, it's because the current preset put it in the "approval" or "deny" tier.</p>
+  <p><strong>Fix</strong>: change the permission preset in Settings, or install <code>dsh-tool-approval</code> for true per-step manual approval. Both are in the <a href={directoryUrl}>plugin directory</a>.</p>
+
+  <h2>2. Why can't I paste images or documents?</h2>
+  <p>Dragging an image and getting "switch model" means the current model doesn't declare <strong>vision modality</strong> (its <code>input</code> doesn't include <code>image</code>). dsh won't silently convert an image to text.</p>
+  <p><strong>Fix</strong>: either add <code>input: [text, image]</code> for the model in <code>settings.yaml</code>, or use a vision plugin — <code>dsh-vision-toolkit</code> (image Q&amp;A, OCR, chart parsing for text-only models) or <code>dsh-drop-to-path</code> (drag-to-path).</p>
+
+  <h2>3. Token usage explodes on long sessions — how do I cut cost?</h2>
+  <p>Three levers that actually work:</p>
+  <ul>
+    <li><strong>PTC mode</strong> — dsh's prompt-token-cache mode is built for DeepSeek's prefix caching and sharply cuts repeated-prefix cost.</li>
+    <li><strong>Compact early</strong> — use <code>/compact</code> manually rather than waiting for auto-compaction.</li>
+    <li><strong>Fewer plugins</strong> — every tool's description consumes tokens; install only what you need.</li>
+  </ul>
+  <p>We measured the numbers in our <a href="/blog/deepseek-harness-cost/">cost &amp; caching analysis</a>.</p>
+
+  <h2>4. Fresh install crashes with "--expose-internals is required"</h2>
+  <p>A cordis HMR-loader issue on clean environments (macOS arm64 / NixOS / Linux). Workaround:</p>
+  <pre class="code-block"><code>node --expose-internals $(which dsh) web</code></pre>
+  <p>Or set <code>NODE_OPTIONS=--expose-internals</code>. This and every other install error we've hit are in the <a href={troubleshootingUrl}>troubleshooting guide</a>.</p>
+
+  <h2>5. Is there a Docker image?</h2>
+  <p>No official image yet. But dsh is plain Node.js — Node 18+ and <code>npx @deepseek-ai/dsh web</code> is all you need, and headless mode drops neatly into a container or CI. Community distributions like <code>oh-dsh</code> bundle TUI + desktop + web together. See the <a href="/install/">install guide</a>.</p>
+
+  <h2>6. What about long-term memory?</h2>
+  <p>The memory ecosystem has exploded in week one — several approaches, all in the <a href={directoryUrl}>directory</a>:</p>
+  <ul>
+    <li><code>dsh-memory</code> — cited memory over the lossless session log</li>
+    <li><code>dsh-mnemon</code> — runtime + retrievable archive + supervised memory</li>
+    <li><code>sage-mem</code> — Chinese-first full-text search memory</li>
+    <li><code>dsh-sgme</code> — multi-agent shared memory via HTTP</li>
+  </ul>
+
+  <h2>7. Will there be a desktop app?</h2>
+  <p>Not officially, but the TUI and <code>oh-dsh</code> distribution cover the "native-ish" experience. The web UI is the primary surface.</p>
+
+  <p>Have a question we didn't cover? Ask in the <a href="https://github.com/ylwl1997/dshbase/discussions" target="_blank" rel="noopener">dshbase forum</a>.</p>
+</BlogPost>

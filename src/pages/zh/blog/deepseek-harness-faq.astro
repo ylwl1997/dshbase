@@ -1,0 +1,51 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const troubleshootingUrl = getRelativeLocaleUrl('zh', '/troubleshooting/');
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+---
+<BlogPost title="DeepSeek Harness FAQ — 社区高频问题解答 | dshbase 中文" description="DeepSeek Harness 社区真正在问的问题——权限、图片输入、token 成本、安装崩溃、Docker、记忆——基于 dsh 0.1.0-rc.6 实测解答。" currentPath="/blog/deepseek-harness-faq/" category="指南">
+  <h1>DeepSeek Harness <span class="accent">FAQ</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+
+  <p>这些是 DeepSeek Harness 社区里大家真正在问的问题——不是文档里写的那种。每个答案都来自 dsh 0.1.0-rc.6 的真实使用，以及我们在官方讨论区回答这些问题的第一手经验。</p>
+
+  <h2>1. 权限系统为什么这么「笨」？</h2>
+  <p>最高频的抱怨。dsh 用 git/node 时不会主动问权限——因为它用的是<strong>权限预设</strong>（permission presets）：启动时定好的策略，不是逐工具询问。git 被拦，是因为当前预设把它归到了「审批」或「禁用」档。</p>
+  <p><strong>解决</strong>：在设置里换权限预设，或装 <code>dsh-tool-approval</code> 插件实现真正的手动审批模式。都在<a href={directoryUrl}>插件目录</a>里。</p>
+
+  <h2>2. 为什么不能直接输入图片/文档？</h2>
+  <p>拖图片进去提示「切换模型」，是因为当前模型没声明<strong>视觉模态</strong>（<code>input</code> 不含 <code>image</code>）。dsh 不会偷偷把图片转成文本。</p>
+  <p><strong>解决</strong>：在 <code>settings.yaml</code> 给模型加 <code>input: [text, image]</code>，或用视觉插件——<code>dsh-vision-toolkit</code>（给纯文本模型做识图/OCR/图表解析）、<code>dsh-drop-to-path</code>（拖拽转路径）。</p>
+
+  <h2>3. 长会话 token 暴涨，怎么降本？</h2>
+  <p>三个真正有效的杠杆：</p>
+  <ul>
+    <li><strong>PTC 模式</strong>——dsh 的 prompt token cache 模式专门为 DeepSeek 前缀缓存优化，长会话重复前缀成本大降。</li>
+    <li><strong>早点 compact</strong>——手动 <code>/compact</code>，别等自动压缩。</li>
+    <li><strong>少装插件</strong>——每个工具的描述都占 token，按需装。</li>
+  </ul>
+  <p>具体数字见我们的<a href="/zh/blog/deepseek-harness-cost/">成本与缓存分析</a>。</p>
+
+  <h2>4. 全新安装崩溃「--expose-internals is required」</h2>
+  <p>干净环境下 cordis HMR loader 探测不到 Node 内部模块（macOS arm64 / NixOS / Linux 复现）。临时方案：</p>
+  <pre class="code-block"><code>node --expose-internals $(which dsh) web</code></pre>
+  <p>或设 <code>NODE_OPTIONS=--expose-internals</code>。这个和所有实测踩过的安装坑都在<a href={troubleshootingUrl}>排错指南</a>。</p>
+
+  <h2>5. 有 Docker 镜像吗？</h2>
+  <p>官方还没出。但 dsh 是纯 Node.js——Node 18+ 加 <code>npx @deepseek-ai/dsh web</code> 就够了，headless 模式很适合塞进容器/CI。社区还有 <code>oh-dsh</code> 这种 TUI+桌面+Web 一体的发行版。见<a href="/zh/install/">安装指南</a>。</p>
+
+  <h2>6. 长期记忆怎么办？</h2>
+  <p>记忆生态一周内爆发了，好几个方案都在<a href={directoryUrl}>目录</a>里：</p>
+  <ul>
+    <li><code>dsh-memory</code>——基于无损会话日志的引用记忆</li>
+    <li><code>dsh-mnemon</code>——运行时 + 可检索归档 + 受监督记忆</li>
+    <li><code>sage-mem</code>——中文优先全文搜索记忆</li>
+    <li><code>dsh-sgme</code>——通过 HTTP 的多 agent 共享记忆</li>
+  </ul>
+
+  <h2>7. 会有桌面端吗？</h2>
+  <p>官方没有，但 TUI 和 <code>oh-dsh</code> 发行版覆盖了「类原生」体验。Web UI 是主界面。</p>
+
+  <p>还有没覆盖的问题？来<a href="https://github.com/ylwl1997/dshbase/discussions" target="_blank" rel="noopener">dshbase 论坛</a>提问。</p>
+</BlogPost>
