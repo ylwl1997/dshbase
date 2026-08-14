@@ -1,0 +1,50 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const dshMemoryUrl = getRelativeLocaleUrl('en', '/plugins/dsh-memory/');
+const dshMnemonUrl = getRelativeLocaleUrl('en', '/plugins/dsh-mnemon/');
+const sageMemUrl = getRelativeLocaleUrl('en', '/plugins/sage-mem/');
+const dshSgmeUrl = getRelativeLocaleUrl('en', '/plugins/dsh-sgme/');
+---
+<BlogPost title="DeepSeek Harness Memory — dsh-memory, dsh-mnemon, sage-mem & dsh-sgme Compared | dshbase" description="A complete guide to the DeepSeek Harness (dsh) memory plugins: how dsh-memory, dsh-mnemon, sage-mem and dsh-sgme differ, which to choose for session-log citation, supervised archives, Chinese full-text search, or multi-agent shared memory — all verified on dsh 0.1.0-rc.6." currentPath="/blog/dsh-memory-guide/" category="Comparison">
+  <h1>DeepSeek Harness <span class="accent">memory</span>: four ways to make your agent remember</h1>
+  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+  <p>Out of the box, DeepSeek Harness (<code>dsh</code>) remembers things <em>within</em> a session — its append-only event log and <code>AGENTS.md</code> give it a working short-term memory. The moment you close the tab, that state is gone. That gap is why the memory category is the most crowded corner of the whole <a href={directoryUrl}>plugin directory</a>: a half-dozen plugins all promise the same headline ("long-term memory for dsh") while doing fundamentally different things under the hood. This guide puts the four most representative side by side so you can pick one without installing all of them.</p>
+
+  <h2>What dsh remembers with no plugin at all</h2>
+  <p>Before you reach for any of these, it's worth being precise about the baseline. dsh's native memory is <em>session-scoped</em>: the append-only event log records every turn, tool call, and permission change, and <code>AGENTS.md</code> holds project-level instructions that get injected into each session. That's genuinely useful — it's why a dsh session is reproducible and auditable — but it is not <em>cross-session</em> memory. Close the tab and the next session starts cold. Every plugin below exists to close precisely that gap, and they differ mainly in <em>how</em> they remember: by citation, by archive, by search, or by shared store.</p>
+
+  <h2>The four approaches at a glance</h2>
+  <ul>
+    <li><strong><a href={dshMemoryUrl}>dsh-memory</a></strong> — cited memory built <em>on top of</em> dsh's lossless session log.</li>
+    <li><strong><a href={dshMnemonUrl}>dsh-mnemon</a></strong> — a full Mnemon integration: runtime memory + retrievable archives + supervised memories.</li>
+    <li><strong><a href={sageMemUrl}>sage-mem</a></strong> — cross-session memory with Chinese-first full-text search, forked from <code>claude-mem</code>.</li>
+    <li><strong><a href={dshSgmeUrl}>dsh-sgme</a></strong> — an SGME engine bridge for multi-agent shared long-term memory over HTTP.</li>
+  </ul>
+
+  <h2>dsh-memory: citations back to the source event</h2>
+  <p>dsh-memory is the most "dsh-native" of the bunch. Instead of building a separate store, it sits on top of the session log that dsh already writes and distills <strong>human-auditable facts, each with a citation back to the exact source event</strong>. The selling point is trust: when the agent says "you told me your API key rotates on the 1st," you can click through to the turn where it actually read that, rather than taking a fuzzy vector match on faith. We verified it loads cleanly (<code>test: ok</code>) on dsh 0.1.0-rc.6, and it ships on npm as <code>dsh-memory</code>, so install is a single <code>dsh plugin add dsh-memory</code>.</p>
+
+  <h2>dsh-mnemon: runtime, archives, and a supervisor</h2>
+  <p>dsh-mnemon is the heavyweight option. It's a deep integration of the <strong>Mnemon</strong> system, splitting memory into three layers: <strong>runtime memory</strong> (fast, in-context, for the current task), <strong>retrievable archives</strong> (long-term storage you can query later), and <strong>supervised memories</strong> (facts that only get committed after review). If you want a memory system that behaves like an actual knowledge base — with a notion of "draft vs. approved" — rather than a plain notepad, this is the one. It also passed our <code>ok</code> verification on dsh 0.1.0-rc.6, with a few more stars than dsh-memory suggesting it's seen real community use.</p>
+
+  <h2>sage-mem: Chinese-first search</h2>
+  <p>sage-mem is the pick if your notes, issues, and prompts are in Chinese. It's a cross-session memory plugin <strong>forked from <code>claude-mem</code></strong> but re-oriented around <strong>Chinese-first full-text search</strong>. That's a concrete, not cosmetic, difference: a lot of general-purpose embedding and tokenization layers handle CJK text poorly, so a plugin that optimizes tokenization and recall for Chinese from the start will retrieve your 中文 notes noticeably better. It passed our <code>ok</code> test on dsh 0.1.0-rc.6.</p>
+
+  <h2>dsh-sgme: memory shared across agents over HTTP</h2>
+  <p>dsh-sgme solves a different problem entirely. Where the other three are for <em>one</em> agent remembering across sessions, dsh-sgme is an <strong>SGME memory engine bridge that lets multiple agents share long-term memory over HTTP</strong>. If you're running parallel dsh instances — or subagents spawned from a parent session — this is the layer that gives them a common, queryable memory instead of each one carrying its own silo. Star count is still low, but it's the only plugin in the memory category targeting the multi-agent case directly, and it verified <code>ok</code> on dsh 0.1.0-rc.6.</p>
+
+  <h2>How to choose</h2>
+  <p>The decision tree is short:</p>
+  <ul>
+    <li>You want <strong>auditable, citable</strong> memory with minimal setup → <strong>dsh-memory</strong>.</li>
+    <li>You want a <strong>real knowledge base</strong> with runtime, archive, and review tiers → <strong>dsh-mnemon</strong>.</li>
+    <li>Your content is <strong>mostly Chinese</strong> and recall quality matters → <strong>sage-mem</strong>.</li>
+    <li>You're running <strong>multiple agents / subagents</strong> that need shared state → <strong>dsh-sgme</strong>.</li>
+  </ul>
+  <p>Two more worth knowing before you commit: <strong>dsh-plugin-meta-memory</strong> (structured long-term memory with brief/full unit pairs and auto-injection) and <strong>dsh-plugin-claude-bridge</strong> (bring your existing Claude Code memory, skills, and config into dsh with zero migration). Both are in the <a href={directoryUrl}>plugin directory</a>; note that the directory currently lists them with a <code>load-fail</code> status on dsh 0.1.0-rc.6, so treat them as "promising, not yet verified" until that changes.</p>
+
+  <p>One final note: there are actually <em>two</em> distinct plugins named "dsh-memory" in the wild — the citation-based one described here, and a separate "Lingshu (灵枢)" plugin published under <code>@furongjun1999/dsh-memory</code> focused on a knowledge flywheel and recursive self-reflection. When you install, check the package name so you get the one you meant. The full, test-verified list — including install commands — is in the <a href={directoryUrl}>plugin directory</a>.</p>
+</BlogPost>

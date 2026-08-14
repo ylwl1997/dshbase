@@ -1,0 +1,48 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const approvalUrl = getRelativeLocaleUrl('en', '/plugins/dsh-tool-approval/');
+const customToolUrl = getRelativeLocaleUrl('en', '/plugins/dsh-custom-tool/');
+const auditUrl = getRelativeLocaleUrl('en', '/plugins/dsh-security-audit/');
+const pluginCheckUrl = getRelativeLocaleUrl('en', '/plugins/dsh-plugin-check/');
+const contextDoctorUrl = getRelativeLocaleUrl('en', '/plugins/dsh-context-doctor/');
+---
+<BlogPost title="DeepSeek Harness Sandbox — Permissions, Security & Tool Approval Guide | dshbase" description="How DeepSeek Harness (dsh) keeps agents from doing damage: permission presets, manual tool approval (dsh-tool-approval), sandboxed JavaScript tools (dsh-custom-tool), and the security-audit plugins — verified on dsh 0.1.0-rc.6." currentPath="/blog/dsh-sandbox/" category="Guide">
+  <h1>DeepSeek Harness <span class="accent">sandbox</span> & security: giving an agent a leash</h1>
+  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+  <p>An agent that can run tools is an agent that can do damage. DeepSeek Harness ships a real answer to that — not a single silver-bullet "sandbox" flag, but a layered model: permission presets up front, an append-only log for audit after the fact, and a cluster of community plugins that close the gaps in between. Here's the whole leash, verified against dsh 0.1.0-rc.6.</p>
+
+  <h2>Why "sandbox" in dsh means layers, not a box</h2>
+  <p>It's easy to over-index on a single word. In a traditional code-runner, a sandbox is a thing you put code into. In dsh, the agent <em>is</em> the code runner — it's invoking bash, writing files, and installing plugins on your machine — so there's no clean "inside the box" boundary to hide behind. The practical substitute is a stack of narrower controls: limit what the agent can call (presets), require a human for the risky calls (approval), constrain the code the model writes (sandboxed tools), and audit everything that already happened (the session log plus audit plugins). Treating security as a stack rather than a flag is the single most important mental shift when securing a harness.</p>
+
+  <h2>The built-in layer: permission presets</h2>
+  <p>dsh's first line of defense is its mode system. Instead of one all-powerful agent, you launch in a <strong>preset</strong> — the <strong>minimal</strong> mode strips the agent down to a bare toolset for benchmarking and constrained tasks, while the full <strong>standard</strong> mode turns on the coding toolchain. Picking a preset is a permission decision: the fewer tools in the context, the smaller the blast radius. Paired with dsh's <strong>append-only session log</strong>, every permission change and tool call becomes a replayable event, so "what did it actually do?" is always answerable after the fact.</p>
+
+  <h2>dsh-tool-approval: a human in the loop</h2>
+  <p>For the highest-risk moments, the community added <strong><a href={approvalUrl}>dsh-tool-approval</a></strong> — "manual approval for DeepSeek Harness (aka Manual Mode / Ask Mode)." It's the classic ask-before-execute gate: instead of a tool firing the instant the model calls it, execution pauses and waits for a human yes/no. That single affordance turns dsh from "autonomous" into "supervised" whenever the task calls for it — deploying, writing outside the workspace, or anything irreversible. Note the directory currently lists it as <code>install-fail</code> on dsh 0.1.0-rc.6, so verify the install before relying on it in production.</p>
+
+  <h2>dsh-custom-tool: sandboxed JavaScript tools</h2>
+  <p>The most interesting security-adjacent plugin is <strong><a href={customToolUrl}>dsh-custom-tool</a></strong>, which lets you "create and manage <strong>sandboxed</strong> JavaScript tools" through a Monaco editor with a model-driven tool lifecycle. The keyword is <em>sandboxed</em>: when the model writes (or you write) a small JS utility, it runs in a constrained environment rather than with the full privileges of the host process. It's a clean pattern for letting the agent extend itself without handing it the keys — and it's one of the more polished plugins in the category, verified <code>ok</code> on dsh 0.1.0-rc.6.</p>
+
+  <h2>dsh-security-audit: know your exposure</h2>
+  <p>Prevention needs eyes. <strong><a href={auditUrl}>dsh-security-audit</a></strong> is a local audit plugin that "reports on config, plugin sources, sessions, and network exposure with <strong>read-only, redacted</strong> risk reporting." The two design choices that make it trustworthy: it's read-only (it doesn't mutate anything while auditing), and it redacts secrets before they ever hit the report. It builds from source (<code>git-build</code>) on dsh 0.1.0-rc.6, and it's the fastest way to answer "what is this install actually exposing?" before you connect an agent to anything real.</p>
+
+  <h2>Supply-chain safety: dsh-plugin-check</h2>
+  <p>A huge share of dsh's surface area is third-party plugins, and every plugin is code running on your machine. <strong><a href={pluginCheckUrl}>dsh-plugin-check</a></strong> addresses that head-on: it "scans manifest protocol, patch format, build traps, and hub listing status of plugin repos, zero-dependency and read-only." Before you <code>dsh plugin add</code> something you found in a forum thread, this gives you a structural once-over of the repo — whether the manifest is well-formed, whether the patch format looks sane, whether there are obvious build-time traps. It's not a full security audit, but it's a cheap first filter, and it's one of the more-starred plugins in the Development & Runtime category.</p>
+
+  <h2>Context hygiene: dsh-context-doctor</h2>
+  <p>One more layer people forget: <strong><a href={contextDoctorUrl}>dsh-context-doctor</a></strong> audits what's being <em>injected</em>, not what's being executed — it "measures token cost of AGENTS.md instruction chains, skill catalogs, and tool schemas, detecting duplicates and conflicts." That's a security concern too, because conflicting or duplicated instructions are exactly how a model gets confused into doing the wrong thing. A tight, non-conflicting instruction set is a quieter but real part of the sandbox story.</p>
+
+  <h2>The security stack in one pass</h2>
+  <ol>
+    <li><strong>Start constrained</strong>: pick a minimal preset, not the kitchen sink.</li>
+    <li><strong>Gate the risky calls</strong>: <code>dsh-tool-approval</code> for Manual/Ask mode.</li>
+    <li><strong>Sandbox custom code</strong>: <code>dsh-custom-tool</code> for model-written utilities.</li>
+    <li><strong>Audit exposure</strong>: <code>dsh-security-audit</code> before connecting anything real.</li>
+    <li><strong>Filter the supply chain</strong>: <code>dsh-plugin-check</code> before installing third-party plugins.</li>
+    <li><strong>Keep context clean</strong>: <code>dsh-context-doctor</code> to catch instruction conflicts.</li>
+  </ol>
+  <p>None of it is magic — it's defense in depth, assembled from dsh's own presets plus a handful of serious plugins. For the current, test-verified lineup (with install commands), start at the <a href={directoryUrl}>plugin directory</a>.</p>
+</BlogPost>

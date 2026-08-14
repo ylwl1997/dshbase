@@ -1,0 +1,39 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const workspaceMcpUrl = getRelativeLocaleUrl('en', '/plugins/dsh-workspace-mcp/');
+const coworkUrl = getRelativeLocaleUrl('en', '/plugins/dsh-cowork/');
+const visionPrimitivesUrl = getRelativeLocaleUrl('en', '/plugins/dsh-vision-primitives/');
+---
+<BlogPost title="DeepSeek Harness MCP — How to Connect MCP Servers (dsh-workspace-mcp & More) | dshbase" description="How MCP fits into DeepSeek Harness (dsh): workspace-level MCP server loading with dsh-workspace-mcp, plugins that expose their own MCP servers like dsh-cowork, and why dsh is plugin-native rather than MCP-native — verified on dsh 0.1.0-rc.6." currentPath="/blog/dsh-mcp/" category="Guide">
+  <h1>DeepSeek Harness <span class="accent">MCP</span>: connecting external servers to a plugin-native agent</h1>
+  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+  <p>Model Context Protocol (MCP) is the de facto standard for giving agents tools that live outside their process — and it's the wrong mental model for DeepSeek Harness, at least as a default. dsh isn't MCP-native the way Claude Code is; it's <em>plugin-native</em>, built on the Cordis kernel where a plugin is the unit of extensibility. But that doesn't mean MCP is irrelevant. The community has built clean bridges, and in some cases dsh plugins <em>expose</em> MCP servers of their own. Here's how MCP actually works in dsh 0.1.0-rc.6.</p>
+
+  <h2>How MCP actually reaches the model</h2>
+  <p>Mechanically, an MCP server in dsh works the same way it does anywhere: the server exposes a set of tools over a stdio or HTTP transport, and the harness surfaces those tools to the model as callable functions. What's different is the <em>registration path</em>. Rather than a global config, the workspace-scoped approach in <code>dsh-workspace-mcp</code> ties servers to a directory, so the model only sees the tools relevant to the project it's currently in. That has a real cost benefit too: every tool you expose adds tokens to the prompt and to the schema, and a project-scoped server list keeps the tool surface lean. This is the same minimal-toolset discipline that makes dsh's caching cheap, applied to external integrations.</p>
+
+  <h2>Plugins first, MCP as an adapter</h2>
+  <p>The key distinction: in dsh you normally install a <em>plugin</em> (<code>dsh plugin add …</code>) rather than registering an MCP server. A plugin runs inside the harness and can do things an external server can't — read the session log, inject context, hook the UI. MCP, by contrast, is for tools that already live in a separate process (a database, a browser, a search API). So the right question isn't "how do I turn on MCP in dsh?" but "which of my external tools should I bridge in, and which should I just install as a plugin?" The <a href={directoryUrl}>plugin directory</a> is the fast way to check whether someone already built the plugin version of the tool you were about to MCP in.</p>
+
+  <h2>dsh-workspace-mcp: per-project MCP servers</h2>
+  <p>The most direct MCP integration in the directory is <strong><a href={workspaceMcpUrl}>dsh-workspace-mcp</a></strong>. It reads <code>&lt;session-cwd&gt;/.dsh/mcp.servers.yml</code> and loads those servers for the agent, <strong>scoped to the current workspace</strong> and <strong>auto-loaded / unloaded per project</strong>. That's the ergonomic detail that matters: you declare your MCP servers in a YAML file that lives inside the project, so each repo brings its own tools with it — no global config, no servers bleeding across unrelated sessions. It's currently listed as <code>not-on-npm</code> in the directory (you install from source), so treat it as early but directionally correct.</p>
+
+  <h2>Plugins that ship their own MCP server</h2>
+  <p>MCP runs both directions. <strong><a href={coworkUrl}>dsh-cowork</a></strong> is a doc-tools plugin — <code>doc_read</code> / <code>doc_write</code> for xlsx, pdf, docx, pptx, and ipynb — and it ships "<strong>plus an MCP server and CLI</strong>." In other words, you can use it inside dsh as a normal plugin, <em>or</em> point another MCP-capable client at it as a server. That dual nature is the cleanest illustration of how dsh sits relative to the MCP ecosystem: a single tool can be both a Cordis plugin and an MCP server depending on which side you call it from.</p>
+
+  <h2>The "zero external MCP" counter-pattern</h2>
+  <p>Some builders deliberately go the other way. <strong><a href={visionPrimitivesUrl}>dsh-vision-primitives</a></strong> is a visual-reasoning plugin that advertises "<strong>zero external MCP</strong>" — a Set-of-Mark numbered grid overlay for precise visual grounding done natively inside the plugin, with no out-of-process server to babysit. It's worth naming because it captures a real philosophy split in the community: MCP adds a second process, a second failure domain, and a second thing to keep running, so for self-contained capabilities, a native plugin is often the better engineering choice. The MCP bridge is for the tools that <em>can't</em> be a plugin — the ones already running elsewhere.</p>
+
+  <h2>When to reach for MCP vs. a plugin</h2>
+  <ul>
+    <li><strong>Reach for a plugin</strong> when the capability is dsh-specific (memory, UI, session hooks) or self-contained (a tool that just runs code in-process).</li>
+    <li><strong>Reach for MCP</strong> when the tool already lives in another process you don't want to reimplement — a database, a browser automation daemon, a company-internal API — and you want it scoped per project via <code>.dsh/mcp.servers.yml</code>.</li>
+    <li><strong>Expose MCP</strong> (the <code>dsh-cowork</code> pattern) when you've built something in dsh that a non-dsh client should also be able to use.</li>
+  </ul>
+
+  <h2>Current state</h2>
+  <p>MCP support in dsh is real but still maturing. The dedicated bridge (<code>dsh-workspace-mcp</code>) is early and not yet on npm; the most polished MCP-adjacent plugins (<code>dsh-cowork</code>) use MCP as an <em>export</em> rather than an import. If you're coming from Claude Code and expecting a mature <code>.mcp.json</code>-style experience, the honest answer is: dsh's equivalent is the plugin system itself, with MCP as a targeted adapter for external processes. For the current, test-verified lineup of MCP-related and tool plugins — with exact install commands — start at the <a href={directoryUrl}>plugin directory</a>.</p>
+</BlogPost>

@@ -1,0 +1,47 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const dshMemoryUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-memory/');
+const dshMnemonUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-mnemon/');
+const sageMemUrl = getRelativeLocaleUrl('zh', '/plugins/sage-mem/');
+const dshSgmeUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-sgme/');
+---
+<BlogPost title="DeepSeek Harness Memory — dsh-memory / dsh-mnemon / sage-mem / dsh-sgme 四种记忆方案怎么选 | dshbase 中文" description="DeepSeek Harness（dsh）记忆插件全景：dsh-memory（会话日志引用记忆）、dsh-mnemon（运行时+归档+受监督）、sage-mem（中文全文搜索）、dsh-sgme（多 agent 共享 HTTP 记忆）各自的定位差异与选择建议——全部在 dsh 0.1.0-rc.6 上实测。" currentPath="/blog/dsh-memory-guide/" category="对比">
+  <h1>DeepSeek Harness <span class="accent">记忆</span>：四种让 Agent 记住你的方案</h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+
+  <p>开箱状态下，DeepSeek Harness（<code>dsh</code>）只会记住<em>一个会话内</em>的事——它的只追加事件日志和 <code>AGENTS.md</code> 给了它一套能用的短期记忆。可你一关掉标签页，这些状态就没了。正是这个空白，让记忆成了整个<a href={directoryUrl}>插件目录</a>里挤得最凶的一角：半打插件都打着同一句卖点（「dsh 长期记忆」），底层干的却是完全不同的活。这篇指南把最有代表性的四个摆在一起对比，让你不用一个个装过去就知道该选谁。</p>
+
+  <h2>四种方案速览</h2>
+  <ul>
+    <li><strong><a href={dshMemoryUrl}>dsh-memory</a></strong>——建在 dsh 无损会话日志<em>之上</em>的引用记忆。</li>
+    <li><strong><a href={dshMnemonUrl}>dsh-mnemon</a></strong>——Mnemon 深度集成：运行时记忆 + 可检索归档 + 受监督记忆。</li>
+    <li><strong><a href={sageMemUrl}>sage-mem</a></strong>——中文优先全文搜索的跨会话记忆，fork 自 <code>claude-mem</code>。</li>
+    <li><strong><a href={dshSgmeUrl}>dsh-sgme</a></strong>——SGME 记忆引擎桥接，通过 HTTP 实现多 agent 共享长期记忆。</li>
+  </ul>
+
+  <h2>dsh-memory：把事实引用回原始事件</h2>
+  <p>dsh-memory 是四个里最「dsh 原生」的。它不自建一个独立存储，而是坐在 dsh 已经写好的会话日志之上，蒸馏出<strong>人可审计的事实，每条都带着引用、能回溯到确切的来源事件</strong>。卖点是信任：当 Agent 说「你说过 API key 每月 1 号轮换」时，你能点进去看到它到底在哪一轮读到这句话，而不是凭一次模糊的向量匹配去赌。我们在 dsh 0.1.0-rc.6 上实测它加载干净（<code>test: ok</code>），并且以 <code>dsh-memory</code> 上架 npm，安装只需一行 <code>dsh plugin add dsh-memory</code>。</p>
+
+  <h2>dsh-mnemon：运行时、归档，加一个监督者</h2>
+  <p>dsh-mnemon 是重量级选手。它把 <strong>Mnemon</strong> 系统深度接进来，把记忆分成三层：<strong>运行时记忆</strong>（快、在上下文里、服务当前任务）、<strong>可检索归档</strong>（之后能查询的长期存储）、<strong>受监督记忆</strong>（只有通过审核才会落库的事实）。如果你要的是一套真的像知识库、有「草稿 vs 已批准」概念的记忆系统，而不是一张普通便签，就选它。它同样在 dsh 0.1.0-rc.6 上通过 <code>ok</code> 验证，星数比 dsh-memory 还多一些，说明它被社区真刀真枪用过。</p>
+
+  <h2>sage-mem：中文优先搜索</h2>
+  <p>如果你的笔记、issue、提示词都是中文，sage-mem 就是首选。它是一个跨会话记忆插件，<strong>fork 自 <code>claude-mem</code></strong>，但重新围绕<strong>中文优先全文搜索</strong>做了调校。这不是外观差异，而是实打实的：很多通用 embedding 和分词层处理 CJK 文本都很拉胯，一个从根上为中文优化分词与召回的插件，捞你那些中文笔记时会明显更准。它在 dsh 0.1.0-rc.6 上通过了 <code>ok</code> 测试。</p>
+
+  <h2>dsh-sgme：多个 Agent 通过 HTTP 共享记忆</h2>
+  <p>dsh-sgme 解决的是另一个完全不同的难题。前三个都是给<em>单个</em> Agent 跨会话记住东西，dsh-sgme 则是一个 <strong>SGME 记忆引擎桥接，让多个 Agent 通过 HTTP 共享长期记忆</strong>。如果你在跑并行的 dsh 实例——或者从父会话 spawn 出来的子代理——这一层能让它们共享一块可查询的记忆，而不是各人怀里揣一个孤岛。星数现在还低，但它是记忆分类里唯一直接瞄准多 agent 场景的插件，且在 dsh 0.1.0-rc.6 上验证为 <code>ok</code>。</p>
+
+  <h2>怎么选</h2>
+  <p>决策树很短：</p>
+  <ul>
+    <li>想要<strong>可审计、可引用</strong>的记忆，且配置越少越好 → <strong>dsh-memory</strong>。</li>
+    <li>想要<strong>真正的知识库</strong>，带运行时 / 归档 / 审核分层 → <strong>dsh-mnemon</strong>。</li>
+    <li>内容<strong>以中文为主</strong>、召回质量要紧 → <strong>sage-mem</strong>。</li>
+    <li>在跑<strong>多 agent / 子代理</strong>、需要共享状态 → <strong>dsh-sgme</strong>。</li>
+  </ul>
+  <p>下单前还有两个值得知道：<strong>dsh-plugin-meta-memory</strong>（结构化长期记忆，brief/full 单元对 + 自动注入）和 <strong>dsh-plugin-claude-bridge</strong>（把你现有的 Claude Code 记忆、技能、配置零迁移搬进 dsh）。两者都在<a href={directoryUrl}>插件目录</a>里；注意目录目前在 dsh 0.1.0-rc.6 上把它们标成 <code>load-fail</code>，所以在状态更新前，把它们当「有前景、但还没验证」看待。</p>
+
+  <p>最后提醒一句：市面上其实有<em>两个</em>同名「dsh-memory」插件——本文讲的引用记忆版，以及另一个以 <code>@furongjun1999/dsh-memory</code> 发布的「灵枢」版，主打知识飞轮与递归自省。安装时记得核对包名，别装错。完整、实测过的清单（含安装命令）在<a href={directoryUrl}>插件目录</a>里。</p>
+</BlogPost>

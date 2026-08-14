@@ -1,0 +1,45 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const approvalUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-tool-approval/');
+const customToolUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-custom-tool/');
+const auditUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-security-audit/');
+const pluginCheckUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-plugin-check/');
+const contextDoctorUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-context-doctor/');
+---
+<BlogPost title="DeepSeek Harness Sandbox — 权限、安全与工具审批指南 | dshbase 中文" description="DeepSeek Harness（dsh）如何防止 Agent 闯祸：权限预设、手动工具审批（dsh-tool-approval）、沙箱化 JavaScript 工具（dsh-custom-tool）与安全审计插件——全部在 dsh 0.1.0-rc.6 上实测。" currentPath="/blog/dsh-sandbox/" category="指南">
+  <h1>DeepSeek Harness <span class="accent">沙箱</span>与安全：给 Agent 套上缰绳</h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+
+  <p>一个能跑工具的 Agent，就是一个可能闯祸的 Agent。DeepSeek Harness 给了一个真答案——不是一个「沙箱」万能开关，而是一套分层模型：事前的权限预设、事后审计用的只追加日志，以及中间一撮社区插件把缝隙补上。下面是完整的缰绳，全部对照 dsh 0.1.0-rc.6 验证过。</p>
+
+  <h2>内置第一层：权限预设</h2>
+  <p>dsh 的第一道防线是它的模式系统。你不是启动一个全能的 Agent，而是选一个<strong>预设</strong>——<strong>极简</strong>模式把 Agent 削到最基础的工具集，用于基准测试和受限任务；完整的<strong>标准</strong>模式才打开整套编码工具链。选预设本身就是一次权限决策：上下文里的工具越少，爆炸半径越小。再配上 dsh 的<strong>只追加会话日志</strong>，每一次权限变更、每一次工具调用都成为可回放的事件，于是「它到底干了啥」在事后永远可查。</p>
+
+  <h2>dsh-tool-approval：把人类放进回路</h2>
+  <p>在风险最高的时刻，社区补上了 <strong><a href={approvalUrl}>dsh-tool-approval</a></strong>——「DeepSeek Harness 手动审批（又称 Manual Mode / Ask Mode）」。这是经典的先问再执行门禁：模型一调用工具就暂停，等人类点一下同意 / 拒绝。就这一个开关，能在任务需要时把 dsh 从「自主」变成「受监督」——部署、写到工作区之外、任何不可逆的操作。注意目录目前在 dsh 0.1.0-rc.6 上把它标为 <code>install-fail</code>，生产环境依赖前务必先验证能否装上。</p>
+
+  <h2>dsh-custom-tool：沙箱化的 JavaScript 工具</h2>
+  <p>最有趣的跟安全沾边的插件是 <strong><a href={customToolUrl}>dsh-custom-tool</a></strong>，它让你「通过 Monaco 编辑器创建和管理<strong>沙箱化</strong>的 JavaScript 工具」，配模型驱动的工具生命周期。关键词是<em>沙箱化</em>：当模型（或你）写一个小 JS 工具时，它跑在一个受限环境里，而不是带着宿主进程的全部权限。这是个干净的模式——既让 Agent 能自我扩展，又不把钥匙交出去——而且是这个分类里打磨得比较好的插件之一，在 dsh 0.1.0-rc.6 上验证为 <code>ok</code>。</p>
+
+  <h2>dsh-security-audit：看清你的暴露面</h2>
+  <p>光防不行，还得有眼睛。<strong><a href={auditUrl}>dsh-security-audit</a></strong> 是个本地审计插件，「上报配置、插件来源、会话与网络暴露面，且是<strong>只读、脱敏</strong>的风险报告」。让它可信的两个设计选择：只读（审计时不改动任何东西）、并且秘密在进报告之前就做了脱敏。它在 dsh 0.1.0-rc.6 上从源码构建（<code>git-build</code>），也是在把 Agent 连到任何真实东西之前，最快搞清「这次安装到底暴露了什么」的办法。</p>
+
+  <h2>供应链安全：dsh-plugin-check</h2>
+  <p>dsh 的一大块攻击面是第三方插件，而每个插件都是跑在你机器上的代码。<strong><a href={pluginCheckUrl}>dsh-plugin-check</a></strong> 正面处理这件事：它「扫描插件仓库的 manifest 协议、patch 格式、构建陷阱与 hub 上架状态，零依赖、只读」。在你 <code>dsh plugin add</code> 某个从论坛帖子里翻到的东西之前，它能先给仓库做个结构性体检——manifest 是否合规、patch 格式是否正常、有没有明显的构建期陷阱。它不是完整安全审计，但胜在便宜、是第一道过滤，也是 Development & Runtime 分类里星数靠前的插件。</p>
+
+  <h2>上下文卫生：dsh-context-doctor</h2>
+  <p>还有一层常被忽略：<strong><a href={contextDoctorUrl}>dsh-context-doctor</a></strong> 审计的是被<em>注入</em>的内容，而非被执行的内容——它「测算 AGENTS.md 指令链、技能目录、工具 schema 的 token 成本，检测重复与冲突」。这也是安全问题，因为相互冲突或重复的指令，恰恰是让模型犯糊涂、干错事的元凶。一套紧凑、无冲突的指令集，是沙箱故事里更安静、却真实的一环。</p>
+
+  <h2>安全栈一气呵成</h2>
+  <ol>
+    <li><strong>从受限开始</strong>：选极简预设，别一上来全开。</li>
+    <li><strong>给危险调用加门禁</strong>：<code>dsh-tool-approval</code> 做 Manual / Ask 模式。</li>
+    <li><strong>沙箱化自定义代码</strong>：<code>dsh-custom-tool</code> 跑模型写的工具。</li>
+    <li><strong>审计暴露面</strong>：连真东西之前先跑 <code>dsh-security-audit</code>。</li>
+    <li><strong>过滤供应链</strong>：装第三方插件前先跑 <code>dsh-plugin-check</code>。</li>
+    <li><strong>保持上下文干净</strong>：<code>dsh-context-doctor</code> 抓指令冲突。</li>
+  </ol>
+  <p>没有魔法——就是纵深防御，由 dsh 自带的预设加上一撮认真的插件拼成。要看当前、实测过的阵容（含安装命令），从<a href={directoryUrl}>插件目录</a>开始。</p>
+</BlogPost>

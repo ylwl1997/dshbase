@@ -1,0 +1,49 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const sidechainUrl = getRelativeLocaleUrl('en', '/plugins/dsh-sidechain/');
+const crosstalkUrl = getRelativeLocaleUrl('en', '/plugins/dsh-crosstalk/');
+const interconnectUrl = getRelativeLocaleUrl('en', '/plugins/dsh-interconnect/');
+const dataAgentUrl = getRelativeLocaleUrl('en', '/plugins/dsh-data-agent/');
+const sgmeUrl = getRelativeLocaleUrl('en', '/plugins/dsh-sgme/');
+---
+<BlogPost title="DeepSeek Harness Subagent — Multi-Agent, Fork & Model Switching Guide | dshbase" description="How to run multiple agents and subagents in DeepSeek Harness (dsh): agent presets, fork-based side conversations, cross-session messaging, and shared memory — grounded in the official repo discussions and the real plugins that implement them, verified on dsh 0.1.0-rc.6." currentPath="/blog/dsh-subagent/" category="Guide">
+  <h1>DeepSeek Harness <span class="accent">subagent</span>: multi-agent patterns without leaving dsh</h1>
+  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+  <p>DeepSeek Harness is, at its core, a single-agent loop. But a harness that can only ever run one brain gets cramped fast, and the official repo's discussions — plus a wave of community plugins — have been quietly filling in the multi-agent story. The result isn't a rigid "spawn a subagent" API so much as a toolkit of <strong>presets, forks, and message channels</strong> that compose together. Here's how the pieces actually fit, verified against dsh 0.1.0-rc.6 and the plugins that ship today.</p>
+
+  <h2>Why dsh has no single "spawn" command</h2>
+  <p>A word on expectations. If you come from a framework with a built-in <code>spawn_subagent()</code>, dsh will feel different — and deliberately so. The kernel is a plugin system, not an orchestration runtime, so multi-agent behavior is assembled from primitives rather than exposed as one blessed API. The upside is that the primitives are genuinely composable: the same fork mechanism that powers a throwaway side chat also underlies the messaging handoff, and the same preset mechanism that defines a data agent can define any other role you invent. The downside is that nothing is handed to you pre-wired — you assemble the pieces, which is why the patterns below matter more than any single plugin.</p>
+
+  <h2>Agent presets: subagents by role</h2>
+  <p>The cleanest entry point is the <strong>preset</strong>. Rather than a single monolithic assistant, dsh lets a plugin declare a distinct agent role with its own tools and instructions. The concrete example in the <a href={directoryUrl}>plugin directory</a> is <strong><a href={dataAgentUrl}>dsh-data-agent</a></strong>, which "defines a dedicated Data Agent preset that lets AI query, update, and analyze data for you." You don't bolt data skills onto your coding agent — you get a second, purpose-built agent and switch into it when the task is data-shaped. That's the subagent idea in its simplest form: specialization via presets, not one bloated persona.</p>
+
+  <h2>Fork-based side conversations</h2>
+  <p>For lightweight parallel work, <strong><a href={sidechainUrl}>dsh-sidechain</a></strong> is the plugin to know. It adds <code>/side</code> for persistent side chats and <code>/btw</code> for one-off side questions, both of which "run in a temporary fork without writing to the main session history." That matters for two reasons: the main session's append-only log stays clean (so your trajectory stays auditable), and the fork inherits the parent's context so the side task can see where you left off. It's the closest thing to a native "spawn a subagent for this small thing" affordance we verified — <code>git-build</code> status on dsh 0.1.0-rc.6, i.e. it builds from source rather than npm.</p>
+
+  <h2>Cross-session and cross-instance messaging</h2>
+  <p>Once you have more than one agent, they need to talk. Two plugins cover the two scales:</p>
+  <ul>
+    <li><strong><a href={crosstalkUrl}>dsh-crosstalk</a></strong> — "any session on the machine can list and message any other, Claude Code-style." Local, same-machine fan-out.</li>
+    <li><strong><a href={interconnectUrl}>dsh-interconnect</a></strong> — "cross-instance message and event handoff" via an interconnect service plus tools. This is the one that reaches across processes and machines.</li>
+  </ul>
+  <p>Together they turn a fleet of dsh instances into something that can delegate and report back — a supervisor sending work to workers, workers posting results, all without copy-pasting between browser tabs.</p>
+
+  <h2>Shared memory across agents</h2>
+  <p>Messaging moves tasks between agents; memory keeps them coherent. <strong><a href={sgmeUrl}>dsh-sgme</a></strong> is the bridge that gives "multi-agent shared long-term memory via HTTP." If each subagent only remembers its own session, you lose context at every handoff. With a shared SGME-backed store, what agent A learns is queryable by agent B. It's still early (low stars), but it verified <code>ok</code> on dsh 0.1.0-rc.6 and is the only memory plugin aimed squarely at the multi-agent case.</p>
+
+  <h2>Model switching: the other "multi" lever</h2>
+  <p>Subagents aren't only about <em>how many</em> agents — they're also about <em>which model</em> each one runs. dsh's model picker is provider-agnostic by design, so the natural multi-agent pattern is a cheap/fast model for routing and a strong model for the deep work, switched per session or per task. Because models in dsh are first-class and swappable (the picker is a core feature, not a plugin), a "subagent" can mean "same harness, different model" just as much as "same model, different role." Combine this with presets and you get a practical division of labor: a routing agent on a small model, a data agent on a mid model, and a coding agent on the biggest one.</p>
+
+  <h2>Putting it together</h2>
+  <p>There's no single command that gives you a fully-fledged subagent system yet — the pieces are still community-grown and uneven. But the pattern is already workable on dsh 0.1.0-rc.6:</p>
+  <ol>
+    <li>Define roles with <strong>presets</strong> (<code>dsh-data-agent</code>).</li>
+    <li>Run throwaway parallel work in <strong>forks</strong> (<code>dsh-sidechain</code>).</li>
+    <li>Wire agents together with <strong>messaging</strong> (<code>dsh-crosstalk</code> locally, <code>dsh-interconnect</code> across instances).</li>
+    <li>Give them <strong>shared memory</strong> (<code>dsh-sgme</code>) and <strong>per-role models</strong>.</li>
+  </ol>
+  <p>None of this requires forking the core — it's all plugins on the Cordis kernel, which is exactly why it appeared so fast. For the current, test-verified lineup of these and related plugins (with install commands), start at the <a href={directoryUrl}>plugin directory</a>.</p>
+</BlogPost>

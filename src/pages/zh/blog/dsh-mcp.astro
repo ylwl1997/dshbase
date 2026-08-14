@@ -1,0 +1,36 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const workspaceMcpUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-workspace-mcp/');
+const coworkUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-cowork/');
+const visionPrimitivesUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-vision-primitives/');
+---
+<BlogPost title="DeepSeek Harness MCP — 如何接入 MCP Server（dsh-workspace-mcp 等）| dshbase 中文" description="MCP 在 DeepSeek Harness（dsh）里到底怎么接：dsh-workspace-mcp 的 workspace 级 MCP 加载、dsh-cowork 这类自带 MCP server 的插件，以及为什么 dsh 是插件原生而非 MCP 原生——全部在 dsh 0.1.0-rc.6 上实测。" currentPath="/blog/dsh-mcp/" category="指南">
+  <h1>DeepSeek Harness <span class="accent">MCP</span>：把外部 Server 接进一个插件原生的 Agent</h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+
+  <p>Model Context Protocol（MCP）是给 Agent 提供「住在进程外」的工具的事实标准——但把它当默认心智模型套到 DeepSeek Harness 上，是错的。dsh 不是像 Claude Code 那样 MCP 原生；它是<em>插件原生</em>，跑在 Cordis 内核上，插件才是扩展的基本单位。但这不代表 MCP 无关紧要。社区已经修好了干净的桥，而且有些 dsh 插件反过来<em>对外暴露</em> MCP server。下面是 MCP 在 dsh 0.1.0-rc.6 里到底怎么用。</p>
+
+  <h2>插件优先，MCP 当适配层</h2>
+  <p>关键区别：在 dsh 里，你通常装的是<em>插件</em>（<code>dsh plugin add …</code>），而不是注册一个 MCP server。插件跑在 harness 内部，能做外部 server 做不到的事——读会话日志、注入上下文、钩住 UI。MCP 则相反，是给那些已经活在独立进程里的工具用的（数据库、浏览器、搜索 API）。所以正确的问题不是「怎么在 dsh 里打开 MCP」，而是「哪些外部工具该桥接进来，哪些干脆装成插件」。要判断你正想 MCP 进去的那个工具是不是早有人做成插件了，最快的方式就是查<a href={directoryUrl}>插件目录</a>。</p>
+
+  <h2>dsh-workspace-mcp：按项目加载 MCP server</h2>
+  <p>目录里最直接的 MCP 集成是 <strong><a href={workspaceMcpUrl}>dsh-workspace-mcp</a></strong>。它读取 <code>&lt;session-cwd&gt;/.dsh/mcp.servers.yml</code> 并为 Agent 加载其中的 server，<strong>作用域限定在当前 workspace</strong>、<strong>随项目自动加载 / 卸载</strong>。真正要紧的正是这个人体工学细节：你把 MCP server 声明在一个项目内的 YAML 文件里，于是每个仓库自带自己的工具——没有全局配置，也不会让 server 串到不相干的会话里。目前目录把它标成 <code>not-on-npm</code>（需从源码安装），所以把它当「方向对、但还早」看待。</p>
+
+  <h2>自带 MCP server 的插件</h2>
+  <p>MCP 是双向的。<strong><a href={coworkUrl}>dsh-cowork</a></strong> 是个文档工具插件——<code>doc_read</code> / <code>doc_write</code> 处理 xlsx、pdf、docx、pptx、ipynb——而且它额外「附带一个 MCP server 和 CLI」。换句话说，你既能在 dsh 里把它当普通插件用，<em>也能</em>让另一个支持 MCP 的客户端把它当 server 连。这种双面性最清楚地说明了 dsh 在 MCP 生态里的位置：同一个工具，从哪一侧调用，它就可以是 Cordis 插件或 MCP server。</p>
+
+  <h2>「零外部 MCP」的反例</h2>
+  <p>也有作者故意走相反的路。<strong><a href={visionPrimitivesUrl}>dsh-vision-primitives</a></strong> 是个视觉推理插件，明确打广告「<strong>零外部 MCP</strong>」——用 Set-of-Mark 编号网格覆盖层做精确视觉定位，全部在插件内部原生完成，不需要养一个进程外 server。值得点名，是因为它抓住了社区里真实存在的一条哲学分叉：MCP 多一个进程、多一个故障域、多一个要一直开着的玩意儿，所以对自包含的能力而言，原生插件往往是更好的工程选择。MCP 桥是留给那些<em>没法</em>做成插件的工具的——那些本来就在别处跑着的。</p>
+
+  <h2>什么时候用 MCP，什么时候用插件</h2>
+  <ul>
+    <li><strong>选插件</strong>：能力是 dsh 专属（记忆、UI、会话钩子）或自包含（一个进程内跑代码的工具）。</li>
+    <li><strong>选 MCP</strong>：工具已经活在另一个你不想重写的进程里——数据库、浏览器自动化守护进程、公司内部 API——并且你想通过 <code>.dsh/mcp.servers.yml</code> 按项目隔离。</li>
+    <li><strong>对外暴露 MCP</strong>（<code>dsh-cowork</code> 模式）：你在 dsh 里造的东西，非 dsh 客户端也该能用。</li>
+  </ul>
+
+  <h2>现状</h2>
+  <p>dsh 的 MCP 支持是真的，但仍在成熟中。专门的桥（<code>dsh-workspace-mcp</code>）还很早期、尚未上 npm；打磨得最好的 MCP 相关插件（<code>dsh-cowork</code>）是把 MCP 当<em>出口</em>而非入口。如果你从 Claude Code 过来、期待一套成熟的 <code>.mcp.json</code> 式体验，诚实的答案是：dsh 的对等物就是插件系统本身，MCP 是给外部进程开的一个定向适配口。要看 MCP 相关与工具类插件当前、实测过的阵容（含确切安装命令），从<a href={directoryUrl}>插件目录</a>开始。</p>
+</BlogPost>

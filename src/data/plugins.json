@@ -615,7 +615,7 @@
    "archived": false
   },
   {
-   "name": "dsh-memory",
+   "name": "dsh-lingshu-memory",
    "url": "https://github.com/FuRongJun-1999/CommonTrustProtocol",
    "pkg": "@furongjun1999/dsh-memory",
    "ver": "0.2.1",
@@ -628,6 +628,40 @@
    "forks": 0,
    "issues": 0,
    "language": "",
+   "updated": "2026-08-14",
+   "archived": false
+  },
+  {
+   "name": "dsh-tdai-memory",
+   "url": "https://github.com/Scorp1o117/dsh-tdai-memory",
+   "pkg": "dsh-tdai-memory",
+   "ver": "0.2.7",
+   "npm": true,
+   "test": "ok",
+   "desc_en": "TencentDB Agent Memory port for DSH — four-layer memory L0-L3 (conversation, atomic, scene, user profile) with vector retrieval.",
+   "desc_zh": "腾讯四层记忆（L0-L3：对话层/原子记忆/场景归纳/用户画像）的 DSH 移植，带向量检索。",
+   "desc": "TencentDB Agent Memory (four-layer L0-L3) port for DeepSeek Harness.",
+   "stars": 2,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
+  },
+  {
+   "name": "dsh-mneme",
+   "url": "https://github.com/modusensus/dsh-mneme",
+   "pkg": "",
+   "ver": "",
+   "npm": false,
+   "test": "not-on-npm",
+   "desc_en": "Mneme memory — curated long-term memory with SQLite + Markdown dual-write and autoDream.",
+   "desc_zh": "Mneme 记忆——精选长期记忆，SQLite + Markdown 双写，带 autoDream。",
+   "desc": "Mneme curated long-term memory for DeepSeek Harness.",
+   "stars": 8,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
    "updated": "2026-08-14",
    "archived": false
   }
