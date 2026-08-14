@@ -86,10 +86,22 @@ const t = {
       pre.appendChild(btn);
     });
 
-    // Real-time GitHub stats (stars / forks / issues)
+    // Real-time GitHub stats (stars / forks / issues) with count-up animation
     (async () => {
       const els = document.querySelectorAll('[data-stars-name]');
       if (!els.length) return;
+      const fmt = (n) => n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n);
+      const animate = (el, end, duration) => {
+        const startTime = performance.now();
+        const tick = (now) => {
+          const t = Math.min((now - startTime) / duration, 1);
+          // ease-out
+          const eased = 1 - Math.pow(1 - t, 3);
+          el.textContent = fmt(Math.round(end * eased));
+          if (t < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      };
       try {
         const res = await fetch('/api/stats');
         if (!res.ok) return;
@@ -99,10 +111,14 @@ const t = {
           const kind = el.getAttribute('data-stats-kind') || 'stars';
           const v = stats[name];
           if (v && v[kind] !== undefined) {
-            el.textContent = v[kind] >= 1000 ? (v[kind] / 1000).toFixed(1) + 'k' : String(v[kind]);
+            animate(el, v[kind], 800);
+          } else {
+            el.textContent = '0';
           }
         });
-      } catch (e) { /* keep static fallback */ }
+      } catch (e) {
+        els.forEach((el) => { el.textContent = '—'; });
+      }
     })();
   </script>
 </body>
