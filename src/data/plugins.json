@@ -1469,6 +1469,23 @@
    "language": "JavaScript",
    "updated": "2026-08-13",
    "archived": false
+  },
+  {
+   "name": "dsh-adapter-feishu",
+   "url": "https://github.com/AtinyFurina/dsh-adapter-feishu",
+   "pkg": "",
+   "ver": "",
+   "npm": false,
+   "test": "not-on-npm",
+   "desc_en": "Feishu/Lark adapter — receive and send messages in Feishu via long-connection WebSocket, no public IP needed.",
+   "desc_zh": "飞书适配器——通过长连接 WebSocket 在飞书里收发消息，无需公网 IP/域名/内网穿透。",
+   "desc": "Feishu adapter for DSH — send/receive messages in Feishu via WebSocket.",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   }
  ],
  "Development & Runtime": [
@@ -1737,6 +1754,23 @@
    "desc_en": "Workspace-level MCP server loading — reads <session-cwd>/.dsh/mcp.servers.yml, agent-scoped, auto load/unload per project.",
    "desc_zh": "workspace 级 MCP 加载——读 <session-cwd>/.dsh/mcp.servers.yml，agent 作用域，随项目自动加载/卸载。",
    "desc": "Workspace-level MCP loading + .env injection for DSH.",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "",
+   "updated": "2026-08-14",
+   "archived": false
+  },
+  {
+   "name": "dsh-remote-ssh",
+   "url": "https://github.com/Yan-Zero/dsh-remote-ssh",
+   "pkg": "",
+   "ver": "",
+   "npm": false,
+   "test": "not-on-npm",
+   "desc_en": "Use a remote SSH host as a transparent workspace — transparent file routing, code search, and terminal commands over SSH.",
+   "desc_zh": "把 SSH 远程主机作为透明工作区使用——文件路由、代码搜索、终端命令都走 SSH。",
+   "desc": "SSH remote host as a transparent workspace for DSH.",
    "stars": 0,
    "forks": 0,
    "issues": 0,
