@@ -64,7 +64,14 @@ const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6
     ) : (
       <Fragment>
         <h2>安装</h2>
-        <p>该插件以 <strong>GitHub 源码</strong>分发——没发到 npm，<code>dsh plugin add</code> 暂时装不了。可从<a href={p.url} target="_blank" rel="noopener">仓库</a>自行构建，或请作者发布（加 <code>dsh.bundle</code> 清单后 <code>npm publish</code>）。</p>
+        <p>该插件是 <strong>GitHub 源码</strong>（未发 npm）——直接从仓库装：</p>
+        <pre class="code-block"><code>dsh plugin --profile web add github:{repo}</code></pre>
+        <ol class="steps">
+          <li>先装 pnpm：<code>npm install -g pnpm</code>。</li>
+          <li>从 GitHub 装：<code>dsh plugin --profile web add github:{repo}</code>。</li>
+          <li>重启 <code>dsh web</code>。</li>
+        </ol>
+        <p class="muted small">注：带 <code>prepare</code> 构建脚本的插件，pnpm 会要求确认——把提示的 key 加进 <code>pnpm-workspace.yaml</code> 的 <code>allowBuilds</code> 再重跑即可。</p>
       </Fragment>
     )}
 
@@ -75,7 +82,7 @@ const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6
           {related.map((r) => (
             <a class="card card-link" href={`/zh/plugins/${r.name}/`}>
               <h3>{r.name}</h3>
-              <p>{r.test === 'ok' ? '✅ 已验证' : r.npm ? 'npm 可装' : '仅源码'}</p>
+              <p>{r.test === 'ok' ? '✅ 已验证' : r.npm ? 'npm 可装' : 'GitHub 源码'}</p>
             </a>
           ))}
         </div>

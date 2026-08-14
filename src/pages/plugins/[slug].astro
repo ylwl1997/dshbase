@@ -64,7 +64,14 @@ const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6
     ) : (
       <Fragment>
         <h2>Install</h2>
-        <p>This plugin is distributed as <strong>GitHub source</strong> — it is not published to npm, so <code>dsh plugin add</code> can't install it yet. Build it from <a href={p.url} target="_blank" rel="noopener">the repository</a>, or ask the author to publish it (add a <code>dsh.bundle</code> manifest and run <code>npm publish</code>).</p>
+        <p>This plugin is <strong>GitHub source</strong> (not published to npm) — install it straight from the repo:</p>
+        <pre class="code-block"><code>dsh plugin --profile web add github:{repo}</code></pre>
+        <ol class="steps">
+          <li>Install pnpm once: <code>npm install -g pnpm</code>.</li>
+          <li>Add it from GitHub: <code>dsh plugin --profile web add github:{repo}</code>.</li>
+          <li>Restart <code>dsh web</code>.</li>
+        </ol>
+        <p class="muted small">Note: plugins that ship a <code>prepare</code> build script may prompt pnpm to allow the build — add the key it prints under <code>allowBuilds</code> in <code>pnpm-workspace.yaml</code>, then re-run.</p>
       </Fragment>
     )}
 
@@ -75,7 +82,7 @@ const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6
           {related.map((r) => (
             <a class="card card-link" href={`/plugins/${r.name}/`}>
               <h3>{r.name}</h3>
-              <p>{r.test === 'ok' ? '✅ verified' : r.npm ? 'on npm' : 'source only'}</p>
+              <p>{r.test === 'ok' ? '✅ verified' : r.npm ? 'on npm' : 'GitHub source'}</p>
             </a>
           ))}
         </div>
