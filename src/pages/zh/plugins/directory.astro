@@ -56,11 +56,11 @@ const statusClass = {
     <p style="margin-top:14px"><a class="btn btn-primary" href="https://github.com/ylwl1997/dshbase/issues/new?template=plugin-submission.yml" target="_blank" rel="noopener">提交你的插件 &rarr;</a> <a class="btn btn-ghost" href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">官方社区 &rarr;</a></p>
     <div class="agent-box">
       <div class="agent-slides">
-        <div class="agent-slide"><strong>🤖 dshbase-catalog</strong> — 让 agent 自己查目录：<code>dsh plugin add dshbase-catalog</code> <a href="/zh/plugins/dshbase-catalog/">→</a></div>
-        <div class="agent-slide"><strong>🌐 dsh-browser-bsk</strong> — 浏览器自动化：<code>dsh plugin add dsh-browser-bsk</code> <a href="/zh/plugins/dsh-browser-bsk/">→</a></div>
-        <div class="agent-slide"><strong>🧹 noatmark-dsh-plugin</strong> — 文本卫生工具：<code>dsh plugin add noatmark-dsh-plugin</code> <a href="/zh/plugins/noatmark-dsh-plugin/">→</a></div>
-        <div class="agent-slide"><strong>⭐ modlens</strong> — 最热门的视觉插件（★939）：<code>dsh plugin add modlens</code> <a href="/zh/plugins/modlens/">→</a></div>
-        <div class="agent-slide"><strong>⭐ dsh-cc-tui</strong> — 终端 UI（★586）：<code>dsh plugin add github:ccch1mneyyy/dsh-cc-tui</code> <a href="/zh/plugins/dsh-cc-tui/">→</a></div>
+        <a class="agent-slide" href="/zh/plugins/dshbase-catalog/"><strong>🤖 dshbase-catalog</strong> — 让 agent 自己查目录：<code>dsh plugin add dshbase-catalog</code></a>
+        <a class="agent-slide" href="/zh/plugins/dsh-browser-bsk/"><strong>🌐 dsh-browser-bsk</strong> — 浏览器自动化：<code>dsh plugin add dsh-browser-bsk</code></a>
+        <a class="agent-slide" href="/zh/plugins/noatmark-dsh-plugin/"><strong>🧹 noatmark-dsh-plugin</strong> — 文本卫生工具：<code>dsh plugin add noatmark-dsh-plugin</code></a>
+        <a class="agent-slide" href="/zh/plugins/modlens/"><strong>⭐ modlens</strong> — 最热门的视觉插件：<code>dsh plugin add modlens</code></a>
+        <a class="agent-slide" href="/zh/plugins/dsh-cc-tui/"><strong>⭐ dsh-cc-tui</strong> — 终端 UI：<code>dsh plugin add github:ccch1mneyyy/dsh-cc-tui</code></a>
       </div>
     </div>
   </section>
@@ -165,8 +165,9 @@ const statusClass = {
   .stats-line { font-size: 14px; color: var(--ink-2); margin: 18px 0 0; text-align: center; }
   .agent-box { font-size: 13.5px; color: var(--ink-2); background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 12px 16px; margin: 14px 0 0; overflow: hidden; }
   .agent-slides { position: relative; }
-  .agent-slide { display: none; }
+  .agent-slide { display: none; text-decoration: none; color: inherit; cursor: pointer; }
   .agent-slide.is-active { display: block; animation: fadeIn .4s; }
+  .agent-slide:hover strong { text-decoration: underline; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
   .c-ok { color: #1a7f37; }
   .c-warn { color: #9a6700; }

@@ -1176,6 +1176,23 @@
    "language": "TypeScript",
    "updated": "2026-08-14",
    "archived": false
+  },
+  {
+   "name": "dshbase-catalog",
+   "url": "https://github.com/ylwl1997/dshbase-catalog",
+   "pkg": "dshbase-catalog",
+   "ver": "0.1.0",
+   "npm": true,
+   "test": "ok",
+   "desc": "Search the dshbase plugin directory from inside DeepSeek Harness.",
+   "desc_en": "Search the dshbase plugin directory from inside DSH — find plugins by keyword, get install commands and test status.",
+   "desc_zh": "在 DSH 里搜索 dshbase 插件目录——按关键词找插件，返回安装命令和实测状态。",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   }
  ],
  "Workflow & Automation": [
