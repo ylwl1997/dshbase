@@ -803,7 +803,7 @@
    "name": "pack-agent-dsh",
    "url": "https://github.com/sakikoTGW/pack-agent",
    "pkg": "@sakikotgw/pack-agent-dsh",
-   "ver": "0.4.2",
+   "ver": "0.4.3",
    "npm": true,
    "test": "ok",
    "desc": "Project .pack.json/.pack.zip into .agent-pack/modpacks/ and expose skills via a workspace allow-list.",
