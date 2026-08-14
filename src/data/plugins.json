@@ -451,6 +451,36 @@
    "language": "TypeScript",
    "updated": "2026-08-14",
    "archived": false
+  },
+  {
+   "name": "dsh-plugin-claude-bridge",
+   "url": "https://github.com/YYTbit/dsh-plugin-claude-bridge",
+   "pkg": "dsh-plugin-claude-bridge",
+   "ver": "0.1.0",
+   "npm": true,
+   "test": "load-fail",
+   "desc": "Bridge Claude Code's memory, skills, and configuration into DeepSeek Harness — zero migration.",
+   "stars": 3,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
+  },
+  {
+   "name": "dsh-plugin-meta-memory",
+   "url": "https://github.com/YYTbit/dsh-plugin-meta-memory",
+   "pkg": "dsh-plugin-meta-memory",
+   "ver": "0.1.0",
+   "npm": true,
+   "test": "load-fail",
+   "desc": "Structured long-term memory system for DeepSeek Harness — unit-based brief/full pairs with auto-inject.",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
   }
  ],
  "Tools & Capabilities": [

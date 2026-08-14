@@ -17,13 +17,23 @@ const repo = p.url.replace('https://github.com/', '');
 const npmHome = p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
 const statusLabel = {
   ok: 'Verified · installs & boots on dsh',
+  'git-ok': 'GitHub · verified (installs & boots)',
+  'git-build': 'GitHub · needs a build step',
+  'git-ui': 'GitHub · needs a Web/TUI surface',
+  'git-fail': 'Install failed',
   ui: 'Installs · needs a Web/TUI surface',
+  'load-fail': 'Load issue',
   'install-fail': 'Install failed (dependency not on npm)',
   'not-on-npm': 'GitHub source only',
 };
 const statusClass = {
   ok: 'st-ok',
+  'git-ok': 'st-ok',
+  'git-build': 'st-warn',
+  'git-ui': 'st-warn',
+  'git-fail': 'st-warn',
   ui: 'st-warn',
+  'load-fail': 'st-warn',
   'install-fail': 'st-warn',
   'not-on-npm': 'st-src',
 };
@@ -32,15 +42,17 @@ const fmt = (n) => (n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n ?? 0));
 const stars = p.stars ?? 0;
 const verdict = p.archived
   ? { label: 'Archived — no longer maintained, use with caution', cls: 'v-warn', icon: '⚠️' }
-  : p.test === 'ok'
+  : p.test === 'ok' || p.test === 'git-ok'
     ? stars >= 100
       ? { label: 'Recommended — verified working and popular', cls: 'v-ok', icon: '✅' }
       : stars >= 20
         ? { label: 'Works — verified, growing community', cls: 'v-ok', icon: '✅' }
         : { label: 'Works — verified, early-stage project', cls: 'v-ok', icon: '✅' }
-    : p.test === 'ui'
+    : p.test === 'ui' || p.test === 'git-ui'
       ? { label: 'UI plugin — installs & activates, needs the web/TUI surface', cls: 'v-warn', icon: '🖥️' }
-      : p.test === 'install-fail'
+      : p.test === 'git-build'
+        ? { label: 'Installable — needs a build step (pnpm allowBuilds)', cls: 'v-warn', icon: '🔧' }
+        : p.test === 'install-fail' || p.test === 'git-fail'
         ? { label: 'Install issue — a dependency is missing from npm', cls: 'v-warn', icon: '⚠️' }
         : stars >= 50
           ? { label: 'Source-only — active project, install from GitHub', cls: 'v-src', icon: '📦' }
@@ -107,6 +119,15 @@ const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6
           <li>Restart <code>dsh web</code>.</li>
         </ol>
         <p class="muted small">Note: plugins that ship a <code>prepare</code> build script may prompt pnpm to allow the build — add the key it prints under <code>allowBuilds</code> in <code>pnpm-workspace.yaml</code>, then re-run.</p>
+        {p.test !== 'not-on-npm' && (
+          <Fragment>
+            <h2 style="margin-top:24px">Test report</h2>
+            <p>{p.test === 'git-ok' && 'Verified: installed from GitHub, activated in the profile, and booted a task successfully.'}
+               {p.test === 'git-ui' && 'Installed and activated, but did not boot in the headless test — it expects a Web/TUI surface and should work in `dsh web`.'}
+               {p.test === 'git-build' && 'Install needs a build step: the plugin ships a `prepare` script that pnpm blocks by default. Add the key it prints to `allowBuilds` in `pnpm-workspace.yaml`, then re-run.'}
+               {p.test === 'git-fail' && 'Could not be installed from GitHub — check the repository for missing dependencies or a broken build.'}</p>
+          </Fragment>
+        )}
       </Fragment>
     )}
 

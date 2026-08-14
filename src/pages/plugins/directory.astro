@@ -4,9 +4,10 @@ import plugins from '../../data/plugins.json';
 const catOrder = Object.keys(plugins);
 const total = catOrder.reduce((s, k) => s + plugins[k].length, 0);
 const all = catOrder.flatMap((k) => plugins[k]);
-const nOk = all.filter((p) => p.test === 'ok').length;
-const nUi = all.filter((p) => p.test === 'ui').length;
-const nFail = all.filter((p) => p.test === 'install-fail' || p.test === 'load-fail').length;
+const nOk = all.filter((p) => p.test === 'ok' || p.test === 'git-ok').length;
+const nUi = all.filter((p) => p.test === 'ui' || p.test === 'git-ui').length;
+const nBuild = all.filter((p) => p.test === 'git-build').length;
+const nFail = all.filter((p) => p.test === 'install-fail' || p.test === 'load-fail' || p.test === 'git-fail').length;
 const nSource = all.filter((p) => p.test === 'not-on-npm').length;
 const nNpm = all.filter((p) => p.npm).length;
 const repo = (u) => u.replace('https://github.com/', '');
@@ -14,13 +15,21 @@ const npmHome = (p) => p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
 const featured = new Set(['huiliyi37/dsh-tianshu-tui', 'omdsh-dev/dsh-at-file', 'omdsh-dev/dsh-genui', 'titanwings/dsh-automation', 'omdsh-dev/DSH-better-sidebar', 'liustack/modlens', 'zhu1090093659/dsh-web-ui', 'Anionex/dsh-computer-use', 'omdsh-dev/dsh-tool-csv', 'ccch1mneyyy/dsh-cc-tui']);
 const statusLabel = {
   ok: 'Verified · npm',
-  ui: 'Installs · needs Web/TUI',
+  'git-ok': 'GitHub · verified',
+  'git-build': 'GitHub · needs build',
+  'git-ui': 'GitHub · UI',
+  'git-fail': 'Install failed',
+  ui: 'npm · needs UI',
   'load-fail': 'Load issue',
   'install-fail': 'Install failed',
   'not-on-npm': 'GitHub source',
 };
 const statusClass = {
   ok: 'st-ok',
+  'git-ok': 'st-ok',
+  'git-build': 'st-warn',
+  'git-ui': 'st-warn',
+  'git-fail': 'st-warn',
   ui: 'st-warn',
   'load-fail': 'st-warn',
   'install-fail': 'st-warn',
@@ -40,7 +49,7 @@ const statusClass = {
       <span class="badge"><span class="dot st-warn"></span>Load / install issue</span>
       <span class="badge">⭐ Featured</span>
     </div>
-    <p class="stats-line">On npm today: <strong>{nNpm}</strong> plugins — <strong class="c-ok">{nOk} verified</strong> ✅ · <strong class="c-warn">{nUi} need a Web/TUI surface</strong> · <strong class="c-warn">{nFail} install issues</strong>. The other <strong>{nSource}</strong> are GitHub source — install any of them with <code>dsh plugin add github:owner/repo</code>.</p>
+    <p class="stats-line">Tested on dsh 0.1.0-rc.6: <strong class="c-ok">{nOk} verified</strong> (npm + git) ✅ · <strong class="c-warn">{nUi} need a Web/TUI surface</strong> · <strong class="c-warn">{nBuild} need a build step</strong> · <strong class="c-warn">{nFail} install issues</strong>. The other <strong>{nSource}</strong> are GitHub source — install with <code>dsh plugin add github:owner/repo</code>.</p>
     <div class="cat-nav">
       {catOrder.map((cat) => (
         <a class="chip" href={`#${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>{cat}</a>
@@ -48,10 +57,10 @@ const statusClass = {
     </div>
     <div class="filter-bar" role="group" aria-label="Filter plugins">
       <button class="fbtn is-active" data-filter="all">All <span class="fcount">{total}</span></button>
-      <button class="fbtn" data-filter="ok">Verified <span class="fcount">{catOrder.reduce((s,k)=>s+plugins[k].filter(p=>p.test==='ok').length,0)}</span></button>
-      <button class="fbtn" data-filter="npm">On npm <span class="fcount">{catOrder.reduce((s,k)=>s+plugins[k].filter(p=>p.npm).length,0)}</span></button>
-      <button class="fbtn" data-filter="source">Source <span class="fcount">{catOrder.reduce((s,k)=>s+plugins[k].filter(p=>p.test==='not-on-npm').length,0)}</span></button>
-      <button class="fbtn" data-filter="issue">Issue <span class="fcount">{catOrder.reduce((s,k)=>s+plugins[k].filter(p=>p.test!=='ok'&&p.npm).length,0)}</span></button>
+      <button class="fbtn" data-filter="verified">Verified <span class="fcount">{catOrder.reduce((s,k)=>s+plugins[k].filter(p=>p.test==='ok'||p.test==='git-ok').length,0)}</span></button>
+      <button class="fbtn" data-filter="npm">npm <span class="fcount">{catOrder.reduce((s,k)=>s+plugins[k].filter(p=>p.npm).length,0)}</span></button>
+      <button class="fbtn" data-filter="source">Source <span class="fcount">{catOrder.reduce((s,k)=>s+plugins[k].filter(p=>!p.npm).length,0)}</span></button>
+      <button class="fbtn" data-filter="issue">Issue <span class="fcount">{catOrder.reduce((s,k)=>s+plugins[k].filter(p=>['ui','load-fail','install-fail','git-fail','git-build'].includes(p.test)).length,0)}</span></button>
     </div>
     {catOrder.map((cat) => {
       const catId = cat.toLowerCase().replace(/[^a-z0-9]+/g, '-');
@@ -62,7 +71,7 @@ const statusClass = {
           {plugins[cat].map((p) => {
             const r = repo(p.url);
             return (
-              <a class="card pcard" href={`/plugins/${p.name}/`} data-test={p.test === 'ok' ? 'ok' : p.npm ? 'issue' : 'source'}>
+              <a class="card pcard" href={`/plugins/${p.name}/`} data-test={p.test} data-npm={p.npm ? '1' : '0'}>
                 <div class="pcard-head">
                   <span class="pcard-name">{p.name}{featured.has(r) ? ' ⭐' : ''}</span>
                   <span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span>
@@ -127,9 +136,13 @@ const statusClass = {
   const heads = document.querySelectorAll('.cat-head');
   const match = (card, f) => {
     const t = card.dataset.test;
+    const isNpm = card.dataset.npm === '1';
     if (f === 'all') return true;
-    if (f === 'npm') return t === 'ok' || t === 'issue';
-    return t === f;
+    if (f === 'verified') return t === 'ok' || t === 'git-ok';
+    if (f === 'npm') return isNpm;
+    if (f === 'source') return !isNpm;
+    if (f === 'issue') return ['ui', 'load-fail', 'install-fail', 'git-fail', 'git-build'].includes(t);
+    return true;
   };
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
