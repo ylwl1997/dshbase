@@ -1,0 +1,44 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const tutorialUrl = getRelativeLocaleUrl('zh', '/tutorial/');
+---
+<BlogPost title="DeepSeek Harness 模型接入 — 官方 API、OpenCode Go 与免费 Agnes | dshbase 中文" description="三种给 DeepSeek Harness 接模型的方式：官方 DeepSeek API、OpenCode Go 套餐（5 刀换 60 刀额度）、Agnes 免费无限量 API。配置步骤与 base URL。" currentPath="/blog/dsh-model-setup/" category="指南">
+  <h1>DeepSeek Harness <span class="accent">模型接入</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+
+  <p>DeepSeek Harness 不绑定模型——指向任意 OpenAI 兼容 API 都能跑。这里是社区实际在用的三种接入方式，从官方 API 到免费档。</p>
+
+  <h2>1. 官方 DeepSeek API</h2>
+  <p>最简单、默认。到 <a href="https://platform.deepseek.com" target="_blank" rel="noopener">platform.deepseek.com</a> 注册、创建 API key，然后配到 dsh：</p>
+  <pre class="code-block"><code>DEEPSEEK_API_KEY: sk-你的key
+# base URL：https://api.deepseek.com</code></pre>
+  <p>写进 <code>~/.dsh/.credentials.yaml</code>，或在<strong>设置 → 模型</strong>里填。官方没有邀请返佣计划——直接注册、按量付费。</p>
+
+  <h2>2. OpenCode Go — 5 刀换 60 刀额度</h2>
+  <p><a href="https://opencode.ai/go?ref=S7Y0RD7RBS" target="_blank" rel="noopener">OpenCode Go</a> 是个 token 套餐：<strong>首月 5 刀给 60 刀额度</strong>，按模型计费。上面最好用的是 DeepSeek 和 MiMo 两个模型。跟 dsh 配合很顺——给 dsh 派个任务，用 OpenCode 的模型额度跑。</p>
+  <pre class="code-block"><code># 在 dsh 里把 OpenCode Go 加为自定义 provider
+# base URL + 你的 OpenCode Go key + 模型（deepseek / mimo）</code></pre>
+  <p>邀请链接：<a href="https://opencode.ai/go?ref=S7Y0RD7RBS" target="_blank" rel="noopener">opencode.ai/go?ref=S7Y0RD7RBS</a></p>
+
+  <h2>3. Agnes — 免费、不限量多模态 API</h2>
+  <p>Agnes（Sapiens AI 出品）提供<strong>永久免费</strong>的多模态 API——<code>agnes-2.5-flash</code> 编码模型免费且不限量，覆盖代码、图像等。也有国内 API 节点。</p>
+  <pre class="code-block"><code># 在 dsh 里把 Agnes 加为自定义 OpenAI 兼容 provider
+# base URL（agnes 节点）+ 你的 Agnes key + 模型：agnes-2.5-flash</code></pre>
+  <p>到 Agnes 平台注册，然后在 dsh 的<strong>设置 → 模型</strong>里加为自定义 provider（小写 Provider ID + base URL + key + 模型）。</p>
+
+  <h2>如何在 dsh 里加自定义 provider</h2>
+  <ol class="steps">
+    <li>打开 web UI 的<strong>设置 → 模型</strong>。</li>
+    <li>添加 provider：小写 ID、base URL、协议、你的 key、至少一个模型。</li>
+    <li>用<strong>获取可用模型</strong>验证端点。</li>
+  </ol>
+  <p>完整模型配置见<a href={tutorialUrl}>教程</a>。</p>
+
+  <h2>选哪个？</h2>
+  <ul>
+    <li><strong>官方 DeepSeek</strong>——最简单，按量付费。</li>
+    <li><strong>OpenCode Go</strong>——早期最划算（5 刀换 60 刀额度）。</li>
+    <li><strong>Agnes</strong>——完全免费，适合测试或轻量使用。</li>
+  </ul>
+</BlogPost>

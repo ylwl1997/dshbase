@@ -45,6 +45,7 @@ const pluginsUrl = getRelativeLocaleUrl('zh', '/plugins/');
       <li><strong>自定义提供方</strong>——小写 Provider ID + 基础 URL + 协议 + 凭据 + 至少一个模型。用<strong>获取可用模型</strong>查询端点。</li>
       <li><strong>视觉模型</strong>——在 <code>$DSH_HOME/settings.yaml</code> 给模型加 <code>input: [text, image]</code>。</li>
     </ul>
+    <p>三种具体接入方案（官方 DeepSeek / OpenCode Go / 免费 Agnes）含 base URL 和邀请链接：见<a href="/zh/blog/dsh-model-setup/">模型接入指南</a>。</p>
 
     <h2 style="margin-top:28px">安装与管理插件</h2>
     <p>插件就是 npm 包。用 <code>dsh plugin</code> 命令往 profile 里加——参数会转发给 <code>pnpm</code>（先 <code>npm install -g pnpm</code>）：</p>

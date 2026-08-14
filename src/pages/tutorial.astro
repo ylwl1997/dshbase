@@ -45,6 +45,7 @@ const pluginsUrl = getRelativeLocaleUrl('en', '/plugins/');
       <li><strong>Custom providers</strong> — lowercase Provider ID + base URL + protocol + credentials + at least one model. Use <strong>Get available models</strong> to query the endpoint.</li>
       <li><strong>Vision models</strong> — add <code>input: [text, image]</code> in <code>$DSH_HOME/settings.yaml</code> for the model.</li>
     </ul>
+    <p>Three concrete setups (official DeepSeek / OpenCode Go / free Agnes) with base URLs and referral links: see the <a href="/blog/dsh-model-setup/">model setup guide</a>.</p>
 
     <h2 style="margin-top:28px">Install &amp; manage plugins</h2>
     <p>Plugins are npm packages. Add one to a profile with the <code>dsh plugin</code> command — the arguments are forwarded to <code>pnpm</code> (install it with <code>npm install -g pnpm</code> first):</p>
