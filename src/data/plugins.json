@@ -339,6 +339,23 @@
    "language": "JavaScript",
    "updated": "2026-08-14",
    "archived": false
+  },
+  {
+   "name": "dsh-codex-experience",
+   "url": "https://github.com/lamost423/dsh-codex-experience",
+   "pkg": "",
+   "ver": "",
+   "npm": false,
+   "test": "not-on-npm",
+   "desc_en": "Codex-style answer annotations, multi-annotation staging, linked references, and an ephemeral Side Chat.",
+   "desc_zh": "Codex 风格回答注解、多注解暂存、链接引用与临时 Side Chat。",
+   "desc": "Codex-style annotations and Side Chat for DSH.",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "",
+   "updated": "2026-08-14",
+   "archived": false
   }
  ],
  "Sessions & Messages": [
@@ -594,6 +611,23 @@
    "forks": 0,
    "issues": 0,
    "language": "Python",
+   "updated": "2026-08-14",
+   "archived": false
+  },
+  {
+   "name": "dsh-memory",
+   "url": "https://github.com/FuRongJun-1999/CommonTrustProtocol",
+   "pkg": "@furongjun1999/dsh-memory",
+   "ver": "0.2.1",
+   "npm": true,
+   "test": "ok",
+   "desc": "Lingshu (灵枢) DeepSeek Harness plugin: complete brain — long-term memory, knowledge flywheel, self-cognition, recursive reflection.",
+   "desc_en": "Lingshu (灵枢) memory plugin: cross-session long-term memory, knowledge flywheel, self-cognition and recursive reflection for DSH agents.",
+   "desc_zh": "灵枢记忆插件：跨会话长期记忆、知识飞轮、自我认知与递归反思，给 DSH agent 一个完整「大脑」。",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "",
    "updated": "2026-08-14",
    "archived": false
   }
@@ -1106,6 +1140,23 @@
    "forks": 0,
    "issues": 0,
    "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
+  },
+  {
+   "name": "dsh-vision-primitives",
+   "url": "https://github.com/zouyuanqing/dsh-vision-primitives",
+   "pkg": "",
+   "ver": "",
+   "npm": false,
+   "test": "not-on-npm",
+   "desc_en": "Native interactive visual-reasoning plugin — Set-of-Mark numbered grid overlay for precise visual grounding, zero external MCP.",
+   "desc_zh": "原生交互式视觉推理插件——Set-of-Mark 编号网格覆盖层，精准视觉定位，零外部 MCP。",
+   "desc": "Native interactive visual-reasoning plugin for DSH.",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "",
    "updated": "2026-08-14",
    "archived": false
   }
@@ -1639,6 +1690,23 @@
    "forks": 0,
    "issues": 0,
    "language": "TypeScript",
+   "updated": "2026-08-14",
+   "archived": false
+  },
+  {
+   "name": "dsh-workspace-mcp",
+   "url": "https://github.com/Momojie-S/dsh-workspace-mcp",
+   "pkg": "",
+   "ver": "",
+   "npm": false,
+   "test": "not-on-npm",
+   "desc_en": "Workspace-level MCP server loading — reads <session-cwd>/.dsh/mcp.servers.yml, agent-scoped, auto load/unload per project.",
+   "desc_zh": "workspace 级 MCP 加载——读 <session-cwd>/.dsh/mcp.servers.yml，agent 作用域，随项目自动加载/卸载。",
+   "desc": "Workspace-level MCP loading + .env injection for DSH.",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "",
    "updated": "2026-08-14",
    "archived": false
   }
