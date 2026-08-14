@@ -800,6 +800,21 @@
    "archived": false
   },
   {
+   "name": "pack-agent-dsh",
+   "url": "https://github.com/sakikoTGW/pack-agent",
+   "pkg": "@sakikotgw/pack-agent-dsh",
+   "ver": "0.4.2",
+   "npm": true,
+   "test": "ok",
+   "desc": "Project .pack.json/.pack.zip into .agent-pack/modpacks/ and expose skills via a workspace allow-list.",
+   "stars": 2,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-13",
+   "archived": false
+  },
+  {
    "name": "dsh-tool-search",
    "url": "https://github.com/vibeinging/dsh-tool-search",
    "pkg": "",
