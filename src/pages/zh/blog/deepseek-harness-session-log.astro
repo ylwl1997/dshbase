@@ -1,0 +1,35 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness 会话日志 — 只追加事件实现可观测性 | dshbase 中文" description="DeepSeek Harness 的会话是只追加的事件日志：系统提示词、推理、工具调用、权限变化都成为可追溯事件。可观测、可审计、可复现的 Agent 调试。" currentPath="/blog/deepseek-harness-session-log/" category="分析">
+  <h1>隐藏的开发者福利：<span class="accent">只追加的会话日志</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+
+  <p>DeepSeek Harness 对开发者最友好、也最容易被忽视的特性之一，是它把会话存成<strong>只追加的事件日志</strong>。</p>
+
+  <h2>日志里有什么</h2>
+  <p>模型看到和做的一切都成为事件：</p>
+  <ul>
+    <li>系统提示词与用户消息</li>
+    <li>推理内容</li>
+    <li>工具调用及其结果</li>
+    <li>权限变化</li>
+    <li>上下文注入与压缩</li>
+    <li>子 Agent 调度</li>
+  </ul>
+
+  <h2>下一轮历史从日志重新推导</h2>
+  <p>模型下一轮看到的历史是<strong>从这份日志重新推导出来的</strong>——不是来自一个黑盒状态。正是这个设计让一切都可以被检查。</p>
+
+  <h2>为什么重要：可观测、可审计、可复现</h2>
+  <p>大多数 Agent 失败时，你只能看到「任务失败」或无限循环——根本不知道它在哪一步跑偏。DeepSeek Harness 的<strong>轨迹视图</strong>可以按来源查看每一次运行。对开发者意味着：</p>
+  <ul>
+    <li><strong>可观测</strong>——精确定位是哪个步骤让任务跑偏。</li>
+    <li><strong>可审计</strong>——追溯每一次工具调用和权限决策。</li>
+    <li><strong>可复现</strong>——从事件日志重放一次运行。</li>
+  </ul>
+  <p>这对研究和调试生产环境里的 Agent 都极有价值。</p>
+
+  <h2>相关</h2>
+  <p>见<a href="/blog/deepseek-harness-modes/">四种模式指南</a>——创造模式和会话日志加在一起，正是让 DeepSeek Harness 成为 Agent 框架而不是成品的原因。</p>
+</BlogPost>

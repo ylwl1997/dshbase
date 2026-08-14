@@ -1,0 +1,35 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness Session Log — Append-Only Events for Observability | dshbase" description="DeepSeek Harness sessions are append-only event logs: system prompts, reasoning, tool calls, and permission changes become traceable events. Observable, auditable, reproducible agent debugging." currentPath="/blog/deepseek-harness-session-log/" category="Analysis">
+  <h1>The hidden developer win: <span class="accent">append-only session logs</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+  <p>One of the most developer-friendly — and most overlooked — features of DeepSeek Harness is how it stores sessions: as an <strong>append-only event log</strong>.</p>
+
+  <h2>What's in the log</h2>
+  <p>Everything the model sees and does becomes an event:</p>
+  <ul>
+    <li>System prompts and user messages</li>
+    <li>Reasoning content</li>
+    <li>Tool calls and their results</li>
+    <li>Permission changes</li>
+    <li>Context injections and compression</li>
+    <li>Sub-agent scheduling</li>
+  </ul>
+
+  <h2>Next turn history is re-derived</h2>
+  <p>The model's history for the next turn is <strong>re-derived from this log</strong> — not from a black-box state. That design choice is what makes the whole thing inspectable.</p>
+
+  <h2>Why it matters: observability, auditing, reproducibility</h2>
+  <p>When most agents fail, you only see "task failed" or an infinite loop — you can't tell where it went off the rails. DeepSeek Harness's <strong>trajectory view</strong> lets you inspect each run by source. For developers, that means:</p>
+  <ul>
+    <li><strong>Observable</strong> — see exactly which step derailed a task.</li>
+    <li><strong>Auditable</strong> — trace every tool call and permission decision.</li>
+    <li><strong>Reproducible</strong> — replay a run from its event log.</li>
+  </ul>
+  <p>That's genuinely valuable for research and for debugging production agents.</p>
+
+  <h2>Related</h2>
+  <p>See the <a href="/blog/deepseek-harness-modes/">four modes guide</a> — the Create mode and session logs together are what make DeepSeek Harness an agent framework rather than a finished product.</p>
+</BlogPost>

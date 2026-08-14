@@ -1,24 +1,39 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
 ---
-<BlogPost title="DeepSeek Harness Modes — Standard, PTC, Minimal &amp; Create | dshbase" description="The four DeepSeek Harness modes explained: standard, PTC (Programmatic Tool Calling), minimal, and create. Which preset to use, and how modes switch the agent's tools and rules." currentPath="/blog/deepseek-harness-modes/" category="Guide">
-  <h1>DeepSeek Harness modes: <span class="accent">which preset should you use?</span></h1>
+<BlogPost title="DeepSeek Harness Modes — Standard, PTC, Minimal &amp; Create (Full Guide) | dshbase" description="The four DeepSeek Harness presets explained in full: standard (full coding agent), PTC (programmatic tool calling that saves tokens), minimal (bash + editor for benchmarking), and create (the self-modifying 'make your own wrench' mode)." currentPath="/blog/deepseek-harness-modes/" category="Guide">
+  <h1>The four DeepSeek Harness modes: <span class="accent">a complete guide</span></h1>
   <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
 
-  <p>DeepSeek Harness ships four built-in presets. Switching modes changes <strong>which tools the agent holds and what rules it runs by</strong> — not model capability.</p>
+  <p>DeepSeek Harness ships four built-in presets. Don't overthink them — they're <strong>template presets</strong> that bundle a set of plugins so you can start out of the box. Switching modes changes <strong>which tools the agent holds and what rules it runs by</strong>, not model capability.</p>
 
   <h2>1. Standard mode</h2>
-  <p>The fully-loaded coding agent: file editing, shell, search, skills, planning, goals, sub-agents, workflows. The direct counterpart to Claude Code and Codex. <strong>Most people should use this.</strong></p>
+  <p>If it's your first time, or you don't care about the internals, <strong>just use standard mode</strong>. It's a full coding agent with everything pre-configured:</p>
+  <ul>
+    <li>File reading and editing</li>
+    <li>Shell access</li>
+    <li>File search and web search</li>
+    <li>Skills, planning, and goals</li>
+    <li>Background tasks, sub-agents, and workflows</li>
+  </ul>
 
   <h2>2. PTC mode (Programmatic Tool Calling)</h2>
-  <p>PTC wraps tools as a code API: the model writes a TypeScript program chaining many steps and runs them in one <code>run_code</code>, returning only the final result. Intermediate data stays out of the model context — the goal is <strong>saving tokens</strong>. Built for cost-conscious heavy users and automation.</p>
+  <p>PTC has all of standard mode's capabilities — the difference is <strong>how tools are presented</strong>. In standard mode, the model makes one tool call, gets the result, then decides the next step. In PTC mode, the model gets a <strong>Code Mode SDK</strong>: it writes a TypeScript program that chains many tool operations inside a single <code>run_code</code>.</p>
+  <p>What used to take five model round-trips — read, search, filter, parallel calls, combine results — can collapse into <strong>one program execution</strong>. Fewer round-trips between the model and tools means it's ideal for structured, multi-step, parallelizable work, and it <strong>saves tokens</strong>.</p>
+  <p>The catch: it needs the model to have stable code-planning ability, and debugging is harder. <strong>Beginners: skip PTC and use standard mode.</strong> Turn it on when you hit a lot of repetitive tool round-trips, or you want to test DeepSeek's programmatic tool-calling ability.</p>
 
   <h2>3. Minimal mode</h2>
-  <p>Just two tools: a persistent bash shell and a file editor. For <strong>model benchmarking</strong> without harness interference — not for daily use. (V4 Flash was reportedly benchmarked using minimal mode.)</p>
+  <p>Minimal mode gives the model just <strong>two tools</strong>: a persistent bash shell and a file editor. It also freezes the system prompt to a simple "you are a helpful software engineering assistant" and strips conversation compression and most other capabilities.</p>
+  <p>This mode is for <strong>model benchmarking in a minimal environment</strong> — comparing the bare agent ability of two models without harness interference. Don't use it daily; you'll find it hard to get anything done.</p>
 
-  <h2>4. Create mode</h2>
-  <p>Standard capabilities plus runtime checks and plugin experimentation — "the mode that makes modes," for building custom presets and plugins. You can even tell it to build a read-only security-audit preset.</p>
+  <h2>4. Create mode — the "make your own wrench" mode</h2>
+  <p>Create mode is where DeepSeek Harness gets special. It has all of standard mode, plus the ability to <strong>inspect the running Cordis environment and experiment with plugins in memory</strong> — letting the agent <strong>modify itself</strong>.</p>
+  <p>Examples:</p>
+  <blockquote class="code-block" style="font-style:normal">"Build a read-only, security-audit-only mode that can read code but never modify files."</blockquote>
+  <blockquote class="code-block" style="font-style:normal">"Build a research agent with company search, a fixed model, and three custom skills."</blockquote>
+  <p>You can even have the agent inspect its own loaded plugins, notice one is missing, <strong>create it, and hot-attach it to the running flow</strong>. The metaphor: the agent realizes it has no wrench, forges one on the spot, attaches it to its hand, and keeps working. This is the heart of DeepSeek Harness and the best demonstration of the Cordis kernel.</p>
 
   <h2>How to think about modes</h2>
-  <p>A preset is the set of plugins an agent runs with. Copy an existing one, tweak it, or use Create mode. Different presets expose different slash commands — minimal mode has only a goal command, while standard/code/create include compression, goals, and planning.</p>
+  <p>A preset is the set of plugins an agent runs with — its tools, prompts, and capabilities. Copy an existing one and tweak it, or use Create mode to have the agent build one for you. Different presets expose different slash commands (minimal mode has only a goal command, while standard/code/create include compression, goals, and planning).</p>
+  <p>Related: DeepSeek Harness sessions are <strong>append-only event logs</strong> — see our piece on <a href="/blog/deepseek-harness-session-log/">session observability</a>.</p>
 </BlogPost>
