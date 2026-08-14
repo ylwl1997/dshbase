@@ -37,7 +37,7 @@ const statusClass = {
   'install-fail': 'st-warn',
   'not-on-npm': 'st-src',
 };
-const desc = p.desc || `A plugin in the ${cat} category for DeepSeek Harness.`;
+const desc = p.desc_en || p.desc || `A plugin in the ${cat} category for DeepSeek Harness.`;
 const fmt = (n) => (n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n ?? 0));
 const stars = p.stars ?? 0;
 const verdict = p.archived
@@ -59,6 +59,17 @@ const verdict = p.archived
           : stars >= 10
             ? { label: 'Source-only — install from GitHub', cls: 'v-src', icon: '📦' }
             : { label: 'Source-only — early-stage, install from GitHub', cls: 'v-src', icon: '📦' };
+const review = p.archived
+  ? `This plugin has been archived and is no longer maintained — use it only if you're willing to maintain it yourself.`
+  : p.test === 'ok' || p.test === 'git-ok'
+    ? `${desc} It installs cleanly and boots without issues in our testing${p.test === 'git-ok' ? ' (from GitHub source)' : ''}. ${stars >= 100 ? `With ${stars}+ stars it's a community-endorsed, low-risk pick.` : stars >= 20 ? `It has a growing community — a solid choice.` : `It's early-stage but functional.`}`
+    : p.test === 'ui' || p.test === 'git-ui'
+      ? `${desc} Note it's a UI-facing plugin — it needs the web/TUI surface to do anything, so test it inside \`dsh web\` rather than headless.`
+      : p.test === 'git-build'
+        ? `${desc} It installs from GitHub source but ships a build step (pnpm blocks it by default) — add the \`allowBuilds\` key it prints, or grab a prebuilt copy.`
+        : p.test === 'install-fail' || p.test === 'git-fail'
+          ? `${desc} Note: it currently fails to install (a dependency is missing or the build is broken) — check the repo before relying on it.`
+          : `${desc} It ships as GitHub source — install with \`dsh plugin add github:owner/repo\`.`;
 const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6);
 ---
 <Base title={`${p.name} — DeepSeek Harness Plugin, Install, Test Report & Review | dshbase`} description={`${desc} — install with ${p.npm ? `dsh plugin add ${p.pkg}` : 'npm (source)'}. ${verdict.label}.`} currentPath={`/plugins/${p.name}/`}>
@@ -90,6 +101,7 @@ const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6
       <span class="v-icon">{verdict.icon}</span>
       <div><strong>Our take</strong><br/>{verdict.label}</div>
     </div>
+    <p class="review-text">{review}</p>
 
     {p.npm && p.pkg ? (
       <Fragment>
@@ -157,6 +169,7 @@ const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6
   .st-src { color: var(--ink-2); background: #f7f8fa; }
   .st-warn { color: #9a6700; border-color: #e5c27a; background: #fff8e6; }
   .what-it-does { font-size: 15px; line-height: 1.7; color: var(--ink); background: #f7f8fc; border-left: 3px solid var(--primary); padding: 14px 16px; border-radius: 8px; }
+  .review-text { font-size: 14px; line-height: 1.7; color: var(--ink-2); margin: 10px 0 4px; }
   .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin: 4px 0; }
   .metric { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 12px; text-align: center; }
   .m-val { display: block; font-size: 20px; font-weight: 800; color: var(--ink); }

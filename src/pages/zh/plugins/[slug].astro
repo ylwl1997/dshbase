@@ -37,7 +37,7 @@ const statusClass = {
   'install-fail': 'st-warn',
   'not-on-npm': 'st-src',
 };
-const desc = p.desc || `${cat} 类别的 DeepSeek Harness 插件。`;
+const desc = p.desc_zh || p.desc || `${cat} 类别的 DeepSeek Harness 插件。`;
 const fmt = (n) => (n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n ?? 0));
 const stars = p.stars ?? 0;
 const verdict = p.archived
@@ -59,6 +59,17 @@ const verdict = p.archived
           : stars >= 10
             ? { label: '源码插件 — 从 GitHub 安装', cls: 'v-src', icon: '📦' }
             : { label: '源码插件 — 早期项目，从 GitHub 安装', cls: 'v-src', icon: '📦' };
+const review = p.archived
+  ? `该插件已归档、不再维护——除非你愿意自己维护，否则慎用。`
+  : p.test === 'ok' || p.test === 'git-ok'
+    ? `${desc} 实测能干净安装、正常启动${p.test === 'git-ok' ? '（从 GitHub 源码）' : ''}。${stars >= 100 ? `${stars}+ stars，社区认可度高，是低风险选择。` : stars >= 20 ? `社区在增长，是个稳妥选择。` : `早期项目，但功能可用。`}`
+    : p.test === 'ui' || p.test === 'git-ui'
+      ? `${desc} 注意它是界面类插件——需要 Web/TUI 界面才能起效，在 \`dsh web\` 里测，别在 headless 下测。`
+      : p.test === 'git-build'
+        ? `${desc} 从 GitHub 源码安装，但带构建步骤（pnpm 默认阻止）——把提示的 \`allowBuilds\` key 加上，或拿预构建版。`
+        : p.test === 'install-fail' || p.test === 'git-fail'
+          ? `${desc} 注意：目前安装失败（依赖缺失或构建损坏）——依赖它之前先看仓库。`
+          : `${desc} 以 GitHub 源码分发——用 \`dsh plugin add github:owner/repo\` 安装。`;
 const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6);
 ---
 <Base title={`${p.name} — DeepSeek Harness 插件安装、实测报告与评价 | dshbase 中文`} description={`${desc} — 安装：${p.npm ? `dsh plugin add ${p.pkg}` : 'npm（源码）'}。${verdict.label}。`} currentPath={`/plugins/${p.name}/`}>
@@ -90,6 +101,7 @@ const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6
       <span class="v-icon">{verdict.icon}</span>
       <div><strong>我们的评价</strong><br/>{verdict.label}</div>
     </div>
+    <p class="review-text">{review}</p>
 
     {p.npm && p.pkg ? (
       <Fragment>
@@ -157,6 +169,7 @@ const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6
   .st-src { color: var(--ink-2); background: #f7f8fa; }
   .st-warn { color: #9a6700; border-color: #e5c27a; background: #fff8e6; }
   .what-it-does { font-size: 15px; line-height: 1.7; color: var(--ink); background: #f7f8fc; border-left: 3px solid var(--primary); padding: 14px 16px; border-radius: 8px; }
+  .review-text { font-size: 14px; line-height: 1.7; color: var(--ink-2); margin: 10px 0 4px; }
   .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin: 4px 0; }
   .metric { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 12px; text-align: center; }
   .m-val { display: block; font-size: 20px; font-weight: 800; color: var(--ink); }

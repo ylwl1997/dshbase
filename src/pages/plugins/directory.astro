@@ -87,7 +87,7 @@ const statusClass = {
                   <span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span>
                 </div>
                 <p class="pcard-repo">{r}</p>
-                {p.desc && <p class="pcard-desc">{p.desc}</p>}
+                {(p.desc_en || p.desc) && <p class="pcard-desc">{p.desc_en || p.desc}</p>}
                 <div class="pcard-install">
                   {p.npm && p.pkg ? (
                     <pre class="code-block install-chip"><code>dsh plugin add {p.pkg}</code></pre>
