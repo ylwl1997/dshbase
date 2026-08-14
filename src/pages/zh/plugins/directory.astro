@@ -55,13 +55,7 @@ const statusClass = {
     <p class="lede">来自 <a href="https://github.com/awesome-dsh-plugin/awesome-dsh-plugin" target="_blank" rel="noopener">awesome-dsh-plugin</a> 精选列表——{catOrder.length} 大类、{total} 个插件。每张卡片直接标注插件是否<strong>已发布到 npm</strong>、<strong>实测结果</strong>和<strong>安装命令</strong>，不用点进仓库再确认。</p>
   </section>
   <section class="info wrap">
-    <div class="badge-row legend">
-      <span class="badge"><span class="dot st-ok"></span>已验证——可安装并启动</span>
-      <span class="badge"><span class="dot st-src"></span>GitHub 源码（未发 npm）</span>
-      <span class="badge"><span class="dot st-warn"></span>加载 / 安装异常</span>
-      <span class="badge">⭐ 精选</span>
-    </div>
-    <p class="stats-line">实测于 dsh 0.1.0-rc.6：<strong class="c-ok">{nOk} 个验证通过</strong>（npm+git）✅ · <strong class="c-warn">{nUi} 个需 Web/TUI 界面</strong> · <strong class="c-warn">{nBuild} 个需构建步骤</strong> · <strong class="c-warn">{nFail} 个安装异常</strong>。其余 <strong>{nSource}</strong> 个为 GitHub 源码——用 <code>dsh plugin add github:owner/repo</code> 即可安装。</p>
+    <p class="stats-line">实测于 dsh 0.1.0-rc.6——每张卡片标注实测状态与安装命令。GitHub 源码插件用 <code>dsh plugin add github:owner/repo</code> 安装。</p>
     <div class="top-plugins">
       <div class="tp-head">🔥 按 Stars 热门 Top 10</div>
       <div class="tp-grid">

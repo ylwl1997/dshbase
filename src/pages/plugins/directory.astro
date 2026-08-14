@@ -46,13 +46,7 @@ const statusClass = {
     <p class="lede">Curated from the <a href="https://github.com/awesome-dsh-plugin/awesome-dsh-plugin" target="_blank" rel="noopener">awesome-dsh-plugin</a> list — {catOrder.length} categories, {total} plugins. Every card shows whether the plugin ships on <strong>npm</strong>, its <strong>verified test status</strong>, and the exact install command — no clicking through to check.</p>
   </section>
   <section class="info wrap">
-    <div class="badge-row legend">
-      <span class="badge"><span class="dot st-ok"></span>Verified — installed &amp; boots</span>
-      <span class="badge"><span class="dot st-src"></span>GitHub source (not on npm)</span>
-      <span class="badge"><span class="dot st-warn"></span>Load / install issue</span>
-      <span class="badge">⭐ Featured</span>
-    </div>
-    <p class="stats-line">Tested on dsh 0.1.0-rc.6: <strong class="c-ok">{nOk} verified</strong> (npm + git) ✅ · <strong class="c-warn">{nUi} need a Web/TUI surface</strong> · <strong class="c-warn">{nBuild} need a build step</strong> · <strong class="c-warn">{nFail} install issues</strong>. The other <strong>{nSource}</strong> are GitHub source — install with <code>dsh plugin add github:owner/repo</code>.</p>
+    <p class="stats-line">Tested on dsh 0.1.0-rc.6 — every card shows the verified status and exact install command. GitHub-source plugins install with <code>dsh plugin add github:owner/repo</code>.</p>
     <div class="top-plugins">
       <div class="tp-head">🔥 Top plugins by stars</div>
       <div class="tp-grid">
