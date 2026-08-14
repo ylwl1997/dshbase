@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DeepSeek Harness First Impressions — 37k Stars, V4 Pro Pricing &amp; the Create Mode | dshbase</title>
+<meta name="description" content="DeepSeek Harness hands-on review: 37k stars in days, V4 Pro cache pricing up 12x and peak output at ¥27, the four modes, append-only session logs, and the best community plugins.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://dshbase.com/blog/deepseek-harness-review/">
+<link rel="icon" href="/logo.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebPage","name":"DeepSeek Harness First Impressions","url":"https://dshbase.com/blog/deepseek-harness-review/"},
+{"@type":"TechArticle","headline":"DeepSeek Harness First Impressions — 37k Stars, V4 Pro Pricing & the Create Mode","description":"Hands-on review with real numbers.","datePublished":"2026-08-14"}
+]}</script>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="/"><img class="brand-logo" src="/logo.svg" alt="dshbase logo" width="34" height="34"><span>dsh</span><strong>base</strong></a>
+    <nav class="nav" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="/tutorial/">Tutorial</a>
+      <a href="/plugins/">Plugins</a>
+      <a href="/install/">Install</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    <article class="info wrap" style="max-width:820px;margin:0 auto">
+      <p class="eyebrow">Blog · Review</p>
+      <h1>DeepSeek Harness first impressions: <span class="accent">37k stars, V4 Pro pricing, and the "make your own wrench" mode</span></h1>
+      <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase · data &amp; screenshots used with permission from <a href="https://mp.weixin.qq.com/s/xkC1aenHFNSH2BxyzLDfcA" target="_blank" rel="noopener">卡兹克's review</a></p>
+
+      <p><img src="/assets/review3/dsh-main.png" alt="DeepSeek Harness interface (authorized review screenshot)" style="max-width:100%;border-radius:10px;border:1px solid var(--border)"></p>
+
+      <p>DeepSeek Harness shipped right after DeepSeek V4 Pro — and the community's reaction was fast. Within days the repo hit <strong>~37,000 stars</strong>. It's a polarizing tool: some call it the future, others call it too raw. This review breaks down what it actually is, what it costs now, and what's worth using.</p>
+
+      <h2>The numbers that matter</h2>
+      <ul>
+        <li><strong>~37k GitHub stars</strong> within days of release.</li>
+        <li><strong>V4 Pro cache pricing rose 12x</strong> at cache-hit prices.</li>
+        <li><strong>Peak output reached ~¥27</strong> per unit — pricing started at 3x across the board.</li>
+      </ul>
+      <p>That price jump matters. At peak output, V4 Pro's API cost advantage vs GLM and Qwen 3.8 Max has narrowed significantly — and with GLM-5.3 reportedly coming at unchanged pricing, V4 Pro's "price killer" reputation is under pressure from the API-pricing side alone.</p>
+
+      <h2>The four modes, from a hands-on angle</h2>
+      <p>Don't overthink the four modes — they're <strong>template presets</strong> for how the agent is assembled.</p>
+      <ul>
+        <li><strong>Standard</strong> — full coding agent (file read/edit, shell, search, skills, planning, goals, sub-agents, workflows). Just use this unless you have a reason not to.</li>
+        <li><strong>PTC (Programmatic Tool Calling)</strong> — same capabilities as standard, but the model writes a TypeScript program and chains many tool operations inside one <code>run_code</code>. What used to take five model round-trips (read, search, filter, parallel calls, combine) can collapse into one execution — fewer round-trips, fewer tokens. Requires stable code-planning from the model and is harder to debug; skip it until you're hitting repetitive tool round-trips.</li>
+        <li><strong>Minimal</strong> — just two tools: a persistent bash and a file editor, with the system prompt frozen to "you are a helpful software engineering assistant". Meant for model benchmarking on a clean harness. Don't use it day-to-day.</li>
+        <li><strong>Create</strong> — standard capabilities plus the ability to inspect the running Cordis environment, experiment with plugins in-memory, and build new presets. This is the "make your own wrench" mode: you can ask the agent to build a read-only security-audit preset, or a research agent with company search and three custom skills — and it can even create a missing plugin and hot-attach it to the running flow.</li>
+      </ul>
+
+      <h2>Append-only session logs: a hidden developer win</h2>
+      <p>Sessions are designed as an <strong>append-only event log</strong> — system prompts, user messages, reasoning, tool calls and results, permission changes, context injections, compression, and sub-agent scheduling all become events. The next turn's history is re-derived from that log. The payoff is observability: when an agent fails or loops, you can trace exactly where it went off the rails, and runs are reproducible — valuable for research and auditing.</p>
+
+      <h2>Not locked to DeepSeek — and a healthy plugin ecosystem</h2>
+      <p>You can add directory providers or custom providers (base URL, protocol, model list), so you could run GLM inside DeepSeek Harness if you want. The community plugin entry is live too. Five worth installing from the original review:</p>
+      <div class="grid3">
+        <a class="card card-link" href="https://github.com/omdsh-dev/dsh-at-file" target="_blank" rel="noopener"><span class="cat">Plugin</span><h3>dsh-at-file</h3><p>Call files directly with @ in the input. <span class="arr">&rarr;</span></p></a>
+        <a class="card card-link" href="https://github.com/omdsh-dev/dsh-genui" target="_blank" rel="noopener"><span class="cat">Plugin</span><h3>dsh-genui</h3><p>Render charts, tables, forms, diffs, Mermaid, and panels in replies. <span class="arr">&rarr;</span></p></a>
+        <a class="card card-link" href="https://github.com/titanwings/dsh-automation" target="_blank" rel="noopener"><span class="cat">Plugin</span><h3>dsh-automation</h3><p>Adds automation capabilities. <span class="arr">&rarr;</span></p></a>
+        <a class="card card-link" href="https://github.com/omdsh-dev/DSH-better-sidebar" target="_blank" rel="noopener"><span class="cat">Plugin</span><h3>DSH-better-sidebar</h3><p>A VS Code-style workbench: files, editor, terminal, Git, diff, embedded browser. <span class="arr">&rarr;</span></p></a>
+        <a class="card card-link" href="https://github.com/liustack/modlens" target="_blank" rel="noopener"><span class="cat">Plugin</span><h3>ModLens</h3><p>Adds vision to text-only DeepSeek models — paste images into the chat. <span class="arr">&rarr;</span></p></a>
+      </div>
+
+      <h2>The honest take</h2>
+      <p>DeepSeek Harness is a fascinating system and the plugin concept is strong — but as a product it's developer-unfriendly: dense terminology, a steep learning curve, and a raw UI will push away casual users. That's the trade-off of a team that prioritizes research and exploration — their slogan is literally "探索未至之境" (explore the undiscovered).</p>
+
+      <h2>Resources</h2>
+      <ul>
+        <li>Official: <a href="https://www.deepseek.com/harness/" target="_blank" rel="noopener">deepseek.com/harness</a> · <a href="https://github.com/deepseek-ai/deepseek-harness" target="_blank" rel="noopener">GitHub</a> · <a href="https://deepseek-harness.github.io/deepseek-harness/" target="_blank" rel="noopener">docs</a></li>
+        <li>API platform: <a href="https://platform.deepseek.com/" target="_blank" rel="noopener">platform.deepseek.com</a></li>
+        <li>Original review (Chinese, authorized): <a href="https://mp.weixin.qq.com/s/xkC1aenHFNSH2BxyzLDfcA" target="_blank" rel="noopener">mp.weixin.qq.com/s/xkC1aenHFNSH2BxyzLDfcA</a></li>
+      </ul>
+
+      <p style="margin-top:24px"><a class="btn btn-ghost" href="/blog/">All articles &rarr;</a></p>
+    </article>
+  </main>
+
+  <footer class="foot">
+  <div class="wrap foot-grid">
+    <div class="foot-col">
+      <p class="foot-brand"><img class="foot-logo" src="/logo.svg" alt="dshbase logo" width="24" height="24"><span>dsh</span><strong>base</strong></p>
+      <p class="muted small">DeepSeek Harness guides, tutorials &amp; plugin ecosystem.</p>
+    </div>
+    <div class="foot-col">
+      <b>Guides</b>
+      <a href="/tutorial/">Tutorial</a>
+      <a href="/install/">Install</a>
+      <a href="/plugins/">Plugins</a>
+    </div>
+    <div class="foot-col">
+      <b>Resources</b>
+      <a href="/plugins/">Plugin directory</a>
+      <a href="/">What is DSH</a>
+      <a href="/blog/">Blog</a>
+      <a href="/blog/vs-claude-code/">vs Claude Code</a>
+    </div>
+    <div class="foot-col">
+      <b>About</b>
+      <a href="mailto:hello@dshbase.com">Contact</a>
+      <a href="/privacy/">Privacy</a>
+    </div>
+  </div>
+  <div class="wrap foot-in">
+    <p class="muted small">Unofficial community resource. Content based on the official DeepSeek Harness docs. Not affiliated with DeepSeek.</p>
+  </div>
+</footer>
+</div>
+</body>
+</html>
