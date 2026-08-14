@@ -1,0 +1,43 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const installUrl = getRelativeLocaleUrl('en', '/install/');
+---
+<BlogPost title="DeepSeek Harness vs Cursor — Agent Harness vs AI IDE Compared | dshbase" description="DeepSeek Harness vs Cursor: a runnable agent harness vs an AI code editor. Open source, architecture, automation depth, and which to use in 2026." currentPath="/blog/vs-cursor/" category="Comparison">
+  <h1>DeepSeek Harness <span class="accent">vs Cursor</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+  <p>DeepSeek Harness (DSH) and Cursor are often mentioned together because both use AI to write code — but they are different categories of tool. DSH is a <strong>runnable agent harness</strong> (an agent that plans and executes multi-step tasks end to end); Cursor is an <strong>AI code editor</strong> (an IDE that autocompletes and edits code inline). Here's the comparison.</p>
+
+  <h2>At a glance</h2>
+  <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th></th><th>DeepSeek Harness</th><th>Cursor</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Category</strong></td><td>Agent harness / framework</td><td>AI code editor (IDE)</td></tr>
+        <tr><td><strong>Open source</strong></td><td>MIT, fully open</td><td>Proprietary</td></tr>
+        <tr><td><strong>How you use it</strong></td><td>Give it a task, it plans + runs commands + edits files</td><td>Edit in the editor, AI assists inline</td></tr>
+        <tr><td><strong>Extension</strong></td><td>Everything-is-a-plugin (npm)</td><td>Extensions + MCP</td></tr>
+        <tr><td><strong>Interfaces</strong></td><td>Web UI, headless, TUI, Python SDK</td><td>Desktop IDE</td></tr>
+        <tr><td><strong>Cost</strong></td><td>Free + model API</td><td>Subscription</td></tr>
+        <tr><td><strong>Best for</strong></td><td>Autonomous multi-step work, CI, self-hosting</td><td>Interactive coding with inline AI</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>The core difference: agent vs editor</h2>
+  <p><strong>DSH</strong> is an <strong>agent</strong> — hand it a task like "summarize this repo and fix the failing tests" and it works through it autonomously: reading files, running commands, editing code, iterating. It runs headless for CI, or in a browser UI.</p>
+  <p><strong>Cursor</strong> is an <strong>editor</strong> — you stay in the loop, and AI assists as you type, refactor, and chat about code. It doesn't run long autonomous tasks on its own.</p>
+
+  <h2>Open source &amp; control</h2>
+  <p>DSH is <strong>MIT and fully open source</strong> — read the agent loop, fork it, swap out core parts. Cursor is proprietary; you can extend it but not own it.</p>
+
+  <h2>Automation depth</h2>
+  <p>DSH's headless mode (`dsh --profile headless "task"`) makes it scriptable and CI-friendly — run an agent on a schedule, in a pipeline, or on a server. Cursor is interactive-first; it's not designed to run unattended.</p>
+
+  <h2>Which should you use?</h2>
+  <p><strong>Use DeepSeek Harness</strong> for: autonomous multi-step tasks, self-hosted agents, CI/CD automation, or when you want open source and full control.</p>
+  <p><strong>Use Cursor</strong> for: interactive coding where you want inline AI assistance as you work in an IDE.</p>
+
+  <p>They can complement each other — edit interactively in Cursor, then hand a whole task to DSH. <a href={installUrl}>Try DSH</a> to see the agent difference.</p>
+</BlogPost>

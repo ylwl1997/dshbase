@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const installUrl = getRelativeLocaleUrl('en', '/install/');
+const tutorialUrl = getRelativeLocaleUrl('en', '/tutorial/');
+const pluginsUrl = getRelativeLocaleUrl('en', '/plugins/');
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const troubleshootingUrl = getRelativeLocaleUrl('en', '/troubleshooting/');
+---
+<Base
+  title="How to Use DeepSeek Harness — Install, Build Plugins, Migrate | dshbase"
+  description="How to use DeepSeek Harness (dsh): install on any OS, run your first task, install plugins, build a plugin, migrate from Claude Code, and fix errors — step-by-step."
+  currentPath="/how-to/"
+>
+  <section class="hero wrap">
+    <p class="eyebrow">How-to</p>
+    <h1>How to use <span class="accent">DeepSeek Harness</span></h1>
+    <p class="lede">Step-by-step answers to the most common "how to" questions about dsh — each links to the full guide.</p>
+  </section>
+
+  <section class="info wrap">
+    <h2>How to install DeepSeek Harness</h2>
+    <p>Install Node.js LTS (18+), then run:</p>
+    <pre class="code-block"><code>npx @deepseek-ai/dsh web</code></pre>
+    <p>Open http://127.0.0.1:3080. Windows/macOS/Linux/WSL one-liners are in the <a href={installUrl}>install guide</a>.</p>
+
+    <h2 style="margin-top:24px">How to run your first task</h2>
+    <ol class="steps">
+      <li>Start the web UI (<code>npx @deepseek-ai/dsh web</code>).</li>
+      <li>Add your DeepSeek API key under <strong>Settings → Models</strong>.</li>
+      <li>Click <strong>Choose workspace</strong> and pick a project directory.</li>
+      <li>Send a task, e.g. <code>Summarize this repository.</code></li>
+    </ol>
+    <p>Full walkthrough in the <a href={tutorialUrl}>tutorial</a>.</p>
+
+    <h2 style="margin-top:24px">How to install a plugin</h2>
+    <pre class="code-block"><code>dsh plugin --profile web add dsh-memory</code></pre>
+    <p>Browse 122+ plugins with verified install results in the <a href={directoryUrl}>plugin directory</a>.</p>
+
+    <h2 style="margin-top:24px">How to build your own plugin</h2>
+    <p>A plugin is one TypeScript module exporting <code>apply(ctx)</code>, plus a <code>cordis.patch.yml</code> and a <code>dsh.bundle</code> manifest. Must be ESM. See the <a href={pluginsUrl}>plugin guide</a> for the full walkthrough.</p>
+
+    <h2 style="margin-top:24px">How to migrate from Claude Code</h2>
+    <p>Load your Claude skills/commands with <code>dsh-claude-marketplace</code>, import history with <code>dsh-plugin-session-import</code>:</p>
+    <pre class="code-block"><code>dsh plugin add dsh-claude-marketplace</code></pre>
+
+    <h2 style="margin-top:24px">How to fix common errors</h2>
+    <p>Every error we hit in real testing — <code>ERR_PNPM_FETCH_404</code>, <code>ERR_REQUIRE_ESM</code>, plugin-not-activating, and more — is in the <a href={troubleshootingUrl}>troubleshooting guide</a>.</p>
+  </section>
+</Base>

@@ -1,0 +1,39 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const installUrl = getRelativeLocaleUrl('en', '/install/');
+---
+<BlogPost title="DeepSeek Harness vs Claude Cowork — Open vs Closed Agent Platform | dshbase" description="DeepSeek Harness vs Claude Cowork: open-source agent harness vs Anthropic's collaborative agent platform. Architecture, licensing, collaboration model, and which to choose." currentPath="/blog/vs-cowork/" category="Comparison">
+  <h1>DeepSeek Harness <span class="accent">vs Claude Cowork</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+  <p>DeepSeek Harness (DSH) explicitly positions itself against Claude Code and <strong>Claude Cowork</strong> — Anthropic's collaborative agent platform. Both orchestrate AI agents that do real work, but they differ on openness, extension, and how you run them.</p>
+
+  <h2>At a glance</h2>
+  <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th></th><th>DeepSeek Harness</th><th>Claude Cowork</th></tr></thead>
+      <tbody>
+        <tr><td><strong>License</strong></td><td>MIT, fully open source</td><td>Proprietary</td></tr>
+        <tr><td><strong>Extension</strong></td><td>Everything-is-a-plugin (npm)</td><td>MCP + skills</td></tr>
+        <tr><td><strong>Model</strong></td><td>DeepSeek + any OpenAI-compatible</td><td>Claude models</td></tr>
+        <tr><td><strong>Self-host</strong></td><td>Yes — headless, TUI, your infra</td><td>No — Anthropic's platform</td></tr>
+        <tr><td><strong>Interfaces</strong></td><td>Web UI, headless, TUI, Python SDK</td><td>Web app</td></tr>
+        <tr><td><strong>Cost</strong></td><td>Free + model API</td><td>Subscription</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>The core difference: open vs closed</h2>
+  <p><strong>DSH</strong> is a <strong>framework you own</strong> — MIT licensed, self-hostable, with models, tools, sandboxes, and even the agent loop itself as swappable npm plugins. You can read and modify the entire thing.</p>
+  <p><strong>Cowork</strong> is a <strong>platform you rent</strong> — Anthropic's hosted collaboration layer over Claude agents. You get a polished experience but no source, no self-hosting, and you're locked to Claude models.</p>
+
+  <h2>Extensibility</h2>
+  <p>DSH extends through <code>dsh plugin add</code> — a 122-plugin community ecosystem with verified install results. Cowork extends through MCP servers and skills.</p>
+
+  <h2>Which should you use?</h2>
+  <p><strong>Choose DeepSeek Harness</strong> for: open source, self-hosting, any-model flexibility, or deep customization.</p>
+  <p><strong>Choose Claude Cowork</strong> for: a managed collaborative experience without running your own infra.</p>
+
+  <p>The DSH bet is that open wins — judge for yourself. <a href={installUrl}>Try DSH</a>.</p>
+</BlogPost>

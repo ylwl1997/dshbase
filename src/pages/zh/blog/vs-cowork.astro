@@ -1,0 +1,39 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const installUrl = getRelativeLocaleUrl('zh', '/install/');
+---
+<BlogPost title="DeepSeek Harness vs Claude Cowork — 开源 vs 闭源 Agent 平台 | dshbase 中文" description="DeepSeek Harness 与 Claude Cowork 对比：开源 Agent 框架 vs Anthropic 协作 Agent 平台。架构、许可、协作模式与怎么选。" currentPath="/blog/vs-cowork/" category="对比">
+  <h1>DeepSeek Harness <span class="accent">vs Claude Cowork</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+
+  <p>DeepSeek Harness（DSH）明确对标 Claude Code 和 <strong>Claude Cowork</strong>——Anthropic 的协作 Agent 平台。两者都编排做实际工作的 AI agent，但在开放性、扩展和运行方式上根本不同。</p>
+
+  <h2>速览</h2>
+  <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th></th><th>DeepSeek Harness</th><th>Claude Cowork</th></tr></thead>
+      <tbody>
+        <tr><td><strong>许可</strong></td><td>MIT，完全开源</td><td>闭源</td></tr>
+        <tr><td><strong>扩展</strong></td><td>一切皆插件（npm）</td><td>MCP + 技能</td></tr>
+        <tr><td><strong>模型</strong></td><td>DeepSeek + 任意 OpenAI 兼容</td><td>Claude 模型</td></tr>
+        <tr><td><strong>自托管</strong></td><td>可以——headless、TUI、你的基础设施</td><td>不行——Anthropic 平台</td></tr>
+        <tr><td><strong>界面</strong></td><td>Web UI、headless、TUI、Python SDK</td><td>Web 应用</td></tr>
+        <tr><td><strong>成本</strong></td><td>免费 + 模型 API</td><td>订阅</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>核心区别：开源 vs 闭源</h2>
+  <p><strong>DSH</strong> 是<strong>你拥有的框架</strong>——MIT 许可、可自托管，模型、工具、沙箱甚至 agent 循环本身都是可替换的 npm 插件。你能读和改整个东西。</p>
+  <p><strong>Cowork</strong> 是<strong>你租用的平台</strong>——Anthropic 托管的 Claude agent 协作层。体验精良，但没有源码、不能自托管，且锁定 Claude 模型。</p>
+
+  <h2>可扩展性</h2>
+  <p>DSH 通过 <code>dsh plugin add</code> 扩展——122 个社区插件带实测结果。Cowork 通过 MCP 服务器和技能扩展。</p>
+
+  <h2>该用哪个？</h2>
+  <p><strong>选 DeepSeek Harness</strong>：开源、自托管、任意模型灵活、深度定制。</p>
+  <p><strong>选 Claude Cowork</strong>：托管的协作体验，不想自己跑基础设施。</p>
+
+  <p>DSH 赌的是开源会赢——自己判断。<a href={installUrl}>试试 DSH</a>。</p>
+</BlogPost>

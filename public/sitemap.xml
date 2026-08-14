@@ -14,8 +14,11 @@
   <url><loc>https://dshbase.com/blog/dsh-trajectory-tracing/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/blog/pi-deepseek-cache/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/blog/vs-claude-code/</loc><lastmod>2026-08-14</lastmod></url>
+  <url><loc>https://dshbase.com/blog/vs-cowork/</loc><lastmod>2026-08-14</lastmod></url>
+  <url><loc>https://dshbase.com/blog/vs-cursor/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/blog/why-deepseek-harness/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/blog/why-typescript-agent-harness/</loc><lastmod>2026-08-14</lastmod></url>
+  <url><loc>https://dshbase.com/how-to/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/install/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/plugins/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/plugins/DSH-better-sidebar/</loc><lastmod>2026-08-14</lastmod></url>
@@ -69,7 +72,9 @@
   <url><loc>https://dshbase.com/plugins/dsh-openpencil/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/plugins/dsh-plannotator/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-check/</loc><lastmod>2026-08-14</lastmod></url>
+  <url><loc>https://dshbase.com/plugins/dsh-plugin-claude-bridge/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-d399/</loc><lastmod>2026-08-14</lastmod></url>
+  <url><loc>https://dshbase.com/plugins/dsh-plugin-meta-memory/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-mineru/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/plugins/dsh-polyglot/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/plugins/dsh-prompt-profile/</loc><lastmod>2026-08-14</lastmod></url>
@@ -119,6 +124,7 @@
   <url><loc>https://dshbase.com/plugins/plugin-template/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/plugins/whale-girl/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/privacy/</loc><lastmod>2026-08-14</lastmod></url>
+  <url><loc>https://dshbase.com/troubleshooting/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/tutorial/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/zh/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/zh/blog/</loc><lastmod>2026-08-14</lastmod></url>
@@ -134,8 +140,11 @@
   <url><loc>https://dshbase.com/zh/blog/dsh-trajectory-tracing/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/zh/blog/pi-deepseek-cache/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/zh/blog/vs-claude-code/</loc><lastmod>2026-08-14</lastmod></url>
+  <url><loc>https://dshbase.com/zh/blog/vs-cowork/</loc><lastmod>2026-08-14</lastmod></url>
+  <url><loc>https://dshbase.com/zh/blog/vs-cursor/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/zh/blog/why-deepseek-harness/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/zh/blog/why-typescript-agent-harness/</loc><lastmod>2026-08-14</lastmod></url>
+  <url><loc>https://dshbase.com/zh/how-to/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/zh/install/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/zh/plugins/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/zh/plugins/DSH-better-sidebar/</loc><lastmod>2026-08-14</lastmod></url>
@@ -189,7 +198,9 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-openpencil/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-plannotator/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-check/</loc><lastmod>2026-08-14</lastmod></url>
+  <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-claude-bridge/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-d399/</loc><lastmod>2026-08-14</lastmod></url>
+  <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-meta-memory/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-mineru/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-polyglot/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-prompt-profile/</loc><lastmod>2026-08-14</lastmod></url>
@@ -239,5 +250,6 @@
   <url><loc>https://dshbase.com/zh/plugins/plugin-template/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/zh/plugins/whale-girl/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/zh/privacy/</loc><lastmod>2026-08-14</lastmod></url>
+  <url><loc>https://dshbase.com/zh/troubleshooting/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://dshbase.com/zh/tutorial/</loc><lastmod>2026-08-14</lastmod></url>
 </urlset>
