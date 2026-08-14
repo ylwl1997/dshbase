@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DeepSeek Harness (DSH) — Everything-Is-a-Plugin Agent Framework Guide</title>
+<meta name="description" content="What is DeepSeek Harness (DSH)? A complete guide to the open-source agent framework with an everything-is-a-plugin npm ecosystem — install, tutorial, vs Claude Code, and plugins.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://dshbase.com/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛠️</text></svg>">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="dshbase">
+<meta property="og:title" content="DeepSeek Harness (DSH) — Everything-Is-a-Plugin Agent Framework">
+<meta property="og:description" content="The complete guide to DeepSeek Harness: install, tutorial, vs Claude Code, and the plugin ecosystem.">
+<meta property="og:url" content="https://dshbase.com/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebPage","name":"DeepSeek Harness Guide","url":"https://dshbase.com/"},
+{"@type":"TechArticle","headline":"DeepSeek Harness (DSH) — Everything-Is-a-Plugin Agent Framework","url":"https://dshbase.com/","description":"What DeepSeek Harness is, how to install it, and how the everything-is-a-plugin npm ecosystem works."},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is DeepSeek Harness (DSH)?","acceptedAnswer":{"@type":"Answer","text":"DeepSeek Harness (DSH) is an open-source agent framework from DeepSeek that aims to make every capability a plugin. Announced August 2026, it competes with Claude Code / Claude Cowork and ships an npm plugin ecosystem."}},
+{"@type":"Question","name":"How do I install DeepSeek Harness?","acceptedAnswer":{"@type":"Answer","text":"DeepSeek Harness installs from npm — see the full install guide for each platform."}},
+{"@type":"Question","name":"How is DeepSeek Harness different from Claude Code?","acceptedAnswer":{"@type":"Answer","text":"The key difference is the everything-is-a-plugin architecture: DeepSeek Harness treats plugins as first-class, while Claude Code centers on MCP. See the comparison."}}
+]}]}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="app">
+  <header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="/"><span>dsh</span><strong>base</strong></a>
+    <nav class="nav" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="/tutorial/">Tutorial</a>
+      <a href="/vs-claude-code/">vs Claude Code</a>
+      <a href="/plugins/">Plugins</a>
+      <a href="/install/">Install</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    <section class="hero wrap">
+      <p class="eyebrow">DeepSeek Harness · DSH</p>
+      <h1>Everything-is-a-plugin <span class="accent">agent framework.</span></h1>
+      <p class="lede">DeepSeek Harness (DSH) is the open-source agent framework where every capability is a plugin. This is your independent guide — install it, learn it, compare it, and browse the plugin ecosystem.</p>
+      <div class="badge-row">
+        <span class="badge">&#x1F4E6; <b>npm</b> plugin ecosystem</span>
+        <span class="badge">&#x1F680; <b>open source</b></span>
+        <span class="badge">&#x2696;&#xFE0F; <b>vs Claude Code</b> — compared</span>
+      </div>
+      <div class="browsers">
+        <a class="btn btn-primary btn-lg" href="/install/">&#x2B07; Install guide</a>
+        <a class="btn btn-ghost btn-lg" href="/tutorial/">&#x1F4D6; Tutorial &rarr;</a>
+      </div>
+    </section>
+
+    <section class="info wrap">
+      <h2>What is <span class="accent">DeepSeek Harness?</span></h2>
+      <p>DeepSeek Harness (DSH) is a developer-preview agent framework released by DeepSeek in August 2026. Its defining idea is <strong>everything is a plugin</strong> — tools, capabilities, and integrations are installed as npm plugins rather than built into the core. It's positioned as an open-source alternative to <a href="/vs-claude-code/">Claude Code</a> and Claude Cowork.</p>
+      <div class="grid3">
+        <div class="card"><h3>&#x1F9E9; Everything is a plugin</h3><p>Capabilities are npm packages — add what you need, nothing more.</p></div>
+        <div class="card"><h3>&#x1F680; Open source</h3><p>Community can fork, audit, and extend the framework.</p></div>
+        <div class="card"><h3>&#x1F4E6; npm ecosystem</h3><p>A growing directory of official and community plugins.</p></div>
+      </div>
+    </section>
+
+    <section class="info wrap">
+      <h2>Quick <span class="accent">start</span></h2>
+      <p>Install DeepSeek Harness and run your first agent in a minute — full steps on the <a href="/install/">install guide</a>.</p>
+      <ol class="steps">
+        <li>Install from npm (see the <a href="/install/">platform guide</a>).</li>
+        <li>Add a plugin: <code>dsh add &lt;plugin-name&gt;</code>.</li>
+        <li>Run your first task and watch the agent work.</li>
+      </ol>
+    </section>
+
+    <section class="info wrap">
+      <h2>Guides &amp; <span class="accent">resources</span></h2>
+      <div class="grid3">
+        <a class="card card-link card-accent" href="/tutorial/"><span class="cat">Guide</span><h3>DSH tutorial</h3><p>Install, configure, use plugins, and run real tasks — step by step. <span class="arr">&rarr;</span></p></a>
+        <a class="card card-link" href="/vs-claude-code/"><span class="cat">Compare</span><h3>vs Claude Code</h3><p>Plugins vs MCP, pricing, performance, and which to choose. <span class="arr">&rarr;</span></p></a>
+        <a class="card card-link" href="/plugins/"><span class="cat">Ecosystem</span><h3>Plugin directory</h3><p>Browse official and community DeepSeek Harness plugins. <span class="arr">&rarr;</span></p></a>
+        <a class="card card-link" href="/install/"><span class="cat">Setup</span><h3>Install guide</h3><p>DeepSeek Harness on Windows, macOS, Linux, and via npm. <span class="arr">&rarr;</span></p></a>
+      </div>
+    </section>
+
+    <section class="faq wrap">
+      <h2>FAQ</h2>
+      <details><summary>What is DeepSeek Harness (DSH)?</summary><p>DeepSeek Harness (DSH) is an open-source agent framework from DeepSeek announced in August 2026. Its core idea is that every capability is a plugin installed from npm, making it a flexible alternative to Claude Code.</p></details>
+      <details><summary>Is DeepSeek Harness free?</summary><p>DeepSeek Harness is open source. The underlying DeepSeek API (for V4-Pro etc.) is paid, at prices set by DeepSeek.</p></details>
+      <details><summary>How is DSH different from Claude Code?</summary><p>Architecturally: DSH is everything-is-a-plugin (npm), while Claude Code centers on MCP servers. See the <a href="/vs-claude-code/">full comparison</a>.</p></details>
+    </section>
+  </main>
+
+  <footer class="foot">
+  <div class="wrap foot-grid">
+    <div class="foot-col">
+      <p class="foot-brand">dsh<strong>base</strong></p>
+      <p class="muted small">DeepSeek Harness guides, tutorials &amp; plugin ecosystem.</p>
+    </div>
+    <div class="foot-col">
+      <b>Guides</b>
+      <a href="/tutorial/">Tutorial</a>
+      <a href="/install/">Install</a>
+      <a href="/plugins/">Plugins</a>
+      <a href="/vs-claude-code/">vs Claude Code</a>
+    </div>
+    <div class="foot-col">
+      <b>Resources</b>
+      <a href="/plugins/">Plugin directory</a>
+      <a href="/">What is DSH</a>
+    </div>
+    <div class="foot-col">
+      <b>About</b>
+      <a href="mailto:hello@dshbase.com">Contact</a>
+      <a href="/privacy/">Privacy</a>
+    </div>
+  </div>
+  <div class="wrap foot-in">
+    <p class="muted small">Unofficial community resource. Not affiliated with DeepSeek.</p>
+  </div>
+</footer>
+</div>
+</body>
+</html>
