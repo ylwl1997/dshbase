@@ -49,16 +49,23 @@ const statusClass = {
         <a class="chip" href={`#${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>{catLabels[cat] || cat}</a>
       ))}
     </div>
+    <div class="filter-bar" role="group" aria-label="筛选插件">
+      <button class="fbtn is-active" data-filter="all">全部 <span class="fcount">{total}</span></button>
+      <button class="fbtn" data-filter="ok">已验证 <span class="fcount">{catOrder.reduce((s,k)=>s+plugins[k].filter(p=>p.test==='ok').length,0)}</span></button>
+      <button class="fbtn" data-filter="npm">npm 可装 <span class="fcount">{catOrder.reduce((s,k)=>s+plugins[k].filter(p=>p.npm).length,0)}</span></button>
+      <button class="fbtn" data-filter="source">源码 <span class="fcount">{catOrder.reduce((s,k)=>s+plugins[k].filter(p=>p.test==='not-on-npm').length,0)}</span></button>
+      <button class="fbtn" data-filter="issue">异常 <span class="fcount">{catOrder.reduce((s,k)=>s+plugins[k].filter(p=>p.test!=='ok'&&p.npm).length,0)}</span></button>
+    </div>
     {catOrder.map((cat) => {
       const catId = cat.toLowerCase().replace(/[^a-z0-9]+/g, '-');
       return (
       <Fragment>
-        <h3 id={catId} style="margin-top:26px">{catLabels[cat] || cat} <span class="muted" style="font-size:13px;font-weight:400">({plugins[cat].length})</span></h3>
+        <h3 id={catId} class="cat-head" style="margin-top:26px">{catLabels[cat] || cat} <span class="muted" style="font-size:13px;font-weight:400">({plugins[cat].length})</span></h3>
         <div class="grid3">
           {plugins[cat].map((p) => {
             const r = repo(p.url);
             return (
-              <a class="card pcard" href={`/zh/plugins/${p.name}/`}>
+              <a class="card pcard" href={`/zh/plugins/${p.name}/`} data-test={p.test === 'ok' ? 'ok' : p.npm ? 'issue' : 'source'}>
                 <div class="pcard-head">
                   <span class="pcard-name">{p.name}{featured.has(r) ? ' ⭐' : ''}</span>
                   <span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span>
@@ -97,6 +104,12 @@ const statusClass = {
   .cat-nav { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 18px 0 4px; }
   .chip { font-size: 12.5px; color: var(--ink-2); border: 1px solid var(--border); border-radius: 999px; padding: 5px 13px; text-decoration: none; background: #fff; }
   .chip:hover { color: var(--primary); border-color: var(--primary); }
+  .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 4px 0 20px; }
+  .fbtn { font-size: 13px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border); background: #fff; color: var(--ink-2); cursor: pointer; }
+  .fbtn.is-active { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .fcount { opacity: .7; font-size: 12px; }
+  .pcard[hidden] { display: none; }
+  .cat-head[hidden] { display: none; }
   .install-chip { margin: 0; font-size: 12px; padding: 6px 10px; }
   .badge { font-size: 11px; padding: 3px 9px; white-space: nowrap; }
   .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; }
@@ -111,3 +124,31 @@ const statusClass = {
   .c-ok { color: #1a7f37; }
   .c-warn { color: #9a6700; }
 </style>
+
+<script>
+  const buttons = document.querySelectorAll('.fbtn');
+  const cards = document.querySelectorAll('.pcard');
+  const heads = document.querySelectorAll('.cat-head');
+  const match = (card, f) => {
+    const t = card.dataset.test;
+    if (f === 'all') return true;
+    if (f === 'npm') return t === 'ok' || t === 'issue';
+    return t === f;
+  };
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      buttons.forEach((b) => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      const f = btn.dataset.filter;
+      cards.forEach((c) => { c.hidden = !match(c, f); });
+      heads.forEach((h) => {
+        let sib = h.nextElementSibling;
+        while (sib && !sib.classList.contains('cat-head')) {
+          if (sib.classList.contains('pcard') && !sib.hidden) { h.hidden = false; return; }
+          sib = sib.nextElementSibling;
+        }
+        h.hidden = true;
+      });
+    });
+  });
+</script>

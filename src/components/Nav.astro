@@ -7,13 +7,14 @@ const locale = Astro.currentLocale ?? 'en';
 const homeUrl = getRelativeLocaleUrl(locale, '/');
 
 const labels = {
-  en: { home: 'Home', tutorial: 'Tutorial', plugins: 'Plugins', install: 'Install', blog: 'Blog' },
-  zh: { home: '首页', tutorial: '教程', plugins: '插件', install: '安装', blog: '博客' },
+  en: { home: 'Home', tutorial: 'Tutorial', plugins: 'Plugins', directory: 'Directory', install: 'Install', blog: 'Blog' },
+  zh: { home: '首页', tutorial: '教程', plugins: '插件', directory: '插件目录', install: '安装', blog: '博客' },
 }[locale];
 const items = [
   { key: 'home', path: '/' },
   { key: 'tutorial', path: '/tutorial/' },
   { key: 'plugins', path: '/plugins/' },
+  { key: 'directory', path: '/plugins/directory/' },
   { key: 'install', path: '/install/' },
   { key: 'blog', path: '/blog/' },
 ];

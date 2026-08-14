@@ -18,6 +18,17 @@ const topicUrl = 'https://github.com/topics/dsh-plugin';
     <p class="lede">DeepSeek Harness's defining idea: every capability is a plugin. Learn what a plugin is, write your first one, and register tools. Based on the official developer guide.</p>
   </section>
 
+  <section class="wrap dir-banner">
+    <a class="dir-banner-inner" href={directoryUrl}>
+      <div>
+        <span class="cat">Plugin directory</span>
+        <h3>Browse 123 community plugins — with test results &amp; install commands</h3>
+        <p>Every plugin's npm status, verified test result, and exact <code>dsh plugin add</code> command, all in one place.</p>
+      </div>
+      <span class="btn btn-primary">Open the directory &rarr;</span>
+    </a>
+  </section>
+
   <section class="info wrap">
     <h2>What is a <span class="accent">plugin?</span></h2>
     <p>A Harness plugin is a TypeScript module that exports an <code>apply</code> function. The framework calls <code>apply</code> when it loads, passing a <code>ctx</code> through which you register capabilities:</p>
@@ -79,3 +90,16 @@ ctx.tools.register(defineTool(&#123;
     <p style="margin-top:20px"><a class="btn btn-ghost" href={tutorialUrl}>Back to the tutorial &rarr;</a></p>
   </section>
 </Base>
+
+<style>
+  .dir-banner { margin: -10px auto 0; padding: 0 22px 8px; }
+  .dir-banner-inner {
+    display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    background: linear-gradient(120deg, #eef2ff, #f6f8fc);
+    border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px;
+    text-decoration: none; color: inherit;
+  }
+  .dir-banner-inner h3 { margin: 6px 0; font-size: 19px; color: var(--ink); }
+  .dir-banner-inner p { margin: 0; color: var(--ink-2); font-size: 14px; }
+  .dir-banner-inner .cat { color: var(--primary); font-weight: 600; font-size: 12px; }
+</style>

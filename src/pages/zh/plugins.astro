@@ -18,6 +18,17 @@ const topicUrl = 'https://github.com/topics/dsh-plugin';
     <p class="lede">DeepSeek Harness 的核心理念：每个能力都是插件。学习插件是什么、写第一个插件、注册工具。基于官方开发者指南。</p>
   </section>
 
+  <section class="wrap dir-banner">
+    <a class="dir-banner-inner" href={directoryUrl}>
+      <div>
+        <span class="cat">插件目录</span>
+        <h3>浏览 123 个社区插件——含实测结果与安装命令</h3>
+        <p>每个插件的 npm 状态、实测验证结果、精确的 <code>dsh plugin add</code> 命令，一处看全。</p>
+      </div>
+      <span class="btn btn-primary">打开目录 &rarr;</span>
+    </a>
+  </section>
+
   <section class="info wrap">
     <h2>什么是<span class="accent">插件？</span></h2>
     <p>Harness 插件是导出 <code>apply</code> 函数的 TypeScript 模块。框架加载时调用 <code>apply</code>，传入 <code>ctx</code>（上下文对象），你通过它注册能力：</p>
@@ -79,3 +90,16 @@ ctx.tools.register(defineTool(&#123;
     <p style="margin-top:20px"><a class="btn btn-ghost" href={tutorialUrl}>返回教程 &rarr;</a></p>
   </section>
 </Base>
+
+<style>
+  .dir-banner { margin: -10px auto 0; padding: 0 22px 8px; }
+  .dir-banner-inner {
+    display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    background: linear-gradient(120deg, #eef2ff, #f6f8fc);
+    border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px;
+    text-decoration: none; color: inherit;
+  }
+  .dir-banner-inner h3 { margin: 6px 0; font-size: 19px; color: var(--ink); }
+  .dir-banner-inner p { margin: 0; color: var(--ink-2); font-size: 14px; }
+  .dir-banner-inner .cat { color: var(--primary); font-weight: 600; font-size: 12px; }
+</style>
