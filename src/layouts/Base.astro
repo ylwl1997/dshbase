@@ -1,0 +1,55 @@
+---
+import { getAbsoluteLocaleUrl, getRelativeLocaleUrl } from 'astro:i18n';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  currentPath: string;
+}
+
+const { title, description, currentPath } = Astro.props;
+const locale = Astro.currentLocale ?? 'en';
+const htmlLang = locale === 'en' ? 'en' : 'zh-CN';
+const canonical = getAbsoluteLocaleUrl(locale, currentPath);
+const enUrl = getAbsoluteLocaleUrl('en', currentPath);
+const zhUrl = getAbsoluteLocaleUrl('zh', currentPath);
+const homeUrl = getRelativeLocaleUrl(locale, '/');
+const t = {
+  en: { tagline: 'DeepSeek Harness guides, tutorials & plugin ecosystem.', note: 'Unofficial community resource. Not affiliated with DeepSeek.' },
+  zh: { tagline: 'DeepSeek Harness 中文指南、教程与插件生态。', note: '非官方社区资源。与 DeepSeek 无关。' },
+}[locale];
+---
+
+<!doctype html>
+<html lang={htmlLang}>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href={canonical}>
+  <link rel="alternate" hreflang="en" href={enUrl}>
+  <link rel="alternate" hreflang="zh-CN" href={zhUrl}>
+  <link rel="alternate" hreflang="x-default" href={enUrl}>
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="dshbase">
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content={canonical}>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/global.css">
+</head>
+<body>
+  <div class="app">
+    <Nav currentPath={currentPath} />
+    <main>
+      <slot />
+    </main>
+    <Footer tagline={t.tagline} note={t.note} />
+  </div>
+</body>
+</html>

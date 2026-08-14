@@ -1,0 +1,46 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const tutorialUrl = getRelativeLocaleUrl('zh', '/tutorial/');
+const pluginsUrl = getRelativeLocaleUrl('zh', '/plugins/');
+---
+<Base
+  title="安装 DeepSeek Harness（DSH）— npm 与源码安装 | dshbase 中文"
+  description="如何安装 DeepSeek Harness（dsh）：一条 npm 命令启动 Web UI（npx @deepseek-ai/dsh web），或从源码构建。"
+  currentPath="/install/"
+>
+  <section class="hero wrap">
+    <p class="eyebrow">安装</p>
+    <h1>安装 DeepSeek Harness <span class="accent">（dsh）</span></h1>
+    <p class="lede">两种运行 DeepSeek Harness 的方式：一条 npm 命令安装，或从源码构建。基于官方文档。</p>
+  </section>
+
+  <section class="info wrap">
+    <h2>开始之前</h2>
+    <ul>
+      <li>需要安装 <strong>Node.js</strong>。</li>
+      <li>DeepSeek Harness 处于<strong>开发者预览</strong>阶段——迭代很快，<strong>未来会出现破坏性变更</strong>。</li>
+    </ul>
+
+    <h2 style="margin-top:24px">方式一：通过 npm 安装运行</h2>
+    <p>一条命令启动 Web UI：</p>
+    <pre class="code-block"><code>npx @deepseek-ai/dsh web</code></pre>
+    <p>Web UI 默认地址：<strong><code>http://127.0.0.1:3080</code></strong>。</p>
+
+    <h2 style="margin-top:24px">方式二：从源码构建运行</h2>
+    <p>克隆仓库并本地构建：</p>
+    <pre class="code-block"><code>git clone https://github.com/deepseek-ai/deepseek-harness.git
+cd deepseek-harness
+pnpm install
+pnpm run build
+pnpm dsh web</code></pre>
+    <p>使用 <code>pnpm</code>（没有的话先 <code>npm install -g pnpm</code>）。</p>
+
+    <h2 style="margin-top:24px">下一步</h2>
+    <ol class="steps">
+      <li>打开 Web UI，按<a href={tutorialUrl}>教程</a>配置模型并运行第一个任务。</li>
+      <li>在 <strong>设置 → 模型</strong> 填入 DeepSeek API Key。</li>
+      <li>用<a href={pluginsUrl}>插件指南</a>开发自己的插件。</li>
+    </ol>
+  </section>
+</Base>

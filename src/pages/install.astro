@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const tutorialUrl = getRelativeLocaleUrl('en', '/tutorial/');
+const pluginsUrl = getRelativeLocaleUrl('en', '/plugins/');
+---
+<Base
+  title="Install DeepSeek Harness (DSH) — npm &amp; From Source | dshbase"
+  description="How to install DeepSeek Harness (dsh): run the Web UI with one npm command (npx @deepseek-ai/dsh web) or build from source."
+  currentPath="/install/"
+>
+  <section class="hero wrap">
+    <p class="eyebrow">Install</p>
+    <h1>Install DeepSeek Harness <span class="accent">(dsh)</span></h1>
+    <p class="lede">Two ways to run DeepSeek Harness: the one-command npm install, or building from source. Based on the official documentation.</p>
+  </section>
+
+  <section class="info wrap">
+    <h2>Before you start</h2>
+    <ul>
+      <li>You need <strong>Node.js</strong> installed.</li>
+      <li>DeepSeek Harness is in <strong>developer preview</strong> — it's iterating fast and <strong>breaking changes will come</strong>.</li>
+    </ul>
+
+    <h2 style="margin-top:24px">Option 1 — Install &amp; run from npm</h2>
+    <p>Run the Web UI with a single command:</p>
+    <pre class="code-block"><code>npx @deepseek-ai/dsh web</code></pre>
+    <p>This starts the Web UI at <strong><code>http://127.0.0.1:3080</code></strong>.</p>
+
+    <h2 style="margin-top:24px">Option 2 — Build &amp; run from source</h2>
+    <p>Clone the repository and build it locally:</p>
+    <pre class="code-block"><code>git clone https://github.com/deepseek-ai/deepseek-harness.git
+cd deepseek-harness
+pnpm install
+pnpm run build
+pnpm dsh web</code></pre>
+    <p>Uses <code>pnpm</code> — install it if you don't have it (<code>npm install -g pnpm</code>).</p>
+
+    <h2 style="margin-top:24px">What to do next</h2>
+    <ol class="steps">
+      <li>Open the Web UI and follow the <a href={tutorialUrl}>tutorial</a> to configure a model and run your first task.</li>
+      <li>Add your DeepSeek API key under <strong>Settings → Models</strong>.</li>
+      <li>Build your own plugins with the <a href={pluginsUrl}>plugin guide</a>.</li>
+    </ol>
+  </section>
+</Base>

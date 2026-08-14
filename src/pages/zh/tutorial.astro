@@ -1,0 +1,56 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const installUrl = getRelativeLocaleUrl('zh', '/install/');
+const pluginsUrl = getRelativeLocaleUrl('zh', '/plugins/');
+---
+<Base
+  title="DeepSeek Harness 教程 — Web UI、模型配置与第一个任务 | dshbase 中文"
+  description="DeepSeek Harness（dsh）完整教程：启动 Web UI、配置模型（DeepSeek/Anthropic/OpenAI/自定义提供方）、选择工作区、运行第一个任务。"
+  currentPath="/tutorial/"
+>
+  <section class="hero wrap">
+    <p class="eyebrow">教程</p>
+    <h1>DeepSeek Harness <span class="accent">教程</span></h1>
+    <p class="lede">从启动 Web UI 到运行第一个 Agent 任务，以及配置各种模型提供方。基于官方指南。</p>
+  </section>
+
+  <section class="info wrap">
+    <h2>1. 启动 Web UI</h2>
+    <p><a href={installUrl}>安装</a>后运行：</p>
+    <pre class="code-block"><code>npx @deepseek-ai/dsh web</code></pre>
+    <p>打开 <code>http://127.0.0.1:3080</code>。Web UI 在你添加工作区之前不会选中任何目录。</p>
+
+    <h2 style="margin-top:24px">2. 配置模型</h2>
+    <p>打开 <strong>设置 → 模型</strong>，填入 <strong>DeepSeek API Key</strong> 并保存。模型路由立即可用，无需重启服务器。</p>
+    <p><img src="/assets/providers-models-page.png" alt="DeepSeek Harness 模型配置页" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0"></p>
+    <p class="muted small">截图来自官方 DeepSeek Harness 文档（MIT）。</p>
+    <p>要接入其他提供方，用<strong>添加提供方</strong>（Anthropic、OpenAI 等），或用<strong>添加自定义提供方</strong>接入公司网关和自建端点。</p>
+
+    <h2 style="margin-top:24px">3. 选择工作区</h2>
+    <p>点击<strong>选择工作区</strong>，添加启动 <code>dsh</code> 时的项目目录并选中。选中前会话输入框不可用。</p>
+
+    <h2 style="margin-top:24px">4. 运行第一个任务</h2>
+    <pre class="code-block"><code>Summarize this repository and identify its main packages.</code></pre>
+    <p>Agent 可以读写工作区文件、运行命令、委派任务并维护计划。需要审批的操作，Web UI 会先询问你。</p>
+
+    <h2 style="margin-top:28px">模型配置（提供方）</h2>
+    <p>模型变更在下一次请求生效，无需重启。密钥存在 <code>$DSH_HOME/.credentials.yaml</code>，只写不可读。</p>
+    <ul>
+      <li><strong>DeepSeek</strong>：在模型页填入 API Key。</li>
+      <li><strong>目录提供方</strong>（Anthropic、OpenAI 等）：添加提供方并填密钥。Bedrock/Vertex/Azure/Codex 需要各自的原生凭据。</li>
+      <li><strong>自定义提供方</strong>：小写 Provider ID + 基础 URL + 协议 + 凭据 + 至少一个模型。用<strong>获取可用模型</strong>查询端点。</li>
+      <li><strong>视觉模型</strong>：在 <code>$DSH_HOME/settings.yaml</code> 给模型加 <code>input: [text, image]</code>。</li>
+    </ul>
+
+    <h2 style="margin-top:24px">排错</h2>
+    <ul>
+      <li><strong><code>MISSING_CREDENTIAL</code></strong> — 在模型页存密钥，或设置引用的环境变量。</li>
+      <li><strong><code>UNKNOWN_MODEL</code></strong> — 选择已配置的模型，或给自定义提供方添加缺失模型。</li>
+      <li><strong>获取可用模型返回 401</strong> — 检查密钥；模型发现会调用 <code>GET /models</code>。</li>
+      <li><strong>图片在发送前被拒绝</strong> — 模型未声明图片模态；加 <code>input: [text, image]</code>。</li>
+    </ul>
+
+    <p style="margin-top:20px"><a class="btn btn-ghost" href={pluginsUrl}>下一步：开发插件 &rarr;</a></p>
+  </section>
+</Base>

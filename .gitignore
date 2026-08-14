@@ -4,3 +4,8 @@ __pycache__/
 
 # 开发产物
 research/
+
+# Node / Astro
+node_modules/
+dist/
+.astro/

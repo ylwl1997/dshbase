@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const tutorialUrl = getRelativeLocaleUrl('en', '/tutorial/');
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const noatmarkUrl = 'https://github.com/ylwl1997/noatmark-dsh-plugin';
+const topicUrl = 'https://github.com/topics/dsh-plugin';
+---
+<Base
+  title="DeepSeek Harness Plugins — Everything-is-a-Plugin Development | dshbase"
+  description="Build DeepSeek Harness (dsh) plugins: what a plugin is, your first plugin with cordis.yml, registering tools with defineTool, and publishing to the dsh-plugin ecosystem."
+  currentPath="/plugins/"
+>
+  <section class="hero wrap">
+    <p class="eyebrow">Plugins</p>
+    <h1>Everything is a <span class="accent">plugin.</span></h1>
+    <p class="lede">DeepSeek Harness's defining idea: every capability is a plugin. Learn what a plugin is, write your first one, and register tools. Based on the official developer guide.</p>
+  </section>
+
+  <section class="info wrap">
+    <h2>What is a <span class="accent">plugin?</span></h2>
+    <p>A Harness plugin is a TypeScript module that exports an <code>apply</code> function. The framework calls <code>apply</code> when it loads, passing a <code>ctx</code> through which you register capabilities:</p>
+    <pre class="code-block"><code>import type &#123; Context &#125; from '@deepseek-ai/cordis'
+
+export const name = 'my-plugin'
+
+export function apply(ctx: Context) &#123;
+  // Register capabilities here.
+&#125;</code></pre>
+    <p>Anything you register via <code>ctx</code> is cleaned up automatically when the plugin unloads.</p>
+
+    <h2 style="margin-top:24px">Your first plugin</h2>
+    <pre class="code-block"><code>mkdir -p scratch-plugin/src</code></pre>
+    <pre class="code-block"><code>// scratch-plugin/src/my-plugin.ts
+import type &#123; Context &#125; from '@deepseek-ai/cordis'
+export const name = 'hello-plugin'
+export function apply(ctx: Context) &#123;
+  console.log('[hello-plugin] plugin loaded!')
+&#125;</code></pre>
+    <p>Create <code>scratch-plugin/cordis.yml</code> pointing at the absolute path, then start the Web UI with the patch:</p>
+    <pre class="code-block"><code>- insert:
+    - id: hello
+      name: '/absolute/path/to/deepseek-harness/scratch-plugin/src/my-plugin.ts'</code></pre>
+    <pre class="code-block"><code>pnpm dsh web --patch ./scratch-plugin/cordis.yml</code></pre>
+
+    <h2 style="margin-top:24px">Register a tool</h2>
+    <p>Use <code>defineTool</code> to add a tool your agent can call:</p>
+    <pre class="code-block"><code>import &#123; defineTool &#125; from '@deepseek-ai/dsh-tools'
+
+ctx.tools.register(defineTool(&#123;
+  name: 'greet',
+  description: 'Greet someone by name.',
+  parameters: &#123; name: &#123; type: 'string', required: true, description: 'The name' &#125; &#125;,
+  output: &#123; schema: &#123; type: 'string' &#125;, render: (_a, v) => [&#123; type: 'text', text: v &#125;] &#125;,
+  async execute(args) &#123; return `Hello, $&#123;args.name&#125;!` &#125;,
+&#125;))</code></pre>
+
+    <h2 style="margin-top:24px">Community plugins &amp; publishing</h2>
+    <p>Tag your repo with <a href={topicUrl} target="_blank" rel="noopener"><code>dsh-plugin</code></a> to join the ecosystem, and see the <a href={directoryUrl}>plugin directory</a> (120+ curated).</p>
+    <div class="grid3">
+      <a class="card card-link" href={noatmarkUrl} target="_blank" rel="noopener">
+        <span class="cat">Text hygiene</span>
+        <h3>noatmark-dsh-plugin</h3>
+        <p>Sanitize untrusted text, scan invisible chars, clean LLM formatting, and escape CSV injection. <span class="arr">&rarr;</span></p>
+      </a>
+      <a class="card card-link" href={directoryUrl}>
+        <span class="cat">Ecosystem</span>
+        <h3>Plugin directory</h3>
+        <p>120+ plugins across 7 categories. <span class="arr">&rarr;</span></p>
+      </a>
+    </div>
+
+    <p style="margin-top:20px"><a class="btn btn-ghost" href={tutorialUrl}>Back to the tutorial &rarr;</a></p>
+  </section>
+</Base>

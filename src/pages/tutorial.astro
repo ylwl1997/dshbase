@@ -1,0 +1,56 @@
+---
+import Base from '../layouts/Base.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const installUrl = getRelativeLocaleUrl('en', '/install/');
+const pluginsUrl = getRelativeLocaleUrl('en', '/plugins/');
+---
+<Base
+  title="DeepSeek Harness Tutorial — Web UI, Models &amp; First Task | dshbase"
+  description="A complete DeepSeek Harness (dsh) tutorial: start the Web UI, configure models (DeepSeek, Anthropic, OpenAI, custom providers), choose a workspace, and run your first task."
+  currentPath="/tutorial/"
+>
+  <section class="hero wrap">
+    <p class="eyebrow">Tutorial</p>
+    <h1>DeepSeek Harness <span class="accent">tutorial</span></h1>
+    <p class="lede">From starting the Web UI to running your first agent task — and configuring every model provider. Based on the official guide.</p>
+  </section>
+
+  <section class="info wrap">
+    <h2>1. Start the Web UI</h2>
+    <p>After <a href={installUrl}>installing</a>, run:</p>
+    <pre class="code-block"><code>npx @deepseek-ai/dsh web</code></pre>
+    <p>Open <code>http://127.0.0.1:3080</code>. The <code>dsh</code> process treats the directory you ran it in as its default filesystem location, but the Web UI won't select a workspace until you add one.</p>
+
+    <h2 style="margin-top:24px">2. Configure a model</h2>
+    <p>Open <strong>Settings → Models</strong>, enter your <strong>DeepSeek API key</strong>, and save. The model route becomes available immediately — no server restart needed.</p>
+    <p><img src="/assets/providers-models-page.png" alt="DeepSeek Harness Models page" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0"></p>
+    <p class="muted small">Screenshot from the official DeepSeek Harness docs (MIT).</p>
+    <p>To add other providers, use <strong>Add provider</strong> (Anthropic, OpenAI, and more from the installed directory) or <strong>Add custom provider</strong> for company gateways and self-hosted endpoints.</p>
+
+    <h2 style="margin-top:24px">3. Choose a workspace</h2>
+    <p>Click <strong>Choose workspace</strong>, add the project directory you started <code>dsh</code> in, then select it. The conversation input stays disabled until a workspace is selected.</p>
+
+    <h2 style="margin-top:24px">4. Run your first task</h2>
+    <pre class="code-block"><code>Summarize this repository and identify its main packages.</code></pre>
+    <p>The agent can read and edit workspace files, run commands, delegate work, and maintain a plan. When an action needs approval under the current permission policy, the Web UI asks you first.</p>
+
+    <h2 style="margin-top:28px">Model configuration (providers)</h2>
+    <p>Model changes take effect on the next request — no restart needed. Keys are stored in <code>$DSH_HOME/.credentials.yaml</code> and are write-only.</p>
+    <ul>
+      <li><strong>DeepSeek</strong>: enter the API key on the Models page.</li>
+      <li><strong>Directory providers</strong> (Anthropic, OpenAI, …): add a provider and its key. Bedrock, Vertex, Azure, and Codex need their native credentials (AWS/ADC/<code>api-version</code>/OAuth).</li>
+      <li><strong>Custom providers</strong>: lowercase Provider ID + base URL + protocol + credentials + at least one model. Use <strong>Get available models</strong> to query the endpoint.</li>
+      <li><strong>Vision models</strong>: add <code>input: [text, image]</code> in <code>$DSH_HOME/settings.yaml</code> for the model.</li>
+    </ul>
+
+    <h2 style="margin-top:24px">Troubleshooting</h2>
+    <ul>
+      <li><strong><code>MISSING_CREDENTIAL</code></strong> — store the provider key or set the referenced env var.</li>
+      <li><strong><code>UNKNOWN_MODEL</code></strong> — pick a configured model or add it to your custom provider.</li>
+      <li><strong>Get available models returns 401</strong> — check the key; model discovery calls <code>GET /models</code>.</li>
+      <li><strong>Images rejected before sending</strong> — the model doesn't declare the image modality; add <code>input: [text, image]</code>.</li>
+    </ul>
+
+    <p style="margin-top:20px"><a class="btn btn-ghost" href={pluginsUrl}>Next: build a plugin &rarr;</a></p>
+  </section>
+</Base>

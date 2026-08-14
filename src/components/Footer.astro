@@ -1,0 +1,44 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+interface Props { tagline: string; note: string }
+const { tagline, note } = Astro.props;
+const locale = Astro.currentLocale ?? 'en';
+const L = {
+  en: { guides: 'Guides', tutorial: 'Tutorial', install: 'Install', plugins: 'Plugins', resources: 'Resources', directory: 'Plugin directory', what: 'What is DSH', blog: 'Blog', vscode: 'vs Claude Code', about: 'About', contact: 'Contact', privacy: 'Privacy' },
+  zh: { guides: '指南', tutorial: '教程', install: '安装', plugins: '插件', resources: '资源', directory: '插件目录', what: 'What is DSH', blog: '博客', vscode: 'vs Claude Code', about: '关于', contact: '联系', privacy: '隐私' },
+}[locale];
+---
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div class="foot-col">
+      <p class="foot-brand">
+        <img class="foot-logo" src="/logo.svg" alt="dshbase logo" width="24" height="24">
+        <span>dsh</span><strong>base</strong>
+      </p>
+      <p class="muted small">{tagline}</p>
+    </div>
+    <div class="foot-col">
+      <b>{L.guides}</b>
+      <a href={getRelativeLocaleUrl(locale, '/tutorial/')}>{L.tutorial}</a>
+      <a href={getRelativeLocaleUrl(locale, '/install/')}>{L.install}</a>
+      <a href={getRelativeLocaleUrl(locale, '/plugins/')}>{L.plugins}</a>
+    </div>
+    <div class="foot-col">
+      <b>{L.resources}</b>
+      <a href={getRelativeLocaleUrl(locale, '/plugins/directory/')}>{L.directory}</a>
+      <a href={getRelativeLocaleUrl(locale, '/')}>{L.what}</a>
+      <a href={getRelativeLocaleUrl(locale, '/blog/')}>{L.blog}</a>
+      <a href={getRelativeLocaleUrl(locale, '/blog/vs-claude-code/')}>{L.vscode}</a>
+    </div>
+    <div class="foot-col">
+      <b>{L.about}</b>
+      <a href="mailto:hello@dshbase.com">{L.contact}</a>
+      <a href={getRelativeLocaleUrl(locale, '/privacy/')}>{L.privacy}</a>
+    </div>
+  </div>
+  <div class="wrap foot-in">
+    <p class="muted small">{note}</p>
+  </div>
+</footer>

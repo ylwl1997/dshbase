@@ -1,0 +1,75 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const tutorialUrl = getRelativeLocaleUrl('zh', '/tutorial/');
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const noatmarkUrl = 'https://github.com/ylwl1997/noatmark-dsh-plugin';
+const topicUrl = 'https://github.com/topics/dsh-plugin';
+---
+<Base
+  title="DeepSeek Harness 插件 — 一切皆插件的插件开发 | dshbase 中文"
+  description="开发 DeepSeek Harness（dsh）插件：插件是什么、第一个插件（cordis.yml）、用 defineTool 注册工具、发布到 dsh-plugin 生态。"
+  currentPath="/plugins/"
+>
+  <section class="hero wrap">
+    <p class="eyebrow">插件</p>
+    <h1>一切皆<span class="accent">插件</span></h1>
+    <p class="lede">DeepSeek Harness 的核心理念：每个能力都是插件。学习插件是什么、写第一个插件、注册工具。基于官方开发者指南。</p>
+  </section>
+
+  <section class="info wrap">
+    <h2>什么是<span class="accent">插件？</span></h2>
+    <p>Harness 插件是导出 <code>apply</code> 函数的 TypeScript 模块。框架加载时调用 <code>apply</code>，传入 <code>ctx</code>（上下文对象），你通过它注册能力：</p>
+    <pre class="code-block"><code>import type &#123; Context &#125; from '@deepseek-ai/cordis'
+
+export const name = 'my-plugin'
+
+export function apply(ctx: Context) &#123;
+  // Register capabilities here.
+&#125;</code></pre>
+    <p>通过 <code>ctx</code> 注册的任何东西，插件卸载时都会自动清理。</p>
+
+    <h2 style="margin-top:24px">第一个插件</h2>
+    <pre class="code-block"><code>mkdir -p scratch-plugin/src</code></pre>
+    <pre class="code-block"><code>// scratch-plugin/src/my-plugin.ts
+import type &#123; Context &#125; from '@deepseek-ai/cordis'
+export const name = 'hello-plugin'
+export function apply(ctx: Context) &#123;
+  console.log('[hello-plugin] plugin loaded!')
+&#125;</code></pre>
+    <p>创建 <code>scratch-plugin/cordis.yml</code> 指向绝对路径，然后用 patch 启动 Web UI：</p>
+    <pre class="code-block"><code>- insert:
+    - id: hello
+      name: '/absolute/path/to/deepseek-harness/scratch-plugin/src/my-plugin.ts'</code></pre>
+    <pre class="code-block"><code>pnpm dsh web --patch ./scratch-plugin/cordis.yml</code></pre>
+
+    <h2 style="margin-top:24px">注册一个工具</h2>
+    <p>用 <code>defineTool</code> 给 Agent 添加可调用的工具：</p>
+    <pre class="code-block"><code>import &#123; defineTool &#125; from '@deepseek-ai/dsh-tools'
+
+ctx.tools.register(defineTool(&#123;
+  name: 'greet',
+  description: 'Greet someone by name.',
+  parameters: &#123; name: &#123; type: 'string', required: true, description: 'The name' &#125; &#125;,
+  output: &#123; schema: &#123; type: 'string' &#125;, render: (_a, v) => [&#123; type: 'text', text: v &#125;] &#125;,
+  async execute(args) &#123; return `Hello, $&#123;args.name&#125;!` &#125;,
+&#125;))</code></pre>
+
+    <h2 style="margin-top:24px">社区插件与发布</h2>
+    <p>给仓库加 <a href={topicUrl} target="_blank" rel="noopener"><code>dsh-plugin</code></a> 话题加入生态，浏览<a href={directoryUrl}>插件目录</a>（120+ 精选）。</p>
+    <div class="grid3">
+      <a class="card card-link" href={noatmarkUrl} target="_blank" rel="noopener">
+        <span class="cat">文本卫生</span>
+        <h3>noatmark-dsh-plugin</h3>
+        <p>净化不可信文本、扫描隐形字符、清洗 LLM 格式、转义 CSV 注入。 <span class="arr">&rarr;</span></p>
+      </a>
+      <a class="card card-link" href={directoryUrl}>
+        <span class="cat">生态</span>
+        <h3>插件目录</h3>
+        <p>7 大类 120+ 个社区插件。 <span class="arr">&rarr;</span></p>
+      </a>
+    </div>
+
+    <p style="margin-top:20px"><a class="btn btn-ghost" href={tutorialUrl}>返回教程 &rarr;</a></p>
+  </section>
+</Base>
