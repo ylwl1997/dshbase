@@ -3,6 +3,12 @@ import Base from '../../layouts/Base.astro';
 import plugins from '../../data/plugins.json';
 const catOrder = Object.keys(plugins);
 const total = catOrder.reduce((s, k) => s + plugins[k].length, 0);
+const all = catOrder.flatMap((k) => plugins[k]);
+const nOk = all.filter((p) => p.test === 'ok').length;
+const nUi = all.filter((p) => p.test === 'ui').length;
+const nFail = all.filter((p) => p.test === 'install-fail' || p.test === 'load-fail').length;
+const nSource = all.filter((p) => p.test === 'not-on-npm').length;
+const nNpm = all.filter((p) => p.npm).length;
 const repo = (u) => u.replace('https://github.com/', '');
 const npmHome = (p) => p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
 const featured = new Set(['huiliyi37/dsh-tianshu-tui', 'omdsh-dev/dsh-at-file', 'omdsh-dev/dsh-genui', 'titanwings/dsh-automation', 'omdsh-dev/DSH-better-sidebar', 'liustack/modlens', 'zhu1090093659/dsh-web-ui', 'Anionex/dsh-computer-use', 'omdsh-dev/dsh-tool-csv', 'ccch1mneyyy/dsh-cc-tui']);
@@ -34,7 +40,7 @@ const statusClass = {
       <span class="badge"><span class="dot st-warn"></span>Load / install issue</span>
       <span class="badge">⭐ Featured</span>
     </div>
-    <p class="stats-line">On npm today: <strong>17</strong> plugins — <strong class="c-ok">10 verified</strong> ✅ · <strong class="c-warn">4 need a Web/TUI surface</strong> · <strong class="c-warn">3 install issues</strong>. The other <strong>105</strong> are GitHub source — install any of them with <code>dsh plugin add github:owner/repo</code>.</p>
+    <p class="stats-line">On npm today: <strong>{nNpm}</strong> plugins — <strong class="c-ok">{nOk} verified</strong> ✅ · <strong class="c-warn">{nUi} need a Web/TUI surface</strong> · <strong class="c-warn">{nFail} install issues</strong>. The other <strong>{nSource}</strong> are GitHub source — install any of them with <code>dsh plugin add github:owner/repo</code>.</p>
     <div class="cat-nav">
       {catOrder.map((cat) => (
         <a class="chip" href={`#${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>{cat}</a>
