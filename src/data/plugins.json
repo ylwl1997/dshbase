@@ -562,6 +562,23 @@
    "language": "JavaScript",
    "updated": "2026-08-14",
    "archived": false
+  },
+  {
+   "name": "dsh-sgme",
+   "url": "https://github.com/freehul/sgme",
+   "pkg": "dsh-sgme",
+   "ver": "0.1.1",
+   "npm": true,
+   "test": "ok",
+   "desc": "SGME memory engine bridge for DeepSeek Harness — multi-agent shared long-term memory via HTTP.",
+   "desc_en": "SGME memory engine bridge for DeepSeek Harness — multi-agent shared long-term memory via HTTP.",
+   "desc_zh": "SGME 拾光记忆引擎的 DSH 桥接插件——通过 HTTP 实现多 agent 共享长期记忆。",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "Python",
+   "updated": "2026-08-14",
+   "archived": false
   }
  ],
  "Tools & Capabilities": [
