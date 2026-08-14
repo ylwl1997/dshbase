@@ -4,6 +4,7 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 const tutorialUrl = getRelativeLocaleUrl('zh', '/tutorial/');
 const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
 const noatmarkUrl = 'https://github.com/ylwl1997/noatmark-dsh-plugin';
+const noatmarkNpmUrl = 'https://www.npmjs.com/package/noatmark-dsh-plugin';
 const topicUrl = 'https://github.com/topics/dsh-plugin';
 ---
 <Base
@@ -46,7 +47,7 @@ export function apply(ctx: Context) &#123;
     <h2 style="margin-top:24px">安装并使用社区插件</h2>
     <p>无需写代码——插件就是 npm 包。往 profile 里加一个（需要 pnpm）：</p>
     <pre class="code-block"><code>dsh plugin --profile web add dsh-claude-marketplace</code></pre>
-    <p>DSH 会安装该包，写进 profile 的 <code>package.json</code>（依赖 + <code>dsh.profile.bundles</code>），下次 <code>dsh web</code> 启动自动加载。用 <code>dsh plugin --profile web list</code> 确认，<code>dsh plugin --profile web remove &lt;包名&gt;</code> 卸载。npm 上真实可用的：<code>dsh-claude-marketplace</code>（加载你的 <code>.claude</code> skills 与 commands）、<code>dsh-plugin-session-import</code>（导入 Claude Code/Codex 历史会话）、<code>dsh-fail-logger</code>、<code>dsh-latex-tools</code>、<code>dsh-cloudflare-browser-run</code>。用 <code>npm search dsh-plugin</code> 搜索更多。</p>
+    <p>DSH 会安装该包，写进 profile 的 <code>package.json</code>（依赖 + <code>dsh.profile.bundles</code>），下次 <code>dsh web</code> 启动自动加载。用 <code>dsh plugin --profile web list</code> 确认，<code>dsh plugin --profile web remove &lt;包名&gt;</code> 卸载。npm 上真实可用的：<code>noatmark-dsh-plugin</code>（文本卫生工具）、<code>dsh-claude-marketplace</code>（加载你的 <code>.claude</code> skills 与 commands）、<code>dsh-plugin-session-import</code>（导入 Claude Code/Codex 历史会话）、<code>dsh-fail-logger</code>、<code>dsh-latex-tools</code>、<code>dsh-cloudflare-browser-run</code>。用 <code>npm search dsh-plugin</code> 搜索更多。</p>
 
     <h2 style="margin-top:24px">注册一个工具</h2>
     <p>用 <code>defineTool</code> 给 Agent 添加可调用的工具：</p>
@@ -63,10 +64,10 @@ ctx.tools.register(defineTool(&#123;
     <h2 style="margin-top:24px">社区插件与发布</h2>
     <p>给仓库加 <a href={topicUrl} target="_blank" rel="noopener"><code>dsh-plugin</code></a> 话题加入生态，浏览<a href={directoryUrl}>插件目录</a>（120+ 精选）。</p>
     <div class="grid3">
-      <a class="card card-link" href={noatmarkUrl} target="_blank" rel="noopener">
-        <span class="cat">文本卫生</span>
+      <a class="card card-link" href={noatmarkNpmUrl} target="_blank" rel="noopener">
+        <span class="cat">文本卫生 · npm 可装</span>
         <h3>noatmark-dsh-plugin</h3>
-        <p>净化不可信文本、扫描隐形字符、清洗 LLM 格式、转义 CSV 注入。 <span class="arr">&rarr;</span></p>
+        <p>净化不可信文本、扫描隐形字符、清洗 LLM 格式、转义 CSV 注入。安装：<code>dsh plugin add noatmark-dsh-plugin</code>。 <span class="arr">&rarr;</span></p>
       </a>
       <a class="card card-link" href={directoryUrl}>
         <span class="cat">生态</span>

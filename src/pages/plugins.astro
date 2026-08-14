@@ -4,6 +4,7 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 const tutorialUrl = getRelativeLocaleUrl('en', '/tutorial/');
 const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
 const noatmarkUrl = 'https://github.com/ylwl1997/noatmark-dsh-plugin';
+const noatmarkNpmUrl = 'https://www.npmjs.com/package/noatmark-dsh-plugin';
 const topicUrl = 'https://github.com/topics/dsh-plugin';
 ---
 <Base
@@ -46,7 +47,7 @@ export function apply(ctx: Context) &#123;
     <h2 style="margin-top:24px">Install &amp; use a community plugin</h2>
     <p>No code needed — plugins are npm packages. Add one to a profile (requires pnpm):</p>
     <pre class="code-block"><code>dsh plugin --profile web add dsh-claude-marketplace</code></pre>
-    <p>DSH installs the package, records it in the profile's <code>package.json</code> (dependency + <code>dsh.profile.bundles</code>), and loads it on the next <code>dsh web</code> launch. Confirm with <code>dsh plugin --profile web list</code>, remove with <code>dsh plugin --profile web remove &lt;package&gt;</code>. Real npm plugins to try: <code>dsh-claude-marketplace</code> (load your <code>.claude</code> skills &amp; commands), <code>dsh-plugin-session-import</code> (import Claude Code / Codex history), <code>dsh-fail-logger</code>, <code>dsh-latex-tools</code>, <code>dsh-cloudflare-browser-run</code>. Search the ecosystem with <code>npm search dsh-plugin</code>.</p>
+    <p>DSH installs the package, records it in the profile's <code>package.json</code> (dependency + <code>dsh.profile.bundles</code>), and loads it on the next <code>dsh web</code> launch. Confirm with <code>dsh plugin --profile web list</code>, remove with <code>dsh plugin --profile web remove &lt;package&gt;</code>. Real npm plugins to try: <code>noatmark-dsh-plugin</code> (text hygiene tools), <code>dsh-claude-marketplace</code> (load your <code>.claude</code> skills &amp; commands), <code>dsh-plugin-session-import</code> (import Claude Code / Codex history), <code>dsh-fail-logger</code>, <code>dsh-latex-tools</code>, <code>dsh-cloudflare-browser-run</code>. Search the ecosystem with <code>npm search dsh-plugin</code>.</p>
 
     <h2 style="margin-top:24px">Register a tool</h2>
     <p>Use <code>defineTool</code> to add a tool your agent can call:</p>
@@ -63,10 +64,10 @@ ctx.tools.register(defineTool(&#123;
     <h2 style="margin-top:24px">Community plugins &amp; publishing</h2>
     <p>Tag your repo with <a href={topicUrl} target="_blank" rel="noopener"><code>dsh-plugin</code></a> to join the ecosystem, and see the <a href={directoryUrl}>plugin directory</a> (120+ curated).</p>
     <div class="grid3">
-      <a class="card card-link" href={noatmarkUrl} target="_blank" rel="noopener">
-        <span class="cat">Text hygiene</span>
+      <a class="card card-link" href={noatmarkNpmUrl} target="_blank" rel="noopener">
+        <span class="cat">Text hygiene · on npm</span>
         <h3>noatmark-dsh-plugin</h3>
-        <p>Sanitize untrusted text, scan invisible chars, clean LLM formatting, and escape CSV injection. <span class="arr">&rarr;</span></p>
+        <p>Sanitize untrusted text, scan invisible chars, clean LLM formatting, and escape CSV injection. Install with <code>dsh plugin add noatmark-dsh-plugin</code>. <span class="arr">&rarr;</span></p>
       </a>
       <a class="card card-link" href={directoryUrl}>
         <span class="cat">Ecosystem</span>
