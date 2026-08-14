@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why DeepSeek Harness Is Called a Harness — Agent = Model + Harness | dshbase</title>
+<meta name="description" content="Why DeepSeek Harness is named a harness, not a code tool: Agent = Model + Harness, the Cordis plugin kernel, and time/spatial composability that lets agents self-evolve.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://dshbase.com/blog/why-deepseek-harness/">
+<link rel="icon" href="/logo.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebPage","name":"Why DeepSeek Harness Is Called a Harness","url":"https://dshbase.com/blog/why-deepseek-harness/"},
+{"@type":"TechArticle","headline":"Why DeepSeek Harness Is Called a Harness — Agent = Model + Harness","description":"The model-plus-harness formula, the Cordis kernel, and time/spatial composability.","datePublished":"2026-08-14"}
+]}</script>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="/"><img class="brand-logo" src="/logo.svg" alt="dshbase logo" width="34" height="34"><span>dsh</span><strong>base</strong></a>
+    <nav class="nav" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="/tutorial/">Tutorial</a>
+      <a href="/plugins/">Plugins</a>
+      <a href="/install/">Install</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    <article class="info wrap" style="max-width:820px;margin:0 auto">
+      <p class="eyebrow">Blog · Concept</p>
+      <h1>Why DeepSeek Harness Is Called a <span class="accent">Harness</span></h1>
+      <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+      <p>When DeepSeek announced its own agent product, it didn't call it DeepSeek Code or DeepSeek Build. It called it a <strong>harness</strong>. That naming choice is the whole story — here's what it means.</p>
+
+      <h2>Agent = Model + Harness</h2>
+      <p>The formula DeepSeek uses — and that the community uses widely — is:</p>
+      <pre class="code-block"><code>Agent = Model + Harness</code></pre>
+      <p>The <strong>model is the brain</strong>: it reasons. The <strong>harness is everything that connects that brain to the real world</strong> — reading files, running a terminal, searching the web, editing code, running tests. Claude Code, Codex, and DeepSeek Harness are all harnesses; a model alone is just an empty shell without one.</p>
+
+      <h2>The Cordis kernel: an agent that plugs itself together</h2>
+      <p>DeepSeek Harness is built on <strong>Cordis</strong>, a plugin kernel that does almost nothing except manage plugin loading, unloading, and dependencies. Everything else — tools, skills, sessions, sandboxes, the agent loop, sub-agents, workflows — is a plugin. The kernel is deliberately minimal, and its authors published an 88-page paper describing it.</p>
+      <p>Two properties make it special:</p>
+      <ul>
+        <li><strong>Temporal composability</strong> — when a plugin unloads, its side effects are fully undone. An agent can swap capabilities without leaving corruption behind.</li>
+        <li><strong>Spatial composability</strong> — if a plugin depends on others, it re-resolves its dependencies dynamically as those plugins appear, disappear, or change.</li>
+      </ul>
+      <p>Put together, an agent running on Cordis can <strong>install and remove its own capabilities while running</strong> — a form of self-evolution. That's why DeepSeek calls it a harness, not a product: they're shipping an <strong>infrastructure for agents</strong>, plus ~100 first-party plugins, and inviting the community to build the rest.</p>
+
+      <h2>Why this matters</h2>
+      <p>Classic agent products (Codex, etc.) are finished products: everything is baked in, and users only customize Skills and MCP. DeepSeek Harness inverts this — <strong>everything is a plugin</strong>, so every part can be swapped. Think modular phone, where every component is replaceable.</p>
+      <p>That's why it's a <em>developer preview</em> and iterating fast: the harness is the base, and the ecosystem is the bet.</p>
+
+      <h2>Resources</h2>
+      <ul>
+        <li>Official docs: <a href="https://deepseek-harness.github.io/deepseek-harness/" target="_blank" rel="noopener">deepseek-harness.github.io/deepseek-harness</a></li>
+        <li>Source: <a href="https://github.com/deepseek-ai/deepseek-harness" target="_blank" rel="noopener">github.com/deepseek-ai/deepseek-harness</a></li>
+        <li><a href="/tutorial/">Our tutorial</a> to get started</li>
+      </ul>
+
+      <p style="margin-top:24px"><a class="btn btn-ghost" href="/blog/">All articles &rarr;</a></p>
+    </article>
+  </main>
+
+  <footer class="foot">
+  <div class="wrap foot-grid">
+    <div class="foot-col">
+      <p class="foot-brand"><img class="foot-logo" src="/logo.svg" alt="dshbase logo" width="24" height="24"><span>dsh</span><strong>base</strong></p>
+      <p class="muted small">DeepSeek Harness guides, tutorials &amp; plugin ecosystem.</p>
+    </div>
+    <div class="foot-col">
+      <b>Guides</b>
+      <a href="/tutorial/">Tutorial</a>
+      <a href="/install/">Install</a>
+      <a href="/plugins/">Plugins</a>
+    </div>
+    <div class="foot-col">
+      <b>Resources</b>
+      <a href="/plugins/">Plugin directory</a>
+      <a href="/">What is DSH</a>
+      <a href="/blog/">Blog</a>
+      <a href="/blog/vs-claude-code/">vs Claude Code</a>
+    </div>
+    <div class="foot-col">
+      <b>About</b>
+      <a href="mailto:hello@dshbase.com">Contact</a>
+      <a href="/privacy/">Privacy</a>
+    </div>
+  </div>
+  <div class="wrap foot-in">
+    <p class="muted small">Unofficial community resource. Content based on the official DeepSeek Harness docs. Not affiliated with DeepSeek.</p>
+  </div>
+</footer>
+</div>
+</body>
+</html>

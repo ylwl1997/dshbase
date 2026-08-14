@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DeepSeek Harness Modes — Standard, PTC, Minimal &amp; Create | dshbase</title>
+<meta name="description" content="The four DeepSeek Harness modes explained: standard, PTC (Programmatic Tool Calling), minimal, and create. Which preset to use, and how modes switch the agent's tools and rules.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://dshbase.com/blog/deepseek-harness-modes/">
+<link rel="icon" href="/logo.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebPage","name":"DeepSeek Harness Modes","url":"https://dshbase.com/blog/deepseek-harness-modes/"},
+{"@type":"TechArticle","headline":"DeepSeek Harness Modes — Standard, PTC, Minimal & Create","description":"The four agent presets in DeepSeek Harness and when to use each.","datePublished":"2026-08-14"}
+]}</script>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="/"><img class="brand-logo" src="/logo.svg" alt="dshbase logo" width="34" height="34"><span>dsh</span><strong>base</strong></a>
+    <nav class="nav" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="/tutorial/">Tutorial</a>
+      <a href="/plugins/">Plugins</a>
+      <a href="/install/">Install</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    <article class="info wrap" style="max-width:820px;margin:0 auto">
+      <p class="eyebrow">Blog · Guide</p>
+      <h1>DeepSeek Harness modes: <span class="accent">which preset should you use?</span></h1>
+      <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+      <p>DeepSeek Harness ships four built-in agent presets (modes). Switching modes doesn't change model capability — it changes <strong>which tools the agent holds and what rules it runs by</strong>. Here's what each one is for.</p>
+
+      <h2>1. Standard mode</h2>
+      <p>The fully-loaded coding agent: file editing, shell, search, skills, planning, goals, sub-agents, and workflows. This is the default product shape — the direct counterpart to Claude Code and Codex. <strong>Most people should use this.</strong></p>
+
+      <h2>2. PTC mode (Programmatic Tool Calling)</h2>
+      <p>PTC wraps tools as a code API: the model writes a TypeScript program that chains a dozen steps and runs them in one shot, returning only the final result. Intermediate data stays in the execution environment — it never enters the model context. The goal is <strong>saving tokens</strong>. Built for heavy users who treat the agent as a batch tool and care about cost.</p>
+
+      <h2>3. Minimal mode</h2>
+      <p>Just two tools: a persistent bash shell and a file editor. The bet is that a strong model can do most coding with a terminal plus file editing — no scaffolding. Run this when you want to <strong>compare model ability without harness interference</strong>. (Notably, DeepSeek's V4 Flash release notes said it was benchmarked using Harness minimal mode.)</p>
+
+      <h2>4. Create mode</h2>
+      <p>Used to build custom agent presets. It has all of standard mode plus runtime checks, plugin experimentation, and preset-authoring guidance — "the mode that makes modes," for plugin developers.</p>
+
+      <h2>How to think about modes</h2>
+      <p>A preset is the set of plugins an agent runs with: its tools, prompts, and capabilities. You can copy an existing preset and tweak it, or use Create mode to have the agent build one for you. Different presets expose different slash commands — for example, minimal mode has only a goal command, while standard/code/create include conversation compression, goals, and planning.</p>
+      <p>You can even build presets for non-coding work — e.g., a "writing workspace" preset that loads a folder of skills and custom prompts.</p>
+
+      <h2>Resources</h2>
+      <ul>
+        <li>Official docs: <a href="https://deepseek-harness.github.io/deepseek-harness/" target="_blank" rel="noopener">deepseek-harness.github.io/deepseek-harness</a></li>
+        <li>Source: <a href="https://github.com/deepseek-ai/deepseek-harness" target="_blank" rel="noopener">github.com/deepseek-ai/deepseek-harness</a></li>
+        <li>Follow the <a href="/tutorial/">tutorial</a> to configure models and run a task</li>
+      </ul>
+
+      <p style="margin-top:24px"><a class="btn btn-ghost" href="/blog/">All articles &rarr;</a></p>
+    </article>
+  </main>
+
+  <footer class="foot">
+  <div class="wrap foot-grid">
+    <div class="foot-col">
+      <p class="foot-brand"><img class="foot-logo" src="/logo.svg" alt="dshbase logo" width="24" height="24"><span>dsh</span><strong>base</strong></p>
+      <p class="muted small">DeepSeek Harness guides, tutorials &amp; plugin ecosystem.</p>
+    </div>
+    <div class="foot-col">
+      <b>Guides</b>
+      <a href="/tutorial/">Tutorial</a>
+      <a href="/install/">Install</a>
+      <a href="/plugins/">Plugins</a>
+    </div>
+    <div class="foot-col">
+      <b>Resources</b>
+      <a href="/plugins/">Plugin directory</a>
+      <a href="/">What is DSH</a>
+      <a href="/blog/">Blog</a>
+      <a href="/blog/vs-claude-code/">vs Claude Code</a>
+    </div>
+    <div class="foot-col">
+      <b>About</b>
+      <a href="mailto:hello@dshbase.com">Contact</a>
+      <a href="/privacy/">Privacy</a>
+    </div>
+  </div>
+  <div class="wrap foot-in">
+    <p class="muted small">Unofficial community resource. Content based on the official DeepSeek Harness docs. Not affiliated with DeepSeek.</p>
+  </div>
+</footer>
+</div>
+</body>
+</html>
