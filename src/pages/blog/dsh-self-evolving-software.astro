@@ -1,18 +1,30 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const troubleshootingUrl = getRelativeLocaleUrl('en', '/troubleshooting/');
 ---
-<BlogPost title="Self-Evolving Software — Miracle or Chaos? The DSH Debate | dshbase" description="DeepSeek Harness is called 'the prototype of self-evolving software' — and also 'a recipe for more chaos'. What the Create mode and Cordis really enable, why OpenClaw's failure is a warning, and a practical guide to self-evolution." currentPath="/blog/dsh-self-evolving-software/" category="Concept">
+<BlogPost title="Self-Evolving Software — Miracle or Chaos? What Create Mode Actually Does | dshbase" description="DeepSeek Harness is called 'the prototype of self-evolving software' — and 'a recipe for more chaos'. What Create mode and Cordis really enable, the dsh.bundle and allowBuilds safety rails, why OpenClaw's failure is a warning, and a practical guide verified on dsh 0.1.0-rc.6." currentPath="/blog/dsh-self-evolving-software/" category="Concept">
   <h1>Self-evolving software: <span class="accent">miracle or chaos?</span></h1>
   <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
 
-  <p>DeepSeek Harness has been called both <em>the prototype of self-evolving software</em> and <em>a recipe for even more chaos</em>. The split comes down to one feature: an agent that can modify its own running capabilities. Here's what that actually means — and why the cautionary tales matter.</p>
+  <p>DeepSeek Harness has been called both <em>the prototype of self-evolving software</em> and <em>a recipe for even more chaos</em>. The split comes down to one feature: an agent that can modify its own running capabilities. Here's what that actually means in practice — including where it goes wrong — and why the cautionary tales matter.</p>
 
   <h2>What "self-evolving" actually means in DSH</h2>
   <p>It's not science fiction. In Create mode, the agent can inspect its own running Cordis environment, experiment with plugins in memory, and — critically — <strong>create a plugin and hot-attach it to the running flow</strong>. The "make your own wrench" metaphor: the agent notices it has no wrench, forges one, attaches it to its hand, and keeps working.</p>
-  <p>This works because Cordis guarantees two properties: <strong>temporal composability</strong> (unloading a plugin fully undoes its side effects) and <strong>spatial composability</strong> (dependencies re-resolve as siblings change). Without those, hot-swapping your own code mid-run would corrupt state.</p>
+  <p>This works because Cordis guarantees two properties: <strong>temporal composability</strong> (unloading a plugin fully undoes its side effects) and <strong>spatial composability</strong> (dependencies re-resolve as siblings change). Without those, hot-swapping your own code mid-run would corrupt state. We've watched the happy path on dsh 0.1.0-rc.6: <code>dsh plugin add dsh-memory</code> installs and, on next launch, the plugin is already in the config tree — no rebuild, no restart dance. The kernel discovers and loads it.</p>
+  <p>But there's a contract underneath. A self-created plugin only activates if it ships a <code>dsh.bundle</code> manifest. Without it, the package installs <em>silently as a plain dependency</em> — the agent "forged a wrench" that never connects to its hand. When we audited <strong>101 community plugins</strong>, silent non-activation and outright install failure were the most common ways "self-evolution" fell short of the promise.</p>
+
+  <h2>The safety rails are real — and load-bearing</h2>
+  <p>The difference between "the agent extended itself" and "the agent ran arbitrary code with your permissions" is a handful of prompts and guarantees:</p>
+  <ul>
+    <li><strong><code>allowBuilds</code> confirmation</strong> — when a GitHub-sourced plugin ships a <code>prepare</code> build script, pnpm blocks it and asks you to confirm. For a self-modifying agent this is a genuine permission boundary, not friction.</li>
+    <li><strong>Clean unload</strong> — temporal composability means a bad experiment can be removed and the state rolls back to before it was added.</li>
+    <li><strong>The trajectory log</strong> — every tool call and permission change is an event, so you can review exactly what the agent did to itself.</li>
+  </ul>
 
   <h2>The cautionary tale: OpenClaw</h2>
-  <p>The skepticism isn't hypothetical. OpenClaw, an earlier agent that promised a similar "everything is modular" vision, ran into exactly the chaos critics predict — a reminder that <strong>self-modification without safety rails produces unmaintainable state, not evolution</strong>. The difference DSH argues for is Cordis's composability guarantees, but that's a claim that still needs proving at scale.</p>
+  <p>The skepticism isn't hypothetical. OpenClaw, an earlier agent that promised a similar "everything is modular" vision, ran into exactly the chaos critics predict — a reminder that <strong>self-modification without safety rails produces unmaintainable state, not evolution</strong>. The difference DSH argues for is Cordis's composability guarantees plus the rails above, but that's still a claim that needs proving at scale. The 101-plugin audit cuts both ways here: a fast-growing ecosystem proves the mechanics work, but its long quality tail (81 GitHub-only, several failing outright) shows the rails aren't automatic.</p>
 
   <h2>A practical guide to self-evolution</h2>
   <p>If you want to use this carefully, treat it as a controlled experiment, not free rein:</p>
@@ -20,10 +32,18 @@ import BlogPost from '../../layouts/BlogPost.astro';
     <li><strong>Scope it down</strong> — start with read-only presets (e.g. "read code, never modify files") before anything that writes.</li>
     <li><strong>Use the trajectory log</strong> — every tool call and permission change is an event; review what the agent actually did to itself.</li>
     <li><strong>One change at a time</strong> — have the agent add a single plugin, verify, then continue, rather than letting it rewrite everything at once.</li>
+    <li><strong>Verify the manifest</strong> — after the agent "creates" a plugin, confirm it has a <code>dsh.bundle</code>; otherwise it installs silently and never activates.</li>
     <li><strong>Keep a restore path</strong> — profiles and presets mean you can always revert to a known-good config.</li>
   </ul>
+  <p>When a self-created plugin misbehaves, the failure is usually one of the documented modes — a <code>ERR_REQUIRE_ESM</code> from a CJS plugin depending on ESM-only packages, or a missing manifest. The <a href={troubleshootingUrl}>troubleshooting guide</a> covers each with a one-line fix, and the <a href={directoryUrl}>plugin directory</a> shows which community plugins actually activate.</p>
 
   <h2>The honest take</h2>
-  <p>Self-evolving software is neither a miracle nor automatically chaos — it's a capability with a failure mode. The miracle framing oversells it; the chaos framing underestimates Cordis's safeguards. The truth will show up in whether real teams can use it without losing control. For now, the practical path is <strong>scoped, logged, reversible</strong> self-modification.</p>
+  <p>Self-evolving software is neither a miracle nor automatically chaos — it's a capability with a failure mode. The miracle framing oversells it; the chaos framing underestimates Cordis's safeguards. The truth will show up in whether real teams can use it without losing control. For now, the practical path is <strong>scoped, logged, reversible</strong> self-modification — and an honest read of the manifest contract before you trust anything the agent "evolved" for you.</p>
+
+  <h2>FAQ</h2>
+  <p><strong>Can the agent really change its own code?</strong> Yes — in Create mode it can create a plugin and hot-attach it to the running flow. But "create" is bounded by the <code>dsh.bundle</code> manifest contract: no manifest, no activation.</p>
+  <p><strong>How do I keep self-evolution from wrecking my setup?</strong> Scope it to read-only first, use the trajectory log to review every change, add one plugin at a time, and keep a known-good profile you can restore to.</p>
+  <p><strong>Why did OpenClaw fail if the idea is sound?</strong> It had the modular vision without Cordis's composability guarantees and rails. Modularity alone produces unmaintainable state; you need clean unload and permission boundaries on top.</p>
+
   <p>Related: <a href="/blog/deepseek-harness-session-log/">session log observability</a> · <a href="/blog/deepseek-harness-modes/">the Create mode</a>.</p>
 </BlogPost>

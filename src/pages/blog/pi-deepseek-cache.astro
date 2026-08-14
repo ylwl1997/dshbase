@@ -1,27 +1,53 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const modesUrl = getRelativeLocaleUrl('en', '/blog/deepseek-harness-modes/');
 ---
-<BlogPost title="DeepSeek Cache Optimization — How Pi Hits 99.93% Hit Rate | dshbase" description="Why a minimal harness like Pi gets 99.93% DeepSeek prefix-cache hit rates: small tool sets, append-only sessions, and the 7x cost gap between harnesses on the same model." currentPath="/blog/pi-deepseek-cache/" category="Analysis">
+<BlogPost title="DeepSeek Cache Optimization — How Pi Hits 99.93% and Why Tool Count Is the Lever | dshbase" description="Why a minimal harness like Pi gets 99.93% DeepSeek prefix-cache hit rates: small tool sets, append-only sessions, and the 7x cost gap between harnesses on the same model. Plus how DSH's minimal mode and PTC apply the same levers." currentPath="/blog/pi-deepseek-cache/" category="Analysis">
   <h1>How a minimal harness hits a <span class="accent">99.93% cache hit rate</span></h1>
   <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
 
-  <p>The cheapest way to run DeepSeek isn't just a cheap model — it's a harness that <strong>reuses the work the model already did</strong>. Community measurements of the open-source agent <strong>Pi</strong> showed a <strong>99.93% prefix-cache hit rate</strong>.</p>
+  <p>The cheapest way to run DeepSeek isn't just a cheap model — it's a harness that <strong>reuses the work the model already did</strong>. Community measurements of the open-source agent <strong>Pi</strong> showed a <strong>99.93% prefix-cache hit rate</strong>. That number isn't a model property — it's a harness property, and the levers behind it are concrete and transferable.</p>
 
   <h2>The cost driver</h2>
-  <p>A coding agent re-sends the system prompt, tool definitions, history, and code on every step. <strong>Automatic prefix caching</strong> reuses the computed prefix if the start of the request is unchanged. The <strong>cache hit rate</strong> is the share of tokens reused — higher is cheaper.</p>
+  <p>A coding agent re-sends the system prompt, tool definitions, history, and code on every step. <strong>Automatic prefix caching</strong> reuses the computed prefix if the start of the request is unchanged. The <strong>cache hit rate</strong> is the share of tokens reused — higher is cheaper. When you pay per token, every re-sent block you can avoid is money back, and the biggest re-sent blocks are exactly the ones a harness controls: the system prompt and the tool schema.</p>
 
   <h2>Why caching is fragile</h2>
-  <p>Add a timestamp, reorder a tool, or rewrite earlier content and the cache misses. Cache-friendly harnesses <strong>keep the request prefix stable</strong>.</p>
+  <p>Add a timestamp, reorder a tool, or rewrite earlier content and the cache misses. Cache-friendly harnesses <strong>keep the request prefix stable</strong>. This is where most harnesses quietly lose the game: they inject a fresh timestamp or reshuffle tool definitions on every call, and the hit rate collapses even though nothing about the <em>task</em> changed.</p>
 
   <h2>Pi's recipe</h2>
-  <p>Pi gives the model just <strong>four tools</strong> by default (read, write, edit, run) with everything else opt-in, and sessions <strong>append rather than rewrite</strong>. Reported result: ~99.93% hit rate, roughly <strong>¥19 per 1B tokens with caching vs ¥900+ without</strong>.</p>
+  <p>Pi gives the model just <strong>four tools</strong> by default (read, write, edit, run) with everything else opt-in, and sessions <strong>append rather than rewrite</strong>. Two consequences follow:</p>
+  <ul>
+    <li><strong>Fewer tools = smaller, more stable prefix.</strong> The tool schema is a fixed block at the front of every request. Four tools is a tiny block that almost never changes; forty tools is a large block that changes the moment you reorder or toggle one.</li>
+    <li><strong>Append-only = nothing earlier ever changes.</strong> When history rewrites, everything after the edit point loses cache. When it only appends, the prefix stays byte-identical.</li>
+  </ul>
+  <p>Reported result: ~99.93% hit rate, roughly <strong>¥19 per 1B tokens with caching vs ¥900+ without</strong>. The gap between those two numbers is the entire point of harness design.</p>
 
   <h2>The 7x gap</h2>
-  <p>A Composio benchmark ran <strong>DeepSeek V4 Flash</strong> across 8 harnesses: Pi ~<strong>$0.028</strong> per successful task (cheapest), Claude Code ~<strong>$0.195</strong> (nearly 7x). Same model, different harness, very different bill.</p>
+  <p>A Composio benchmark ran <strong>DeepSeek V4 Flash</strong> across 8 harnesses: Pi ~<strong>$0.028</strong> per successful task (cheapest), Claude Code ~<strong>$0.195</strong> (nearly 7x). Same model, different harness, very different bill. That's the strongest argument that caching is a harness property, not a model one.</p>
+
+  <h2>What this means for DSH</h2>
+  <p>DSH sits on the cache-friendly end of the same spectrum, and its design maps directly onto Pi's two levers:</p>
+  <ul>
+    <li><strong>Minimal mode</strong> gives the model just two tools — a persistent bash shell and a file editor — the smallest possible stable prefix for benchmarking (see the <a href={modesUrl}>modes guide</a>).</li>
+    <li><strong>PTC mode</strong> keeps intermediate data out of the context by collapsing many tool round-trips into a single program execution.</li>
+    <li><strong>Append-only sessions</strong> — the trajectory log is an append-only event log, which is also a stable request prefix.</li>
+  </ul>
+  <p>The cautionary flip side is tool sprawl. Standard mode ships a large tool surface, and the broader plugin ecosystem adds more — our audit of <strong>101 community plugins</strong> shows how fast the surface can grow. Every tool you add is a block at the front of every request, and a block that can change. That's why the cache play is a discipline, not a default: minimal active surface, everything else opt-in.</p>
 
   <h2>Takeaway</h2>
   <ul>
     <li><strong>Minimal tool sets</strong> + <strong>append-only sessions</strong> = the biggest levers for cache hits.</li>
+    <li>The 7x gap between harnesses on the same model is the real cost story — model price is one input, harness cache behavior is the other.</li>
     <li>DSH aligns: small active surface, everything-as-plugin, PTC keeps intermediate data out of context.</li>
   </ul>
+
+  <h2>How to measure your own hit rate</h2>
+  <p>You don't have to take Pi's number on faith — you can read your own off any single run. The API's usage block separates cached from uncached input tokens, so your per-call hit rate is visible in the response. When it drops, the usual culprits are a reordered tool schema or a timestamp that slipped into the system prompt — both prefix problems, not model problems. That's the practical payoff of treating the prefix as something you design rather than inherit.</p>
+
+  <h2>FAQ</h2>
+  <p><strong>Can I hit 99.93% with any harness?</strong> Only if the harness keeps a small, stable prefix and appends rather than rewrites. A harness that reshuffles tool definitions or injects timestamps won't get close, no matter how cheap the model.</p>
+  <p><strong>Why does tool count affect the cache?</strong> The tool schema is a fixed block at the front of every request. More tools means a bigger block, and any reorder or toggle invalidates it. Fewer tools means a smaller, more stable prefix.</p>
+  <p><strong>Is the ¥19 vs ¥900+ gap realistic?</strong> It reflects cached vs uncached pricing at DeepSeek's listed rates — the spread is the reason a harness's cache behavior can matter more than the model's base price.</p>
+  <p><strong>Does this only work for DeepSeek?</strong> No — automatic prefix caching is a provider-level feature, but the levers are harness-level. A minimal tool set and append-only sessions improve cache behavior on any provider that offers prefix caching.</p>
 </BlogPost>

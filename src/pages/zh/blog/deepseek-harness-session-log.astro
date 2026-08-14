@@ -1,11 +1,11 @@
 ---
 import BlogPost from '../../../layouts/BlogPost.astro';
 ---
-<BlogPost title="DeepSeek Harness 会话日志 — 只追加事件实现可观测性 | dshbase 中文" description="DeepSeek Harness 的会话是只追加的事件日志：系统提示词、推理、工具调用、权限变化都成为可追溯事件。可观测、可审计、可复现的 Agent 调试。" currentPath="/blog/deepseek-harness-session-log/" category="分析">
+<BlogPost title="DeepSeek Harness 会话日志 — 只追加事件实现可观测性 | dshbase 中文" description="DeepSeek Harness 的会话是只追加的事件日志：系统提示词、推理、工具调用、权限变化都成为可追溯事件。这里讲日志里有什么、我们如何用它排掉 101 个社区插件在 dsh 0.1.0-rc.6 上的问题，以及它为什么是「任务失败」和「知道具体哪一步」之间的差别。" currentPath="/blog/deepseek-harness-session-log/" category="分析">
   <h1>隐藏的开发者福利：<span class="accent">只追加的会话日志</span></h1>
   <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
 
-  <p>DeepSeek Harness 对开发者最友好、也最容易被忽视的特性之一，是它把会话存成<strong>只追加的事件日志</strong>。</p>
+  <p>DeepSeek Harness 对开发者最友好、也最容易被忽视的特性之一，是它把会话存成<strong>只追加的事件日志</strong>。大多数 Agent 只给你一个最终答案，失败时给一句模糊的报错。DSH 给你整条轨迹——我们对着它排了一周插件的问题，现在能说清楚这份东西到底值多少。</p>
 
   <h2>日志里有什么</h2>
   <p>模型看到和做的一切都成为事件：</p>
@@ -19,7 +19,7 @@ import BlogPost from '../../../layouts/BlogPost.astro';
   </ul>
 
   <h2>下一轮历史从日志重新推导</h2>
-  <p>模型下一轮看到的历史是<strong>从这份日志重新推导出来的</strong>——不是来自一个黑盒状态。正是这个设计让一切都可以被检查。</p>
+  <p>模型下一轮看到的历史是<strong>从这份日志重新推导出来的</strong>——不是来自一个黑盒状态。正是这个设计让一切都可以被检查：不存在日志会与之脱节的黑盒状态，因为日志<em>本身</em>就是真相的来源。每一轮都是它之前事件的纯函数。</p>
 
   <h2>为什么重要：可观测、可审计、可复现</h2>
   <p>大多数 Agent 失败时，你只能看到「任务失败」或无限循环——根本不知道它在哪一步跑偏。DeepSeek Harness 的<strong>轨迹视图</strong>可以按来源查看每一次运行。对开发者意味着：</p>
@@ -28,8 +28,39 @@ import BlogPost from '../../../layouts/BlogPost.astro';
     <li><strong>可审计</strong>——追溯每一次工具调用和权限决策。</li>
     <li><strong>可复现</strong>——从事件日志重放一次运行。</li>
   </ul>
-  <p>这对研究和调试生产环境里的 Agent 都极有价值。</p>
+  <p>这对研究和调试生产环境里的 Agent 都极有价值。但理论只有在真实故障上兑现才算数——对我们来说，它兑现了。</p>
+
+  <h2>我们真用它排掉了什么</h2>
+  <p>在 dsh 0.1.0-rc.6 上为<a href="/plugins/directory/">插件目录</a>实测 <strong>101 个社区插件</strong>时，会话日志就是「这插件坏了」和「坏在具体哪一行」之间的差别。三类反复出现的故障，因为有了日志而变得一眼可查：</p>
+  <ul>
+    <li><strong><code>ERR_REQUIRE_ESM</code></strong>——日志显示插件模块因被编译成 CommonJS、却依赖了 ESM-only 包而加载失败。失败事件直指模块本身，而不是我们的环境。</li>
+    <li><strong><code>cannot get property "systemPrompt" without inject</code></strong>——日志捕获到插件调了 <code>ctx.systemPrompt</code> 却没声明 <code>inject: ["systemPrompt"]</code>。没有事件轨迹，这是一次莫名崩溃；有了它，就是发给插件作者的一句话报告。</li>
+    <li><strong>静默失效的插件</strong>——没有 <code>dsh.bundle</code> 清单的包只当普通依赖装上、永远不加载。日志让「没加载」这件事变得可见：没有插件初始化事件、没有报错，只有「缺席」。</li>
+  </ul>
+  <p>最后一条是最微妙的胜利。黑盒 Agent 会什么都不显示——插件「就是不能用」。事件日志能让你看到<em>某个事件的缺席</em>，这本身就是诊断信息。这些的一行修复都在我们的<a href="/troubleshooting/">排错指南</a>里。</p>
+
+  <h2>可观测性也是一种成本工具</h2>
+  <p>同一份日志还能当成本剖析器用。每个事件都显示进了什么上下文，于是你可以：</p>
+  <ul>
+    <li><strong>发现重发的上下文</strong>——同一大块反复出现，就是被反复注入（也是反复计费）。</li>
+    <li><strong>找到多余的工具往返</strong>——一长串 read/search 调用本可合并成一次（这正是 PTC 模式的用途）。</li>
+    <li><strong>检查压缩</strong>——看上下文何时被压缩、是否丢掉了有用历史。</li>
+  </ul>
+  <p>把可检查的日志和缓存友好的请求形态结合起来，你就拿到了<a href="/blog/pi-deepseek-cache/">99.93% 缓存命中率</a>的那套打法。可观测性和成本，其实是同一特性的两面。</p>
+
+  <h2>为什么「可重建」真的有用</h2>
+  <p>只追加的设计，也是让<a href="/blog/deepseek-harness-vs-codex/">Codex 对比</a>里的「可重建会话」不止是一句说辞的原因。因为下一轮历史是从事件重新推导的，会话可以恢复、重放、分叉而不丢轨迹——一份能从事件重建的会话日志，是一份你信得过、能当调试记录用的日志，而不只是一份聊天记录。</p>
+
+  <h2>FAQ</h2>
+  <h3>会话日志就是聊天记录吗？</h3>
+  <p>不是。聊天记录是用户看到的。事件日志包含模型内部看到的一切——推理、工具结果、权限变化、注入——而且它是下一轮历史重新推导的来源。</p>
+  <h3>能精确重放一次会话吗？</h3>
+  <p>能。因为下一轮是从日志重新推导的，从事件重放一次运行能复现相同状态——对复现 bug 和研究都很有用。</p>
+  <h3>插件静默失效时，日志帮得上忙吗？</h3>
+  <p>恰恰是它最帮得上忙的地方。静默失效不报错，但日志会显示「预期事件缺席」——插件从没初始化——把你引向缺失的 <code>dsh.bundle</code> 清单。</p>
+  <h3>这跟 Claude Code 或 Codex 比如何？</h3>
+  <p>两者都把中间状态藏着。DSH 把整条轨迹作为一等数据暴露出来，这是它和闭源 harness 之间最大的可观测性差异。</p>
 
   <h2>相关</h2>
-  <p>见<a href="/blog/deepseek-harness-modes/">四种模式指南</a>——创造模式和会话日志加在一起，正是让 DeepSeek Harness 成为 Agent 框架而不是成品的原因。</p>
+  <p>见<a href="/blog/deepseek-harness-modes/">四种模式指南</a>——创造模式和会话日志加在一起，正是让 DeepSeek Harness 成为 Agent 框架而不是成品的原因。想深入用日志排错的，看我们的<a href="/blog/dsh-trajectory-tracing/">轨迹追踪指南</a>。</p>
 </BlogPost>

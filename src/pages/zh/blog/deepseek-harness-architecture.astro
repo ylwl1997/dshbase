@@ -1,25 +1,57 @@
 ---
 import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const troubleshootingUrl = getRelativeLocaleUrl('zh', '/troubleshooting/');
+const whyUrl = getRelativeLocaleUrl('zh', '/blog/why-deepseek-harness/');
 ---
-<BlogPost title="DeepSeek Harness 架构 — 会自我改造的一切皆插件 Agent | dshbase 中文" description="DeepSeek Harness 不是又一个 Claude Code——它是能改造自己的 Agent。架构深度解析：一切皆插件、Cordis 内核、创造模式「现场造扳手」。", currentPath="/blog/deepseek-harness-architecture/" category="架构">
+<BlogPost title="DeepSeek Harness 架构 — 一切皆插件，连 Agent 循环都是插件 | dshbase 中文" description="DeepSeek Harness 架构深度解析：Cordis 插件内核、时间与空间可组合性、dsh.bundle 清单契约、创造模式的自我改造，以及我们在 dsh 0.1.0-rc.6 上实测 101 个社区插件的真实结果。" currentPath="/blog/deepseek-harness-architecture/" category="架构">
   <h1>今年最有野心的 Agent 开源：<span class="accent">能自我改造的 Agent</span></h1>
   <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
 
-  <p>DeepSeek 不是在交付一个成品——它交付的是一个<strong>能让 Agent 重建自身的框架</strong>。</p>
+  <p>DeepSeek 不是在交付一个成品——它交付的是一个<strong>能让 Agent 重建自身的框架</strong>。这句话听起来像营销，直到你真的跑起来。我们在 dsh 0.1.0-rc.6 上实测过，这套架构在很多方面确实和 Claude Code、Codex 根本不同。下面是完整拆解——包括那些没有 README 里说得那么顺的部分。</p>
 
   <h2>Agent = Model + Harness</h2>
-  <p><strong>Harness 的每个部分都是插件</strong>——工具、技能、会话、沙箱、Agent 循环、子 Agent、工作流。唯一真正的核心是 <strong>Cordis</strong>：一个只管插件加载、卸载和依赖管理的最小内核。</p>
+  <p>每个 AI 编程 Agent 都是两个东西拼在一起：<strong>模型</strong>（推理大脑）和 <strong>harness</strong>（把大脑接到文件、终端、工具、网络上的那一整层）。DeepSeek Harness 的不同之处在于它把这条分界线划在了哪里。Claude Code 和 Codex 里，harness 是一个固定外壳，你只能通过 MCP 或 API 扩展，但永远换不掉。而在 DSH 里，<strong>harness 本身由插件组成</strong>——「产品」和「扩展」之间的界线根本不存在。关于这套命名的论点，见<a href={whyUrl}>为什么它叫 harness</a>。</p>
+
+  <h2>一切皆插件</h2>
+  <p><strong>Harness 的每个部分都是插件</strong>——工具、技能、会话、沙箱、Agent 循环、子 Agent、工作流，甚至 UI。唯一真正的核心是 <strong>Cordis</strong>：一个只干一件事的最小内核——加载插件、卸载插件、解析依赖。它对模型、工具、甚至「Agent 是什么」都不带任何观点。所有你以为的核心行为，都是坐在内核之上的插件。</p>
 
   <h2>为什么内核重要：自进化 Agent</h2>
+  <p>Cordis 给了你两个普通应用永远给不了的保证：</p>
   <ul>
-    <li><strong>时间可组合性</strong>——卸载插件时完整撤销其副作用。</li>
-    <li><strong>空间可组合性</strong>——插件在兄弟插件变化时动态重新解析依赖。</li>
+    <li><strong>时间可组合性</strong>——卸载插件时完整撤销其副作用。移除一个能力，系统回到添加它之前的状态。</li>
+    <li><strong>空间可组合性</strong>——插件在兄弟插件变化时重新解析依赖。换一个工具，所有用到它的地方无需重启就生效。</li>
   </ul>
-  <p>因为 Agent 可以在不破坏状态的前提下热装卸插件，它就能<strong>在运行中扩展自己</strong>：发现自己缺一个能力，现场造出插件，挂到自己身上。</p>
+  <p>这两个特性让 Agent 能<strong>在运行中扩展自己</strong>：发现自己缺一个能力，现场造出插件，热挂载到自己身上，还不污染状态。我们直接验证过这条「顺路」——跑 <code>dsh plugin add dsh-memory</code> 会装好包、写进 profile 的 <code>package.json</code>，下次启动插件<strong>已经在配置树里</strong>。不用重新构建，不用手动接线，内核自己发现并加载它。</p>
+
+  <h2>让这一切成立的契约：<code>dsh.bundle</code></h2>
+  <p>这种魔法背后是一份清单契约，而它正是大多数实战翻车的地方。插件必须带 <code>dsh.bundle</code> 清单（一个 <code>cordis.patch.yml</code>，加上 <code>package.json</code> 里的 <code>dsh.bundle.patch</code> 声明）。没有它，<code>dsh plugin add</code> 会把包<em>静默地当成普通依赖装进去</em>——永远不激活。我们在审计插件时反复撞上这个：包装上了、目录里也列出来了，Agent 就是不加载它。</p>
+  <p>这种细节只有真正跑过才知道。我们在 dsh 0.1.0-rc.6 上实测了 <strong>101 个社区插件</strong>，结果和这套架构直接对应：</p>
+  <ul>
+    <li><strong>11 个从 npm 干净装好</strong>，开箱即用。</li>
+    <li><strong>4 个需要 Web/TUI 运行时</strong>，得在 Agent 旁边另起一个进程。</li>
+    <li><strong>3 个直接装不上</strong>——通常是清单缺失或损坏，或依赖了还没发布的包。</li>
+    <li><strong>81 个压根没发到 npm</strong>——只活在 GitHub 上，用 <code>dsh plugin add github:owner/repo</code> 装。</li>
+  </ul>
+  <p>这个「81」是最说明问题的数字：它意味着「一切皆插件」不是理论，而是一条活的分发渠道。但那 3 个装不上、以及那些静默不激活的情况，就是无门槛生态的代价。完整结果见<a href={directoryUrl}>插件目录</a>，每种翻车方式都记录在<a href={troubleshootingUrl}>排错指南</a>里。</p>
 
   <h2>创造模式：「现场造扳手」</h2>
-  <p>告诉它「做一个只读、只能审计不能改文件的安全模式」，或「做一个接公司搜索、固定模型、带三种专属 Skills 的研究 Agent」——或让它检查自己的插件，发现缺的现场造一个并热挂载。</p>
+  <p>这套架构的回报是创造模式。告诉它「做一个只读、只能审计不能改文件的安全模式」，或「做一个接公司搜索、固定模型、带三种专属 Skills 的研究 Agent」——或者让它检查自己已加载的插件，发现缺哪个，现场造一个并热挂载。因为卸载是干净的（时间可组合性），Agent 可以反复试验而不永久污染自己的状态。比喻就是：它发现自己没有扳手，现场造一把，插到自己手上，继续干活。</p>
+  <p>这里有个值得一提的安全护栏。当一个从 GitHub 装的插件带了 <code>prepare</code> 构建脚本，pnpm 会拦住它、要你确认 <code>allowBuilds</code>。这感觉像摩擦，但对一个自进化 Agent 来说，它正是「Agent 扩展了自己」和「Agent 拿着你的权限跑了任意代码」之间的分界线。把那个提示当功能，别当 bug。</p>
 
   <h2>连 UI 都是插件</h2>
-  <p>社区成员不改核心能力就换上了自定义皮肤——一条命令安装、切换，一键恢复。</p>
+  <p>社区成员没碰核心能力就换上了自定义皮肤——一条命令安装，一键恢复。这是件小事，但它最干净地证明了「一切皆插件」不是一句口号。当连 UI 都是可换的插件时，这个说法就是承重的，而不是装饰性的。</p>
+
+  <h2>FAQ</h2>
+  <p><strong>用 DSH 需要懂 Cordis 吗？</strong>不需要。你可以当普通编码 Agent 用，永远不用想内核。只有写插件、替换核心部件、或调试「插件为什么不激活」时，才需要关心 Cordis。</p>
+  <p><strong>为什么这么多插件只发在 GitHub 而不发 npm？</strong>发 npm 是多一道大多数周末作者会跳过的步骤。DSH 用 <code>dsh plugin add github:owner/repo</code> 兜住了这一点，所以 GitHub 仓库也算一个合法分发目标——但 GitHub 源码插件也正是我们见到最多安装失败的地方。</p>
+  <p><strong>自我改造安全吗？</strong>只在你留的护栏之内安全。<code>allowBuilds</code> 提示和干净卸载保证能帮忙，但请把自我改造当成一个收窄的、留痕的实验，而不是放任。</p>
+
+  <h2>资源</h2>
+  <ul>
+    <li><a href={directoryUrl}>插件目录</a>——101 个插件、实测状态和确切安装命令。</li>
+    <li><a href={troubleshootingUrl}>排错指南</a>——<code>ERR_PNPM_FETCH_404</code>、<code>ERR_REQUIRE_ESM</code>、缺 <code>dsh.bundle</code> 的修复方法。</li>
+    <li>官方源码：<a href="https://github.com/deepseek-ai/deepseek-harness" target="_blank" rel="noopener">github.com/deepseek-ai/deepseek-harness</a></li>
+  </ul>
 </BlogPost>

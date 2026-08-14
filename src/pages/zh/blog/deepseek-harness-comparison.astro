@@ -1,11 +1,11 @@
 ---
 import BlogPost from '../../../layouts/BlogPost.astro';
 ---
-<BlogPost title="DeepSeek Harness 横向对比 12 个 AI 编程工具 — Claude Code / Codex / Cline / Pi 等 | dshbase 中文" description="DeepSeek Harness 与 12 个编程 Agent 的实用对比：Claude Code、Codex、Cline、Zed、Pi、Reasonix、CodeWhale、OpenCode、Kimi Code 等。核心洞察：harness 的选择比模型本身更影响成本。" currentPath="/blog/deepseek-harness-comparison/" category="对比">
+<BlogPost title="DeepSeek Harness 横向对比 12 个编程 Agent — Claude Code / Codex / Cline / Pi 等 | dshbase 中文" description="DeepSeek Harness 与 12 个编程 Agent 的实用对比：Claude Code、Codex、Cline、Zed、Pi、Reasonix、CodeWhale、OpenCode、Kimi Code，加上我们在 dsh 0.1.0-rc.6 实测的 101 插件生态与成本表。核心洞察：harness 的选择比模型本身更影响成本。" currentPath="/blog/deepseek-harness-comparison/" category="对比">
   <h1>DeepSeek Harness <span class="accent">横向对比 12 个编程工具</span></h1>
   <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
 
-  <p>DeepSeek V4 发布后，一大批工具争相接它——结果暴露了一个反常识的事实：<strong>你选的 harness 比模型本身更影响成本和能力</strong>。同一个 DeepSeek 模型，不同工具，成本最多差 7 倍。这是全景。</p>
+  <p>DeepSeek V4 发布后，一大批工具争相接它——结果暴露了一个反常识的事实：<strong>你选的 harness 比模型本身更影响成本和能力</strong>。同一个 DeepSeek 模型，不同工具，成本最多差 7 倍。这是全景，再加上我们实测「官方答案」那款工具时发现的东西。</p>
 
   <h2>三个阵营</h2>
   <ul>
@@ -31,7 +31,7 @@ import BlogPost from '../../../layouts/BlogPost.astro';
   </table>
 
   <h2>通用产品：精致，但对 DeepSeek 不对路</h2>
-  <p><strong>Claude Code</strong> 和 <strong>Codex</strong> 是 Agent 体验的标杆——但两者都是为自家模型调优的工作流。Composio 把 <strong>DeepSeek V4 Flash</strong> 接进 8 款 harness 跑真实任务，Claude Code 每次成功任务成本接近最便宜的 <strong>7 倍</strong>（约 $0.195 vs $0.028）。不是质量差——只是它没吃到 DeepSeek 低成本、高缓存效率的红利。</p>
+  <p><strong>Claude Code</strong> 和 <strong>Codex</strong> 是 Agent 体验的标杆——但两者都是为自家模型调优的工作流。第三方基准把 <strong>DeepSeek V4 Flash</strong> 接进 8 款 harness 跑真实任务，Claude Code 每次成功任务成本接近最便宜的 <strong>7 倍</strong>（约 $0.195 vs $0.028）。不是质量差——只是它没吃到 DeepSeek 低成本、高缓存效率的红利。</p>
   <p><strong>Cline</strong> 和 <strong>Zed</strong> 是住在编辑器里的强开源选项，但都没有专门优化 DeepSeek 缓存。</p>
 
   <h2>DeepSeek 原生工具：成本竞赛</h2>
@@ -41,11 +41,41 @@ import BlogPost from '../../../layouts/BlogPost.astro';
   <h2>DSH 的位置</h2>
   <p>DeepSeek Harness 是官方答案：一个<strong>一切皆插件</strong>的 harness（见<a href="/blog/deepseek-harness-architecture/">架构深度解析</a>），不把你锁死在 DeepSeek 模型上。它的极简模式呼应 Pi 的理念，PTC 模式把中间数据留在上下文外省 token。与终端工具不同，DSH 是完整的<strong>框架</strong>——100+ 一方插件 + 可扩展的生态。</p>
 
+  <h2>DSH 的生态，实测数据</h2>
+  <p>喊「一切皆插件」容易，我们想知道生态到底成不成。在 dsh 0.1.0-rc.6 上，我们在<a href="/plugins/directory/">插件目录</a>里收录并实测了 <strong>101 个社区插件</strong>。结果：</p>
+  <ul>
+    <li><strong>11 个 npm 包</strong>装上即用。</li>
+    <li><strong>4 个</strong>需要 Web/TUI 环境才起效。</li>
+    <li><strong>3 个</strong>直接安装失败。</li>
+    <li><strong>81 个是 GitHub 源码仓库</strong>，用 <code>dsh plugin add github:owner/repo</code> 安装。</li>
+  </ul>
+  <p>最后一个数字是成熟度最诚实的信号：生态大头以源码而非 registry 包分发。安装也不总顺利——我们踩到 <code>ERR_PNPM_FETCH_404</code>（npm 镜像滞后）、<code>ERR_REQUIRE_ESM</code>（CJS 插件依赖 ESM-only 包）、因缺 <code>dsh.bundle</code> 清单而装上却不激活的插件，以及 git 插件的 <code>allowBuilds</code> 构建确认提示。修复都在我们的<a href="/troubleshooting/">排错指南</a>里。</p>
+  <p>这些都不是劝退理由——是一个「才满一周、跑得飞快」的生态的代价。但如果你期待 Claude Code 那样经过审核的市场，DSH 会显得糙。</p>
+
+  <h2>成本速览</h2>
+  <table class="ztable">
+    <tr><th>Harness</th><th>每次成功任务（DeepSeek V4 Flash，社区实测）</th><th>缓存命中率</th></tr>
+    <tr><td><strong>Pi</strong></td><td>约 $0.028</td><td>99.93%</td></tr>
+    <tr><td><strong>Claude Code</strong></td><td>约 $0.195（≈ Pi 的 7 倍）</td><td>—</td></tr>
+    <tr><td><strong>DeepSeek Harness</strong></td><td>PTC / 极简模式对标 Pi 级经济性</td><td>设计对齐</td></tr>
+  </table>
+
   <h2>怎么选？</h2>
   <ul>
     <li><strong>想要成品</strong>——Claude Code 或 Codex（如果你在它们生态里）。</li>
     <li><strong>想要便宜跑 DeepSeek 的极简工具</strong>——Pi、Reasonix 或 CodeWhale。</li>
     <li><strong>想要可构建的框架</strong>——DeepSeek Harness。</li>
   </ul>
-  <p class="muted small">成本数字为社区实测，投入前请核实当前数据。表中部分工具处于早期、迭代很快。</p>
+
+  <h2>FAQ</h2>
+  <h3>DSH 比 Pi 或 Reasonix 更便宜吗？</h3>
+  <p>开箱不一定——Pi 的极简设计是刻意冲着 99.93% 缓存命中率去的。DSH 的极简和 PTC 模式对标同样的经济性，但用一点「专注」换来了可扩展性。如果单看每次任务成本，Pi 很难被击败。</p>
+  <h3>为什么同一个 DeepSeek 模型在 Claude Code 里贵 7 倍？</h3>
+  <p>Claude Code 的请求形态——更大的工具集、历史处理方式、提示词结构——不是为 DeepSeek 前缀缓存设计的。模型完全一样，是 harness 每一步重发了更多上下文。</p>
+  <h3>DSH 插件生态能上生产吗？</h3>
+  <p>还早。已收录 101 个社区插件，但 81 个是 GitHub 源码（非 npm）、3 个安装失败，还有几个会踩构建/ESM 报错。愿意自己当质量把关人的话能用。</p>
+  <h3>哪个最「面向未来」？</h3>
+  <p>赌生态复利选 DSH；今天就要一个成品极简工具选 Pi 或 Reasonix。Claude Code 和 Codex 稳，但把你锁进它们的模型经济学。</p>
+
+  <p class="muted small">成本数字为社区实测，投入前请核实当前数据。表中部分工具处于早期、迭代很快。插件数量以 2026 年 8 月目录为准。</p>
 </BlogPost>

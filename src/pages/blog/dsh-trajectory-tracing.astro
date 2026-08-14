@@ -1,18 +1,19 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const troubleshootingUrl = getRelativeLocaleUrl('en', '/troubleshooting/');
 ---
-<BlogPost title="DSH Trajectory Tracing — the Killer Feature Rival Models Hide | dshbase" description="DeepSeek Harness's trajectory view is its killer feature: every run is traceable, while US models encrypt this away. How to use trajectory tracing to debug agents and cut token waste." currentPath="/blog/dsh-trajectory-tracing/" category="Tutorial">
+<BlogPost title="DSH Trajectory Tracing — How to Debug Agents Rivals Hide From You | dshbase" description="DeepSeek Harness's trajectory view is its killer feature: every run is traceable, while US models encrypt this away. A hands-on guide to reading the append-only event log — including the exact signatures of a missing dsh.bundle, ERR_REQUIRE_ESM, and the systemPrompt inject error." currentPath="/blog/dsh-trajectory-tracing/" category="Tutorial">
   <h1>Trajectory tracing: <span class="accent">the killer feature rivals hide</span></h1>
   <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
 
-  <p>One feature of DeepSeek Harness keeps coming up as its biggest differentiator: <strong>every run is traceable</strong>. When an agent fails or loops, you can see the exact step it went wrong — information that OpenAI and Anthropic encrypt away from you.</p>
+  <p>One feature of DeepSeek Harness keeps coming up as its biggest differentiator: <strong>every run is traceable</strong>. When an agent fails or loops, you can see the exact step it went wrong — information that OpenAI and Anthropic encrypt away from you. Here's what it is and, more importantly, how to actually use it. Everything below was produced while debugging on dsh 0.1.0-rc.6.</p>
 
   <h2>What trajectory tracing actually is</h2>
-  <p>DSH stores sessions as an <strong>append-only event log</strong>. Every system prompt, user message, reasoning step, tool call and result, permission change, context injection, compression, and sub-agent schedule becomes an event. The model's next-turn history is <em>re-derived from that log</em>, not from a black box. The trajectory view lets you inspect each run by source.</p>
-  <p>See <a href="/blog/deepseek-harness-session-log/">what's in the log</a> for the full breakdown.</p>
+  <p>DSH stores sessions as an <strong>append-only event log</strong>. Every system prompt, user message, reasoning step, tool call and result, permission change, context injection, compression, and sub-agent schedule becomes an event. The model's next-turn history is <em>re-derived from that log</em>, not from a black box. The trajectory view lets you inspect each run by source — so you can see not just what happened, but which plugin or tool emitted each event. See <a href="/blog/deepseek-harness-session-log/">what's in the log</a> for the full breakdown.</p>
 
   <h2>Why this matters: rivals encrypt it away</h2>
-  <p>US models (OpenAI, Anthropic) treat this as hidden internal state — you can't see the intermediate reasoning, tool calls, or where a task derailed. You get a final answer and, if it failed, a vague error. DSH gives you the whole trail. For debugging and research, that's a genuine advantage.</p>
+  <p>US models (OpenAI, Anthropic) treat this as hidden internal state — you can't see the intermediate reasoning, tool calls, or where a task derailed. You get a final answer and, if it failed, a vague error. DSH gives you the whole trail. For debugging and research, that's a genuine advantage — and it's the difference between guessing at a failure and reading the exact event that caused it.</p>
 
   <h2>How to use it to debug</h2>
   <ul>
@@ -20,6 +21,14 @@ import BlogPost from '../../layouts/BlogPost.astro';
     <li><strong>Check tool results</strong> — a wrong answer is often a tool returning bad data, not a model error. Trace the tool's output.</li>
     <li><strong>Review permission changes</strong> — if the agent did something unexpected, the permission events show when and why it was allowed.</li>
   </ul>
+  <p>The log also turns the most common plugin failures into a read-out instead of a mystery. Three we hit repeatedly, and their log signatures:</p>
+  <ul>
+    <li><strong>A plugin that never activates</strong> — the log shows the package added as a dependency but <em>no load event</em>. That's the signature of a missing <code>dsh.bundle</code> manifest.</li>
+    <li><strong><code>ERR_REQUIRE_ESM</code></strong> — appears in the log as the exact load failure, meaning the plugin was compiled to CommonJS but depends on ESM-only packages.</li>
+    <li><strong><code>cannot get property "systemPrompt" without inject</code></strong> — surfaces as an error event the moment plugin code reads <code>ctx.systemPrompt</code> without declaring <code>inject: ["systemPrompt"]</code>.</li>
+  </ul>
+  <p>Each has a one-line fix in the <a href={troubleshootingUrl}>troubleshooting guide</a>. The point here is that with the trajectory view you get the exact error string, which makes the fix a lookup instead of a guess.</p>
+  <p>A concrete run from our testing: a plugin installed via <code>dsh plugin add github:owner/repo</code> looked fine in the directory, but the agent never used it. Walking the trajectory in order, we saw a dependency-add event and then silence — no load event. That signature (a dependency with no load) is the missing-<code>dsh.bundle</code> tell. Reading it took thirty seconds and pointed straight at the fix; guessing would have burned ten minutes and produced a wrong conclusion.</p>
 
   <h2>How to use it to cut token waste</h2>
   <p>The trajectory log is also a cost profiler. Each event shows what went into context:</p>
@@ -28,9 +37,15 @@ import BlogPost from '../../layouts/BlogPost.astro';
     <li><strong>Find unnecessary tool round-trips</strong> — long chains of read/search calls that could collapse into one (that's what PTC mode is for).</li>
     <li><strong>Check compression</strong> — see when context gets compressed and whether it's dropping useful history.</li>
   </ul>
-  <p>Combine this with a cache-friendly harness design (minimal tools, append-only sessions) and you get the <a href="/blog/pi-deepseek-cache/">99.93% cache hit rate</a> playbook.</p>
+  <p>Combine this with a cache-friendly harness design (minimal tools, append-only sessions) and you get the <a href="/blog/pi-deepseek-cache/">99.93% cache hit rate</a> playbook. The connection is direct: an append-only log is also a stable request prefix, and a stable prefix is what keeps DeepSeek's automatic prefix cache hitting.</p>
 
   <h2>The takeaway</h2>
-  <p>Trajectory tracing turns an opaque agent into an inspectable one. For anyone running agents seriously — debugging failures or optimizing cost — it's not a nice-to-have; it's the reason to pick a harness that doesn't hide its work.</p>
+  <p>Trajectory tracing turns an opaque agent into an inspectable one. For anyone running agents seriously — debugging failures or optimizing cost — it's not a nice-to-have; it's the reason to pick a harness that doesn't hide its work. The rivals charge you for tokens and then encrypt the receipt. DSH hands you the receipt, line by line.</p>
+
+  <h2>FAQ</h2>
+  <p><strong>Does trajectory tracing slow the agent down?</strong> No — sessions are already stored as event logs internally; the view is just reading that structure. You're inspecting the source of truth, not adding overhead.</p>
+  <p><strong>Can I see the model's hidden reasoning?</strong> You see the reasoning steps the harness records as events (system prompt, tool calls, results), not the model's private internal chain-of-thought — which is the same boundary all providers keep.</p>
+  <p><strong>How do I tell a missing <code>dsh.bundle</code> from a genuine crash?</strong> A missing manifest means the plugin is added as a dependency but emits no load event. A crash emits an error event with the exact message. The log distinguishes the two cleanly.</p>
+
   <p>Related: <a href="/blog/deepseek-harness-session-log/">session log observability</a> · <a href="/blog/deepseek-harness-modes/">the modes guide</a>.</p>
 </BlogPost>

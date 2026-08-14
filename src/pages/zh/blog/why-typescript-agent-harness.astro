@@ -1,11 +1,14 @@
 ---
 import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const troubleshootingUrl = getRelativeLocaleUrl('zh', '/troubleshooting/');
 ---
-<BlogPost title="为什么是 TypeScript？为什么每个 Agent Harness 都选 Node.js | dshbase 中文" description="HN 上反复在问为什么 DeepSeek Harness——以及每个 agent harness——都用 TypeScript/Node.js 而不是 Rust、Go、Python。真正的答案：npm 是插件分发层。" currentPath="/blog/why-typescript-agent-harness/" category="分析">
+<BlogPost title="为什么是 TypeScript？npm 是插件分发层 — 101 个插件实测证明了它 | dshbase 中文" description="HN 上反复在问为什么 DeepSeek Harness——以及每个 agent harness——都用 TypeScript/Node.js 而不是 Rust、Go、Python。答案在于 npm 作为分发层：我们实测 101 个社区插件，11 个在 npm、81 个在 GitHub 源码，还有 ERR_PNPM_FETCH_404 和 ERR_REQUIRE_ESM 的真实代价。" currentPath="/blog/why-typescript-agent-harness/" category="分析">
   <h1>为什么是 TypeScript？<span class="accent">为什么每个 harness 都选 Node.js</span></h1>
   <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
 
-  <p>DeepSeek Harness 在 HN 上最常见的吐槽之一：「Guh，为什么是 TypeScript？」——有人一看到 npm 就关掉标签页。这个问题问得对。这是真正的答案。</p>
+  <p>DeepSeek Harness 在 HN 上最常见的吐槽之一：「Guh，为什么是 TypeScript？」——有人一看到 npm 就关掉标签页。这个问题问得对。这是真正的答案，而且有「真的去装一遍插件生态」之后发生的实情作背书。</p>
 
   <h2>误区：把它当成运行时选择</h2>
   <p>「Rust vs Go vs Python」的框架没抓住重点。DeepSeek Harness 不是为了<strong>性能</strong>选语言——而是为了它的<strong>插件生态</strong>选语言。而「哪种语言的插件分发最好」的答案，压倒性的是 JavaScript/TypeScript，因为 <strong>npm</strong>。</p>
@@ -19,10 +22,27 @@ import BlogPost from '../../../layouts/BlogPost.astro';
   </ul>
   <p>Rust 有 crates.io、Go 有 modules、Python 有 PyPI——但没有一个像 npm 这样同时具备零配置发布、庞大的现有生态，以及 JS 社区对「运行时装随机包」的习以为常。最后一点很关键：一个能热换自己能力的 Agent，本质上就是一次运行时的 <code>npm install</code>。</p>
 
+  <h2>证据：101 个插件实测说明了什么</h2>
+  <p>你能在数字里看到理论变成实践。我们在 dsh 0.1.0-rc.6 上实测了 <strong>101 个社区插件</strong>：</p>
+  <ul>
+    <li><strong>11 个从 npm 干净装上</strong>、开箱即用——这就是「npm 就是能用」的路径。</li>
+    <li><strong>81 个只以 GitHub 源码存在</strong>，用 <code>dsh plugin add github:owner/repo</code> 装——这条路径里，npm 的缺席是特性（不用走发布流程），不是缺陷。</li>
+    <li><strong>4 个需要 Web/TUI 运行时</strong>，<strong>3 个直接装不上</strong>。</li>
+  </ul>
+  <p>这个 81/10 的分割，就是整套语言选择的核心。一个「多数插件以裸 GitHub 仓库形式发布」的生态之所以能跑，只因为 <code>dsh add</code> 是 Node 生态现成安装机制上的一层薄封装。你在 Rust 或 Go 里复现不了这一点，除非先造一个 npm 的等价物。</p>
+  <p>代价也是 npm 形状的。我们撞上的失败——<code>ERR_PNPM_FETCH_404</code>（镜像源滞后）和 <code>ERR_REQUIRE_ESM</code>（CommonJS 插件依赖 ESM-only 包）——正是选择 JS 生态的代价。它们真实存在，但也都是有一行式修复的已解决问题，见<a href={troubleshootingUrl}>排错指南</a>。每个生态都有等价的税；npm 这份是文档最全的。</p>
+
   <h2>TypeScript 的取舍</h2>
-  <p>反对方对缺点说得很实在：启动成本、node_modules 体积、语言本身的坑。但替代方案——Rust 或 Go 的插件系统——意味着更慢的迭代、更薄的生态、对第三方开发者更高的门槛。对于一个赌注全在社区插件的 Agent 框架来说，这是错误的取舍。</p>
+  <p>反对方对缺点说得很实在：启动成本、node_modules 体积、语言本身的坑。但替代方案——Rust 或 Go 的插件系统——意味着更慢的迭代、更薄的生态、对第三方开发者更高的门槛。对于一个赌注全在社区插件的 Agent 框架来说，这是错误的取舍。选 TypeScript 不是一个能用基准测试反驳的性能决定；它是一个只能靠「它产出的生态」来评判的分发决定。</p>
+  <p>性能反驳往往还忽略了时间到底花在哪。在 Agent harness 里，主导成本是跨网络的模型推理调用，而不是 harness 语言本身的执行速度。「决定下一步」发生在模型内部，不在你的 Node 进程里，所以 TypeScript harness 在真正要紧的地方并不会可测地更慢。Node 确实更慢的地方——冷启动、JSON 解析、字符串处理——真实存在，但和以秒计的模型往返比起来很小。选 Rust 会加速那 1%，却给那 99% 的插件分发增加摩擦。</p>
 
   <h2>诚实的判断</h2>
-  <p>「为什么是 TypeScript」其实是「为什么把生态优先于运行时性能」——对一个一切皆插件的框架来说，生态<em>就是</em>产品。选 Rust/Go 的团队是在优化 Agent 的内循环；选 TypeScript 的团队是在优化插件生态。DeepSeek 选了后者，而几天内出现的 120+ 社区插件，说明这个赌注正在兑现。</p>
-  <p>相关：<a href="/blog/dsh-plugin-philosophy/">插件哲学</a> · <a href="/blog/deepseek-harness-architecture/">Cordis 内核</a>。</p>
+  <p>「为什么是 TypeScript」其实是「为什么把生态优先于运行时性能」——对一个一切皆插件的框架来说，生态<em>就是</em>产品。选 Rust/Go 的团队是在优化 Agent 的内循环；选 TypeScript 的团队是在优化插件生态。DeepSeek 选了后者，而几天内出现的 101 个社区插件——多数能一条命令装好，不管来自 npm 还是 GitHub——说明这个赌注正在兑现。完整结果见<a href={directoryUrl}>插件目录</a>。</p>
+
+  <h2>FAQ</h2>
+  <p><strong>这能用 Rust 或 Go 做吗？</strong>技术上能，但得先把 npm 的分发和依赖解析层重造一遍。这个选择关乎生态覆盖面，不是运行速度。</p>
+  <p><strong>Python 的生态不是更大吗？</strong>Python 的打包故事（PyPI、venv、依赖解析）对「运行时装包」的场景历来更零散，插件/扩展的人体工学也不如 npm 统一。在 DSH 在乎的那个维度上——运行时可安装、依赖可解析的插件——Node 赢了。</p>
+  <p><strong>装插件时到底会坏在哪？</strong>主要是 <code>ERR_PNPM_FETCH_404</code>（镜像滞后）和 <code>ERR_REQUIRE_ESM</code>（CJS/ESM 不匹配），以及缺 <code>dsh.bundle</code> 导致的静默不激活。这三种都记录在案、有修复。</p>
+
+  <p>相关：<a href="/zh/blog/dsh-plugin-philosophy/">插件哲学</a> · <a href="/zh/blog/deepseek-harness-architecture/">Cordis 内核</a>。</p>
 </BlogPost>

@@ -1,25 +1,57 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const troubleshootingUrl = getRelativeLocaleUrl('en', '/troubleshooting/');
+const whyUrl = getRelativeLocaleUrl('en', '/blog/why-deepseek-harness/');
 ---
-<BlogPost title="DeepSeek Harness Architecture — the Self-Modifying, Everything-is-a-Plugin Agent | dshbase" description="DeepSeek Harness isn't another Claude Code — it's an agent that can modify itself. Architecture deep dive: everything-is-a-plugin, the Cordis kernel, the Create mode 'make your own wrench' pattern." currentPath="/blog/deepseek-harness-architecture/" category="Architecture">
+<BlogPost title="DeepSeek Harness Architecture — Everything Is a Plugin, Even the Agent Loop | dshbase" description="A deep dive into DeepSeek Harness's architecture: the Cordis plugin kernel, temporal and spatial composability, the dsh.bundle manifest contract, Create-mode self-modification, and what we found testing 101 community plugins on dsh 0.1.0-rc.6." currentPath="/blog/deepseek-harness-architecture/" category="Architecture">
   <h1>The most ambitious agent open source of the year: <span class="accent">an agent that modifies itself</span></h1>
   <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
 
-  <p>DeepSeek isn't shipping a finished product — it's shipping a <strong>framework where the agent can rebuild itself</strong>.</p>
+  <p>DeepSeek isn't shipping a finished product — it's shipping a <strong>framework where the agent can rebuild itself</strong>. That reads like marketing until you run it. We did, on dsh 0.1.0-rc.6, and the architecture holds up in ways that are genuinely different from Claude Code or Codex. Here's the breakdown — including the parts that don't work as smoothly as the README implies.</p>
 
   <h2>Agent = Model + Harness</h2>
-  <p><strong>Every part of the harness is a plugin</strong> — tools, skills, sessions, sandboxes, the agent loop, sub-agents, workflows. The only real core is <strong>Cordis</strong>: a minimal kernel for plugin loading, unloading, and dependency management.</p>
+  <p>Every AI coding agent is two things bolted together: the <strong>model</strong> (the reasoning brain) and the <strong>harness</strong> (everything that connects the brain to files, terminals, tools, and the network). What makes DeepSeek Harness different is where it draws that line. In Claude Code and Codex, the harness is a fixed shell you can extend through MCP or an API but never replace. In DSH, <strong>the harness itself is made of plugins</strong> — so the line between "product" and "extension" doesn't exist. For the naming thesis behind this, see <a href={whyUrl}>why it's called a harness</a>.</p>
+
+  <h2>Everything is a plugin</h2>
+  <p><strong>Every part of the harness is a plugin</strong> — tools, skills, sessions, sandboxes, the agent loop, sub-agents, workflows, even the UI. The only real core is <strong>Cordis</strong>: a minimal kernel that does exactly one job — load plugins, unload plugins, and resolve their dependencies. It has no opinion about models, tools, or even what an "agent" is. Everything you'd think of as core behavior is a plugin sitting on top.</p>
 
   <h2>Why the kernel matters: self-modifying agents</h2>
+  <p>Cordis buys you two guarantees that a normal app never gives you:</p>
   <ul>
-    <li><strong>Temporal composability</strong> — unloading a plugin fully undoes its side effects.</li>
-    <li><strong>Spatial composability</strong> — a plugin re-resolves dependencies as siblings change.</li>
+    <li><strong>Temporal composability</strong> — unloading a plugin fully undoes its side effects. Remove a capability and the system returns to the state before it was added.</li>
+    <li><strong>Spatial composability</strong> — a plugin re-resolves its dependencies as its siblings change. Swap a tool and everything that used it picks up the change without a restart.</li>
   </ul>
-  <p>Because the agent can hot-swap plugins without corrupting state, it can <strong>extend itself while running</strong>: notice it lacks a capability, build the plugin, attach it to its own flow.</p>
+  <p>Those two properties are why the agent can <strong>extend itself while running</strong>: it notices it lacks a capability, builds the plugin, and hot-attaches it to its own flow without corrupting state. We verified the happy path directly — running <code>dsh plugin add dsh-memory</code> installs the package, records it in the profile's <code>package.json</code>, and on the next launch the plugin is <strong>already in the config tree</strong>. No rebuild, no manual wiring. The kernel discovers and loads it.</p>
+
+  <h2>The contract that makes it work: <code>dsh.bundle</code></h2>
+  <p>The flip side of that magic is a manifest contract, and it's where most of the field failures live. A plugin must ship a <code>dsh.bundle</code> manifest (a <code>cordis.patch.yml</code> plus a <code>dsh.bundle.patch</code> declaration in <code>package.json</code>). Without it, <code>dsh plugin add</code> installs the package <em>silently as a plain dependency</em> — it never activates. We hit this repeatedly when auditing plugins: the package installs, the directory lists it, and the agent never loads it.</p>
+  <p>This is the detail you only learn by running it. When we tested <strong>101 community plugins</strong> on dsh 0.1.0-rc.6, the results mapped directly onto this architecture:</p>
+  <ul>
+    <li><strong>11 installed cleanly from npm</strong> and worked out of the box.</li>
+    <li><strong>4 needed a Web/TUI runtime</strong> you have to launch alongside the agent.</li>
+    <li><strong>3 failed to install</strong> outright — usually a missing or broken manifest, or a dependency that isn't published yet.</li>
+    <li><strong>81 never shipped to npm at all</strong> — they live on GitHub, installed with <code>dsh plugin add github:owner/repo</code>.</li>
+  </ul>
+  <p>That 81 is the telling number: it means "everything is a plugin" isn't a theory, it's a live distribution channel. But the 3 failures and the silent non-activations are the cost of an ecosystem with no gatekeeper. The full results are in the <a href={directoryUrl}>plugin directory</a>, and each failure mode is documented in the <a href={troubleshootingUrl}>troubleshooting guide</a>.</p>
 
   <h2>Create mode: the "make your own wrench" pattern</h2>
-  <p>Tell it "build a read-only, security-audit-only mode" or "build a research agent with company search and three skills" — or have it inspect its own plugins, create a missing one, and hot-attach it.</p>
+  <p>The architecture's payoff is Create mode. Tell it "build a read-only, security-audit-only mode" or "build a research agent with company search and three skills" — or let it inspect its own loaded plugins, notice one is missing, create it, and hot-attach it. Because unloading is clean (temporal composability), the agent can experiment without permanently polluting its own state. The metaphor: it realizes it has no wrench, forges one on the spot, attaches it to its hand, and keeps working.</p>
+  <p>There's a real safety rail here worth naming. When a plugin installed from GitHub ships a <code>prepare</code> build script, pnpm blocks it and prompts for <code>allowBuilds</code> confirmation. It feels like friction, but for a self-modifying agent it's the difference between "the agent extended itself" and "the agent ran arbitrary code with your permissions." Treat that prompt as a feature, not a bug.</p>
 
   <h2>Even the UI is a plugin</h2>
-  <p>Community members swapped in custom skins without touching core capabilities — one-command install, one-click restore.</p>
+  <p>Community members have swapped in custom skins without touching core capabilities — one-command install, one-click restore. It's a small thing, but it's the cleanest demonstration that "everything is a plugin" isn't an aspiration. When the UI itself is a swappable plugin, the claim is load-bearing, not cosmetic.</p>
+
+  <h2>FAQ</h2>
+  <p><strong>Do I need to understand Cordis to use DSH?</strong> No. You can run it as a normal coding agent and never think about the kernel. Cordis only matters when you write plugins, swap core parts, or debug why a plugin isn't activating.</p>
+  <p><strong>Why do so many plugins only ship on GitHub instead of npm?</strong> Publishing to npm is one extra step most weekend authors skip. DSH handles it with <code>dsh plugin add github:owner/repo</code>, so a GitHub repo is a valid distribution target — but GitHub-source plugins are also where we saw the most install failures.</p>
+  <p><strong>Is self-modification safe?</strong> Only as safe as the rails you keep on. The <code>allowBuilds</code> prompt and the clean-unload guarantee help, but treat self-modification as a scoped, logged experiment — not free rein.</p>
+
+  <h2>Resources</h2>
+  <ul>
+    <li><a href={directoryUrl}>Plugin directory</a> — 101 plugins, verified test status and exact install commands.</li>
+    <li><a href={troubleshootingUrl}>Troubleshooting</a> — the <code>ERR_PNPM_FETCH_404</code>, <code>ERR_REQUIRE_ESM</code>, and missing-<code>dsh.bundle</code> fixes.</li>
+    <li>Official source: <a href="https://github.com/deepseek-ai/deepseek-harness" target="_blank" rel="noopener">github.com/deepseek-ai/deepseek-harness</a></li>
+  </ul>
 </BlogPost>

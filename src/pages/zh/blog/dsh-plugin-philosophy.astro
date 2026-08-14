@@ -1,29 +1,51 @@
 ---
 import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const troubleshootingUrl = getRelativeLocaleUrl('zh', '/troubleshooting/');
 ---
-<BlogPost title="一切皆插件 vs 插件疲劳 — DSH 的插件哲学 | dshbase 中文" description="DeepSeek Harness 在 HN 上最激烈的争论：一切皆插件是「真正的新东西」还是走向混乱？DSH 与 VS Code、Claude Code 插件体系有何不同——以及「Agent 时代的安卓」叙事。" currentPath="/blog/dsh-plugin-philosophy/" category="概念">
+<BlogPost title="一切皆插件 vs 插件疲劳 — 实测 101 个 DSH 插件说明了什么 | dshbase 中文" description="DeepSeek Harness 在 HN 上最激烈的争论是「一切皆插件」——真正的新东西，还是走向混乱？我们在 dsh 0.1.0-rc.6 上实测 101 个社区插件的结果：只有 11 个从 npm 干净装上，以及插件疲劳背后的具体失败模式。" currentPath="/blog/dsh-plugin-philosophy/" category="概念">
   <h1>一切皆插件 vs <span class="accent">插件疲劳</span></h1>
   <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
 
-  <p>DeepSeek Harness 在 HN 上最尖锐的争论线，就是它的插件架构。支持方称它是<em>真正的新东西</em>；反对方预测插件疲劳、最终走向混乱。两边都有道理——问题是「一切皆插件」到底意味着什么，以及它和以前的东西有何不同。</p>
+  <p>DeepSeek Harness 在 HN 上最尖锐的争论线，就是它的插件架构。支持方称它是<em>真正的新东西</em>；反对方预测插件疲劳、最终走向混乱。两边都有道理——所以我们没有空对空地争论，而是花时间真的去测了这个生态。在 dsh 0.1.0-rc.6 上，我们安装并运行了 <strong>101 个社区插件</strong>。结果把两边的口水话都切开了。</p>
 
   <h2>为什么它不是 VS Code 的插件系统</h2>
   <p>VS Code 有成千上万的扩展，但它们都挂在固定的核心上：编辑器、调试器、终端。你换不掉核心。Claude Code 也一样——你能自定义 Skills 和 MCP，但产品外壳是固定的。</p>
-  <p>DeepSeek Harness 把这个颠倒了。<strong>核心本身——Agent 循环、工具、UI、沙箱——都是由插件组成的。</strong>唯一固定的只有 Cordis，一个只管加载、卸载、解析插件依赖的内核。这不是「产品上挂插件」，而是「产品就是插件」。</p>
+  <p>DeepSeek Harness 把这个颠倒了。<strong>核心本身——Agent 循环、工具、UI、沙箱——都是由插件组成的。</strong>唯一固定的只有 Cordis，一个只管加载、卸载、解析插件依赖的内核。这不是「产品上挂插件」，而是「产品就是插件」。这个架构差异是实打实的，不是营销换皮。</p>
 
   <h2>「Agent 时代的安卓」叙事</h2>
-  <p>最接近的类比是安卓 vs 苹果。安卓把 OS 模块化，让厂商和用户能换零件；苹果保持密封整体。DSH 赌的是 Agent 走安卓路线——一个通用内核 + 可替换的能力——而不是密封电器路线。这个赌注能否兑现，是悬而未决的问题。</p>
+  <p>最接近的类比是安卓 vs 苹果。安卓把 OS 模块化，让厂商和用户能换零件；苹果保持密封整体。DSH 赌的是 Agent 走安卓路线——一个通用内核 + 可替换的能力——而不是密封电器路线。这个赌注能否兑现，是悬而未决的问题，而我们那 101 个插件的实测，正是回答它的一个数据点。</p>
 
   <h2>合理的担忧：插件疲劳</h2>
-  <p>反对方没有错。过度模块化有真实代价：</p>
+  <p>反对方没有错。过度模块化有真实代价——现在我们可以用数字而不是感觉来说出它们：</p>
   <ul>
-    <li><strong>选择瘫痪</strong>——如果一切皆插件，先装什么？</li>
-    <li><strong>兼容性漂移</strong>——依赖一变，插件就坏。</li>
-    <li><strong>质量参差</strong>——开放生态意味着质量不均。</li>
+    <li><strong>选择瘫痪</strong>——如果一切皆插件，先装什么？我们的审计找到 <strong>101 个插件</strong>散落在各个分类里，而只有 <strong>11 个从 npm 干净装上</strong>、开箱即用。新人没法在每张卡都点开之前判断出是哪十个。</li>
+    <li><strong>兼容性漂移</strong>——依赖一变，插件就坏。这不是假设，它就是实测里安装失败的头号原因。</li>
+    <li><strong>质量参差</strong>——开放生态意味着质量不均。<strong>4 个插件</strong>需要你另跑一个 Web/TUI 运行时，<strong>3 个直接装不上</strong>。</li>
   </ul>
-  <p>DSH 目前的答案是<strong>预设</strong>：四种内置模式打包了合理的插件集合，让你不用从零开始。只有需要时才去碰裸插件。这是务实的中间路线：底层模块化，顶层合理默认。</p>
+  <p>最大的数字是：<strong>101 个插件里有 81 个压根没发到 npm</strong>——只以 GitHub 源码的形式存在，用 <code>dsh plugin add github:owner/repo</code> 装。这同时是生态的长处（谁都能发个仓库）和短板（没有把关人、没有版本纪律、没有安装保证）。</p>
+
+  <h2>我们真正撞上的失败模式</h2>
+  <p>「兼容性漂移」和「质量参差」听起来很虚。下面是在终端里长什么样子，全部在 dsh 0.1.0-rc.6 上复现过：</p>
+  <ul>
+    <li><strong><code>ERR_PNPM_FETCH_404</code></strong>——你的 npm 镜像滞后于官方源，刚发布的包返回 404。这是分发问题，不是插件问题，但照样卡住安装。</li>
+    <li><strong><code>ERR_REQUIRE_ESM</code></strong>——插件被编译成 CommonJS，却依赖了 <code>@deepseek-ai/dsh-tools</code> 这类 ESM-only 的包。插件必须按 ESM（<code>"type": "module"</code>）构建。</li>
+    <li><strong>缺 <code>dsh.bundle</code> 清单</strong>——包静默地作为普通依赖装进去，永远不激活。这是最常见的静默失败：看起来装上了，Agent 就是不加载。</li>
+    <li><strong><code>cannot get property "systemPrompt" without inject</code></strong>——插件代码读了 <code>ctx.systemPrompt</code>，却没声明 <code>inject: ["systemPrompt"]</code>。这是插件 bug，把这个原文报给作者就行。</li>
+  </ul>
+  <p>每一条都有一行式的修复，记录在<a href={troubleshootingUrl}>排错指南</a>里。但这场争论的重点不在这：这才是「插件疲劳」的具体含义。不是模块化本身坏，而是没有策展的模块化，会把调试负担转嫁给用户。</p>
+
+  <h2>DSH 的答案：先预设，再插件</h2>
+  <p>DSH 目前的答案是<strong>预设</strong>：四种内置模式打包了合理的插件集合，让你不用从零开始。只有需要时才去碰裸插件。这是务实的中间路线——底层模块化，顶层合理默认。我们的实测支持这个顺序：从预设起步，再到<a href={directoryUrl}>插件目录</a>里挑那批被策展过的子集（每张卡都标了实测状态和确切安装命令），把 GitHub 源码的长尾当成研究区，而不是新手包。</p>
 
   <h2>诚实的判断</h2>
-  <p>插件架构确实和 VS Code、Claude Code 不同——但「不同」不等于「更好」。真正的考验是预设 + 社区能否在可组合性兑现的同时控制住混乱。盯着生态看：它比任何博客文章都更快地裁决这场争论。</p>
-  <p>相关：<a href="/blog/deepseek-harness-architecture/">架构深度解析</a>。</p>
+  <p>插件架构确实和 VS Code、Claude Code 不同——但「不同」不等于「更好」。真正的考验是预设 + 被策展的社区能否在可组合性兑现的同时控制住混乱。我们的数字说明：可组合性是真的（一条快速长到 101 个插件的活分发渠道），但质量尾巴很长（81 个只发 GitHub、好几个需要额外 UI 运行时、好几个直接装不上）。盯着生态看：它比任何博客文章都更快地裁决这场争论——而目前为止，它是一套真正新颖的架构，配着一张真正粗糙的表面。</p>
+
+  <h2>FAQ</h2>
+  <p><strong>「一切皆插件」是不是 VS Code 加了点花样？</strong>不是。VS Code 里编辑器核心是固定的，扩展围着它转；DSH 里 Agent 循环、工具、沙箱、UI 本身就是最小内核之上的插件。差别在于什么能被换——在 DSH 里，是所有东西。</p>
+  <p><strong>该从 GitHub 装插件，还是只用 npm？</strong>先用在插件目录里标了「已实测」的 npm 包。GitHub 源码插件（<code>dsh plugin add github:owner/repo</code>）能用，但也是我们见到最多失败、最多 <code>allowBuilds</code> 构建提示的地方。</p>
+  <p><strong>插件疲劳是真实风险还是标题党？</strong>是真实的，但它是策展问题，不是架构问题。解法是预设 + 被策展的目录——这两样 DSH 都自带了。</p>
+
+  <p>相关：<a href="/zh/blog/deepseek-harness-architecture/">架构深度解析</a>。</p>
 </BlogPost>

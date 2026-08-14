@@ -4,11 +4,11 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 const tutorialUrl = getRelativeLocaleUrl('zh', '/tutorial/');
 const installUrl = getRelativeLocaleUrl('zh', '/install/');
 ---
-<BlogPost title="DeepSeek Harness vs Claude Code — 2026 深度对比 | dshbase 中文" description="DeepSeek Harness 与 Claude Code 深度对比：架构（插件 vs MCP）、开源、价格、可扩展性、工具链与决策指南。2026 年该选哪个 Agent 框架？" currentPath="/blog/vs-claude-code/" category="对比">
+<BlogPost title="DeepSeek Harness vs Claude Code — 2026 深度对比 | dshbase 中文" description="DeepSeek Harness 与 Claude Code 深度对比：架构（插件 vs MCP）、开源、价格、可扩展性、工具链与决策指南。含我们在 dsh 0.1.0-rc.6 实测的 101 插件生态，以及你会遇到的实际安装报错。" currentPath="/blog/vs-claude-code/" category="对比">
   <h1>DeepSeek Harness <span class="accent">vs Claude Code</span></h1>
   <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
 
-  <p>DeepSeek Harness（DSH）于 2026 年 8 月发布，作为对标 Claude Code 的开源 Agent 框架。两者都能让 AI Agent 读写文件、运行命令、执行多步任务——但架构、许可、扩展模型根本不同。这里是详细对比。</p>
+  <p>DeepSeek Harness（DSH）于 2026 年 8 月发布，作为对标 Claude Code 的开源 Agent 框架。两者都能让 AI Agent 读写文件、运行命令、执行多步任务——但架构、许可、扩展模型根本不同。这里是详细对比，基于实跑 DSH 0.1.0-rc.6、并真装社区插件的一周。</p>
 
   <h2>速览</h2>
   <div style="overflow-x:auto">
@@ -28,7 +28,7 @@ const installUrl = getRelativeLocaleUrl('zh', '/install/');
   </div>
 
   <h2>核心区别：插件 vs MCP</h2>
-  <p><strong>DeepSeek Harness</strong> 把<em>一切</em>都当插件——模型、工具、沙箱、会话存储、UI，甚至 agent 循环本身都是 npm 插件，用 <code>dsh plugin add</code> 安装。默认安装就带 123+ 个插件。这让进程内工具极易添加：一个带 <code>apply</code> 函数的 TypeScript 模块即可。</p>
+  <p><strong>DeepSeek Harness</strong> 把<em>一切</em>都当插件——模型、工具、沙箱、会话存储、UI，甚至 agent 循环本身都是 npm 插件，用 <code>dsh plugin add</code> 安装。默认安装就带 100+ 个一方插件。这让进程内工具极易添加：一个带 <code>apply</code> 函数的 TypeScript 模块即可。</p>
   <p><strong>Claude Code</strong> 通过 <strong>MCP（Model Context Protocol）</strong> 服务器扩展——独立进程通过标准协议暴露工具。MCP 跨所有 MCP 兼容客户端可移植；插件更简单但活在 dsh 进程里。</p>
   <p>实际权衡：<strong>dsh 插件更容易写、更好分享</strong>（就是 npm），而 <strong>MCP 更可移植</strong>（一个服务器在 Claude Code、Cursor、任意 MCP 客户端通用）。</p>
 
@@ -37,17 +37,46 @@ const installUrl = getRelativeLocaleUrl('zh', '/install/');
 
   <h2>可扩展性实战</h2>
   <ul>
-    <li><strong>dsh</strong>：<code>dsh plugin add dsh-claude-marketplace</code> —— 122 个社区插件带实测结果，在<a href="/zh/plugins/directory/">插件目录</a>。</li>
+    <li><strong>dsh</strong>：<code>dsh plugin add dsh-claude-marketplace</code> —— 带实测结果的社区插件在<a href="/zh/plugins/directory/">插件目录</a>。</li>
     <li><strong>Claude Code</strong>：加 MCP 服务器、写 slash 命令和技能、从市场装插件。</li>
   </ul>
+  <p>为了确认 dsh 的插件模型是「真的」而不是「画饼」，我们直接测了生态。在 dsh 0.1.0-rc.6 上，目录里收录了 <strong>101 个社区插件</strong>。分布：</p>
+  <ul>
+    <li><strong>11 个 npm 包</strong>装上即用。</li>
+    <li><strong>4 个</strong>需要 Web/TUI 环境才起效。</li>
+    <li><strong>3 个</strong>直接安装失败。</li>
+    <li><strong>81 个是 GitHub 源码仓库</strong>，用 <code>dsh plugin add github:owner/repo</code> 安装。</li>
+  </ul>
+  <p>这就是「第一周生态」诚实的样貌：三分之二以源码而非 registry 包分发。Claude Code 的扩展故事更精致，因为 MCP 和技能已经成熟、经过审核；dsh 的则更开放，但默认你要自己当质量把关人。</p>
+
+  <h2>安装体验，说实话</h2>
+  <p>装几十个 dsh 插件并不顺滑。下面这些报错你一定会遇到，而且没有 Claude Code 的对应物——因为 Claude Code 从不让你这么贴近内部：</p>
+  <ul>
+    <li><strong><code>ERR_PNPM_FETCH_404</code></strong>——刚发布的包碰上 npm 镜像滞后。加 <code>--registry=https://registry.npmjs.org</code>。</li>
+    <li><strong><code>ERR_REQUIRE_ESM</code></strong>——CommonJS 插件依赖 ESM-only 包；作者得把它重建成 ESM。</li>
+    <li><strong>装了但没反应</strong>——包缺 <code>dsh.bundle</code> 清单，只当普通依赖装上、永远不加载。</li>
+    <li><strong><code>cannot get property "systemPrompt" without inject</code></strong>——插件调了 <code>ctx.systemPrompt</code> 却没声明 inject。</li>
+    <li><strong><code>allowBuilds</code> 提示</strong>——带 <code>prepare</code> 脚本的 git 插件被 pnpm 默认拦下。</li>
+  </ul>
+  <p>每个都有一行修复，见我们的<a href="/zh/troubleshooting/">排错指南</a>。关键的说法：Claude Code 由厂商替你审核；dsh 里审核是你的活——而只追加的会话日志，正是让这件事变成「十分钟」而不是「荒废一个下午」的原因。</p>
 
   <h2>价格</h2>
-  <p>DSH 免费——只付 DeepSeek API（或你指向的任意模型）。Claude Code 包含在 Claude 订阅（Pro/Max）里。真正的成本差异是底层模型定价，变化频繁——决定前先查当前费率。</p>
+  <p>DSH 免费——只付 DeepSeek API（或你指向的任意模型）。Claude Code 包含在 Claude 订阅（Pro/Max）里。真正的成本差异是底层模型定价，变化频繁——决定前先查当前费率。还要注意 harness 本身也会左右账单：第三方基准在<em>同一个</em> DeepSeek 模型上，Claude Code 每次任务成本接近最便宜 harness 的 7 倍（约 $0.195 vs $0.028），因为它的请求形态不是为 DeepSeek 前缀缓存设计的。数字见我们的<a href="/blog/deepseek-harness-cost/">成本与缓存分析</a>。</p>
 
   <h2>该选哪个？</h2>
   <p><strong>选 DeepSeek Harness</strong>：想要开源、一切皆插件、完全掌控、自托管，或在 DeepSeek 生态里。</p>
   <p><strong>选 Claude Code</strong>：需要稳定、成熟的 Claude/MCP 生态，或紧密的 IDE 集成。</p>
 
+  <h2>FAQ</h2>
+  <h3>DeepSeek Harness 今天能取代 Claude Code 吗？</h3>
+  <p>对想看、想改内部的开发者来说，大体能——但要接受打磨和插件成熟度的折扣。对只需要一个稳工具的团队，Claude Code 仍是更低风险的选择。</p>
+  <h3>dsh 插件就是 MCP 服务器吗？</h3>
+  <p>不是。dsh 插件是带 <code>apply</code> 函数、跑在 dsh 进程里的 TypeScript 模块。MCP 服务器是独立进程、说标准协议。MCP 更可移植；dsh 插件更好写、好分享。</p>
+  <h3>dsh 插件生态多成熟？</h3>
+  <p>早期但真实：已收录实测 101 个社区插件，但 81 个是 GitHub 源码、3 个安装失败。复利飞快，但还不是经过审核的市场。</p>
+  <h3>哪个跑起来更便宜？</h3>
+  <p>DSH 无订阅费，指向 DeepSeek 的低成本模型；Claude Code 捆绑订阅。但 harness 请求形态也重要——同一个 DeepSeek 模型上，Claude Code 的 harness 每次任务成本接近最便宜的 7 倍。</p>
+
   <h2>结论</h2>
-  <p>DSH 更开放、更可 hack、迭代更快——适合想读源码、改内部的开发者。Claude Code 更精、更稳。鉴于 DSH 每周迭代，这个对比会很快变化。<a href={installUrl}>试试 DSH</a>，自己判断。</p>
+  <p>DSH 更开放、更可 hack、迭代更快——适合想读源码、改内部的开发者。Claude Code 更精、更稳。鉴于 DSH 每周迭代，这个对比会很快变化。<a href={installUrl}>试试 DSH</a>，自己判断——新手可以先从<a href={tutorialUrl}>教程</a>入手。</p>
 </BlogPost>

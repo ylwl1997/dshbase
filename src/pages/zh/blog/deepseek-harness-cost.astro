@@ -1,25 +1,66 @@
 ---
 import BlogPost from '../../../layouts/BlogPost.astro';
 ---
-<BlogPost title="DeepSeek Harness 成本与缓存 — Agent 如何省 Token | dshbase 中文" description="Agent harness 如何降低 DeepSeek token 成本：前缀缓存、最小工具集，以及同一模型在不同 harness 下成本最多差 7 倍的实测对比。" currentPath="/blog/deepseek-harness-cost/" category="分析">
+<BlogPost title="DeepSeek Harness 成本与缓存 — Agent 如何省（或浪费）Token | dshbase 中文" description="Agent harness 如何降低 DeepSeek token 成本：前缀缓存、最小工具集、只追加会话，以及同一模型在不同 harness 下成本最多差 7 倍的实测对比。加上我们在 dsh 0.1.0-rc.6 实测 101 个插件时发现的隐性时间成本。" currentPath="/blog/deepseek-harness-cost/" category="分析">
   <h1>为什么 Harness 的选择让账单差 <span class="accent">7 倍</span></h1>
   <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
 
-  <p>DeepSeek 模型单 token 已经很便宜——但<strong>你跑它的 harness 可以把账单翻好几倍</strong>。编码 Agent 每一步都要重发系统提示词、工具定义、历史对话和代码。</p>
+  <p>DeepSeek 模型单 token 已经很便宜——但<strong>你跑它的 harness 可以把账单翻好几倍</strong>。编码 Agent 每一步都要重发系统提示词、工具定义、历史对话和代码。请求形态搞错了，你就为同一段上下文一遍遍付费；搞对了，提供方把大部分免费还给你。</p>
 
   <h2>前缀缓存</h2>
-  <p>如果请求开头与之前匹配，提供方直接复用计算结果。<strong>缓存命中率</strong>就是本次输入中复用此前计算的 token 占比——越高越便宜。改个时间戳、调换工具顺序都可能让缓存失效。</p>
+  <p>如果请求开头与之前匹配，提供方直接复用计算结果。<strong>缓存命中率</strong>就是本次输入中复用此前计算的 token 占比——越高越便宜。改个时间戳、调换工具顺序都可能让缓存失效，所以最省钱的 harness 都对「请求前缀逐字节稳定」这件事近乎偏执。</p>
 
   <h2>实测：99.93% 命中率</h2>
   <p>开源 Agent <strong>Pi</strong>（GitHub 约 8.6 万 star）接 DeepSeek 实测<strong>约 99.93% 缓存命中率</strong>——不命中率 0.07%。Pi 默认只给模型四个工具，会话只追加不重写。据报影响：有缓存约<strong>每 10 亿 token ¥19，无缓存 ¥900+</strong>。</p>
+  <p>再读一遍：约 ¥19 对 ¥900+。这不是舍入误差——是输入账单上约 47 倍的摆动，完全由 harness 组装请求的方式决定。模型没变，是对上下文的纪律变了。</p>
 
   <h2>7 倍差距</h2>
   <p>Composio 横向测试把 <strong>DeepSeek V4 Flash</strong> 接进 8 款 harness 跑真实任务：Pi 每次成功任务约 <strong>$0.028</strong>（最低），Claude Code 约 <strong>$0.195</strong>（接近 Pi 的 7 倍）。同一个模型，不同 harness，账单天差地别。</p>
+
+  <h2>到底是什么在驱动这个数字</h2>
+  <table class="ztable">
+    <tr><th>杠杆</th><th>缓存友好</th><th>缓存不友好</th></tr>
+    <tr><td><strong>工具集</strong></td><td>工具少、顺序固定（Pi：4 个）</td><td>工具多、每轮重排</td></tr>
+    <tr><td><strong>会话</strong></td><td>只追加、从不重写历史</td><td>重写 / 压缩更早的轮次</td></tr>
+    <tr><td><strong>系统提示词</strong></td><td>稳定、无时间戳</td><td>注入日期、变化的元数据</td></tr>
+    <tr><td><strong>中间数据</strong></td><td>留在上下文外（DSH PTC）</td><td>每步重发完整工具输出</td></tr>
+  </table>
+  <p>这就是为什么 DSH 内置了<strong>极简</strong>模式（两个工具，用来跑分）和 <strong>PTC</strong> 模式（模型在一次 <code>run_code</code> 里串联工具操作，把中间结果留在上下文外）。它们是 Pi 拉动的那几根杠杆，被做成了正式模式。模式机制详见我们的<a href="/blog/deepseek-harness-modes/">四种模式指南</a>。</p>
+
+  <h2>把你自己的预设做成缓存友好</h2>
+  <p>这些杠杆并不隐藏——只是组装 Agent 预设时太容易跳过。四项检查，直接改变数字：</p>
+  <ul>
+    <li><strong>控制工具集</strong>——从极简预设起步，逐个加工具；每加一个 schema，都待在了请求前缀里。</li>
+    <li><strong>系统提示词保持静态</strong>——别注入日期或变化的元数据，那会废掉前缀。</li>
+    <li><strong>优先只追加会话</strong>——任务中途不要重写或重新总结更早的轮次。</li>
+    <li><strong>长链走 PTC</strong>——把 read/search 操作合并进一次 <code>run_code</code>，省掉往返。</li>
+  </ul>
+
+  <h2>你没算进去的成本：你的时间</h2>
+  <p>Token 不是唯一的账单。一个年轻的插件生态有隐性的工程时间成本，我们直接测过。在 dsh 0.1.0-rc.6 上为<a href="/plugins/directory/">插件目录</a>实测 <strong>101 个社区插件</strong>时，安装路径本身就吃掉了真实的小时数：</p>
+  <ul>
+    <li><strong><code>ERR_PNPM_FETCH_404</code></strong>——刚发布的包碰上 npm 镜像滞后；一个伪装成 bug 的重试循环。</li>
+    <li><strong><code>ERR_REQUIRE_ESM</code></strong>——CommonJS 插件依赖 ESM-only 包；作者的问题，你的时间。</li>
+    <li><strong>静默失效的插件</strong>——没有 <code>dsh.bundle</code> 清单，插件只当普通依赖装上、永远不加载。</li>
+    <li><strong><code>allowBuilds</code> 提示</strong>——带 <code>prepare</code> 脚本的 git 插件被 pnpm 默认拦下。</li>
+  </ul>
+  <p>这 101 个插件里，<strong>11 个 npm 包</strong>装上即用、<strong>4 个</strong>需要 Web/TUI 环境、<strong>3 个安装失败</strong>、<strong>81 个是 GitHub 源码</strong>。一行修复都在我们的<a href="/troubleshooting/">排错指南</a>里，但更大的结论没变：当人们说 DSH 便宜，指的是 token——不是第一周里你自己当质量把关人的那几个小时。</p>
+
+  <h2>FAQ</h2>
+  <h3>DeepSeek 好的缓存命中率是多少？</h3>
+  <p>Pi 的约 99.93% 是参考值。低于约 90% 就意味着你每轮都在重付一截上下文，该看看工具集和会话结构了。</p>
+  <h3>为什么加工具会变贵？</h3>
+  <p>每个工具的 schema 都待在系统上下文里，新工具会撑大请求前缀。工具越多，模型也越容易串联更多往返，每趟都重发上下文。更少、更稳定的工具 = 更多缓存命中。</p>
+  <h3>PTC 模式真的省钱吗？</h3>
+  <p>对合适的任务，是的。PTC 把多步工具操作合并进一次 <code>run_code</code>，省掉整段往返，并把中间数据留在上下文外——直接抬升缓存命中率。</p>
+  <h3>DeepSeek Harness 比 Pi 便宜吗？</h3>
+  <p>默认不。Pi 是单点极简。DSH 的标准模式活动面更大；它的极简和 PTC 模式才是你拿到 Pi 级经济性、又保留框架的办法。</p>
 
   <h2>结论</h2>
   <ul>
     <li><strong>最小工具集</strong> + <strong>只追加会话</strong> = 缓存命中的最大杠杆。</li>
     <li>DSH 方向一致：小活动面、一切皆插件、PTC 把中间数据留在上下文外。</li>
+    <li>别忘了第二张账单：年轻生态消耗的是工程时间，不只是 token。</li>
   </ul>
-  <p class="muted small">以上为社区实测数据，非官方 DeepSeek 基准——投入前请核实当前价格。</p>
+  <p class="muted small">以上为社区实测数据，非官方 DeepSeek 基准——投入前请核实当前价格。插件数量以 2026 年 8 月目录为准。</p>
 </BlogPost>

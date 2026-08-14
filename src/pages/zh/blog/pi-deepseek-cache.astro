@@ -1,27 +1,53 @@
 ---
 import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const modesUrl = getRelativeLocaleUrl('zh', '/blog/deepseek-harness-modes/');
 ---
-<BlogPost title="DeepSeek 缓存优化 — Pi 如何做到 99.93% 命中率 | dshbase 中文" description="为什么像 Pi 这样的最小 harness 能做到 DeepSeek 前缀缓存 99.93% 命中率：最小工具集、只追加会话，以及同一模型在不同 harness 下 7 倍的成本差。" currentPath="/blog/pi-deepseek-cache/" category="分析">
+<BlogPost title="DeepSeek 缓存优化 — Pi 如何做到 99.93%，以及为什么工具数量是杠杆 | dshbase 中文" description="为什么像 Pi 这样的最小 harness 能做到 DeepSeek 前缀缓存 99.93% 命中率：最小工具集、只追加会话，以及同一模型在不同 harness 下 7 倍的成本差。外加 DSH 的极简模式和 PTC 如何套用同样的杠杆。" currentPath="/blog/pi-deepseek-cache/" category="分析">
   <h1>最小 harness 如何做到 <span class="accent">99.93% 缓存命中率</span></h1>
   <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
 
-  <p>跑 DeepSeek 最便宜的方式不只是便宜的模型——而是<strong>能复用模型已经算过的内容的 harness</strong>。开源 Agent <strong>Pi</strong> 的社区实测显示<strong>99.93% 前缀缓存命中率</strong>。</p>
+  <p>跑 DeepSeek 最便宜的方式不只是便宜的模型——而是<strong>能复用模型已经算过的内容的 harness</strong>。开源 Agent <strong>Pi</strong> 的社区实测显示<strong>99.93% 前缀缓存命中率</strong>。这个数字不是模型属性——是 harness 属性，而它背后的杠杆是具体、可迁移的。</p>
 
   <h2>成本驱动因素</h2>
-  <p>编码 Agent 每一步都要重发系统提示词、工具定义、历史对话和代码。<strong>自动前缀缓存</strong>在请求开头不变时复用已计算的前缀。<strong>缓存命中率</strong>就是复用的 token 占比——越高越便宜。</p>
+  <p>编码 Agent 每一步都要重发系统提示词、工具定义、历史对话和代码。<strong>自动前缀缓存</strong>在请求开头不变时复用已计算的前缀。<strong>缓存命中率</strong>就是复用的 token 占比——越高越便宜。按 token 付费时，每少重发一块都是省下来的钱，而最大的重发块正是 harness 能控制的那几样：系统提示词和工具 schema。</p>
 
   <h2>缓存为什么脆弱</h2>
-  <p>加个时间戳、调换工具顺序、或重写前面内容，缓存就失效。缓存友好的 harness 会<strong>保持请求前缀稳定</strong>。</p>
+  <p>加个时间戳、调换工具顺序、或重写前面内容，缓存就失效。缓存友好的 harness 会<strong>保持请求前缀稳定</strong>。大多数 harness 就在这里悄悄输了：它们每次调用都注入新时间戳、或打乱工具定义，命中率就崩了——哪怕<em>任务本身</em>什么都没变。</p>
 
   <h2>Pi 的做法</h2>
-  <p>Pi 默认只给模型<strong>四个工具</strong>（读、写、改、跑），其余全按需开启；会话<strong>只追加不重写</strong>。实测结果：约 99.93% 命中率，有缓存约<strong>每 10 亿 token ¥19，无缓存 ¥900+</strong>。</p>
+  <p>Pi 默认只给模型<strong>四个工具</strong>（读、写、改、跑），其余全按需开启；会话<strong>只追加不重写</strong>。由此引出两个结果：</p>
+  <ul>
+    <li><strong>工具越少 = 前缀越小、越稳定。</strong>工具 schema 是每个请求最前面的一块固定内容。四个工具是几乎不变的一小块；四十个工具是只要重排或开关一个就会变的一大块。</li>
+    <li><strong>只追加 = 前面的内容永不改变。</strong>历史一旦重写，编辑点之后的所有内容都失去缓存；只追加时，前缀保持逐字节一致。</li>
+  </ul>
+  <p>实测结果：约 99.93% 命中率，有缓存约<strong>每 10 亿 token ¥19，无缓存 ¥900+</strong>。这两个数字之间的落差，就是 harness 设计的全部意义。</p>
 
   <h2>7 倍差距</h2>
-  <p>Composio 把 <strong>DeepSeek V4 Flash</strong> 接进 8 款 harness：Pi 每次成功任务约 <strong>$0.028</strong>（最低），Claude Code 约 <strong>$0.195</strong>（接近 7 倍）。同一个模型、不同 harness、账单天差地别。</p>
+  <p>Composio 把 <strong>DeepSeek V4 Flash</strong> 接进 8 款 harness：Pi 每次成功任务约 <strong>$0.028</strong>（最低），Claude Code 约 <strong>$0.195</strong>（接近 7 倍）。同一个模型、不同 harness、账单天差地别。这是「缓存是 harness 属性、不是模型属性」的最强论据。</p>
+
+  <h2>这对 DSH 意味着什么</h2>
+  <p>DSH 站在同一条谱线里偏向缓存友好的一端，它的设计和 Pi 的两根杠杆直接对应：</p>
+  <ul>
+    <li><strong>极简模式</strong>只给模型两个工具——一个持久 Bash、一个文件编辑器——这是做基准测试时可能的最小稳定前缀（见<a href={modesUrl}>模式指南</a>）。</li>
+    <li><strong>PTC 模式</strong>把大量工具往返压进一次程序执行，让中间数据不进上下文。</li>
+    <li><strong>只追加会话</strong>——轨迹日志就是一份只追加事件日志，同时也是一段稳定的请求前缀。</li>
+  </ul>
+  <p>反面的警示是工具泛滥。标准模式自带很大的工具面，而更广的插件生态还会往上加——我们实测 <strong>101 个社区插件</strong>，就是看这个面能长得多快。你每加一个工具，都是每个请求最前面的一块内容，还可能是会变的一块。所以缓存打法是一种纪律，不是默认值：活动面最小化，其余全按需。</p>
 
   <h2>结论</h2>
   <ul>
     <li><strong>最小工具集</strong> + <strong>只追加会话</strong> = 缓存命中的最大杠杆。</li>
+    <li>同一模型在不同 harness 下 7 倍的成本差才是真正的成本故事——模型价格是一个输入，harness 的缓存行为是另一个。</li>
     <li>DSH 方向一致：小活动面、一切皆插件、PTC 把中间数据留在上下文外。</li>
   </ul>
+
+  <h2>怎么自己测命中率</h2>
+  <p>你不用把 Pi 的数字当成信仰——任何一次运行都能读出你自己的。API 的 usage 块会把缓存命中和未命中的输入 token 分开报，所以每次调用的命中率在响应里就能看到。它一掉，常见元凶就是工具 schema 被重排、或系统提示词里混进了时间戳——两者都是前缀问题，不是模型问题。这就是把前缀当成「要设计的东西」而不是「继承下来的东西」的实际回报。</p>
+
+  <h2>FAQ</h2>
+  <p><strong>任何 harness 都能做到 99.93% 吗？</strong>只有保持小而稳定前缀、并且只追加不重写的 harness 才行。一个会打乱工具定义或注入时间戳的 harness 做不到，模型再便宜也没用。</p>
+  <p><strong>为什么工具数量会影响缓存？</strong>工具 schema 是每个请求最前面的一块固定内容。工具越多，块越大，任何重排或开关都会让它失效。工具越少，前缀越小越稳定。</p>
+  <p><strong>¥19 和 ¥900+ 的差距现实吗？</strong>它反映的是 DeepSeek 标价里缓存与不缓存的价格差——这个价差正是「harness 的缓存行为可能比模型底价更重要」的原因。</p>
+  <p><strong>这只对 DeepSeek 有效吗？</strong>不是——自动前缀缓存是 provider 层的特性，但杠杆在 harness 层。最小工具集 + 只追加会话，在任何提供前缀缓存的 provider 上都能改善缓存表现。</p>
 </BlogPost>

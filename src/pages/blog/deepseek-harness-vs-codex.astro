@@ -1,27 +1,71 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
 ---
-<BlogPost title="DeepSeek Harness vs Codex — Agent Presets, Not Scenarios | dshbase" description="DeepSeek Harness vs Codex: why 'it doesn't want to be the next Codex'. Agent presets vs scenario modes, rebuildable sessions, the plugin model, and what that means for how you work." currentPath="/blog/deepseek-harness-vs-codex/" category="Comparison">
+<BlogPost title="DeepSeek Harness vs Codex — Agent Presets, Not Scenarios (2026) | dshbase" description="DeepSeek Harness vs Codex compared in depth: agent presets vs scenario modes, rebuildable append-only sessions, the 101-plugin ecosystem, model flexibility, and the real install pitfalls we hit testing plugins on dsh 0.1.0-rc.6." currentPath="/blog/deepseek-harness-vs-codex/" category="Comparison">
   <h1>"It doesn't want to be the next Codex" — <span class="accent">DSH vs Codex</span></h1>
   <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
 
-  <p>Calling DeepSeek Harness "a DeepSeek version of Codex" is the first thing people say — and the thing the project most pushes back against.</p>
+  <p>Calling DeepSeek Harness "a DeepSeek version of Codex" is the first thing people say — and the thing the project most pushes back against. The pushback isn't marketing. The two tools disagree on a fundamental question: <strong>should an agent be configured by scenario</strong> ("what kind of task am I doing?") <strong>or by capability</strong> ("what plugins does this agent run?")? We've spent the last week running DSH 0.1.0-rc.6 and installing community plugins by hand, and the difference shows up in concrete places, not just in philosophy.</p>
 
   <h2>Agent presets, not scenarios</h2>
-  <p>Codex-class products separate modes by <strong>scenario</strong> (daily/office, office/code). DSH instead uses <strong>Agent presets</strong>: the exact set of plugins an agent runs with — tools, prompts, and capabilities. You copy one, tweak it, or build a new one, including non-coding presets like a writing workspace.</p>
+  <p>Codex-class products separate modes by <strong>scenario</strong> (daily/office, office/code). You pick a lane and the product fills in the rest. DSH instead uses <strong>Agent presets</strong>: the exact set of plugins an agent runs with — tools, prompts, and capabilities. You copy one, tweak it, or build a new one, including non-coding presets like a writing workspace.</p>
+  <p>That's a real ergonomic difference. In Codex you adapt to the modes you're given; in DSH the preset <em>is</em> the mode, and it's a file you can version and share. When a community preset like the Data Agent preset (<code>dsh-data-agent</code>) shows up in the plugin directory, it isn't a feature request to the vendor — it's just someone publishing a preset you can install in one command.</p>
 
   <h2>Rebuildable sessions</h2>
-  <p>Codex sessions are opaque. DSH sessions are <strong>append-only event logs</strong> — system prompts, reasoning, tool calls, permission changes all become events. When an agent fails or loops, you trace the exact step. An observability win Codex doesn't expose.</p>
+  <p>Codex sessions are opaque. DSH sessions are <strong>append-only event logs</strong> — system prompts, reasoning, tool calls, permission changes all become events, and the next turn's history is re-derived from that log rather than held in a black-box state. When an agent fails or loops, you trace the exact step it went wrong.</p>
+  <p>We leaned on this more than expected during testing: a plugin that crashed on load produced an error we could pin to a single event, not a vague "task failed". For a deeper look at what's actually in the log, see our <a href="/blog/deepseek-harness-session-log/">session-log breakdown</a>. This is an observability win Codex simply doesn't expose.</p>
 
   <h2>The plugin model</h2>
-  <p>Where Codex lets users customize Skills and MCP but keeps the rest baked in, DSH makes <strong>everything</strong> a plugin — the UI, tools, workflow. You assemble an agent, not rent one.</p>
+  <p>Where Codex lets users customize Skills and MCP but keeps the rest baked in, DSH makes <strong>everything</strong> a plugin — the UI, tools, workflow, even the agent loop. You assemble an agent, not rent one.</p>
+  <p>The claim is easy to make; the question is whether the ecosystem is real. We spent time verifying it. Our <a href="/plugins/directory/">plugin directory</a> catalogs <strong>101 community plugins we tested on dsh 0.1.0-rc.6</strong>. The results aren't all clean:</p>
+  <ul>
+    <li><strong>11 npm packages</strong> install and work out of the box — one <code>dsh plugin add &lt;name&gt;</code> and you're done.</li>
+    <li><strong>4 more need a Web/TUI context</strong> — they install fine but only do something inside the web UI or a terminal profile.</li>
+    <li><strong>3 failed to install</strong> outright.</li>
+    <li><strong>81 are GitHub-source repos</strong> you install with <code>dsh plugin add github:owner/repo</code> — the majority of the ecosystem, not yet on npm.</li>
+  </ul>
+  <p>That last number matters. "Everything is a plugin" only works if plugins are easy to ship, and for 81 of 101 of them the distribution channel is a GitHub URL, not a registry. It's the early-days shape of an ecosystem that's moving fast — every card in the directory shows the exact install command and verified status.</p>
 
   <h2>Model flexibility</h2>
-  <p>DSH supports directory and custom providers — you could run GLM inside it. Codex is tied to OpenAI models.</p>
+  <p>DSH supports directory and custom providers — you add a base URL, protocol, and model list, and you could run GLM inside it. Codex is tied to OpenAI models. If your cost or compliance constraints push you off OpenAI, DSH follows you; Codex doesn't.</p>
+
+  <h2>DSH vs Codex at a glance</h2>
+  <div style="overflow-x:auto">
+    <table class="ztable">
+      <tr><th></th><th>DeepSeek Harness</th><th>Codex</th></tr>
+      <tr><td><strong>Configuration model</strong></td><td>Agent presets (plugin sets)</td><td>Scenario modes</td></tr>
+      <tr><td><strong>Sessions</strong></td><td>Append-only event log, rebuildable</td><td>Opaque</td></tr>
+      <tr><td><strong>Extension</strong></td><td>Everything is a plugin (npm / GitHub)</td><td>Skills + MCP, core baked in</td></tr>
+      <tr><td><strong>Models</strong></td><td>DeepSeek + any OpenAI-compatible</td><td>OpenAI models</td></tr>
+      <tr><td><strong>Plugin ecosystem</strong></td><td>101 community plugins tested (11 npm, 81 GitHub-source)</td><td>Curated Skills/MCP marketplaces</td></tr>
+    </table>
+  </div>
+
+  <h2>The reality check: installing 101 plugins</h2>
+  <p>"Everything is a plugin" sounds clean until you actually try to install a few dozen of them. Here's what we hit that the marketing doesn't mention — all on dsh 0.1.0-rc.6:</p>
+  <ul>
+    <li><strong><code>ERR_PNPM_FETCH_404</code></strong> — the npm mirror lags behind the official registry, so a just-published package 404s. Fix: pin <code>--registry=https://registry.npmjs.org</code>.</li>
+    <li><strong><code>ERR_REQUIRE_ESM</code></strong> — a plugin compiled to CommonJS but depending on an ESM-only package. The author has to rebuild it as ESM.</li>
+    <li><strong>Installed but never activates</strong> — the package has no <code>dsh.bundle</code> manifest, so <code>dsh plugin add</code> drops it in as a plain dependency and it's never loaded.</li>
+    <li><strong><code>cannot get property "systemPrompt" without inject</code></strong> — a plugin bug where the code calls <code>ctx.systemPrompt</code> without declaring <code>inject: ["systemPrompt"]</code>.</li>
+    <li><strong><code>allowBuilds</code> prompt</strong> — GitHub-hosted plugins ship a <code>prepare</code> build script that pnpm blocks by default.</li>
+  </ul>
+  <p>The full list with one-line fixes is in our <a href="/troubleshooting/">troubleshooting guide</a>. The honest framing: DSH's plugin model is more open than Codex's, but that openness means <em>you</em> are the quality gate. With Codex the vendor vets what reaches you; with DSH, you'll read a few error messages before you learn what a well-built plugin looks like.</p>
+
+  <h2>FAQ</h2>
+  <h3>Is DeepSeek Harness just an open-source clone of Codex?</h3>
+  <p>No. The surface similarities — an agent that reads files and runs commands — hide a different configuration model (presets vs scenarios), a different extension model (everything-as-plugin vs Skills+MCP), and rebuildable sessions Codex doesn't expose.</p>
+  <h3>Which is easier to set up?</h3>
+  <p>Codex. You pick a scenario and start. DSH asks more of you up front — pick or build a preset, add a provider — but returns the control afterward.</p>
+  <h3>Can DSH plugins match Codex's Skills and MCP?</h3>
+  <p>They're different mechanisms. A DSH plugin is a TypeScript module with an <code>apply</code> function, shareable as npm or a GitHub URL. It's simpler to write but lives inside the dsh process; MCP is more portable across clients.</p>
+  <h3>How mature is the DSH plugin ecosystem really?</h3>
+  <p>Early but real: 101 community plugins cataloged and tested, but 81 of them are GitHub-source (not npm) and 3 fail to install. It's an ecosystem in week-one shape, not a polished marketplace.</p>
 
   <h2>Practically</h2>
   <ul>
-    <li><strong>Codex-class</strong>: polished, scenario-driven, minimal configuration.</li>
-    <li><strong>DSH</strong>: assemble presets, rebuild sessions, audit every step, extend the agent itself.</li>
+    <li><strong>Codex-class</strong>: polished, scenario-driven, minimal configuration — the "rented" agent.</li>
+    <li><strong>DSH</strong>: assemble presets, rebuild sessions, audit every step, extend the agent itself — the "built" agent.</li>
   </ul>
+  <p>If you want a finished product, Codex wins on polish. If you want to see and change how the agent is put together — and you're willing to read a few <code>ERR_REQUIRE_ESM</code> errors along the way — DSH is the more interesting bet. The project's insistence that it "doesn't want to be the next Codex" is exactly right: it wants to be the thing Codex can't be — inspectable all the way down.</p>
 </BlogPost>

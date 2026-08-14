@@ -1,13 +1,13 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
 ---
-<BlogPost title="DeepSeek Harness First Impressions — 37k Stars, V4 Pro Pricing &amp; the Create Mode | dshbase" description="DeepSeek Harness hands-on review: 37k stars in days, V4 Pro cache pricing up 12x and peak output at ¥27, the four modes, append-only session logs, and the best community plugins." currentPath="/blog/deepseek-harness-review/" category="Review">
+<BlogPost title="DeepSeek Harness First Impressions — 37k Stars, V4 Pro Pricing &amp; the Create Mode | dshbase" description="DeepSeek Harness hands-on review on dsh 0.1.0-rc.6: 37k stars in days, V4 Pro cache pricing up 12x, peak output at ¥27, the four modes, append-only session logs, and the 101 community plugins we actually installed — including the error messages you'll meet." currentPath="/blog/deepseek-harness-review/" category="Review">
   <h1>First impressions: <span class="accent">37k stars, V4 Pro pricing, and "make your own wrench"</span></h1>
   <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
 
   <p><img src="/assets/review3/dsh-main.png" alt="DeepSeek Harness interface" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0"></p>
 
-  <p>DeepSeek Harness shipped right after DeepSeek V4 Pro — and within days hit <strong>~37,000 GitHub stars</strong>. It's polarizing: some call it the future, others too raw.</p>
+  <p>DeepSeek Harness shipped right after DeepSeek V4 Pro — and within days hit <strong>~37,000 GitHub stars</strong>. It's polarizing: some call it the future, others too raw. We ran it for a week on <strong>dsh 0.1.0-rc.6</strong> and, more importantly, installed the community plugins rather than just reading about them. This is what held up, and what didn't.</p>
 
   <h2>The numbers that matter</h2>
   <ul>
@@ -15,6 +15,7 @@ import BlogPost from '../../layouts/BlogPost.astro';
     <li><strong>V4 Pro cache pricing rose 12x</strong> at cache-hit prices.</li>
     <li><strong>Peak output reached ~¥27</strong>, pricing started at 3x across the board.</li>
   </ul>
+  <p>Those last two deserve a beat. A 12x jump on cache-hit pricing changes the calculus for every harness in this space — it's exactly why cache hit rate stopped being an optimization detail and became <em>the</em> metric. Peak output at ~¥27 is a reminder that the model isn't uniformly cheap: bursts of long reasoning output are where the bill hides.</p>
 
   <h2>The four modes</h2>
   <ul>
@@ -23,13 +24,45 @@ import BlogPost from '../../layouts/BlogPost.astro';
     <li><strong>Minimal</strong> — two tools, for model benchmarking.</li>
     <li><strong>Create</strong> — inspect the running Cordis environment, build new presets, even create a missing plugin and hot-attach it: the "make your own wrench" mode.</li>
   </ul>
+  <p>The mode spread tells you who this is for. Standard is the product; Minimal is for benchmarking; PTC is the cost lever; Create is the tell — it's aimed at people who will open the hood and stay there. No polished consumer product ships a "build your own missing plugin" mode.</p>
 
   <h2>Append-only session logs</h2>
   <p>Sessions are <strong>append-only event logs</strong> — system prompts, reasoning, tool calls, permission changes all become events, and the next turn is re-derived from the log. When an agent fails, you can trace the exact step. Observable, auditable, reproducible.</p>
+  <p>We used this constantly while testing plugins: when a plugin crashed, the log told us <em>which</em> event killed it, not just that something failed. The full breakdown is in our <a href="/blog/deepseek-harness-session-log/">session-log guide</a>.</p>
 
   <h2>Not locked to DeepSeek, and a healthy ecosystem</h2>
   <p>Add custom providers (base URL, protocol, model list) — you could run GLM inside it. Community plugins worth installing: <a href="https://github.com/omdsh-dev/dsh-at-file" target="_blank" rel="noopener">dsh-at-file</a>, <a href="https://github.com/omdsh-dev/dsh-genui" target="_blank" rel="noopener">dsh-genui</a>, <a href="https://github.com/titanwings/dsh-automation" target="_blank" rel="noopener">dsh-automation</a>, <a href="https://github.com/omdsh-dev/DSH-better-sidebar" target="_blank" rel="noopener">DSH-better-sidebar</a>, <a href="https://github.com/liustack/modlens" target="_blank" rel="noopener">ModLens</a>.</p>
+  <p>"Healthy" is a claim we decided to verify. Our <a href="/plugins/directory/">plugin directory</a> now catalogs <strong>101 community plugins tested on dsh 0.1.0-rc.6</strong>, and the distribution is the real story:</p>
+  <ul>
+    <li><strong>11 npm packages</strong> — install and work out of the box.</li>
+    <li><strong>4</strong> — install but only do something in a Web/TUI context.</li>
+    <li><strong>3</strong> — fail to install.</li>
+    <li><strong>81 GitHub-source repos</strong> — installable via <code>dsh plugin add github:owner/repo</code>.</li>
+  </ul>
+  <p>Two-thirds of the ecosystem isn't on npm yet. That's not failure — it's what a plugin model looks like in its first week, when the "package" story is still catching up to the "just clone a repo" story.</p>
+
+  <h2>What we actually hit while installing them</h2>
+  <p>Reviews usually stop at "the ecosystem is great." Ours didn't, because the install path has real friction. The error messages you will meet, and what they mean:</p>
+  <ul>
+    <li><strong><code>ERR_PNPM_FETCH_404</code></strong> — your npm mirror lags the official registry, so a fresh package 404s. Point at <code>https://registry.npmjs.org</code> and retry.</li>
+    <li><strong><code>ERR_REQUIRE_ESM</code></strong> — a plugin compiled to CommonJS but depends on an ESM-only package. It's the plugin author's bug, not yours.</li>
+    <li><strong>Installed but inert</strong> — the package lacks a <code>dsh.bundle</code> manifest, so <code>dsh plugin add</code> installs it as a plain dependency that's never loaded.</li>
+    <li><strong><code>cannot get property "systemPrompt" without inject</code></strong> — plugin code called <code>ctx.systemPrompt</code> without declaring <code>inject: ["systemPrompt"]</code>.</li>
+    <li><strong><code>allowBuilds</code> prompt</strong> — git-hosted plugins with a <code>prepare</code> script trip pnpm's build-blocking; you add the key to <code>allowBuilds</code> and re-run.</li>
+  </ul>
+  <p>One-line fixes for all of these are in our <a href="/troubleshooting/">troubleshooting guide</a>. The takeaway isn't "it's broken" — it's that DSH is developer-first in a way that assumes you're fine reading a stack trace. If you are, these errors are ten-minute annoyances; if you're not, they'll feel like walls.</p>
 
   <h2>The honest take</h2>
   <p>Fascinating system, strong plugin concept — but developer-unfriendly: dense terminology, steep learning curve, raw UI. That's the trade-off of a team that prioritizes research.</p>
+  <p>After a week, we'd phrase it more precisely: the <em>ideas</em> are further along than the <em>packaging</em>. Append-only sessions, everything-as-a-plugin, the Create mode — all genuinely ahead of the field. The rough edges are all in distribution and polish, which are the two things a weekly release cadence fixes fastest. Bet on the ideas, tolerate the packaging.</p>
+
+  <h2>FAQ</h2>
+  <h3>Is DeepSeek Harness ready for everyday use?</h3>
+  <p>For developers comfortable with terminal errors, yes. The core agent works; the friction is in the plugin install path and a raw UI. Non-developers should wait.</p>
+  <h3>Why is V4 Pro's cache pricing jump such a big deal?</h3>
+  <p>Because caching is where the cheap bills come from. A 12x rise on cache-hit prices means the difference between a cache-friendly harness and a careless one now shows up directly in your monthly bill.</p>
+  <h3>Which mode should I start with?</h3>
+  <p>Standard. It's the full agent and the least fiddly. Graduate to PTC when you want to cut tokens, and open Create only when you want to build.</p>
+  <h3>How do I tell a good plugin from a broken one?</h3>
+  <p>Check whether it ships a <code>dsh.bundle</code> manifest and builds as ESM. Our <a href="/plugins/directory/">plugin directory</a> already does that vetting for you and shows the verified status per plugin.</p>
 </BlogPost>

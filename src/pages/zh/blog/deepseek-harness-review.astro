@@ -1,13 +1,13 @@
 ---
 import BlogPost from '../../../layouts/BlogPost.astro';
 ---
-<BlogPost title="DeepSeek Harness 上手体验 — 37k Star、V4 Pro 定价与创造模式 | dshbase 中文" description="DeepSeek Harness 上手评测：几天 37k star、V4 Pro 缓存价涨 12 倍、高峰输出 ¥27、四种模式、只追加会话日志与最佳社区插件。" currentPath="/blog/deepseek-harness-review/" category="评测">
+<BlogPost title="DeepSeek Harness 上手体验 — 37k Star、V4 Pro 定价与创造模式 | dshbase 中文" description="在 dsh 0.1.0-rc.6 上的 DeepSeek Harness 上手评测：几天 37k star、V4 Pro 缓存价涨 12 倍、高峰输出 ¥27、四种模式、只追加会话日志，以及我们真实装过的 101 个社区插件——含你会遇到的报错信息。" currentPath="/blog/deepseek-harness-review/" category="评测">
   <h1>上手体验：<span class="accent">37k star、V4 Pro 定价与「现场造扳手」</span></h1>
   <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
 
   <p><img src="/assets/review3/dsh-main.png" alt="DeepSeek Harness 界面" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0"></p>
 
-  <p>DeepSeek Harness 紧跟在 V4 Pro 之后发布——几天内拿下 <strong>约 37,000 GitHub star</strong>。它很两极：有人说它是未来，有人说太糙。</p>
+  <p>DeepSeek Harness 紧跟在 V4 Pro 之后发布——几天内拿下 <strong>约 37,000 GitHub star</strong>。它很两极：有人说它是未来，有人说太糙。我们在 <strong>dsh 0.1.0-rc.6</strong> 上跑了一周，更重要的是，没有只读文档、而是真去装了社区插件。下面是什么经得起用、什么不行。</p>
 
   <h2>关键数字</h2>
   <ul>
@@ -15,6 +15,7 @@ import BlogPost from '../../../layouts/BlogPost.astro';
     <li><strong>V4 Pro 缓存命中价涨了 12 倍</strong>。</li>
     <li><strong>高峰输出价约 ¥27</strong>，起步整体涨 3 倍。</li>
   </ul>
+  <p>后两条值得停一下。缓存命中价 12 倍的涨幅，改变了这个领域每个 harness 的账本——正因为如此，缓存命中率从「优化细节」变成了<em>那个</em>核心指标。高峰输出约 ¥27 也提醒你模型并非处处便宜：长推理输出的爆发，正是账单藏身之处。</p>
 
   <h2>四种模式</h2>
   <ul>
@@ -23,13 +24,45 @@ import BlogPost from '../../../layouts/BlogPost.astro';
     <li><strong>极简</strong>——两个工具，用于模型基准测试。</li>
     <li><strong>创造</strong>——检查运行中的 Cordis 环境、构建新预设，甚至现场创建一个缺失的插件并热挂载：这就是「现场造扳手」模式。</li>
   </ul>
+  <p>模式分布告诉你它面向谁。标准是产品；极简用来跑分；PTC 是成本杠杆；创造才是题眼——它瞄准的是那些会掀开引擎盖、并且待在里面不走的人。没有哪个精修的消费级产品会内置一个「自己造缺失插件」的模式。</p>
 
   <h2>只追加的会话日志</h2>
   <p>会话是<strong>只追加的事件日志</strong>——系统提示词、推理、工具调用、权限变化都成为事件，下一轮历史从日志重新推导。Agent 失败时能精确定位到哪一步。可观测、可审计、可复现。</p>
+  <p>测插件时我们几乎一直在用它：插件崩溃时，日志能告诉你<em>是哪个</em>事件干掉了它，而不只是一句「失败了」。完整拆解见我们的<a href="/blog/deepseek-harness-session-log/">会话日志指南</a>。</p>
 
   <h2>不锁死 DeepSeek，生态健康</h2>
   <p>支持自定义提供方（基础 URL、协议、模型列表）——你完全可以在里面跑 GLM。值得装的社区插件：<a href="https://github.com/omdsh-dev/dsh-at-file" target="_blank" rel="noopener">dsh-at-file</a>、<a href="https://github.com/omdsh-dev/dsh-genui" target="_blank" rel="noopener">dsh-genui</a>、<a href="https://github.com/titanwings/dsh-automation" target="_blank" rel="noopener">dsh-automation</a>、<a href="https://github.com/omdsh-dev/DSH-better-sidebar" target="_blank" rel="noopener">DSH-better-sidebar</a>、<a href="https://github.com/liustack/modlens" target="_blank" rel="noopener">ModLens</a>。</p>
+  <p>「健康」这个词我们决定亲自验证。我们的<a href="/plugins/directory/">插件目录</a>现在收录了<strong>在 dsh 0.1.0-rc.6 上实测过的 101 个社区插件</strong>，分布才是真正的故事：</p>
+  <ul>
+    <li><strong>11 个 npm 包</strong>——装上即用。</li>
+    <li><strong>4 个</strong>——装得上，但只在 Web/TUI 环境里才做得了事。</li>
+    <li><strong>3 个</strong>——安装失败。</li>
+    <li><strong>81 个 GitHub 源码仓库</strong>——用 <code>dsh plugin add github:owner/repo</code> 安装。</li>
+  </ul>
+  <p>三分之二的生态还没上 npm。这不是失败——是插件模型「第一周」该有的样子：当「打个包」这件事还追不上「克隆个仓库」的时候。</p>
+
+  <h2>我们真装的时候踩到了什么</h2>
+  <p>评测通常停在「生态很棒」。我们没有，因为安装路径有真实的摩擦。你会遇到的报错，以及它们的意思：</p>
+  <ul>
+    <li><strong><code>ERR_PNPM_FETCH_404</code></strong>——你的 npm 镜像落后于官方，刚发布的包 404。指向 <code>https://registry.npmjs.org</code> 重试。</li>
+    <li><strong><code>ERR_REQUIRE_ESM</code></strong>——插件被编译成 CommonJS，却依赖了 ESM-only 的包。是插件作者的 bug，不是你的。</li>
+    <li><strong>装了但没反应</strong>——包缺 <code>dsh.bundle</code> 清单，<code>dsh plugin add</code> 只当普通依赖装上，永远不加载。</li>
+    <li><strong><code>cannot get property "systemPrompt" without inject</code></strong>——插件代码调了 <code>ctx.systemPrompt</code> 却没声明 <code>inject: ["systemPrompt"]</code>。</li>
+    <li><strong><code>allowBuilds</code> 提示</strong>——带 <code>prepare</code> 脚本的 git 插件触发 pnpm 的构建拦截；把 key 加进 <code>allowBuilds</code> 再重跑。</li>
+  </ul>
+  <p>这些的一行修复都在我们的<a href="/troubleshooting/">排错指南</a>。结论不是「它坏了」——而是 DSH 是开发者优先，默认你愿意读堆栈。如果你愿意，这些报错是十分钟的小麻烦；如果不愿意，它们会像墙。</p>
 
   <h2>诚实评价</h2>
   <p>系统很迷人、插件概念很强——但对开发者不友好：术语密集、学习曲线陡、UI 简陋。这是一个注重科研的团队的取舍。</p>
+  <p>跑了一周后，我们能说得更精确：<em>想法</em>比<em>包装</em>走得远。只追加会话、一切皆插件、创造模式——都真真切切领先这个领域。粗糙的地方全在分发和打磨上，而这两样恰恰是「每周迭代」修得最快的东西。押注想法，容忍包装。</p>
+
+  <h2>FAQ</h2>
+  <h3>DeepSeek Harness 能日常用了吗？</h3>
+  <p>对能接受终端报错的开发者来说，能。核心 Agent 能干活；摩擦在插件安装路径和简陋的 UI。非开发者建议再等等。</p>
+  <h3>为什么 V4 Pro 缓存价上涨这么要紧？</h3>
+  <p>因为便宜账单来自缓存。缓存命中价 12 倍涨幅，意味着「缓存友好 harness」和「粗心 harness」之间的差别，会直接体现在你的月度账单上。</p>
+  <h3>该从哪个模式开始？</h3>
+  <p>标准。它是完整 Agent，最不折腾。想省 token 再上 PTC，想动手造东西才开创造模式。</p>
+  <h3>怎么分辨好插件和坏插件？</h3>
+  <p>看它有没有 <code>dsh.bundle</code> 清单、是不是构建成 ESM。我们的<a href="/plugins/directory/">插件目录</a>已经替你做完了这套筛选，每个插件都标着验证状态。</p>
 </BlogPost>

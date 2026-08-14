@@ -1,29 +1,51 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const troubleshootingUrl = getRelativeLocaleUrl('en', '/troubleshooting/');
 ---
-<BlogPost title="Everything-is-a-Plugin vs Plugin Fatigue — DSH's Plugin Philosophy | dshbase" description="The sharpest HN debate about DeepSeek Harness: is everything-is-a-plugin 'genuinely new' or a path to chaos? How DSH differs from VS Code and Claude Code plugin systems — and the 'Android of agents' narrative." currentPath="/blog/dsh-plugin-philosophy/" category="Concept">
+<BlogPost title="Everything-is-a-Plugin vs Plugin Fatigue — What Testing 101 DSH Plugins Shows | dshbase" description="The sharpest HN debate about DeepSeek Harness is 'everything is a plugin' — genuinely new, or a path to chaos? What our audit of 101 community plugins on dsh 0.1.0-rc.6 revealed: only 11 install cleanly from npm, and the concrete failure modes behind plugin fatigue." currentPath="/blog/dsh-plugin-philosophy/" category="Concept">
   <h1>Everything-is-a-plugin vs <span class="accent">plugin fatigue</span></h1>
   <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
 
-  <p>The sharpest line in DeepSeek Harness's Hacker News discussion is about its plugin architecture. Supporters call it a <em>genuinely new thing</em>; critics predict plugin fatigue and eventual chaos. Both have a point — the question is what "everything is a plugin" actually means, and whether it's different from what came before.</p>
+  <p>The sharpest line in DeepSeek Harness's Hacker News discussion is about its plugin architecture. Supporters call it a <em>genuinely new thing</em>; critics predict plugin fatigue and eventual chaos. Both have a point — so instead of arguing in the abstract, we spent time actually testing the ecosystem. On dsh 0.1.0-rc.6, we installed and ran <strong>101 community plugins</strong>. The results cut through the rhetoric on both sides.</p>
 
   <h2>Why it's not VS Code's plugin system</h2>
   <p>VS Code has thousands of extensions, but they bolt onto a fixed core: the editor, the debugger, the terminal. You can't replace the core. Claude Code is the same — you customize Skills and MCP, but the product shell is fixed.</p>
-  <p>DeepSeek Harness inverts this. <strong>The core itself — the agent loop, the tools, the UI, the sandbox — is made of plugins.</strong> The only fixed piece is Cordis, a kernel that does nothing but load, unload, and resolve plugin dependencies. That's not "plugins on a product"; it's "the product is plugins."</p>
+  <p>DeepSeek Harness inverts this. <strong>The core itself — the agent loop, the tools, the UI, the sandbox — is made of plugins.</strong> The only fixed piece is Cordis, a kernel that does nothing but load, unload, and resolve plugin dependencies. That's not "plugins on a product"; it's "the product is plugins." The architecture is a real difference, not a marketing relabel.</p>
 
   <h2>The "Android of agents" narrative</h2>
-  <p>The closest analogy is Android vs iPhone. Android made the OS modular so OEMs and users could swap parts; iPhone kept a sealed whole. DSH's bet is that agents go the Android way — a common kernel with swappable capabilities — rather than the sealed-appliance way. Whether that bet pays off is the open question.</p>
+  <p>The closest analogy is Android vs iPhone. Android made the OS modular so OEMs and users could swap parts; iPhone kept a sealed whole. DSH's bet is that agents go the Android way — a common kernel with swappable capabilities — rather than the sealed-appliance way. Whether that bet pays off is the open question, and our 101-plugin audit is one data point toward an answer.</p>
 
   <h2>The legitimate concern: plugin fatigue</h2>
-  <p>The critics aren't wrong. Too much modularity has real costs:</p>
+  <p>The critics aren't wrong. Too much modularity has real costs — and we can now name them with numbers instead of vibes:</p>
   <ul>
-    <li><strong>Choice paralysis</strong> — if everything is a plugin, what do you install first?</li>
-    <li><strong>Compatibility drift</strong> — plugins that break when dependencies change.</li>
-    <li><strong>Quality variance</strong> — an open ecosystem means uneven quality.</li>
+    <li><strong>Choice paralysis</strong> — if everything is a plugin, what do you install first? Our audit found <strong>101 plugins</strong> spread across categories, and only <strong>11 install cleanly from npm</strong> and work out of the box. A newcomer can't tell which ten without checking every card.</li>
+    <li><strong>Compatibility drift</strong> — plugins that break when dependencies change. This isn't hypothetical; it's the top reason for install failure in our testing.</li>
+    <li><strong>Quality variance</strong> — an open ecosystem means uneven quality. <strong>4 plugins</strong> need a Web/TUI runtime you must run separately, and <strong>3 failed to install outright</strong>.</li>
   </ul>
-  <p>DSH's answer so far is <strong>presets</strong>: the four built-in modes bundle sensible plugin sets so you don't start from zero. You only reach for raw plugins when you need to. That's the pragmatic middle: modular underneath, sensible defaults on top.</p>
+  <p>And the biggest number: <strong>81 of 101 plugins never shipped to npm at all</strong> — they exist only as GitHub source, installed with <code>dsh plugin add github:owner/repo</code>. That's simultaneously the ecosystem's strength (anyone can publish a repo) and its weakness (there's no gatekeeper, no versioning discipline, no install guarantee).</p>
+
+  <h2>The failure modes we actually hit</h2>
+  <p>"Compatibility drift" and "quality variance" sound abstract. Here's what they look like in a terminal, all reproduced on dsh 0.1.0-rc.6:</p>
+  <ul>
+    <li><strong><code>ERR_PNPM_FETCH_404</code></strong> — your npm registry mirror lags behind the official one, so a just-published package returns 404. A distribution problem, not a plugin problem, but it blocks installs all the same.</li>
+    <li><strong><code>ERR_REQUIRE_ESM</code></strong> — the plugin was compiled to CommonJS but depends on ESM-only packages like <code>@deepseek-ai/dsh-tools</code>. The plugin must ship as ESM (<code>"type": "module"</code>).</li>
+    <li><strong>Missing <code>dsh.bundle</code> manifest</strong> — the package installs silently as a plain dependency and never activates. The most common silent failure: it looks installed but the agent never loads it.</li>
+    <li><strong><code>cannot get property "systemPrompt" without inject</code></strong> — plugin code reads <code>ctx.systemPrompt</code> without declaring <code>inject: ["systemPrompt"]</code>. A plugin bug you report to the author with that exact message.</li>
+  </ul>
+  <p>Every one of these has a one-line fix, documented in the <a href={troubleshootingUrl}>troubleshooting guide</a>. The point for this debate is different, though: this is what "plugin fatigue" concretely means. It's not that modularity is bad — it's that modularity without curation shifts the debugging burden onto the user.</p>
+
+  <h2>DSH's answer: presets, then plugins</h2>
+  <p>DSH's answer so far is <strong>presets</strong>: the four built-in modes bundle sensible plugin sets so you don't start from zero. You only reach for raw plugins when you need to. That's the pragmatic middle — modular underneath, sensible defaults on top. Our audit supports that ordering: start with a preset, reach for the curated subset in the <a href={directoryUrl}>plugin directory</a> (where each card shows verified test status and the exact install command), and treat the long tail of GitHub-source repos as a research area, not a starter kit.</p>
 
   <h2>The honest take</h2>
-  <p>The plugin architecture is genuinely different from VS Code and Claude Code — but "different" doesn't automatically mean "better." The real test is whether presets + the community keep the chaos at bay while the composability pays off. Watch the ecosystem: it'll decide this argument faster than any blog post.</p>
+  <p>The plugin architecture is genuinely different from VS Code and Claude Code — but "different" doesn't automatically mean "better." The real test is whether presets plus a curated community keep the chaos at bay while the composability pays off. Our numbers say the composability is real (a live distribution channel that grew to 101 plugins fast), but the quality tail is long (81 GitHub-only, several needing a UI runtime, several failing outright). Watch the ecosystem: it'll decide this argument faster than any blog post — and so far it's a genuinely new architecture with a genuinely messy surface.</p>
+
+  <h2>FAQ</h2>
+  <p><strong>Is "everything is a plugin" just VS Code with extra steps?</strong> No. In VS Code, the editor core is fixed and extensions orbit it. In DSH, the agent loop, tools, sandbox, and UI are themselves plugins on a minimal kernel. The difference is what can be replaced — in DSH, everything.</p>
+  <p><strong>Should I install plugins from GitHub or stick to npm?</strong> Start with npm packages marked verified in the plugin directory. GitHub-source plugins (<code>dsh plugin add github:owner/repo</code>) work, but they're where we saw the most failures and the most <code>allowBuilds</code> build prompts.</p>
+  <p><strong>Is plugin fatigue a real risk or just a hot take?</strong> It's real, but it's a curation problem, not an architecture problem. The fix is presets and a curated directory — both of which DSH ships.</p>
+
   <p>Related: <a href="/blog/deepseek-harness-architecture/">the architecture deep dive</a>.</p>
 </BlogPost>

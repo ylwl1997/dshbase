@@ -1,18 +1,32 @@
 ---
 import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const troubleshootingUrl = getRelativeLocaleUrl('zh', '/troubleshooting/');
+const sessionLogUrl = getRelativeLocaleUrl('zh', '/blog/deepseek-harness-session-log/');
+const modesUrl = getRelativeLocaleUrl('zh', '/blog/deepseek-harness-modes/');
 ---
-<BlogPost title="自进化软件 — 福音还是灾难？DSH 的争论 | dshbase 中文" description="DeepSeek Harness 被称为「自进化软件的雏形」，也被称为「只会带来更大的混乱」。创造模式和 Cordis 到底能做什么、为什么 OpenClaw 的失败是警示，以及自进化的实践指南。" currentPath="/blog/dsh-self-evolving-software/" category="概念">
+<BlogPost title="自进化软件 — 福音还是灾难？创造模式到底做了什么 | dshbase 中文" description="DeepSeek Harness 被称为「自进化软件的雏形」，也被称为「只会带来更大的混乱」。创造模式和 Cordis 到底能做什么、dsh.bundle 与 allowBuilds 这些安全护栏、为什么 OpenClaw 的失败是警示，以及一份在 dsh 0.1.0-rc.6 上验证过的实践指南。" currentPath="/blog/dsh-self-evolving-software/" category="概念">
   <h1>自进化软件：<span class="accent">福音还是灾难？</span></h1>
   <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
 
-  <p>DeepSeek Harness 既被称作<em>自进化软件的雏形</em>，也被称作<em>只会带来更大的混乱</em>。分歧都指向同一个特性：一个能改造自己运行能力的 Agent。这到底意味着什么——以及为什么那些警示案例值得重视。</p>
+  <p>DeepSeek Harness 既被称作<em>自进化软件的雏形</em>，也被称作<em>只会带来更大的混乱</em>。分歧都指向同一个特性：一个能改造自己运行能力的 Agent。下面说说这在实践里到底意味着什么——包括它在哪里会翻车——以及为什么那些警示案例值得重视。</p>
 
   <h2>DSH 里「自进化」到底指什么</h2>
   <p>这不是科幻。在创造模式下，Agent 能检查自己正在运行的 Cordis 环境、在内存中试验插件，关键是——<strong>创造一个插件并热挂载到正在运行的流程中</strong>。「现场造扳手」的比喻：Agent 发现自己没有扳手，现场造一把，插到自己手上，继续干活。</p>
-  <p>这之所以可行，是因为 Cordis 保证两个特性：<strong>时间可组合性</strong>（卸载插件时完整撤销其副作用）和<strong>空间可组合性</strong>（依赖随兄弟插件变化而重新解析）。没有这两点，运行中热换自己的代码会污染状态。</p>
+  <p>这之所以可行，是因为 Cordis 保证两个特性：<strong>时间可组合性</strong>（卸载插件时完整撤销其副作用）和<strong>空间可组合性</strong>（依赖随兄弟插件变化而重新解析）。没有这两点，运行中热换自己的代码会污染状态。我们在 dsh 0.1.0-rc.6 上亲眼看过这条「顺路」：<code>dsh plugin add dsh-memory</code> 装好后，下次启动插件已经在配置树里——不用重新构建，不用重启折腾。内核自己发现并加载它。</p>
+  <p>但底下有一份契约。一个自造的插件只有带上 <code>dsh.bundle</code> 清单才会激活。没有它，包装进去就<em>静默地成了普通依赖</em>——Agent「造了把扳手」，却永远接不到自己手上。我们在实测 <strong>101 个社区插件</strong>时，静默不激活和直接安装失败，正是「自进化」最常偏离承诺的两种方式。</p>
+
+  <h2>安全护栏是真实的——而且承重</h2>
+  <p>「Agent 扩展了自己」和「Agent 拿着你的权限跑了任意代码」之间，隔着几个提示和保证：</p>
+  <ul>
+    <li><strong><code>allowBuilds</code> 确认</strong>——当从 GitHub 装的插件带了 <code>prepare</code> 构建脚本，pnpm 会拦住它要你确认。对一个自进化 Agent 来说，这是真实的权限边界，不是摩擦。</li>
+    <li><strong>干净卸载</strong>——时间可组合性意味着一个失败的试验可以被移除，状态回滚到添加它之前。</li>
+    <li><strong>轨迹日志</strong>——每次工具调用和权限变化都是事件，你可以审查 Agent 到底对自己做了什么。</li>
+  </ul>
 
   <h2>警示案例：OpenClaw</h2>
-  <p>质疑不是凭空而来。OpenClaw，一个早前承诺类似「一切皆模块化」愿景的 Agent，正好陷入了批评者预言的混乱——提醒我们<strong>没有安全护栏的自我修改产出的是不可维护的状态，而不是进化</strong>。DSH 主张的差异是 Cordis 的可组合性保证，但这是个仍需大规模验证的说法。</p>
+  <p>质疑不是凭空而来。OpenClaw，一个早前承诺类似「一切皆模块化」愿景的 Agent，正好陷入了批评者预言的混乱——提醒我们<strong>没有安全护栏的自我修改产出的是不可维护的状态，而不是进化</strong>。DSH 主张的差异是 Cordis 的可组合性保证，加上上面那些护栏，但这仍是个需要大规模验证的说法。101 个插件的实测在这里是双刃的：一个快速生长的生态证明了机制跑得通，但它长长的质量尾巴（81 个只发 GitHub、好几个直接装不上）说明护栏并不是自动生效的。</p>
 
   <h2>自进化的实践指南</h2>
   <p>如果想谨慎地用它，把它当作受控实验，而不是放任：</p>
@@ -20,10 +34,18 @@ import BlogPost from '../../../layouts/BlogPost.astro';
     <li><strong>收窄范围</strong>——先做只读预设（如「只能读代码、不能改文件」），再碰会写入的。</li>
     <li><strong>用轨迹日志</strong>——每次工具调用和权限变化都是事件；检查 Agent 到底对自己做了什么。</li>
     <li><strong>一次只改一处</strong>——让 Agent 一次加一个插件，验证后再继续，别让它一次重写所有东西。</li>
+    <li><strong>核对清单</strong>——Agent「造出」插件后，确认它带 <code>dsh.bundle</code>；否则它会静默装上、永远不激活。</li>
     <li><strong>保留回退路径</strong>——profile 和预设意味着你能随时回到一个已知良好的配置。</li>
   </ul>
+  <p>当自造的插件出问题时，失败通常是那几种有记录的模式之一——CJS 插件依赖 ESM-only 包导致的 <code>ERR_REQUIRE_ESM</code>，或清单缺失。<a href={troubleshootingUrl}>排错指南</a>给每种都配了一行式修复，<a href={directoryUrl}>插件目录</a>则标出哪些社区插件真的能激活。</p>
 
   <h2>诚实的判断</h2>
-  <p>自进化软件既不是奇迹、也不会自动变成灾难——它是一种带失败模式的能力。「奇迹」的说法高估了它；「混乱」的说法低估了 Cordis 的安全护栏。真相会体现在真实团队能否用而不失控上。眼下，务实的路径是<strong>收窄、留痕、可回退</strong>的自我修改。</p>
-  <p>相关：<a href="/blog/deepseek-harness-session-log/">会话日志可观测性</a> · <a href="/blog/deepseek-harness-modes/">创造模式</a>。</p>
+  <p>自进化软件既不是奇迹、也不会自动变成灾难——它是一种带失败模式的能力。「奇迹」的说法高估了它；「混乱」的说法低估了 Cordis 的安全护栏。真相会体现在真实团队能否用而不失控上。眼下，务实的路径是<strong>收窄、留痕、可回退</strong>的自我修改——以及在信任任何 Agent「进化」给你的东西之前，老实读一遍那份清单契约。</p>
+
+  <h2>FAQ</h2>
+  <p><strong>Agent 真的能改自己的代码吗？</strong>能——创造模式下它可以创造插件并热挂载到运行流程里。但「创造」受 <code>dsh.bundle</code> 清单契约约束：没有清单，就不激活。</p>
+  <p><strong>怎么防止自进化搞乱我的环境？</strong>先收窄到只读、用轨迹日志审查每一次改动、一次只加一个插件，并保留一份能恢复的已知良好 profile。</p>
+  <p><strong>如果想法是对的，OpenClaw 为什么失败？</strong>它有模块化愿景，却没有 Cordis 的可组合性保证和护栏。光有模块化会产出不可维护的状态；你还需要干净卸载和权限边界垫在上面。</p>
+
+  <p>相关：<a href={sessionLogUrl}>会话日志可观测性</a> · <a href={modesUrl}>创造模式</a>。</p>
 </BlogPost>

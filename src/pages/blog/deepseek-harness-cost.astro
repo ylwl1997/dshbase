@@ -1,25 +1,66 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
 ---
-<BlogPost title="DeepSeek Harness Cost &amp; Caching — How Agents Save on Tokens | dshbase" description="How agent harnesses cut DeepSeek token costs: prefix caching, minimal tool sets, and measured comparisons showing up to 7x cost differences between harnesses on the same model." currentPath="/blog/deepseek-harness-cost/" category="Analysis">
+<BlogPost title="DeepSeek Harness Cost &amp; Caching — How Agents Save (or Waste) Tokens | dshbase" description="How agent harnesses cut DeepSeek token costs: prefix caching, minimal tool sets, append-only sessions, and measured comparisons showing up to 7x cost differences. Plus the hidden engineering-time cost we found testing 101 plugins on dsh 0.1.0-rc.6." currentPath="/blog/deepseek-harness-cost/" category="Analysis">
   <h1>Why harness choice moves the bill <span class="accent">7x</span></h1>
   <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
 
-  <p>DeepSeek's models are already cheap per token — but the <strong>harness you run them in can multiply the bill anyway</strong>. A coding agent re-sends the system prompt, tool definitions, history, and code on every step.</p>
+  <p>DeepSeek's models are already cheap per token — but the <strong>harness you run them in can multiply the bill anyway</strong>. A coding agent re-sends the system prompt, tool definitions, history, and code on every step. Get the request shape wrong and you pay for the same context over and over; get it right and the provider hands most of it back to you for free.</p>
 
   <h2>Prefix caching</h2>
-  <p>If the beginning of a request matches a previous one, the provider reuses it. The <strong>cache hit rate</strong> is the share of input tokens that reused prior computation — higher = cheaper. A changed timestamp or reordered tool invalidates the cache.</p>
+  <p>If the beginning of a request matches a previous one, the provider reuses it. The <strong>cache hit rate</strong> is the share of input tokens that reused prior computation — higher = cheaper. A changed timestamp or reordered tool invalidates the cache, which is why the cheapest harnesses are obsessive about keeping the request prefix byte-for-byte stable.</p>
 
   <h2>Measured: 99.93% hit rate</h2>
   <p>The open-source agent <strong>Pi</strong> (on GitHub, ~86k stars) running DeepSeek reported a <strong>~99.93% cache hit rate</strong> — a miss rate of 0.07%. Pi gives the model just four tools by default and keeps sessions append-only. Reported impact: ~<strong>¥19 per 1B tokens with caching vs ¥900+ without</strong>.</p>
+  <p>Read that again: ~¥19 versus ¥900+. That's not a rounding error — it's a ~47x swing on the input bill driven entirely by how the harness assembles the request. The model didn't change; the discipline around context did.</p>
 
   <h2>The 7x gap</h2>
   <p>A third-party benchmark (Composio) ran <strong>DeepSeek V4 Flash</strong> across 8 harnesses on real tasks: Pi ~<strong>$0.028</strong> per successful task (cheapest), Claude Code ~<strong>$0.195</strong> (nearly 7x Pi). Same model, different harness, very different bill.</p>
+
+  <h2>What actually drives the number</h2>
+  <table class="ztable">
+    <tr><th>Lever</th><th>Cache-friendly</th><th>Cache-hostile</th></tr>
+    <tr><td><strong>Tool set</strong></td><td>Few tools, fixed order (Pi: 4)</td><td>Many tools, reordered per turn</td></tr>
+    <tr><td><strong>Session</strong></td><td>Append-only, never rewrites history</td><td>Rewrites / summarizes earlier turns</td></tr>
+    <tr><td><strong>System prompt</strong></td><td>Stable, no timestamp</td><td>Injected date, changing metadata</td></tr>
+    <tr><td><strong>Intermediate data</strong></td><td>Kept out of context (DSH PTC)</td><td>Full tool output re-sent every step</td></tr>
+  </table>
+  <p>This is why DSH ships a <strong>Minimal</strong> mode (two tools, for benchmarking) and a <strong>PTC</strong> mode (the model chains tool operations inside one <code>run_code</code> call, keeping intermediate results out of context). They're the same levers Pi pulls, exposed as first-class modes. More on the mode mechanics in our <a href="/blog/deepseek-harness-modes/">four modes guide</a>.</p>
+
+  <h2>Make your own preset cache-friendly</h2>
+  <p>The levers aren't hidden — they're just easy to skip when you're assembling an agent preset. Four checks that move the number:</p>
+  <ul>
+    <li><strong>Cap the tool set</strong> — start from a minimal preset and add tools one at a time; every schema you add lives in the request prefix.</li>
+    <li><strong>Keep the system prompt static</strong> — no injected date or changing metadata that would invalidate the prefix.</li>
+    <li><strong>Prefer append-only sessions</strong> — don't rewrite or re-summarize earlier turns mid-task.</li>
+    <li><strong>Route long chains through PTC</strong> — batch read/search operations into a single <code>run_code</code> call to cut round-trips.</li>
+  </ul>
+
+  <h2>The cost you don't measure: your time</h2>
+  <p>Token cost isn't the only bill. A young plugin ecosystem has a hidden engineering-time cost, and we measured it directly. While testing <strong>101 community plugins on dsh 0.1.0-rc.6</strong> for the <a href="/plugins/directory/">plugin directory</a>, the install path itself ate real hours:</p>
+  <ul>
+    <li><strong><code>ERR_PNPM_FETCH_404</code></strong> — npm mirror lag on freshly published packages; a retry loop disguised as a bug.</li>
+    <li><strong><code>ERR_REQUIRE_ESM</code></strong> — CommonJS plugins depending on ESM-only packages; the author's problem, your time.</li>
+    <li><strong>Silently inert plugins</strong> — no <code>dsh.bundle</code> manifest, so the plugin installs as a plain dependency and never loads.</li>
+    <li><strong><code>allowBuilds</code> prompts</strong> — git-hosted plugins with a <code>prepare</code> script blocked by pnpm by default.</li>
+  </ul>
+  <p>Of those 101 plugins, <strong>11 npm packages</strong> worked out of the box, <strong>4</strong> needed a Web/TUI context, <strong>3 failed to install</strong>, and <strong>81 were GitHub-source</strong>. The one-line fixes are in our <a href="/troubleshooting/">troubleshooting guide</a>, but the larger point stands: when people say DSH is cheap, they mean tokens — not the hours you'll spend being your own quality gate in week one.</p>
+
+  <h2>FAQ</h2>
+  <h3>What's a good cache hit rate for DeepSeek?</h3>
+  <p>Pi's ~99.93% is the reference point. Anything below ~90% means you're re-billing a meaningful chunk of context every turn and should look at your tool set and session structure.</p>
+  <h3>Why does adding tools increase cost?</h3>
+  <p>Every tool's schema sits in the system context, and every new tool grows the request prefix. More tools also mean the model can chain more round-trips, each of which re-sends context. Fewer, stable tools = more cache hits.</p>
+  <h3>Does PTC mode actually save money?</h3>
+  <p>Yes, in the right tasks. By batching multiple tool operations into one <code>run_code</code>, PTC removes whole round-trips and keeps intermediate data out of context — directly improving the cache hit rate.</p>
+  <h3>Is DeepSeek Harness cheaper than Pi?</h3>
+  <p>Not by default. Pi is single-mindedly minimal. DSH's Standard mode carries a larger surface; its Minimal and PTC modes are how you get Pi-like economics while keeping the framework.</p>
 
   <h2>Takeaway</h2>
   <ul>
     <li><strong>Minimal tool sets</strong> and <strong>append-only sessions</strong> are the biggest levers for cache hits.</li>
     <li>DSH aligns: small active surface, everything-as-plugin, PTC keeps intermediate data out of context.</li>
+    <li>Remember the second bill: a young ecosystem costs engineering time, not just tokens.</li>
   </ul>
-  <p class="muted small">Community-reported measurements, not official DeepSeek benchmarks — verify current pricing.</p>
+  <p class="muted small">Community-reported measurements, not official DeepSeek benchmarks — verify current pricing. Plugin counts reflect our directory as of August 2026.</p>
 </BlogPost>

@@ -1,27 +1,71 @@
 ---
 import BlogPost from '../../../layouts/BlogPost.astro';
 ---
-<BlogPost title="DeepSeek Harness vs Codex — Agent 预设而非场景模式 | dshbase 中文" description="DeepSeek Harness 与 Codex 对比：为什么「不想做下一个 Codex」。Agent 预设 vs 场景模式、可重建会话、插件模型，以及这对你的工作方式意味着什么。" currentPath="/blog/deepseek-harness-vs-codex/" category="对比">
+<BlogPost title="DeepSeek Harness vs Codex — Agent 预设而非场景模式（2026）| dshbase 中文" description="DeepSeek Harness 与 Codex 深度对比：Agent 预设 vs 场景模式、可重建的只追加会话、101 插件生态、模型灵活性，以及我们在 dsh 0.1.0-rc.6 实测插件安装时踩过的真实坑。" currentPath="/blog/deepseek-harness-vs-codex/" category="对比">
   <h1>「它不想做下一个 Codex」—— <span class="accent">DSH vs Codex</span></h1>
   <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
 
-  <p>「DeepSeek 版 Codex」是大多数人第一反应——也是这个项目最想反驳的。区别不是表面的，而是对「Agent 应该怎么配置」的不同理解。</p>
+  <p>「DeepSeek 版 Codex」是大多数人第一反应——也是这个项目最想反驳的。反驳不是话术，两者对「Agent 应该怎么配置」有根本分歧：<strong>按场景配置</strong>（我在做什么任务？）还是<strong>按能力配置</strong>（这个 Agent 跑哪些插件？）？过去一周我们实跑了 dsh 0.1.0-rc.6、手动装了社区插件，区别体现在具体的地方，而不只是理念。</p>
 
   <h2>Agent 预设，而非场景</h2>
-  <p>Codex 类产品按<strong>场景</strong>区分模式（日常/办公、办公/代码）。DSH 改用 <strong>Agent 预设</strong>：一个 Agent 所运行的插件集合——工具、提示词、能力。你可以复制一个改改，或建一个全新的，包括非编码的预设（比如写作工作台）。</p>
+  <p>Codex 类产品按<strong>场景</strong>区分模式（日常/办公、办公/代码），你选一条道，产品填好剩下的一切。DSH 改用 <strong>Agent 预设</strong>：一个 Agent 所运行的插件集合——工具、提示词、能力。你可以复制一个改改，或建一个全新的，包括非编码的预设（比如写作工作台）。</p>
+  <p>这是实打实的体验差异。在 Codex 里你要迁就被给到的模式；在 DSH 里，预设<em>本身就是</em>模式，是一个你能版本化、能分享的文件。当 Data Agent 预设（<code>dsh-data-agent</code>）出现在插件目录里时，它不是给厂商提的需求——只是有人发布了一个你能一条命令装上的预设。</p>
 
   <h2>可重建的会话</h2>
-  <p>Codex 的会话是不透明的。DSH 的会话是<strong>只追加的事件日志</strong>——系统提示词、推理、工具调用、权限变化都成为事件。Agent 失败或死循环时，你能定位到具体跑偏的步骤。这是 Codex 没有的观测优势。</p>
+  <p>Codex 的会话是不透明的。DSH 的会话是<strong>只追加的事件日志</strong>——系统提示词、推理、工具调用、权限变化都成为事件，下一轮历史从日志重新推导，而不是保存在黑盒状态里。Agent 失败或死循环时，你能定位到具体跑偏的步骤。</p>
+  <p>测试期间我们比预想更依赖这一点：一个加载即崩的插件，报错能精确对应到单个事件，而不是一句笼统的「任务失败」。想了解日志里到底有什么，见我们的<a href="/blog/deepseek-harness-session-log/">会话日志拆解</a>。这是 Codex 不提供的观测优势。</p>
 
   <h2>插件模型</h2>
-  <p>Codex 让用户自定义 Skills 和 MCP，但其余是封装好的。DSH 把<strong>一切</strong>都做成插件——UI、工具、工作流。你不是租一个 Agent，而是组装一个 Agent。</p>
+  <p>Codex 让用户自定义 Skills 和 MCP，但其余是封装好的。DSH 把<strong>一切</strong>都做成插件——UI、工具、工作流，甚至 Agent 循环本身。你不是租一个 Agent，而是组装一个 Agent。</p>
+  <p>话好说，关键是生态到底成不成。我们花了时间验证。我们的<a href="/plugins/directory/">插件目录</a>收录了<strong>在 dsh 0.1.0-rc.6 上实测过的 101 个社区插件</strong>。结果并不全干净：</p>
+  <ul>
+    <li><strong>11 个 npm 包</strong>装上就能用——一条 <code>dsh plugin add &lt;名字&gt;</code> 搞定。</li>
+    <li><strong>4 个需要 Web/TUI 环境</strong>——装得上，但只在 Web UI 或终端 profile 里才真正起效。</li>
+    <li><strong>3 个直接安装失败</strong>。</li>
+    <li><strong>81 个是 GitHub 源码仓库</strong>，用 <code>dsh plugin add github:owner/repo</code> 安装——生态的大头还没上 npm。</li>
+  </ul>
+  <p>最后一个数字很关键。「一切皆插件」要成立，插件得容易分发，而 101 个里 81 个走的是 GitHub URL 而非 registry。这是快速迭代期生态的早期形态——目录里每张卡片都标着确切安装命令和验证状态。</p>
 
   <h2>模型灵活性</h2>
-  <p>DSH 支持目录和自定义提供方——你可以在里面跑 GLM。Codex 绑定 OpenAI 模型。</p>
+  <p>DSH 支持目录和自定义提供方——你填上基础 URL、协议、模型列表，就能在里面跑 GLM。Codex 绑定 OpenAI 模型。如果你的成本或合规要求把你逼离 OpenAI，DSH 跟着你走，Codex 不会。</p>
+
+  <h2>DSH vs Codex 速览</h2>
+  <div style="overflow-x:auto">
+    <table class="ztable">
+      <tr><th></th><th>DeepSeek Harness</th><th>Codex</th></tr>
+      <tr><td><strong>配置模型</strong></td><td>Agent 预设（插件集合）</td><td>场景模式</td></tr>
+      <tr><td><strong>会话</strong></td><td>只追加事件日志、可重建</td><td>不透明</td></tr>
+      <tr><td><strong>扩展</strong></td><td>一切皆插件（npm / GitHub）</td><td>Skills + MCP，核心封装</td></tr>
+      <tr><td><strong>模型</strong></td><td>DeepSeek + 任意 OpenAI 兼容</td><td>OpenAI 模型</td></tr>
+      <tr><td><strong>插件生态</strong></td><td>实测 101 个社区插件（11 npm、81 GitHub 源码）</td><td>精选 Skills/MCP 市场</td></tr>
+    </table>
+  </div>
+
+  <h2>现实检验：装 101 个插件</h2>
+  <p>「一切皆插件」听起来干净，直到你真的动手装几十个。下面是营销不会提、我们在 dsh 0.1.0-rc.6 上真踩到的：</p>
+  <ul>
+    <li><strong><code>ERR_PNPM_FETCH_404</code></strong>——npm 镜像落后于官方，刚发布的包返回 404。修复：加 <code>--registry=https://registry.npmjs.org</code>。</li>
+    <li><strong><code>ERR_REQUIRE_ESM</code></strong>——插件被编译成 CommonJS，却依赖了 ESM-only 的包。作者得把它重建成 ESM。</li>
+    <li><strong>装了但不激活</strong>——包没有 <code>dsh.bundle</code> 清单，<code>dsh plugin add</code> 只当普通依赖装上，永远不加载。</li>
+    <li><strong><code>cannot get property "systemPrompt" without inject</code></strong>——插件 bug：代码调了 <code>ctx.systemPrompt</code> 却没声明 <code>inject: ["systemPrompt"]</code>。</li>
+    <li><strong><code>allowBuilds</code> 提示</strong>——GitHub 托管的插件带 <code>prepare</code> 构建脚本，pnpm 默认阻止。</li>
+  </ul>
+  <p>完整清单和一行修复见我们的<a href="/troubleshooting/">排错指南</a>。诚实的说法：DSH 的插件模型比 Codex 更开放，但开放意味着<em>你</em>自己就是质量把关人。Codex 由厂商替你筛选；DSH 里你得先读几条报错，才能认出「好插件」长什么样。</p>
+
+  <h2>FAQ</h2>
+  <h3>DeepSeek Harness 只是 Codex 的开源复刻吗？</h3>
+  <p>不是。表面的相似——读文件、跑命令的 Agent——之下是另一种配置模型（预设 vs 场景）、另一种扩展模型（一切皆插件 vs Skills+MCP），以及 Codex 没有的可重建会话。</p>
+  <h3>哪个更好上手？</h3>
+  <p>Codex。选个场景就能开工。DSH 前期要求更多——先选或建预设、加提供方——但之后把掌控权还给你。</p>
+  <h3>DSH 插件能对标 Codex 的 Skills 和 MCP 吗？</h3>
+  <p>机制不同。DSH 插件是带 <code>apply</code> 函数的 TypeScript 模块，能当 npm 或 GitHub URL 分享；更好写，但活在 dsh 进程里。MCP 跨客户端更可移植。</p>
+  <h3>DSH 插件生态到底多成熟？</h3>
+  <p>早期但真实：已收录实测 101 个社区插件，但其中 81 个是 GitHub 源码（非 npm）、3 个安装失败。是生态「第一周」的形态，不是精修市场。</p>
 
   <h2>实操上</h2>
   <ul>
-    <li><strong>Codex 类</strong>：精致、场景驱动、配置最少。</li>
-    <li><strong>DSH</strong>：组装预设、重建会话、审计每一步、扩展 Agent 本身。</li>
+    <li><strong>Codex 类</strong>：精致、场景驱动、配置最少——「租来的」Agent。</li>
+    <li><strong>DSH</strong>：组装预设、重建会话、审计每一步、扩展 Agent 本身——「自己搭的」Agent。</li>
   </ul>
+  <p>想要成品，Codex 在精致度上赢。想看清、能改 Agent 是怎么拼起来的——并且愿意沿途读几条 <code>ERR_REQUIRE_ESM</code>——DSH 是更有意思的赌注。这个项目坚持「不想做下一个 Codex」说得太对了：它想做 Codex 做不了的事——一路可检查到底。</p>
 </BlogPost>

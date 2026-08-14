@@ -1,11 +1,11 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
 ---
-<BlogPost title="DeepSeek Harness vs 12 Agents Compared — Claude Code, Codex, Cline, Pi &amp; More | dshbase" description="A practical comparison of DeepSeek Harness against 12 coding agents: Claude Code, Codex, Cline, Zed, Pi, Reasonix, CodeWhale, OpenCode, Kimi Code, and more. The real insight: harness choice moves cost more than the model." currentPath="/blog/deepseek-harness-comparison/" category="Comparison">
+<BlogPost title="DeepSeek Harness vs 12 Coding Agents Compared — Claude Code, Codex, Cline, Pi &amp; More | dshbase" description="A practical comparison of DeepSeek Harness against 12 coding agents — Claude Code, Codex, Cline, Zed, Pi, Reasonix, CodeWhale, OpenCode, Kimi Code — plus our 101-plugin ecosystem test on dsh 0.1.0-rc.6 and a cost table. The real insight: harness choice moves cost more than the model." currentPath="/blog/deepseek-harness-comparison/" category="Comparison">
   <h1>DeepSeek Harness vs <span class="accent">12 coding agents</span></h1>
   <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
 
-  <p>When DeepSeek V4 launched, a wave of tools rushed to run it — and the results revealed something counterintuitive: <strong>the harness you choose moves cost and capability more than the model itself</strong>. Same DeepSeek model, different tool, up to 7x cost difference. Here's the landscape.</p>
+  <p>When DeepSeek V4 launched, a wave of tools rushed to run it — and the results revealed something counterintuitive: <strong>the harness you choose moves cost and capability more than the model itself</strong>. Same DeepSeek model, different tool, up to 7x cost difference. Here's the landscape, plus what we found when we actually tested the tool that's supposed to be the official answer.</p>
 
   <h2>The three camps</h2>
   <p>Every tool here fits one of three groups:</p>
@@ -42,11 +42,41 @@ import BlogPost from '../../layouts/BlogPost.astro';
   <h2>Where DSH fits</h2>
   <p>DeepSeek Harness is the official answer: an <strong>everything-is-a-plugin</strong> harness (see the <a href="/blog/deepseek-harness-architecture/">architecture deep dive</a>) that doesn't lock you to DeepSeek models. Its minimal mode mirrors Pi's philosophy, and its PTC mode keeps intermediate data out of context for the same token-saving reason. Unlike the terminal tools, DSH is a full <strong>framework</strong> — 100+ first-party plugins and an ecosystem you extend.</p>
 
+  <h2>DSH's ecosystem, measured</h2>
+  <p>Claiming "everything is a plugin" is easy; we wanted to know if the ecosystem is real. On dsh 0.1.0-rc.6 we cataloged and tested <strong>101 community plugins</strong> in the <a href="/plugins/directory/">plugin directory</a>. The results:</p>
+  <ul>
+    <li><strong>11 npm packages</strong> install and work out of the box.</li>
+    <li><strong>4 more</strong> need a Web/TUI context to do anything.</li>
+    <li><strong>3</strong> fail to install outright.</li>
+    <li><strong>81 are GitHub-source repos</strong>, installed with <code>dsh plugin add github:owner/repo</code>.</li>
+  </ul>
+  <p>That last number is the honest signal about maturity: most of the ecosystem ships as source, not as a registry package. Installing them isn't always clean either — we hit <code>ERR_PNPM_FETCH_404</code> (npm mirror lag), <code>ERR_REQUIRE_ESM</code> (CJS plugin depending on an ESM-only package), plugins that install but never activate because they lack a <code>dsh.bundle</code> manifest, and the <code>allowBuilds</code> build-confirmation prompt on git-hosted plugins. The fixes are all in our <a href="/troubleshooting/">troubleshooting guide</a>.</p>
+  <p>None of this is a reason to avoid DSH — it's the price of an ecosystem that is one week old and moving fast. But if you expect a vetted marketplace like Claude Code's, DSH will feel raw.</p>
+
+  <h2>Cost at a glance</h2>
+  <table class="ztable">
+    <tr><th>Harness</th><th>Per successful task (DeepSeek V4 Flash, community-measured)</th><th>Cache hit rate</th></tr>
+    <tr><td><strong>Pi</strong></td><td>~$0.028</td><td>99.93%</td></tr>
+    <tr><td><strong>Claude Code</strong></td><td>~$0.195 (≈7x Pi)</td><td>—</td></tr>
+    <tr><td><strong>DeepSeek Harness</strong></td><td>PTC / minimal mode targets Pi-like economics</td><td>design-aligned</td></tr>
+  </table>
+
   <h2>Which should you choose?</h2>
   <ul>
     <li><strong>Want a finished product</strong> — Claude Code or Codex, if you're in their ecosystem.</li>
     <li><strong>Want cheap DeepSeek in a minimal tool</strong> — Pi, Reasonix, or CodeWhale.</li>
     <li><strong>Want a framework to build on</strong> — DeepSeek Harness.</li>
   </ul>
-  <p class="muted small">Cost numbers are community-reported third-party measurements — verify current figures before committing. Several tools here are early-stage and moving fast.</p>
+
+  <h2>FAQ</h2>
+  <h3>Is DSH cheaper than Pi or Reasonix?</h3>
+  <p>Out of the box, not necessarily — Pi's minimal design is deliberately tuned for a 99.93% cache hit rate. DSH's minimal and PTC modes aim at the same economics, but DSH trades a bit of that single-mindedness for extensibility. If pure per-task cost is the only metric, Pi is hard to beat.</p>
+  <h3>Why does the same DeepSeek model cost 7x more in Claude Code?</h3>
+  <p>Claude Code's request shape — larger tool sets, history handling, and prompt structure — isn't built for DeepSeek's prefix caching. The model is identical; the harness re-sends more context on every step.</p>
+  <h3>Is the DSH plugin ecosystem ready for production?</h3>
+  <p>Early. 101 community plugins are cataloged, but 81 are GitHub-source (not npm), 3 fail to install, and you'll hit build/ESM errors on a few. It's usable if you're willing to be your own quality gate.</p>
+  <h3>Which of these is most future-proof?</h3>
+  <p>DSH if you believe the ecosystem compounds; Pi or Reasonix if you want a finished minimal tool today. Claude Code and Codex are safe but lock you to their model economics.</p>
+
+  <p class="muted small">Cost numbers are community-reported third-party measurements — verify current figures before committing. Several tools here are early-stage and moving fast. Plugin counts reflect our directory as of August 2026.</p>
 </BlogPost>

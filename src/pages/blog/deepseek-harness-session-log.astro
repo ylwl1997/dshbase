@@ -1,11 +1,11 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
 ---
-<BlogPost title="DeepSeek Harness Session Log — Append-Only Events for Observability | dshbase" description="DeepSeek Harness sessions are append-only event logs: system prompts, reasoning, tool calls, and permission changes become traceable events. Observable, auditable, reproducible agent debugging." currentPath="/blog/deepseek-harness-session-log/" category="Analysis">
+<BlogPost title="DeepSeek Harness Session Log — Append-Only Events for Observability | dshbase" description="DeepSeek Harness sessions are append-only event logs: system prompts, reasoning, tool calls, and permission changes become traceable events. Here's what's in the log, how we used it to debug 101 community plugins on dsh 0.1.0-rc.6, and why it's the difference between 'task failed' and knowing the exact step." currentPath="/blog/deepseek-harness-session-log/" category="Analysis">
   <h1>The hidden developer win: <span class="accent">append-only session logs</span></h1>
   <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
 
-  <p>One of the most developer-friendly — and most overlooked — features of DeepSeek Harness is how it stores sessions: as an <strong>append-only event log</strong>.</p>
+  <p>One of the most developer-friendly — and most overlooked — features of DeepSeek Harness is how it stores sessions: as an <strong>append-only event log</strong>. Most agents give you a final answer or, on failure, a vague error. DSH gives you the whole trail — and after a week of debugging plugins against it, we can tell you exactly what that's worth.</p>
 
   <h2>What's in the log</h2>
   <p>Everything the model sees and does becomes an event:</p>
@@ -19,7 +19,7 @@ import BlogPost from '../../layouts/BlogPost.astro';
   </ul>
 
   <h2>Next turn history is re-derived</h2>
-  <p>The model's history for the next turn is <strong>re-derived from this log</strong> — not from a black-box state. That design choice is what makes the whole thing inspectable.</p>
+  <p>The model's history for the next turn is <strong>re-derived from this log</strong> — not from a black-box state. That design choice is what makes the whole thing inspectable: there's no hidden state the log can drift out of sync with, because the log <em>is</em> the source of truth. Every turn is a pure function of the events before it.</p>
 
   <h2>Why it matters: observability, auditing, reproducibility</h2>
   <p>When most agents fail, you only see "task failed" or an infinite loop — you can't tell where it went off the rails. DeepSeek Harness's <strong>trajectory view</strong> lets you inspect each run by source. For developers, that means:</p>
@@ -28,8 +28,39 @@ import BlogPost from '../../layouts/BlogPost.astro';
     <li><strong>Auditable</strong> — trace every tool call and permission decision.</li>
     <li><strong>Reproducible</strong> — replay a run from its event log.</li>
   </ul>
-  <p>That's genuinely valuable for research and for debugging production agents.</p>
+  <p>That's genuinely valuable for research and for debugging production agents. But the theory only matters if it pays off on real failures — and for us, it did.</p>
+
+  <h2>What we actually debugged with it</h2>
+  <p>While testing <strong>101 community plugins on dsh 0.1.0-rc.6</strong> for the <a href="/plugins/directory/">plugin directory</a>, the session log was the difference between "this plugin is broken" and "here's the exact line where it broke." Three recurring failures stood out because the log made them trivial to pin down:</p>
+  <ul>
+    <li><strong><code>ERR_REQUIRE_ESM</code></strong> — the log showed the plugin module failing to load because it was compiled to CommonJS but depended on an ESM-only package. The failing event pointed straight at the module, not at our setup.</li>
+    <li><strong><code>cannot get property "systemPrompt" without inject</code></strong> — the log captured the plugin calling <code>ctx.systemPrompt</code> without declaring <code>inject: ["systemPrompt"]</code>. Without the event trail, this is a mysterious crash; with it, it's a one-line report to the plugin author.</li>
+    <li><strong>Silently inert plugins</strong> — a package with no <code>dsh.bundle</code> manifest installs as a plain dependency and never loads. The log made the "never loaded" part visible: no plugin-init event, no error, just absence.</li>
+  </ul>
+  <p>That last one is the subtle win. A black-box agent would have shown nothing at all — the plugin "just doesn't work." An event log shows you <em>the absence of an event</em>, which is itself diagnostic. The one-line fixes are all in our <a href="/troubleshooting/">troubleshooting guide</a>.</p>
+
+  <h2>Observability is also a cost tool</h2>
+  <p>The same log doubles as a cost profiler. Each event shows what went into context, so you can:</p>
+  <ul>
+    <li><strong>Spot re-sent context</strong> — the same large block appearing repeatedly is being re-injected (and re-billed).</li>
+    <li><strong>Find unnecessary tool round-trips</strong> — long chains of read/search calls that could collapse into one (what PTC mode is for).</li>
+    <li><strong>Check compression</strong> — see when context gets compressed and whether it's dropping useful history.</li>
+  </ul>
+  <p>Combine an inspectable log with a cache-friendly request shape and you get the <a href="/blog/pi-deepseek-cache/">99.93% cache hit rate</a> playbook. Observability and cost are the same feature viewed from two sides.</p>
+
+  <h2>Why "rebuildable" actually matters</h2>
+  <p>The append-only design is also what makes the "rebuildable session" in our <a href="/blog/deepseek-harness-vs-codex/">Codex comparison</a> more than a talking point. Because the next turn's history is re-derived from events, a session can be resumed, replayed, or forked without losing the trail — a session log you can reconstruct from its events is a session you can trust as a debugging record, not just a transcript.</p>
+
+  <h2>FAQ</h2>
+  <h3>Is the session log the same as a chat transcript?</h3>
+  <p>No. A transcript is what the user sees. The event log includes everything the model sees internally — reasoning, tool results, permission changes, injections — and it's the source from which the next turn's history is re-derived.</p>
+  <h3>Can I replay a session exactly?</h3>
+  <p>Yes. Because the next turn is re-derived from the log, replaying a run from its events reproduces the same state — useful for reproducing bugs and for research.</p>
+  <h3>Does this help if a plugin fails silently?</h3>
+  <p>It's exactly where it helps most. A silent failure leaves no error, but the log shows the absence of the expected event — the plugin never initialized — which points you to the missing <code>dsh.bundle</code> manifest.</p>
+  <h3>How does this compare to Claude Code or Codex?</h3>
+  <p>Both keep their intermediate state hidden. DSH exposes the whole trail as first-class data, which is the single biggest observability difference between it and closed harnesses.</p>
 
   <h2>Related</h2>
-  <p>See the <a href="/blog/deepseek-harness-modes/">four modes guide</a> — the Create mode and session logs together are what make DeepSeek Harness an agent framework rather than a finished product.</p>
+  <p>See the <a href="/blog/deepseek-harness-modes/">four modes guide</a> — the Create mode and session logs together are what make DeepSeek Harness an agent framework rather than a finished product. For a deeper walkthrough of using the log to debug, see our <a href="/blog/dsh-trajectory-tracing/">trajectory tracing guide</a>.</p>
 </BlogPost>
