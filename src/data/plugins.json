@@ -4,6 +4,7 @@
    "name": "dsh-tianshu-tui",
    "url": "https://github.com/huiliyi37/dsh-tianshu-tui",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "dsh-tianshu-tui — DeepSeek Harness terminal UI +harness workflow。是官方 DeepSeek Harness 上的交互式终端 UI 插件。渲染核心从本仓库自研的harness agent  Tianshu-Tui 演进而来，在官方的基础上增加了TDD与证据门等工作流。"
@@ -12,6 +13,7 @@
    "name": "deepseek-harness-tui",
    "url": "https://github.com/openma-ai/deepseek-harness-tui",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "TUI Plugin of DeepSeek Harness"
@@ -20,6 +22,7 @@
    "name": "dsh-at-file",
    "url": "https://github.com/omdsh-dev/dsh-at-file",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "Codex-style @file mentions for DeepSeek Harness: search workspace files in the composer and attach their contents to prompts."
@@ -28,6 +31,7 @@
    "name": "ui-status-label",
    "url": "https://github.com/alingalingling/ui-status-label",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "把你鲸鱼娘思考时的 deep diving 自定义成任意你想要的样子"
@@ -36,6 +40,7 @@
    "name": "dsh-openpencil",
    "url": "https://github.com/ZSeven-W/dsh-openpencil",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "OpenPencil design preview and editing plugin for DSH"
@@ -44,6 +49,7 @@
    "name": "dsh-visualize",
    "url": "https://github.com/Nagi-ovo/dsh-visualize",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH 对话内生成式 UI 插件：模型把交互式 HTML 卡片直接画进会话流——visualize 工具 + 配套 skill + 沙箱渲染卡，带流式预览、组件浮入动画与鲸鱼蓝主题跟随"
@@ -52,6 +58,7 @@
    "name": "dsh-side-panel",
    "url": "https://github.com/ccq1/dsh-side-panel",
    "pkg": "dsh-side-panel",
+   "ver": "1.0.0",
    "npm": true,
    "test": "ui",
    "desc": "DSH 侧边栏，集成文件浏览器、终端和 Git 审查，方便预览文件。"
@@ -60,6 +67,7 @@
    "name": "dsh-focus-chat",
    "url": "https://github.com/dingyi222666/dsh-focus-chat",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "为 dsh 提供新的「聚焦会话」精简会话视图，更轻松易于阅读，只关注最终产出结果。"
@@ -68,6 +76,7 @@
    "name": "dsh-genui",
    "url": "https://github.com/omdsh-dev/dsh-genui",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "GenUI for DeepSeek Harness: interactive UI components rendered inline in assistant replies via the dsh-ui fence — layout, charts, plots, forms, quizzes, mermaid, 3D scenes, and an action event loop back to the model. Ships the fence-teaching host plugin, the browser renderer (client half), and the genui skill."
@@ -76,6 +85,7 @@
    "name": "dsh-annotation",
    "url": "https://github.com/omdsh-dev/dsh-annotation",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH Web 选中批注插件：选文字→批注→回车随消息发送；气泡隐藏批注块（零闪烁）；回复按 Annotation N 逐条对照（可悬浮芯片）。官方 bundle，零核心改动"
@@ -84,6 +94,7 @@
    "name": "dsh-navbar",
    "url": "https://github.com/vlln/dsh-navbar",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH 插件：对话节点导航条（右缘节点串快速跳转 user 消息）。官方 bundle 插件，dsh plugin --profile web add 安装"
@@ -92,6 +103,7 @@
    "name": "dsh-task-status",
    "url": "https://github.com/vlln/dsh-task-status",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH 插件：后台任务状态条（对话页任务进度 + 实时输出 tail）。官方 bundle 插件，dsh plugin --profile web add 安装"
@@ -100,6 +112,7 @@
    "name": "dsh-web-archive",
    "url": "https://github.com/renat3u/dsh-web-archive",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "折叠对话当中众多的“无用消息”，例如Think、Bash等"
@@ -108,6 +121,7 @@
    "name": "dsh-spotlight",
    "url": "https://github.com/0xsline/dsh-spotlight",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "Keyboard-first command palette for DeepSeek Harness Web"
@@ -116,6 +130,7 @@
    "name": "dsh-101",
    "url": "https://github.com/bill9109/dsh-101",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH 文档阅读模式"
@@ -124,6 +139,7 @@
    "name": "dsh-drag-and-drop",
    "url": "https://github.com/bill9109/dsh-drag-and-drop",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "为 DSH Web UI 增加跨平台文件拖拽与原始路径插入能力，无需复制文件"
@@ -132,6 +148,7 @@
    "name": "dsh-deeplink",
    "url": "https://github.com/qyw233/dsh-deeplink",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH WebUI 深链插件：?session=/?workspace= 直接打开指定项目对话"
@@ -140,6 +157,7 @@
    "name": "dsh-diff-viewer",
    "url": "https://github.com/lehhair/dsh-diff-viewer",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH Web GUI PiUI-style diff viewer plugin: replaces the stock DiffBlock for write/edit tool calls via ui-tool diff-card chain slots (host patch included). Private."
@@ -148,6 +166,7 @@
    "name": "ex-setting",
    "url": "https://github.com/omdsh-dev/ex-setting",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH的设置扩展"
@@ -156,6 +175,7 @@
    "name": "web-components",
    "url": "https://github.com/omdsh-dev/web-components",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "web-components支持"
@@ -164,6 +184,7 @@
    "name": "dsh-turn-navigator",
    "url": "https://github.com/vibeinging/dsh-turn-navigator",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "Private DSH Web turn navigation plugin"
@@ -172,6 +193,7 @@
    "name": "dsh-milestone",
    "url": "https://github.com/SnowCrescenter-tech/dsh-milestone",
    "pkg": "dsh-milestone",
+   "ver": "0.6.0",
    "npm": true,
    "test": "ok",
    "desc": "Git-style milestone timeline for DeepSeek Harness - hover for metadata, click to jump to any message. 会话里程碑导航条：像 Git 提交图一眼定位每条提问，悬停看时间/轮次/耗时/TTFT，点击即跳转。"
@@ -180,6 +202,7 @@
    "name": "dsh-balance-meter",
    "url": "https://github.com/Ghost011118/dsh-balance-meter",
    "pkg": "dsh-balance-meter",
+   "ver": "0.1.0",
    "npm": true,
    "test": "ui",
    "desc": "DeepSeek account balance and session cost readout for the DeepSeek Harness Web GUI"
@@ -188,6 +211,7 @@
    "name": "dsh-cc-tui",
    "url": "https://github.com/ccch1mneyyy/dsh-cc-tui",
    "pkg": "dsh-cc-tui",
+   "ver": "0.3.5",
    "npm": true,
    "test": "ui",
    "desc": "解决DSH 官方尚无终端 TUI 痛点的补位之作，献给偏爱cli的各位极客：Claude Code 风格全屏交互终端插件——像素鲸鱼顶栏、实时工作状态行、思考流式展开、双击 Esc 回滚、上下文进度条 + TPS 仪表。npm 一键安装。"
@@ -196,6 +220,7 @@
    "name": "DSH-better-sidebar",
    "url": "https://github.com/omdsh-dev/DSH-better-sidebar",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "一个侧边栏的完整工作台，支持三方拓展注册新Tab页面，内置文件渲染编辑/终端/Git/子代理"
@@ -206,6 +231,7 @@
    "name": "dsh-turn-rewind",
    "url": "https://github.com/Anionex/dsh-turn-rewind",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "deepseek harness对话和代码状态回退插件 | DSH — rewind conversation and workspace state, powered by a persistent Change Ledger"
@@ -214,6 +240,7 @@
    "name": "dsh-crosstalk",
    "url": "https://github.com/Jesse-njx/dsh-crosstalk",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "Cross-session messaging for DSH — any session on the machine can list and message any other, Claude Code-style"
@@ -222,6 +249,7 @@
    "name": "distill",
    "url": "https://github.com/LoserFox/distill",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "自动对话蒸馏：后台 subagent 反省 + 技能 create/update"
@@ -230,6 +258,7 @@
    "name": "dsh-share",
    "url": "https://github.com/hellodigua/dsh-share",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "dsh对话分享插件，一键分享你的对话"
@@ -238,6 +267,7 @@
    "name": "dsh-message-edit",
    "url": "https://github.com/Moeblack/dsh-message-edit",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH plugin: branch-based message editing, reroll, retry, version timeline"
@@ -246,6 +276,7 @@
    "name": "dsh-mnemon",
    "url": "https://github.com/omdsh-dev/dsh-mnemon",
    "pkg": "dsh-mnemon",
+   "ver": "0.1.0",
    "npm": true,
    "test": "ok",
    "desc": "Mnemon 与 DSH 的深度集成插件，为 DSH 提供完备的本地记忆系统：运行时记忆、可检索档案与受监督记忆体。"
@@ -254,6 +285,7 @@
    "name": "nowledge-mem-deepseek-harness",
    "url": "https://github.com/nowledge-co/nowledge-mem-deepseek-harness",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "Nowledge Mem community plugin bundle for DeepSeek Harness"
@@ -262,6 +294,7 @@
    "name": "dsh-memory",
    "url": "https://github.com/Jesse-njx/dsh-memory",
    "pkg": "dsh-memory",
+   "ver": "0.1.0",
    "npm": true,
    "test": "ok",
    "desc": "Cited memory over DSH's lossless session log — distilled, human-auditable facts with citations back to the exact source events; memory_read/memory_expand tools, recall index, and a dsh-memory CLI."
@@ -270,6 +303,7 @@
    "name": "dsh-sidechain",
    "url": "https://github.com/Buyi-wsgzg/dsh-sidechain",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH 侧会话插件：/side 持续性侧会话（Codex 风格）与 /btw 一次性侧问（Claude 风格）——在临时 fork 中运行、不写入主会话历史；Web UI 右侧链面板内嵌对话，主会话保持不变"
@@ -278,6 +312,7 @@
    "name": "dsh-conversation-share",
    "url": "https://github.com/bill9109/dsh-conversation-share",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "分享任意段落的 DSH 对话"
@@ -286,6 +321,7 @@
    "name": "dsh-explain",
    "url": "https://github.com/yuezengwu/dsh-explain",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH 本地优先学习模式插件：跨会话全局学习线程、按来源讲解、ExplainContext、压缩与可诊断设置界面"
@@ -294,6 +330,7 @@
    "name": "dsh-prompt-studio",
    "url": "https://github.com/Moeblack/dsh-prompt-studio",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH plugin: edit user and built-in system-prompt sections with live preview (Prompt Studio)"
@@ -302,6 +339,7 @@
    "name": "dsh-chat-import",
    "url": "https://github.com/Nwflower/dsh-chat-import",
    "pkg": "dsh-chat-import",
+   "ver": "0.2.0",
    "npm": true,
    "test": "ok",
    "desc": "从Claude Code、Codex、Reasonix等Agent工具导入历史消息，并在DSH中继续对话"
@@ -310,6 +348,7 @@
    "name": "dsh-interconnect",
    "url": "https://github.com/Chinesezjc/dsh-interconnect",
    "pkg": "dsh-interconnect",
+   "ver": "0.1.0",
    "npm": true,
    "test": "install-fail",
    "desc": "Cross-instance message/event handoff plugins for DSH (interconnect service + tools)"
@@ -317,9 +356,19 @@
  ],
  "Tools & Capabilities": [
   {
+   "name": "noatmark-dsh-plugin",
+   "url": "https://github.com/ylwl1997/noatmark-dsh-plugin",
+   "pkg": "noatmark-dsh-plugin",
+   "ver": "0.1.0",
+   "npm": true,
+   "test": "ok",
+   "desc": "Text hygiene as a dsh plugin: sanitize untrusted text, scan invisible characters, clean LLM formatting, and escape CSV formula injection."
+  },
+  {
    "name": "dsh-bash-terminal",
    "url": "https://github.com/MAXeaglet/dsh-bash-terminal",
    "pkg": "dsh-bash-terminal",
+   "ver": "0.3.11",
    "npm": true,
    "test": "ok",
    "desc": ""
@@ -328,6 +377,7 @@
    "name": "dsh-vision-toolkit",
    "url": "https://github.com/Anionex/dsh-vision-toolkit",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "让纯文本模型更好地做视觉任务的DeepSeek Harness插件：带意图的图片问答、长截图 OCR、UI 还原等｜DeepSeek Harness-native integration for agent-vision-toolkit: image Q&A, long-screenshot OCR, UI restoration, grounding, pixel diff, Artifacts, and Web UI."
@@ -336,6 +386,7 @@
    "name": "dsh-custom-tool",
    "url": "https://github.com/omdsh-dev/dsh-custom-tool",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "Create and manage sandboxed JavaScript tools for DeepSeek Harness with a Monaco editor and model-driven tool lifecycle."
@@ -344,6 +395,7 @@
    "name": "dsh-computer-use",
    "url": "https://github.com/Anionex/dsh-computer-use",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "为 DeepSeek Harness 提供电脑控制插件：新鲜 Accessibility 观测、过期状态拒绝、作用域权限与安全输入（目前支持macos）｜Accessibility-first macOS Computer Use bundle for DSH with fresh observations, stale-state rejection, scoped permissions, and safe input."
@@ -352,6 +404,7 @@
    "name": "dsh-data-agent",
    "url": "https://github.com/omdsh-dev/dsh-data-agent",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "定义了专用的Data Agent预设，让AI帮你查询、更新、分析。"
@@ -360,6 +413,7 @@
    "name": "dsh-toolkit",
    "url": "https://github.com/omdsh-dev/dsh-toolkit",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH 零依赖工具包 collection —— time / encoding / json / calculator / csv / regex / markdown / diff / stat / schema 十个确定性工具，统一入口一键安装"
@@ -368,6 +422,7 @@
    "name": "dsh-tool-csv",
    "url": "https://github.com/omdsh-dev/dsh-tool-csv",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH CSV 数据工具插件：解析/查询/统计/转换 CSV 文本（RFC 4180），零依赖状态机解析器，注册 csv 工具"
@@ -376,6 +431,7 @@
    "name": "dsh-tool-calculator",
    "url": "https://github.com/omdsh-dev/dsh-tool-calculator",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH 计算器工具插件：安全的数学表达式求值器，零依赖递归下降解析器"
@@ -384,6 +440,7 @@
    "name": "dsh-tool-diff",
    "url": "https://github.com/omdsh-dev/dsh-tool-diff",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH Diff 工具插件：文本/JSON/CSV/Markdown 结构化比较与 unified diff，零依赖只读，注册 diff 工具"
@@ -392,6 +449,7 @@
    "name": "dsh-tool-encoding",
    "url": "https://github.com/omdsh-dev/dsh-tool-encoding",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH 编码/哈希工具插件：base64/base64url/url/hex 编解码、md5/sha1/sha256/sha512 哈希、UUID 生成，零依赖"
@@ -400,6 +458,7 @@
    "name": "dsh-tool-json",
    "url": "https://github.com/omdsh-dev/dsh-tool-json",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH JSON 查询工具插件：JMESPath 子集查询，零依赖递归下降解析器"
@@ -408,6 +467,7 @@
    "name": "dsh-tool-markdown",
    "url": "https://github.com/omdsh-dev/dsh-tool-markdown",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH Markdown 工具插件：HTML↔Markdown 转换、GFM 表格规范化、目录生成，零依赖轻量解析器，注册 markdown 工具"
@@ -416,6 +476,7 @@
    "name": "dsh-tool-regex",
    "url": "https://github.com/omdsh-dev/dsh-tool-regex",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH 正则工具插件：测试匹配/提取捕获组/安全替换/静态解释正则（不执行代码），零依赖，注册 regex 工具"
@@ -424,6 +485,7 @@
    "name": "dsh-tool-schema",
    "url": "https://github.com/omdsh-dev/dsh-tool-schema",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH JSON Schema 验证工具插件：validate/paths/explain/normalize，零网络零动态执行"
@@ -432,6 +494,7 @@
    "name": "dsh-tool-stat",
    "url": "https://github.com/omdsh-dev/dsh-tool-stat",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH 统计工具插件：描述统计/百分位数/频数分布/相关性，零依赖纯函数确定性"
@@ -440,6 +503,7 @@
    "name": "dsh-tool-time",
    "url": "https://github.com/omdsh-dev/dsh-tool-time",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH 时间工具插件：严格 ISO 8601 解析、IANA 时区转换、UTC 日历运算、固定时长差，零依赖"
@@ -448,6 +512,7 @@
    "name": "dsh-kb-sieve",
    "url": "https://github.com/omdsh-dev/dsh-kb-sieve",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH knowledge-base plugin: build audit-able KB packs (references + SQLite FTS5) from md/txt/docx/pdf, deterministic retrieval (kb_query) and original-text reading (kb_read), zero-script generated skills. Apache-2.0."
@@ -456,6 +521,7 @@
    "name": "dsh-plugin-mineru",
    "url": "https://github.com/HuanLinOTO/dsh-plugin-mineru",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "向模型暴露 MinerU 文档解析工具，将 PDF/图片/DOCX/PPTX/XLSX 转为结构化 Markdown/JSON | Exposes MinerU document-parsing tools to the model, converting PDF/images/DOCX/PPTX/XLSX into structured Markdown/JSON"
@@ -464,6 +530,7 @@
    "name": "dsh-cowork",
    "url": "https://github.com/Jesse-njx/dsh-cowork",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "READ + WRITE for office documents & notebooks in DeepSeek Harness — doc_read/doc_write tools (xlsx, pdf, docx, pptx, ipynb) plus MCP server and CLI"
@@ -472,6 +539,7 @@
    "name": "dsh-skillport",
    "url": "https://github.com/Jesse-njx/dsh-skillport",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "Every skill you already have — Claude Code, Codex, Cursor, Gemini CLI — works in DSH: Agent Skills SKILL.md discovery, Tier-2 conversions, find_skill search, and a skills doctor"
@@ -480,6 +548,7 @@
    "name": "dsh-tool-search",
    "url": "https://github.com/vibeinging/dsh-tool-search",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "Per-agent on-demand tool discovery and progressive schema disclosure for DeepSeek Harness"
@@ -488,6 +557,7 @@
    "name": "dsh-openmaic",
    "url": "https://github.com/THU-MAIC/dsh-openmaic",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "OpenMAIC for DeepSeek Harness: classrooms, slides, interactive widgets, and Socratic teaching"
@@ -496,6 +566,7 @@
    "name": "dsh-scholar",
    "url": "https://github.com/lzszq/dsh-scholar",
    "pkg": "dsh-scholar",
+   "ver": "0.1.0",
    "npm": true,
    "test": "ok",
    "desc": "dsh-scholar"
@@ -504,6 +575,7 @@
    "name": "dsh-apple-mode",
    "url": "https://github.com/jihongboo/dsh-apple-mode",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": ""
@@ -512,6 +584,7 @@
    "name": "dsh-continual-evolve",
    "url": "https://github.com/ZK-Andy/dsh-continual-evolve",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "Continual self-evolution plugin for DeepSeek Harness: versioned, auditable, rollback-safe harness state refined from session trajectories, with a benchmark-driven validation loop."
@@ -520,6 +593,7 @@
    "name": "dsh-recommend",
    "url": "https://github.com/zp-home/dsh-recommend",
    "pkg": "dsh-recommend",
+   "ver": "0.2.0",
    "npm": true,
    "test": "ui",
    "desc": "DSH 插件生态透明排行与推荐：每日自动抓取 dsh-plugin 话题 + 公开评分模型 + 排行/推荐插件与静态站"
@@ -528,6 +602,7 @@
    "name": "modlens",
    "url": "https://github.com/liustack/modlens",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "The first vision plugin for DeepSeek Harness, and the vision bridge for every text-only coding agent. Paste an image, get structured JSON evidence (OCR, layout, semantics)."
@@ -536,6 +611,7 @@
    "name": "dsh-find-plugin",
    "url": "https://github.com/awesome-dsh-plugin/dsh-find-plugin",
    "pkg": "dsh-find-plugin",
+   "ver": "0.3.4",
    "npm": true,
    "test": "install-fail",
    "desc": "Find DSH plugins inside the agent — live GitHub dsh-plugin topic search, star-ranked / 会话内搜索发现 DSH 插件"
@@ -546,6 +622,7 @@
    "name": "dsh_workflow",
    "url": "https://github.com/icetomoyo/dsh_workflow",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "把Claude Code的UltraCode模式带给DSH，把 DSH 的一次性多 Agent 调度，升级为可生成、可保存、可治理、可观察、可恢复的 Workflow 层"
@@ -554,6 +631,7 @@
    "name": "dsh-agent-teams",
    "url": "https://github.com/NanmiCoder/dsh-agent-teams",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "AgentTeams plugin for DeepSeek Harness"
@@ -562,6 +640,7 @@
    "name": "dsh-automation",
    "url": "https://github.com/titanwings/dsh-automation",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH 自动化插件：让 Coding 任务按计划在全新 Agent Session 中运行，并由用户或 Agent 创建和管理定时任务。 / Run coding tasks in fresh Agent sessions and manage schedules from DSH Web or an Agent."
@@ -570,6 +649,7 @@
    "name": "dsh-routines",
    "url": "https://github.com/Jesse-njx/dsh-routines",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "dsh-routines — scheduled agents for DSH: run a prompt on a cron, get the digest where you already are (file digests, chatnode delivery, unattended-safe)"
@@ -578,6 +658,7 @@
    "name": "dsh-plannotator",
    "url": "https://github.com/titanwings/dsh-plannotator",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH 计划批注插件：选中计划原文、逐条批注，并把结构化反馈送回 Agent。 / A DSH plan-review plugin for anchored annotations and structured Agent feedback."
@@ -586,6 +667,7 @@
    "name": "dsh-loop",
    "url": "https://github.com/vlln/dsh-loop",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH 插件：定时循环（/loop 命令 + loop 工具 + 活动状态条）。官方 bundle 插件，dsh plugin --profile web add 安装"
@@ -594,6 +676,7 @@
    "name": "dsh-sentinel",
    "url": "https://github.com/fuhefei/dsh-sentinel",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "Condition-driven wakeup for DeepSeek Harness: durable file/command/http/process/webhook watches that wake the agent, with dock, sidebar branch, and a global dashboard."
@@ -602,6 +685,7 @@
    "name": "dsh-deep-research",
    "url": "https://github.com/omdsh-dev/dsh-deep-research",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "Adaptive deep-research orchestrator plugin for DeepSeek Harness (official workflow engine, cybernetics/information-theory design)"
@@ -610,6 +694,7 @@
    "name": "dsh-inspect",
    "url": "https://github.com/omdsh-dev/dsh-inspect",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "发现问题(checkup) → 修复交付(fix) → 质量复查(review) 的对抗式闭环插件：基于官方 workflow 引擎的检查/修复/复查工具集"
@@ -618,6 +703,7 @@
    "name": "dsh-track",
    "url": "https://github.com/fakechris/dsh-track",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH Track Bridge 插件：嵌入式任务管理引擎——决策点协议、念头捕获墙、Linear 形 issue 存储（bundle），AI 与人之间的任务轨道"
@@ -626,6 +712,7 @@
    "name": "dsh-advisor",
    "url": "https://github.com/btspoony/dsh-advisor",
    "pkg": "dsh-advisor",
+   "ver": "0.1.0",
    "npm": true,
    "test": "ok",
    "desc": "Advisor - Pair a second model that passively reviews each turn and injects notes.  搭配一个会在每轮对话被动注入见解和审查的副模型。"
@@ -636,6 +723,7 @@
    "name": "dsh-open-in-vscode",
    "url": "https://github.com/omdsh-dev/dsh-open-in-vscode",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "Open DeepSeek Harness workspace directories in VS Code directly from the web GUI."
@@ -644,6 +732,7 @@
    "name": "dsh-notification",
    "url": "https://github.com/omdsh-dev/dsh-notification",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "Desktop notifications for DeepSeek Harness turn completions, with per-outcome controls and include/exclude keyword rules."
@@ -652,6 +741,7 @@
    "name": "dsh-acp-for-bitfun",
    "url": "https://github.com/bobleer/dsh-acp-for-bitfun",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "BitFun 与 DSH ACP 交互对接 插件"
@@ -660,6 +750,7 @@
    "name": "telegram",
    "url": "https://github.com/LoserFox/telegram",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "Telegram Bot API 桥接插件：长轮询、per-chat 会话、HTML 格式化"
@@ -668,6 +759,7 @@
    "name": "dsh-chatnode-wechat",
    "url": "https://github.com/Jesse-njx/dsh-chatnode-wechat",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "Chat with, monitor, and approve your DSH agents from WeChat — an iLink gateway + conversation node bundle for DeepSeek Harness"
@@ -676,6 +768,7 @@
    "name": "dsh-session-notification",
    "url": "https://github.com/dingyi222666/dsh-session-notification",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "提供会话完成等四种状态的通知响应，支持浏览器提示和提示词"
@@ -684,6 +777,7 @@
    "name": "dsh-web-ui-notify",
    "url": "https://github.com/bill9109/dsh-web-ui-notify",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "为 DSH 增加桌面通知提醒"
@@ -692,6 +786,7 @@
    "name": "dsh-webbridge",
    "url": "https://github.com/bill9109/dsh-webbridge",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH 结合 Kimi WebBridge"
@@ -700,6 +795,7 @@
    "name": "dsh-im-bridge",
    "url": "https://github.com/BiBoyang/dsh-im-bridge",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH 插件：把 DeepSeek Harness 桥接到 IM（v0.1 微信/iLink；钉钉/飞书/Telegram 预留）。turn/approval 推送 + 远程批准/注入，持久去重/收敛分段/合并窗口。"
@@ -710,6 +806,7 @@
    "name": "fabric",
    "url": "https://github.com/omdsh-dev/fabric",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "一种类似MC Fabric的hook处理器"
@@ -718,6 +815,7 @@
    "name": "dsh-git-identity",
    "url": "https://github.com/LoserFox/dsh-git-identity",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH 插件：git 提交固定使用环境自身作者身份（优先 gh CLI 登录账号，GitHub noreply 邮箱），GIT_AUTHOR_*/GIT_COMMITTER_* 环境变量注入压过一切 git config"
@@ -726,6 +824,7 @@
    "name": "dsh-context-doctor",
    "url": "https://github.com/Zhenyu98/dsh-context-doctor",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH 上下文注入审计插件：统计 AGENTS.md 指令链/技能目录/工具 schema 的 token 成本，检测重复与冲突；Web UI 圆环面板 + context_audit 工具。Context Doctor for DeepSeek Harness: audit instruction-chain / skill catalog / tool schemas token cost."
@@ -734,6 +833,7 @@
    "name": "dsh-plugin-check",
    "url": "https://github.com/omdsh-dev/dsh-plugin-check",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH 插件健康检查工具：扫描插件仓库的清单协议 / patch 格式 / 构建陷阱 / hub 收录状态，零依赖只读，注册 plugin_check 工具"
@@ -742,6 +842,7 @@
    "name": "dsh-security-audit",
    "url": "https://github.com/omdsh-dev/dsh-security-audit",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH 本机安全审计插件：配置/插件来源/会话/网络暴露面，只读脱敏风险报告"
@@ -750,6 +851,7 @@
    "name": "dsh-session-health",
    "url": "https://github.com/omdsh-dev/dsh-session-health",
    "pkg": "dsh-session-health",
+   "ver": "0.1.2",
    "npm": true,
    "test": "ok",
    "desc": "DSH 会话健康检查插件：多帧 zstd 会话文件的帧级扫描诊断（torn/损坏/空会话检测），零依赖只读，注册 session_health 工具"
@@ -758,6 +860,7 @@
    "name": "dsh-evolve",
    "url": "https://github.com/william-jin-cmu/dsh-evolve",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "自进化插件：agent 在 session 内随对话给自己长出/剪掉能力 —— evolve_add 热挂载持久化 cordis 插件（下一 step 工具即可见），evolve_remove 可逆卸载，重启自动恢复"
@@ -766,6 +869,7 @@
    "name": "dsh-trace",
    "url": "https://github.com/vibeinging/dsh-trace",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DeepSeek Harness telemetry backend that exports turns, model steps, and tool calls to yiTrace over HTTP."
@@ -774,6 +878,7 @@
    "name": "sandbox-micro",
    "url": "https://github.com/omdsh-dev/sandbox-micro",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "microsandbox支持"
@@ -782,6 +887,7 @@
    "name": "sandbox-mxc",
    "url": "https://github.com/omdsh-dev/sandbox-mxc",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "微软跨平台沙盒支持"
@@ -790,6 +896,7 @@
    "name": "sandbox-nono",
    "url": "https://github.com/omdsh-dev/sandbox-nono",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "nono沙盒支持"
@@ -798,6 +905,7 @@
    "name": "dsh-agent-budget",
    "url": "https://github.com/vibeinging/dsh-agent-budget",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "Native Harness agent-tree token budget plugin"
@@ -806,6 +914,7 @@
    "name": "dsh-llm-fallbacks",
    "url": "https://github.com/btspoony/dsh-llm-fallbacks",
    "pkg": "dsh-llm-fallbacks",
+   "ver": "0.1.0-alpha.1",
    "npm": true,
    "test": "ok",
    "desc": "An dsh plugin for role-based LLM retry&fallback strategy. 基于角色的模型重试备用策略插件"
@@ -814,6 +923,7 @@
    "name": "dsh-polyglot",
    "url": "https://github.com/Jesse-njx/dsh-polyglot",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "dsh-polyglot — the model switch for DSH: generic OpenAI-compatible ctx.llm adapter, curated free/cheap DeepSeek presets, automatic provider fallback on rate limits"
@@ -822,6 +932,7 @@
    "name": "dsh-tool-approval",
    "url": "https://github.com/ilharp/dsh-tool-approval",
    "pkg": "dsh-tool-approval",
+   "ver": "0.1.0",
    "npm": true,
    "test": "install-fail",
    "desc": "Manual approval for Deepseek Harness (aka \"Manual Mode\"/\"Ask Mode\")"
@@ -830,6 +941,7 @@
    "name": "plugin-template",
    "url": "https://github.com/omdsh-dev/plugin-template",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "基于原turtle ui官方仓库创建的plugin模板仓库"
@@ -838,6 +950,7 @@
    "name": "Qwen-MM-Plugins",
    "url": "https://github.com/omdsh-dev/Qwen-MM-Plugins",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "Qwen-MM-Plugins支持"
@@ -846,6 +959,7 @@
    "name": "dsh-tps",
    "url": "https://github.com/Small-tailqwq/dsh-tps",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "只是一个 tps 插件"
@@ -854,6 +968,7 @@
    "name": "dsh-fail-logger",
    "url": "https://github.com/Areium/dsh-fail-logger",
    "pkg": "dsh-fail-logger",
+   "ver": "0.4.1",
    "npm": true,
    "test": "ok",
    "desc": "DeepSeek Harness（DSH）插件：自动记录所有执行模式（原生工具 / PTC run_code / 代码内嵌工具调用）的工具失败错因，去重、计数、确定性排序后沉淀进 skill 的机器维护实录区段——让 Agent 越用越少错。"
@@ -862,6 +977,7 @@
    "name": "dsh-eval-harness",
    "url": "https://github.com/BiBoyang/dsh-eval-harness",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH 插件评测工具：YAML 用例驱动真实 agent 回归评测 + baseline 对比 PASS/WARN/FAIL 门禁｜Regression eval harness for DeepSeek Harness plugins"
@@ -870,6 +986,7 @@
    "name": "oh-dsh",
    "url": "https://github.com/hust-open-atom-club/oh-dsh",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "一站式 DeepSeek Harness 社区发行版：TUI、桌面端与 Web UI 三种形态统一体验，支持分层安装、一步到位，免去手工整合打包。"
@@ -878,6 +995,7 @@
    "name": "dsh-annotate",
    "url": "https://github.com/BrambleXu/dsh-annotate",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "Visual browser element annotation for DeepSeek Harness, capturing DOM, styles, accessibility data, comments, and viewport screenshots. DeepSeek Harness 浏览器元素标注插件，捕获 DOM、样式、可访问性数据、评论和视口截图。"
@@ -886,6 +1004,7 @@
    "name": "dsh-prompt-profile",
    "url": "https://github.com/BrambleXu/dsh-prompt-profile",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "Reusable Markdown prompt profiles for DeepSeek Harness with per-turn model selection, argument substitution, and state restoration. DeepSeek Harness 可复用 Markdown Prompt Profile，支持单轮模型选择、参数替换和状态恢复。"
@@ -894,6 +1013,7 @@
    "name": "dsh-revdiff",
    "url": "https://github.com/BrambleXu/dsh-revdiff",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "Native interactive Git diff review for DeepSeek Harness with structured annotations sent back to the current Agent session. DeepSeek Harness 原生交互式 Git diff 审查，支持结构化批注并回传当前 Agent 会话。"
@@ -904,6 +1024,7 @@
    "name": "dsh-ads",
    "url": "https://github.com/Nagi-ovo/dsh-ads",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "是兄弟就来蹬我！DSH Web UI 广告：2005 年中文站点风格的侧栏广告 / 对话内信息流 / 角落弹窗 + 一个真实热区比视觉小得多的关闭叉。素材全虚构，域名打码。"
@@ -912,6 +1033,7 @@
    "name": "dsh-gomoku",
    "url": "https://github.com/omdsh-dev/dsh-gomoku",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "在DSH中与AI下五子棋，也可以让AI对局，看哪个AI棋力更强"
@@ -920,6 +1042,7 @@
    "name": "dsh-stock-market",
    "url": "https://github.com/AnacondaKC/dsh-stock-market",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "有效解决了写代码的时候账户不能同时亏钱的BUG"
@@ -928,6 +1051,7 @@
    "name": "dsh-emoji",
    "url": "https://github.com/hellodigua/dsh-emoji",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "为 DSH 的回复加入自定义的行内表情"
@@ -936,6 +1060,7 @@
    "name": "dsh-minigames",
    "url": "https://github.com/lhh010/dsh-minigames",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH Web UI 右侧小游戏面板：18 款离线小游戏（恐龙跳一跳 / 俄罗斯方块 / 坦克大战 / 扫雷 / 2048 / 数独 / 吃豆人 / 跟枪练习等），可扩展游戏注册表，等待模型回复或修 bug 时的摸鱼神器"
@@ -944,6 +1069,7 @@
    "name": "dsh-stickers",
    "url": "https://github.com/william-jin-cmu/dsh-stickers",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH WebUI sticker plugin for bidirectional user and agent reactions"
@@ -952,6 +1078,7 @@
    "name": "whale-girl",
    "url": "https://github.com/vlln/whale-girl",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH Web GUI 桌面宠物插件（QQ 宠物形态）：右下角悬浮、可拖拽/投喂/玩耍的积累型伙伴。官方 repository-plugin（.dsh-plugin 格式），config.yaml 安装：github:dsh-external/whale-girl#<ref>&path:/.dsh-plugin"
@@ -960,6 +1087,7 @@
    "name": "deepseek-manners",
    "url": "https://github.com/Moeblack/deepseek-manners",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH 插件：给每次消息后注入感谢语（deepseek-manners）"
@@ -968,6 +1096,7 @@
    "name": "dsh-plugin-d399",
    "url": "https://github.com/HuanLinOTO/dsh-plugin-d399",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "模型生成时右下角弹出小游戏菜单（Wordle/消消乐/192 款参数化小游戏，可拓展注册表） | Pops up a mini-game menu while the model generates (Wordle/Match-3/192 parametric mini-games, extensible registry)"
@@ -976,6 +1105,7 @@
    "name": "dsh-auto-chess",
    "url": "https://github.com/omdsh-dev/dsh-auto-chess",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH Web里的自走棋插件：人机对战或双AI对弈"
@@ -984,6 +1114,7 @@
    "name": "dsh-douyin",
    "url": "https://github.com/AnacondaKC/dsh-douyin",
    "pkg": "",
+   "ver": "",
    "npm": false,
    "test": "not-on-npm",
    "desc": "DSH WebUI 侧栏短视频插件：原生播放器、系列导航、直链解析与精确历史回放"

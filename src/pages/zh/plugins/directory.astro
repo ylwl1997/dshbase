@@ -53,10 +53,10 @@ const statusClass = {
             return (
               <div class="card pcard">
                 <div class="pcard-head">
-                  <a class="pcard-name" href={p.url} target="_blank" rel="noopener">{p.name}{featured.has(r) ? ' ⭐' : ''}</a>
+                  <a class="pcard-name" href={`/zh/plugins/${p.name}/`}>{p.name}{featured.has(r) ? ' ⭐' : ''}</a>
                   <span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span>
                 </div>
-                <p class="pcard-repo">{r}</p>
+                <p class="pcard-repo"><a href={p.url} target="_blank" rel="noopener">{r}</a></p>
                 {p.desc && <p class="pcard-desc">{p.desc}</p>}
                 <div class="pcard-install">
                   {p.npm && p.pkg ? (

@@ -1,0 +1,88 @@
+---
+import Base from '../../layouts/Base.astro';
+import plugins from '../../data/plugins.json';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+export function getStaticPaths() {
+  return Object.entries(plugins).flatMap(([cat, items]) =>
+    items.map((p) => ({ params: { slug: p.name }, props: { cat, p } }))
+  );
+}
+
+const { cat, p } = Astro.props;
+const dirUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const repo = p.url.replace('https://github.com/', '');
+const npmHome = p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
+const statusLabel = {
+  ok: 'Verified · installs & boots on dsh',
+  ui: 'Installs · needs a Web/TUI surface',
+  'install-fail': 'Install failed (dependency not on npm)',
+  'not-on-npm': 'GitHub source only',
+};
+const statusClass = {
+  ok: 'st-ok',
+  ui: 'st-warn',
+  'install-fail': 'st-warn',
+  'not-on-npm': 'st-src',
+};
+const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6);
+---
+<Base title={`${p.name} — DeepSeek Harness Plugin, Install &amp; Test Status | dshbase`} description={`${p.desc || p.name} — install with ${p.npm ? `dsh plugin add ${p.pkg}` : 'npm (source)'}. Status: ${statusLabel[p.test]}.`} currentPath={`/plugins/${p.name}/`}>
+  <section class="hero wrap">
+    <p class="eyebrow"><a href={dirUrl}>Plugin directory</a> / {cat} / {p.name}</p>
+    <h1>{p.name}</h1>
+    <p class="lede">
+      <span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span>{' '}
+      <a href={p.url} target="_blank" rel="noopener">{repo}</a>
+    </p>
+    {p.desc && <p>{p.desc}</p>}
+  </section>
+
+  <section class="info wrap">
+    {p.npm && p.pkg ? (
+      <Fragment>
+        <h2>Install</h2>
+        <pre class="code-block"><code>dsh plugin --profile web add {p.pkg}</code></pre>
+        <ol class="steps">
+          <li>Install pnpm once: <code>npm install -g pnpm</code> (the plugin manager forwards to it).</li>
+          <li>Add the plugin to your web profile: <code>dsh plugin --profile web add {p.pkg}</code>.</li>
+          <li>Restart <code>dsh web</code> — the plugin loads on the next launch.</li>
+          <li>Verify: <code>dsh plugin --profile web list</code>.</li>
+        </ol>
+        <h2 style="margin-top:24px">Package</h2>
+        <p>npm: <a href={npmHome} target="_blank" rel="noopener">{p.pkg}</a> · version <strong>{p.ver || '—'}</strong> · tested on dsh <strong>0.1.0-rc.6</strong></p>
+        <h2 style="margin-top:24px">Test result</h2>
+        <p>{p.test === 'ok' && 'Verified end-to-end: installed via `dsh plugin add`, activated in the profile, and booted a task successfully.'}
+           {p.test === 'ui' && 'Installs and activates, but did not boot in the headless test environment — it expects a Web/TUI surface. It should work in the normal `dsh web` UI.'}
+           {p.test === 'install-fail' && 'Could not be installed — a dependency in its tree is not published to npm. Check the repository for a pending publish.'}</p>
+      </Fragment>
+    ) : (
+      <Fragment>
+        <h2>Install</h2>
+        <p>This plugin is distributed as <strong>GitHub source</strong> — it is not published to npm, so <code>dsh plugin add</code> can't install it yet. Build it from <a href={p.url} target="_blank" rel="noopener">the repository</a>, or ask the author to publish it (add a <code>dsh.bundle</code> manifest and run <code>npm publish</code>).</p>
+      </Fragment>
+    )}
+
+    {related.length > 0 && (
+      <Fragment>
+        <h2 style="margin-top:28px">More in {cat}</h2>
+        <div class="grid3">
+          {related.map((r) => (
+            <a class="card card-link" href={`/plugins/${r.name}/`}>
+              <h3>{r.name}</h3>
+              <p>{r.test === 'ok' ? '✅ verified' : r.npm ? 'on npm' : 'source only'}</p>
+            </a>
+          ))}
+        </div>
+        <p style="margin-top:16px"><a class="btn btn-ghost" href={dirUrl}>Browse all {Object.values(plugins).reduce((s, a) => s + a.length, 0)} plugins &rarr;</a></p>
+      </Fragment>
+    )}
+  </section>
+</Base>
+
+<style>
+  .badge { font-size: 13px; padding: 4px 12px; white-space: nowrap; }
+  .st-ok { color: #1a7f37; border-color: #b7e0c0; background: #f0fff4; }
+  .st-src { color: var(--ink-2); background: #f7f8fa; }
+  .st-warn { color: #9a6700; border-color: #e5c27a; background: #fff8e6; }
+</style>

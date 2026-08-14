@@ -1,0 +1,88 @@
+---
+import Base from '../../../layouts/Base.astro';
+import plugins from '../../../data/plugins.json';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+export function getStaticPaths() {
+  return Object.entries(plugins).flatMap(([cat, items]) =>
+    items.map((p) => ({ params: { slug: p.name }, props: { cat, p } }))
+  );
+}
+
+const { cat, p } = Astro.props;
+const dirUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const repo = p.url.replace('https://github.com/', '');
+const npmHome = p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
+const statusLabel = {
+  ok: '已验证 · 可安装并启动',
+  ui: '可安装 · 需 Web/TUI 界面',
+  'install-fail': '安装失败（依赖未发 npm）',
+  'not-on-npm': '仅 GitHub 源码',
+};
+const statusClass = {
+  ok: 'st-ok',
+  ui: 'st-warn',
+  'install-fail': 'st-warn',
+  'not-on-npm': 'st-src',
+};
+const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6);
+---
+<Base title={`${p.name} — DeepSeek Harness 插件安装与实测状态 | dshbase 中文`} description={`${p.desc || p.name} — 安装：${p.npm ? `dsh plugin add ${p.pkg}` : 'npm（源码）'}。状态：${statusLabel[p.test]}。`} currentPath={`/plugins/${p.name}/`}>
+  <section class="hero wrap">
+    <p class="eyebrow"><a href={dirUrl}>插件目录</a> / {cat} / {p.name}</p>
+    <h1>{p.name}</h1>
+    <p class="lede">
+      <span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span>{' '}
+      <a href={p.url} target="_blank" rel="noopener">{repo}</a>
+    </p>
+    {p.desc && <p>{p.desc}</p>}
+  </section>
+
+  <section class="info wrap">
+    {p.npm && p.pkg ? (
+      <Fragment>
+        <h2>安装</h2>
+        <pre class="code-block"><code>dsh plugin --profile web add {p.pkg}</code></pre>
+        <ol class="steps">
+          <li>先装 pnpm：<code>npm install -g pnpm</code>（插件管理会调用它）。</li>
+          <li>装进 web profile：<code>dsh plugin --profile web add {p.pkg}</code>。</li>
+          <li>重启 <code>dsh web</code>——下次启动自动加载。</li>
+          <li>验证：<code>dsh plugin --profile web list</code>。</li>
+        </ol>
+        <h2 style="margin-top:24px">包信息</h2>
+        <p>npm：<a href={npmHome} target="_blank" rel="noopener">{p.pkg}</a> · 版本 <strong>{p.ver || '—'}</strong> · 实测环境 dsh <strong>0.1.0-rc.6</strong></p>
+        <h2 style="margin-top:24px">实测结果</h2>
+        <p>{p.test === 'ok' && '端到端验证通过：`dsh plugin add` 安装成功、进入 profile 配置树、启动任务正常。'}
+           {p.test === 'ui' && '可安装并激活，但在 headless 测试环境无法启动——它需要 Web/TUI 界面。正常 `dsh web` 里应该能用。'}
+           {p.test === 'install-fail' && '安装失败——依赖树里有包没发到 npm。可到仓库看是否有待发布的依赖。'}</p>
+      </Fragment>
+    ) : (
+      <Fragment>
+        <h2>安装</h2>
+        <p>该插件以 <strong>GitHub 源码</strong>分发——没发到 npm，<code>dsh plugin add</code> 暂时装不了。可从<a href={p.url} target="_blank" rel="noopener">仓库</a>自行构建，或请作者发布（加 <code>dsh.bundle</code> 清单后 <code>npm publish</code>）。</p>
+      </Fragment>
+    )}
+
+    {related.length > 0 && (
+      <Fragment>
+        <h2 style="margin-top:28px">{cat} 里更多</h2>
+        <div class="grid3">
+          {related.map((r) => (
+            <a class="card card-link" href={`/zh/plugins/${r.name}/`}>
+              <h3>{r.name}</h3>
+              <p>{r.test === 'ok' ? '✅ 已验证' : r.npm ? 'npm 可装' : '仅源码'}</p>
+            </a>
+          ))}
+        </div>
+        <p style="margin-top:16px"><a class="btn btn-ghost" href={dirUrl}>浏览全部 {Object.values(plugins).reduce((s, a) => s + a.length, 0)} 个插件 &rarr;</a></p>
+      </Fragment>
+    )}
+  </section>
+</Base>
+
+<style>
+  .badge { font-size: 13px; padding: 4px 12px; white-space: nowrap; }
+  .st-ok { color: #1a7f37; border-color: #b7e0c0; background: #f0fff4; }
+  .st-src { color: var(--ink-2); background: #f7f8fa; }
+  .st-warn { color: #9a6700; border-color: #e5c27a; background: #fff8e6; }
+</style>
