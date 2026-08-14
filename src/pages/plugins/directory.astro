@@ -45,7 +45,15 @@ const statusClass = {
     <h1>DeepSeek Harness <span class="accent">plugin ecosystem</span></h1>
     <p class="lede">Curated from the <a href="https://github.com/awesome-dsh-plugin/awesome-dsh-plugin" target="_blank" rel="noopener">awesome-dsh-plugin</a> list — {catOrder.length} categories, {total} plugins. Every card shows whether the plugin ships on <strong>npm</strong>, its <strong>verified test status</strong>, and the exact install command — no clicking through to check.</p>
     <p style="margin-top:14px"><a class="btn btn-primary" href="https://github.com/ylwl1997/dshbase/issues/new?template=plugin-submission.yml" target="_blank" rel="noopener">Submit your plugin &rarr;</a> <a class="btn btn-ghost" href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Official community &rarr;</a></p>
-    <p class="agent-box">🤖 <strong>For agents:</strong> let DeepSeek Harness query this directory itself — <code>dsh plugin add dshbase-catalog</code>, then ask your agent to "search for a memory plugin". Machine-readable catalog: <a href="/api/plugins.json">/api/plugins.json</a>.</p>
+    <div class="agent-box">
+      <div class="agent-slides">
+        <div class="agent-slide"><strong>🤖 dshbase-catalog</strong> — let your agent search this directory itself: <code>dsh plugin add dshbase-catalog</code> <a href="/plugins/dshbase-catalog/">→</a></div>
+        <div class="agent-slide"><strong>🌐 dsh-browser-bsk</strong> — browser automation for your agent: <code>dsh plugin add dsh-browser-bsk</code> <a href="/plugins/dsh-browser-bsk/">→</a></div>
+        <div class="agent-slide"><strong>🧹 noatmark-dsh-plugin</strong> — text hygiene tools: <code>dsh plugin add noatmark-dsh-plugin</code> <a href="/plugins/noatmark-dsh-plugin/">→</a></div>
+        <div class="agent-slide"><strong>⭐ modlens</strong> — the most-starred vision plugin (★939): <code>dsh plugin add modlens</code> <a href="/plugins/modlens/">→</a></div>
+        <div class="agent-slide"><strong>⭐ dsh-cc-tui</strong> — terminal UI (★586): <code>dsh plugin add github:ccch1mneyyy/dsh-cc-tui</code> <a href="/plugins/dsh-cc-tui/">→</a></div>
+      </div>
+    </div>
   </section>
   <section class="info wrap">
     <p class="stats-line">Tested on dsh 0.1.0-rc.6 — every card shows the verified status and exact install command. GitHub-source plugins install with <code>dsh plugin add github:owner/repo</code>.</p>
@@ -56,7 +64,7 @@ const statusClass = {
           <a class="tp-item" href={`/plugins/${t.name}/`}>
             <span class="tp-rank">{i + 1}</span>
             <span class="tp-name">{t.name}</span>
-            <span class="tp-stars">★{t.stars ?? 0}</span>
+            <span class="tp-stars" data-stars-name={t.name}>★{t.stars ?? 0}</span>
           </a>
         ))}
       </div>
@@ -145,12 +153,29 @@ const statusClass = {
   .st-warn .dot { background: #d4a72c; }
   .legend .badge { color: var(--ink-2); }
   .stats-line { font-size: 14px; color: var(--ink-2); margin: 18px 0 0; text-align: center; }
-  .agent-box { font-size: 13.5px; color: var(--ink-2); background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 12px 16px; margin: 14px 0 0; }
+  .agent-box { font-size: 13.5px; color: var(--ink-2); background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 12px 16px; margin: 14px 0 0; overflow: hidden; }
+  .agent-slides { position: relative; }
+  .agent-slide { display: none; }
+  .agent-slide.is-active { display: block; animation: fadeIn .4s; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
   .c-ok { color: #1a7f37; }
   .c-warn { color: #9a6700; }
 </style>
 
 <script>
+  // Carousel for the agent-box recommendations
+  (() => {
+    const slides = document.querySelectorAll('.agent-slide');
+    if (slides.length < 2) return;
+    let i = 0;
+    slides[0].classList.add('is-active');
+    setInterval(() => {
+      slides[i].classList.remove('is-active');
+      i = (i + 1) % slides.length;
+      slides[i].classList.add('is-active');
+    }, 3500);
+  })();
+
   const buttons = document.querySelectorAll('.fbtn');
   const cards = document.querySelectorAll('.pcard');
   const heads = document.querySelectorAll('.cat-head');

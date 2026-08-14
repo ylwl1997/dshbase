@@ -54,7 +54,15 @@ const statusClass = {
     <h1>DeepSeek Harness <span class="accent">插件生态</span></h1>
     <p class="lede">来自 <a href="https://github.com/awesome-dsh-plugin/awesome-dsh-plugin" target="_blank" rel="noopener">awesome-dsh-plugin</a> 精选列表——{catOrder.length} 大类、{total} 个插件。每张卡片直接标注插件是否<strong>已发布到 npm</strong>、<strong>实测结果</strong>和<strong>安装命令</strong>，不用点进仓库再确认。</p>
     <p style="margin-top:14px"><a class="btn btn-primary" href="https://github.com/ylwl1997/dshbase/issues/new?template=plugin-submission.yml" target="_blank" rel="noopener">提交你的插件 &rarr;</a> <a class="btn btn-ghost" href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">官方社区 &rarr;</a></p>
-    <p class="agent-box">🤖 <strong>给 Agent 接入：</strong>让 DeepSeek Harness 自己查这个目录——<code>dsh plugin add dshbase-catalog</code>，然后让 agent「搜个 memory 插件」。机器可读目录：<a href="/api/plugins.json">/api/plugins.json</a>。</p>
+    <div class="agent-box">
+      <div class="agent-slides">
+        <div class="agent-slide"><strong>🤖 dshbase-catalog</strong> — 让 agent 自己查目录：<code>dsh plugin add dshbase-catalog</code> <a href="/zh/plugins/dshbase-catalog/">→</a></div>
+        <div class="agent-slide"><strong>🌐 dsh-browser-bsk</strong> — 浏览器自动化：<code>dsh plugin add dsh-browser-bsk</code> <a href="/zh/plugins/dsh-browser-bsk/">→</a></div>
+        <div class="agent-slide"><strong>🧹 noatmark-dsh-plugin</strong> — 文本卫生工具：<code>dsh plugin add noatmark-dsh-plugin</code> <a href="/zh/plugins/noatmark-dsh-plugin/">→</a></div>
+        <div class="agent-slide"><strong>⭐ modlens</strong> — 最热门的视觉插件（★939）：<code>dsh plugin add modlens</code> <a href="/zh/plugins/modlens/">→</a></div>
+        <div class="agent-slide"><strong>⭐ dsh-cc-tui</strong> — 终端 UI（★586）：<code>dsh plugin add github:ccch1mneyyy/dsh-cc-tui</code> <a href="/zh/plugins/dsh-cc-tui/">→</a></div>
+      </div>
+    </div>
   </section>
   <section class="info wrap">
     <p class="stats-line">实测于 dsh 0.1.0-rc.6——每张卡片标注实测状态与安装命令。GitHub 源码插件用 <code>dsh plugin add github:owner/repo</code> 安装。</p>
@@ -65,7 +73,7 @@ const statusClass = {
           <a class="tp-item" href={`/zh/plugins/${t.name}/`}>
             <span class="tp-rank">{i + 1}</span>
             <span class="tp-name">{t.name}</span>
-            <span class="tp-stars">★{t.stars ?? 0}</span>
+            <span class="tp-stars" data-stars-name={t.name}>★{t.stars ?? 0}</span>
           </a>
         ))}
       </div>
@@ -155,12 +163,29 @@ const statusClass = {
   .st-warn .dot { background: #d4a72c; }
   .legend .badge { color: var(--ink-2); }
   .stats-line { font-size: 14px; color: var(--ink-2); margin: 18px 0 0; text-align: center; }
-  .agent-box { font-size: 13.5px; color: var(--ink-2); background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 12px 16px; margin: 14px 0 0; }
+  .agent-box { font-size: 13.5px; color: var(--ink-2); background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 12px 16px; margin: 14px 0 0; overflow: hidden; }
+  .agent-slides { position: relative; }
+  .agent-slide { display: none; }
+  .agent-slide.is-active { display: block; animation: fadeIn .4s; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
   .c-ok { color: #1a7f37; }
   .c-warn { color: #9a6700; }
 </style>
 
 <script>
+  // 推荐插件轮播
+  (() => {
+    const slides = document.querySelectorAll('.agent-slide');
+    if (slides.length < 2) return;
+    let i = 0;
+    slides[0].classList.add('is-active');
+    setInterval(() => {
+      slides[i].classList.remove('is-active');
+      i = (i + 1) % slides.length;
+      slides[i].classList.add('is-active');
+    }, 3500);
+  })();
+
   const buttons = document.querySelectorAll('.fbtn');
   const cards = document.querySelectorAll('.pcard');
   const heads = document.querySelectorAll('.cat-head');

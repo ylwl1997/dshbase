@@ -85,6 +85,25 @@ const t = {
       pre.style.position = 'relative';
       pre.appendChild(btn);
     });
+
+    // Real-time GitHub stats (stars / forks / issues)
+    (async () => {
+      const els = document.querySelectorAll('[data-stars-name]');
+      if (!els.length) return;
+      try {
+        const res = await fetch('/api/stats');
+        if (!res.ok) return;
+        const stats = await res.json();
+        els.forEach((el) => {
+          const name = el.getAttribute('data-stars-name');
+          const kind = el.getAttribute('data-stats-kind') || 'stars';
+          const v = stats[name];
+          if (v && v[kind] !== undefined) {
+            el.textContent = v[kind] >= 1000 ? (v[kind] / 1000).toFixed(1) + 'k' : String(v[kind]);
+          }
+        });
+      } catch (e) { /* keep static fallback */ }
+    })();
   </script>
 </body>
 </html>
