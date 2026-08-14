@@ -371,7 +371,7 @@
    "ver": "0.3.11",
    "npm": true,
    "test": "ok",
-   "desc": ""
+   "desc": "One shell tool for PowerShell / Git Bash / WSL on Windows plus an interactive PTY terminal."
   },
   {
    "name": "dsh-vision-toolkit",
@@ -569,7 +569,7 @@
    "ver": "0.1.0",
    "npm": true,
    "test": "ok",
-   "desc": "dsh-scholar"
+   "desc": "Academic assistant plugin — search and summarize research papers from arXiv, OpenAlex and PDF files."
   },
   {
    "name": "dsh-apple-mode",

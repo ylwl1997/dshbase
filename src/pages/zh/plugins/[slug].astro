@@ -10,7 +10,9 @@ export function getStaticPaths() {
 }
 
 const { cat, p } = Astro.props;
+const catId = cat.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 const dirUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const catUrl = `${dirUrl}#${catId}`;
 const repo = p.url.replace('https://github.com/', '');
 const npmHome = p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
 const statusLabel = {
@@ -25,20 +27,23 @@ const statusClass = {
   'install-fail': 'st-warn',
   'not-on-npm': 'st-src',
 };
+const desc = p.desc || `${cat} 类别的 DeepSeek Harness 插件。`;
 const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6);
 ---
-<Base title={`${p.name} — DeepSeek Harness 插件安装与实测状态 | dshbase 中文`} description={`${p.desc || p.name} — 安装：${p.npm ? `dsh plugin add ${p.pkg}` : 'npm（源码）'}。状态：${statusLabel[p.test]}。`} currentPath={`/plugins/${p.name}/`}>
+<Base title={`${p.name} — DeepSeek Harness 插件安装与实测状态 | dshbase 中文`} description={`${desc} — 安装：${p.npm ? `dsh plugin add ${p.pkg}` : 'npm（源码）'}。状态：${statusLabel[p.test]}。`} currentPath={`/plugins/${p.name}/`}>
   <section class="hero wrap">
-    <p class="eyebrow"><a href={dirUrl}>插件目录</a> / {cat} / {p.name}</p>
+    <p class="eyebrow"><a href={dirUrl}>插件目录</a> / <a href={catUrl}>{cat}</a> / {p.name}</p>
     <h1>{p.name}</h1>
     <p class="lede">
       <span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span>{' '}
-      <a href={p.url} target="_blank" rel="noopener">{repo}</a>
+      <a href={p.url} target="_blank" rel="noopener">{repo} ↗</a>
     </p>
-    {p.desc && <p>{p.desc}</p>}
+    <p style="margin-top:14px"><a class="btn btn-ghost btn-sm" href={dirUrl}>&larr; 返回插件目录</a></p>
   </section>
 
   <section class="info wrap">
+    <h2>功能简介</h2>
+    <p class="what-it-does">{desc}</p>
     {p.npm && p.pkg ? (
       <Fragment>
         <h2>安装</h2>
@@ -85,4 +90,5 @@ const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6
   .st-ok { color: #1a7f37; border-color: #b7e0c0; background: #f0fff4; }
   .st-src { color: var(--ink-2); background: #f7f8fa; }
   .st-warn { color: #9a6700; border-color: #e5c27a; background: #fff8e6; }
+  .what-it-does { font-size: 15px; line-height: 1.7; color: var(--ink); background: var(--bg-soft, #f7f8fc); border-left: 3px solid var(--primary); padding: 14px 16px; border-radius: 8px; }
 </style>

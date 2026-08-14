@@ -44,44 +44,59 @@ const statusClass = {
       <span class="badge">⭐ 精选</span>
     </div>
     <p class="stats-line">npm 上现可安装：<strong>17</strong> 个——<strong class="c-ok">10 个已验证</strong> ✅ · <strong class="c-warn">4 个需 Web/TUI 界面</strong> · <strong class="c-warn">3 个安装异常</strong>（依赖未发布）。其余 <strong>105</strong> 个为 GitHub 源码。</p>
-    {catOrder.map((cat) => (
+    <div class="cat-nav">
+      {catOrder.map((cat) => (
+        <a class="chip" href={`#${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>{catLabels[cat] || cat}</a>
+      ))}
+    </div>
+    {catOrder.map((cat) => {
+      const catId = cat.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+      return (
       <Fragment>
-        <h3 style="margin-top:26px">{catLabels[cat] || cat} <span class="muted" style="font-size:13px;font-weight:400">({plugins[cat].length})</span></h3>
+        <h3 id={catId} style="margin-top:26px">{catLabels[cat] || cat} <span class="muted" style="font-size:13px;font-weight:400">({plugins[cat].length})</span></h3>
         <div class="grid3">
           {plugins[cat].map((p) => {
             const r = repo(p.url);
             return (
-              <div class="card pcard">
+              <a class="card pcard" href={`/zh/plugins/${p.name}/`}>
                 <div class="pcard-head">
-                  <a class="pcard-name" href={`/zh/plugins/${p.name}/`}>{p.name}{featured.has(r) ? ' ⭐' : ''}</a>
+                  <span class="pcard-name">{p.name}{featured.has(r) ? ' ⭐' : ''}</span>
                   <span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span>
                 </div>
-                <p class="pcard-repo"><a href={p.url} target="_blank" rel="noopener">{r}</a></p>
+                <p class="pcard-repo">{r}</p>
                 {p.desc && <p class="pcard-desc">{p.desc}</p>}
                 <div class="pcard-install">
                   {p.npm && p.pkg ? (
                     <pre class="code-block install-chip"><code>dsh plugin add {p.pkg}</code></pre>
                   ) : (
-                    <span class="muted small">未发布到 npm——从<a href={p.url} target="_blank" rel="noopener">源码</a>构建</span>
+                    <span class="muted small">GitHub 源码</span>
                   )}
+                  <span class="view-link">查看详情 &rarr;</span>
                 </div>
-              </div>
+              </a>
             );
           })}
         </div>
       </Fragment>
+      );
+    })}
     ))}
   </section>
 </Base>
 
 <style>
-  .pcard { display: flex; flex-direction: column; gap: 8px; }
+  .pcard { display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: inherit; }
+  .pcard:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-md, 0 8px 24px rgba(0,0,0,.08)); }
   .pcard-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
-  .pcard-name { font-weight: 700; font-size: 15px; color: var(--ink); text-decoration: none; }
-  .pcard-name:hover { color: var(--primary); }
+  .pcard-name { font-weight: 700; font-size: 15px; color: var(--ink); }
   .pcard-repo { font-size: 12px; color: var(--ink-3); font-family: var(--mono, monospace); }
   .pcard-desc { font-size: 13px; color: var(--ink-2); margin: 0; line-height: 1.55; }
-  .pcard-install { margin-top: auto; }
+  .pcard-install { margin-top: auto; display: flex; flex-direction: column; gap: 6px; }
+  .view-link { font-size: 13px; font-weight: 600; color: var(--primary); }
+  .pcard:hover .view-link { text-decoration: underline; }
+  .cat-nav { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 18px 0 4px; }
+  .chip { font-size: 12.5px; color: var(--ink-2); border: 1px solid var(--border); border-radius: 999px; padding: 5px 13px; text-decoration: none; background: #fff; }
+  .chip:hover { color: var(--primary); border-color: var(--primary); }
   .install-chip { margin: 0; font-size: 12px; padding: 6px 10px; }
   .badge { font-size: 11px; padding: 3px 9px; white-space: nowrap; }
   .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; }
