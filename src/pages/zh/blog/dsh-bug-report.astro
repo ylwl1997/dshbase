@@ -1,0 +1,99 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const troubleshootingUrl = getRelativeLocaleUrl('zh', '/troubleshooting/');
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+---
+<BlogPost title="DeepSeek Harness 社区 Bug 报告全景 — 321 个讨论、8 大类问题 | dshbase 中文" description="读完 deepseek-ai/deepseek-harness 官方仓全部 321 个 Bug/问题讨论，归成 8 大类：Windows 路径、安装启动、Web UI、会话损坏、模型 API、插件、子代理、沙箱安全——每条附真实讨论编号与 dshbase 应对方案。" currentPath="/blog/dsh-bug-report/" category="分析">
+  <h1>DeepSeek Harness 社区 <span class="accent">Bug 报告全景</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+
+  <p>DeepSeek Harness（dsh）上线以来，官方仓库里已经积累了 <strong>321 个 Bug / 问题讨论</strong>。我们通读了全部讨论，并拉取了其中最有代表性帖子的完整详情。结果是一张清晰的「社区到底在踩什么坑」的全景图——以及 dshbase 能帮上什么。下面按八个大类展开。</p>
+
+  <h2>1. Windows 平台与路径 —— 最大的一坨</h2>
+  <p>超过三分之一的 Bug 是 Windows 专属，其中最高频的是路径处理。原生文件夹选择器读 UTF-16 路径时判断错终止符，会在任何低字节为 <code>0x00</code> 的汉字（开 / 一 / 言 / 上 / 下 / 耀…）处<strong>静默截断</strong>——目录明明存在，创建工作区却报 <code>ENOENT</code>。</p>
+  <ul>
+    <li><strong>#953</strong> —— Windows 原生文件夹对话框把含 U+XX00 汉字（开/一/上/下…）的路径静默截断（UTF-16 终止判定只看低字节）</li>
+    <li><strong>#151 / #210</strong> —— 同样的截断发生在 言（U+8A00）/ 耀（U+8000）处 → <code>workspace-invalid-path</code> / ENOENT</li>
+    <li><strong>#1420</strong> —— <code>dsh plugin add</code> 含空格的路径参数在 Windows 上被拆成两段（<code>shell: true</code> 不转义）</li>
+    <li><strong>#1268</strong> —— 选盘符根目录（C:\ / D:\）当工作区时无法创建会话（<code>fs.mkdir</code> EPERM）</li>
+    <li><strong>#997 / #986</strong> —— Windows 沙箱 shell 无法建立任何 TLS/HTTPS 连接（SEC_E_NO_CREDENTIALS）</li>
+  </ul>
+  <p><strong>dshbase 怎么看</strong>：这些是上游 Bug，不是配置问题。shell 这块的临时补位，<code>dsh-bash-terminal</code>（见<a href={directoryUrl}>插件目录</a>）给 Windows 用户一个统一的 PowerShell / Git Bash / WSL shell 工具，带真 PTY 终端。其余问题持续跟踪上游修复，规避方案都在<a href={troubleshootingUrl}>排错页</a>。</p>
+
+  <h2>2. 安装与启动</h2>
+  <p>新装是每个新用户的第一步，也是 dsh 最「显形」翻车的地方。根因通常是某个原生依赖（node-pty、sharp）或某个没发布的 cordis 包，于是安装「成功」、首次运行才崩。</p>
+  <ul>
+    <li><strong>#1219</strong> —— npm 全局安装后 <code>dsh web</code> 启动失败：node-pty 原生模块 <code>pty.node</code> 缺失（Linux）</li>
+    <li><strong>#55</strong> —— <code>pnpm add -g</code> 后 dsh 无法启动：找不到 <code>@deepseek-ai/cordis-plugin-timer</code></li>
+    <li><strong>#223</strong> —— cordis 声明了循环 peer 依赖，严格解析器（mise/aube）直接拒绝安装</li>
+    <li><strong>#113</strong> —— macOS arm64：<code>--expose-internals is required for HMR service</code>（npx/bunx 入口起不来）</li>
+    <li><strong>#535 / #1032</strong> —— 干净环境 <code>npx @deepseek-ai/dsh web</code> 必崩（sharp / node-pty / cordis-plugin-group）</li>
+  </ul>
+  <p>这些大多有「一行命令」的规避，我们已把实测过的全部收进<a href={troubleshootingUrl}>排错页</a>：ERR_REQUIRE_ESM、缺失原生模块、allowBuilds 弹窗、3080 端口被占等。</p>
+
+  <h2>3. Web UI 与前端</h2>
+  <p>Web UI 是主界面，它有两类高频故障：回环 / Origin 信任校验返回 403，以及长思考会话把页面卡死。</p>
+  <ul>
+    <li><strong>#910 / #894 / #654</strong> —— 通过 <code>http://127.0.0.1:3080</code> 访问时每个 <code>/api</code> 都 403（Chrome 的 Origin 头省略了端口）；换 <code>localhost</code> 正常</li>
+    <li><strong>#980 / #514</strong> —— 纯 HTTP 局域网/VPN 访问时 <code>crypto.randomUUID is not a function</code>（安全上下文专属 API）</li>
+    <li><strong>#1417 / #629</strong> —— 输入框无法正常使用中文输入法预编辑（<code>color: transparent</code> 的 textarea 镜像层问题）</li>
+    <li><strong>#317 / #370</strong> —— 思考输出过长把页面卡死，刷新后历史加载失败（<code>Maximum call stack size exceeded</code>）</li>
+    <li><strong>#682 / #1316</strong> —— 无限失败的工具调用循环 / 后台会话高速输出拖垮浏览器</li>
+  </ul>
+  <p>如果界面「看起来坏了」，最快的两招和排错页写的一致：用 <code>localhost:3080</code> 而非 <code>127.0.0.1</code>，以及尽早对长会话做 compact。详见<a href={troubleshootingUrl}>排错页</a>。</p>
+
+  <h2>4. 会话与历史</h2>
+  <p>无损会话日志是 dsh 最大的卖点，也是它最脆的环节——一个重复的 <code>seq</code> 或一段截断的 block，就能让整个会话加载失败，而界面几乎不给任何提示。</p>
+  <ul>
+    <li><strong>#1333</strong> —— seq 序号重复导致「对话加载失败」</li>
+    <li><strong>#1244</strong> —— 达到最大输出长度后会话被永久写坏（后续每轮都报「invalid pi-ai replay state」）</li>
+    <li><strong>#548 / #1047</strong> —— 历史加载失败 / 单个日志损坏让整个侧边栏会话列表消失</li>
+    <li><strong>#1005</strong> —— 会话恢复失败（「agent-presets: refusing to compose…」）</li>
+    <li><strong>#40</strong> —— 归档后的会话无法查看、无法恢复</li>
+  </ul>
+  <p>这块的补位靠社区插件：<code>dsh-turn-rewind</code> 用变更账本回退对话与工作区状态，<code>dsh-memory</code>、<code>dsh-mnemon</code> 等记忆插件在不改动会话日志的前提下叠加记忆。都在<a href={directoryUrl}>插件目录</a>里。</p>
+
+  <h2>5. 模型与 API 对接</h2>
+  <p>DeepSeek 自家的模型是一等公民；第三方模型和自建网关才是重灾区。反复出现的是 <code>reasoning_content</code> 和视觉模态在往返过程中丢失。</p>
+  <ul>
+    <li><strong>#906 / #739 / #231</strong> —— 思考模式报「The <code>reasoning_content</code> in the thinking mode must be passed back to the API」（INVALID_REQUEST / 400）</li>
+    <li><strong>#636 / #122</strong> —— 第三方模型无法选择思考强度（reasoning intensity）</li>
+    <li><strong>#1029 / #112</strong> —— 有视觉能力的第三方模型（gpt-5.4、kimi、o1/o3/o4、grok）无法上传图片</li>
+    <li><strong>#892</strong> —— 429 限流在 <code>Retry-After</code> 超过默认 10s <code>maxDelay</code> 时不自动恢复</li>
+    <li><strong>#408</strong> —— <code>web_search</code> 写死官方端点，自配网关用户搜索必现认证失败</li>
+  </ul>
+  <p>对「看不到图」的纯文本模型，dshbase 推荐视觉桥插件——<code>modlens</code>（OCR/布局 JSON）和 <code>dsh-vision-toolkit</code>（图片问答、长截图 OCR），外加 <code>dsh-drop-to-path</code> 保留拖拽体验。模型凭据类报错（MISSING_CREDENTIAL、UNKNOWN_MODEL、「get models」401）全在<a href={troubleshootingUrl}>排错页</a>。</p>
+
+  <h2>6. 插件系统</h2>
+  <p>插件是 dsh 最大的差异化卖点，但安装链路还很脆：一个坏插件能让整个 Web UI 起不来，安装还可能「报成功」却什么都没做。</p>
+  <ul>
+    <li><strong>#1106</strong> —— web 启动时「Failed to load plugins」；一个 pending 的插件条目卡死启动，没有回退</li>
+    <li><strong>#1377</strong> —— 插件安装报成功，却静默禁用了无法解析的 profile bundle</li>
+    <li><strong>#1140</strong> —— Windows 上绝对路径插件无法加载（把官方工具教程都卡住了）</li>
+    <li><strong>#297 / #840</strong> —— 装了个坏插件（比如函数 schema 非法）直接把整个 harness 搞崩</li>
+  </ul>
+  <p>这正是<a href={directoryUrl}>插件目录</a>里每条都标注「实测状态」的原因——install-fail、load-fail 在跑命令前就标出来了。「装坏插件起不来」的场景，加载类报错（ERR_REQUIRE_ESM、缺 bundle manifest、allowBuilds）在排错页都有写。</p>
+
+  <h2>7. 子代理与多 agent</h2>
+  <p>子代理是 dsh 多 agent 故事里毛边最多的地方：后台静默失败、切不了模型、UI 里留下僵尸条目。</p>
+  <ul>
+    <li><strong>#1136</strong> —— 子代理（subagent / subagent_fork）在后台运行时全部 silent-fail（认证状态未继承）</li>
+    <li><strong>#1100 / #1105</strong> —— 子代理无法切换模型；workflow 的 <code>model</code> 覆盖被父 agent 的模型覆盖</li>
+    <li><strong>#1202 / #476</strong> —— 失败的子代理在 UI 里一直显示「运行中」，且无法清除</li>
+    <li><strong>#1259</strong> —— 主 agent 派给子代理的任务完成后，拿不到后台返回的消息</li>
+  </ul>
+  <p>重度用多 agent 的团队，<code>dsh_workflow</code> 和 <code>DSH-better-sidebar</code>（都在<a href={directoryUrl}>目录</a>里）在原始子代理原语之上加了可治理的 workflow 层和子代理工作台。</p>
+
+  <h2>8. 权限、沙箱与安全</h2>
+  <p>最后一类是「最尖锐」的：权限 / 沙箱模型有多处被报告「边界比宣传的更弱」。</p>
+  <ul>
+    <li><strong>#201 / #1201 / #1141</strong> —— 反复刷「sandbox escalation to workspace-write is not strictly wider than danger-full-access」，哪怕会话已经是 full-access</li>
+    <li><strong>#250</strong> —— 沙箱内的模型可通过 Web approval 回环通道自批准 <code>danger-full-access</code></li>
+    <li><strong>#962</strong> —— 凭据对代理自身不构成保密边界：API key 可被读取并外传</li>
+    <li><strong>#951</strong> —— glob/grep 工具完全绕过沙箱（<code>path</code> 参数没有任何策略约束）</li>
+  </ul>
+  <p>这些涉及安全，多数需要上游修复。过渡期如果想让 agent「干什么你都知道」，<code>dsh-tool-approval</code> 提供逐步骤手动审批，替代粗粒度的预设——见<a href={directoryUrl}>目录</a>与<a href={troubleshootingUrl}>排错页</a>。</p>
+
+  <p>321 个 Bug 报告看着多，但换个角度看，也是一个项目活跃、迭代快的信号——绝大多数高票问题都已经附带社区给出的根因分析和补丁建议。共通的主线是：dsh 当前最大的短板在 Windows 路径处理、安装鲁棒性、会话日志韧性这三块。dshbase 会持续跟踪，并在上游修复落地前更新规避方案和插件替代品。还有问题？来<a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">官方社区</a>提问。</p>
+</BlogPost>

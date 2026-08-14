@@ -1,0 +1,99 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+---
+<BlogPost title="DeepSeek Harness 插件生态全景：209 个社区插件 | dshbase 中文" description="盘点官方 deepseek-harness 仓库里 209 个「Show and tell」社区插件分享——记忆、工具、工作流、消息接入、视觉、安全与整活文化，归为 10 大类并列出每类最有代表性的社区插件。" currentPath="/blog/dsh-plugin-ecosystem/" category="分析">
+  <h1>DeepSeek Harness 插件生态<span class="accent">全景</span>：209 个社区插件</h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+
+  <p>DeepSeek Harness（<code>dsh</code>）公测后的头几周，官方仓库的 <em>Show and tell</em>（展示与分享）分类直接变成了消防水龙头——<strong>209 个帖子</strong>还在涨，绝大多数都在发布一个能跑的插件。因为 dsh 是「一切皆插件」（Agent 循环、工具、沙箱、UI 本身都是 Cordis 内核之上的插件），社区不是在固定产品外面挂扩展，而是在给产品长器官。我们通读了全部 209 个帖子，抽出其中最有代表性的 36 个拉取了详情，归成下面<strong>十大类</strong>。完整、实测过的清单在<a href={directoryUrl}>插件目录</a>里。</p>
+
+  <h2>1. 界面与主题</h2>
+  <p>Web GUI 本身就是一个插件面，所以社区的第一波活儿是外观和导航——多半是纯客户端插件，不动宿主，删一行就能卸载。</p>
+  <ul>
+    <li><strong>dsh-bg-image</strong>——整页背景壁纸，侧边栏和聊天区半透明磨砂，自动适配明暗主题。</li>
+    <li><strong>dsh-width-tiers</strong>——对话区五个宽度档位（标准 / 中等 / 宽 / 超宽 / 全宽），输入框上方一个悬浮按钮切换。</li>
+    <li><strong>dsh-turn-index</strong>——右侧「目录式」导航，给每一轮提问建一条索引，点击即跳转并高亮。</li>
+    <li><strong>dsh-milestone</strong>——圆点时间轴导航，带站内搜索、悬停预览、一键跳转到任意提问。</li>
+  </ul>
+
+  <h2>2. 会话与记忆</h2>
+  <p>dsh 自带会话级记忆（只追加事件日志 + AGENTS.md 指令）。社区挤得最凶的赛道，就是补上官方留白的那块——跨会话的记忆。</p>
+  <ul>
+    <li><strong>dsh-mnemosyne</strong>——一个跨会话长期记忆「seam」：会话 A 里记住的事实，能在会话 B 里通过 <code>memory_remember</code> / <code>memory_recall</code> 召回。</li>
+    <li><strong>dsh-memory</strong>——零依赖的 JSON 记忆，同一错误重复两次就固化成「教训」自动注入。</li>
+    <li><strong>dsh-hindsight-memory</strong>——基于 PostgreSQL + pgvector 的语义记忆，每步执行前自动召回相关记忆。</li>
+    <li><strong>dsh-llmwiki</strong>——本地 Markdown 知识库（兼容 Obsidian）当长期记忆，配 <code>memory_search</code> / <code>memory_save</code> 工具。</li>
+  </ul>
+
+  <h2>3. 工具与能力</h2>
+  <p>记忆赛道已经卷满，但工具这边还有真真空——作者们飞快地通过 <code>ctx.tools</code> 注册面向模型的工具来填坑。</p>
+  <ul>
+    <li><strong>dsh-tool-git</strong>——结构化、安全的 git 操作（<code>git_status</code> / <code>git_diff</code> / <code>git_commit</code>），替代手敲 bash；<code>repoRoot</code> 被固定，<code>git_add</code> 默认封禁 <code>"."</code>。</li>
+    <li><strong>dsh-email</strong>——六个邮件工具（列表 / 读信 / 搜索 / 带审批门的发信、文件夹、附件）+ Web 设置页。</li>
+    <li><strong>dsh-tool-somark</strong>——把 PDF、图片、Word、PPT 解析成保留结构的 Markdown，附页数 / token 统计。</li>
+    <li><strong>@tonydua/dsh-web-search-exa</strong>——零配置 Exa 网页搜索：没 key 走匿名 MCP 兜底，配了 key 自动切 REST。</li>
+  </ul>
+
+  <h2>4. 工作流与自动化</h2>
+  <p>从「聊天机器人」升格成「harness」的关键一步，是让 Agent 按计划、并行、无需你盯着地干活。好几个插件正是在推这条边界。</p>
+  <ul>
+    <li><strong>dsh-delayed-task</strong>——持久化延时任务：Agent 真的会在约定时间回来，哪怕你已经关掉页面，也能重新评估证据。</li>
+    <li><strong>dsh-polling</strong>——cron 定时任务，自然语言一句话创建，Web 卡片管理（日报、盯文件夹、跑脚本）。</li>
+    <li><strong>dsh-taskswarm</strong>——波次式多智能体编排：监督者按依赖规划波次，工人在 git worktree 隔离的车道里并行，最后由 reviewer 把关合并。</li>
+    <li><strong>dsh-messager</strong>——任务状态通知：系统通知、浏览器通知、飞书 webhook 三条通道，语义与 UI 状态圆点对齐。</li>
+  </ul>
+
+  <h2>5. 消息接入与平台</h2>
+  <p>很多人不想整天坐在浏览器里。这一类的核心，是把 dsh 带到你本来就在的地方——聊天软件、你真实的浏览器、你的编辑器，或者一个原生桌面壳。</p>
+  <ul>
+    <li><strong>dsh-adapter-feishu</strong>——让 Agent 直接在飞书里收发消息，WebSocket 长连接，无需公网 IP / 内网穿透。</li>
+    <li><strong>dsh-feishu-bridge</strong>——一个 fail-closed 的飞书 / Lark 通道，在自己边界上验签、防重放（顺手发现并上报了上游 SDK 的验签漏洞）。</li>
+    <li><strong>dsh-browser</strong>——Chrome 侧边栏扩展，让 dsh 读、点、填、导航你真实的浏览器，同时保住登录态。</li>
+    <li><strong>DeepSeek-Harness-for-VS-Code</strong>——VS Code 客户端：会话变成编辑器标签页、实时统计、与 Web 端双向同步。</li>
+  </ul>
+
+  <h2>6. 开发与可观测</h2>
+  <p>一个 harness 越是被无人值守地跑，你就越需要看清它内部——成本、轨迹、诊断。一个完整的子生态围绕这件事长了出来。</p>
+  <ul>
+    <li><strong>dsh-doctor-windows</strong>——一条 <code>/doctor-windows</code> 命令，一键诊断 Windows 下的 Node、PowerShell、Koffi、代理与 UTF-16 路径坑。</li>
+    <li><strong>dsh-plugin-langfuse</strong>——把每个会话导出成 Langfuse 里的 OpenTelemetry trace 树（轮次、generation、工具 span、token）。</li>
+    <li><strong>dsh-usage</strong>——Token 用量、费用估算，外加一张 GitHub 风格的 52 周用量热力图。</li>
+    <li><strong>dsh-eval-regression</strong>——确定性的黄金输出评估器（必含 / 禁止片段 + 0..1 打分），作为一道透明的门禁。</li>
+  </ul>
+
+  <h2>7. 视觉与多模态</h2>
+  <p>DeepSeek 的纯文本模型天生看不了图——于是社区给它们装上眼睛，也装上了生成图片和视频的手，大多是委托给 OpenAI 兼容的视觉端点。</p>
+  <ul>
+    <li><strong>dsh-vision</strong>——一个 <code>vision</code> 工具，通过任意 OpenAI 兼容视觉 API 给纯文本模型描述图片。</li>
+    <li><strong>dsh-imagecraft</strong>——<code>image_gen</code> 和 <code>image_vision</code> 两个工具，直接用你已有的 ChatGPT 订阅，无需 API key。</li>
+    <li><strong>dsh-nanobananapro</strong> / <strong>dsh-seedance2</strong>——API 驱动的图片与视频生成，带任务轮询与余额查询。</li>
+  </ul>
+
+  <h2>8. 安全与治理</h2>
+  <p>一个能跑工具的 Agent，就是一个可能闯祸的 Agent。一小撮很认真的插件，把沙箱、授权和可审计性当成了一等公民问题。</p>
+  <ul>
+    <li><strong>DSH Trust Layer</strong>——四个隐私最小化的可观测插件：遥测脱敏、逐轮验证收据、哈希链证据收据、带标注的上下文溯源。</li>
+    <li><strong>dsh-tool-underseal</strong>——哈希密封的 Agent 委派授权：工人必须先签到才能解锁写工具，授权不再藏在会被改写的聊天文本里。</li>
+    <li><strong>dsh-quota-limits</strong>——把 OpenAI / Anthropic / Google 的订阅配额模拟到 DeepSeek 调用上，超配额就返回合成 429。</li>
+  </ul>
+
+  <h2>9. 模型与供应商</h2>
+  <p>dsh 的模型层天生与供应商无关，社区把它拉伸到了任何你已经付了钱的后端。</p>
+  <ul>
+    <li><strong>dsh-codex-connect</strong>——ChatGPT OAuth 登录，把 OpenAI Codex 模型放进正常的模型选择器，增量安装。</li>
+    <li><strong>dsh-llm-auto-route</strong>——从环境变量 / Base URL / 模型名自动识别供应商并路由，带健康检查和首输出前的失败切换。</li>
+    <li><strong>deepseek-harness-huggingface</strong>——只读的 Hugging Face Hub 模型搜索工具（<code>hf_search_models</code>），无需 token。</li>
+  </ul>
+
+  <h2>10. 趣味与文化</h2>
+  <p>既然一切皆插件，那一切也皆可整活。发布后 24 小时内，社区就把界面换成了 QQ2006、嵌进了 2005 年的假门户广告、还养了一只桌宠。这是插件面最硬核的证明：大家真的把它当成一张白画布在使。</p>
+  <ul>
+    <li><strong>dsh-deepseek-girl-pet</strong>——一只会读会话状态、并用 16 个方向追着你鼠标看的桌宠。</li>
+    <li><strong>DSH Meme Hub</strong>——一份带实拍截图的整活导航，收录 28 个社区「整活」项目，从假广告到皮肤到小游戏。</li>
+  </ul>
+
+  <h2>一条贯穿的主线</h2>
+  <p>十大类，但只有一个模式：没人等路线图。记忆大战、飞书桥、Codex 连接器、视觉 sidecar——它们全都出现，是因为内核让「给产品长一个新器官」这件事变成了一行命令（<code>dsh plugin add …</code>）。这才是 209 个帖子真正的故事：不是「有插件」，而是「一张白纸架构能多快被占领」。如果你想要的是被策展、实测过的那个子集，而不是消防水龙头，就从<a href={directoryUrl}>插件目录</a>开始——每张卡都标了实测状态和确切的安装命令。</p>
+</BlogPost>

@@ -1,0 +1,105 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+---
+<BlogPost title="DeepSeek Harness 社区最想要的 10 个功能（297 条 Ideas 排行）| dshbase 中文" description="我们读完了 deepseek-ai/deepseek-harness 仓库里全部 297 条 [Ideas] 讨论，并用 GitHub GraphQL API 拉取了评论最多的需求详情。这里是社区反复提出的 10 大功能类别，附真实讨论标题与每项现状。" currentPath="/blog/dsh-feature-requests/" category="分析">
+  <h1>DeepSeek Harness 社区最想要的 <span class="accent">10 个功能</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+
+  <p>DeepSeek Harness 于 2026 年 8 月 13 日发布，GitHub 仓库立刻被一个专门的 <code>[Ideas]</code> 讨论分类填满——<strong>297 个帖子，且还在增长</strong>。我们没有凭感觉扫一遍，而是读完了全部 297 个标题，再用 GitHub GraphQL API 拉取了评论数最高的讨论详情，看哪些需求真正有群众基础。下面按热度大致排序，列出社区反复提出的十个类别，附真实讨论标题与每项现状。</p>
+
+  <h2>1. 桌面端</h2>
+  <p>呼声最高、最反复出现的一句话是：别让我再开终端了。用户想要双击即用的 exe、系统托盘图标，以及一个能直接启动 <code>dsh web</code> 的桌面快捷方式，而不用记命令。</p>
+  <ul>
+    <li><strong>#576 windows下边桌面给个快捷方式吧</strong>（14 评论）——"deepseek harness 对普通人实在是太难了… 给桌面派个快捷起动命令吧。"</li>
+    <li><strong>#767 可以搞一个harness的桌面应用程序</strong>（4 评论）——详细论证 Electron vs Tauri vs .NET+WebView2、端口处理与托盘集成。</li>
+    <li><strong>#1021 deepseek-harness要是桌面端就好了</strong>（5 评论）</li>
+  </ul>
+  <p><strong>现状：</strong>官方尚未发布桌面端。社区已经做出了封装——#767 里点名了 <code>dsh-desktop</code> 和 <code>Oh-DSH-Desktop</code>，都是在官方 <code>dsh web</code> 服务外面套 Electron 壳。这个需求长期霸榜，官方版本迟早会来。</p>
+
+  <h2>2. 独立 CLI / TUI</h2>
+  <p>镜像的另一面：习惯终端的人嫌 Web UI 太重，想要一个轻量 CLI 或 TUI，能在低配 VPS 上跑起来。</p>
+  <ul>
+    <li><strong>#67 正在全力手搓 cli中</strong>（18 评论）——与 #14 并列评论最多的功能帖："兄弟们手搓完了通知大家… 大家一起共建吧。"</li>
+    <li><strong>#303 能否单独出个cli版</strong>（7 评论）——"gui太吃资源了… 出个低配置小主机适配的tui版。"</li>
+    <li><strong>#126 [Feature Request] TUI &amp; Vim/Neovim Integration</strong>（4 评论）</li>
+  </ul>
+  <p><strong>现状：</strong>官方以 Web 为主，截至 <code>0.1.0-rc.6</code> 没有独立 CLI/TUI。社区不等官方，直接在 #67 手搓——这个动作本身就说明需求有多强。</p>
+
+  <h2>3. 持久化记忆</h2>
+  <p>Agent 每次会话结束就忘光。被点赞最多的单一诉求，是一个跨会话的记忆后端，让新一轮能接上上一轮。</p>
+  <ul>
+    <li><strong>#14 求一个memory能力</strong>（18 评论）——"想要把codex和claude code的memory迁移过来。"</li>
+    <li><strong>#1345 [Feature] Built-in persistent long-term memory</strong>（3 评论）——独立于对话窗口的结构化、可检索存储。</li>
+    <li><strong>#192 dsh-memory：跨会话长期记忆插件</strong>（1 评论）</li>
+  </ul>
+  <p><strong>现状：</strong>官方还没有内置长期记忆。这个缺口正在被社区插件补上——<code>dsh-memory</code> 项目（#192）就是冲着"补上 memory 能力缺口"去的。<a href={directoryUrl}>插件目录</a>里已经收录了多个记忆相关条目。</p>
+
+  <h2>4. 多平台消息接入（Discord / QQ / Telegram…）</h2>
+  <p>另一派想让 DSH 当聊天 App 背后的"大脑"——从 Discord、Telegram、Slack、钉钉或 QQ 触发 Agent，而不是只靠 Web UI。</p>
+  <ul>
+    <li><strong>#1301 多平台消息接入插件需求征集</strong>（0 评论）——明确征集 Discord / QQ / Telegram / Slack / 钉钉 / WhatsApp 插件。</li>
+    <li><strong>#1302 Multi-platform message integration plugins wanted</strong>（0 评论）</li>
+    <li><strong>#266 能不能做成三端协同的agent</strong>（3 评论）——办公电脑 + 云端服务器 + 手机，一个 Agent 打通三端。</li>
+  </ul>
+  <p><strong>现状：</strong>纯需求征集——没有官方集成，也还没有成熟的社区插件。对插件作者来说，这是一片无人占领的空白。</p>
+
+  <h2>5. 会话管理：回撤、编辑、分支、归档</h2>
+  <p>从 Claude Code 过来的重度用户，怀念对对话记录的精细控制——回撤消息、编辑上一轮用户输入、开分支、干净的归档。</p>
+  <ul>
+    <li><strong>#349 [Feat] 支持消息回撤功能</strong>（4 评论）——"双击Esc回撤消息是一个高频操作"，列了三个具体场景。</li>
+    <li><strong>#1348 会话管理：分叉去重、删除入口、归档可见性、清理一致性</strong>（0 评论）</li>
+    <li><strong>#1237 归档会话按钮有歧义，且无法恢复</strong>（1 评论）+ <strong>#1147 session unarchive</strong>（0 评论）</li>
+  </ul>
+  <p><strong>现状：</strong>回撤/回滚还没内置。归档功能虽已存在，但被指出语义含糊、不可恢复（#1237、#1147），整个对话历史的生命周期都还是待补的空白。</p>
+
+  <h2>6. Docker 与局域网/远程部署</h2>
+  <p>团队想要自托管：官方镜像、局域网绑定，以及绕过 <code>403</code> 报错访问非本机地址的路径。</p>
+  <ul>
+    <li><strong>#1271 [Idea] Official Docker image / 容器化部署</strong>（3 评论）——容器里 native 构建要 12 分钟以上。</li>
+    <li><strong>#1132 解决公网/局域网访问 dsh web 403 报错</strong>（5 评论）——附了一个可用的 <code>trustedHosts</code> 补丁。</li>
+    <li><strong>#706 允许绑定内网IP</strong>（3 评论）+ <strong>#954 已适配飞牛nas 安装包</strong>（2 评论）</li>
+  </ul>
+  <p><strong>现状：</strong>官方还没有镜像。社区已经做出了 NAS 安装包（#954）和容器方案（#598），#1132 也把 <code>trustedHosts</code> 的 workaround 写清楚了。远程访问是这里最接近"已解决"的一项——但靠的是补丁，不是官方开关。</p>
+
+  <h2>7. 模型、多 Provider 与计费</h2>
+  <p>DeepSeek 模型是默认，但社区想要更多 Provider 成为一等公民，同时要可预期的价格，以及少一点模态限制。</p>
+  <ul>
+    <li><strong>#208 [Feature Request] Use OpenAI Codex OAuth as a primary LLM provider</strong>（3 评论）——详细到具体文件路径的提案。</li>
+    <li><strong>#520 强烈建议 Harness 也来个 Plus / Pro</strong>（4 评论）——"别让大家边跑 Agent 边心算 API 账单。"</li>
+    <li><strong>#1378 图片上传被模型目录能力硬性拦截</strong>（3 评论）——纯文本模型连"以路径形式"收图片给视觉工具都不行。</li>
+  </ul>
+  <p><strong>现状：</strong><code>pi-ai</code> 已经暴露了很广的 Provider 目录，但 Codex 的 OAuth-only 路线被刻意扣下（#208），订阅套餐还没有（#520），图片上传对纯文本主模型是硬拦截（#1378）——这是视觉工具类插件的一个真实痛点。</p>
+
+  <h2>8. 权限、沙箱与安全</h2>
+  <p>沙箱/审批系统已经存在且有文档，但它的严格带来了摩擦，用户想要更细粒度的控制。</p>
+  <ul>
+    <li><strong>#1292 same-mode sandbox_permissions 建议按 no-op 处理</strong>（3 评论）——冗余的 <code>workspace-write</code> 调用会被直接拒绝。</li>
+    <li><strong>#1398 希望给DSH加一个自动审批命令的功能</strong>（0 评论）</li>
+    <li><strong>#1331 Windows 沙箱 partial 边界… pwsh 缺少强制批准门</strong>（0 评论）+ <strong>#451 vm沙箱逃逸 + 本地 /api 无鉴权</strong>（0 评论）</li>
+  </ul>
+  <p><strong>现状：</strong>目前提权语义是刻意从严的；#1292 是一个论证充分的诉求，主张把同模式请求当成无害元数据而非拒绝。自动审批与 Windows 边界可见性仍未解决。</p>
+
+  <h2>9. 插件生态治理</h2>
+  <p>"一切皆插件"的赌注带来了分发与信任问题，社区正在主动担忧这件事。</p>
+  <ul>
+    <li><strong>#723 官方插件商店</strong>（3 评论）——"过不了几天就要爆出插件投毒事件了。"</li>
+    <li><strong>#1115 建立官方插件市场… 审核奖励机制</strong>（0 评论）</li>
+    <li><strong>#341 [Feat] 建议开放项目 Issues 和 Pull Requests</strong>（8 评论）</li>
+  </ul>
+  <p><strong>现状：</strong>还没有官方市场，而且贡献指南目前写明不接受外部 PR（#208 中引用）——所以社区把一切都塞进 <code>[Ideas]</code> 帖子。策展这件事落在了社区索引上，比如 <a href={directoryUrl}>dshbase 插件目录</a>，每个插件都会先验证安装与许可再收录。</p>
+
+  <h2>10. UI、体验与本地化</h2>
+  <p>长尾的打磨诉求：中文系统提示词、可折叠的工具调用、单轮 token 统计、diff 视图、上手提示。</p>
+  <ul>
+    <li><strong>#320 Agent 预设系统提示词支持中文（i18n）</strong>（5 评论）——英文-only 预设逼着中文模型用英文"思考"。</li>
+    <li><strong>#809 工具调用太多了… 收起来</strong>（4 评论）+ <strong>#735 每轮对话 token 消耗量</strong>（3 评论）</li>
+    <li><strong>#744 显示代码差异</strong>（3 评论）+ <strong>#822 README 补充 pnpm 安装提示</strong>（3 评论）</li>
+  </ul>
+  <p><strong>现状：</strong>系统提示词是英文-only，只有一个复制+翻译的 workaround（#320）；工具调用折叠、单轮 token 显示、diff 渲染都还没做。pnpm 提示是一行文档修复，社区已经写好方案。</p>
+
+  <h2>贯穿始终的两条线</h2>
+  <p>十个类别背后是两条主线。一是<strong>打包与接入</strong>——桌面端、CLI/TUI、Docker、局域网绑定、聊天 App 集成，这里需求最响，因为它关乎能否零摩擦地"进入" DSH。二是<strong>连续性</strong>——记忆、回撤、编辑、归档，因为一个每次会话都失忆的 Agent，浪费的时间最多。</p>
+  <p>几乎每个缺口都已经有社区插件或手搓 workaround，这正是"一切皆插件"架构被设计出来的目的。剩下的问题是官方会先捡起哪一个。盯着仓库的 <code>[Ideas]</code> 看板就行；至于插件形态的缺口，先从 <a href={directoryUrl}>插件目录</a> 起步，能用的方案都已经索引好了。</p>
+</BlogPost>

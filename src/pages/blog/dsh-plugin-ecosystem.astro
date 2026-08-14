@@ -1,0 +1,99 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+---
+<BlogPost title="DeepSeek Harness Plugin Ecosystem: 209 Community Plugins | dshbase" description="A categorized survey of the 209 'Show and tell' plugin posts on the official deepseek-harness repo — memory, tools, workflows, messaging channels, vision, security, and the meme culture, grouped into 10 categories with the most representative community plugins." currentPath="/blog/dsh-plugin-ecosystem/" category="Analysis">
+  <h1>DeepSeek Harness <span class="accent">plugin ecosystem</span>: 209 community plugins</h1>
+  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+  <p>In the first weeks after DeepSeek Harness (<code>dsh</code>) went public, the official repo's <em>Show and tell</em> category turned into a firehose — <strong>209 posts and counting</strong>, the overwhelming majority shipping a working plugin. Because dsh is <em>everything-is-a-plugin</em> (the agent loop, tools, sandbox, and UI are themselves plugins on the Cordis kernel), the community didn't bolt extensions onto a fixed product — they grew the product's organs. We read all 209 posts, pulled details on 36 of the most representative, and grouped them into <strong>ten categories</strong> below. The full, verified list lives in the <a href={directoryUrl}>plugin directory</a>.</p>
+
+  <h2>1. UI & themes</h2>
+  <p>The Web GUI is just another plugin surface, so the first wave of community work was cosmetic and navigational — often client-side only, no host changes, uninstallable by deleting one line.</p>
+  <ul>
+    <li><strong>dsh-bg-image</strong> — a full-page wallpaper with frosted-glass sidebar and chat area, auto-adapting to light/dark theme.</li>
+    <li><strong>dsh-width-tiers</strong> — five chat-width presets (standard / medium / wide / ultra / full) via a floating picker above the composer.</li>
+    <li><strong>dsh-turn-index</strong> — a right-sidebar table of contents for the session: click any turn to jump and highlight it.</li>
+    <li><strong>dsh-milestone</strong> — a dot-timeline navigator with in-bar search, hover previews, and one-click jumps to any question.</li>
+  </ul>
+
+  <h2>2. Memory & sessions</h2>
+  <p>dsh ships session-level memory (append-only event logs and AGENTS.md). The community's most crowded race was filling the gap the official release left open: memory that survives across sessions.</p>
+  <ul>
+    <li><strong>dsh-mnemosyne</strong> — a cross-session memory "seam": facts remembered in session A are recallable in session B via <code>memory_remember</code> / <code>memory_recall</code>.</li>
+    <li><strong>dsh-memory</strong> — zero-dependency JSON memory with self-correcting "lessons" that harden after a mistake repeats twice.</li>
+    <li><strong>dsh-hindsight-memory</strong> — semantic memory over PostgreSQL + pgvector embeddings, with auto-recall injected before every step.</li>
+    <li><strong>dsh-llmwiki</strong> — a local Markdown wiki (Obsidian-compatible) that acts as long-term memory via a section provider plus <code>memory_search</code> / <code>memory_save</code> tools.</li>
+  </ul>
+
+  <h2>3. Tools & capabilities</h2>
+  <p>Where the memory race got crowded, the tool space had genuine holes — and builders moved fast to close them with model-facing tools registered through <code>ctx.tools</code>.</p>
+  <ul>
+    <li><strong>dsh-tool-git</strong> — structured, safe git operations (<code>git_status</code>, <code>git_diff</code>, <code>git_commit</code>) instead of hand-typing bash; <code>repoRoot</code> is pinned and <code>git_add</code> blocks <code>"."</code>.</li>
+    <li><strong>dsh-email</strong> — six email tools (list / read / search / send with an approval gate, folders, attachments) plus a web settings page.</li>
+    <li><strong>dsh-tool-somark</strong> — parse PDFs, images, Word, and PowerPoint into structure-preserving Markdown with page/token counts.</li>
+    <li><strong>@tonydua/dsh-web-search-exa</strong> — zero-config Exa web search: anonymous MCP fallback without an API key, auto-upgrading to REST when you add one.</li>
+  </ul>
+
+  <h2>4. Workflow & automation</h2>
+  <p>The defining upgrade from "chatbot" to "harness" is agents that act on schedule, in parallel, and without you watching. Several plugins push exactly that boundary.</p>
+  <ul>
+    <li><strong>dsh-delayed-task</strong> — durable delayed tasks: the agent genuinely returns at the agreed time, even after you close the page, to reassess evidence.</li>
+    <li><strong>dsh-polling</strong> — cron-driven scheduled tasks created in natural language and managed from a web card (daily reports, folder watching, scripts).</li>
+    <li><strong>dsh-taskswarm</strong> — wave-based multi-agent orchestration: a supervisor plans dependency-ordered waves, workers run in git-worktree-isolated lanes, then a reviewer gates the merge.</li>
+    <li><strong>dsh-messager</strong> — task-status notifications through OS toasts, browser notifications, and a Feishu webhook, aligned to the UI's status dots.</li>
+  </ul>
+
+  <h2>5. Messaging & platform</h2>
+  <p>A lot of people don't want to sit in a browser. This category is about bringing dsh to where you already are — chat apps, your real browser, your editor, or a native desktop shell.</p>
+  <ul>
+    <li><strong>dsh-adapter-feishu</strong> — run the agent inside Feishu over a WebSocket long connection, no public IP or tunnel required.</li>
+    <li><strong>dsh-feishu-bridge</strong> — a fail-closed Feishu/Lark channel that verifies signatures and blocks replays at its own edge (it also found and reported an upstream SDK gap).</li>
+    <li><strong>dsh-browser</strong> — a Chrome sidebar extension that lets dsh read, click, fill, and navigate your real browser while preserving your login state.</li>
+    <li><strong>DeepSeek-Harness-for-VS-Code</strong> — a VS Code client with editor-tab sessions, live stats, and full two-way sync with the web app.</li>
+  </ul>
+
+  <h2>6. Development & observability</h2>
+  <p>The more a harness runs unattended, the more you need to see inside it — costs, traces, and diagnostics. A whole sub-ecosystem formed around that.</p>
+  <ul>
+    <li><strong>dsh-doctor-windows</strong> — a one-shot <code>/doctor-windows</code> command diagnosing Node, PowerShell, Koffi, proxy, and UTF-16 path hazards on Windows.</li>
+    <li><strong>dsh-plugin-langfuse</strong> — exports every session to Langfuse as an OpenTelemetry trace tree (turns, generations, tool spans, tokens).</li>
+    <li><strong>dsh-usage</strong> — token usage, cost estimates, and a GitHub-style 52-week heatmap per model and session.</li>
+    <li><strong>dsh-eval-regression</strong> — a deterministic golden-output evaluator (required/forbidden fragments, a 0..1 score) as one transparent gate.</li>
+  </ul>
+
+  <h2>7. Vision & multimodal</h2>
+  <p>DeepSeek's text-only models can't see images natively — so the community gave them eyes, and hands for images and video, mostly by delegating to OpenAI-compatible vision endpoints.</p>
+  <ul>
+    <li><strong>dsh-vision</strong> — a <code>vision</code> tool that describes images for text-only models via any OpenAI-compatible vision API.</li>
+    <li><strong>dsh-imagecraft</strong> — <code>image_gen</code> and <code>image_vision</code> tools powered by your existing ChatGPT subscription, no API key needed.</li>
+    <li><strong>dsh-nanobananapro</strong> / <strong>dsh-seedance2</strong> — API-powered image and video generation with task polling and balance checks.</li>
+  </ul>
+
+  <h2>8. Security & governance</h2>
+  <p>An agent that can run tools is an agent that can do damage. A small but serious cluster of plugins treats the sandbox, authorization, and auditability as first-class problems.</p>
+  <ul>
+    <li><strong>DSH Trust Layer</strong> — four privacy-minimal observability plugins: telemetry redaction, per-turn verification receipts, hash-chained evidence receipts, and labeled context provenance.</li>
+    <li><strong>dsh-tool-underseal</strong> — hash-sealed authorization for agent delegation: workers must check in before write tools unlock, and the mandate can't be rewritten in chat.</li>
+    <li><strong>dsh-quota-limits</strong> — simulate OpenAI / Anthropic / Google subscription quotas on DeepSeek calls, returning a synthetic 429 over budget.</li>
+  </ul>
+
+  <h2>9. Models & providers</h2>
+  <p>dsh's model layer is provider-agnostic by design, and the community stretched it to any backend you already pay for.</p>
+  <ul>
+    <li><strong>dsh-codex-connect</strong> — ChatGPT OAuth sign-in and OpenAI Codex models through the normal Harness model picker, additively installed.</li>
+    <li><strong>dsh-llm-auto-route</strong> — auto-detects a provider from env/base URL/model name and routes with health checks and failover before the first output.</li>
+    <li><strong>deepseek-harness-huggingface</strong> — a read-only Hugging Face Hub model search tool (<code>hf_search_models</code>), no token required.</li>
+  </ul>
+
+  <h2>10. Fun & culture</h2>
+  <p>Because everything is a plugin, everything is also a joke. Within 24 hours the community had skinned the UI as QQ 2006, embedded fake 2005-era ad portals, and raised a desktop pet. It's the clearest proof that the plugin surface is real: people use it the way you'd use a blank canvas.</p>
+  <ul>
+    <li><strong>dsh-deepseek-girl-pet</strong> — a desktop pet that reads the session state and tracks your mouse across 16 directions.</li>
+    <li><strong>DSH Meme Hub</strong> — a curated, screenshot-rich index of 28 community "meme" projects, from ad portals to skins to mini-games.</li>
+  </ul>
+
+  <h2>The through-line</h2>
+  <p>Ten categories, but one pattern: nobody waited for a roadmap. The memory race, the Feishu bridges, the Codex connectors, the vision sidecars — they all appeared because the kernel made it a one-command install (<code>dsh plugin add …</code>) to ship a new organ. That's the real story of the 209 posts: not that plugins exist, but how fast a blank-canvas architecture can be colonized. If you want the curated, test-verified subset rather than the firehose, start at the <a href={directoryUrl}>plugin directory</a> — each card shows verification status and the exact install command.</p>
+</BlogPost>

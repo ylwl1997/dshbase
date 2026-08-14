@@ -1,0 +1,105 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+---
+<BlogPost title="The 10 Most Requested DeepSeek Harness Features (297 Community Ideas Ranked) | dshbase" description="We read all 297 [Ideas] discussions in the deepseek-ai/deepseek-harness repo and pulled the most-commented ones via the GitHub GraphQL API. Here are the 10 feature categories the community keeps asking for, with real discussion titles and the current status of each." currentPath="/blog/dsh-feature-requests/" category="Analysis">
+  <h1>The 10 most-requested <span class="accent">DeepSeek Harness features</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+  <p>DeepSeek Harness shipped on August 13, 2026, and its GitHub repository immediately filled with a dedicated <code>[Ideas]</code> discussion category — <strong>297 threads and counting</strong>. Instead of eyeballing the list, we read all 297 titles, then pulled the most-commented discussions through the GitHub GraphQL API to see which requests actually have momentum behind them. Here are the ten categories the community keeps returning to, in rough order of traction, with the real discussion titles and where each one stands today.</p>
+
+  <h2>1. A desktop app</h2>
+  <p>The loudest recurring ask is to stop opening a terminal. Users want a double-clickable exe, a system tray icon, and a desktop shortcut that launches <code>dsh web</code> without remembering a command.</p>
+  <ul>
+    <li><strong>#576 windows下边桌面给个快捷方式吧</strong> (14 comments) — "deepseek harness 对普通人实在是太难了… 给桌面派个快捷起动命令吧。"</li>
+    <li><strong>#767 可以搞一个harness的桌面应用程序</strong> (4 comments) — lays out Electron vs Tauri vs .NET+WebView2, port handling, and tray integration.</li>
+    <li><strong>#1021 deepseek-harness要是桌面端就好了</strong> (5 comments)</li>
+  </ul>
+  <p><strong>Status:</strong> No official desktop client yet. The community has already shipped wrappers — <code>dsh-desktop</code> and <code>Oh-DSH-Desktop</code> are both named in #767 as Electron shells over the official <code>dsh web</code> service. Expect the official one to land as the demand keeps topping the charts.</p>
+
+  <h2>2. A standalone CLI / TUI</h2>
+  <p>The mirror-image request: people who live in the terminal find the Web UI heavy and want a lightweight CLI or TUI they can run on a cheap VPS.</p>
+  <ul>
+    <li><strong>#67 正在全力手搓 cli中</strong> (18 comments) — tied with #14 as the most-commented feature thread: "兄弟们手搓完了通知大家… 大家一起共建吧。"</li>
+    <li><strong>#303 能否单独出个cli版</strong> (7 comments) — "gui太吃资源了… 出个低配置小主机适配的tui版。"</li>
+    <li><strong>#126 [Feature Request] TUI &amp; Vim/Neovim Integration</strong> (4 comments)</li>
+  </ul>
+  <p><strong>Status:</strong> The official build is Web-first; as of <code>0.1.0-rc.6</code> there's no standalone CLI/TUI. The community is hand-rolling one (#67) rather than waiting — which tells you how much it's wanted.</p>
+
+  <h2>3. Persistent memory</h2>
+  <p>Agents lose everything between sessions. The most-voted single ask is a cross-session memory backend so a new run can pick up where the last one left off.</p>
+  <ul>
+    <li><strong>#14 求一个memory能力</strong> (18 comments) — "想要把codex和claude code的memory迁移过来。"</li>
+    <li><strong>#1345 [Feature] Built-in persistent long-term memory</strong> (3 comments) — a structured, searchable store independent of the conversation window.</li>
+    <li><strong>#192 dsh-memory：跨会话长期记忆插件</strong> (1 comment)</li>
+  </ul>
+  <p><strong>Status:</strong> No built-in long-term memory yet. The gap is being filled by community plugins — the <code>dsh-memory</code> project (#192) exists precisely to "补上 memory 能力缺口". Several memory-related entries are already indexed in the <a href={directoryUrl}>plugin directory</a>.</p>
+
+  <h2>4. Multi-platform messaging (Discord / QQ / Telegram…)</h2>
+  <p>A distinct camp wants DSH as a brain behind chat apps — trigger agents from Discord, Telegram, Slack, DingTalk, or QQ rather than the Web UI.</p>
+  <ul>
+    <li><strong>#1301 多平台消息接入插件需求征集</strong> (0 comments) — explicitly solicits Discord / QQ / Telegram / Slack / 钉钉 / WhatsApp plugins.</li>
+    <li><strong>#1302 Multi-platform message integration plugins wanted</strong> (0 comments)</li>
+    <li><strong>#266 能不能做成三端协同的agent</strong> (3 comments) — office PC + cloud server + phone, one agent across all three.</li>
+  </ul>
+  <p><strong>Status:</strong> Pure feature-gathering — no official integrations, and no mature community plugins yet. This is an open, uncontested niche for plugin authors.</p>
+
+  <h2>5. Session management: recall, edit, branch, archive</h2>
+  <p>Power users coming from Claude Code miss fine-grained control over the transcript — recalling a message, editing the last user turn, branching, and clean archiving.</p>
+  <ul>
+    <li><strong>#349 [Feat] 支持消息回撤功能</strong> (4 comments) — "双击Esc回撤消息是一个高频操作" with three concrete use cases.</li>
+    <li><strong>#1348 会话管理：分叉去重、删除入口、归档可见性、清理一致性</strong> (0 comments)</li>
+    <li><strong>#1237 归档会话按钮有歧义，且无法恢复</strong> (1 comment) + <strong>#1147 session unarchive</strong> (0 comments)</li>
+  </ul>
+  <p><strong>Status:</strong> Recall/rewind is not built in yet. Archiving exists but is flagged as ambiguous and irreversible (#1237, #1147), so the whole conversation-history lifecycle is still open territory.</p>
+
+  <h2>6. Docker &amp; LAN/remote deployment</h2>
+  <p>Teams want to self-host: an official image, LAN binding, and a path past the <code>403</code> errors that block non-localhost access.</p>
+  <ul>
+    <li><strong>#1271 [Idea] Official Docker image / containerized deployment</strong> (3 comments) — native builds take 12+ minutes in containers.</li>
+    <li><strong>#1132 解决公网/局域网访问 dsh web 403 报错</strong> (5 comments) — includes a working <code>trustedHosts</code> patch.</li>
+    <li><strong>#706 允许绑定内网IP</strong> (3 comments) + <strong>#954 已适配飞牛nas 安装包</strong> (2 comments)</li>
+  </ul>
+  <p><strong>Status:</strong> No official image yet. The community has already produced a NAS package (#954) and container recipes (#598), and #1132 documents the <code>trustedHosts</code> workaround. Remote access is the closest thing to a solved problem here — but only via patches, not a first-party switch.</p>
+
+  <h2>7. Models, multi-provider, and billing</h2>
+  <p>DeepSeek models are the default, but the community wants more providers as first-class options, plus predictable pricing and fewer modality walls.</p>
+  <ul>
+    <li><strong>#208 [Feature Request] Use OpenAI Codex OAuth as a primary LLM provider</strong> (3 comments) — a detailed proposal, down to the file paths.</li>
+    <li><strong>#520 强烈建议 Harness 也来个 Plus / Pro</strong> (4 comments) — "别让大家边跑 Agent 边心算 API 账单。"</li>
+    <li><strong>#1378 图片上传被模型目录能力硬性拦截</strong> (3 comments) — text-only models can't even <em>receive</em> images as paths for vision tools.</li>
+  </ul>
+  <p><strong>Status:</strong> <code>pi-ai</code> already exposes a broad provider catalog, but Codex's OAuth-only route is deliberately withheld (#208), there's no subscription tier yet (#520), and image uploads are hard-blocked for text-only main models (#1378) — a real pain point for vision-tool plugins.</p>
+
+  <h2>8. Permissions, sandbox &amp; security</h2>
+  <p>The sandbox/approval system exists and is documented, but its strictness produces friction, and users want more granular controls.</p>
+  <ul>
+    <li><strong>#1292 same-mode sandbox_permissions no-op</strong> (3 comments) — redundant <code>workspace-write</code> calls fail closed.</li>
+    <li><strong>#1398 希望给DSH加一个自动审批命令的功能</strong> (0 comments)</li>
+    <li><strong>#1331 Windows 沙箱 partial 边界… pwsh 命令缺少强制批准门</strong> (0 comments) + <strong>#451 vm沙箱逃逸 + 本地 /api 无鉴权</strong> (0 comments)</li>
+  </ul>
+  <p><strong>Status:</strong> Escalation semantics are intentionally strict today; #1292 is a well-argued request to treat same-mode requests as harmless metadata rather than a rejection. Auto-approve and Windows-boundary visibility remain open.</p>
+
+  <h2>9. Plugin ecosystem governance</h2>
+  <p>The "everything is a plugin" bet creates a distribution and trust problem the community is actively worried about.</p>
+  <ul>
+    <li><strong>#723 官方插件商店</strong> (3 comments) — "过不了几天就要爆出插件投毒事件了。"</li>
+    <li><strong>#1115 建立官方插件市场… 审核奖励机制</strong> (0 comments)</li>
+    <li><strong>#341 [Feat] 建议开放项目 Issues 和 Pull Requests</strong> (8 comments)</li>
+  </ul>
+  <p><strong>Status:</strong> No official marketplace yet, and the contribution guide currently says external pull requests are not accepted (referenced in #208) — so the community routes everything through <code>[Ideas]</code> threads. Curation lives in community indexes like the <a href={directoryUrl}>dshbase plugin directory</a>, which vets each plugin's install and license before listing it.</p>
+
+  <h2>10. UI, UX &amp; localization</h2>
+  <p>The long tail of polish requests: Chinese system prompts, collapsible tool calls, per-turn token counts, diff views, and onboarding hints.</p>
+  <ul>
+    <li><strong>#320 Agent 预设系统提示词支持中文（i18n）</strong> (5 comments) — English-only presets force Chinese models to "think" in English.</li>
+    <li><strong>#809 工具调用太多了… 收起来</strong> (4 comments) + <strong>#735 每轮对话 token 消耗量</strong> (3 comments)</li>
+    <li><strong>#744 显示代码差异</strong> (3 comments) + <strong>#822 README 补充 pnpm 安装提示</strong> (3 comments)</li>
+  </ul>
+  <p><strong>Status:</strong> System prompts are English-only with a copy-and-translate workaround (#320); tool-call collapsing, per-turn token display, and diff rendering are all still open. The pnpm hint is a one-line doc fix the community has already written.</p>
+
+  <h2>The pattern</h2>
+  <p>Two threads run through all ten categories. First, <strong>packaging and access</strong> — desktop, CLI/TUI, Docker, LAN binding, chat-app integrations — is where the loudest demand lives, because it's about getting <em>into</em> DSH without friction. Second, <strong>continuity</strong> — memory, recall, editing, archiving — because agents that forget everything between sessions waste the most time.</p>
+  <p>Nearly every gap has a community plugin or a hand-rolled workaround already, which is exactly what the "everything is a plugin" architecture was designed to allow. The question is which of these the official project picks up first. Track the repo's <code>[Ideas]</code> board — and for the plugin-shaped gaps, start from the <a href={directoryUrl}>plugin directory</a>, where the working solutions are already indexed.</p>
+</BlogPost>

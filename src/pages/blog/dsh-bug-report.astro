@@ -1,0 +1,99 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const troubleshootingUrl = getRelativeLocaleUrl('en', '/troubleshooting/');
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+---
+<BlogPost title="DeepSeek Harness Community Bug Report — 321 Discussions, 8 Bug Categories | dshbase" description="We read all 321 bug and problem discussions in the official deepseek-ai/deepseek-harness repo and grouped them into 8 themes — Windows paths, install crashes, Web UI, session corruption, model/API, plugins, subagents, and sandbox security — with real discussion numbers and dshbase fixes." currentPath="/blog/dsh-bug-report/" category="Analysis">
+  <h1>DeepSeek Harness Community <span class="accent">Bug Report</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+
+  <p>The DeepSeek Harness (dsh) community has filed <strong>321 bug and problem discussions</strong> in the official repository since launch. We read through all of them and pulled the full details of the most representative threads. The result is a clear picture of what actually breaks in practice — and where dshbase can help. Here is the full bug landscape, grouped into eight themes.</p>
+
+  <h2>1. Windows platform &amp; paths — the single biggest cluster</h2>
+  <p>More than a third of the reported bugs are Windows-specific, and the headline issue is path handling. The native folder picker reads the returned UTF-16 path incorrectly, silently truncating it at any Chinese character whose low byte is <code>0x00</code> (开 / 一 / 言 / 上 / 下 / 耀…). The directory exists, but workspace creation reports <code>ENOENT</code>.</p>
+  <ul>
+    <li><strong>#953</strong> — Windows native folder dialog truncates paths at U+XX00 hanzi (开/一/上/下…) — the UTF-16 terminator check only looks at the low byte</li>
+    <li><strong>#151 / #210</strong> — the same truncation at 言 (U+8A00) / 耀 (U+8000) → <code>workspace-invalid-path</code> / ENOENT</li>
+    <li><strong>#1420</strong> — <code>dsh plugin add</code> with a path containing spaces is split into two arguments on Windows (<code>shell: true</code> joins args unescaped)</li>
+    <li><strong>#1268</strong> — choosing a drive root (C:\ / D:\) as the workspace fails to create sessions (<code>fs.mkdir</code> EPERM)</li>
+    <li><strong>#997 / #986</strong> — the Windows sandbox shell cannot establish any TLS/HTTPS connection (SEC_E_NO_CREDENTIALS)</li>
+  </ul>
+  <p><strong>dshbase take</strong>: these are upstream bugs, not config mistakes. For the shell gaps in the meantime, <code>dsh-bash-terminal</code> (in the <a href={directoryUrl}>plugin directory</a>) gives Windows users a unified PowerShell / Git Bash / WSL shell tool with a real PTY. For everything else, watch the <a href={troubleshootingUrl}>troubleshooting page</a> — we keep the workarounds updated as upstream ships fixes.</p>
+
+  <h2>2. Install &amp; boot</h2>
+  <p>A fresh install is the first thing a new user does, and it is where dsh fails most visibly. The root cause is usually a native dependency (node-pty, sharp) or a cordis package that is not published, so the install "succeeds" and dsh crashes on first run.</p>
+  <ul>
+    <li><strong>#1219</strong> — npm global install, then <code>dsh web</code> fails: node-pty native module <code>pty.node</code> missing (Linux)</li>
+    <li><strong>#55</strong> — <code>pnpm add -g</code>, then dsh cannot start: cannot find <code>@deepseek-ai/cordis-plugin-timer</code></li>
+    <li><strong>#223</strong> — cordis declares circular peer dependencies; strict resolvers (mise/aube) refuse to install</li>
+    <li><strong>#113</strong> — macOS arm64: <code>--expose-internals is required for HMR service</code> (the npx/bunx entry fails)</li>
+    <li><strong>#535 / #1032</strong> — <code>npx @deepseek-ai/dsh web</code> crashes on a clean machine (sharp / node-pty / cordis-plugin-group)</li>
+  </ul>
+  <p>Most of these have a one-line workaround, and we have collected every one of them — ERR_REQUIRE_ESM, missing native modules, allowBuilds prompts, port 3080 already in use — on the <a href={troubleshootingUrl}>troubleshooting page</a>.</p>
+
+  <h2>3. Web UI &amp; frontend</h2>
+  <p>The Web UI is the primary surface, and it has two recurring failure classes: loopback / Origin trust checks that return 403, and long-thinking sessions that freeze the page.</p>
+  <ul>
+    <li><strong>#910 / #894 / #654</strong> — every <code>/api</code> call returns 403 over <code>http://127.0.0.1:3080</code> (Chrome omits the port from the Origin header); <code>localhost</code> works</li>
+    <li><strong>#980 / #514</strong> — <code>crypto.randomUUID is not a function</code> over plain-HTTP LAN/VPN access (a secure-context-only API)</li>
+    <li><strong>#1417 / #629</strong> — the composer cannot handle Chinese IME pre-edit text (the <code>color: transparent</code> textarea mirror layer)</li>
+    <li><strong>#317 / #370</strong> — very long thinking output freezes the page, then history fails to load (<code>Maximum call stack size exceeded</code>)</li>
+    <li><strong>#682 / #1316</strong> — endless failed tool-call loops / high-output background sessions stall the browser</li>
+  </ul>
+  <p>If the UI feels broken, the fastest fixes are the same ones we document: use <code>localhost:3080</code> instead of <code>127.0.0.1</code>, and compact long sessions early. Both are on the <a href={troubleshootingUrl}>troubleshooting page</a>.</p>
+
+  <h2>4. Sessions &amp; history</h2>
+  <p>The lossless session log is dsh's greatest strength — and its weakest link when it corrupts. A duplicated <code>seq</code> number or a truncated block makes the whole session fail to load, and the UI gives almost no hint why.</p>
+  <ul>
+    <li><strong>#1333</strong> — duplicated <code>seq</code> numbers cause "conversation failed to load"</li>
+    <li><strong>#1244</strong> — hitting the max output length permanently corrupts the session (every later turn fails with "invalid pi-ai replay state")</li>
+    <li><strong>#548 / #1047</strong> — history unavailable / a single corrupt log takes down the whole session sidebar</li>
+    <li><strong>#1005</strong> — session resume fails ("agent-presets: refusing to compose…")</li>
+    <li><strong>#40</strong> — archived sessions cannot be viewed or restored</li>
+  </ul>
+  <p>Community plugins fill the gaps here: <code>dsh-turn-rewind</code> restores conversation and workspace state from a change ledger, and the memory plugins (<code>dsh-memory</code>, <code>dsh-mnemon</code>) build on the session log without mutating it. All are in the <a href={directoryUrl}>plugin directory</a>.</p>
+
+  <h2>5. Models &amp; API integration</h2>
+  <p>DeepSeek's own models are first-class; third-party and gateway setups are where people hit walls. The recurring theme is <code>reasoning_content</code> and vision modality not surviving the round-trip.</p>
+  <ul>
+    <li><strong>#906 / #739 / #231</strong> — thinking mode fails: "The <code>reasoning_content</code> in the thinking mode must be passed back to the API" (INVALID_REQUEST / 400)</li>
+    <li><strong>#636 / #122</strong> — reasoning intensity is not selectable for third-party models</li>
+    <li><strong>#1029 / #112</strong> — vision-capable third-party models (gpt-5.4, kimi, o1/o3/o4, grok) cannot upload images</li>
+    <li><strong>#892</strong> — 429 rate limiting does not auto-recover when <code>Retry-After</code> exceeds the default 10s <code>maxDelay</code></li>
+    <li><strong>#408</strong> — <code>web_search</code> hardcodes the official endpoint, so self-hosted gateway users always fail auth</li>
+  </ul>
+  <p>For text-only models that cannot "see", dshbase recommends the vision bridge plugins — <code>modlens</code> (OCR/layout JSON) and <code>dsh-vision-toolkit</code> (image Q&amp;A, long-screenshot OCR) — plus <code>dsh-drop-to-path</code> to keep drag-and-drop without copying. Model credential errors (MISSING_CREDENTIAL, UNKNOWN_MODEL, 401 on "get models") are all on the <a href={troubleshootingUrl}>troubleshooting page</a>.</p>
+
+  <h2>6. Plugin system</h2>
+  <p>Plugins are dsh's biggest differentiator, but the install path is still fragile: a bad plugin can stop the whole Web UI from booting, and installs can report success while silently doing nothing.</p>
+  <ul>
+    <li><strong>#1106</strong> — "Failed to load plugins" on web boot; a pending plugin entry blocks startup with no rollback</li>
+    <li><strong>#1377</strong> — plugin install reports success but silently disables an unresolved profile bundle</li>
+    <li><strong>#1140</strong> — absolute-path plugins cannot load on Windows (this blocks the official tools tutorial)</li>
+    <li><strong>#297 / #840</strong> — installing a broken plugin (e.g. an invalid function schema) takes the whole harness down</li>
+  </ul>
+  <p>That is exactly why every entry in the <a href={directoryUrl}>plugin directory</a> shows a verified test status — install-fail and load-fail are flagged before you run the command. For the "won't boot after a bad plugin" case, the troubleshooting page covers the load errors (ERR_REQUIRE_ESM, missing bundle manifest, allowBuilds).</p>
+
+  <h2>7. Subagents &amp; multi-agent</h2>
+  <p>Subagents are where dsh's multi-agent story shows its rough edges: they fail silently in the background, cannot always switch models, and leave zombie entries in the UI.</p>
+  <ul>
+    <li><strong>#1136</strong> — subagents (subagent / subagent_fork) all silent-fail when running in the background (auth state not inherited)</li>
+    <li><strong>#1100 / #1105</strong> — subagents cannot switch models; the workflow's <code>model</code> override is clobbered by the parent agent's model</li>
+    <li><strong>#1202 / #476</strong> — failed subagents stay visible in the UI as if still running, with no way to clear them</li>
+    <li><strong>#1259</strong> — the main agent never receives the background result after a subagent finishes</li>
+  </ul>
+  <p>For teams leaning on multi-agent workflows, <code>dsh_workflow</code> and <code>DSH-better-sidebar</code> (both in the <a href={directoryUrl}>directory</a>) add a governable workflow layer and a sub-agent workbench on top of the raw subagent primitives.</p>
+
+  <h2>8. Permissions, sandbox &amp; security</h2>
+  <p>The last cluster is the sharpest: the permission / sandbox model has several reported gaps where the boundary is weaker than advertised.</p>
+  <ul>
+    <li><strong>#201 / #1201 / #1141</strong> — "sandbox escalation to workspace-write is not strictly wider than danger-full-access" spam, even when the session is already full-access</li>
+    <li><strong>#250</strong> — a sandboxed model can self-approve <code>danger-full-access</code> through the Web approval loopback channel</li>
+    <li><strong>#962</strong> — credentials are not a confidentiality boundary against the agent: API keys can be read and exfiltrated</li>
+    <li><strong>#951</strong> — glob/grep tools bypass the sandbox entirely (no policy constraint on the <code>path</code> argument)</li>
+  </ul>
+  <p>These are security-relevant and mostly need upstream fixes. In the meantime, if you want finer control over what the agent can actually do, <code>dsh-tool-approval</code> gives you per-step manual approval instead of the coarse presets — see the <a href={directoryUrl}>directory</a> and the <a href={troubleshootingUrl}>troubleshooting page</a>.</p>
+
+  <p>321 bug reports is a lot, but it is also the sign of an active, fast-moving project — most of the top issues already have a root-cause analysis and a proposed patch attached by the community. The common thread: dsh's biggest gaps right now are Windows path handling, install robustness, and session-log resilience. dshbase tracks all of them, and we will keep the workarounds and plugin alternatives updated as upstream lands fixes. Questions? Ask in the <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">official community</a>.</p>
+</BlogPost>
