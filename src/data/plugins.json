@@ -1227,6 +1227,23 @@
    "language": "TypeScript",
    "updated": "2026-08-14",
    "archived": false
+  },
+  {
+   "name": "dsh-mcp-lens",
+   "url": "https://github.com/labmimors/dsh-mcp-lens",
+   "pkg": "",
+   "ver": "",
+   "npm": false,
+   "test": "not-on-npm",
+   "desc_en": "Shrink MCP context — 1000 remote MCP tools behind two fixed interfaces (mcp_search + mcp_call).",
+   "desc_zh": "压缩 MCP 上下文——1000 个远程 MCP 工具收敛为两个固定入口（mcp_search + mcp_call）。",
+   "desc": "MCP context shrinker (mcp_search + mcp_call for large catalogs).",
+   "stars": 2,
+   "forks": 0,
+   "issues": 0,
+   "language": "",
+   "updated": "2026-08-15",
+   "archived": false
   }
  ],
  "Workflow & Automation": [
@@ -1810,6 +1827,40 @@
    "issues": 0,
    "language": "",
    "updated": "2026-08-14",
+   "archived": false
+  },
+  {
+   "name": "dsh-cursor-codex",
+   "url": "https://github.com/jeremy9682/dsh-cursor-codex",
+   "pkg": "",
+   "ver": "",
+   "npm": false,
+   "test": "not-on-npm",
+   "desc_en": "Connect DeepSeek Harness to Cursor and Codex via ACP bundle + MCP + skills.",
+   "desc_zh": "把 DeepSeek Harness 接进 Cursor / Codex（ACP bundle + MCP + skills）。",
+   "desc": "Connect DSH to Cursor and Codex (ACP bundle + MCP + skills).",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "",
+   "updated": "2026-08-15",
+   "archived": false
+  },
+  {
+   "name": "dsh-doctor",
+   "url": "https://github.com/moonquake2004/dsh-doctor",
+   "pkg": "",
+   "ver": "",
+   "npm": false,
+   "test": "not-on-npm",
+   "desc_en": "Offline diagnostic CLI — 19 checks on profile/env/session state before boot or install.",
+   "desc_zh": "离线诊断 CLI——启动/安装前检查 profile/env/session 状态，19 项检查。",
+   "desc": "Offline diagnostic for DSH (19 checks on profile/env/session).",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "",
+   "updated": "2026-08-15",
    "archived": false
   }
  ],
