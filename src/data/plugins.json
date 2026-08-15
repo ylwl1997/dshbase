@@ -19985,6 +19985,23 @@
    "updated": "2026-08-15",
    "archived": false,
    "added": "2026-08-15"
+  },
+  {
+   "name": "dsh-passwords",
+   "url": "https://github.com/slywalker2006/dsh-passwords",
+   "pkg": "",
+   "ver": "",
+   "npm": false,
+   "test": "not-on-npm",
+   "desc": "Login gateway (password door) for the DSH web UI: first-run setup, multi-user accounts, rate limiting, audit log and automatic HTTPS (Let’s Encrypt).",
+   "desc_en": "Login gateway (password door) for the DSH web UI: first-run setup, multi-user accounts, rate limiting, audit log and automatic HTTPS (Let’s Encrypt).",
+   "desc_zh": "DSH 网页界面的登录网关（密码门）：首次配置、多用户账号、防爆破锁定、审计日志与自动 HTTPS（Let’s Encrypt）。",
+   "stars": 3,
+   "forks": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-15",
+   "archived": false,
+   "added": "2026-08-15"
   }
  ],
  "Just for Fun": [
