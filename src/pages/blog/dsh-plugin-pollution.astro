@@ -1,0 +1,41 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+---
+<BlogPost title="The dsh-plugin Topic Is Polluted — How We Vet Real DeepSeek Harness Plugins | dshbase" description="The GitHub dsh-plugin topic is polluted with non-DSH projects that tag themselves for visibility — from standalone AI agents to Claude tools. Here's how dshbase separates real DeepSeek Harness plugins from tag-squatters, with the concrete examples we removed." currentPath="/blog/dsh-plugin-pollution/" category="Analysis">
+  <h1>The <span class="accent">dsh-plugin</span> topic is polluted</h1>
+  <p class="muted small" style="margin-bottom:20px">August 16, 2026 · dshbase</p>
+
+  <p>When we audited our <a href={directoryUrl}>plugin directory</a>, we found something uncomfortable: the #1 plugin by stars was <strong>not a DeepSeek Harness plugin at all</strong>.</p>
+
+  <p><code>openhanako</code> — 6,047 stars, sitting at the top of our "most popular" list — is a <em>personal AI agent with memory and personality</em>. It has no <code>dsh-plugin</code> topic, no bundle manifest, and no relationship to DeepSeek Harness whatsoever. It was there because it (or a snapshot of it) once carried the <code>dsh-plugin</code> tag, and directories that don't verify simply passed it through.</p>
+
+  <h2>The problem: tag-squatting</h2>
+  <p>The official <a href="https://github.com/topics/dsh-plugin" target="_blank" rel="noopener">GitHub <code>dsh-plugin</code> topic</a> is the natural place to discover plugins — but GitHub topics are <strong>self-assigned and unverified</strong>. Any repo can add the tag for visibility, and many do. In our sweep we found:</p>
+  <ul>
+    <li><strong>Standalone AI agents</strong> — <code>openhanako</code> (6k★), <code>exo</code> (646★), <code>synergy</code> (542★)</li>
+    <li><strong>Cross-tool bridges</strong> — <code>EchoBird</code> (3k★, "model switch across 20+ coding agents"), <code>ccteam</code> (Claude Code/Codex/Grok/Kimi orchestrator)</li>
+    <li><strong>Claude ecosystem tools</strong> — <code>open-managed-agents</code> (Claude Managed Agents API), <code>MateBot</code> (a "claudeclaw clone")</li>
+    <li><strong>Generic dev kits</strong> — Python devkits, Go multi-agent frameworks, PPTX generators</li>
+  </ul>
+
+  <p>None of these load in DeepSeek Harness. A real DSH plugin is a <strong>bundle</strong> — it ships a <code>cordis.patch.yml</code> / <code>cordis.yml</code> manifest and is installed with <code>dsh plugin add</code>. Tag-squatters don't have that.</p>
+
+  <h2>How we vet</h2>
+  <p>Since then, every plugin in dshbase is checked three ways before it's listed:</p>
+  <ol>
+    <li><strong>Bundle manifest</strong> — does the repo actually ship <code>cordis.patch.yml</code> / <code>cordis.yml</code> / <code>dsh.bundle.patch</code>? That's the mechanical signal a plugin can <em>load</em> in dsh.</li>
+    <li><strong>Topic</strong> — is it currently tagged <code>dsh-plugin</code>?</li>
+    <li><strong>LLM read of the README</strong> — DeepSeek reads each repo's README and judges whether it's a real DSH plugin or a tag-squatter, and writes the bilingual description.</li>
+  </ol>
+
+  <p>That combination caught 19 non-DSH projects we'd inherited from an upstream snapshot — including the top three by stars. We removed them all.</p>
+
+  <h2>Why this matters for the ecosystem</h2>
+  <p>DeepSeek Harness is growing fast, and the <code>dsh-plugin</code> topic is the de-facto registry. If it's polluted, then <em>every</em> directory that trusts it — including ours, before this audit — shows users plugins that aren't plugins. That erodes trust in the whole ecosystem.</p>
+
+  <p>Our directory now runs this verification as part of the pipeline, so the list stays clean. If you maintain a DSH plugin directory or the topic itself, we'd encourage the same: <strong>check for a bundle manifest before listing</strong>. Stars are not a signal — the most-starred repo in the topic isn't even a plugin.</p>
+
+  <p>Browse the cleaned directory <a href={directoryUrl}>here</a>.</p>
+</BlogPost>

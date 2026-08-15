@@ -1,0 +1,41 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+---
+<BlogPost title="dsh-plugin topic 被蹭标签污染了——我们如何鉴别真正的 DeepSeek Harness 插件 | dshbase 中文" description="GitHub dsh-plugin topic 被大量非 DSH 项目蹭标签——从独立 AI agent 到 Claude 工具。本文讲 dshbase 如何区分真正的 DeepSeek Harness 插件和蹭标签仓库，附我们删除的具体案例。" currentPath="/blog/dsh-plugin-pollution/" category="分析">
+  <h1><span class="accent">dsh-plugin</span> topic 被蹭标签污染了</h1>
+  <p class="muted small" style="margin-bottom:20px">2026-08-16 · dshbase</p>
+
+  <p>当我们审计自己的<a href={directoryUrl}>插件目录</a>时，发现了一件尴尬的事：<strong>按 Star 排名第一的「插件」根本不是 DeepSeek Harness 插件</strong>。</p>
+
+  <p><code>openhanako</code> —— 6047 星，霸占我们「热门」榜首 —— 是一个<em>带记忆和人格的独立 AI agent</em>。它没有 <code>dsh-plugin</code> topic、没有 bundle 清单、跟 DeepSeek Harness 毫无关系。它之所以出现在目录里，是因为它（或它的某个快照）曾经打过 <code>dsh-plugin</code> 标签，而那些不校验的目录直接把它照搬了过来。</p>
+
+  <h2>问题根源：蹭标签</h2>
+  <p>官方的 <a href="https://github.com/topics/dsh-plugin" target="_blank" rel="noopener">GitHub <code>dsh-plugin</code> topic</a> 是发现插件的天然入口——但 GitHub topic 是<strong>作者自己打的、无人审核的</strong>。任何仓库都能为了曝光加这个标签，很多人也确实这么干。我们排查时发现：</p>
+  <ul>
+    <li><strong>独立 AI agent</strong>——<code>openhanako</code>（6k★）、<code>exo</code>（646★）、<code>synergy</code>（542★）</li>
+    <li><strong>跨工具桥接</strong>——<code>EchoBird</code>（3k★，「跨 20+ 编码 agent 的模型切换」）、<code>ccteam</code>（Claude Code/Codex/Grok/Kimi 编排器）</li>
+    <li><strong>Claude 生态工具</strong>——<code>open-managed-agents</code>（Claude Managed Agents API）、<code>MateBot</code>（「claudeclaw 克隆」）</li>
+    <li><strong>通用开发套件</strong>——Python devkit、Go 多 agent 框架、PPTX 生成器</li>
+  </ul>
+
+  <p>这些没有一个能在 DeepSeek Harness 里加载。真正的 DSH 插件是一个 <strong>bundle</strong>——它带 <code>cordis.patch.yml</code> / <code>cordis.yml</code> 清单，用 <code>dsh plugin add</code> 安装。蹭标签的仓库没有这个。</p>
+
+  <h2>我们如何鉴别</h2>
+  <p>从那以后，dshbase 里的每个插件在收录前都要过三道关：</p>
+  <ol>
+    <li><strong>Bundle 清单</strong>——仓库是否真的带了 <code>cordis.patch.yml</code> / <code>cordis.yml</code> / <code>dsh.bundle.patch</code>？这是插件能在 dsh 里<em>加载</em>的机械信号。</li>
+    <li><strong>Topic</strong>——当前是否打了 <code>dsh-plugin</code> 标签？</li>
+    <li><strong>LLM 读 README</strong>——DeepSeek 读每个仓库的 README，判断它是真 DSH 插件还是蹭标签，并生成双语描述。</li>
+  </ol>
+
+  <p>这套组合帮我们揪出了 19 个从上游快照继承来的非 DSH 项目——包括按 Star 排名的前三名。我们已全部删除。</p>
+
+  <h2>这对生态为什么重要</h2>
+  <p>DeepSeek Harness 在飞速增长，<code>dsh-plugin</code> topic 是事实上的注册中心。如果它被污染，那么<em>每个</em>信任它的目录——包括审计前的我们——都会把「不是插件的插件」展示给用户，这会侵蚀整个生态的信任。</p>
+
+  <p>我们的目录现在把校验做进了流水线，列表会保持干净。如果你也在维护 DSH 插件目录或 topic 本身，我们建议同样做：<strong>收录前先查 bundle 清单</strong>。Star 数不是信号——topic 里最火的仓库甚至根本不是插件。</p>
+
+  <p>点<a href={directoryUrl}>这里</a>浏览清理后的目录。</p>
+</BlogPost>
