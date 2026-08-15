@@ -1,32 +1,79 @@
 ---
 import Base from '../layouts/Base.astro';
+import skinsData from '../data/skins.json';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const skins = skinsData.skins;
+const groups = skinsData.groups;
+const featuredIds = skinsData.featured || [];
+const featured = featuredIds.map((id) => skins.find((s) => s.id === id)).filter(Boolean);
+const grouped = groups.map((g) => ({ name: g.name, count: g.count, skins: skins.filter((s) => s.group === g.name) })).filter((g) => g.skins.length > 0);
 ---
-<Base title="DeepSeek Harness Themes — 151 Skins &amp; Theme Center | dshbase" description="DeepSeek Harness theme center: dsh-themes with 151 day/night skin pairs, built-in palettes, Open VSX import, and a color editor. Install with dsh plugin add dsh-themes." currentPath="/themes/">
+<Base title="DeepSeek Harness Themes — 151 Day/Night Skins &amp; Theme Center | dshbase" description="DeepSeek Harness theme center: 151 day/night skin pairs across 14 style groups. One install, one-click try-on. Install with dsh plugin add dsh-themes." currentPath="/themes/">
   <section class="hero wrap">
     <p class="eyebrow">Theme center</p>
     <h1>DeepSeek Harness <span class="accent">themes</span></h1>
-    <p class="lede">Give your DSH Web UI a new look — <strong>151 day/night skin pairs</strong>, one install, one-click try-on.</p>
+    <p class="lede">Give your DSH Web UI a new look — <strong>{skins.length} day/night skin pairs</strong> across {groups.length} style groups, one install, one-click try-on.</p>
   </section>
 
   <section class="info wrap">
     <h2>Install</h2>
     <pre class="code-block"><code>dsh plugin add dsh-themes</code></pre>
-    <p>Restart <code>dsh web</code>, then find the theme center in Settings → Plugins.</p>
+    <p>Restart <code>dsh web</code>, then find the theme center in Settings → Plugins. A single skin installs with <code>dsh plugin add @whyihaveyou/dsh-skin-&lt;id&gt;</code>.</p>
 
-    <h2 style="margin-top:28px">What you get</h2>
-    <ul>
-      <li><strong>151 day/night skin pairs</strong> — grid preview, search, one-click try-on inside the DSH Web UI</li>
-      <li><strong>Built-in palettes</strong> — curated color palettes ready to apply</li>
-      <li><strong>Open VSX search import</strong> — import themes from the Open VSX marketplace</li>
-      <li><strong>Color editor</strong> — tweak colors per-theme, with independent light/dark settings</li>
-    </ul>
+    <h2 style="margin-top:32px">Featured skins</h2>
+    <div class="skin-grid featured">
+      {featured.map((s) => (
+        <div class="skin-card" style={`--accent:${s.accent}`}>
+          <div class="skin-swatch">
+            <div class="sw-light"></div>
+            <div class="sw-dark"></div>
+          </div>
+          <div class="skin-meta">
+            <span class="skin-name">{s.name}</span>
+            <span class="skin-tag">{s.tagline || s.group}</span>
+          </div>
+        </div>
+      ))}
+    </div>
 
-    <h2 style="margin-top:28px">About the theme system</h2>
-    <p>DSH's appearance is plugin-driven — themes are just another plugin. <code>dsh-themes</code> bundles 151 pairs of skins (a day and a night variant each) so you can switch the whole UI in one click. It's part of the broader dsh-suite ecosystem and is MIT-licensed.</p>
+    {grouped.map((g) => (
+      <div class="skin-group">
+        <h2 style="margin-top:36px" id={`group-${g.name}`}>{g.name} <span class="muted small">({g.count})</span></h2>
+        <div class="skin-grid">
+          {g.skins.map((s) => (
+            <div class="skin-card" style={`--accent:${s.accent}`}>
+              <div class="skin-swatch">
+                <div class="sw-light"></div>
+                <div class="sw-dark"></div>
+              </div>
+              <div class="skin-meta">
+                <span class="skin-name">{s.name}</span>
+                <span class="skin-tag">{s.tagline || s.group}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+
+    <h2 style="margin-top:32px">About the theme system</h2>
+    <p>DSH's appearance is plugin-driven — themes are just another plugin. <code>dsh-themes</code> bundles {skins.length} pairs of skins (a day and a night variant each) so you can switch the whole UI in one click. It's part of the broader dsh-suite ecosystem and is MIT-licensed.</p>
     <p>See the full plugin entry for version, install status, and test result in the <a href="/plugins/dsh-themes/">plugin directory</a>.</p>
 
     <p style="margin-top:24px"><a class="btn btn-ghost" href={directoryUrl}>Browse all plugins &rarr;</a></p>
   </section>
 </Base>
+
+<style>
+  .skin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; margin-top: 16px; }
+  .skin-grid.featured { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+  .skin-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff; }
+  .skin-swatch { display: flex; height: 72px; }
+  .sw-light { flex: 1; background: linear-gradient(160deg, var(--accent) 0%, #ffffff 100%); }
+  .sw-dark { flex: 1; background: linear-gradient(160deg, var(--accent) 0%, #0b0d14 100%); }
+  .skin-meta { padding: 12px 14px 14px; }
+  .skin-name { display: block; font-size: 14px; font-weight: 700; color: var(--ink); }
+  .skin-tag { display: block; font-size: 12px; color: var(--ink-3); margin-top: 3px; line-height: 1.4; }
+  .skin-group h2 { font-size: 20px; }
+</style>
