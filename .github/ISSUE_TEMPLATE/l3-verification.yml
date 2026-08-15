@@ -1,0 +1,39 @@
+---
+name: 请求 L3 深度验证 / Request L3 verification
+description: 请求 dshbase 对你的插件做 L3 运行级验证（headless 真实跑一个任务）
+title: "[L3验证] 插件名称"
+labels: ["l3-verification"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: 插件名称
+      placeholder: dsh-xxx
+    validations:
+      required: true
+  - type: input
+    id: repo
+    attributes:
+      label: GitHub 仓库
+      placeholder: https://github.com/owner/repo
+    validations:
+      required: true
+  - type: input
+    id: install
+    attributes:
+      label: 安装命令（可选）
+      placeholder: dsh plugin add xxx
+      description: 如果插件在 dshbase 目录里，这里可留空，我们会自动查
+  - type: textarea
+    id: scenario
+    attributes:
+      label: 期望验证什么
+      description: 描述你希望我们真实运行验证的具体功能/场景（例如「让它搜索一次网络并总结」「让它写一个文件并读回」）
+      placeholder: 例如：让 agent 调用该插件的工具完成一次真实的图片识别，并确认结果正确
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期结果（可选）
+      description: 你期望验证通过后看到什么结果

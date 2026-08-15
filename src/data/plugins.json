@@ -6,7 +6,7 @@
    "pkg": "@linxin666/dsh-web-ui-all",
    "ver": "",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "DSH Web UI plugin & skin collection: task board, git panel, etc.",
    "desc_en": "DSH Web UI plugin & skin collection: task board, git panel, etc.",
    "desc_zh": "DSH Web UI 插件与皮肤合集：任务板、Git 面板等",
