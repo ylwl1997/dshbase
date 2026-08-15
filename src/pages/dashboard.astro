@@ -29,19 +29,23 @@ all.forEach((p) => { const d = p.added; if (d) byDay[d] = (byDay[d] || 0) + 1; }
 let _cum = 0;
 const growth = Object.keys(byDay).sort().map((d) => { _cum += byDay[d]; return [d.slice(5), _cum]; });
 const maxG = growth.length ? growth[growth.length - 1][1] : 1;
-const GW = 640, GH = 200, GP = 34;
-const gX = (i) => GP + (i / Math.max(growth.length - 1, 1)) * (GW - 2 * GP);
-const gY = (v) => GH - GP - (v / maxG) * (GH - 2 * GP);
+const GW = 640, GH = 224;
+const gPadL = 42, gPadR = 16, gPadT = 18, gPadB = 44;
+const gPlotW = GW - gPadL - gPadR;
+const gPlotH = GH - gPadT - gPadB;
+const gX = (i) => gPadL + (i / Math.max(growth.length - 1, 1)) * gPlotW;
+const gY = (v) => gPadT + (1 - v / maxG) * gPlotH;
 const gPts = growth.map(([, v], i) => [gX(i), gY(v)]);
 const gLine = gPts.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
-const gArea = `${GP},${GH - GP} ${gLine} ${GW - GP},${GH - GP}`;
+const gArea = `${gPadL},${GH - gPadB} ${gLine} ${GW - gPadR},${GH - gPadB}`;
+const gGrid = [0, 0.5, 1].map((f) => ({ y: gY(maxG * f), v: Math.round(maxG * f) }));
 
 // official repo discussion stats (from our scan of 1401 discussions)
 const ghStats = [
-  ['Bug reports', 321, '#fca5a5'],
-  ['Feature ideas', 297, '#93c5fd'],
-  ['Plugin shares', 209, '#86efac'],
-  ['Q&A', 174, '#fcd34d'],
+  ['Bug reports', 321, '#4D6BFE'],
+  ['Feature ideas', 297, '#7c8cf8'],
+  ['Plugin shares', 209, '#8b5cf6'],
+  ['Q&A', 174, '#a78bfa'],
 ];
 const maxGh = 321;
 
@@ -70,17 +74,31 @@ const topPlugins = [...all].sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0)).slic
     <svg class="growth-svg" viewBox={`0 0 ${GW} ${GH}`} role="img" aria-label="Plugin catalog growth curve">
       <defs>
         <linearGradient id="gfill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#4D6BFE" stop-opacity="0.22" />
+          <stop offset="0%" stop-color="#4D6BFE" stop-opacity="0.20" />
           <stop offset="100%" stop-color="#4D6BFE" stop-opacity="0" />
         </linearGradient>
+        <linearGradient id="gstroke" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#4D6BFE" />
+          <stop offset="100%" stop-color="#8b5cf6" />
+        </linearGradient>
       </defs>
+      {gGrid.map(({ y, v }) => (
+        <g class="g-grid">
+          <line x1={gPadL} y1={y} x2={GW - gPadR} y2={y} />
+          <text x={gPadL - 8} y={y + 4}>{v}</text>
+        </g>
+      ))}
       <polygon points={gArea} fill="url(#gfill)" />
-      <polyline points={gLine} fill="none" stroke="#4D6BFE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-      {gPts.map(([x, y]) => <circle cx={x.toFixed(1)} cy={y.toFixed(1)} r="4" fill="#4D6BFE" />)}
+      <polyline points={gLine} fill="none" stroke="url(#gstroke)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      {gPts.map(([x, y], i) => (
+        <circle cx={x.toFixed(1)} cy={y.toFixed(1)} r="4" fill="#fff" stroke="#4D6BFE" stroke-width="2.5">
+          <title>{growth[i][0]} — {growth[i][1]} plugins</title>
+        </circle>
+      ))}
+      {growth.map(([d], i) => (
+        <text class="g-tick" x={gX(i).toFixed(1)} y={GH - gPadB + 20} text-anchor="middle">{d}</text>
+      ))}
     </svg>
-    <div class="growth-axis">
-      {growth.map(([d, v]) => <span>{d}</span>)}
-    </div>
 
     <h2 style="margin-top:32px">Star distribution</h2>
     <div class="bar-chart">
@@ -136,13 +154,14 @@ const topPlugins = [...all].sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0)).slic
   .s-lab { font-size: 12px; color: var(--ink-3); }
   .bar-chart { margin-top: 14px; }
   .bar-row { display: flex; align-items: center; gap: 12px; margin: 8px 0; }
-  .bar-label { width: 130px; font-size: 13px; color: var(--ink-2); text-align: right; flex-shrink: 0; }
+  .bar-label { width: 170px; font-size: 12px; color: var(--ink-2); text-align: right; flex-shrink: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .bar-track { flex: 1; height: 18px; background: #eef1f6; border-radius: 9px; overflow: hidden; }
   .bar-fill { height: 100%; background: linear-gradient(90deg, #4D6BFE, #7c8cf8); border-radius: 9px; }
   .bar-cat { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
   .bar-num { width: 36px; font-size: 13px; font-weight: 700; color: var(--ink); }
   .growth-svg { width: 100%; max-width: 640px; display: block; margin-top: 14px; }
-  .growth-axis { width: 100%; max-width: 640px; display: flex; justify-content: space-between; font-size: 12px; color: var(--ink-3); padding: 0 22px; }
+  .g-grid line { stroke: #eef1f6; stroke-width: 1; }
+  .g-grid text, .g-tick { font-size: 11px; fill: var(--ink-3); }
 </style>
 
 <script>
@@ -157,7 +176,7 @@ const topPlugins = [...all].sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0)).slic
       cats.sort((a, b) => b[1] - a[1]);
       const max = Math.max(...cats.map(([, n]) => n), 1);
       const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-      const palette = ['#fca5a5', '#93c5fd', '#86efac', '#fcd34d', '#c4b5fd', '#f9a8d4', '#67e8f9', '#fdba74'];
+      const palette = ['#4D6BFE', '#7c8cf8', '#8b5cf6', '#a78bfa', '#6366f1', '#93c5fd', '#c4b5fd', '#6d5ef0'];
       const bars = document.getElementById('community-bars');
       bars.innerHTML = cats.map(([label, n], i) => `
         <div class="bar-row">
