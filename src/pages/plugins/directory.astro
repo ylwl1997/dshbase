@@ -15,7 +15,7 @@ const nSource = all.filter((p) => p.test === 'not-on-npm').length;
 const nNpm = all.filter((p) => p.npm).length;
 const repo = (u) => u.replace('https://github.com/', '');
 const npmHome = (p) => p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
-const featured = new Set(['huiliyi37/dsh-tianshu-tui', 'omdsh-dev/dsh-at-file', 'omdsh-dev/dsh-genui', 'titanwings/dsh-automation', 'omdsh-dev/DSH-better-sidebar', 'liustack/modlens', 'zhu1090093659/dsh-web-ui', 'Anionex/dsh-computer-use', 'omdsh-dev/dsh-tool-csv', 'ccch1mneyyy/dsh-cc-tui']);
+const isFeatured = (p) => (p.stars ?? 0) >= 100 && !['install-fail', 'load-fail', 'git-fail'].includes(p.test);
 const statusLabel = {
   ok: 'Verified · npm',
   'git-ok': 'GitHub · verified',
@@ -92,7 +92,7 @@ const statusClass = {
             return (
               <a class="card pcard" href={`/plugins/${p.name}/`} data-test={p.test} data-npm={p.npm ? '1' : '0'}>
                 <div class="pcard-head">
-                  <span class="pcard-name">{p.name}{featured.has(r) ? ' ⭐' : ''}</span>
+                  <span class="pcard-name">{p.name}{isFeatured(p) ? ' ⭐' : ''}</span>
                   <span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span>
                 </div>
                 <p class="pcard-repo">{r}</p>

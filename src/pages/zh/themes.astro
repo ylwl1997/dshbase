@@ -1,0 +1,32 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+---
+<Base title="DeepSeek Harness 皮肤中心 — 151 款皮肤与主题 | dshbase 中文" description="DeepSeek Harness 皮肤中心：dsh-themes 提供 151 款昼夜成对皮肤、内置调色板、Open VSX 导入、颜色编辑器。dsh plugin add dsh-themes 一键安装。" currentPath="/themes/">
+  <section class="hero wrap">
+    <p class="eyebrow">皮肤中心</p>
+    <h1>DeepSeek Harness <span class="accent">皮肤</span></h1>
+    <p class="lede">给你的 DSH Web UI 换个新皮肤——<strong>151 款昼夜成对皮肤</strong>，一次安装，一键试穿。</p>
+  </section>
+
+  <section class="info wrap">
+    <h2>安装</h2>
+    <pre class="code-block"><code>dsh plugin add dsh-themes</code></pre>
+    <p>重启 <code>dsh web</code>，然后在 设置 → 插件 里找到皮肤中心。</p>
+
+    <h2 style="margin-top:28px">你能得到什么</h2>
+    <ul>
+      <li><strong>151 款昼夜成对皮肤</strong>——网格预览、搜索、DSH Web UI 内一键试穿</li>
+      <li><strong>内置调色板</strong>——精选配色方案，即点即用</li>
+      <li><strong>Open VSX 搜索导入</strong>——从 Open VSX 市场导入主题</li>
+      <li><strong>颜色编辑器</strong>——逐主题微调颜色，明暗独立设置</li>
+    </ul>
+
+    <h2 style="margin-top:28px">关于皮肤系统</h2>
+    <p>DSH 的外观是插件驱动的——皮肤本身就是插件。<code>dsh-themes</code> 打包了 151 对皮肤（每对含日间 + 夜间变体），一键切换整个 UI。它是 dsh-suite 生态的一部分，MIT 许可。</p>
+    <p>版本、安装状态、实测结果见<a href="/zh/plugins/dsh-themes/">插件目录</a>。</p>
+
+    <p style="margin-top:24px"><a class="btn btn-ghost" href={directoryUrl}>浏览全部插件 &rarr;</a></p>
+  </section>
+</Base>

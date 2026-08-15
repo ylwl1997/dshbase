@@ -1,0 +1,37 @@
+name: Daily plugin compatibility check
+
+on:
+  schedule:
+    - cron: '23 3 * * *'  # 每天 03:23 UTC（错峰）
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  compat:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dsh + pnpm
+        run: npm install -g @deepseek-ai/dsh@latest pnpm@latest
+
+      - name: Run compatibility check
+        run: bash scripts/compat-check.sh
+
+      - name: Commit plugins.json if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/plugins.json
+          if git diff --cached --quiet; then
+            echo "no change"
+          else
+            git commit -m "chore: daily plugin compat check ($(date -u +%Y-%m-%d))"
+            git push
+          fi

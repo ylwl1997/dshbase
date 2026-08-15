@@ -23,6 +23,19 @@ const maxStars = Math.max(...starBuckets.map(([, n]) => n), 1);
 const catDist = Object.entries(plugins).map(([cat, items]) => [cat, items.length]);
 const maxCat = Math.max(...catDist.map(([, n]) => n), 1);
 
+// growth curve: cumulative plugin count by added date
+const byDay = {};
+all.forEach((p) => { const d = p.added; if (d) byDay[d] = (byDay[d] || 0) + 1; });
+let _cum = 0;
+const growth = Object.keys(byDay).sort().map((d) => { _cum += byDay[d]; return [d.slice(5), _cum]; });
+const maxG = growth.length ? growth[growth.length - 1][1] : 1;
+const GW = 640, GH = 200, GP = 34;
+const gX = (i) => GP + (i / Math.max(growth.length - 1, 1)) * (GW - 2 * GP);
+const gY = (v) => GH - GP - (v / maxG) * (GH - 2 * GP);
+const gPts = growth.map(([, v], i) => [gX(i), gY(v)]);
+const gLine = gPts.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
+const gArea = `${GP},${GH - GP} ${gLine} ${GW - GP},${GH - GP}`;
+
 // official repo discussion stats (from our scan of 1401 discussions)
 const ghStats = [
   ['Bug reports', 321, '#fca5a5'],
@@ -52,6 +65,23 @@ const topPlugins = [...all].sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0)).slic
       <div class="stat-card"><span class="s-val">{nSource}</span><span class="s-lab">GitHub source</span></div>
     </div>
 
+    <h2 style="margin-top:32px">Growth</h2>
+    <p class="muted small">Cumulative cataloged plugins by first-seen date.</p>
+    <svg class="growth-svg" viewBox={`0 0 ${GW} ${GH}`} role="img" aria-label="Plugin catalog growth curve">
+      <defs>
+        <linearGradient id="gfill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#4D6BFE" stop-opacity="0.22" />
+          <stop offset="100%" stop-color="#4D6BFE" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+      <polygon points={gArea} fill="url(#gfill)" />
+      <polyline points={gLine} fill="none" stroke="#4D6BFE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      {gPts.map(([x, y]) => <circle cx={x.toFixed(1)} cy={y.toFixed(1)} r="4" fill="#4D6BFE" />)}
+    </svg>
+    <div class="growth-axis">
+      {growth.map(([d, v]) => <span>{d}</span>)}
+    </div>
+
     <h2 style="margin-top:32px">Star distribution</h2>
     <div class="bar-chart">
       {starBuckets.map(([label, n]) => (
@@ -74,8 +104,8 @@ const topPlugins = [...all].sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0)).slic
       ))}
     </div>
 
-    <h2 style="margin-top:32px">Official repo activity (1,401 discussions)</h2>
-    <div class="bar-chart">
+    <h2 style="margin-top:32px" id="community-h">Official repo activity (1,401 discussions)</h2>
+    <div class="bar-chart" id="community-bars">
       {ghStats.map(([label, n, color]) => (
         <div class="bar-row">
           <span class="bar-label">{label}</span>
@@ -111,4 +141,32 @@ const topPlugins = [...all].sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0)).slic
   .bar-fill { height: 100%; background: linear-gradient(90deg, #4D6BFE, #7c8cf8); border-radius: 9px; }
   .bar-cat { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
   .bar-num { width: 36px; font-size: 13px; font-weight: 700; color: var(--ink); }
+  .growth-svg { width: 100%; max-width: 640px; display: block; margin-top: 14px; }
+  .growth-axis { width: 100%; max-width: 640px; display: flex; justify-content: space-between; font-size: 12px; color: var(--ink-3); padding: 0 22px; }
 </style>
+
+<script>
+  // Live official-repo discussion counts; fall back to the server snapshot above.
+  (async () => {
+    try {
+      const res = await fetch('/api/community');
+      if (!res.ok) return;
+      const d = await res.json();
+      const cats = d && d.categories ? Object.entries(d.categories) : [];
+      if (!cats.length) return;
+      cats.sort((a, b) => b[1] - a[1]);
+      const max = Math.max(...cats.map(([, n]) => n), 1);
+      const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+      const palette = ['#fca5a5', '#93c5fd', '#86efac', '#fcd34d', '#c4b5fd', '#f9a8d4', '#67e8f9', '#fdba74'];
+      const bars = document.getElementById('community-bars');
+      bars.innerHTML = cats.map(([label, n], i) => `
+        <div class="bar-row">
+          <span class="bar-label">${esc(label)}</span>
+          <div class="bar-track"><div class="bar-fill" style="width:${(n / max) * 100}%;background:${palette[i % palette.length]}"></div></div>
+          <span class="bar-num">${n}</span>
+        </div>`).join('');
+      const h = document.getElementById('community-h');
+      if (d.total) h.textContent = `Official repo activity (${d.total.toLocaleString('en-US')} discussions)`;
+    } catch (e) {}
+  })();
+</script>
