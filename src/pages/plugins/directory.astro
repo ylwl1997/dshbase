@@ -36,6 +36,12 @@ const gArea = `${gPadL},${GH - gPadB} ${gLine} ${GW - gPadR},${GH - gPadB}`;
 const hotPlugins = [...all].sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0)).slice(0, 60);
 const newPlugins = [...all].sort((a, b) => (b.added || '').localeCompare(a.added || '')).slice(0, 60);
 
+// carousel: our own plugins + top 5 by stars
+const ourPlugins = all.filter((p) => (p.url || '').includes('ylwl1997'));
+const top5 = [...all].sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0)).slice(0, 5);
+const carousel = [...ourPlugins, ...top5].filter((p, i, arr) => arr.findIndex((x) => x.name === p.name) === i);
+const installCmd = (p) => p.npm && p.pkg ? `dsh plugin add ${p.pkg}` : `dsh plugin add github:${repo(p.url)}`;
+
 const repo = (u) => u.replace('https://github.com/', '');
 const npmHome = (p) => p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
 const isFeatured = (p) => (p.stars ?? 0) >= 100 && p.test !== 'broken';
@@ -58,11 +64,11 @@ const statusClass = {
     <p style="margin-top:14px"><a class="btn btn-primary" href="https://github.com/ylwl1997/dshbase/issues/new?template=plugin-submission.yml" target="_blank" rel="noopener">Submit your plugin &rarr;</a> <a class="btn btn-ghost" href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Official community &rarr;</a></p>
     <div class="agent-box">
       <div class="agent-slides">
-        <a class="agent-slide" href="/plugins/dshbase-catalog/"><strong>🤖 dshbase-catalog</strong> — let your agent search this directory itself: <code>dsh plugin add dshbase-catalog</code></a>
-        <a class="agent-slide" href="/plugins/dsh-browser-bsk/"><strong>🌐 dsh-browser-bsk</strong> — browser automation for your agent: <code>dsh plugin add dsh-browser-bsk</code></a>
-        <a class="agent-slide" href="/plugins/noatmark-dsh-plugin/"><strong>🧹 noatmark-dsh-plugin</strong> — text hygiene tools: <code>dsh plugin add noatmark-dsh-plugin</code></a>
-        <a class="agent-slide" href="/plugins/modlens/"><strong>⭐ modlens</strong> — the most-starred vision plugin: <code>dsh plugin add modlens</code></a>
-        <a class="agent-slide" href="/plugins/dsh-cc-tui/"><strong>⭐ dsh-cc-tui</strong> — terminal UI: <code>dsh plugin add github:ccch1mneyyy/dsh-cc-tui</code></a>
+        {carousel.map((p) => (
+          <a class="agent-slide" href={`/plugins/${p.name}/`}>
+            <strong>⭐ {p.name}</strong> — <code>{installCmd(p)}</code>
+          </a>
+        ))}
       </div>
     </div>
   </section>
@@ -281,8 +287,8 @@ const statusClass = {
   .st-broken { color: #c62828; border-color: #f0b9b9; background: #fff1f1; }
   .st-broken .dot { background: #c62828; }
   .legend .badge { color: var(--ink-2); }
-  .stats-line { font-size: 14px; color: var(--ink-2); margin: 18px 0 0; text-align: center; }
-  .agent-box { font-size: 13.5px; color: var(--ink-2); background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 12px 16px; margin: 14px 0 0; overflow: hidden; }
+  .stats-line { font-size: 13px; color: var(--ink-2); margin: 10px 0 0; text-align: center; }
+  .agent-box { font-size: 13.5px; color: var(--ink-2); background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 8px 14px; margin: 10px 0 0; overflow: hidden; }
   .agent-slides { position: relative; }
   .agent-slide { display: none; text-decoration: none; color: inherit; cursor: pointer; }
   .agent-slide.is-active { display: block; animation: fadeIn .4s; }
