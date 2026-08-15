@@ -43,6 +43,7 @@ const carousel = [...ourPlugins, ...top5].filter((p, i, arr) => arr.findIndex((x
 const installCmd = (p) => p.npm && p.pkg ? `dsh plugin add ${p.pkg}` : `dsh plugin add github:${repo(p.url)}`;
 
 const repo = (u) => u.replace('https://github.com/', '');
+const owner = (u) => (u.replace('https://github.com/', '').split('/')[0] || '');
 const npmHome = (p) => p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
 const isFeatured = (p) => (p.stars ?? 0) >= 100 && p.test !== 'broken';
 const statusLabel = {
@@ -161,18 +162,15 @@ const statusClass = {
             return (
               <a class="card pcard" href={`/plugins/${p.name}/`} data-test={p.test} data-npm={p.npm ? '1' : '0'}>
                 <div class="pcard-head">
-                  <span class="pcard-name">{p.name}{isFeatured(p) ? ' ⭐' : ''}</span>
+                  <span class="pcard-owner">@{owner(p.url)}</span>
                   <span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span>
                 </div>
-                <p class="pcard-repo">{r}</p>
+                <span class="pcard-name">{p.name}{isFeatured(p) ? ' ⭐' : ''}</span>
                 {(p.desc_en || p.desc) && <p class="pcard-desc">{p.desc_en || p.desc}</p>}
-                <div class="pcard-install">
-                  {p.npm && p.pkg ? (
-                    <pre class="code-block install-chip"><code>dsh plugin add {p.pkg}</code></pre>
-                  ) : (
-                    <span class="muted small">GitHub source</span>
-                  )}
-                  <span class="view-link">View details &rarr;</span>
+                <div class="pcard-foot">
+                  <span class="pcard-stars">★ {p.stars ?? 0}</span>
+                  <span class="pcard-src">{p.npm ? 'npm' : 'GitHub'}</span>
+                  <span class="pcard-copy" role="button" data-cmd={installCmd(p)}>📋 安装</span>
                 </div>
               </a>
             );
@@ -190,18 +188,15 @@ const statusClass = {
           return (
             <a class="card pcard" href={`/plugins/${p.name}/`} data-test={p.test} data-npm={p.npm ? '1' : '0'}>
               <div class="pcard-head">
-                <span class="pcard-name">{p.name}{isFeatured(p) ? ' ⭐' : ''}</span>
+                <span class="pcard-owner">@{owner(p.url)}</span>
                 <span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span>
               </div>
-              <p class="pcard-repo">{r}</p>
+              <span class="pcard-name">{p.name}{isFeatured(p) ? ' ⭐' : ''}</span>
               {(p.desc_en || p.desc) && <p class="pcard-desc">{p.desc_en || p.desc}</p>}
-              <div class="pcard-install">
-                {p.npm && p.pkg ? (
-                  <pre class="code-block install-chip"><code>dsh plugin add {p.pkg}</code></pre>
-                ) : (
-                  <span class="muted small">GitHub source</span>
-                )}
-                <span class="view-link">View details &rarr;</span>
+              <div class="pcard-foot">
+                <span class="pcard-stars">★ {p.stars ?? 0}</span>
+                <span class="pcard-src">{p.npm ? 'npm' : 'GitHub'}</span>
+                <span class="pcard-copy" role="button" data-cmd={installCmd(p)}>📋 安装</span>
               </div>
             </a>
           );
@@ -216,18 +211,15 @@ const statusClass = {
           return (
             <a class="card pcard" href={`/plugins/${p.name}/`} data-test={p.test} data-npm={p.npm ? '1' : '0'}>
               <div class="pcard-head">
-                <span class="pcard-name">{p.name}{isFeatured(p) ? ' ⭐' : ''}</span>
+                <span class="pcard-owner">@{owner(p.url)}</span>
                 <span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span>
               </div>
-              <p class="pcard-repo">{r}</p>
+              <span class="pcard-name">{p.name}{isFeatured(p) ? ' ⭐' : ''}</span>
               {(p.desc_en || p.desc) && <p class="pcard-desc">{p.desc_en || p.desc}</p>}
-              <div class="pcard-install">
-                {p.npm && p.pkg ? (
-                  <pre class="code-block install-chip"><code>dsh plugin add {p.pkg}</code></pre>
-                ) : (
-                  <span class="muted small">GitHub source</span>
-                )}
-                <span class="view-link">View details &rarr;</span>
+              <div class="pcard-foot">
+                <span class="pcard-stars">★ {p.stars ?? 0}</span>
+                <span class="pcard-src">{p.npm ? 'npm' : 'GitHub'}</span>
+                <span class="pcard-copy" role="button" data-cmd={installCmd(p)}>📋 安装</span>
               </div>
             </a>
           );
@@ -242,13 +234,15 @@ const statusClass = {
   .info { padding-top: 16px; }
   .pcard { display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: inherit; }
   .pcard:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-md, 0 8px 24px rgba(0,0,0,.08)); }
-  .pcard-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+  .pcard-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .pcard-owner { font-size: 11.5px; color: var(--ink-3); font-family: var(--mono, monospace); }
   .pcard-name { font-weight: 700; font-size: 15px; color: var(--ink); }
-  .pcard-repo { font-size: 12px; color: var(--ink-3); font-family: var(--mono, monospace); }
-  .pcard-desc { font-size: 13px; color: var(--ink-2); margin: 0; line-height: 1.55; }
-  .pcard-install { margin-top: auto; display: flex; flex-direction: column; gap: 6px; }
-  .view-link { font-size: 13px; font-weight: 600; color: var(--primary); }
-  .pcard:hover .view-link { text-decoration: underline; }
+  .pcard-desc { font-size: 13px; color: var(--ink-2); margin: 0; line-height: 1.55; flex: 1; }
+  .pcard-foot { display: flex; align-items: center; gap: 10px; margin-top: auto; }
+  .pcard-stars { font-size: 12px; color: #b45309; font-weight: 600; }
+  .pcard-src { font-size: 11.5px; color: var(--ink-3); }
+  .pcard-copy { margin-left: auto; font-size: 12px; color: var(--primary); cursor: pointer; white-space: nowrap; }
+  .pcard-copy:hover { text-decoration: underline; }
   .nav-toolbar { position: sticky; top: 0; z-index: 30; background: var(--bg); padding: 12px 0 8px; margin: 18px 0 0; border-bottom: 1px solid var(--border); }
   .big-tabs { display: flex; gap: 10px; justify-content: center; margin-bottom: 12px; }
   .btab { font-size: 14px; font-weight: 600; padding: 8px 22px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-card); color: var(--ink-2); cursor: pointer; }
@@ -327,6 +321,19 @@ const statusClass = {
       slides[i].classList.add('is-active');
     }, 3500);
   })();
+
+  // 一键复制安装命令
+  document.querySelectorAll('.pcard-copy').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      navigator.clipboard.writeText(btn.dataset.cmd).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = '✅ 已复制';
+        setTimeout(() => { btn.textContent = orig; }, 1500);
+      });
+    });
+  });
 
   const tabs = document.querySelectorAll('.btab');
   const chips = document.querySelectorAll('.chip');
