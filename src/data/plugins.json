@@ -6025,6 +6025,42 @@
    "added": "2026-08-15"
   },
   {
+   "name": "dsh-doc-share",
+   "url": "https://github.com/dawsondx/dsh-doc-share",
+   "pkg": "dsh-doc-share",
+   "ver": "",
+   "npm": true,
+   "test": "pending",
+   "desc": "Transform DSH conversations into polished reports with cover, summary, chapters, and export to PNG/HTML/PDF/Markdown.",
+   "desc_en": "Transform DSH conversations into polished reports with cover, summary, chapters, and export to PNG/HTML/PDF/Markdown.",
+   "desc_zh": "将DSH对话整理成带封面、摘要和章节的报告，支持导出PNG/HTML/PDF/Markdown。",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-08-15",
+   "archived": false,
+   "added": "2026-08-15T23:01:00"
+  },
+  {
+   "name": "dsh-persist",
+   "url": "https://github.com/tluoluo/dsh-persist",
+   "pkg": "dsh-persist",
+   "ver": "",
+   "npm": true,
+   "test": "pending",
+   "desc": "Persistent memory for DeepSeek Harness agents with layered storage, selective injection, and semantic retrieval.",
+   "desc_en": "Persistent memory for DeepSeek Harness agents with layered storage, selective injection, and semantic retrieval.",
+   "desc_zh": "为 DeepSeek Harness 代理提供分层持久记忆，支持选择性注入和语义检索。",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-15",
+   "archived": false,
+   "added": "2026-08-16T01:44:37"
+  },
+  {
    "name": "dsh-crosstalk",
    "url": "https://github.com/Jesse-njx/dsh-crosstalk",
    "pkg": "",
@@ -6347,24 +6383,6 @@
    "updated": "2026-08-15",
    "archived": false,
    "added": "2026-08-15"
-  },
-  {
-   "name": "dsh-doc-share",
-   "url": "https://github.com/dawsondx/dsh-doc-share",
-   "pkg": "dsh-doc-share",
-   "ver": "",
-   "npm": true,
-   "test": "pending",
-   "desc": "Transform DSH conversations into polished reports with cover, summary, chapters, and export to PNG/HTML/PDF/Markdown.",
-   "desc_en": "Transform DSH conversations into polished reports with cover, summary, chapters, and export to PNG/HTML/PDF/Markdown.",
-   "desc_zh": "将DSH对话整理成带封面、摘要和章节的报告，支持导出PNG/HTML/PDF/Markdown。",
-   "stars": 1,
-   "forks": 0,
-   "issues": 0,
-   "language": "JavaScript",
-   "updated": "2026-08-15",
-   "archived": false,
-   "added": "2026-08-15T23:01:00"
   }
  ],
  "Tools & Capabilities": [
