@@ -18,6 +18,21 @@ const topicUrl = 'https://github.com/topics/dsh-plugin';
     <p class="lede">DeepSeek Harness's defining idea: every capability is a plugin. Learn what a plugin is, write your first one, and register tools. Based on the official developer guide.</p>
   </section>
 
+  <section class="install-guide wrap">
+    <div class="ig-box">
+      <div class="ig-method ig-primary">
+        <b>🚀 Fastest way — let your agent install for you</b>
+        <p>Install the catalog once, then let DeepSeek Harness install every plugin from this site automatically:</p>
+        <pre class="code-block"><code>dsh plugin add dshbase-catalog</code></pre>
+        <p class="ig-note">Then say <em>"install me a memory plugin"</em> — your agent finds it in the directory and installs it. Zero copy-paste.</p>
+      </div>
+      <div class="ig-method">
+        <b>📋 Or install manually</b>
+        <p>Open the <a href={directoryUrl}>plugin directory</a> and click <strong>📋 安装</strong> on any card to copy its command.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="wrap dir-banner">
     <a class="dir-banner-inner" href={directoryUrl}>
       <div>
@@ -92,6 +107,15 @@ ctx.tools.register(defineTool(&#123;
 </Base>
 
 <style>
+  .install-guide { margin: -10px auto 0; }
+  .ig-box { display: grid; grid-template-columns: 1.4fr 1fr; gap: 14px; }
+  .ig-method { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; }
+  .ig-method b { font-size: 14px; color: var(--ink); }
+  .ig-method p { font-size: 13px; color: var(--ink-2); margin: 8px 0 0; line-height: 1.6; }
+  .ig-method .code-block { margin: 10px 0 0; }
+  .ig-primary { border-color: #bfdbfe; background: #eff6ff; }
+  .ig-note { font-size: 12.5px; color: var(--ink-3); }
+  @media (max-width: 640px) { .ig-box { grid-template-columns: 1fr; } }
   .dir-banner { margin: -10px auto 0; padding: 0 22px 8px; }
   .dir-banner-inner {
     display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;

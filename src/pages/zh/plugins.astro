@@ -18,6 +18,21 @@ const topicUrl = 'https://github.com/topics/dsh-plugin';
     <p class="lede">DeepSeek Harness 的核心理念：每个能力都是插件。学习插件是什么、写第一个插件、注册工具。基于官方开发者指南。</p>
   </section>
 
+  <section class="install-guide wrap">
+    <div class="ig-box">
+      <div class="ig-method ig-primary">
+        <b>🚀 最快方式：让 Agent 自动装</b>
+        <p>装一次目录插件，之后本站所有插件都让 DeepSeek Harness 自己装：</p>
+        <pre class="code-block"><code>dsh plugin add dshbase-catalog</code></pre>
+        <p class="ig-note">装好后对 agent 说<em>「帮我装个记忆插件」</em>，它会从目录里找到并自动安装，全程不用复制粘贴。</p>
+      </div>
+      <div class="ig-method">
+        <b>📋 或手动安装</b>
+        <p>打开<a href={directoryUrl}>插件目录</a>，点卡片上的<strong>「📋 安装」</strong>复制命令。</p>
+      </div>
+    </div>
+  </section>
+
   <section class="wrap dir-banner">
     <a class="dir-banner-inner" href={directoryUrl}>
       <div>
@@ -92,6 +107,15 @@ ctx.tools.register(defineTool(&#123;
 </Base>
 
 <style>
+  .install-guide { margin: -10px auto 0; }
+  .ig-box { display: grid; grid-template-columns: 1.4fr 1fr; gap: 14px; }
+  .ig-method { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; }
+  .ig-method b { font-size: 14px; color: var(--ink); }
+  .ig-method p { font-size: 13px; color: var(--ink-2); margin: 8px 0 0; line-height: 1.6; }
+  .ig-method .code-block { margin: 10px 0 0; }
+  .ig-primary { border-color: #bfdbfe; background: #eff6ff; }
+  .ig-note { font-size: 12.5px; color: var(--ink-3); }
+  @media (max-width: 640px) { .ig-box { grid-template-columns: 1fr; } }
   .dir-banner { margin: -10px auto 0; padding: 0 22px 8px; }
   .dir-banner-inner {
     display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
