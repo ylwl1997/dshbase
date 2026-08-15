@@ -19,7 +19,10 @@ jobs:
           python-version: '3.11'
 
       - name: Run topic sync
-        run: python scripts/sync-topic.py
+        run: |
+          python scripts/sync-topic.py
+          python scripts/gen-repos.py
+          python scripts/gen-sitemap.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -27,10 +30,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/plugins.json src/data/sync-date.json
+          git add src/data/plugins.json src/data/sync-date.json functions/api/repos.js public/sitemap.xml
           if git diff --cached --quiet; then
             echo "no change"
           else
-            git commit -m "chore: daily sync from dsh-plugin topic ($(date -u +%Y-%m-%d))"
+            git commit -m "chore: daily sync ($(date -u +%Y-%m-%d))"
             git push
           fi
