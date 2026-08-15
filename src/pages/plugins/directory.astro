@@ -43,12 +43,14 @@ const gGrid = [0, 0.5, 1].map((f) => ({ y: gY(maxG * f), v: Math.round(maxG * f)
 
 // official repo discussion snapshot (live-updated client-side via /api/community)
 const ghStats = [
-  ['General', 819, '#4D6BFE'],
-  ['Ideas', 335, '#7c8cf8'],
-  ['Show and tell', 264, '#8b5cf6'],
-  ['Q&A', 184, '#a78bfa'],
+  ['General', 913, '#4D6BFE'],
+  ['Ideas', 405, '#7c8cf8'],
+  ['Show and tell', 361, '#8b5cf6'],
+  ['Q&A', 224, '#a78bfa'],
+  ['Polls', 2, '#6366f1'],
+  ['Announcements', 1, '#93c5fd'],
 ];
-const maxGh = 819;
+const ghTotal = ghStats.reduce((s, [, n]) => s + n, 0);
 const repo = (u) => u.replace('https://github.com/', '');
 const npmHome = (p) => p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
 const isFeatured = (p) => (p.stars ?? 0) >= 100 && !['install-fail', 'load-fail', 'git-fail'].includes(p.test);
@@ -158,14 +160,17 @@ const statusClass = {
             ))}
           </div>
           <h3 class="eco-title" style="margin-top:18px" id="community-h">Official repo activity</h3>
-          <div class="bar-chart" id="community-bars">
-            {ghStats.map(([label, n, color]) => (
-              <div class="bar-row">
-                <span class="bar-label">{label}</span>
-                <div class="bar-track"><div class="bar-fill" style={`width:${(n / maxGh) * 100}%;background:${color}`}></div></div>
-                <span class="bar-num">{n}</span>
-              </div>
-            ))}
+          <div class="community" id="community-bars">
+            <div class="comm-bar">
+              {ghStats.map(([label, n, color]) => (
+                <div class="comm-seg" style={`width:${(n / ghTotal) * 100}%;background:${color}`} title={`${label}: ${n}`}></div>
+              ))}
+            </div>
+            <div class="comm-legend">
+              {ghStats.map(([label, n, color]) => (
+                <span class="comm-item"><span class="comm-dot" style={`background:${color}`}></span>{label} <b>{n}</b></span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -177,7 +182,7 @@ const statusClass = {
           <a class="tp-item" href={`/plugins/${t.name}/`}>
             <span class="tp-rank">{i + 1}</span>
             <span class="tp-name">{t.name}</span>
-            <span class="tp-stars" data-stars-name={t.name}>★0</span>
+            <span class="tp-stars" data-stars-name={t.name}>★{t.stars ?? 0}</span>
           </a>
         ))}
       </div>
@@ -291,6 +296,12 @@ const statusClass = {
   .growth-svg { width: 100%; display: block; margin-top: 8px; }
   .g-grid line { stroke: #eef1f6; stroke-width: 1; }
   .g-grid text, .g-tick { font-size: 11px; fill: var(--ink-3); }
+  .comm-bar { display: flex; height: 26px; border-radius: 8px; overflow: hidden; gap: 2px; background: #eef1f6; }
+  .comm-seg { height: 100%; min-width: 3px; }
+  .comm-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 10px; }
+  .comm-item { font-size: 12px; color: var(--ink-2); display: inline-flex; align-items: center; gap: 5px; }
+  .comm-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .comm-item b { color: var(--ink); font-weight: 700; }
 </style>
 
 <script>
@@ -346,17 +357,18 @@ const statusClass = {
       const cats = d && d.categories ? Object.entries(d.categories) : [];
       if (!cats.length) return;
       cats.sort((a, b) => b[1] - a[1]);
-      const max = Math.max(...cats.map(([, n]) => n), 1);
+      const total = cats.reduce((s, [, n]) => s + n, 0);
       const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
       const palette = ['#4D6BFE', '#7c8cf8', '#8b5cf6', '#a78bfa', '#6366f1', '#93c5fd', '#c4b5fd', '#6d5ef0'];
       const bars = document.getElementById('community-bars');
       if (!bars) return;
-      bars.innerHTML = cats.map(([label, n], i) => `
-        <div class="bar-row">
-          <span class="bar-label">${esc(label)}</span>
-          <div class="bar-track"><div class="bar-fill" style="width:${(n / max) * 100}%;background:${palette[i % palette.length]}"></div></div>
-          <span class="bar-num">${n}</span>
-        </div>`).join('');
+      bars.innerHTML = `
+        <div class="comm-bar">
+          ${cats.map(([label, n], i) => `<div class="comm-seg" style="width:${(n / total) * 100}%;background:${palette[i % palette.length]}" title="${esc(label)}: ${n}"></div>`).join('')}
+        </div>
+        <div class="comm-legend">
+          ${cats.map(([label, n], i) => `<span class="comm-item"><span class="comm-dot" style="background:${palette[i % palette.length]}"></span>${esc(label)} <b>${n}</b></span>`).join('')}
+        </div>`;
       const h = document.getElementById('community-h');
       if (h && d.total) h.textContent = `Official repo activity (${d.total.toLocaleString('en-US')} discussions)`;
     } catch (e) {}

@@ -112,12 +112,11 @@ const t = {
           const v = stats[name];
           if (v && v[kind] !== undefined) {
             animate(el, v[kind], 800);
-          } else {
-            el.textContent = '0';
           }
+          // else: keep the static value already rendered server-side
         });
       } catch (e) {
-        els.forEach((el) => { el.textContent = '—'; });
+        // keep static values on failure
       }
     })();
   </script>
