@@ -15023,23 +15023,6 @@
    "added": "2026-08-15"
   },
   {
-   "name": "plugin-team-board",
-   "url": "https://github.com/whyihaveyou/dsh-suite",
-   "pkg": "@dsh-suite/plugin-team-board",
-   "ver": "0.1.0",
-   "npm": true,
-   "test": "pending",
-   "desc_en": "Shared task board for multi-agent sessions.",
-   "desc_zh": "多 agent 会话共享任务看板。",
-   "stars": 23,
-   "forks": 3,
-   "issues": 8,
-   "language": "HTML",
-   "updated": "2026-08-15",
-   "archived": false,
-   "added": "2026-08-15"
-  },
-  {
    "name": "distill",
    "url": "https://github.com/LoserFox/distill",
    "pkg": "distill",
