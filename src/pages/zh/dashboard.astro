@@ -1,0 +1,110 @@
+---
+import Base from '../../layouts/Base.astro';
+import plugins from '../../data/plugins.json';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+
+const all = Object.entries(plugins).flatMap(([cat, items]) => items.map((p) => ({ ...p, cat })));
+const total = all.length;
+const nOk = all.filter((p) => p.test === 'ok').length;
+const nNpm = all.filter((p) => p.npm).length;
+const nSource = all.filter((p) => !p.npm).length;
+const nGitOk = all.filter((p) => p.test === 'git-ok').length;
+const nBuild = all.filter((p) => p.test === 'git-build').length;
+const nIssue = all.filter((p) => ['load-fail','install-fail','git-fail'].includes(p.test)).length;
+
+const starBuckets = [['0–10', 0], ['10–50', 0], ['50–100', 0], ['100–500', 0], ['500+', 0]];
+const bucketIdx = (s) => s >= 500 ? 4 : s >= 100 ? 3 : s >= 50 ? 2 : s >= 10 ? 1 : 0;
+all.forEach((p) => { starBuckets[bucketIdx(p.stars ?? 0)][1]++; });
+const maxStars = Math.max(...starBuckets.map(([, n]) => n), 1);
+
+const catDist = Object.entries(plugins).map(([cat, items]) => [cat, items.length]);
+const maxCat = Math.max(...catDist.map(([, n]) => n), 1);
+
+const ghStats = [
+  ['Bug 报告', 321, '#fca5a5'],
+  ['功能需求', 297, '#93c5fd'],
+  ['插件分享', 209, '#86efac'],
+  ['问答', 174, '#fcd34d'],
+];
+const maxGh = 321;
+
+const topPlugins = [...all].sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0)).slice(0, 8);
+---
+<Base title="DeepSeek Harness 生态仪表盘 — 133 插件、星数分布与增长 | dshbase 中文" description="DeepSeek Harness 生态实时仪表盘：133 个插件、星数分布、分类分布、官方仓讨论活跃度、热门插件。" currentPath="/dashboard/">
+  <section class="hero wrap">
+    <p class="eyebrow">生态仪表盘</p>
+    <h1>DeepSeek Harness <span class="accent">生态</span>一览</h1>
+    <p class="lede">dsh 插件生态的实时数据——{total} 个插件，实测、追踪。来自我们的<a href={directoryUrl}>插件目录</a>和官方 GitHub 讨论。</p>
+  </section>
+
+  <section class="info wrap">
+    <div class="stats-grid">
+      <div class="stat-card"><span class="s-val">{total}</span><span class="s-lab">插件总数</span></div>
+      <div class="stat-card"><span class="s-val">{nOk + nGitOk}</span><span class="s-lab">已验证</span></div>
+      <div class="stat-card"><span class="s-val">{nNpm}</span><span class="s-lab">npm 可装</span></div>
+      <div class="stat-card"><span class="s-val">{nBuild}</span><span class="s-lab">需构建</span></div>
+      <div class="stat-card"><span class="s-val">{nIssue}</span><span class="s-lab">异常</span></div>
+      <div class="stat-card"><span class="s-val">{nSource}</span><span class="s-lab">GitHub 源码</span></div>
+    </div>
+
+    <h2 style="margin-top:32px">星数分布</h2>
+    <div class="bar-chart">
+      {starBuckets.map(([label, n]) => (
+        <div class="bar-row">
+          <span class="bar-label">{label}</span>
+          <div class="bar-track"><div class="bar-fill" style={`width:${(n / maxStars) * 100}%`}></div></div>
+          <span class="bar-num">{n}</span>
+        </div>
+      ))}
+    </div>
+
+    <h2 style="margin-top:32px">分类分布</h2>
+    <div class="bar-chart">
+      {catDist.map(([cat, n]) => (
+        <div class="bar-row">
+          <span class="bar-label">{cat}</span>
+          <div class="bar-track"><div class="bar-fill bar-cat" style={`width:${(n / maxCat) * 100}%`}></div></div>
+          <span class="bar-num">{n}</span>
+        </div>
+      ))}
+    </div>
+
+    <h2 style="margin-top:32px">官方仓活跃度（1401 个讨论）</h2>
+    <div class="bar-chart">
+      {ghStats.map(([label, n, color]) => (
+        <div class="bar-row">
+          <span class="bar-label">{label}</span>
+          <div class="bar-track"><div class="bar-fill" style={`width:${(n / maxGh) * 100}%;background:${color}`}></div></div>
+          <span class="bar-num">{n}</span>
+        </div>
+      ))}
+    </div>
+
+    <h2 style="margin-top:32px">星数最高的插件</h2>
+    <div class="grid3">
+      {topPlugins.map((p) => (
+        <a class="card card-link" href={`/zh/plugins/${p.name}/`}>
+          <h3>{p.name} <span class="muted small">★{p.stars ?? 0}</span></h3>
+          <p>{p.test === 'ok' ? '✅ 已验证' : p.npm ? 'npm 可装' : 'GitHub 源码'}</p>
+        </a>
+      ))}
+    </div>
+
+    <p style="margin-top:24px"><a class="btn btn-ghost" href={directoryUrl}>浏览全部 {total} 个插件 &rarr;</a></p>
+  </section>
+</Base>
+
+<style>
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px; }
+  .stat-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 18px; text-align: center; }
+  .s-val { display: block; font-size: 28px; font-weight: 800; color: var(--primary); }
+  .s-lab { font-size: 12px; color: var(--ink-3); }
+  .bar-chart { margin-top: 14px; }
+  .bar-row { display: flex; align-items: center; gap: 12px; margin: 8px 0; }
+  .bar-label { width: 130px; font-size: 13px; color: var(--ink-2); text-align: right; flex-shrink: 0; }
+  .bar-track { flex: 1; height: 18px; background: #eef1f6; border-radius: 9px; overflow: hidden; }
+  .bar-fill { height: 100%; background: linear-gradient(90deg, #4D6BFE, #7c8cf8); border-radius: 9px; }
+  .bar-cat { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .bar-num { width: 36px; font-size: 13px; font-weight: 700; color: var(--ink); }
+</style>

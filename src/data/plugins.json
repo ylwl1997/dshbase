@@ -15,7 +15,8 @@
    "issues": 1,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "deepseek-harness-tui",
@@ -32,7 +33,8 @@
    "issues": 0,
    "language": "Rust",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-at-file",
@@ -49,7 +51,8 @@
    "issues": 1,
    "language": "JavaScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-openpencil",
@@ -66,7 +69,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-side-panel",
@@ -83,7 +87,8 @@
    "issues": 3,
    "language": "JavaScript",
    "updated": "2026-08-12",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-12"
   },
   {
    "name": "dsh-genui",
@@ -100,7 +105,8 @@
    "issues": 1,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-annotation",
@@ -117,7 +123,8 @@
    "issues": 1,
    "language": "JavaScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-navbar",
@@ -134,7 +141,8 @@
    "issues": 1,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-task-status",
@@ -151,7 +159,8 @@
    "issues": 0,
    "language": "JavaScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-spotlight",
@@ -168,7 +177,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-101",
@@ -185,7 +195,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-drag-and-drop",
@@ -202,7 +213,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-deeplink",
@@ -219,7 +231,8 @@
    "issues": 0,
    "language": "JavaScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "ex-setting",
@@ -236,7 +249,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-turn-navigator",
@@ -253,7 +267,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-12",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-12"
   },
   {
    "name": "dsh-milestone",
@@ -270,7 +285,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-balance-meter",
@@ -287,7 +303,8 @@
    "issues": 0,
    "language": "JavaScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-cc-tui",
@@ -304,7 +321,8 @@
    "issues": 25,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "DSH-better-sidebar",
@@ -321,7 +339,8 @@
    "issues": 14,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-drop-to-path",
@@ -338,7 +357,8 @@
    "issues": 0,
    "language": "JavaScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-codex-experience",
@@ -355,7 +375,8 @@
    "issues": 0,
    "language": "",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-web-open",
@@ -370,7 +391,8 @@
    "issues": 0,
    "language": "",
    "updated": "2026-08-15",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-15"
   },
   {
    "name": "dsh-balance",
@@ -385,7 +407,8 @@
    "issues": 0,
    "language": "",
    "updated": "2026-08-15",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-15"
   },
   {
    "name": "dsh-rollback-visual",
@@ -400,7 +423,8 @@
    "issues": 0,
    "language": "",
    "updated": "2026-08-15",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-15"
   },
   {
    "name": "plugin-manager",
@@ -416,7 +440,8 @@
    "issues": 0,
    "language": "",
    "updated": "2026-08-15",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-15"
   },
   {
    "name": "dsh-themes",
@@ -432,7 +457,8 @@
    "issues": 0,
    "language": "",
    "updated": "2026-08-15",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-15"
   }
  ],
  "Sessions & Messages": [
@@ -451,7 +477,8 @@
    "issues": 1,
    "language": "JavaScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-crosstalk",
@@ -468,7 +495,8 @@
    "issues": 1,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-share",
@@ -485,7 +513,8 @@
    "issues": 0,
    "language": "JavaScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-mnemon",
@@ -502,7 +531,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-memory",
@@ -519,7 +549,8 @@
    "issues": 2,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-sidechain",
@@ -536,7 +567,8 @@
    "issues": 1,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-conversation-share",
@@ -553,7 +585,8 @@
    "issues": 0,
    "language": "JavaScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-explain",
@@ -570,7 +603,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-prompt-studio",
@@ -587,7 +621,8 @@
    "issues": 1,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-chat-import",
@@ -604,7 +639,8 @@
    "issues": 1,
    "language": "JavaScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-interconnect",
@@ -621,7 +657,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-plugin-claude-bridge",
@@ -638,7 +675,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-plugin-meta-memory",
@@ -655,7 +693,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "sage-mem",
@@ -672,7 +711,8 @@
    "issues": 0,
    "language": "JavaScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-sgme",
@@ -689,7 +729,8 @@
    "issues": 0,
    "language": "Python",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-lingshu-memory",
@@ -706,7 +747,8 @@
    "issues": 0,
    "language": "",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-tdai-memory",
@@ -723,7 +765,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-mneme",
@@ -740,7 +783,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "pi-hermes-memory",
@@ -757,7 +801,8 @@
    "issues": 0,
    "language": "",
    "updated": "2026-08-15",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-15"
   },
   {
    "name": "plugin-session-export",
@@ -773,7 +818,8 @@
    "issues": 0,
    "language": "",
    "updated": "2026-08-15",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-15"
   }
  ],
  "Tools & Capabilities": [
@@ -792,7 +838,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-bash-terminal",
@@ -809,7 +856,8 @@
    "issues": 1,
    "language": "JavaScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-vision-toolkit",
@@ -826,7 +874,8 @@
    "issues": 4,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-custom-tool",
@@ -843,7 +892,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-computer-use",
@@ -860,7 +910,8 @@
    "issues": 1,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-data-agent",
@@ -877,7 +928,8 @@
    "issues": 2,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-toolkit",
@@ -894,7 +946,8 @@
    "issues": 3,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-tool-csv",
@@ -911,7 +964,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-tool-calculator",
@@ -928,7 +982,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-tool-diff",
@@ -945,7 +1000,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-tool-encoding",
@@ -962,7 +1018,8 @@
    "issues": 1,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-tool-json",
@@ -979,7 +1036,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-tool-markdown",
@@ -996,7 +1054,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-tool-regex",
@@ -1013,7 +1072,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-tool-schema",
@@ -1030,7 +1090,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-tool-stat",
@@ -1047,7 +1108,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-tool-time",
@@ -1064,7 +1126,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-kb-sieve",
@@ -1081,7 +1144,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-12",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-12"
   },
   {
    "name": "dsh-plugin-mineru",
@@ -1098,7 +1162,8 @@
    "issues": 1,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-cowork",
@@ -1115,7 +1180,8 @@
    "issues": 1,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-skillport",
@@ -1132,7 +1198,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "pack-agent-dsh",
@@ -1149,7 +1216,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-tool-search",
@@ -1166,7 +1234,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-12",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-12"
   },
   {
    "name": "dsh-openmaic",
@@ -1183,7 +1252,8 @@
    "issues": 0,
    "language": "JavaScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-scholar",
@@ -1200,7 +1270,8 @@
    "issues": 1,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-apple-mode",
@@ -1217,7 +1288,8 @@
    "issues": 0,
    "language": "Shell",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-continual-evolve",
@@ -1234,7 +1306,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-recommend",
@@ -1251,7 +1324,8 @@
    "issues": 0,
    "language": "JavaScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "modlens",
@@ -1268,7 +1342,8 @@
    "issues": 5,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-find-plugin",
@@ -1285,7 +1360,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-vision-primitives",
@@ -1302,7 +1378,8 @@
    "issues": 0,
    "language": "",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-browser-bsk",
@@ -1319,7 +1396,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dshbase-catalog",
@@ -1336,7 +1414,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-mcp-lens",
@@ -1353,7 +1432,8 @@
    "issues": 0,
    "language": "",
    "updated": "2026-08-15",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-15"
   },
   {
    "name": "coding-coach",
@@ -1368,7 +1448,8 @@
    "issues": 0,
    "language": "",
    "updated": "2026-08-15",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-15"
   },
   {
    "name": "deepseek-harness-forge-plugins",
@@ -1383,7 +1464,8 @@
    "issues": 0,
    "language": "",
    "updated": "2026-08-15",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-15"
   },
   {
    "name": "dsh-tool-underseal",
@@ -1398,7 +1480,8 @@
    "issues": 0,
    "language": "",
    "updated": "2026-08-15",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-15"
   }
  ],
  "Workflow & Automation": [
@@ -1417,7 +1500,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-automation",
@@ -1434,7 +1518,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-routines",
@@ -1451,7 +1536,8 @@
    "issues": 1,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-plannotator",
@@ -1468,7 +1554,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-loop",
@@ -1485,7 +1572,8 @@
    "issues": 0,
    "language": "JavaScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-sentinel",
@@ -1502,7 +1590,8 @@
    "issues": 1,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-deep-research",
@@ -1519,7 +1608,8 @@
    "issues": 2,
    "language": "TypeScript",
    "updated": "2026-08-12",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-12"
   },
   {
    "name": "dsh-inspect",
@@ -1536,7 +1626,8 @@
    "issues": 2,
    "language": "JavaScript",
    "updated": "2026-08-12",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-12"
   },
   {
    "name": "dsh-track",
@@ -1553,7 +1644,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-advisor",
@@ -1570,7 +1662,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-equip-engine",
@@ -1585,7 +1678,8 @@
    "issues": 0,
    "language": "",
    "updated": "2026-08-15",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-15"
   },
   {
    "name": "plugin-team-board",
@@ -1601,7 +1695,8 @@
    "issues": 0,
    "language": "",
    "updated": "2026-08-15",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-15"
   }
  ],
  "Notifications & Integrations": [
@@ -1620,7 +1715,8 @@
    "issues": 0,
    "language": "JavaScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-notification",
@@ -1637,7 +1733,8 @@
    "issues": 1,
    "language": "JavaScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-acp-for-bitfun",
@@ -1654,7 +1751,8 @@
    "issues": 0,
    "language": "JavaScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-chatnode-wechat",
@@ -1671,7 +1769,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-web-ui-notify",
@@ -1688,7 +1787,8 @@
    "issues": 1,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-webbridge",
@@ -1705,7 +1805,8 @@
    "issues": 0,
    "language": "JavaScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-adapter-feishu",
@@ -1722,7 +1823,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "plugin-notify",
@@ -1738,7 +1840,8 @@
    "issues": 0,
    "language": "",
    "updated": "2026-08-15",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-15"
   }
  ],
  "Development & Runtime": [
@@ -1757,7 +1860,8 @@
    "issues": 0,
    "language": "JavaScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-plugin-check",
@@ -1774,7 +1878,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-security-audit",
@@ -1791,7 +1896,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-session-health",
@@ -1808,7 +1914,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-trace",
@@ -1825,7 +1932,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-12",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-12"
   },
   {
    "name": "dsh-llm-fallbacks",
@@ -1842,7 +1950,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-polyglot",
@@ -1859,7 +1968,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-tool-approval",
@@ -1876,7 +1986,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "plugin-template",
@@ -1893,7 +2004,8 @@
    "issues": 0,
    "language": "JavaScript",
    "updated": "2026-08-12",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-12"
   },
   {
    "name": "dsh-tps",
@@ -1910,7 +2022,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-fail-logger",
@@ -1927,7 +2040,8 @@
    "issues": 1,
    "language": "JavaScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "oh-dsh",
@@ -1944,7 +2058,8 @@
    "issues": 6,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-annotate",
@@ -1961,7 +2076,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-prompt-profile",
@@ -1978,7 +2094,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-revdiff",
@@ -1995,7 +2112,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-workspace-mcp",
@@ -2012,7 +2130,8 @@
    "issues": 0,
    "language": "",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-remote-ssh",
@@ -2029,7 +2148,8 @@
    "issues": 0,
    "language": "",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-cursor-codex",
@@ -2046,7 +2166,8 @@
    "issues": 0,
    "language": "",
    "updated": "2026-08-15",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-15"
   },
   {
    "name": "dsh-doctor",
@@ -2063,7 +2184,8 @@
    "issues": 0,
    "language": "",
    "updated": "2026-08-15",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-15"
   },
   {
    "name": "dsh-llm-oauth",
@@ -2078,7 +2200,8 @@
    "issues": 0,
    "language": "",
    "updated": "2026-08-15",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-15"
   },
   {
    "name": "dsh-suite-all",
@@ -2094,7 +2217,8 @@
    "issues": 0,
    "language": "",
    "updated": "2026-08-15",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-15"
   }
  ],
  "Just for Fun": [
@@ -2113,7 +2237,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-stock-market",
@@ -2130,7 +2255,8 @@
    "issues": 2,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-emoji",
@@ -2147,7 +2273,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-minigames",
@@ -2164,7 +2291,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-stickers",
@@ -2181,7 +2309,8 @@
    "issues": 0,
    "language": "JavaScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "whale-girl",
@@ -2198,7 +2327,8 @@
    "issues": 1,
    "language": "JavaScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-plugin-d399",
@@ -2215,7 +2345,8 @@
    "issues": 0,
    "language": "JavaScript",
    "updated": "2026-08-14",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-14"
   },
   {
    "name": "dsh-auto-chess",
@@ -2232,7 +2363,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   },
   {
    "name": "dsh-douyin",
@@ -2249,7 +2381,8 @@
    "issues": 0,
    "language": "TypeScript",
    "updated": "2026-08-13",
-   "archived": false
+   "archived": false,
+   "added": "2026-08-13"
   }
  ]
 }
