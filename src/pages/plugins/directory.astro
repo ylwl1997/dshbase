@@ -30,7 +30,7 @@ all.forEach((p) => { const d = p.added; if (d) byDay[d] = (byDay[d] || 0) + 1; }
 let _cum = 0;
 const growth = Object.keys(byDay).sort().map((d) => { _cum += byDay[d]; return [d.slice(5), _cum]; });
 const maxG = growth.length ? growth[growth.length - 1][1] : 1;
-const GW = 640, GH = 224;
+const GW = 880, GH = 200;
 const gPadL = 42, gPadR = 16, gPadT = 18, gPadB = 44;
 const gPlotW = GW - gPadL - gPadR;
 const gPlotH = GH - gPadT - gPadB;
@@ -94,7 +94,7 @@ const statusClass = {
         <div class="stat-card"><span class="s-ico">🔗</span><span class="s-val">{nSource}</span><span class="s-lab">GitHub source</span></div>
       </div>
       <div class="eco-charts">
-        <div class="eco-card">
+        <div class="eco-card eco-grow">
           <div class="eco-card-head"><span class="eco-ico">📈</span><h3 class="eco-title">Growth</h3></div>
           <svg class="growth-svg" viewBox={`0 0 ${GW} ${GH}`} role="img" aria-label="Plugin catalog growth curve">
             <defs>
@@ -130,7 +130,7 @@ const statusClass = {
           <div class="bar-chart">
             {starBuckets.map(([label, n]) => (
               <div class="bar-row">
-                <span class="bar-label">{label}</span>
+                <span class="bar-label bar-label-sm">{label}</span>
                 <div class="bar-track"><div class="bar-fill" style={`width:${(n / maxStars) * 100}%`}></div></div>
                 <span class="bar-num">{n}</span>
               </div>
@@ -262,14 +262,17 @@ const statusClass = {
   .s-ico { font-size: 20px; line-height: 1; }
   .s-val { display: block; font-size: 24px; font-weight: 800; color: var(--primary); line-height: 1.1; }
   .s-lab { font-size: 12px; color: var(--ink-3); }
-  .eco-charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 16px; }
-  .eco-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 18px; box-shadow: 0 1px 3px rgba(0,0,0,.04); }
-  .eco-card-head { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #eef1f6; }
+  .eco-charts { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+  .eco-grow { grid-column: 1 / -1; }
+  .eco-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 14px; box-shadow: 0 1px 3px rgba(0,0,0,.04); }
+  .eco-card-head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #eef1f6; }
   .eco-ico { font-size: 18px; line-height: 1; }
   .eco-title { font-size: 14px; font-weight: 700; color: var(--ink); margin: 0; }
   .bar-chart { margin-top: 4px; }
+  @media (max-width: 640px) { .eco-charts { grid-template-columns: 1fr; } }
   .bar-row { display: flex; align-items: center; gap: 10px; margin: 6px 0; }
   .bar-label { width: 150px; font-size: 12px; color: var(--ink-2); text-align: right; flex-shrink: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .bar-label-sm { width: 76px; }
   .bar-track { flex: 1; height: 16px; background: #eef1f6; border-radius: 8px; overflow: hidden; }
   .bar-fill { height: 100%; background: linear-gradient(90deg, #4D6BFE, #7c8cf8); border-radius: 8px; }
   .bar-cat { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
