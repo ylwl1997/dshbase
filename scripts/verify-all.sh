@@ -13,11 +13,22 @@ mkdir -p "$DSH_HOME/profiles"
 
 # 1. 列出待验证插件：name<TAB>source（npm 包名 或 github:owner/repo）
 "$PYTHON" - "$DATA" <<'PYEOF' > /tmp/verify-list.tsv
-import json, re, sys
+import json, re, sys, os
 d = json.load(open(sys.argv[1], encoding='utf-8'))
+filt = os.environ.get('VERIFY_FILTER', '')
+def keep(p):
+    if filt == 'broken-github':
+        return p.get('test') == 'broken' and not p.get('npm')
+    if filt == 'broken':
+        return p.get('test') == 'broken'
+    if filt == 'pending':
+        return p.get('test') == 'pending'
+    return True
 out = []
 for items in d.values():
     for p in items:
+        if not keep(p):
+            continue
         name = p['name']
         src = ''
         if p.get('npm') and p.get('pkg'):
@@ -63,11 +74,13 @@ YAML
 
   # 安装（显式 pin dsh-base 到 0.1.0-rc.6，latest 标签是坏的 0.0.1-rc.1）
   installed=0
-  for attempt in 1 2; do
+  for attempt in 1 2 3; do
     if timeout 240 dsh plugin --profile "$prof" add "@deepseek-ai/dsh-base@0.1.0-rc.6" "$src" >"$log" 2>&1; then
       installed=1
       break
     fi
+    # 允许所有构建脚本（github 源码插件的 prepare 脚本被 pnpm 阻止时，占位符 -> true 后重试）
+    sed -i 's/set this to true or false/true/g' "$profdir/pnpm-workspace.yaml" 2>/dev/null
     sleep 8
   done
 

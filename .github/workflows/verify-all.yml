@@ -2,6 +2,11 @@ name: Verify all plugins
 
 on:
   workflow_dispatch:
+    inputs:
+      filter:
+        description: '验证子集（空=全部，broken-github=github源码异常，broken=全部异常，pending=待验证）'
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -24,6 +29,8 @@ jobs:
         run: npm install -g @deepseek-ai/dsh pnpm
 
       - name: Verify batch
+        env:
+          VERIFY_FILTER: ${{ github.event.inputs.filter }}
         run: |
           start=$(( ${{ matrix.batch }} * 100 ))
           end=$(( (${{ matrix.batch }} + 1) * 100 ))
