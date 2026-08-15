@@ -62,6 +62,54 @@ def fetch_files(repo):
         return []
 
 
+def fetch_readme(repo):
+    """拉取 README 原文（前 2500 字）。"""
+    try:
+        req = urllib.request.Request(f"{API}/repos/{repo}/readme", headers={
+            "Authorization": "Bearer " + os.environ["GITHUB_TOKEN"],
+            "User-Agent": "dshbase-ingest",
+            "Accept": "application/vnd.github.raw",
+        })
+        with urllib.request.urlopen(req, timeout=20) as r:
+            return r.read().decode("utf-8", errors="replace")
+    except Exception:
+        return ""
+
+
+def llm_enrich(name, readme):
+    """用 DeepSeek 做软判断：生成双语描述 + 分类 + 垃圾检测。无 key 时返回 None。"""
+    if "DEEPSEEK_API_KEY" not in os.environ:
+        return None
+    cats = " | ".join(CATEGORIES)
+    prompt = (
+        "你是 DeepSeek Harness 插件目录的收录助手。根据下面插件的 README 判断并生成元数据，"
+        "只输出一个 JSON 对象，不要任何多余文字。\n\n"
+        f"插件名：{name}\n\nREADME：\n{(readme or '')[:2500]}\n\n"
+        "输出 JSON，字段：\n"
+        "- desc_en：一句英文描述（≤30 词）\n"
+        "- desc_zh：一句中文描述（≤30 字）\n"
+        f"- category：必须是 [{cats}] 之一\n"
+        "- is_real_plugin：true/false（判断这是不是真正的 dsh 插件，还是只是蹭 dsh-plugin topic 的非插件仓库）\n"
+        "- spam_reason：若 is_real_plugin=false 写原因，否则空字符串"
+    )
+    data = json.dumps({
+        "model": "deepseek-chat",
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": 0.2,
+        "response_format": {"type": "json_object"},
+    }).encode()
+    req = urllib.request.Request("https://api.deepseek.com/chat/completions", data=data, headers={
+        "Authorization": "Bearer " + os.environ["DEEPSEEK_API_KEY"],
+        "Content-Type": "application/json",
+    })
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            resp = json.loads(r.read())
+        return json.loads(resp["choices"][0]["message"]["content"])
+    except Exception:
+        return None
+
+
 def verify(repo, data, files):
     """返回 (ok, issues, data)。issues 是缺失项列表。"""
     issues = []
@@ -144,7 +192,24 @@ def main():
     files = fetch_files(repo)
     ok, issues, data = verify(repo, data, files)
     name = args.name or data["name"]
+
+    # 软判断：DeepSeek 生成描述/分类 + 垃圾检测（有 DEEPSEEK_API_KEY 才启用）
+    spam = None
+    enrich = None
+    if ok:
+        enrich = llm_enrich(name, fetch_readme(repo))
+        if enrich:
+            if enrich.get("category") in CATEGORIES:
+                args.category = enrich["category"]
+            if enrich.get("desc_zh"):
+                args.desc_zh = enrich["desc_zh"]
+            if not enrich.get("is_real_plugin", True):
+                spam = enrich.get("spam_reason") or "看起来不是真正的 dsh 插件（蹭 dsh-plugin topic）"
+
     entry = build_entry(data, args)
+    if enrich and enrich.get("desc_en"):
+        entry["desc_en"] = enrich["desc_en"]
+        entry["desc"] = enrich["desc_en"]
 
     db = load_db()
     existing = find_existing(db, name, data["html_url"])
@@ -152,9 +217,12 @@ def main():
     if not ok:
         msg = "❌ 暂时无法收录，缺少以下条件：\n\n" + "\n".join(f"- [ ] {i}" for i in issues) + "\n\n请补充后重新提交。"
         result = {"status": "rejected", "issues": issues, "message": msg}
+    elif spam:
+        msg = f"❌ 无法收录：{spam}"
+        result = {"status": "rejected", "message": msg}
     elif existing is not None:
         install = f"`dsh plugin add {existing['pkg']}`" if existing.get("pkg") else f"`dsh plugin add github:{repo}`"
-        msg = f"✅ 该插件已在目录中（分类：{next(k for k,v in db.items() if any(p is existing for p in v))}），无需重复收录。安装：{install}"
+        msg = f"✅ 该插件已在目录中（分类：{next(k for k, v in db.items() if any(p is existing for p in v))}），无需重复收录。安装：{install}"
         result = {"status": "existing", "name": name, "message": msg}
     else:
         add_plugin(db, entry, args.category)
