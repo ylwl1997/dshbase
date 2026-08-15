@@ -432,4 +432,22 @@ const statusClass = {
       applyFilters();
     });
   });
+
+  // 实时按星数重排「热门 Top 10」
+  setTimeout(() => {
+    const grid = document.querySelector('.tp-grid');
+    const stats = window.__dshStats;
+    if (!grid || !stats) return;
+    const items = [...grid.querySelectorAll('.tp-item')];
+    items.sort((a, b) => {
+      const na = a.querySelector('.tp-stars')?.getAttribute('data-stars-name');
+      const nb = b.querySelector('.tp-stars')?.getAttribute('data-stars-name');
+      return (stats[nb]?.stars ?? 0) - (stats[na]?.stars ?? 0);
+    });
+    items.forEach((it, i) => {
+      const rank = it.querySelector('.tp-rank');
+      if (rank) rank.textContent = i + 1;
+      grid.appendChild(it);
+    });
+  }, 1600);
 </script>

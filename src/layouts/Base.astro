@@ -106,6 +106,7 @@ const t = {
         const res = await fetch('/api/stats');
         if (!res.ok) return;
         const stats = await res.json();
+        window.__dshStats = stats;
         els.forEach((el) => {
           const name = el.getAttribute('data-stars-name');
           const kind = el.getAttribute('data-stats-kind') || 'stars';
