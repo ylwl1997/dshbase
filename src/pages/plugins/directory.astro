@@ -74,21 +74,6 @@ const statusClass = {
     </div>
   </section>
 
-  <section class="install-guide wrap">
-    <div class="ig-box">
-      <div class="ig-method ig-primary">
-        <b>🚀 Method 1 (recommended) — let your agent install for you</b>
-        <p>Install the catalog once, then just tell your agent what you need — it searches this directory's {total} plugins and installs automatically:</p>
-        <pre class="code-block"><code>dsh plugin add dshbase-catalog</code></pre>
-        <p class="ig-note">Then say <em>"install me a memory plugin"</em> — your agent finds it and installs it for you. Zero copy-paste.</p>
-      </div>
-      <div class="ig-method">
-        <b>📋 Method 2 — manual</b>
-        <p>Click the <strong>📋 安装</strong> button on any card to copy its install command, then paste it into your terminal.</p>
-      </div>
-    </div>
-  </section>
-
   <section class="info wrap">
     <p class="stats-line">Tested on dsh 0.1.0-rc.6 — every card shows the verified status and exact install command. GitHub-source plugins install with <code>dsh plugin add github:owner/repo</code>.</p>
     <div class="eco">
@@ -261,15 +246,6 @@ const statusClass = {
 <style>
   .hero { padding-bottom: 16px; }
   .info { padding-top: 16px; }
-  .install-guide { margin: 6px auto 0; }
-  .ig-box { display: grid; grid-template-columns: 1.4fr 1fr; gap: 14px; }
-  .ig-method { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; }
-  .ig-method b { font-size: 14px; color: var(--ink); }
-  .ig-method p { font-size: 13px; color: var(--ink-2); margin: 8px 0 0; line-height: 1.6; }
-  .ig-method .code-block { margin: 10px 0 0; }
-  .ig-primary { border-color: #bfdbfe; background: #eff6ff; }
-  .ig-note { font-size: 12.5px; color: var(--ink-3); }
-  @media (max-width: 640px) { .ig-box { grid-template-columns: 1fr; } }
   .pcard { display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: inherit; }
   .pcard:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-md, 0 8px 24px rgba(0,0,0,.08)); }
   .pcard-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }

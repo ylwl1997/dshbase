@@ -83,21 +83,6 @@ const statusClass = {
     </div>
   </section>
 
-  <section class="install-guide wrap">
-    <div class="ig-box">
-      <div class="ig-method ig-primary">
-        <b>🚀 方法一（推荐）：让 Agent 自动装</b>
-        <p>装一次目录插件，之后直接对 agent 说需求，它会从本站 {total} 个插件里查找并自动安装：</p>
-        <pre class="code-block"><code>dsh plugin add dshbase-catalog</code></pre>
-        <p class="ig-note">装好后对 agent 说<em>「帮我装个记忆插件」</em>，它就会自动找到并装好，全程不用复制粘贴。</p>
-      </div>
-      <div class="ig-method">
-        <b>📋 方法二：手动复制</b>
-        <p>点任意卡片上的<strong>「📋 安装」</strong>按钮复制命令，粘贴到终端即可。</p>
-      </div>
-    </div>
-  </section>
-
   <section class="info wrap">
     <p class="stats-line">实测于 dsh 0.1.0-rc.6——每张卡片标注实测状态与安装命令。GitHub 源码插件用 <code>dsh plugin add github:owner/repo</code> 安装。</p>
     <div class="eco">
@@ -270,15 +255,6 @@ const statusClass = {
 <style>
   .hero { padding-bottom: 16px; }
   .info { padding-top: 16px; }
-  .install-guide { margin: 6px auto 0; }
-  .ig-box { display: grid; grid-template-columns: 1.4fr 1fr; gap: 14px; }
-  .ig-method { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; }
-  .ig-method b { font-size: 14px; color: var(--ink); }
-  .ig-method p { font-size: 13px; color: var(--ink-2); margin: 8px 0 0; line-height: 1.6; }
-  .ig-method .code-block { margin: 10px 0 0; }
-  .ig-primary { border-color: #bfdbfe; background: #eff6ff; }
-  .ig-note { font-size: 12.5px; color: var(--ink-3); }
-  @media (max-width: 640px) { .ig-box { grid-template-columns: 1fr; } }
   .pcard { display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: inherit; }
   .pcard:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-md, 0 8px 24px rgba(0,0,0,.08)); }
   .pcard-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
