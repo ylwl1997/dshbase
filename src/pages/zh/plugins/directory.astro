@@ -247,6 +247,8 @@ const statusClass = {
 </Base>
 
 <style>
+  .hero { padding-bottom: 16px; }
+  .info { padding-top: 16px; }
   .pcard { display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: inherit; }
   .pcard:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-md, 0 8px 24px rgba(0,0,0,.08)); }
   .pcard-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
@@ -369,6 +371,11 @@ const statusClass = {
 
   chips.forEach((chip) => {
     chip.addEventListener('click', () => {
+      // 点分类 chip 时自动切回「全部」tab
+      if (activeTab !== 'all') {
+        activeTab = 'all';
+        tabs.forEach((t) => t.classList.toggle('is-active', t.dataset.tab === 'all'));
+      }
       const catId = chip.dataset.cat;
       if (activeCat === catId) {
         activeCat = null;
