@@ -28,60 +28,36 @@ const catUrl = `${dirUrl}#${catId}`;
 const repo = p.url.replace('https://github.com/', '');
 const npmHome = p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
 const statusLabel = {
-  ok: '已验证 · 可安装并启动',
-  'git-ok': 'GitHub · 已验证（可安装启动）',
-  'git-build': 'GitHub · 需构建步骤',
-  'git-ui': 'GitHub · 需 Web/TUI 界面',
-  'git-fail': '安装失败',
-  ui: '可安装 · 需 Web/TUI 界面',
-  'load-fail': '加载异常',
-  'install-fail': '安装失败（依赖未发 npm）',
-  'not-on-npm': '仅 GitHub 源码',
+  verified: '已验证 · 可安装并启动',
+  pending: '待验证',
+  broken: '异常 · 安装/加载失败',
 };
 const statusClass = {
-  ok: 'st-ok',
-  'git-ok': 'st-ok',
-  'git-build': 'st-warn',
-  'git-ui': 'st-warn',
-  'git-fail': 'st-warn',
-  ui: 'st-warn',
-  'load-fail': 'st-warn',
-  'install-fail': 'st-warn',
-  'not-on-npm': 'st-src',
+  verified: 'st-ok',
+  pending: 'st-warn',
+  broken: 'st-broken',
 };
 const desc = p.desc_zh || p.desc || `${cat} 类别的 DeepSeek Harness 插件。`;
 const fmt = (n) => (n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n ?? 0));
 const stars = p.stars ?? 0;
 const verdict = p.archived
   ? { label: '已归档 — 不再维护，谨慎使用', cls: 'v-warn', icon: '⚠️' }
-  : p.test === 'ok' || p.test === 'git-ok'
+  : p.test === 'verified'
     ? stars >= 100
       ? { label: '推荐 — 实测可用且热门', cls: 'v-ok', icon: '✅' }
       : stars >= 20
         ? { label: '可用 — 实测通过，社区增长中', cls: 'v-ok', icon: '✅' }
         : { label: '可用 — 实测通过，早期项目', cls: 'v-ok', icon: '✅' }
-    : p.test === 'ui' || p.test === 'git-ui'
-      ? { label: '界面插件 — 可安装激活，需 Web/TUI 界面', cls: 'v-warn', icon: '🖥️' }
-      : p.test === 'git-build'
-        ? { label: '可安装 — 需构建步骤（pnpm allowBuilds）', cls: 'v-warn', icon: '🔧' }
-        : p.test === 'install-fail' || p.test === 'git-fail'
-        ? { label: '安装异常 — 依赖未发布到 npm', cls: 'v-warn', icon: '⚠️' }
-        : stars >= 50
-          ? { label: '源码插件 — 活跃项目，从 GitHub 安装', cls: 'v-src', icon: '📦' }
-          : stars >= 10
-            ? { label: '源码插件 — 从 GitHub 安装', cls: 'v-src', icon: '📦' }
-            : { label: '源码插件 — 早期项目，从 GitHub 安装', cls: 'v-src', icon: '📦' };
+    : p.test === 'broken'
+      ? { label: '异常 — 安装或加载失败', cls: 'v-warn', icon: '⚠️' }
+      : { label: '待验证 — 尚未实测', cls: 'v-warn', icon: '⏳' };
 const review = p.archived
   ? `该插件已归档、不再维护——除非你愿意自己维护，否则慎用。`
-  : p.test === 'ok' || p.test === 'git-ok'
-    ? `${desc} 实测能干净安装、正常启动${p.test === 'git-ok' ? '（从 GitHub 源码）' : ''}。${stars >= 100 ? `${stars}+ stars，社区认可度高，是低风险选择。` : stars >= 20 ? `社区在增长，是个稳妥选择。` : `早期项目，但功能可用。`}`
-    : p.test === 'ui' || p.test === 'git-ui'
-      ? `${desc} 注意它是界面类插件——需要 Web/TUI 界面才能起效，在 \`dsh web\` 里测，别在 headless 下测。`
-      : p.test === 'git-build'
-        ? `${desc} 从 GitHub 源码安装，但带构建步骤（pnpm 默认阻止）——把提示的 \`allowBuilds\` key 加上，或拿预构建版。`
-        : p.test === 'install-fail' || p.test === 'git-fail'
-          ? `${desc} 注意：目前安装失败（依赖缺失或构建损坏）——依赖它之前先看仓库。`
-          : `${desc} 以 GitHub 源码分发——用 \`dsh plugin add github:owner/repo\` 安装。`;
+  : p.test === 'verified'
+    ? `${desc} 实测能干净安装、正常启动。${stars >= 100 ? `${stars}+ stars，社区认可度高，是低风险选择。` : stars >= 20 ? `社区在增长，是个稳妥选择。` : `早期项目，但功能可用。`}`
+    : p.test === 'broken'
+      ? `${desc} 注意：目前有安装或加载问题——依赖它之前先看仓库。`
+      : `${desc} 尚未验证——请自行安装测试。`;
 const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6);
 const jsonLd = {
   '@context': 'https://schema.org',

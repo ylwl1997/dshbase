@@ -132,7 +132,7 @@ def build_entry(data, args):
         "pkg": args.npm or "",
         "ver": "",
         "npm": is_npm,
-        "test": "ui" if is_npm else "not-on-npm",
+        "test": "pending",
         "desc": desc_en or args.desc_zh or "",
         "desc_en": desc_en,
         "desc_zh": args.desc_zh or "",

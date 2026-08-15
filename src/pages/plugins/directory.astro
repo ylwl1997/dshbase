@@ -8,11 +8,9 @@ const catOrder = Object.keys(plugins);
 catOrder.forEach((k) => plugins[k].sort(sortByStars));
 const total = catOrder.reduce((s, k) => s + plugins[k].length, 0);
 const all = catOrder.flatMap((k) => plugins[k]);
-const nOk = all.filter((p) => p.test === 'ok' || p.test === 'git-ok').length;
-const nUi = all.filter((p) => p.test === 'ui' || p.test === 'git-ui').length;
-const nBuild = all.filter((p) => p.test === 'git-build').length;
-const nFail = all.filter((p) => p.test === 'install-fail' || p.test === 'load-fail' || p.test === 'git-fail').length;
-const nSource = all.filter((p) => p.test === 'not-on-npm').length;
+const nVerified = all.filter((p) => p.test === 'verified').length;
+const nPending = all.filter((p) => p.test === 'pending').length;
+const nBroken = all.filter((p) => p.test === 'broken').length;
 const nNpm = all.filter((p) => p.npm).length;
 
 // category distribution (stacked bar)
@@ -33,30 +31,23 @@ const gY = (v) => gPadT + (1 - v / maxG) * gPlotH;
 const gPts = growth.map(([, v], i) => [gX(i), gY(v)]);
 const gLine = gPts.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
 const gArea = `${gPadL},${GH - gPadB} ${gLine} ${GW - gPadR},${GH - gPadB}`;
+
+// big tabs: hot (top stars) + new (recently added)
+const hotPlugins = [...all].sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0)).slice(0, 60);
+const newPlugins = [...all].sort((a, b) => (b.added || '').localeCompare(a.added || '')).slice(0, 60);
+
 const repo = (u) => u.replace('https://github.com/', '');
 const npmHome = (p) => p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
-const isFeatured = (p) => (p.stars ?? 0) >= 100 && !['install-fail', 'load-fail', 'git-fail'].includes(p.test);
+const isFeatured = (p) => (p.stars ?? 0) >= 100 && p.test !== 'broken';
 const statusLabel = {
-  ok: 'Verified · npm',
-  'git-ok': 'GitHub · verified',
-  'git-build': 'GitHub · needs build',
-  'git-ui': 'GitHub · UI',
-  'git-fail': 'Install failed',
-  ui: 'npm · needs UI',
-  'load-fail': 'Load issue',
-  'install-fail': 'Install failed',
-  'not-on-npm': 'GitHub source',
+  verified: 'Verified',
+  pending: 'Pending',
+  broken: 'Broken',
 };
 const statusClass = {
-  ok: 'st-ok',
-  'git-ok': 'st-ok',
-  'git-build': 'st-warn',
-  'git-ui': 'st-warn',
-  'git-fail': 'st-warn',
-  ui: 'st-warn',
-  'load-fail': 'st-warn',
-  'install-fail': 'st-warn',
-  'not-on-npm': 'st-src',
+  verified: 'st-ok',
+  pending: 'st-warn',
+  broken: 'st-broken',
 };
 ---
 <Base title={`DeepSeek Harness Plugin Directory — ${total} Plugins, Verified Test Results & Install Commands | dshbase`} description={`Browse the DeepSeek Harness (dsh) plugin ecosystem: ${catOrder.length} categories, ${total} plugins, each with npm install status, verified test results, and the exact install command.`} currentPath="/plugins/directory/">
@@ -80,11 +71,10 @@ const statusClass = {
     <div class="eco">
       <div class="statline">
         <div class="stat"><b>{total.toLocaleString('en-US')}</b><span>plugins</span></div>
-        <div class="stat"><b>{nOk}</b><span>verified</span></div>
+        <div class="stat"><b>{nVerified}</b><span>verified</span></div>
+        <div class="stat"><b>{nPending}</b><span>pending</span></div>
+        <div class="stat"><b>{nBroken}</b><span>broken</span></div>
         <div class="stat"><b>{nNpm}</b><span>on npm</span></div>
-        <div class="stat"><b>{nBuild}</b><span>need build</span></div>
-        <div class="stat"><b>{nFail}</b><span>issues</span></div>
-        <div class="stat"><b>{nSource}</b><span>GitHub source</span></div>
       </div>
       <div class="eco-cards">
         <div class="eco-card">
@@ -141,18 +131,25 @@ const statusClass = {
         ))}
       </div>
     </div>
-    <div class="cat-nav">
-      {catOrder.map((cat) => (
-        <a class="chip" href={`#${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>{cat}</a>
-      ))}
+    <div class="nav-toolbar">
+      <div class="big-tabs" role="tablist" aria-label="Collections">
+        <button class="btab is-active" data-tab="all">All</button>
+        <button class="btab" data-tab="hot">🔥 Hot</button>
+        <button class="btab" data-tab="new">🆕 New</button>
+      </div>
+      <div class="cat-nav">
+        {catOrder.map((cat) => (
+          <a class="chip" href={`#${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>{cat}</a>
+        ))}
+      </div>
+      <div class="filter-bar" role="group" aria-label="Filter plugins">
+        <button class="fbtn is-active" data-filter="all">All <span class="fcount">{total}</span></button>
+        <button class="fbtn" data-filter="verified">Verified <span class="fcount">{nVerified}</span></button>
+        <button class="fbtn" data-filter="pending">Pending <span class="fcount">{nPending}</span></button>
+        <button class="fbtn" data-filter="broken">Broken <span class="fcount">{nBroken}</span></button>
+      </div>
     </div>
-    <div class="filter-bar" role="group" aria-label="Filter plugins">
-      <button class="fbtn is-active" data-filter="all">All <span class="fcount">{total}</span></button>
-      <button class="fbtn" data-filter="verified">Verified <span class="fcount">{catOrder.reduce((s,k)=>s+plugins[k].filter(p=>p.test==='ok'||p.test==='git-ok').length,0)}</span></button>
-      <button class="fbtn" data-filter="npm">npm <span class="fcount">{catOrder.reduce((s,k)=>s+plugins[k].filter(p=>p.npm).length,0)}</span></button>
-      <button class="fbtn" data-filter="source">Source <span class="fcount">{catOrder.reduce((s,k)=>s+plugins[k].filter(p=>!p.npm).length,0)}</span></button>
-      <button class="fbtn" data-filter="issue">Issue <span class="fcount">{catOrder.reduce((s,k)=>s+plugins[k].filter(p=>['ui','load-fail','install-fail','git-fail','git-build'].includes(p.test)).length,0)}</span></button>
-    </div>
+    <div id="cat-sections">
     {catOrder.map((cat) => {
       const catId = cat.toLowerCase().replace(/[^a-z0-9]+/g, '-');
       return (
@@ -184,6 +181,59 @@ const statusClass = {
       </Fragment>
       );
     })}
+    </div>
+    <div id="hot-panel" hidden>
+      <h3 class="cat-head" style="margin-top:26px">🔥 Hot plugins <span class="muted" style="font-size:13px;font-weight:400">(top {hotPlugins.length} by stars)</span></h3>
+      <div class="grid3">
+        {hotPlugins.map((p) => {
+          const r = repo(p.url);
+          return (
+            <a class="card pcard" href={`/plugins/${p.name}/`} data-test={p.test} data-npm={p.npm ? '1' : '0'}>
+              <div class="pcard-head">
+                <span class="pcard-name">{p.name}{isFeatured(p) ? ' ⭐' : ''}</span>
+                <span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span>
+              </div>
+              <p class="pcard-repo">{r}</p>
+              {(p.desc_en || p.desc) && <p class="pcard-desc">{p.desc_en || p.desc}</p>}
+              <div class="pcard-install">
+                {p.npm && p.pkg ? (
+                  <pre class="code-block install-chip"><code>dsh plugin add {p.pkg}</code></pre>
+                ) : (
+                  <span class="muted small">GitHub source</span>
+                )}
+                <span class="view-link">View details &rarr;</span>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+    <div id="new-panel" hidden>
+      <h3 class="cat-head" style="margin-top:26px">🆕 Newly added <span class="muted" style="font-size:13px;font-weight:400">(recent {newPlugins.length})</span></h3>
+      <div class="grid3">
+        {newPlugins.map((p) => {
+          const r = repo(p.url);
+          return (
+            <a class="card pcard" href={`/plugins/${p.name}/`} data-test={p.test} data-npm={p.npm ? '1' : '0'}>
+              <div class="pcard-head">
+                <span class="pcard-name">{p.name}{isFeatured(p) ? ' ⭐' : ''}</span>
+                <span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span>
+              </div>
+              <p class="pcard-repo">{r}</p>
+              {(p.desc_en || p.desc) && <p class="pcard-desc">{p.desc_en || p.desc}</p>}
+              <div class="pcard-install">
+                {p.npm && p.pkg ? (
+                  <pre class="code-block install-chip"><code>dsh plugin add {p.pkg}</code></pre>
+                ) : (
+                  <span class="muted small">GitHub source</span>
+                )}
+                <span class="view-link">View details &rarr;</span>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
   </section>
 </Base>
 
@@ -197,11 +247,15 @@ const statusClass = {
   .pcard-install { margin-top: auto; display: flex; flex-direction: column; gap: 6px; }
   .view-link { font-size: 13px; font-weight: 600; color: var(--primary); }
   .pcard:hover .view-link { text-decoration: underline; }
-  .cat-nav { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 18px 0 4px; }
-  .chip { font-size: 12.5px; color: var(--ink-2); border: 1px solid var(--border); border-radius: 999px; padding: 5px 13px; text-decoration: none; background: #fff; }
+  .nav-toolbar { position: sticky; top: 0; z-index: 30; background: var(--bg); padding: 12px 0 8px; margin: 18px 0 0; border-bottom: 1px solid var(--border); }
+  .big-tabs { display: flex; gap: 10px; justify-content: center; margin-bottom: 12px; }
+  .btab { font-size: 14px; font-weight: 600; padding: 8px 22px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-card); color: var(--ink-2); cursor: pointer; }
+  .btab.is-active { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .cat-nav { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 0 0 8px; }
+  .chip { font-size: 12.5px; color: var(--ink-2); border: 1px solid var(--border); border-radius: 999px; padding: 5px 13px; text-decoration: none; background: var(--bg-card); }
   .chip:hover { color: var(--primary); border-color: var(--primary); }
-  .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 4px 0 20px; }
-  .fbtn { font-size: 13px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border); background: #fff; color: var(--ink-2); cursor: pointer; }
+  .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 0; }
+  .fbtn { font-size: 13px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-card); color: var(--ink-2); cursor: pointer; }
   .fbtn.is-active { background: var(--primary); color: #fff; border-color: var(--primary); }
   .fcount { opacity: .7; font-size: 12px; }
   .pcard[hidden] { display: none; }
@@ -223,6 +277,8 @@ const statusClass = {
   .st-src .dot { background: #9aa1ad; }
   .st-warn { color: #9a6700; border-color: #e5c27a; background: #fff8e6; }
   .st-warn .dot { background: #d4a72c; }
+  .st-broken { color: #c62828; border-color: #f0b9b9; background: #fff1f1; }
+  .st-broken .dot { background: #c62828; }
   .legend .badge { color: var(--ink-2); }
   .stats-line { font-size: 14px; color: var(--ink-2); margin: 18px 0 0; text-align: center; }
   .agent-box { font-size: 13.5px; color: var(--ink-2); background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 12px 16px; margin: 14px 0 0; overflow: hidden; }
@@ -268,33 +324,46 @@ const statusClass = {
     }, 3500);
   })();
 
-  const buttons = document.querySelectorAll('.fbtn');
+  const filterBtns = document.querySelectorAll('.fbtn');
+  const tabs = document.querySelectorAll('.btab');
   const cards = document.querySelectorAll('.pcard');
-  const heads = document.querySelectorAll('.cat-head');
+  const catHeads = document.querySelectorAll('#cat-sections .cat-head');
+  const catSections = document.getElementById('cat-sections');
+  const hotPanel = document.getElementById('hot-panel');
+  const newPanel = document.getElementById('new-panel');
   const match = (card, f) => {
     const t = card.dataset.test;
-    const isNpm = card.dataset.npm === '1';
     if (f === 'all') return true;
-    if (f === 'verified') return t === 'ok' || t === 'git-ok';
-    if (f === 'npm') return isNpm;
-    if (f === 'source') return !isNpm;
-    if (f === 'issue') return ['ui', 'load-fail', 'install-fail', 'git-fail', 'git-build'].includes(t);
+    if (f === 'verified') return t === 'verified';
+    if (f === 'pending') return t === 'pending';
+    if (f === 'broken') return t === 'broken';
     return true;
   };
-  buttons.forEach((btn) => {
+  filterBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
-      buttons.forEach((b) => b.classList.remove('is-active'));
+      filterBtns.forEach((b) => b.classList.remove('is-active'));
       btn.classList.add('is-active');
       const f = btn.dataset.filter;
       cards.forEach((c) => { c.hidden = !match(c, f); });
-      heads.forEach((h) => {
+      catHeads.forEach((h) => {
         let sib = h.nextElementSibling;
+        let anyVisible = false;
         while (sib && !sib.classList.contains('cat-head')) {
-          if (sib.classList.contains('pcard') && !sib.hidden) { h.hidden = false; return; }
+          if (sib.classList.contains('pcard') && !sib.hidden) { anyVisible = true; break; }
           sib = sib.nextElementSibling;
         }
-        h.hidden = true;
+        h.hidden = !anyVisible;
       });
+    });
+  });
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      tabs.forEach((t) => t.classList.remove('is-active'));
+      tab.classList.add('is-active');
+      const t = tab.dataset.tab;
+      catSections.hidden = t !== 'all';
+      hotPanel.hidden = t !== 'hot';
+      newPanel.hidden = t !== 'new';
     });
   });
 </script>

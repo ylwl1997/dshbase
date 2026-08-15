@@ -71,12 +71,12 @@ for items in d.values():
         if p.get("npm") and p.get("name") in res:
             st = res[p["name"]]
             old = p.get("test")
-            # 保守策略：CI 只做正向确认（升级为 ok），绝不在单次（可能网络不稳）运行时
+            # 保守策略：CI 只做正向确认（升级为 verified），绝不在单次（可能网络不稳）运行时
             # 降级已收录的状态 —— install-fail/load-fail 需要多次连续失败再人工判断。
-            if st == "ok" and old != "ok":
-                p["test"] = "ok"
+            if st == "ok" and old != "verified":
+                p["test"] = "verified"
                 p["testDate"] = today
                 changed += 1
 json.dump(d, open(data_path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-print(f"upgraded {changed} plugins to ok in {data_path}")
+print(f"upgraded {changed} plugins to verified in {data_path}")
 PYEOF

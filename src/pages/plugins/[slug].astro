@@ -29,60 +29,36 @@ const catUrl = `${dirUrl}#${catId}`;
 const repo = p.url.replace('https://github.com/', '');
 const npmHome = p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
 const statusLabel = {
-  ok: 'Verified · installs & boots on dsh',
-  'git-ok': 'GitHub · verified (installs & boots)',
-  'git-build': 'GitHub · needs a build step',
-  'git-ui': 'GitHub · needs a Web/TUI surface',
-  'git-fail': 'Install failed',
-  ui: 'Installs · needs a Web/TUI surface',
-  'load-fail': 'Load issue',
-  'install-fail': 'Install failed (dependency not on npm)',
-  'not-on-npm': 'GitHub source only',
+  verified: 'Verified · installs & boots on dsh',
+  pending: 'Pending verification',
+  broken: 'Broken · install/load issue',
 };
 const statusClass = {
-  ok: 'st-ok',
-  'git-ok': 'st-ok',
-  'git-build': 'st-warn',
-  'git-ui': 'st-warn',
-  'git-fail': 'st-warn',
-  ui: 'st-warn',
-  'load-fail': 'st-warn',
-  'install-fail': 'st-warn',
-  'not-on-npm': 'st-src',
+  verified: 'st-ok',
+  pending: 'st-warn',
+  broken: 'st-broken',
 };
 const desc = p.desc_en || p.desc || `A plugin in the ${cat} category for DeepSeek Harness.`;
 const fmt = (n) => (n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n ?? 0));
 const stars = p.stars ?? 0;
 const verdict = p.archived
   ? { label: 'Archived — no longer maintained, use with caution', cls: 'v-warn', icon: '⚠️' }
-  : p.test === 'ok' || p.test === 'git-ok'
+  : p.test === 'verified'
     ? stars >= 100
       ? { label: 'Recommended — verified working and popular', cls: 'v-ok', icon: '✅' }
       : stars >= 20
         ? { label: 'Works — verified, growing community', cls: 'v-ok', icon: '✅' }
         : { label: 'Works — verified, early-stage project', cls: 'v-ok', icon: '✅' }
-    : p.test === 'ui' || p.test === 'git-ui'
-      ? { label: 'UI plugin — installs & activates, needs the web/TUI surface', cls: 'v-warn', icon: '🖥️' }
-      : p.test === 'git-build'
-        ? { label: 'Installable — needs a build step (pnpm allowBuilds)', cls: 'v-warn', icon: '🔧' }
-        : p.test === 'install-fail' || p.test === 'git-fail'
-        ? { label: 'Install issue — a dependency is missing from npm', cls: 'v-warn', icon: '⚠️' }
-        : stars >= 50
-          ? { label: 'Source-only — active project, install from GitHub', cls: 'v-src', icon: '📦' }
-          : stars >= 10
-            ? { label: 'Source-only — install from GitHub', cls: 'v-src', icon: '📦' }
-            : { label: 'Source-only — early-stage, install from GitHub', cls: 'v-src', icon: '📦' };
+    : p.test === 'broken'
+      ? { label: 'Broken — install or load issue', cls: 'v-warn', icon: '⚠️' }
+      : { label: 'Pending verification — not yet tested', cls: 'v-warn', icon: '⏳' };
 const review = p.archived
   ? `This plugin has been archived and is no longer maintained — use it only if you're willing to maintain it yourself.`
-  : p.test === 'ok' || p.test === 'git-ok'
-    ? `${desc} It installs cleanly and boots without issues in our testing${p.test === 'git-ok' ? ' (from GitHub source)' : ''}. ${stars >= 100 ? `With ${stars}+ stars it's a community-endorsed, low-risk pick.` : stars >= 20 ? `It has a growing community — a solid choice.` : `It's early-stage but functional.`}`
-    : p.test === 'ui' || p.test === 'git-ui'
-      ? `${desc} Note it's a UI-facing plugin — it needs the web/TUI surface to do anything, so test it inside \`dsh web\` rather than headless.`
-      : p.test === 'git-build'
-        ? `${desc} It installs from GitHub source but ships a build step (pnpm blocks it by default) — add the \`allowBuilds\` key it prints, or grab a prebuilt copy.`
-        : p.test === 'install-fail' || p.test === 'git-fail'
-          ? `${desc} Note: it currently fails to install (a dependency is missing or the build is broken) — check the repo before relying on it.`
-          : `${desc} It ships as GitHub source — install with \`dsh plugin add github:owner/repo\`.`;
+  : p.test === 'verified'
+    ? `${desc} It installs cleanly and boots without issues in our testing. ${stars >= 100 ? `With ${stars}+ stars it's a community-endorsed, low-risk pick.` : stars >= 20 ? `It has a growing community — a solid choice.` : `It's early-stage but functional.`}`
+    : p.test === 'broken'
+      ? `${desc} Note: it currently has an install or load issue — check the repo before relying on it.`
+      : `${desc} Not yet verified — install and test it yourself.`;
 const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6);
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -142,9 +118,9 @@ const jsonLd = {
         <h2 style="margin-top:24px">Package</h2>
         <p>npm: <a href={npmHome} target="_blank" rel="noopener">{p.pkg}</a> · version <strong>{p.ver || '—'}</strong> · tested on dsh <strong>0.1.0-rc.6</strong></p>
         <h2 style="margin-top:24px">Test report</h2>
-        <p>{p.test === 'ok' && 'Verified end-to-end: installed via `dsh plugin add`, activated in the profile, and booted a task successfully.'}
-           {p.test === 'ui' && 'Installs and activates, but did not boot in the headless test environment — it expects a Web/TUI surface. It should work in the normal `dsh web` UI.'}
-           {p.test === 'install-fail' && 'Could not be installed — a dependency in its tree is not published to npm. Check the repository for a pending publish.'}</p>
+        <p>{p.test === 'verified' && 'Verified end-to-end: installed via `dsh plugin add`, activated in the profile, and booted a task successfully.'}
+           {p.test === 'pending' && 'Not yet verified — install and test it yourself, or check back later.'}
+           {p.test === 'broken' && 'Could not be installed — a dependency in its tree is not published to npm, or the build is broken. Check the repository.'}</p>
       </Fragment>
     ) : (
       <Fragment>
@@ -166,10 +142,9 @@ const jsonLd = {
         {p.test !== 'not-on-npm' && (
           <Fragment>
             <h2 style="margin-top:24px">Test report</h2>
-            <p>{p.test === 'git-ok' && 'Verified: installed from GitHub, activated in the profile, and booted a task successfully.'}
-               {p.test === 'git-ui' && 'Installed and activated, but did not boot in the headless test — it expects a Web/TUI surface and should work in `dsh web`.'}
-               {p.test === 'git-build' && 'Install needs a build step: the plugin ships a `prepare` script that pnpm blocks by default. Add the key it prints to `allowBuilds` in `pnpm-workspace.yaml`, then re-run.'}
-               {p.test === 'git-fail' && 'Could not be installed from GitHub — check the repository for missing dependencies or a broken build.'}</p>
+            <p>{p.test === 'verified' && 'Verified: installed from GitHub, activated in the profile, and booted a task successfully.'}
+               {p.test === 'pending' && 'Not yet verified — install and test it yourself.'}
+               {p.test === 'broken' && 'Could not be installed from GitHub — check the repository for missing dependencies or a broken build.'}</p>
           </Fragment>
         )}
       </Fragment>
@@ -200,6 +175,7 @@ const jsonLd = {
   .st-ok { color: #1a7f37; border-color: #b7e0c0; background: #f0fff4; }
   .st-src { color: var(--ink-2); background: #f7f8fa; }
   .st-warn { color: #9a6700; border-color: #e5c27a; background: #fff8e6; }
+  .st-broken { color: #c62828; border-color: #f0b9b9; background: #fff1f1; }
   .what-it-does { font-size: 15px; line-height: 1.7; color: var(--ink); background: #f7f8fc; border-left: 3px solid var(--primary); padding: 14px 16px; border-radius: 8px; }
   .review-text { font-size: 14px; line-height: 1.7; color: var(--ink-2); margin: 10px 0 4px; }
   .build-box { font-size: 13.5px; color: var(--ink-2); background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px; padding: 12px 16px; margin: 14px 0; }
