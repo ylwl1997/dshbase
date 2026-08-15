@@ -157,12 +157,6 @@ const statusClass = {
           <button class="chip" data-cat={cat.toLowerCase().replace(/[^a-z0-9]+/g, '-')}>{catLabels[cat] || cat}</button>
         ))}
       </div>
-      <div class="filter-bar" role="group" aria-label="筛选插件">
-        <button class="fbtn is-active" data-filter="all">全部 <span class="fcount">{total}</span></button>
-        <button class="fbtn" data-filter="verified">已验证 <span class="fcount">{nVerified}</span></button>
-        <button class="fbtn" data-filter="pending">待验证 <span class="fcount">{nPending}</span></button>
-        <button class="fbtn" data-filter="broken">异常 <span class="fcount">{nBroken}</span></button>
-      </div>
     </div>
     <div id="cat-sections">
     {catOrder.map((cat) => {
@@ -340,51 +334,27 @@ const statusClass = {
     }, 3500);
   })();
 
-  const filterBtns = document.querySelectorAll('.fbtn');
   const tabs = document.querySelectorAll('.btab');
   const chips = document.querySelectorAll('.chip');
-  const cards = document.querySelectorAll('.pcard');
   const catHeads = document.querySelectorAll('#cat-sections .cat-head');
   const catSections = document.getElementById('cat-sections');
   const hotPanel = document.getElementById('hot-panel');
   const newPanel = document.getElementById('new-panel');
-  const match = (card, f) => {
-    const t = card.dataset.test;
-    if (f === 'all') return true;
-    if (f === 'verified') return t === 'verified';
-    if (f === 'pending') return t === 'pending';
-    if (f === 'broken') return t === 'broken';
-    return true;
-  };
 
   let activeTab = 'all';
   let activeCat = null;
-  let activeFilter = 'all';
 
   function applyFilters() {
     catSections.hidden = activeTab !== 'all';
     hotPanel.hidden = activeTab !== 'hot';
     newPanel.hidden = activeTab !== 'new';
-    cards.forEach((c) => { c.hidden = !match(c, activeFilter); });
     catHeads.forEach((h) => {
       const grid = h.nextElementSibling;
-      const inCat = !activeCat || h.id === activeCat;
-      let anyVisible = false;
-      if (grid) grid.querySelectorAll('.pcard').forEach((c) => { if (!c.hidden) anyVisible = true; });
-      const show = inCat && anyVisible;
+      const show = !activeCat || h.id === activeCat;
       h.hidden = !show;
       if (grid) grid.hidden = !show;
     });
   }
-
-  filterBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach((b) => b.classList.remove('is-active'));
-      btn.classList.add('is-active');
-      activeFilter = btn.dataset.filter;
-      applyFilters();
-    });
-  });
 
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
