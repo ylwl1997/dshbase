@@ -27,9 +27,9 @@ const catDist = catOrder.map((cat) => [catLabels[cat] || cat, plugins[cat].lengt
 
 // 增长曲线：按收录日期累计
 const byDay = {};
-all.forEach((p) => { const d = p.added; if (d) byDay[d] = (byDay[d] || 0) + 1; });
+all.forEach((p) => { const d = (p.added || '').slice(0, 10); if (d) byDay[d] = (byDay[d] || 0) + 1; });
 let _cum = 0;
-const growth = Object.keys(byDay).sort().map((d) => { _cum += byDay[d]; return [d.slice(5), _cum]; });
+const growth = Object.keys(byDay).sort().map((d) => { _cum += byDay[d]; return [d.slice(5, 10), _cum]; });
 const maxG = growth.length ? growth[growth.length - 1][1] : 1;
 const GW = 800, GH = 170;
 const gPadL = 24, gPadR = 24, gPadT = 22, gPadB = 32;

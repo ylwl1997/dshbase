@@ -17,7 +17,7 @@ import os
 import re
 import sys
 import urllib.request
-from datetime import date
+from datetime import datetime
 
 DATA = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src", "data", "plugins.json"))
 API = "https://api.github.com"
@@ -142,7 +142,7 @@ def build_entry(data, args):
         "language": data.get("language") or "",
         "updated": (data.get("pushed_at") or "")[:10],
         "archived": bool(data.get("archived")),
-        "added": date.today().isoformat(),
+        "added": datetime.now().isoformat(timespec='seconds'),
     }
 
 

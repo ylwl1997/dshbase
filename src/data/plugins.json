@@ -1957,7 +1957,7 @@
    "language": "TypeScript",
    "updated": "2026-08-15",
    "archived": false,
-   "added": "2026-08-15"
+   "added": "2026-08-15T23:03:00"
   },
   {
    "name": "dsh-cyber-pet",
@@ -1975,7 +1975,7 @@
    "language": "TypeScript",
    "updated": "2026-08-15",
    "archived": false,
-   "added": "2026-08-15"
+   "added": "2026-08-15T23:04:00"
   },
   {
    "name": "dsh-spotlight",
@@ -3032,7 +3032,7 @@
    "language": "JavaScript",
    "updated": "2026-08-14",
    "archived": false,
-   "added": "2026-08-15",
+   "added": "2026-08-15T23:02:00",
    "note": "仓库未加 `dsh-plugin` topic；无 LICENSE 许可；无 bundle 清单（cordis.patch.yml 等）"
   }
  ],
@@ -6382,7 +6382,7 @@
    "language": "JavaScript",
    "updated": "2026-08-15",
    "archived": false,
-   "added": "2026-08-15"
+   "added": "2026-08-15T23:01:00"
   }
  ],
  "Tools & Capabilities": [
@@ -10344,7 +10344,7 @@
    "language": "JavaScript",
    "updated": "2026-08-15",
    "archived": false,
-   "added": "2026-08-15"
+   "added": "2026-08-15T23:05:00"
   },
   {
    "name": "session-archive-manager",
@@ -10362,7 +10362,7 @@
    "language": "TypeScript",
    "updated": "2026-08-14",
    "archived": false,
-   "added": "2026-08-15"
+   "added": "2026-08-15T23:07:00"
   },
   {
    "name": "dsh-tool-encoding",
@@ -11584,7 +11584,7 @@
    "language": "JavaScript",
    "updated": "2026-08-15",
    "archived": false,
-   "added": "2026-08-15"
+   "added": "2026-08-15T23:00:00"
   },
   {
    "name": "noatmark-dsh-plugin",
@@ -19517,7 +19517,7 @@
    "language": "TypeScript",
    "updated": "2026-08-15",
    "archived": false,
-   "added": "2026-08-15"
+   "added": "2026-08-15T23:06:00"
   },
   {
    "name": "dsh-trace",
