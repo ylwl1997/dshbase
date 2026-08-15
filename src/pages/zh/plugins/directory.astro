@@ -148,7 +148,7 @@ const statusClass = {
       </div>
       <div class="cat-nav">
         {catOrder.map((cat) => (
-          <a class="chip" href={`#${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>{catLabels[cat] || cat}</a>
+          <button class="chip" data-cat={cat.toLowerCase().replace(/[^a-z0-9]+/g, '-')}>{catLabels[cat] || cat}</button>
         ))}
       </div>
       <div class="filter-bar" role="group" aria-label="筛选插件">
@@ -261,8 +261,9 @@ const statusClass = {
   .btab { font-size: 14px; font-weight: 600; padding: 8px 22px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-card); color: var(--ink-2); cursor: pointer; }
   .btab.is-active { background: var(--primary); color: #fff; border-color: var(--primary); }
   .cat-nav { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 0 0 8px; }
-  .chip { font-size: 11.5px; color: var(--ink-2); border: 1px solid var(--border); border-radius: 999px; padding: 4px 10px; text-decoration: none; background: var(--bg-card); }
+  .chip { font-size: 11.5px; color: var(--ink-2); border: 1px solid var(--border); border-radius: 999px; padding: 4px 10px; background: var(--bg-card); cursor: pointer; font-family: inherit; }
   .chip:hover { color: var(--primary); border-color: var(--primary); }
+  .chip.is-active { background: var(--primary); color: #fff; border-color: var(--primary); }
   .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 0; }
   .fbtn { font-size: 12px; padding: 5px 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-card); color: var(--ink-2); cursor: pointer; }
   .fbtn.is-active { background: var(--primary); color: #fff; border-color: var(--primary); }
@@ -335,6 +336,7 @@ const statusClass = {
 
   const filterBtns = document.querySelectorAll('.fbtn');
   const tabs = document.querySelectorAll('.btab');
+  const chips = document.querySelectorAll('.chip');
   const cards = document.querySelectorAll('.pcard');
   const catHeads = document.querySelectorAll('#cat-sections .cat-head');
   const catSections = document.getElementById('cat-sections');
@@ -348,31 +350,57 @@ const statusClass = {
     if (f === 'broken') return t === 'broken';
     return true;
   };
+
+  let activeTab = 'all';
+  let activeCat = null;
+  let activeFilter = 'all';
+
+  function applyFilters() {
+    catSections.hidden = activeTab !== 'all';
+    hotPanel.hidden = activeTab !== 'hot';
+    newPanel.hidden = activeTab !== 'new';
+    cards.forEach((c) => { c.hidden = !match(c, activeFilter); });
+    catHeads.forEach((h) => {
+      const grid = h.nextElementSibling;
+      const inCat = !activeCat || h.id === activeCat;
+      let anyVisible = false;
+      if (grid) grid.querySelectorAll('.pcard').forEach((c) => { if (!c.hidden) anyVisible = true; });
+      const show = inCat && anyVisible;
+      h.hidden = !show;
+      if (grid) grid.hidden = !show;
+    });
+  }
+
   filterBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       filterBtns.forEach((b) => b.classList.remove('is-active'));
       btn.classList.add('is-active');
-      const f = btn.dataset.filter;
-      cards.forEach((c) => { c.hidden = !match(c, f); });
-      catHeads.forEach((h) => {
-        let sib = h.nextElementSibling;
-        let anyVisible = false;
-        while (sib && !sib.classList.contains('cat-head')) {
-          if (sib.classList.contains('pcard') && !sib.hidden) { anyVisible = true; break; }
-          sib = sib.nextElementSibling;
-        }
-        h.hidden = !anyVisible;
-      });
+      activeFilter = btn.dataset.filter;
+      applyFilters();
     });
   });
+
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
       tabs.forEach((t) => t.classList.remove('is-active'));
       tab.classList.add('is-active');
-      const t = tab.dataset.tab;
-      catSections.hidden = t !== 'all';
-      hotPanel.hidden = t !== 'hot';
-      newPanel.hidden = t !== 'new';
+      activeTab = tab.dataset.tab;
+      applyFilters();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const catId = chip.dataset.cat;
+      if (activeCat === catId) {
+        activeCat = null;
+        chips.forEach((c) => c.classList.remove('is-active'));
+      } else {
+        activeCat = catId;
+        chips.forEach((c) => c.classList.toggle('is-active', c === chip));
+      }
+      applyFilters();
     });
   });
 </script>
