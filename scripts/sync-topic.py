@@ -104,5 +104,13 @@ def main():
     elif dry:
         print("dry-run：未写入")
 
+    # 写更新日期（无论是否 dry-run 都记录，用于页面「更新于」标注）
+    from datetime import date
+    today = date.today().isoformat()
+    SYNC = os.path.join(os.path.dirname(DATA), "sync-date.json")
+    if not dry:
+        json.dump({"updated": today}, open(SYNC, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        print(f"已写入 {SYNC}（updated={today}）")
+
 if __name__ == "__main__":
     main()

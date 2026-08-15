@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import plugins from '../../data/plugins.json';
+import syncDate from '../../data/sync-date.json';
 const sortByStars = (a, b) => (b.stars ?? 0) - (a.stars ?? 0);
 const catOrder = Object.keys(plugins);
 // sort each category by stars desc
@@ -126,7 +127,7 @@ const statusClass = {
           </div>
         </div>
       </div>
-      <p class="eco-note">Data source: GitHub dsh-plugin topic · Updated 2026-08-15</p>
+      <p class="eco-note">Data source: GitHub dsh-plugin topic · Updated {syncDate.updated}</p>
     </div>
     <div class="top-plugins">
       <div class="tp-head">🔥 Top plugins by stars</div>

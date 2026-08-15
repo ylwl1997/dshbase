@@ -1,6 +1,7 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import plugins from '../../../data/plugins.json';
+import syncDate from '../../../data/sync-date.json';
 const catLabels = {
   'UI Enhancements': '界面增强',
   'Sessions & Messages': '会话与消息',
@@ -135,7 +136,7 @@ const statusClass = {
           </div>
         </div>
       </div>
-      <p class="eco-note">数据源：GitHub dsh-plugin topic · 更新于 2026-08-15</p>
+      <p class="eco-note">数据源：GitHub dsh-plugin topic · 更新于 {syncDate.updated}</p>
     </div>
     <div class="top-plugins">
       <div class="tp-head">🔥 按 Stars 热门 Top 10</div>
