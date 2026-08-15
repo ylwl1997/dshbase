@@ -190,34 +190,32 @@ def main():
         sys.exit(1)
 
     files = fetch_files(repo)
-    ok, issues, data = verify(repo, data, files)
+    _, issues, data = verify(repo, data, files)
     name = args.name or data["name"]
 
-    # 软判断：DeepSeek 生成描述/分类 + 垃圾检测（有 DEEPSEEK_API_KEY 才启用）
+    # 软判断：DeepSeek 生成描述/分类 + 垃圾检测（缺 topic/license/bundle 不拦截，仅标注）
     spam = None
-    enrich = None
-    if ok:
-        enrich = llm_enrich(name, fetch_readme(repo))
-        if enrich:
-            if enrich.get("category") in CATEGORIES:
-                args.category = enrich["category"]
-            if enrich.get("desc_zh"):
-                args.desc_zh = enrich["desc_zh"]
-            if not enrich.get("is_real_plugin", True):
-                spam = enrich.get("spam_reason") or "看起来不是真正的 dsh 插件（蹭 dsh-plugin topic）"
+    enrich = llm_enrich(name, fetch_readme(repo))
+    if enrich:
+        # 分类：提交者自报优先，DeepSeek 仅在未指定时兜底
+        if enrich.get("category") in CATEGORIES and not args.category:
+            args.category = enrich["category"]
+        if enrich.get("desc_zh"):
+            args.desc_zh = enrich["desc_zh"]
+        if not enrich.get("is_real_plugin", True):
+            spam = enrich.get("spam_reason") or "看起来不是真正的 dsh 插件（蹭 dsh-plugin topic）"
 
     entry = build_entry(data, args)
     if enrich and enrich.get("desc_en"):
         entry["desc_en"] = enrich["desc_en"]
         entry["desc"] = enrich["desc_en"]
+    if issues:
+        entry["note"] = "；".join(issues)
 
     db = load_db()
     existing = find_existing(db, name, data["html_url"])
 
-    if not ok:
-        msg = "❌ 暂时无法收录，缺少以下条件：\n\n" + "\n".join(f"- [ ] {i}" for i in issues) + "\n\n请补充后重新提交。"
-        result = {"status": "rejected", "issues": issues, "message": msg}
-    elif spam:
+    if spam:
         msg = f"❌ 无法收录：{spam}"
         result = {"status": "rejected", "message": msg}
     elif existing is not None:
@@ -227,8 +225,14 @@ def main():
     else:
         add_plugin(db, entry, args.category)
         install = f"`dsh plugin add {entry['pkg']}`" if entry["pkg"] else f"`dsh plugin add github:{repo}`"
-        msg = (f"✅ 已收录。\n\n- 分类：{args.category or 'Tools & Capabilities'}\n"
-               f"- 安装：{install}\n- 验证：仓库 ✓ · dsh-plugin topic ✓ · license ✓ · bundle ✓\n\n感谢提交！")
+        if issues:
+            msg = ("✅ 已收录！感谢提交 🎉\n\n"
+                   f"- 分类：{args.category or 'Tools & Capabilities'}\n- 安装：{install}\n\n"
+                   "建议补充以下内容（补充后回复我，我会更新）：\n"
+                   + "\n".join(f"- [ ] {i}" for i in issues))
+        else:
+            msg = (f"✅ 已收录！感谢提交 🎉\n\n"
+                   f"- 分类：{args.category or 'Tools & Capabilities'}\n- 安装：{install}\n\n感谢提交！")
         result = {"status": "accepted", "name": name, "category": args.category, "install": install, "message": msg}
 
     if args.json:
