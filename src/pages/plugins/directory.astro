@@ -86,16 +86,16 @@ const statusClass = {
     <p class="stats-line">Tested on dsh 0.1.0-rc.6 — every card shows the verified status and exact install command. GitHub-source plugins install with <code>dsh plugin add github:owner/repo</code>.</p>
     <div class="eco">
       <div class="stats-grid">
-        <div class="stat-card"><span class="s-val">{total}</span><span class="s-lab">Plugins</span></div>
-        <div class="stat-card"><span class="s-val">{nOk}</span><span class="s-lab">Verified</span></div>
-        <div class="stat-card"><span class="s-val">{nNpm}</span><span class="s-lab">On npm</span></div>
-        <div class="stat-card"><span class="s-val">{nBuild}</span><span class="s-lab">Need build</span></div>
-        <div class="stat-card"><span class="s-val">{nFail}</span><span class="s-lab">Issues</span></div>
-        <div class="stat-card"><span class="s-val">{nSource}</span><span class="s-lab">GitHub source</span></div>
+        <div class="stat-card"><span class="s-ico">🧩</span><span class="s-val">{total}</span><span class="s-lab">Plugins</span></div>
+        <div class="stat-card"><span class="s-ico">✅</span><span class="s-val">{nOk}</span><span class="s-lab">Verified</span></div>
+        <div class="stat-card"><span class="s-ico">📦</span><span class="s-val">{nNpm}</span><span class="s-lab">On npm</span></div>
+        <div class="stat-card"><span class="s-ico">🔧</span><span class="s-val">{nBuild}</span><span class="s-lab">Need build</span></div>
+        <div class="stat-card"><span class="s-ico">⚠️</span><span class="s-val">{nFail}</span><span class="s-lab">Issues</span></div>
+        <div class="stat-card"><span class="s-ico">🔗</span><span class="s-val">{nSource}</span><span class="s-lab">GitHub source</span></div>
       </div>
       <div class="eco-charts">
-        <div class="eco-col eco-grow">
-          <h3 class="eco-title">Growth</h3>
+        <div class="eco-card">
+          <div class="eco-card-head"><span class="eco-ico">📈</span><h3 class="eco-title">Growth</h3></div>
           <svg class="growth-svg" viewBox={`0 0 ${GW} ${GH}`} role="img" aria-label="Plugin catalog growth curve">
             <defs>
               <linearGradient id="gfill" x1="0" y1="0" x2="0" y2="1">
@@ -125,8 +125,8 @@ const statusClass = {
             ))}
           </svg>
         </div>
-        <div class="eco-col">
-          <h3 class="eco-title">Star distribution</h3>
+        <div class="eco-card">
+          <div class="eco-card-head"><span class="eco-ico">⭐</span><h3 class="eco-title">Star distribution</h3></div>
           <div class="bar-chart">
             {starBuckets.map(([label, n]) => (
               <div class="bar-row">
@@ -137,8 +137,8 @@ const statusClass = {
             ))}
           </div>
         </div>
-        <div class="eco-col">
-          <h3 class="eco-title">Category distribution</h3>
+        <div class="eco-card">
+          <div class="eco-card-head"><span class="eco-ico">🗂️</span><h3 class="eco-title">Category distribution</h3></div>
           <div class="bar-chart">
             {catDist.map(([cat, n]) => (
               <div class="bar-row">
@@ -257,11 +257,16 @@ const statusClass = {
   .c-warn { color: #9a6700; }
   .eco { margin: 22px 0 6px; }
   .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; }
-  .stat-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 14px 12px; text-align: center; }
-  .s-val { display: block; font-size: 24px; font-weight: 800; color: var(--primary); }
+  .stat-card { display: flex; flex-direction: column; align-items: center; gap: 2px; background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 14px 12px; text-align: center; transition: border-color .2s, transform .2s; }
+  .stat-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+  .s-ico { font-size: 20px; line-height: 1; }
+  .s-val { display: block; font-size: 24px; font-weight: 800; color: var(--primary); line-height: 1.1; }
   .s-lab { font-size: 12px; color: var(--ink-3); }
-  .eco-charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 20px; }
-  .eco-title { font-size: 14px; font-weight: 700; color: var(--ink); margin: 0 0 10px; }
+  .eco-charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 16px; }
+  .eco-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 18px; box-shadow: 0 1px 3px rgba(0,0,0,.04); }
+  .eco-card-head { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #eef1f6; }
+  .eco-ico { font-size: 18px; line-height: 1; }
+  .eco-title { font-size: 14px; font-weight: 700; color: var(--ink); margin: 0; }
   .bar-chart { margin-top: 4px; }
   .bar-row { display: flex; align-items: center; gap: 10px; margin: 6px 0; }
   .bar-label { width: 150px; font-size: 12px; color: var(--ink-2); text-align: right; flex-shrink: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
