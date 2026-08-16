@@ -1,0 +1,167 @@
+---
+import Base from '../../layouts/Base.astro';
+import plugins from '../../data/plugins.json';
+
+const all = Object.entries(plugins).flatMap(([cat, items]) =>
+  items.map((p) => ({
+    name: p.name,
+    slug: p.slug ?? p.name,
+    cat,
+    stars: p.stars ?? 0,
+    license: p.license || '',
+    trust: p.trust || 'Unrated',
+    test: p.test,
+    npm: !!p.npm,
+    pkg: p.pkg || '',
+    url: p.url || '',
+    ucs: p.ucs || [],
+    desc: (p.desc_en || p.desc || '').slice(0, 180),
+  }))
+);
+const index = all.sort((a, b) => b.stars - a.stars);
+const total = all.length;
+---
+<Base title="Compare DeepSeek Harness Plugins Side by Side | dshbase" description={`Compare ${total}+ DeepSeek Harness plugins side by side: install status, license, trust, stars, and use cases.`} currentPath="/plugins/compare/">
+  <section class="hero wrap">
+    <p class="eyebrow">Plugin directory</p>
+    <h1>Compare <span class="accent">plugins</span></h1>
+    <p class="lede">Pick 2–3 plugins and see them side by side — verification status, license, trust, stars, and use cases, all in one row.</p>
+  </section>
+
+  <section class="info wrap">
+    <div class="cmp-pickers" id="cmp-pickers"></div>
+    <div class="cmp-grid" id="cmp-grid"></div>
+    <p class="muted small" style="margin-top:16px;text-align:center" id="cmp-hint">Start typing a plugin name to add it to the comparison.</p>
+  </section>
+
+  <script type="application/json" id="plugin-index" set:html={JSON.stringify(index)}></script>
+</Base>
+
+<style>
+  .cmp-pickers { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 20px; }
+  .cmp-pick { position: relative; }
+  .cmp-pick input { width: 100%; font-size: 14px; padding: 11px 14px; border: 1px solid var(--border-strong); border-radius: 10px; background: #fff; color: var(--ink); font-family: inherit; outline: none; }
+  .cmp-pick input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(77,107,254,.12); }
+  .cmp-suggest { position: absolute; top: 46px; left: 0; right: 0; max-height: 260px; overflow: auto; background: #fff; border: 1px solid var(--border-strong); border-radius: 10px; box-shadow: 0 12px 32px rgba(15,23,42,.14); z-index: 40; display: none; }
+  .cmp-suggest.is-open { display: block; }
+  .cmp-suggest button { display: block; width: 100%; text-align: left; padding: 9px 12px; border: none; background: none; cursor: pointer; font-size: 13.5px; color: var(--ink); font-family: inherit; }
+  .cmp-suggest button:hover { background: #f1f5f9; }
+  .cmp-suggest .s-meta { display: block; font-size: 11px; color: var(--ink-3); }
+  .cmp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .cmp-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 18px; }
+  .cmp-card h2 { margin: 0 0 4px; font-size: 18px; }
+  .cmp-row { display: flex; align-items: center; gap: 8px; margin: 10px 0 0; font-size: 13.5px; }
+  .cmp-row .k { color: var(--ink-3); min-width: 74px; font-size: 12px; text-transform: uppercase; letter-spacing: .02em; }
+  .cmp-row .v { color: var(--ink); word-break: break-word; }
+  .cmp-desc { font-size: 13.5px; color: var(--ink-2); line-height: 1.6; margin: 12px 0 0; }
+  .cmp-avatar { width: 34px; height: 34px; border-radius: 50%; background: #eef1f6; flex-shrink: 0; }
+  .cmp-head { display: flex; align-items: center; gap: 10px; }
+  .cmp-install { font-family: var(--mono, monospace); font-size: 12px; background: #f6f8fc; border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; margin: 12px 0 0; overflow-x: auto; white-space: nowrap; }
+  .b-trust { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 6px; }
+  .t-silver { color: #475569; background: #f1f5f9; border: 1px solid #cbd5e1; }
+  .t-bronze { color: #92400e; background: #fff7ed; border: 1px solid #fdba74; }
+  .t-unrated { color: #9aa1ad; background: #f7f8fa; border: 1px solid #e2e8f0; }
+  .b-ok { color: #1a7f37; background: #f0fff4; border: 1px solid #b7e0c0; }
+  .b-warn { color: #9a6700; background: #fff8e6; border: 1px solid #e5c27a; }
+  .cmp-remove { margin-left: auto; font-size: 11px; color: #b91c1c; background: none; border: 1px solid #fca5a5; border-radius: 6px; padding: 2px 7px; cursor: pointer; }
+  .ucs { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px; }
+  .ucs span { font-size: 11px; color: var(--ink-2); background: #f6f8fc; border: 1px solid var(--border); border-radius: 999px; padding: 2px 9px; }
+</style>
+
+<script>
+  const INDEX = JSON.parse(document.getElementById('plugin-index').textContent);
+  const MAX = 3;
+  const pickersEl = document.getElementById('cmp-pickers');
+  const gridEl = document.getElementById('cmp-grid');
+  const hintEl = document.getElementById('cmp-hint');
+  let selected = [];
+
+  // 从 URL 预填（?a=name1&b=name2）
+  const params = new URLSearchParams(location.search);
+  for (const k of ['a', 'b', 'c']) {
+    const n = params.get(k);
+    if (n) {
+      const p = INDEX.find((x) => x.slug === n || x.name === n);
+      if (p && selected.length < MAX) selected.push(p);
+    }
+  }
+
+  function render() {
+    pickersEl.innerHTML = '';
+    for (let i = 0; i < MAX; i++) {
+      const p = selected[i];
+      const wrap = document.createElement('div');
+      wrap.className = 'cmp-pick';
+      wrap.innerHTML = `<input type="search" placeholder="Plugin ${i + 1} — type to search…" value="${p ? p.name : ''}" data-slot="${i}" autocomplete="off" /><div class="cmp-suggest"></div>`;
+      pickersEl.appendChild(wrap);
+    }
+    // 绑定每个输入
+    pickersEl.querySelectorAll('input').forEach((inp) => {
+      const slot = +inp.dataset.slot;
+      const suggest = inp.parentElement.querySelector('.cmp-suggest');
+      inp.addEventListener('input', () => {
+        const q = inp.value.trim().toLowerCase();
+        suggest.innerHTML = '';
+        suggest.classList.remove('is-open');
+        if (!q) return;
+        const matches = INDEX.filter((x) => x.name.toLowerCase().includes(q)).slice(0, 8);
+        matches.forEach((m) => {
+          const b = document.createElement('button');
+          b.innerHTML = `${m.name}<span class="s-meta">★ ${m.stars} · ${m.cat} · ${m.test === 'verified' ? 'verified' : 'untested'}</span>`;
+          b.addEventListener('mousedown', (e) => { e.preventDefault(); selected[slot] = m; render(); });
+          suggest.appendChild(b);
+        });
+        suggest.classList.add('is-open');
+      });
+      inp.addEventListener('blur', () => setTimeout(() => suggest.classList.remove('is-open'), 150));
+      inp.addEventListener('keydown', (e) => { if (e.key === 'Escape') { selected[slot] = undefined; render(); } });
+    });
+
+    // 渲染对比卡
+    gridEl.innerHTML = '';
+    const picks = selected.filter(Boolean);
+    hintEl.hidden = picks.length > 0;
+    picks.forEach((p, i) => {
+      const owner = (p.url || '').replace('https://github.com/', '').split('/')[0] || '';
+      const install = p.npm && p.pkg ? `dsh plugin add ${p.pkg}` : `dsh plugin add github:${(p.url || '').replace('https://github.com/', '')}`;
+      const card = document.createElement('div');
+      card.className = 'cmp-card';
+      card.innerHTML = `
+        <div class="cmp-head">
+          <img class="cmp-avatar" src="https://github.com/${owner}.png" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+          <div><h2><a href="/plugins/${p.slug}/">${p.name}</a></h2>
+          <span class="muted small">@${owner || '—'}</span></div>
+          <button class="cmp-remove" data-i="${i}">✕ remove</button>
+        </div>
+        <div class="cmp-row"><span class="k">Status</span><span class="v"><span class="b-trust ${p.test === 'verified' ? 'b-ok' : 'b-warn'}">${p.test === 'verified' ? '✓ verified' : 'untested'}</span></span></div>
+        <div class="cmp-row"><span class="k">Trust</span><span class="v"><span class="b-trust t-${(p.trust || 'Unrated').toLowerCase()}">${p.trust || 'Unrated'}</span></span></div>
+        <div class="cmp-row"><span class="k">License</span><span class="v">${p.license || '—'}</span></div>
+        <div class="cmp-row"><span class="k">Stars</span><span class="v">★ ${p.stars.toLocaleString('en-US')}</span></div>
+        <div class="cmp-row"><span class="k">Source</span><span class="v">${p.npm ? 'npm' : 'GitHub'}</span></div>
+        <div class="cmp-row"><span class="k">Category</span><span class="v">${p.cat}</span></div>
+        ${p.desc ? `<p class="cmp-desc">${p.desc}</p>` : ''}
+        ${p.ucs && p.ucs.length ? `<div class="ucs">${p.ucs.map((u) => `<span>${u}</span>`).join('')}</div>` : ''}
+        <div class="cmp-install"><code>${install}</code></div>
+      `;
+      gridEl.appendChild(card);
+    });
+    gridEl.querySelectorAll('.cmp-remove').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const i = +btn.dataset.i;
+        // 找到该 pick 在 selected 中的位置
+        const idx = selected.indexOf(picks[i]);
+        if (idx >= 0) selected.splice(idx, 1);
+        render();
+      });
+    });
+  }
+
+  render();
+
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      pickersEl.querySelector('input')?.focus();
+    }
+  });
+</script>

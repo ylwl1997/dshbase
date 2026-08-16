@@ -14,8 +14,8 @@ OUT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'functions',
 def main():
     d = json.load(open(DB, encoding='utf-8'))
     allp = [p for items in d.values() for p in items]
-    # name -> test 状态（verified / pending）
-    m = {p['name']: p.get('test') for p in allp}
+    # slug -> test 状态（verified / pending）。徽章 URL 用 slug（同名不同仓也唯一）。
+    m = {p.get('slug') or p['name']: p.get('test') for p in allp}
     js = 'export default ' + json.dumps(m, ensure_ascii=False, separators=(',', ':')) + ';\n'
     open(OUT, 'w', encoding='utf-8').write(js)
     nv = sum(1 for v in m.values() if v == 'verified')

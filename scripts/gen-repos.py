@@ -25,10 +25,10 @@ def main():
         if key in seen:
             continue
         seen.add(key)
-        repos.append({'name': p['name'], 'owner': key[0], 'repo': key[1], 'stars': p.get('stars') or 0})
+        repos.append({'slug': p.get('slug') or p['name'], 'owner': key[0], 'repo': key[1], 'stars': p.get('stars') or 0})
     repos.sort(key=lambda r: -r['stars'])
     top = repos[:TOP]
-    out = [{'name': r['name'], 'owner': r['owner'], 'repo': r['repo']} for r in top]
+    out = [{'slug': r['slug'], 'owner': r['owner'], 'repo': r['repo']} for r in top]
     js = 'export default ' + json.dumps(out, ensure_ascii=False, separators=(',', ':')) + ';\n'
     open(OUT, 'w', encoding='utf-8').write(js)
     print(f'repos.js: top {len(out)} 仓库 -> {OUT}')

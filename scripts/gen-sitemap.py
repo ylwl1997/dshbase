@@ -22,6 +22,8 @@ STATIC = [
     ('/zh/plugins/', 'weekly', '0.9'),
     ('/plugins/directory/', 'weekly', '0.9'),
     ('/zh/plugins/directory/', 'weekly', '0.9'),
+    ('/plugins/compare/', 'monthly', '0.7'),
+    ('/zh/plugins/compare/', 'monthly', '0.7'),
     ('/themes/', 'weekly', '0.7'),
     ('/zh/themes/', 'weekly', '0.7'),
     ('/advanced-skins/', 'monthly', '0.6'),
@@ -44,9 +46,9 @@ urls = list(STATIC)
 d = json.load(open(DB, encoding='utf-8'))
 for items in d.values():
     for p in items:
-        name = p['name']
-        urls.append((f'/plugins/{name}/', 'monthly', '0.6'))
-        urls.append((f'/zh/plugins/{name}/', 'monthly', '0.6'))
+        slug = p.get('slug') or p['name']
+        urls.append((f'/plugins/{slug}/', 'monthly', '0.6'))
+        urls.append((f'/zh/plugins/{slug}/', 'monthly', '0.6'))
 
 # 博客文章
 for f in os.listdir(BLOG_DIR):

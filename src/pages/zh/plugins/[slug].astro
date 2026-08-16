@@ -19,7 +19,7 @@ try {
 
 export function getStaticPaths() {
   return Object.entries(plugins).flatMap(([cat, items]) =>
-    items.map((p) => ({ params: { slug: p.name }, props: { cat, p } }))
+    items.map((p) => ({ params: { slug: p.slug ?? p.name }, props: { cat, p } }))
   );
 }
 
@@ -43,7 +43,7 @@ const riskLabel = { low: '低', medium: '中', high: '高', critical: '严重' }
 const riskClass = { low: 'sec-low', medium: 'sec-med', high: 'sec-high', critical: 'sec-crit' };
 const catLabel = { secrets: '硬编码密钥', 'dangerous-cmd': '危险命令', exfil: '外传回调', permissions: '越权访问' };
 const badgeAlt = p.test === 'verified' ? 'dshbase 实测可装' : 'dshbase 已收录';
-const badgeMd = `[![${badgeAlt}](https://dshbase.com/badges/${p.name}.svg)](https://dshbase.com/zh/plugins/${p.name}/)`;
+const badgeMd = `[![${badgeAlt}](https://dshbase.com/badges/${p.slug}.svg)](https://dshbase.com/zh/plugins/${p.slug}/)`;
 const desc = p.desc_zh || p.desc || `${cat} 类别的 DeepSeek Harness 插件。`;
 const fmt = (n) => (n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n ?? 0));
 const stars = p.stars ?? 0;
@@ -61,20 +61,20 @@ const review = p.archived
   : p.test === 'verified'
     ? `${desc} 实测能干净安装、正常启动。${stars >= 100 ? `${stars}+ stars，社区认可度高，是低风险选择。` : stars >= 20 ? `社区在增长，是个稳妥选择。` : `早期项目，但功能可用。`}`
     : `${desc} 尚未验证——请自行安装测试。`;
-const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6);
+const related = (plugins[cat] || []).filter((x) => x.slug !== p.slug).slice(0, 6);
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   name: p.name,
   description: desc,
-  url: `https://dshbase.com/plugins/${p.name}/`,
+  url: `https://dshbase.com/plugins/${p.slug}/`,
   applicationCategory: 'DeveloperApplication',
   operatingSystem: 'Web',
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
   ...(p.ver ? { softwareVersion: p.ver } : {}),
 };
 ---
-<Base title={`${p.name} — DSH 插件安装指南与兼容性评估 | dshbase 中文`} description={`${desc} — 如何安装 ${p.name}（${p.npm ? `dsh plugin add ${p.pkg}` : 'npm 源码'}）及其与 dsh 0.1.0-rc.6 的兼容性。`} currentPath={`/plugins/${p.name}/`}>
+<Base title={`${p.name} — DSH 插件安装指南与兼容性评估 | dshbase 中文`} description={`${desc} — 如何安装 ${p.name}（${p.npm ? `dsh plugin add ${p.pkg}` : 'npm 源码'}）及其与 dsh 0.1.0-rc.6 的兼容性。`} currentPath={`/plugins/${p.slug}/`}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <section class="hero wrap">
     <p class="eyebrow"><a href={dirUrl}>插件目录</a> / <a href={catUrl}>{cat}</a> / {p.name}</p>
@@ -88,9 +88,9 @@ const jsonLd = {
 
   <section class="wrap">
     <div class="metrics">
-      <div class="metric"><span class="m-val" data-stars-name={p.name} data-stats-kind="stars">{p.stars ?? 0}</span><span class="m-lab">Stars</span></div>
-      <div class="metric"><span class="m-val" data-stars-name={p.name} data-stats-kind="forks">{p.forks ?? 0}</span><span class="m-lab">Forks</span></div>
-      <div class="metric"><span class="m-val" data-stars-name={p.name} data-stats-kind="issues">{p.issues ?? 0}</span><span class="m-lab">未关闭 issue</span></div>
+      <div class="metric"><span class="m-val" data-stars-slug={p.slug} data-stats-kind="stars">{p.stars ?? 0}</span><span class="m-lab">Stars</span></div>
+      <div class="metric"><span class="m-val" data-stars-slug={p.slug} data-stats-kind="forks">{p.forks ?? 0}</span><span class="m-lab">Forks</span></div>
+      <div class="metric"><span class="m-val" data-stars-slug={p.slug} data-stats-kind="issues">{p.issues ?? 0}</span><span class="m-lab">未关闭 issue</span></div>
       <div class="metric"><span class="m-val">{p.language || '—'}</span><span class="m-lab">语言</span></div>
       <div class="metric"><span class="m-val">{p.updated || '—'}</span><span class="m-lab">最近推送</span></div>
     </div>
@@ -192,14 +192,14 @@ const jsonLd = {
     <p>把这段粘进你的 README——它会链回本页，测试状态变化时自动更新：</p>
     <pre class="code-block"><code>{badgeMd}</code></pre>
     <p><button type="button" class="btn btn-ghost btn-sm badge-copy" data-cmd={badgeMd}>复制徽章代码</button></p>
-    <p><img src={`/badges/${p.name}.svg`} alt={badgeAlt} width="210" height="20" style="height:20px" /></p>
+    <p><img src={`/badges/${p.slug}.svg`} alt={badgeAlt} width="210" height="20" style="height:20px" /></p>
 
     {related.length > 0 && (
       <Fragment>
         <h2 style="margin-top:28px">{cat} 里更多</h2>
         <div class="grid3">
           {related.map((r) => (
-            <a class="card card-link" href={`/zh/plugins/${r.name}/`}>
+            <a class="card card-link" href={`/zh/plugins/${r.slug}/`}>
               <h3>{r.name}</h3>
               <p>{r.test === 'verified' ? '✅ 已验证' : r.test === 'pending' ? '⏳ 未测试' : r.npm ? 'npm 可装' : 'GitHub 源码'} · ★{r.stars ?? 0}</p>
             </a>

@@ -1,18 +1,38 @@
 ---
 import Base from '../../../layouts/Base.astro';
+import PluginCard from '../../../components/PluginCard.astro';
 import plugins from '../../../data/plugins.json';
 import syncDate from '../../../data/sync-date.json';
 const catLabels = {
-  'UI Enhancements': '界面增强',
-  'Sessions & Messages': '会话与消息',
-  'Tools & Capabilities': '工具与能力',
-  'Workflow & Automation': '工作流与自动化',
-  'Notifications & Integrations': '通知与集成',
-  'Development & Runtime': '开发与运行时',
-  'Just for Fun': '趣味',
+  'Developer': '开发',
+  'AI Models': 'AI 模型',
+  'UI & Skins': '界面与皮肤',
+  'Knowledge': '知识',
+  'Desktop': '桌面',
+  'Automation': '自动化',
+  'Network': '网络',
+  'Browser': '浏览器',
+  'Terminal': '终端',
+  'Storage': '存储',
+  'Vision': '视觉',
+  'Data': '数据',
+  'Security': '安全',
+  'Productivity': '效率',
+  'Content': '内容',
+};
+const ucLabels = {
+  'Terminal / Shell': '终端 / Shell',
+  'File': '文件',
+  'Vision / OCR': '视觉 / OCR',
+  'Memory': '记忆',
+  'Database': '数据库',
+  'Web search': '网页搜索',
+  'Storage': '存储',
+  'GitHub integration': 'GitHub 集成',
+  'Code review': '代码审查',
+  'Notifications': '通知',
 };
 const catOrder = Object.keys(plugins);
-// sort each category by stars desc
 const sortByStars = (a, b) => (b.stars ?? 0) - (a.stars ?? 0);
 catOrder.forEach((k) => plugins[k].sort(sortByStars));
 const total = catOrder.reduce((s, k) => s + plugins[k].length, 0);
@@ -21,10 +41,8 @@ const nVerified = all.filter((p) => p.test === 'verified').length;
 const nPending = all.filter((p) => p.test === 'pending').length;
 const nNpm = all.filter((p) => p.npm).length;
 
-// 分类分布（堆叠条）
 const catDist = catOrder.map((cat) => [catLabels[cat] || cat, plugins[cat].length]);
 
-// 增长曲线：按收录日期累计
 const byDay = {};
 all.forEach((p) => { const d = (p.added || '').slice(0, 10); if (d) byDay[d] = (byDay[d] || 0) + 1; });
 let _cum = 0;
@@ -40,41 +58,34 @@ const gPts = growth.map(([, v], i) => [gX(i), gY(v)]);
 const gLine = gPts.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
 const gArea = `${gPadL},${GH - gPadB} ${gLine} ${GW - gPadR},${GH - gPadB}`;
 
-// 大分类 tab：热门（按 stars）+ 新收录（按 added 日期）
 const hotPlugins = [...all].sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0)).slice(0, 60);
 const newPlugins = [...all].sort((a, b) => (b.added || '').localeCompare(a.added || '')).slice(0, 60);
 
-// 轮播：我们自己的插件 + Stars 前五
 const ourPlugins = all.filter((p) => (p.url || '').includes('ylwl1997'));
 const top5 = [...all].sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0)).slice(0, 5);
 const carousel = [...ourPlugins, ...top5].filter((p, i, arr) => arr.findIndex((x) => x.name === p.name) === i);
+const repo = (u) => (u || '').replace('https://github.com/', '');
 const installCmd = (p) => p.npm && p.pkg ? `dsh plugin add ${p.pkg}` : `dsh plugin add github:${repo(p.url)}`;
 
-const repo = (u) => u.replace('https://github.com/', '');
-const owner = (u) => (u.replace('https://github.com/', '').split('/')[0] || '');
-const npmHome = (p) => p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
-const isFeatured = (p) => (p.stars ?? 0) >= 100;
-const searchMap = {};
-catOrder.forEach((k) => plugins[k].forEach((p) => { searchMap[p.name] = `${p.name} ${owner(p.url)} ${p.pkg || ''} ${p.desc_zh || p.desc || ''} ${catLabels[k] || k} ${k}`.toLowerCase(); }));
-const statusLabel = {
-  verified: '已验证',
-  pending: '未测试',
-};
-const statusClass = {
-  verified: 'st-ok',
-  pending: 'st-warn',
-};
+// use-cases 第二轴
+const USE_CASES = ['Terminal / Shell', 'File', 'Vision / OCR', 'Memory', 'Database', 'Web search', 'Storage', 'GitHub integration', 'Code review', 'Notifications'];
+const ucCount = {};
+USE_CASES.forEach((u) => { ucCount[u] = 0; });
+all.forEach((p) => (p.ucs || []).forEach((u) => { if (ucCount[u] !== undefined) ucCount[u]++; }));
+const ucsPresent = USE_CASES.filter((u) => ucCount[u] > 0).sort((a, b) => ucCount[b] - ucCount[a]);
+
+const COLORS = ['#4D6BFE', '#7c8cf8', '#8b5cf6', '#a78bfa', '#6366f1', '#93c5fd', '#c4b5fd', '#34d399', '#f472b6', '#fbbf24', '#f87171', '#2dd4bf', '#a3e635', '#fb923c', '#38bdf8'];
 ---
-<Base title={`DeepSeek Harness 插件目录 — ${total} 个插件、含实测结果与安装命令 | dshbase 中文`} description={`DeepSeek Harness（dsh）插件生态目录：${catOrder.length} 大类 ${total} 个插件，每张卡片标注 npm 可装状态、实测结果与安装命令，来自 awesome-dsh-plugin 精选列表。`} currentPath="/plugins/directory/">
+<Base title={`DeepSeek Harness 插件目录 — ${total} 个插件、含协议/信任/实测与安装命令 | dshbase 中文`} description={`DeepSeek Harness（dsh）插件生态目录：${catOrder.length} 大类 ${total} 个插件，每张卡片标注作者头像、信任等级、协议、更新时间、实测结果与安装命令。`} currentPath="/zh/plugins/directory/">
   <section class="hero wrap">
     <p class="eyebrow">插件目录</p>
     <h1>DeepSeek Harness <span class="accent">插件生态</span></h1>
-    <p class="lede">来自 <a href="https://github.com/awesome-dsh-plugin/awesome-dsh-plugin" target="_blank" rel="noopener">awesome-dsh-plugin</a> 精选列表——{catOrder.length} 大类、{total} 个插件。每张卡片直接标注插件是否<strong>已发布到 npm</strong>、<strong>实测结果</strong>和<strong>安装命令</strong>，不用点进仓库再确认。</p>
-    <p style="margin-top:14px"><a class="btn btn-primary" href="https://github.com/ylwl1997/dshbase/issues/new?template=plugin-submission.yml" target="_blank" rel="noopener">提交你的插件 &rarr;</a> <a class="btn btn-ghost" href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">官方社区 &rarr;</a></p>
+    <p class="lede">{total.toLocaleString('en-US')} 个插件、{catOrder.length} 大类。每张卡片标注作者<strong>头像</strong>、<strong>信任等级</strong>、<strong>协议</strong>、<strong>更新时间</strong>和安装命令，不用点进仓库再确认。按 <kbd class="kbd">⌘K</kbd> 全文搜索，点 <kbd class="kbd">☆</kbd> 收藏。</p>
+    <p style="margin-top:14px"><a class="btn btn-primary" href="https://github.com/ylwl1997/dshbase/issues/new?template=plugin-submission.yml" target="_blank" rel="noopener">提交你的插件 &rarr;</a> <a class="btn btn-ghost" href="/zh/plugins/compare/">插件对比 &rarr;</a> <a class="btn btn-ghost" href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">官方社区 &rarr;</a></p>
     <div class="agent-box">
       <div class="agent-slides">
         {carousel.map((p) => (
-          <a class="agent-slide" href={`/zh/plugins/${p.name}/`}>
+          <a class="agent-slide" href={`/zh/plugins/${p.slug}/`}>
             <strong>⭐ {p.name}</strong> — <code>{installCmd(p)}</code>
           </a>
         ))}
@@ -119,29 +130,27 @@ const statusClass = {
         <div class="eco-card">
           <h3 class="eco-title">分类分布</h3>
           <div class="cat-bar">
-            {catDist.map(([cat, n], i) => {
-              const colors = ['#4D6BFE', '#7c8cf8', '#8b5cf6', '#a78bfa', '#6366f1', '#93c5fd', '#c4b5fd'];
-              return <div class="cat-seg" style={`width:${(n / total) * 100}%;background:${colors[i % colors.length]}`} title={`${cat}: ${n}`}></div>;
-            })}
+            {catDist.map(([cat, n], i) => (
+              <div class="cat-seg" style={`width:${(n / total) * 100}%;background:${COLORS[i % COLORS.length]}`} title={`${cat}: ${n}`}></div>
+            ))}
           </div>
           <div class="cat-legend">
-            {catDist.map(([cat, n], i) => {
-              const colors = ['#4D6BFE', '#7c8cf8', '#8b5cf6', '#a78bfa', '#6366f1', '#93c5fd', '#c4b5fd'];
-              return <span class="cat-item"><span class="cat-dot" style={`background:${colors[i % colors.length]}`}></span>{cat} <b>{n}</b></span>;
-            })}
+            {catDist.map(([cat, n], i) => (
+              <span class="cat-item"><span class="cat-dot" style={`background:${COLORS[i % COLORS.length]}`}></span>{cat} <b>{n}</b></span>
+            ))}
           </div>
         </div>
       </div>
-      <p class="eco-note">数据源：GitHub dsh-plugin topic · 更新于 {syncDate.updated}</p>
+      <p class="eco-note">数据源：GitHub dsh-plugin topic + dsh.so 目录合并 · 更新于 {syncDate.updated}</p>
     </div>
     <div class="top-plugins">
       <div class="tp-head">🔥 按 Stars 热门 Top 10</div>
       <div class="tp-grid">
         {[...all].sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0)).slice(0, 10).map((t, i) => (
-          <a class="tp-item" href={`/zh/plugins/${t.name}/`}>
+          <a class="tp-item" href={`/zh/plugins/${t.slug}/`}>
             <span class="tp-rank">{i + 1}</span>
             <span class="tp-name">{t.name}</span>
-            <span class="tp-stars" data-stars-name={t.name}>★{t.stars ?? 0}</span>
+            <span class="tp-stars" data-stars-slug={t.slug}>★{t.stars ?? 0}</span>
           </a>
         ))}
       </div>
@@ -151,9 +160,11 @@ const statusClass = {
         <button class="btab is-active" data-tab="all">全部</button>
         <button class="btab" data-tab="hot">🔥 热门</button>
         <button class="btab" data-tab="new">🆕 新收录</button>
+        <button class="btab" data-tab="fav">★ 收藏</button>
       </div>
       <div class="search-bar">
-        <input type="search" id="plugin-search" placeholder="按名称、包名或描述搜索插件…" autocomplete="off" aria-label="搜索插件" />
+        <input type="search" id="plugin-search" placeholder="按名称、包名、协议、用途搜索插件…" autocomplete="off" aria-label="搜索插件" />
+        <kbd class="kbd-hint" id="kbd-hint">⌘K</kbd>
         <span class="search-count" id="search-count" hidden></span>
       </div>
       <div class="cat-nav">
@@ -161,6 +172,14 @@ const statusClass = {
           <button class="chip" data-cat={cat.toLowerCase().replace(/[^a-z0-9]+/g, '-')}>{catLabels[cat] || cat}</button>
         ))}
       </div>
+      {ucsPresent.length > 0 && (
+        <div class="uc-nav">
+          <span class="uc-label">使用场景</span>
+          {ucsPresent.map((u) => (
+            <button class="chip uc-chip" data-uc={u}>{ucLabels[u] || u} <span class="fcount">{ucCount[u]}</span></button>
+          ))}
+        </div>
+      )}
     </div>
     <div id="cat-sections">
     {catOrder.map((cat) => {
@@ -169,24 +188,7 @@ const statusClass = {
       <Fragment>
         <h3 id={catId} class="cat-head" style="margin-top:26px">{catLabels[cat] || cat} <span class="muted" style="font-size:13px;font-weight:400">({plugins[cat].length})</span></h3>
         <div class="grid3">
-          {plugins[cat].map((p) => {
-            const r = repo(p.url);
-            return (
-              <a class="card pcard" href={`/zh/plugins/${p.name}/`} data-test={p.test} data-npm={p.npm ? '1' : '0'} data-search={searchMap[p.name]}>
-                <div class="pcard-head">
-                  <span class="pcard-owner">@{owner(p.url)}</span>
-                  <span class="pcard-right"><span class="pcard-help" role="button" data-help="install" title="如何安装">?</span><span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span></span>
-                </div>
-                <span class="pcard-name">{p.name}{isFeatured(p) ? ' ⭐' : ''}</span>
-                {(p.desc_zh || p.desc) && <p class="pcard-desc">{p.desc_zh || p.desc}</p>}
-                <div class="pcard-foot">
-                  <span class="pcard-stars">★ {p.stars ?? 0}</span>
-                  <span class="pcard-src">{p.npm ? 'npm' : 'GitHub'}</span>
-                  <span class="pcard-copy" role="button" data-cmd={installCmd(p)}>📋 安装</span>
-                </div>
-              </a>
-            );
-          })}
+          {plugins[cat].map((p) => <PluginCard plugin={p} cat={catLabels[cat] || cat} lang="zh" />)}
         </div>
       </Fragment>
       );
@@ -195,47 +197,13 @@ const statusClass = {
     <div id="hot-panel" hidden>
       <h3 class="cat-head" style="margin-top:26px">🔥 热门插件 <span class="muted" style="font-size:13px;font-weight:400">(按 stars 前 {hotPlugins.length})</span></h3>
       <div class="grid3">
-        {hotPlugins.map((p) => {
-          const r = repo(p.url);
-          return (
-            <a class="card pcard" href={`/zh/plugins/${p.name}/`} data-test={p.test} data-npm={p.npm ? '1' : '0'} data-search={searchMap[p.name]}>
-              <div class="pcard-head">
-                <span class="pcard-owner">@{owner(p.url)}</span>
-                <span class="pcard-right"><span class="pcard-help" role="button" data-help="install" title="如何安装">?</span><span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span></span>
-              </div>
-              <span class="pcard-name">{p.name}{isFeatured(p) ? ' ⭐' : ''}</span>
-              {(p.desc_zh || p.desc) && <p class="pcard-desc">{p.desc_zh || p.desc}</p>}
-              <div class="pcard-foot">
-                <span class="pcard-stars">★ {p.stars ?? 0}</span>
-                <span class="pcard-src">{p.npm ? 'npm' : 'GitHub'}</span>
-                <span class="pcard-copy" role="button" data-cmd={installCmd(p)}>📋 安装</span>
-              </div>
-            </a>
-          );
-        })}
+        {hotPlugins.map((p) => <PluginCard plugin={p} lang="zh" />)}
       </div>
     </div>
     <div id="new-panel" hidden>
       <h3 class="cat-head" style="margin-top:26px">🆕 新收录 <span class="muted" style="font-size:13px;font-weight:400">(最近 {newPlugins.length})</span></h3>
       <div class="grid3">
-        {newPlugins.map((p) => {
-          const r = repo(p.url);
-          return (
-            <a class="card pcard" href={`/zh/plugins/${p.name}/`} data-test={p.test} data-npm={p.npm ? '1' : '0'} data-search={searchMap[p.name]}>
-              <div class="pcard-head">
-                <span class="pcard-owner">@{owner(p.url)}</span>
-                <span class="pcard-right"><span class="pcard-help" role="button" data-help="install" title="如何安装">?</span><span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span></span>
-              </div>
-              <span class="pcard-name">{p.name}{isFeatured(p) ? ' ⭐' : ''}</span>
-              {(p.desc_zh || p.desc) && <p class="pcard-desc">{p.desc_zh || p.desc}</p>}
-              <div class="pcard-foot">
-                <span class="pcard-stars">★ {p.stars ?? 0}</span>
-                <span class="pcard-src">{p.npm ? 'npm' : 'GitHub'}</span>
-                <span class="pcard-copy" role="button" data-cmd={installCmd(p)}>📋 安装</span>
-              </div>
-            </a>
-          );
-        })}
+        {newPlugins.map((p) => <PluginCard plugin={p} lang="zh" />)}
       </div>
     </div>
   </section>
@@ -252,42 +220,41 @@ const statusClass = {
       <p><a href="/zh/plugins/" class="btn btn-ghost btn-sm">查看完整教程 &rarr;</a></p>
     </div>
   </div>
+
+  <div class="cmdk" id="cmdk" hidden>
+    <div class="cmdk-inner">
+      <div class="cmdk-input-wrap">
+        <span class="cmdk-icon">🔍</span>
+        <input id="cmdk-input" type="search" placeholder="搜索插件名、作者、协议、用途…" autocomplete="off" />
+        <kbd class="cmdk-esc">Esc</kbd>
+      </div>
+      <div class="cmdk-results" id="cmdk-results"></div>
+      <div class="cmdk-foot" id="cmdk-foot">↑↓ 选择 · Enter 打开 · Esc 关闭</div>
+    </div>
+  </div>
 </Base>
 
 <style>
   .hero { padding-bottom: 16px; }
   .info { padding-top: 16px; }
-  .pcard { display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: inherit; }
-  .pcard:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-md, 0 8px 24px rgba(0,0,0,.08)); }
-  .pcard-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-  .pcard-right { display: flex; align-items: center; gap: 6px; }
-  .pcard-help { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--border-strong); color: var(--ink-3); font-size: 11px; font-weight: 700; cursor: pointer; line-height: 1; }
-  .pcard-help:hover { color: var(--primary); border-color: var(--primary); }
-  .pcard-owner { font-size: 11.5px; color: var(--ink-3); font-family: var(--mono, monospace); }
-  .pcard-name { font-weight: 700; font-size: 15px; color: var(--ink); }
-  .pcard-desc { font-size: 13px; color: var(--ink-2); margin: 0; line-height: 1.55; flex: 1; }
-  .pcard-foot { display: flex; align-items: center; gap: 10px; margin-top: auto; }
-  .pcard-stars { font-size: 12px; color: #b45309; font-weight: 600; }
-  .pcard-src { font-size: 11.5px; color: var(--ink-3); }
-  .pcard-copy { margin-left: auto; font-size: 12px; color: var(--primary); cursor: pointer; white-space: nowrap; }
-  .pcard-copy:hover { text-decoration: underline; }
+  .kbd { font-family: var(--mono, monospace); font-size: 11px; background: #f1f5f9; border: 1px solid #cbd5e1; border-bottom-width: 2px; border-radius: 6px; padding: 1px 6px; color: #334155; }
   .nav-toolbar { position: sticky; top: 0; z-index: 30; background: var(--bg); padding: 12px 0 8px; margin: 18px 0 0; border-bottom: 1px solid var(--border); }
   .big-tabs { display: flex; gap: 10px; justify-content: center; margin-bottom: 12px; }
   .btab { font-size: 14px; font-weight: 600; padding: 8px 22px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-card); color: var(--ink-2); cursor: pointer; }
   .btab.is-active { background: var(--primary); color: #fff; border-color: var(--primary); }
   .cat-nav { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 0 0 8px; }
-  .search-bar { display: flex; align-items: center; gap: 10px; max-width: 460px; margin: 0 auto 12px; }
+  .uc-nav { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; align-items: center; margin: 4px 0 2px; }
+  .uc-label { font-size: 11px; color: var(--ink-3); letter-spacing: .04em; }
+  .search-bar { display: flex; align-items: center; gap: 8px; max-width: 460px; margin: 0 auto 12px; }
   #plugin-search { flex: 1; font-size: 14px; padding: 9px 14px; border: 1px solid var(--border-strong); border-radius: 999px; background: var(--bg-card); color: var(--ink); font-family: inherit; outline: none; }
   #plugin-search:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(77,107,254,.12); }
+  .kbd-hint { font-family: var(--mono, monospace); font-size: 11px; color: var(--ink-3); background: #f1f5f9; border: 1px solid #cbd5e1; border-bottom-width: 2px; border-radius: 6px; padding: 2px 7px; cursor: pointer; user-select: none; }
   .search-count { font-size: 12px; color: var(--ink-3); white-space: nowrap; }
   .chip { font-size: 11.5px; color: var(--ink-2); border: 1px solid var(--border); border-radius: 999px; padding: 4px 10px; background: var(--bg-card); cursor: pointer; font-family: inherit; }
   .chip:hover { color: var(--primary); border-color: var(--primary); }
   .chip.is-active { background: var(--primary); color: #fff; border-color: var(--primary); }
-  .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 0; }
-  .fbtn { font-size: 12px; padding: 5px 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-card); color: var(--ink-2); cursor: pointer; }
-  .fbtn.is-active { background: var(--primary); color: #fff; border-color: var(--primary); }
-  .fcount { opacity: .7; font-size: 12px; }
-  .pcard[hidden] { display: none; }
+  .fcount { opacity: .7; font-size: 11px; }
+  .pcard[hidden] { display: none !important; }
   .cat-head[hidden] { display: none; }
   .grid3[hidden] { display: none; }
   .help-modal { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; background: rgba(15, 23, 42, 0.4); padding: 20px; }
@@ -305,16 +272,9 @@ const statusClass = {
   .tp-rank { font-weight: 800; color: var(--primary); font-size: 12px; min-width: 14px; }
   .tp-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .tp-stars { color: #b45309; font-weight: 600; }
-  .install-chip { margin: 0; font-size: 12px; padding: 6px 10px; background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 6px; color: #334155; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
   .badge { font-size: 11px; padding: 3px 9px; white-space: nowrap; }
-  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; }
   .st-ok { color: #1a7f37; border-color: #b7e0c0; background: #f0fff4; }
-  .st-ok .dot { background: #1a7f37; }
-  .st-src { color: var(--ink-2); background: #f7f8fa; }
-  .st-src .dot { background: #9aa1ad; }
   .st-warn { color: #9a6700; border-color: #e5c27a; background: #fff8e6; }
-  .st-warn .dot { background: #d4a72c; }
-  .legend .badge { color: var(--ink-2); }
   .stats-line { font-size: 13px; color: var(--ink-2); margin: 10px 0 0; text-align: center; }
   .agent-box { font-size: 13.5px; color: var(--ink-2); background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 8px 14px; margin: 10px 0 0; overflow: hidden; }
   .agent-slides { position: relative; }
@@ -322,8 +282,6 @@ const statusClass = {
   .agent-slide.is-active { display: block; animation: fadeIn .4s; }
   .agent-slide:hover strong { text-decoration: underline; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
-  .c-ok { color: #1a7f37; }
-  .c-warn { color: #9a6700; }
   .eco { margin: 20px 0 8px; }
   .statline { display: flex; flex-wrap: wrap; gap: 8px 36px; justify-content: center; padding: 16px 0; border-bottom: 1px solid var(--border); }
   .stat { display: flex; flex-direction: column; align-items: center; line-height: 1.25; }
@@ -342,11 +300,28 @@ const statusClass = {
   .cat-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
   .cat-item b { color: var(--ink); font-weight: 700; }
   .eco-note { text-align: center; font-size: 12px; color: var(--ink-3); margin: 14px 0 0; }
-  @media (max-width: 640px) { .eco-cards { grid-template-columns: 1fr; } }
+  .cmdk { position: fixed; inset: 0; z-index: 200; display: flex; align-items: flex-start; justify-content: center; background: rgba(15, 23, 42, 0.5); padding: 12vh 20px 20px; }
+  .cmdk[hidden] { display: none; }
+  .cmdk-inner { background: #fff; border-radius: 14px; width: 100%; max-width: 640px; box-shadow: 0 24px 60px rgba(0,0,0,.28); overflow: hidden; }
+  .cmdk-input-wrap { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--border); }
+  .cmdk-icon { font-size: 16px; }
+  .cmdk-input-wrap input { flex: 1; border: none; outline: none; font-size: 16px; color: var(--ink); font-family: inherit; background: none; }
+  .cmdk-esc { font-family: var(--mono, monospace); font-size: 11px; color: var(--ink-3); background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; padding: 2px 7px; }
+  .cmdk-results { max-height: 50vh; overflow: auto; padding: 8px; }
+  .cmdk-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 10px; text-decoration: none; color: inherit; }
+  .cmdk-item:hover, .cmdk-item.is-sel { background: #f1f5f9; }
+  .cmdk-item img { width: 28px; height: 28px; border-radius: 50%; background: #eef1f6; flex-shrink: 0; }
+  .cmdk-item .ci-main { flex: 1; min-width: 0; }
+  .cmdk-item .ci-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+  .cmdk-item .ci-meta { font-size: 12px; color: var(--ink-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .cmdk-item .ci-right { font-size: 12px; color: var(--ink-3); white-space: nowrap; }
+  .cmdk-item .ci-cmd { font-family: var(--mono, monospace); font-size: 11px; color: var(--primary); }
+  .cmdk-empty { text-align: center; padding: 28px 16px; color: var(--ink-3); font-size: 14px; }
+  .cmdk-foot { padding: 8px 16px; border-top: 1px solid var(--border); font-size: 11px; color: var(--ink-3); }
+  @media (max-width: 640px) { .eco-cards { grid-template-columns: 1fr; } .cmdk { padding: 6vh 12px 12px; } }
 </style>
 
 <script>
-  // 推荐插件轮播
   (() => {
     const slides = document.querySelectorAll('.agent-slide');
     if (slides.length < 2) return;
@@ -359,7 +334,6 @@ const statusClass = {
     }, 3500);
   })();
 
-  // 一键复制安装命令
   document.querySelectorAll('.pcard-copy').forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -372,7 +346,6 @@ const statusClass = {
     });
   });
 
-  // 卡片「?」帮助弹窗
   const modal = document.getElementById('help-modal');
   if (modal) {
     document.querySelectorAll('.pcard-help').forEach((help) => {
@@ -387,7 +360,8 @@ const statusClass = {
   }
 
   const tabs = document.querySelectorAll('.btab');
-  const chips = document.querySelectorAll('.chip');
+  const chips = document.querySelectorAll('.chip[data-cat]');
+  const ucChips = document.querySelectorAll('.uc-chip');
   const catHeads = document.querySelectorAll('#cat-sections .cat-head');
   const catSections = document.getElementById('cat-sections');
   const hotPanel = document.getElementById('hot-panel');
@@ -398,18 +372,50 @@ const statusClass = {
 
   let activeTab = 'all';
   let activeCat = null;
+  let activeUc = null;
+
+  // Favorites (localStorage)
+  const FAV_KEY = 'dshbase_favs';
+  let favSet = new Set();
+  try { favSet = new Set(JSON.parse(localStorage.getItem(FAV_KEY) || '[]')); } catch (e) { favSet = new Set(); }
+  const saveFavs = () => localStorage.setItem(FAV_KEY, JSON.stringify([...favSet]));
+  const syncFavUI = () => {
+    allCards.forEach((card) => {
+      const slug = card.dataset.slug;
+      const isFav = favSet.has(slug);
+      card.classList.toggle('is-fav', isFav);
+      const star = card.querySelector('.pcard-fav');
+      if (star) star.textContent = isFav ? '★' : '☆';
+    });
+  };
+  syncFavUI();
+  document.querySelectorAll('.pcard-fav').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const name = btn.dataset.fav;
+      if (favSet.has(name)) favSet.delete(name); else favSet.add(name);
+      saveFavs();
+      syncFavUI();
+      if (activeTab === 'fav') applyFilters();
+    });
+  });
 
   function applyFilters() {
-    catSections.hidden = activeTab !== 'all';
+    catSections.hidden = activeTab !== 'all' && activeTab !== 'fav';
     hotPanel.hidden = activeTab !== 'hot';
     newPanel.hidden = activeTab !== 'new';
 
     const q = (searchInput?.value || '').trim().toLowerCase();
+    const favMode = activeTab === 'fav';
     let visibleCount = 0;
     allCards.forEach((card) => {
       const match = !q || (card.dataset.search || '').includes(q);
-      card.hidden = !match;
-      if (match) visibleCount++;
+      const ucMatch = !activeUc || (card.dataset.ucs || '').split('|').includes(activeUc);
+      const favMatch = !favMode || favSet.has(card.dataset.slug);
+      const show = match && ucMatch && favMatch;
+      card.hidden = !show;
+      if (show) visibleCount++;
     });
 
     catHeads.forEach((h) => {
@@ -449,8 +455,7 @@ const statusClass = {
 
   chips.forEach((chip) => {
     chip.addEventListener('click', () => {
-      // 点分类 chip 时自动切回「全部」tab
-      if (activeTab !== 'all') {
+      if (activeTab !== 'all' && activeTab !== 'fav') {
         activeTab = 'all';
         tabs.forEach((t) => t.classList.toggle('is-active', t.dataset.tab === 'all'));
       }
@@ -466,15 +471,99 @@ const statusClass = {
     });
   });
 
-  // 实时按星数重排「热门 Top 10」
+  ucChips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      if (activeTab !== 'all' && activeTab !== 'fav') {
+        activeTab = 'all';
+        tabs.forEach((t) => t.classList.toggle('is-active', t.dataset.tab === 'all'));
+      }
+      const uc = chip.dataset.uc;
+      if (activeUc === uc) {
+        activeUc = null;
+        ucChips.forEach((c) => c.classList.remove('is-active'));
+      } else {
+        activeUc = uc;
+        ucChips.forEach((c) => c.classList.toggle('is-active', c === chip));
+      }
+      applyFilters();
+    });
+  });
+
+  // ⌘K command palette
+  const cmdk = document.getElementById('cmdk');
+  const cmdkInput = document.getElementById('cmdk-input');
+  const cmdkResults = document.getElementById('cmdk-results');
+  let selIdx = 0;
+  let cmdkItems = [];
+
+  function openCmdk() {
+    cmdk.hidden = false;
+    cmdkInput.value = '';
+    selIdx = 0;
+    runCmdk('');
+    setTimeout(() => cmdkInput.focus(), 10);
+  }
+  function closeCmdk() { cmdk.hidden = true; }
+
+  function runCmdk(q) {
+    q = q.trim().toLowerCase();
+    const results = q ? allCards.filter((c) => (c.dataset.search || '').includes(q)).slice(0, 30) : allCards.slice(0, 30);
+    cmdkResults.innerHTML = '';
+    cmdkItems = [];
+    if (!results.length) {
+      cmdkResults.innerHTML = '<div class="cmdk-empty">没有匹配的插件</div>';
+      return;
+    }
+    results.forEach((c) => {
+      const name = c.dataset.name;
+      const stars = c.dataset.stars || '0';
+      const test = c.dataset.test;
+      const cmd = c.dataset.cmd || '';
+      const cat = c.dataset.cat || '';
+      const owner = (c.querySelector('.pcard-owner')?.textContent || '@').replace('@', '');
+      const a = document.createElement('a');
+      a.className = 'cmdk-item';
+      a.href = c.getAttribute('href');
+      a.innerHTML = `<img src="https://github.com/${owner}.png" alt="" loading="lazy" onerror="this.remove()"><div class="ci-main"><div class="ci-name">${name}</div><div class="ci-meta">★ ${stars} · ${test === 'verified' ? '已验证' : '未测试'}${cat ? ' · ' + cat : ''}</div></div><div class="ci-right"><span class="ci-cmd">${cmd}</span></div>`;
+      a.addEventListener('mouseenter', () => { selIdx = cmdkItems.indexOf(a); updateSel(); });
+      a.addEventListener('click', closeCmdk);
+      cmdkResults.appendChild(a);
+      cmdkItems.push(a);
+    });
+    updateSel();
+  }
+
+  function updateSel() {
+    cmdkItems.forEach((it, i) => it.classList.toggle('is-sel', i === selIdx));
+    const sel = cmdkItems[selIdx];
+    if (sel) sel.scrollIntoView({ block: 'nearest' });
+  }
+
+  cmdkInput.addEventListener('input', () => { selIdx = 0; runCmdk(cmdkInput.value); });
+  cmdkInput.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); selIdx = Math.min(selIdx + 1, cmdkItems.length - 1); updateSel(); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); selIdx = Math.max(selIdx - 1, 0); updateSel(); }
+    else if (e.key === 'Enter') { e.preventDefault(); const sel = cmdkItems[selIdx]; if (sel) { window.location.href = sel.href; } }
+    else if (e.key === 'Escape') { e.preventDefault(); closeCmdk(); }
+  });
+  cmdk.addEventListener('click', (e) => { if (e.target === cmdk) closeCmdk(); });
+
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      if (!cmdk.hidden) closeCmdk(); else openCmdk();
+    }
+  });
+  document.getElementById('kbd-hint')?.addEventListener('click', openCmdk);
+
   setTimeout(() => {
     const grid = document.querySelector('.tp-grid');
     const stats = window.__dshStats;
     if (!grid || !stats) return;
     const items = [...grid.querySelectorAll('.tp-item')];
     items.sort((a, b) => {
-      const na = a.querySelector('.tp-stars')?.getAttribute('data-stars-name');
-      const nb = b.querySelector('.tp-stars')?.getAttribute('data-stars-name');
+      const na = a.querySelector('.tp-stars')?.getAttribute('data-stars-slug');
+      const nb = b.querySelector('.tp-stars')?.getAttribute('data-stars-slug');
       return (stats[nb]?.stars ?? 0) - (stats[na]?.stars ?? 0);
     });
     items.forEach((it, i) => {

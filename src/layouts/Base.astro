@@ -113,7 +113,7 @@ const t = {
 
     // Real-time GitHub stats (stars / forks / issues) with count-up animation
     (async () => {
-      const els = document.querySelectorAll('[data-stars-name]');
+      const els = document.querySelectorAll('[data-stars-slug]');
       if (!els.length) return;
       const fmt = (n) => n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n);
       const animate = (el, end, duration) => {
@@ -133,7 +133,7 @@ const t = {
         const stats = await res.json();
         window.__dshStats = stats;
         els.forEach((el) => {
-          const name = el.getAttribute('data-stars-name');
+          const name = el.getAttribute('data-stars-slug');
           const kind = el.getAttribute('data-stats-kind') || 'stars';
           const v = stats[name];
           if (v && v[kind] !== undefined) {

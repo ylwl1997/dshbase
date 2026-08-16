@@ -20,7 +20,7 @@ try {
 
 export function getStaticPaths() {
   return Object.entries(plugins).flatMap(([cat, items]) =>
-    items.map((p) => ({ params: { slug: p.name }, props: { cat, p } }))
+    items.map((p) => ({ params: { slug: p.slug ?? p.name }, props: { cat, p } }))
   );
 }
 
@@ -44,7 +44,7 @@ const riskLabel = { low: 'Low', medium: 'Medium', high: 'High', critical: 'Criti
 const riskClass = { low: 'sec-low', medium: 'sec-med', high: 'sec-high', critical: 'sec-crit' };
 const catLabel = { secrets: 'Hardcoded secret', 'dangerous-cmd': 'Dangerous command', exfil: 'Exfiltration endpoint', permissions: 'Suspicious permission' };
 const badgeAlt = p.test === 'verified' ? 'dshbase install-tested' : 'dshbase listed';
-const badgeMd = `[![${badgeAlt}](https://dshbase.com/badges/${p.name}.svg)](https://dshbase.com/plugins/${p.name}/)`;
+const badgeMd = `[![${badgeAlt}](https://dshbase.com/badges/${p.slug}.svg)](https://dshbase.com/plugins/${p.slug}/)`;
 const desc = p.desc_en || p.desc || `A plugin in the ${cat} category for DeepSeek Harness.`;
 const fmt = (n) => (n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n ?? 0));
 const stars = p.stars ?? 0;
@@ -62,20 +62,20 @@ const review = p.archived
   : p.test === 'verified'
     ? `${desc} It installs cleanly and boots without issues in our testing. ${stars >= 100 ? `With ${stars}+ stars it's a community-endorsed, low-risk pick.` : stars >= 20 ? `It has a growing community — a solid choice.` : `It's early-stage but functional.`}`
     : `${desc} Not yet verified — install and test it yourself.`;
-const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6);
+const related = (plugins[cat] || []).filter((x) => x.slug !== p.slug).slice(0, 6);
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   name: p.name,
   description: desc,
-  url: `https://dshbase.com/plugins/${p.name}/`,
+  url: `https://dshbase.com/plugins/${p.slug}/`,
   applicationCategory: 'DeveloperApplication',
   operatingSystem: 'Web',
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
   ...(p.ver ? { softwareVersion: p.ver } : {}),
 };
 ---
-<Base title={`${p.name} — DSH Plugin Install Guide & Compatibility Review | dshbase`} description={`${desc} — how to install ${p.name} (${p.npm ? `dsh plugin add ${p.pkg}` : 'npm source'}) and compatibility with dsh 0.1.0-rc.6.`} currentPath={`/plugins/${p.name}/`}>
+<Base title={`${p.name} — DSH Plugin Install Guide & Compatibility Review | dshbase`} description={`${desc} — how to install ${p.name} (${p.npm ? `dsh plugin add ${p.pkg}` : 'npm source'}) and compatibility with dsh 0.1.0-rc.6.`} currentPath={`/plugins/${p.slug}/`}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <section class="hero wrap">
     <p class="eyebrow"><a href={dirUrl}>Plugin directory</a> / <a href={catUrl}>{cat}</a> / {p.name}</p>
@@ -89,9 +89,9 @@ const jsonLd = {
 
   <section class="wrap">
     <div class="metrics">
-      <div class="metric"><span class="m-val" data-stars-name={p.name} data-stats-kind="stars">{p.stars ?? 0}</span><span class="m-lab">Stars</span></div>
-      <div class="metric"><span class="m-val" data-stars-name={p.name} data-stats-kind="forks">{p.forks ?? 0}</span><span class="m-lab">Forks</span></div>
-      <div class="metric"><span class="m-val" data-stars-name={p.name} data-stats-kind="issues">{p.issues ?? 0}</span><span class="m-lab">Open issues</span></div>
+      <div class="metric"><span class="m-val" data-stars-slug={p.slug} data-stats-kind="stars">{p.stars ?? 0}</span><span class="m-lab">Stars</span></div>
+      <div class="metric"><span class="m-val" data-stars-slug={p.slug} data-stats-kind="forks">{p.forks ?? 0}</span><span class="m-lab">Forks</span></div>
+      <div class="metric"><span class="m-val" data-stars-slug={p.slug} data-stats-kind="issues">{p.issues ?? 0}</span><span class="m-lab">Open issues</span></div>
       <div class="metric"><span class="m-val">{p.language || '—'}</span><span class="m-lab">Language</span></div>
       <div class="metric"><span class="m-val">{p.updated || '—'}</span><span class="m-lab">Last push</span></div>
     </div>
@@ -195,14 +195,14 @@ const jsonLd = {
     <p>Paste this into your README — it links back to this page and updates automatically when our test status changes:</p>
     <pre class="code-block"><code>{badgeMd}</code></pre>
     <p><button type="button" class="btn btn-ghost btn-sm badge-copy" data-cmd={badgeMd}>Copy badge markdown</button></p>
-    <p><img src={`/badges/${p.name}.svg`} alt={badgeAlt} width="210" height="20" style="height:20px" /></p>
+    <p><img src={`/badges/${p.slug}.svg`} alt={badgeAlt} width="210" height="20" style="height:20px" /></p>
 
     {related.length > 0 && (
       <Fragment>
         <h2 style="margin-top:28px">More in {cat}</h2>
         <div class="grid3">
           {related.map((r) => (
-            <a class="card card-link" href={`/plugins/${r.name}/`}>
+            <a class="card card-link" href={`/plugins/${r.slug}/`}>
               <h3>{r.name}</h3>
               <p>{r.test === 'verified' ? '✅ verified' : r.test === 'pending' ? '⏳ untested' : r.npm ? 'on npm' : 'GitHub source'} · ★{r.stars ?? 0}</p>
             </a>

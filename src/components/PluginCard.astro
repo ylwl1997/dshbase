@@ -1,0 +1,67 @@
+---
+const { plugin: p, cat = '', lang = 'en' } = Astro.props;
+const _repo = (u) => (u || '').replace('https://github.com/', '');
+const _owner = (u) => (u || '').replace('https://github.com/', '').split('/')[0] || '';
+const installCmd = p.npm && p.pkg ? `dsh plugin add ${p.pkg}` : `dsh plugin add github:${_repo(p.url)}`;
+const statusLabel = p.test === 'verified' ? (lang === 'zh' ? '已验证' : 'Verified') : (lang === 'zh' ? '未测试' : 'Untested');
+const copyLabel = lang === 'zh' ? '📋 安装' : '📋 copy';
+const statusClass = p.test === 'verified' ? 'st-ok' : 'st-warn';
+const trust = p.trust || '';
+const license = p.license || '';
+const updated = p.updated || '';
+const ucs = (p.ucs || []).join('|');
+const featured = (p.stars ?? 0) >= 100;
+const desc = lang === 'zh' ? (p.desc_zh || p.desc_en || p.desc || '') : (p.desc_en || p.desc || '');
+const search = `${p.name} ${_owner(p.url)} ${p.pkg || ''} ${p.desc_en || p.desc || ''} ${p.desc_zh || ''} ${license} ${(p.ucs || []).join(' ')}`.toLowerCase();
+const trustClass = { Silver: 't-silver', Bronze: 't-bronze', Gold: 't-gold' }[trust] || 't-unrated';
+---
+<a class="card pcard" href={`/plugins/${p.slug ?? p.name}/`} data-test={p.test} data-npm={p.npm ? '1' : '0'} data-name={p.name} data-slug={p.slug ?? p.name} data-ucs={ucs} data-search={search} data-cat={cat} data-stars={p.stars ?? 0} data-cmd={installCmd}>
+  <div class="pcard-head">
+    <img class="pcard-avatar" src={`https://github.com/${_owner(p.url)}.png`} alt="" loading="lazy" onerror="this.remove()" />
+    <span class="pcard-owner">@{_owner(p.url)}</span>
+    <span class="pcard-right">
+      {trust && trust !== 'Unrated' && <span class={`pcard-trust ${trustClass}`}>{trust}</span>}
+      <span class="pcard-help" role="button" data-help="install" title="How to install">?</span>
+      <span class={`badge ${statusClass}`}>{statusLabel}</span>
+    </span>
+  </div>
+  <span class="pcard-name">{p.name}{featured ? ' ⭐' : ''}</span>
+  {desc && <p class="pcard-desc">{desc}</p>}
+  <div class="pcard-foot">
+    <span class="pcard-stars">★ {p.stars ?? 0}</span>
+    <span class="pcard-src">{p.npm ? 'npm' : 'GitHub'}</span>
+    {license && <span class="pcard-meta">⚖ {license}</span>}
+    {updated && <span class="pcard-updated" title={`Updated ${updated}`}>↻ {updated.slice(0, 10)}</span>}
+    <span class="pcard-fav" role="button" data-fav={p.slug ?? p.name} aria-label="Save to favorites" title="Save to favorites">☆</span>
+    <span class="pcard-copy" role="button" data-cmd={installCmd}>{copyLabel}</span>
+  </div>
+</a>
+
+<style>
+  .pcard { display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: inherit; position: relative; }
+  .pcard:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-md, 0 8px 24px rgba(0,0,0,.08)); }
+  .pcard[hidden] { display: none !important; }
+  .pcard-head { display: flex; align-items: center; gap: 8px; }
+  .pcard-avatar { width: 22px; height: 22px; border-radius: 50%; background: #eef1f6; flex-shrink: 0; }
+  .pcard-owner { font-size: 11.5px; color: var(--ink-3); font-family: var(--mono, monospace); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .pcard-right { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+  .pcard-trust { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 6px; letter-spacing: .02em; }
+  .t-silver { color: #475569; background: #f1f5f9; border: 1px solid #cbd5e1; }
+  .t-bronze { color: #92400e; background: #fff7ed; border: 1px solid #fdba74; }
+  .t-gold { color: #a16207; background: #fefce8; border: 1px solid #fde047; }
+  .t-unrated { color: #9aa1ad; background: #f7f8fa; border: 1px solid #e2e8f0; }
+  .pcard-help { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--border-strong); color: var(--ink-3); font-size: 11px; font-weight: 700; cursor: pointer; line-height: 1; }
+  .pcard-help:hover { color: var(--primary); border-color: var(--primary); }
+  .pcard-name { font-weight: 700; font-size: 15px; color: var(--ink); }
+  .pcard-desc { font-size: 13px; color: var(--ink-2); margin: 0; line-height: 1.55; flex: 1; }
+  .pcard-foot { display: flex; align-items: center; gap: 9px; margin-top: auto; flex-wrap: wrap; }
+  .pcard-stars { font-size: 12px; color: #b45309; font-weight: 600; }
+  .pcard-src { font-size: 11.5px; color: var(--ink-3); }
+  .pcard-meta { font-size: 11px; color: var(--ink-3); white-space: nowrap; }
+  .pcard-updated { font-size: 11px; color: var(--ink-3); white-space: nowrap; }
+  .pcard-fav { margin-left: auto; font-size: 15px; color: #cbd5e1; cursor: pointer; line-height: 1; user-select: none; }
+  .pcard-fav:hover { color: #f59e0b; }
+  .pcard.is-fav .pcard-fav { color: #f59e0b; }
+  .pcard-copy { font-size: 12px; color: var(--primary); cursor: pointer; white-space: nowrap; }
+  .pcard-copy:hover { text-decoration: underline; }
+</style>

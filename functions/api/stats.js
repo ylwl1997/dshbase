@@ -31,7 +31,7 @@ export async function onRequest(context) {
         const data = d.data || {};
         batch.forEach((r, j) => {
           const v = data[`r${bi}_${j}`];
-          if (v) out[r.name] = { stars: v.stargazerCount || 0, forks: v.forkCount || 0, issues: (v.openIssues && v.openIssues.totalCount) || 0 };
+          if (v) out[r.slug || r.name] = { stars: v.stargazerCount || 0, forks: v.forkCount || 0, issues: (v.openIssues && v.openIssues.totalCount) || 0 };
         });
       } catch (e) {}
     })
