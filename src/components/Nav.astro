@@ -1,5 +1,6 @@
 ---
 import { getRelativeLocaleUrl } from 'astro:i18n';
+import Search from './Search.astro';
 
 interface Props { currentPath: string }
 const { currentPath } = Astro.props;
@@ -33,5 +34,6 @@ const items = [
         <a href={getRelativeLocaleUrl(locale, it.path)} set:aria-current={currentPath === it.path ? 'page' : undefined}>{labels[it.key]}</a>
       ))}
     </nav>
+    <Search />
   </div>
 </header>
