@@ -31,6 +31,7 @@ const posts = [
   { path: '/blog/vs-cowork/', cat: '对比', zh: 'vs Claude Cowork', desc_zh: '开源框架 vs 闭源 Agent。' },
   { path: '/blog/vs-cursor/', cat: '对比', zh: 'vs Cursor', desc_zh: 'Agent 框架 vs AI 编辑器。' },
 ];
+const cats = [...new Set(posts.map((p) => p.cat))];
 ---
 <Base title="博客 — DeepSeek Harness 指南与分析 | dshbase 中文" description="DeepSeek Harness 文章：对比、深度解析与分析。" currentPath="/blog/">
   <section class="hero wrap">
@@ -39,9 +40,15 @@ const posts = [
     <p class="lede">对比、深度解析与分析。</p>
   </section>
   <section class="info wrap">
-    <div class="grid3">
+    <div class="cat-filter" role="tablist" aria-label="按分类筛选">
+      <button class="fchip is-active" data-filter="all">全部 <b>{posts.length}</b></button>
+      {cats.map((c) => (
+        <button class="fchip" data-filter={c}>{c} <b>{posts.filter((p) => p.cat === c).length}</b></button>
+      ))}
+    </div>
+    <div class="grid3" id="post-grid">
       {posts.map((p) => (
-        <a class="card card-link" href={getRelativeLocaleUrl(locale, p.path)}>
+        <a class="card card-link post-card" data-cat={p.cat} href={getRelativeLocaleUrl(locale, p.path)}>
           <span class="cat">{p.cat}</span>
           <h3>{p.zh}</h3>
           <p>{p.desc_zh} <span class="arr">&rarr;</span></p>
@@ -50,3 +57,26 @@ const posts = [
     </div>
   </section>
 </Base>
+
+<style>
+  .cat-filter { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 20px; }
+  .fchip { font-size: 12.5px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-card); color: var(--ink-2); cursor: pointer; font-family: inherit; }
+  .fchip b { font-weight: 700; opacity: .6; }
+  .fchip:hover { color: var(--primary); border-color: var(--primary); }
+  .fchip.is-active { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .fchip.is-active b { opacity: .9; }
+  .post-card[hidden] { display: none; }
+</style>
+
+<script>
+  const chips = document.querySelectorAll('.fchip');
+  const cards = document.querySelectorAll('.post-card');
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      chips.forEach((c) => c.classList.remove('is-active'));
+      chip.classList.add('is-active');
+      const f = chip.dataset.filter;
+      cards.forEach((card) => { card.hidden = f !== 'all' && card.dataset.cat !== f; });
+    });
+  });
+</script>

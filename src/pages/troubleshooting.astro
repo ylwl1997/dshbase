@@ -4,74 +4,322 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 const installUrl = getRelativeLocaleUrl('en', '/install/');
 const pluginsUrl = getRelativeLocaleUrl('en', '/plugins/');
 const tutorialUrl = getRelativeLocaleUrl('en', '/tutorial/');
+
+const sections = [
+  {
+    id: 'install',
+    title: 'Install & environment',
+    items: [
+      {
+        id: 'pnpm-fetch-404',
+        code: 'ERR_PNPM_FETCH_404',
+        title: 'package not found',
+        desc: 'Your npm registry mirror lags behind the official one, so a just-published package returns 404.',
+        cmd: 'dsh plugin add <package> --registry=https://registry.npmjs.org',
+      },
+      {
+        id: 'pnpm-not-recognized',
+        code: "'pnpm' is not recognized",
+        title: 'pnpm is missing',
+        desc: '<code>dsh plugin</code> forwards to pnpm, which isn’t installed.',
+        cmd: 'npm install -g pnpm',
+      },
+      {
+        id: 'node-not-found',
+        code: 'node: command not found',
+        title: 'Node.js not on PATH',
+        desc: 'The <code>dsh</code> launcher needs Node.js on your PATH. Add your Node folder (and npm global bin) to PATH. Find them with <code>npm prefix -g</code>.',
+      },
+      {
+        id: 'npx-install-fails',
+        code: 'npx @deepseek-ai/dsh',
+        title: 'fails to install',
+        desc: 'Usually a registry lag or a native dependency without a prebuilt binary. On Linux, <code>node-pty</code> ships no prebuilds, so it needs a compiler toolchain to build from source.',
+        cmd: 'npx @deepseek-ai/dsh --registry=https://registry.npmjs.org',
+        fix: 'Install build essentials (<code>build-essential python3</code> on Debian/Ubuntu) and use a Node LTS, then retry.',
+      },
+      {
+        id: 'port-3080',
+        code: 'Port 3080 already in use',
+        title: 'stale process holds the port',
+        desc: 'A stale dsh process holds the port — the page even loads but talks to the old instance, so config changes never appear.',
+        cmd: 'dsh web --port 8080',
+        fix: 'Kill the old process first, or use a fresh port.',
+      },
+    ],
+  },
+  {
+    id: 'credentials',
+    title: 'Credentials & models',
+    items: [
+      {
+        id: 'missing-credential',
+        code: 'MISSING_CREDENTIAL',
+        title: 'no API key stored',
+        desc: 'No API key is stored. Set it in <strong>Settings → Models</strong>, or in <code>~/.dsh/.credentials.yaml</code>:',
+        cmd: 'DEEPSEEK_API_KEY: sk-your-key-here',
+      },
+      {
+        id: 'unknown-model',
+        code: 'UNKNOWN_MODEL',
+        title: 'model not configured',
+        desc: 'You picked a model that isn’t configured. Add it to your provider, or select a configured model.',
+      },
+      {
+        id: 'models-401',
+        code: '"Get available models" returns 401',
+        title: 'wrong key or base URL',
+        desc: 'The key is wrong — model discovery calls the OpenAI-compatible <code>GET /models</code> endpoint. The three settings (base URL, key, model name) must all match.',
+      },
+      {
+        id: 'context-length-exceeded',
+        code: 'maximum context length is 1048576 tokens',
+        title: 'context window exceeded',
+        desc: 'The conversation plus the completion you asked for exceeds the model’s context window.',
+        fix: 'Start a new session, shorten the system prompt, or lower <code>max_tokens</code>. On a long session, summarize and continue fresh rather than pushing the window.',
+      },
+    ],
+  },
+  {
+    id: 'plugins',
+    title: 'Plugins',
+    items: [
+      {
+        id: 'plugin-not-activating',
+        code: 'Plugin installs but doesn’t activate',
+        title: 'missing dsh.bundle manifest',
+        desc: 'The package has no <code>dsh.bundle</code> manifest, so <code>dsh plugin add</code> installs it as a plain dependency that never loads. The plugin must ship a <code>cordis.patch.yml</code> and declare <code>dsh.bundle.patch</code> in its <code>package.json</code>.',
+      },
+      {
+        id: 'require-esm',
+        code: 'ERR_REQUIRE_ESM',
+        title: 'plugin built as CommonJS',
+        desc: 'The plugin was compiled to CommonJS but depends on ESM-only packages like <code>@deepseek-ai/dsh-tools</code>. The plugin must be built as ESM (<code>"type": "module"</code>).',
+      },
+      {
+        id: 'systemprompt-no-inject',
+        code: 'cannot get property "systemPrompt" without inject',
+        title: 'missing inject declaration',
+        desc: 'Plugin code calls <code>ctx.systemPrompt</code> without declaring <code>inject: ["systemPrompt"]</code>. It’s a plugin bug — report it to the author with this exact message.',
+      },
+      {
+        id: 'allowbuilds',
+        code: 'allowBuilds prompt',
+        title: 'git-hosted plugin build script blocked',
+        desc: 'A plugin installed from GitHub ships a <code>prepare</code> build script, which pnpm blocks by default. Add the key pnpm prints to <code>allowBuilds</code> in <code>pnpm-workspace.yaml</code>, then re-run.',
+      },
+      {
+        id: 'dsh-type-meta-missing',
+        code: '"@deepseek-ai/dsh-type-meta" not found',
+        title: 'dependency not published yet',
+        desc: 'A plugin depends on a package that isn’t published to npm yet. Nothing you can do client-side — the author must publish it first.',
+      },
+      {
+        id: 'duplicate-dsh-tools',
+        code: "reading 'prepare' of undefined",
+        title: 'duplicate dsh-tools instance',
+        desc: 'A plugin’s peer-dependency pulls a second copy of <code>@deepseek-ai/dsh-tools</code>, so internal symbol-key lookups collide and tool scheduling crashes.',
+        fix: 'Make <code>@deepseek-ai/dsh-tools</code> a single shared dependency (peer or bundled once), or ask the author to fix the peer range.',
+      },
+      {
+        id: 'duplicate-loader-entry',
+        code: 'duplicate loader entry id',
+        title: 'bundle dependency promoted twice',
+        desc: '<code>dsh plugin add</code> promoted a pre-existing bundle-declaring dependency into the bundle stack, creating a duplicate entry id.',
+        fix: 'Remove the duplicate entry from your profile’s bundle config, then re-add the plugin.',
+      },
+      {
+        id: 'failed-to-load-plugins',
+        code: 'Failed to load plugins',
+        title: 'fatal plugin mount screen',
+        desc: 'A plugin fails to mount at boot and the UI offers no recovery action.',
+        fix: 'Move the offending plugin out of the profile (or reset the profile), then restart. Re-add plugins one at a time to isolate the culprit.',
+      },
+    ],
+  },
+  {
+    id: 'runtime',
+    title: 'Runtime & web UI',
+    items: [
+      {
+        id: 'send-disabled',
+        code: 'Web UI send button stays disabled',
+        title: 'no workspace selected',
+        desc: 'The web profile requires a workspace before sending. Click <strong>Choose workspace</strong> and select a directory.',
+      },
+      {
+        id: 'skills-cli-vs-web',
+        code: 'Skills work in the CLI but not the web UI',
+        title: 'profile capability mismatch',
+        desc: 'The web profile ships with <code>tool-skill</code> and <code>skill-filesystem</code> <strong>disabled</strong>; the headless/CLI profile has them on.',
+      },
+      {
+        id: 'randomuuid-insecure',
+        code: 'crypto.randomUUID is not a function',
+        title: 'plain HTTP breaks Web Crypto',
+        desc: 'The Web Crypto API is only available on secure contexts. Accessing the web UI over plain <code>http://</code> (LAN IP or phone) breaks it.',
+        fix: 'Use <code>https://</code> or <code>localhost</code>, or put a TLS reverse proxy in front of the web UI.',
+      },
+      {
+        id: 'composer-input-vanishes',
+        code: 'Composer input box disappears',
+        title: 'broken markdown image reference',
+        desc: 'Deleting a markdown image reference in a draft can blank the input box.',
+        fix: 'Refresh the page. If it recurs, report it with the repro steps.',
+      },
+      {
+        id: 'commands-list-404',
+        code: '/api/commands/list returns 404',
+        title: 'command menu empty',
+        desc: 'The plugin manifest auto-discovery broke, so commands never registered.',
+        fix: 'Reinstall the plugin and restart the web UI; report it if it persists.',
+      },
+      {
+        id: 'skill-prefix-match',
+        code: 'Skill menu only matches by prefix',
+        title: 'middle words unfindable',
+        desc: 'Skill search matches names by prefix, so middle words are unfindable.',
+        fix: 'Type the skill name from the start, or browse the full skill list.',
+      },
+    ],
+  },
+  {
+    id: 'sessions',
+    title: 'Sessions & cache',
+    items: [
+      {
+        id: 'session-seq-gap',
+        code: 'Session log corrupted on resume',
+        title: 'sequence gap in append-only log',
+        desc: 'On resume, the last committed events re-append with fresh timestamps, creating a sequence gap in the append-only log.',
+        fix: 'Export your data, then open a fresh session instead of resuming the corrupted one.',
+      },
+      {
+        id: 'kv-cache-collapse',
+        code: 'KV cache hit rate collapses after resume',
+        title: 'system-prompt ordering drift',
+        desc: 'System-prompt section ordering drifts on resume, dropping cache hits to near zero.',
+        fix: 'Start a clean session rather than resuming, and keep your preset order stable.',
+      },
+      {
+        id: 'history-internal-fetch',
+        code: 'History "Failed to fetch (internal)"',
+        title: 'corrupted session deltas',
+        desc: 'A session with malformed streamed tool-call deltas can’t be loaded.',
+        fix: 'Reload; if it persists, the session file is corrupted — start fresh.',
+      },
+    ],
+  },
+  {
+    id: 'platform',
+    title: 'Platform-specific',
+    items: [
+      {
+        id: 'windows-sandbox-https',
+        code: 'SEC_E_NO_CREDENTIALS',
+        title: 'Windows sandbox breaks HTTPS',
+        desc: 'The restricted-token sandbox breaks Schannel HTTPS (curl, PowerShell). OpenSSL clients (node, python) are unaffected.',
+        fix: 'Use a full-access preset for network tasks, or route through node/python tools.',
+      },
+      {
+        id: 'sharp-dlopen',
+        code: 'ERR_DLOPEN_FAILED',
+        title: 'sharp fails to load on Windows',
+        desc: 'A native image dependency fails to load in dev/desktop builds.',
+        fix: 'Use the workaround in the linked discussion, or switch to a pure-JS fallback.',
+      },
+      {
+        id: 'macos-launchd-path',
+        code: 'macOS launchd env: node',
+        title: 'crash loop from missing PATH',
+        desc: 'A LaunchAgent launches without PATH, so <code>node</code> isn’t found and dsh crash-loops.',
+        fix: 'Add PATH and a <code>ThrottleInterval</code> to the LaunchAgent plist.',
+      },
+    ],
+  },
+];
+
+const stripHtml = (s) => (s || '').replace(/<[^>]*>/g, '');
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: sections.flatMap((s) =>
+    s.items.map((i) => ({
+      '@type': 'Question',
+      name: `${i.code ? i.code + ' — ' : ''}${i.title}?`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: [stripHtml(i.desc), i.cmd, stripHtml(i.fix)].filter(Boolean).join(' '),
+      },
+    }))
+  ),
+};
 ---
+
 <Base
   title="DeepSeek Harness Troubleshooting — Fix Common dsh Errors | dshbase"
-  description="Fix common DeepSeek Harness (dsh) errors: ERR_PNPM_FETCH_404, ERR_REQUIRE_ESM, plugin not activating, MISSING_CREDENTIAL, pnpm not found, allowBuilds, and more — verified fixes from real testing."
+  description="Fix common DeepSeek Harness (dsh) errors: ERR_PNPM_FETCH_404, ERR_REQUIRE_ESM, plugin not activating, MISSING_CREDENTIAL, context length exceeded, crypto.randomUUID, duplicate dsh-tools, Failed to load plugins, and more — verified fixes."
   currentPath="/troubleshooting/"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
   <section class="hero wrap">
     <p class="eyebrow">Troubleshooting</p>
     <h1>Fix common <span class="accent">dsh</span> errors</h1>
-    <p class="lede">Every fix below comes from actually running dsh 0.1.0-rc.6 — not from reading docs. Each entry shows the exact error message, why it happens, and the one-line fix.</p>
+    <p class="lede">Every fix below comes from actually running dsh — plus the most-reported issues from the official repo. Each entry shows the exact error, why it happens, and the fix.</p>
   </section>
 
-  <section class="info wrap">
-    <h2>Install &amp; environment</h2>
+  <div class="ts-wrap wrap">
+    <aside class="toc-side">
+      <nav class="toc" aria-label="On this page">
+        <p class="toc-title">On this page</p>
+        <ol class="toc-list">
+          {sections.map((s) => (
+            <li><a href={`#${s.id}`}>{s.title}</a></li>
+          ))}
+        </ol>
+      </nav>
+    </aside>
 
-    <h3><code>ERR_PNPM_FETCH_404</code> — package not found</h3>
-    <p>Your npm registry mirror lags behind the official one, so a just-published package returns 404.</p>
-    <pre class="code-block"><code>dsh plugin add &lt;package&gt; --registry=https://registry.npmjs.org</code></pre>
+    <section class="info ts-main">
+      {sections.map((s) => (
+        <Fragment>
+          <h2 id={s.id} style="margin-top:28px">{s.title}</h2>
+          {s.items.map((i) => (
+            <Fragment>
+              <h3 id={i.id} style="margin-top:24px">{i.code && <code>{i.code}</code>} {i.title}</h3>
+              {i.desc && <p set:html={i.desc} />}
+              {i.cmd && <pre class="code-block"><code>{i.cmd}</code></pre>}
+              {i.fix && <p set:html={i.fix} />}
+            </Fragment>
+          ))}
+        </Fragment>
+      ))}
 
-    <h3><code>'pnpm' is not recognized</code></h3>
-    <p><code>dsh plugin</code> forwards to pnpm, which isn't installed.</p>
-    <pre class="code-block"><code>npm install -g pnpm</code></pre>
-
-    <h3><code>node: command not found</code></h3>
-    <p>The <code>dsh</code> launcher needs Node.js on your PATH. Add your Node folder (and npm global bin) to PATH. Find them with <code>npm prefix -g</code>.</p>
-
-    <h3>Port 3080 already in use</h3>
-    <p>A stale dsh process holds the port — the page even loads normally but talks to the old instance, so config changes never appear.</p>
-    <pre class="code-block"><code>dsh web --port 8080</code></pre>
-    <p>Kill the old process first, or use a fresh port.</p>
-
-    <h2 style="margin-top:28px">Credentials &amp; models</h2>
-
-    <h3><code>MISSING_CREDENTIAL</code></h3>
-    <p>No API key is stored. Set it in <strong>Settings → Models</strong>, or in <code>~/.dsh/.credentials.yaml</code>:</p>
-    <pre class="code-block"><code>DEEPSEEK_API_KEY: sk-your-key-here</code></pre>
-
-    <h3><code>UNKNOWN_MODEL</code></h3>
-    <p>You picked a model that isn't configured. Add it to your provider, or select a configured model.</p>
-
-    <h3>"Get available models" returns 401</h3>
-    <p>The key is wrong — model discovery calls the OpenAI-compatible <code>GET /models</code> endpoint. The three settings (base URL, key, model name) must all match.</p>
-
-    <h2 style="margin-top:28px">Plugins (verified in the field)</h2>
-
-    <h3>Plugin installs but doesn't activate</h3>
-    <p>The package has no <code>dsh.bundle</code> manifest. Without it, <code>dsh plugin add</code> installs it as a plain dependency — never loaded. The plugin must ship a <code>cordis.patch.yml</code> and declare <code>dsh.bundle.patch</code> in its <code>package.json</code>.</p>
-
-    <h3><code>ERR_REQUIRE_ESM</code> when a plugin loads</h3>
-    <p>The plugin was compiled to CommonJS but depends on ESM-only packages like <code>@deepseek-ai/dsh-tools</code>. The plugin must be built as ESM (<code>"type": "module"</code>).</p>
-
-    <h3><code>cannot get property "systemPrompt" without inject</code></h3>
-    <p>Plugin code calls <code>ctx.systemPrompt</code> without declaring <code>inject: ["systemPrompt"]</code>. It's a plugin bug — report it to the author with this exact message.</p>
-
-    <h3><code>allowBuilds</code> prompt for git-hosted plugins</h3>
-    <p>A plugin installed from GitHub ships a <code>prepare</code> build script, which pnpm blocks by default. Add the key pnpm prints to <code>allowBuilds</code> in <code>pnpm-workspace.yaml</code>, then re-run.</p>
-
-    <h3>Dependency "<code>@deepseek-ai/dsh-type-meta</code>" not found</h3>
-    <p>A plugin depends on a package that isn't published to npm yet. Nothing you can do client-side — the author must publish it first.</p>
-
-    <h2 style="margin-top:28px">Runtime</h2>
-
-    <h3>Web UI send button stays disabled</h3>
-    <p>The web profile requires a workspace before sending. Click <strong>Choose workspace</strong> and select a directory.</p>
-
-    <h3>Skills work in the CLI but not the web UI</h3>
-    <p>The web profile ships with <code>tool-skill</code> and <code>skill-filesystem</code> <strong>disabled</strong>; the headless/CLI profile has them on. Same skill works in one, silently does nothing in the other.</p>
-
-    <p style="margin-top:28px">Still stuck? Check the <a href={installUrl}>install guide</a>, the <a href={pluginsUrl}>plugin guide</a>, or the <a href={tutorialUrl}>tutorial</a>.</p>
-  </section>
+      <p style="margin-top:32px">Still stuck? Check the <a href={installUrl}>install guide</a>, the <a href={pluginsUrl}>plugin guide</a>, or the <a href={tutorialUrl}>tutorial</a>.</p>
+    </section>
+  </div>
 </Base>
+
+<style>
+  .ts-wrap { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; align-items: start; }
+  .ts-main { padding: 42px 0; min-width: 0; }
+  .ts-main h2 { scroll-margin-top: 84px; }
+  .ts-main h3 { scroll-margin-top: 84px; font-size: 18px; margin: 0 0 8px; color: var(--ink); }
+  .ts-main h3 code { font-size: 13.5px; background: var(--primary-soft); padding: 2px 8px; border-radius: 6px; color: var(--primary-600); }
+  .ts-main p { color: var(--ink-2); line-height: 1.75; margin: 8px 0; }
+  .toc-side { position: sticky; top: 84px; padding-top: 42px; }
+  .toc { border-left: 2px solid var(--border); padding-left: 16px; }
+  .toc-title { font-size: 11px; font-weight: 700; color: var(--ink-2); text-transform: uppercase; letter-spacing: .06em; margin: 0 0 8px; }
+  .toc-list { list-style: none; margin: 0; padding: 0; }
+  .toc-list li { margin: 0; }
+  .toc-list a { display: block; padding: 4px 0; color: var(--ink-2); text-decoration: none; line-height: 1.4; font-size: 13px; }
+  .toc-list a:hover { color: var(--primary); }
+  @media (max-width: 900px) {
+    .ts-wrap { grid-template-columns: 1fr; }
+    .toc-side { position: static; padding-top: 24px; order: -1; }
+    .toc { border-left: none; border-bottom: 1px solid var(--border); padding: 0 0 12px; }
+    .toc-list { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+    .toc-list a { padding: 3px 0; }
+  }
+</style>

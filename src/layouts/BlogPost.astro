@@ -13,12 +13,78 @@ const { title, description, currentPath, category } = Astro.props;
 const locale = Astro.currentLocale ?? 'en';
 const blogUrl = getRelativeLocaleUrl(locale, '/blog/');
 const allLabel = locale === 'en' ? 'All articles →' : '全部文章 →';
+const tocTitle = locale === 'en' ? 'On this page' : '目录';
 ---
 
 <Base title={title} description={description} currentPath={currentPath}>
-  <article class="info wrap" style="max-width:820px;margin:0 auto">
-    <p class="eyebrow">Blog · {category}</p>
-    <slot />
-    <p style="margin-top:26px"><a class="btn btn-ghost" href={blogUrl}>{allLabel}</a></p>
-  </article>
+  <div class="post-wrap wrap">
+    <article class="post-main">
+      <p class="eyebrow">Blog · {category}</p>
+      <slot />
+      <p style="margin-top:26px"><a class="btn btn-ghost" href={blogUrl}>{allLabel}</a></p>
+    </article>
+    <aside class="toc-side">
+      <nav class="toc" id="toc" aria-label="Table of contents">
+        <p class="toc-title">{tocTitle}</p>
+        <ol class="toc-list" id="toc-list"></ol>
+      </nav>
+    </aside>
+  </div>
 </Base>
+
+<style>
+  .post-wrap { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 40px; align-items: start; }
+  .post-main { min-width: 0; }
+  .toc-side { position: sticky; top: 84px; }
+  .toc { border-left: 2px solid var(--border); padding-left: 16px; }
+  .toc-title { font-size: 11px; font-weight: 700; color: var(--ink-2); text-transform: uppercase; letter-spacing: .06em; margin: 0 0 8px; }
+  .toc-list { list-style: none; margin: 0; padding: 0; }
+  .toc-list li { margin: 0; }
+  .toc-list a { display: block; padding: 3px 0; color: var(--ink-2); text-decoration: none; line-height: 1.45; font-size: 13px; }
+  .toc-list a:hover { color: var(--primary); }
+  .toc-list .toc-h3 a { padding-left: 14px; font-size: 12px; color: var(--ink-3); }
+  .toc-list .toc-h3 a:hover { color: var(--primary); }
+  @media (max-width: 900px) {
+    .post-wrap { grid-template-columns: 1fr; }
+    .toc-side { position: static; order: -1; margin-bottom: 4px; }
+    .toc { border-left: none; border-bottom: 1px solid var(--border); padding: 0 0 12px; }
+    .toc-list { columns: 2; gap: 16px; }
+    .toc-list .toc-h3 a { padding-left: 0; }
+  }
+  @media (max-width: 520px) { .toc-list { columns: 1; } }
+</style>
+
+<script>
+  // Auto-generate a table of contents from the post's h2/h3 headings.
+  (() => {
+    const article = document.querySelector('.post-main');
+    const list = document.getElementById('toc-list');
+    const side = document.querySelector('.toc-side');
+    if (!article || !list) return;
+    const headings = article.querySelectorAll('h2, h3');
+    if (headings.length < 2) {
+      if (side) side.style.display = 'none';
+      return;
+    }
+    const seen = {};
+    headings.forEach((h) => {
+      if (!h.id) {
+        const base = (h.textContent || '').trim().toLowerCase()
+          .replace(/[^a-z0-9一-龥]+/g, '-')
+          .replace(/^-+|-+$/g, '') || 'sec';
+        let id = base;
+        let n = 1;
+        while (seen[id]) id = `${base}-${n++}`;
+        seen[id] = true;
+        h.id = id;
+      }
+      const li = document.createElement('li');
+      if (h.tagName === 'H3') li.className = 'toc-h3';
+      const a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent.trim();
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+  })();
+</script>

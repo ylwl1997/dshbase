@@ -45,6 +45,8 @@ const repo = (u) => u.replace('https://github.com/', '');
 const owner = (u) => (u.replace('https://github.com/', '').split('/')[0] || '');
 const npmHome = (p) => p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
 const isFeatured = (p) => (p.stars ?? 0) >= 100;
+const searchMap = {};
+catOrder.forEach((k) => plugins[k].forEach((p) => { searchMap[p.name] = `${p.name} ${owner(p.url)} ${p.pkg || ''} ${p.desc_en || p.desc || ''} ${k}`.toLowerCase(); }));
 const statusLabel = {
   verified: 'Verified',
   pending: 'Untested',
@@ -141,6 +143,10 @@ const statusClass = {
         <button class="btab" data-tab="hot">🔥 Hot</button>
         <button class="btab" data-tab="new">🆕 New</button>
       </div>
+      <div class="search-bar">
+        <input type="search" id="plugin-search" placeholder="Search plugins by name, package, or description…" autocomplete="off" aria-label="Search plugins" />
+        <span class="search-count" id="search-count" hidden></span>
+      </div>
       <div class="cat-nav">
         {catOrder.map((cat) => (
           <button class="chip" data-cat={cat.toLowerCase().replace(/[^a-z0-9]+/g, '-')}>{cat}</button>
@@ -157,7 +163,7 @@ const statusClass = {
           {plugins[cat].map((p) => {
             const r = repo(p.url);
             return (
-              <a class="card pcard" href={`/plugins/${p.name}/`} data-test={p.test} data-npm={p.npm ? '1' : '0'}>
+              <a class="card pcard" href={`/plugins/${p.name}/`} data-test={p.test} data-npm={p.npm ? '1' : '0'} data-search={searchMap[p.name]}>
                 <div class="pcard-head">
                   <span class="pcard-owner">@{owner(p.url)}</span>
                   <span class="pcard-right"><span class="pcard-help" role="button" data-help="install" title="How to install">?</span><span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span></span>
@@ -183,7 +189,7 @@ const statusClass = {
         {hotPlugins.map((p) => {
           const r = repo(p.url);
           return (
-            <a class="card pcard" href={`/plugins/${p.name}/`} data-test={p.test} data-npm={p.npm ? '1' : '0'}>
+            <a class="card pcard" href={`/plugins/${p.name}/`} data-test={p.test} data-npm={p.npm ? '1' : '0'} data-search={searchMap[p.name]}>
               <div class="pcard-head">
                 <span class="pcard-owner">@{owner(p.url)}</span>
                 <span class="pcard-right"><span class="pcard-help" role="button" data-help="install" title="How to install">?</span><span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span></span>
@@ -206,7 +212,7 @@ const statusClass = {
         {newPlugins.map((p) => {
           const r = repo(p.url);
           return (
-            <a class="card pcard" href={`/plugins/${p.name}/`} data-test={p.test} data-npm={p.npm ? '1' : '0'}>
+            <a class="card pcard" href={`/plugins/${p.name}/`} data-test={p.test} data-npm={p.npm ? '1' : '0'} data-search={searchMap[p.name]}>
               <div class="pcard-head">
                 <span class="pcard-owner">@{owner(p.url)}</span>
                 <span class="pcard-right"><span class="pcard-help" role="button" data-help="install" title="How to install">?</span><span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span></span>
@@ -261,6 +267,10 @@ const statusClass = {
   .btab { font-size: 14px; font-weight: 600; padding: 8px 22px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-card); color: var(--ink-2); cursor: pointer; }
   .btab.is-active { background: var(--primary); color: #fff; border-color: var(--primary); }
   .cat-nav { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 0 0 8px; }
+  .search-bar { display: flex; align-items: center; gap: 10px; max-width: 460px; margin: 0 auto 12px; }
+  #plugin-search { flex: 1; font-size: 14px; padding: 9px 14px; border: 1px solid var(--border-strong); border-radius: 999px; background: var(--bg-card); color: var(--ink); font-family: inherit; outline: none; }
+  #plugin-search:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(77,107,254,.12); }
+  .search-count { font-size: 12px; color: var(--ink-3); white-space: nowrap; }
   .chip { font-size: 11.5px; color: var(--ink-2); border: 1px solid var(--border); border-radius: 999px; padding: 4px 10px; background: var(--bg-card); cursor: pointer; font-family: inherit; }
   .chip:hover { color: var(--primary); border-color: var(--primary); }
   .chip.is-active { background: var(--primary); color: #fff; border-color: var(--primary); }
@@ -373,6 +383,9 @@ const statusClass = {
   const catSections = document.getElementById('cat-sections');
   const hotPanel = document.getElementById('hot-panel');
   const newPanel = document.getElementById('new-panel');
+  const searchInput = document.getElementById('plugin-search');
+  const searchCount = document.getElementById('search-count');
+  const allCards = [...document.querySelectorAll('.pcard')];
 
   let activeTab = 'all';
   let activeCat = null;
@@ -381,13 +394,39 @@ const statusClass = {
     catSections.hidden = activeTab !== 'all';
     hotPanel.hidden = activeTab !== 'hot';
     newPanel.hidden = activeTab !== 'new';
+
+    const q = (searchInput?.value || '').trim().toLowerCase();
+    let visibleCount = 0;
+    allCards.forEach((card) => {
+      const match = !q || (card.dataset.search || '').includes(q);
+      card.hidden = !match;
+      if (match) visibleCount++;
+    });
+
     catHeads.forEach((h) => {
       const grid = h.nextElementSibling;
       const show = !activeCat || h.id === activeCat;
-      h.hidden = !show;
-      if (grid) grid.hidden = !show;
+      const hasVisible = grid ? [...grid.querySelectorAll('.pcard')].some((c) => !c.hidden) : false;
+      h.hidden = !(show && hasVisible);
+      if (grid) grid.hidden = h.hidden;
     });
+
+    [hotPanel, newPanel].forEach((panel) => {
+      if (!panel || panel.hidden) return;
+      const grid = panel.querySelector('.grid3');
+      const head = panel.querySelector('.cat-head');
+      const hasVisible = grid ? [...grid.querySelectorAll('.pcard')].some((c) => !c.hidden) : false;
+      if (head) head.hidden = !hasVisible;
+      if (grid) grid.hidden = !hasVisible;
+    });
+
+    if (searchCount) {
+      searchCount.hidden = !q;
+      searchCount.textContent = `${visibleCount} result${visibleCount === 1 ? '' : 's'}`;
+    }
   }
+
+  searchInput?.addEventListener('input', applyFilters);
 
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
