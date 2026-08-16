@@ -24,6 +24,8 @@ STATIC = [
     ('/zh/plugins/directory/', 'weekly', '0.9'),
     ('/themes/', 'weekly', '0.7'),
     ('/zh/themes/', 'weekly', '0.7'),
+    ('/advanced-skins/', 'monthly', '0.6'),
+    ('/zh/advanced-skins/', 'monthly', '0.6'),
     ('/troubleshooting/', 'monthly', '0.7'),
     ('/zh/troubleshooting/', 'monthly', '0.7'),
     ('/privacy/', 'yearly', '0.3'),

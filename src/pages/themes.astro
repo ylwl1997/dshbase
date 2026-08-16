@@ -3,17 +3,19 @@ import Base from '../layouts/Base.astro';
 import skinsData from '../data/skins.json';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const advancedUrl = getRelativeLocaleUrl('en', '/advanced-skins/');
 const skins = skinsData.skins;
 const groups = skinsData.groups;
 const featuredIds = skinsData.featured || [];
 const featured = featuredIds.map((id) => skins.find((s) => s.id === id)).filter(Boolean);
 const grouped = groups.map((g) => ({ name: g.name, count: g.count, skins: skins.filter((s) => s.group === g.name) })).filter((g) => g.skins.length > 0);
+const thumb = (s, kind) => `/skins/${kind === 'light' ? s.thumb.light : s.thumb.dark}`;
 ---
-<Base title="DeepSeek Harness Themes — 151 Day/Night Skins &amp; Theme Center | dshbase" description="DeepSeek Harness theme center: 151 day/night skin pairs across 14 style groups. One install, one-click try-on. Install with dsh plugin add dsh-themes." currentPath="/themes/">
+<Base title="DeepSeek Harness Themes — 151 Day/Night Skins &amp; Theme Center | dshbase" description="DeepSeek Harness theme center: 151 day/night skins with real previews across 14 style groups. Click any skin to toggle day/night. Install with dsh plugin add dsh-themes." currentPath="/themes/">
   <section class="hero wrap">
     <p class="eyebrow">Theme center</p>
     <h1>DeepSeek Harness <span class="accent">themes</span></h1>
-    <p class="lede">Give your DSH Web UI a new look — <strong>{skins.length} day/night skin pairs</strong> across {groups.length} style groups, one install, one-click try-on.</p>
+    <p class="lede">Give your DSH Web UI a new look — <strong>{skins.length} day/night skins</strong> across {groups.length} style groups. Click any preview to toggle <strong>day ⇄ night</strong>.</p>
   </section>
 
   <section class="info wrap">
@@ -21,14 +23,17 @@ const grouped = groups.map((g) => ({ name: g.name, count: g.count, skins: skins.
     <pre class="code-block"><code>dsh plugin add dsh-themes</code></pre>
     <p>Restart <code>dsh web</code>, then find the theme center in Settings → Plugins. A single skin installs with <code>dsh plugin add @whyihaveyou/dsh-skin-&lt;id&gt;</code>.</p>
 
+    <p class="callout">Want <strong>higher-fidelity skins with background images</strong>? We also cover a source-patch engine with 21 skins + one-image custom themes — see the <a href={advancedUrl}>advanced skins page →</a></p>
+
     <h2 style="margin-top:32px">Featured skins</h2>
     <div class="skin-grid featured">
       {featured.map((s) => (
         <div class="skin-card" style={`--accent:${s.accent}`}>
-          <div class="skin-swatch">
-            <div class="sw-light"></div>
-            <div class="sw-dark"></div>
-          </div>
+          <button class="skin-shot" type="button" aria-label={`${s.name} — click to toggle day/night`}>
+            <img src={thumb(s, 'light')} alt={`${s.name} day preview`} loading="lazy" width="320" height="200">
+            <img src={thumb(s, 'dark')} alt={`${s.name} night preview`} loading="lazy" width="320" height="200" class="shot-night">
+            <span class="shot-tag" data-day="Day" data-night="Night">Day</span>
+          </button>
           <div class="skin-meta">
             <span class="skin-name">{s.name}</span>
             <span class="skin-tag">{s.tagline || s.group}</span>
@@ -43,10 +48,11 @@ const grouped = groups.map((g) => ({ name: g.name, count: g.count, skins: skins.
         <div class="skin-grid">
           {g.skins.map((s) => (
             <div class="skin-card" style={`--accent:${s.accent}`}>
-              <div class="skin-swatch">
-                <div class="sw-light"></div>
-                <div class="sw-dark"></div>
-              </div>
+              <button class="skin-shot" type="button" aria-label={`${s.name} — click to toggle day/night`}>
+                <img src={thumb(s, 'light')} alt={`${s.name} day preview`} loading="lazy" width="320" height="200">
+                <img src={thumb(s, 'dark')} alt={`${s.name} night preview`} loading="lazy" width="320" height="200" class="shot-night">
+                <span class="shot-tag" data-day="Day" data-night="Night">Day</span>
+              </button>
               <div class="skin-meta">
                 <span class="skin-name">{s.name}</span>
                 <span class="skin-tag">{s.tagline || s.group}</span>
@@ -58,7 +64,7 @@ const grouped = groups.map((g) => ({ name: g.name, count: g.count, skins: skins.
     ))}
 
     <h2 style="margin-top:32px">About the theme system</h2>
-    <p>DSH's appearance is plugin-driven — themes are just another plugin. <code>dsh-themes</code> bundles {skins.length} pairs of skins (a day and a night variant each) so you can switch the whole UI in one click. It's part of the broader dsh-suite ecosystem and is MIT-licensed.</p>
+    <p>DSH's appearance is plugin-driven — themes are just another plugin. <code>dsh-themes</code> bundles {skins.length} skin pairs (a day and a night variant each), and every preview above is a real screenshot of the skin applied to the Web UI. It's part of the dsh-suite ecosystem and is MIT-licensed.</p>
     <p>See the full plugin entry for version, install status, and test result in the <a href="/plugins/dsh-themes/">plugin directory</a>.</p>
 
     <p style="margin-top:24px"><a class="btn btn-ghost" href={directoryUrl}>Browse all plugins &rarr;</a></p>
@@ -66,14 +72,33 @@ const grouped = groups.map((g) => ({ name: g.name, count: g.count, skins: skins.
 </Base>
 
 <style>
-  .skin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; margin-top: 16px; }
-  .skin-grid.featured { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+  .skin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-top: 16px; }
+  .skin-grid.featured { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
   .skin-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff; }
-  .skin-swatch { display: flex; height: 72px; }
-  .sw-light { flex: 1; background: linear-gradient(160deg, var(--accent) 0%, #ffffff 100%); }
-  .sw-dark { flex: 1; background: linear-gradient(160deg, var(--accent) 0%, #0b0d14 100%); }
+  .skin-shot { position: relative; display: block; width: 100%; padding: 0; margin: 0; border: none; cursor: pointer; background: #0b0d14; line-height: 0; }
+  .skin-shot img { display: block; width: 100%; height: auto; aspect-ratio: 16/10; object-fit: cover; background: linear-gradient(160deg, var(--accent) 0%, #ffffff 100%); }
+  .skin-shot img.shot-night { display: none; background: linear-gradient(160deg, var(--accent) 0%, #0b0d14 100%); }
+  .skin-shot.is-night img { display: none; }
+  .skin-shot.is-night img.shot-night { display: block; }
+  .shot-tag {
+    position: absolute; right: 6px; bottom: 6px;
+    font-size: 10px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+    color: #fff; background: rgba(15, 23, 42, .62); border: 1px solid rgba(255,255,255,.22);
+    border-radius: 999px; padding: 2px 8px; pointer-events: none;
+  }
   .skin-meta { padding: 12px 14px 14px; }
   .skin-name { display: block; font-size: 14px; font-weight: 700; color: var(--ink); }
-  .skin-tag { display: block; font-size: 12px; color: var(--ink-3); margin-top: 3px; line-height: 1.4; }
+  .skin-tag { display: block; font-size: 12px; color: var(--ink-2); margin-top: 3px; line-height: 1.4; }
   .skin-group h2 { font-size: 20px; }
+  .callout { border: 1px solid var(--border); border-left: 3px solid var(--primary); background: var(--primary-soft); border-radius: 10px; padding: 12px 16px; margin: 18px 0 0; }
 </style>
+
+<script>
+  document.querySelectorAll('.skin-shot').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('is-night');
+      const tag = btn.querySelector('.shot-tag');
+      if (tag) tag.textContent = btn.classList.contains('is-night') ? tag.dataset.night : tag.dataset.day;
+    });
+  });
+</script>

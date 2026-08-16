@@ -1,0 +1,112 @@
+---
+import Base from '../layouts/Base.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const themesUrl = getRelativeLocaleUrl('en', '/themes/');
+
+const skins = [
+  { name: 'QQ 2007', en: 'QQ 2007', appearance: 'Light', chrome: 'flat' },
+  { name: 'QQ 2008 · 粉', en: 'QQ 2008 Pink', appearance: 'Light', chrome: 'glass' },
+  { name: '初音未来', en: 'Hatsune Miku', appearance: 'Light', chrome: 'neon' },
+  { name: '原神 · 蒙德', en: 'Genshin Mondstadt', appearance: 'Light', chrome: 'glass' },
+  { name: '原神 · 璃月夜', en: 'Genshin Liyue Night', appearance: 'Dark', chrome: 'neon' },
+  { name: '恋与深空 · 星海', en: 'Love and Deepspace Starlit', appearance: 'Light', chrome: 'glass' },
+  { name: '恋与深空 · 星际', en: 'Love and Deepspace Starfield', appearance: 'Dark', chrome: 'neon' },
+  { name: '火影 · 鸣人', en: 'Naruto Naruto', appearance: 'Dark', chrome: 'glass' },
+  { name: '火影 · 佐助', en: 'Naruto Sasuke', appearance: 'Dark', chrome: 'neon' },
+  { name: '鸣潮 · 黑青', en: 'Wuthering Waves Dark Cyan', appearance: 'Dark', chrome: 'neon' },
+  { name: '鸣潮 · 深紫', en: 'Wuthering Waves Deep Purple', appearance: 'Dark', chrome: 'glass' },
+  { name: '龙珠 · 筋斗云', en: 'Dragon Ball Nimbus', appearance: 'Light', chrome: 'glass' },
+  { name: '龙珠 · 超赛', en: 'Dragon Ball Super Saiyan', appearance: 'Light', chrome: 'neon' },
+  { name: '大佬 · 烟灰', en: 'Boss Ash Grey', appearance: 'Dark', chrome: 'glass' },
+  { name: 'DeepSeek 娘 · 深海', en: 'DeepSeek Girl Deep Sea', appearance: 'Dark', chrome: 'neon' },
+  { name: 'DeepSeek 娘 · Q 版', en: 'DeepSeek Girl Chibi', appearance: 'Light', chrome: 'glass' },
+  { name: 'DeepSeek 青春版', en: 'DeepSeek Youth', appearance: 'Light', chrome: 'glass' },
+  { name: '内测大佬', en: 'Beta Tester', appearance: 'Dark', chrome: 'neon' },
+  { name: '别影响 AGI', en: "Don't Disturb AGI", appearance: 'Light', chrome: 'glass' },
+  { name: '峰哥骑鲸', en: 'Fengge Riding Whale', appearance: 'Light', chrome: 'flat' },
+  { name: '梁圣 · 静音', en: 'Liang Sheng Mute', appearance: 'Light', chrome: 'glass' },
+];
+
+const showcase = [
+  { img: '/skins/heige/qq2008.webp', name: 'QQ 2008 · 粉' },
+  { img: '/skins/heige/qq2007.webp', name: 'QQ 2007' },
+  { img: '/skins/heige/genshin-dark.webp', name: '原神 · 璃月夜' },
+  { img: '/skins/heige/waves-1.webp', name: '鸣潮 · 黑青' },
+  { img: '/skins/heige/miku.webp', name: '初音未来' },
+  { img: '/skins/heige/deepseek-nv-q.webp', name: 'DeepSeek 娘 · Q 版' },
+  { img: '/skins/heige/neice-dalao.webp', name: '内测大佬' },
+  { img: '/skins/heige/fengge.webp', name: '峰哥骑鲸' },
+];
+const lightCount = skins.filter((s) => s.appearance === 'Light').length;
+const darkCount = skins.filter((s) => s.appearance === 'Dark').length;
+---
+
+<Base title="DeepSeek Harness Advanced Skins — 21 Source-Patch Skins &amp; Custom Themes | dshbase" description="Higher-fidelity DeepSeek Harness skins with background images and a one-image custom theme generator. 21 built-in skins (QQ, Genshin, Miku, Wuthering Waves…) via HeiGeAi/deepseek-harness-skin." currentPath="/advanced-skins/">
+  <section class="hero wrap">
+    <p class="eyebrow">Advanced skins</p>
+    <h1>Advanced <span class="accent">skins</span></h1>
+    <p class="lede">A source-patch theme engine that gives the DSH Web UI <strong>{skins.length} built-in skins with background images</strong> — plus a "upload one image, generate a whole theme" channel.</p>
+  </section>
+
+  <section class="info wrap">
+    <h2>Two ways to skin DSH</h2>
+    <p>We already cover the <a href={themesUrl}>plugin-based theme center</a> (151 day/night skins, one-line install). This page is the other, higher-fidelity route: it patches the DSH client itself so skins can carry <strong>full background images</strong>, not just color palettes.</p>
+    <table class="ztable">
+      <thead><tr><th></th><th>Plugin skins (dsh-themes)</th><th>Advanced skins (this page)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Install</strong></td><td><code>dsh plugin add dsh-themes</code></td><td>Patch source + rebuild</td></tr>
+        <tr><td><strong>Skin count</strong></td><td>151 (day/night pairs)</td><td>21 + custom image</td></tr>
+        <tr><td><strong>Fidelity</strong></td><td>Color palette</td><td>Color + background image</td></tr>
+        <tr><td><strong>Custom themes</strong></td><td>—</td><td>Upload one image → full theme</td></tr>
+        <tr><td><strong>Source</strong></td><td>whyihaveyou/dsh-themes</td><td>HeiGeAi/deepseek-harness-skin</td></tr>
+      </tbody>
+    </table>
+
+    <h2 style="margin-top:36px">Showcase</h2>
+    <div class="showcase">
+      {showcase.map((s) => (
+        <figure class="shot">
+          <img src={s.img} alt={`${s.name} skin applied to DeepSeek Harness`} loading="lazy">
+          <figcaption>{s.name}</figcaption>
+        </figure>
+      ))}
+    </div>
+
+    <h2 style="margin-top:36px">The {skins.length} built-in skins</h2>
+    <p>{lightCount} light + {darkCount} dark, each with a <code>flat</code> / <code>glass</code> / <code>neon</code> chrome style. QQ 2007 and QQ 2008 are pure-color skins (no bitmap); the other 19 each carry a background image.</p>
+    <table class="ztable">
+      <thead><tr><th>#</th><th>Skin</th><th>Appearance</th><th>Chrome</th></tr></thead>
+      <tbody>
+        {skins.map((s, i) => (
+          <tr><td>{i + 1}</td><td>{s.name}</td><td>{s.appearance === 'Light' ? 'Light' : 'Dark'}</td><td><code>{s.chrome}</code></td></tr>
+        ))}
+      </tbody>
+    </table>
+
+    <h2 style="margin-top:36px">Upload one image, get a whole theme</h2>
+    <p>The picker's first entry is <strong>Custom (pick image)</strong>. Drop in a PNG/JPG/WebP and it derives the accent, secondary, surface and text colors, auto-tunes the mask so text stays readable, and stores the result locally by content hash. The original image never leaves your machine.</p>
+    <div class="custom-row">
+      <figure class="shot"><img src="/skins/heige/custom-picker.webp" alt="Custom skin picker" loading="lazy"><figcaption>Custom picker</figcaption></figure>
+      <figure class="shot"><img src="/skins/heige/custom.webp" alt="Custom image-derived skin result" loading="lazy"><figcaption>One image → full theme</figcaption></figure>
+    </div>
+
+    <h2 style="margin-top:36px">Install</h2>
+    <p>Because this patches the client and rebuilds, it needs a source checkout of <a href="https://github.com/deepseek-ai/deepseek-harness" rel="noopener">deepseek-harness</a> (v0.1.0-rc.5), Node.js 22.19+ and pnpm. The <code>npx @deepseek-ai/dsh</code> route won't work.</p>
+    <pre class="code-block"><code>git clone https://github.com/HeiGeAi/deepseek-harness-skin.git
+cd deepseek-harness-skin
+bash scripts/install.sh /path/to/deepseek-harness
+cd /path/to/deepseek-harness &amp;&amp; pnpm install &amp;&amp; pnpm run build &amp;&amp; pnpm dsh web</code></pre>
+    <p>Then open <code>http://127.0.0.1:3080</code> → Settings → General → Skin. To revert: <code>bash scripts/uninstall.sh /path/to/deepseek-harness</code>.</p>
+    <p style="color:var(--ink-2)">Third-party project by <a href="https://github.com/HeiGeAi" rel="noopener">HeiGeAi</a> (黑哥Ai), MIT-licensed. Not affiliated with DeepSeek.</p>
+
+    <p style="margin-top:24px"><a class="btn btn-ghost" href={themesUrl}>← Back to the plugin theme center</a></p>
+  </section>
+</Base>
+
+<style>
+  .showcase { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; margin-top: 16px; }
+  .custom-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 16px; }
+  .shot { margin: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff; }
+  .shot img { display: block; width: 100%; height: auto; object-fit: cover; aspect-ratio: 4/3; }
+  .shot figcaption { padding: 9px 12px; font-size: 13px; color: var(--ink-2); }
+</style>

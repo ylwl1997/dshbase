@@ -3,17 +3,19 @@ import Base from '../../layouts/Base.astro';
 import skinsData from '../../data/skins.json';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const advancedUrl = getRelativeLocaleUrl('zh', '/advanced-skins/');
 const skins = skinsData.skins;
 const groups = skinsData.groups;
 const featuredIds = skinsData.featured || [];
 const featured = featuredIds.map((id) => skins.find((s) => s.id === id)).filter(Boolean);
 const grouped = groups.map((g) => ({ name: g.name, count: g.count, skins: skins.filter((s) => s.group === g.name) })).filter((g) => g.skins.length > 0);
+const thumb = (s, kind) => `/skins/${kind === 'light' ? s.thumb.light : s.thumb.dark}`;
 ---
-<Base title="DeepSeek Harness 皮肤中心 — 151 款昼夜皮肤 | dshbase 中文" description="DeepSeek Harness 皮肤中心：dsh-themes 提供 151 款昼夜成对皮肤、14 个风格分组。dsh plugin add dsh-themes 一键安装。" currentPath="/themes/">
+<Base title="DeepSeek Harness 皮肤中心 — 151 款昼夜皮肤 | dshbase 中文" description="DeepSeek Harness 皮肤中心：151 款昼夜皮肤、真实预览图、14 个风格分组。点击任意皮肤可切换日间/夜间。dsh plugin add dsh-themes 一键安装。" currentPath="/themes/">
   <section class="hero wrap">
     <p class="eyebrow">皮肤中心</p>
     <h1>DeepSeek Harness <span class="accent">皮肤</span></h1>
-    <p class="lede">给你的 DSH Web UI 换个新皮肤——<strong>{skins.length} 款昼夜成对皮肤</strong>、{groups.length} 个风格分组，一次安装，一键试穿。</p>
+    <p class="lede">给你的 DSH Web UI 换个新皮肤——<strong>{skins.length} 款昼夜皮肤</strong>、{groups.length} 个风格分组。点击任意预览切换<strong>日间 ⇄ 夜间</strong>。</p>
   </section>
 
   <section class="info wrap">
@@ -21,14 +23,17 @@ const grouped = groups.map((g) => ({ name: g.name, count: g.count, skins: skins.
     <pre class="code-block"><code>dsh plugin add dsh-themes</code></pre>
     <p>重启 <code>dsh web</code>，然后在 设置 → 插件 里找到皮肤中心。单款皮肤用 <code>dsh plugin add @whyihaveyou/dsh-skin-&lt;id&gt;</code> 安装。</p>
 
+    <p class="callout">想要<strong>更高保真、带背景图的皮肤</strong>？我们还收录了一套源码级换肤引擎，21 款皮肤 + 传图定制——看<a href={advancedUrl}>高级皮肤页 →</a></p>
+
     <h2 style="margin-top:32px">精选皮肤</h2>
     <div class="skin-grid featured">
       {featured.map((s) => (
         <div class="skin-card" style={`--accent:${s.accent}`}>
-          <div class="skin-swatch">
-            <div class="sw-light"></div>
-            <div class="sw-dark"></div>
-          </div>
+          <button class="skin-shot" type="button" aria-label={`${s.name} — 点击切换日间/夜间`}>
+            <img src={thumb(s, 'light')} alt={`${s.name} 日间预览`} loading="lazy" width="320" height="200">
+            <img src={thumb(s, 'dark')} alt={`${s.name} 夜间预览`} loading="lazy" width="320" height="200" class="shot-night">
+            <span class="shot-tag" data-day="日间" data-night="夜间">日间</span>
+          </button>
           <div class="skin-meta">
             <span class="skin-name">{s.name}</span>
             <span class="skin-tag">{s.tagline || s.group}</span>
@@ -43,10 +48,11 @@ const grouped = groups.map((g) => ({ name: g.name, count: g.count, skins: skins.
         <div class="skin-grid">
           {g.skins.map((s) => (
             <div class="skin-card" style={`--accent:${s.accent}`}>
-              <div class="skin-swatch">
-                <div class="sw-light"></div>
-                <div class="sw-dark"></div>
-              </div>
+              <button class="skin-shot" type="button" aria-label={`${s.name} — 点击切换日间/夜间`}>
+                <img src={thumb(s, 'light')} alt={`${s.name} 日间预览`} loading="lazy" width="320" height="200">
+                <img src={thumb(s, 'dark')} alt={`${s.name} 夜间预览`} loading="lazy" width="320" height="200" class="shot-night">
+                <span class="shot-tag" data-day="日间" data-night="夜间">日间</span>
+              </button>
               <div class="skin-meta">
                 <span class="skin-name">{s.name}</span>
                 <span class="skin-tag">{s.tagline || s.group}</span>
@@ -58,7 +64,7 @@ const grouped = groups.map((g) => ({ name: g.name, count: g.count, skins: skins.
     ))}
 
     <h2 style="margin-top:32px">关于皮肤系统</h2>
-    <p>DSH 的外观是插件驱动的——皮肤本身就是插件。<code>dsh-themes</code> 打包了 {skins.length} 对皮肤（每对含日间 + 夜间变体），一键切换整个 UI。它是 dsh-suite 生态的一部分，MIT 许可。</p>
+    <p>DSH 的外观是插件驱动的——皮肤本身就是插件。<code>dsh-themes</code> 打包了 {skins.length} 对皮肤（每对含日间 + 夜间变体），上方每张预览都是皮肤真实套到 Web UI 上的截图。它是 dsh-suite 生态的一部分，MIT 许可。</p>
     <p>版本、安装状态、实测结果见<a href="/zh/plugins/dsh-themes/">插件目录</a>。</p>
 
     <p style="margin-top:24px"><a class="btn btn-ghost" href={directoryUrl}>浏览全部插件 &rarr;</a></p>
@@ -66,14 +72,33 @@ const grouped = groups.map((g) => ({ name: g.name, count: g.count, skins: skins.
 </Base>
 
 <style>
-  .skin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; margin-top: 16px; }
-  .skin-grid.featured { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+  .skin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-top: 16px; }
+  .skin-grid.featured { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
   .skin-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff; }
-  .skin-swatch { display: flex; height: 72px; }
-  .sw-light { flex: 1; background: linear-gradient(160deg, var(--accent) 0%, #ffffff 100%); }
-  .sw-dark { flex: 1; background: linear-gradient(160deg, var(--accent) 0%, #0b0d14 100%); }
+  .skin-shot { position: relative; display: block; width: 100%; padding: 0; margin: 0; border: none; cursor: pointer; background: #0b0d14; line-height: 0; }
+  .skin-shot img { display: block; width: 100%; height: auto; aspect-ratio: 16/10; object-fit: cover; background: linear-gradient(160deg, var(--accent) 0%, #ffffff 100%); }
+  .skin-shot img.shot-night { display: none; background: linear-gradient(160deg, var(--accent) 0%, #0b0d14 100%); }
+  .skin-shot.is-night img { display: none; }
+  .skin-shot.is-night img.shot-night { display: block; }
+  .shot-tag {
+    position: absolute; right: 6px; bottom: 6px;
+    font-size: 10px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+    color: #fff; background: rgba(15, 23, 42, .62); border: 1px solid rgba(255,255,255,.22);
+    border-radius: 999px; padding: 2px 8px; pointer-events: none;
+  }
   .skin-meta { padding: 12px 14px 14px; }
   .skin-name { display: block; font-size: 14px; font-weight: 700; color: var(--ink); }
-  .skin-tag { display: block; font-size: 12px; color: var(--ink-3); margin-top: 3px; line-height: 1.4; }
+  .skin-tag { display: block; font-size: 12px; color: var(--ink-2); margin-top: 3px; line-height: 1.4; }
   .skin-group h2 { font-size: 20px; }
+  .callout { border: 1px solid var(--border); border-left: 3px solid var(--primary); background: var(--primary-soft); border-radius: 10px; padding: 12px 16px; margin: 18px 0 0; }
 </style>
+
+<script>
+  document.querySelectorAll('.skin-shot').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('is-night');
+      const tag = btn.querySelector('.shot-tag');
+      if (tag) tag.textContent = btn.classList.contains('is-night') ? tag.dataset.night : tag.dataset.day;
+    });
+  });
+</script>

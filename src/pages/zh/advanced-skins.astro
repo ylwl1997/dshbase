@@ -1,0 +1,112 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const themesUrl = getRelativeLocaleUrl('zh', '/themes/');
+
+const skins = [
+  { name: 'QQ 2007', appearance: '浅色', chrome: 'flat' },
+  { name: 'QQ 2008 · 粉', appearance: '浅色', chrome: 'glass' },
+  { name: '初音未来', appearance: '浅色', chrome: 'neon' },
+  { name: '原神 · 蒙德', appearance: '浅色', chrome: 'glass' },
+  { name: '原神 · 璃月夜', appearance: '深色', chrome: 'neon' },
+  { name: '恋与深空 · 星海', appearance: '浅色', chrome: 'glass' },
+  { name: '恋与深空 · 星际', appearance: '深色', chrome: 'neon' },
+  { name: '火影 · 鸣人', appearance: '深色', chrome: 'glass' },
+  { name: '火影 · 佐助', appearance: '深色', chrome: 'neon' },
+  { name: '鸣潮 · 黑青', appearance: '深色', chrome: 'neon' },
+  { name: '鸣潮 · 深紫', appearance: '深色', chrome: 'glass' },
+  { name: '龙珠 · 筋斗云', appearance: '浅色', chrome: 'glass' },
+  { name: '龙珠 · 超赛', appearance: '浅色', chrome: 'neon' },
+  { name: '大佬 · 烟灰', appearance: '深色', chrome: 'glass' },
+  { name: 'DeepSeek 娘 · 深海', appearance: '深色', chrome: 'neon' },
+  { name: 'DeepSeek 娘 · Q 版', appearance: '浅色', chrome: 'glass' },
+  { name: 'DeepSeek 青春版', appearance: '浅色', chrome: 'glass' },
+  { name: '内测大佬', appearance: '深色', chrome: 'neon' },
+  { name: '别影响 AGI', appearance: '浅色', chrome: 'glass' },
+  { name: '峰哥骑鲸', appearance: '浅色', chrome: 'flat' },
+  { name: '梁圣 · 静音', appearance: '浅色', chrome: 'glass' },
+];
+
+const showcase = [
+  { img: '/skins/heige/qq2008.webp', name: 'QQ 2008 · 粉' },
+  { img: '/skins/heige/qq2007.webp', name: 'QQ 2007' },
+  { img: '/skins/heige/genshin-dark.webp', name: '原神 · 璃月夜' },
+  { img: '/skins/heige/waves-1.webp', name: '鸣潮 · 黑青' },
+  { img: '/skins/heige/miku.webp', name: '初音未来' },
+  { img: '/skins/heige/deepseek-nv-q.webp', name: 'DeepSeek 娘 · Q 版' },
+  { img: '/skins/heige/neice-dalao.webp', name: '内测大佬' },
+  { img: '/skins/heige/fengge.webp', name: '峰哥骑鲸' },
+];
+const lightCount = skins.filter((s) => s.appearance === '浅色').length;
+const darkCount = skins.filter((s) => s.appearance === '深色').length;
+---
+
+<Base title="DeepSeek Harness 高级皮肤 — 21 款源码级换肤 + 传图定制 | dshbase 中文" description="更高保真的 DeepSeek Harness 皮肤：21 款内置皮肤（QQ、原神、初音、鸣潮…）带背景图，支持传一张图自动生成整套配色。HeiGeAi/deepseek-harness-skin 源码补丁安装。" currentPath="/advanced-skins/">
+  <section class="hero wrap">
+    <p class="eyebrow">高级皮肤</p>
+    <h1>高级<span class="accent">皮肤</span></h1>
+    <p class="lede">一套源码级换肤引擎，给 DSH Web UI 带来 <strong>{skins.length} 款带背景图的内置皮肤</strong>，外加一条「传一张图、生成整套配色」的自定义通道。</p>
+  </section>
+
+  <section class="info wrap">
+    <h2>两种给 DSH 换肤的方式</h2>
+    <p>我们已收录<a href={themesUrl}>插件式皮肤中心</a>（151 款昼夜皮肤、一行命令安装）。本页是另一条更高保真的路线：直接补丁 DSH 客户端，让皮肤能带<strong>完整背景图</strong>，而不只是配色。</p>
+    <table class="ztable">
+      <thead><tr><th></th><th>插件皮肤（dsh-themes）</th><th>高级皮肤（本页）</th></tr></thead>
+      <tbody>
+        <tr><td><strong>安装</strong></td><td><code>dsh plugin add dsh-themes</code></td><td>补丁源码 + 重新构建</td></tr>
+        <tr><td><strong>皮肤数</strong></td><td>151（昼夜成对）</td><td>21 + 自定义传图</td></tr>
+        <tr><td><strong>保真度</strong></td><td>配色</td><td>配色 + 背景图</td></tr>
+        <tr><td><strong>自定义主题</strong></td><td>—</td><td>传一张图 → 整套配色</td></tr>
+        <tr><td><strong>来源</strong></td><td>whyihaveyou/dsh-themes</td><td>HeiGeAi/deepseek-harness-skin</td></tr>
+      </tbody>
+    </table>
+
+    <h2 style="margin-top:36px">真机截图</h2>
+    <div class="showcase">
+      {showcase.map((s) => (
+        <figure class="shot">
+          <img src={s.img} alt={`${s.name} 皮肤套到 DeepSeek Harness 上的效果`} loading="lazy">
+          <figcaption>{s.name}</figcaption>
+        </figure>
+      ))}
+    </div>
+
+    <h2 style="margin-top:36px">内置 {skins.length} 套皮肤</h2>
+    <p>{lightCount} 款浅色 + {darkCount} 款深色，每套带 <code>flat</code> / <code>glass</code> / <code>neon</code> 三种边框风格。QQ 2007 和 QQ 2008 是纯配色皮肤（不带位图）；其余 19 套各配一张背景图。</p>
+    <table class="ztable">
+      <thead><tr><th>#</th><th>皮肤</th><th>外观</th><th>边框</th></tr></thead>
+      <tbody>
+        {skins.map((s, i) => (
+          <tr><td>{i + 1}</td><td>{s.name}</td><td>{s.appearance}</td><td><code>{s.chrome}</code></td></tr>
+        ))}
+      </tbody>
+    </table>
+
+    <h2 style="margin-top:36px">传一张图，生成整套配色</h2>
+    <p>皮肤选择器第一项是<strong>「自定义（选图）」</strong>。丢一张 PNG/JPG/WebP 进去，自动提取主色、副色、底色、文字色，按画面明暗调蒙版浓度保证文字可读，并按内容哈希存到本机。原图不出本机。</p>
+    <div class="custom-row">
+      <figure class="shot"><img src="/skins/heige/custom-picker.webp" alt="自定义皮肤选择器" loading="lazy"><figcaption>自定义选择器</figcaption></figure>
+      <figure class="shot"><img src="/skins/heige/custom.webp" alt="传图生成的整套皮肤效果" loading="lazy"><figcaption>一张图 → 整套配色</figcaption></figure>
+    </div>
+
+    <h2 style="margin-top:36px">安装</h2>
+    <p>因为要补丁客户端并重新构建，需要一份 <a href="https://github.com/deepseek-ai/deepseek-harness" rel="noopener">deepseek-harness</a> 源码检出（v0.1.0-rc.5）、Node.js 22.19+ 和 pnpm。<code>npx @deepseek-ai/dsh</code> 的方式装不了。</p>
+    <pre class="code-block"><code>git clone https://github.com/HeiGeAi/deepseek-harness-skin.git
+cd deepseek-harness-skin
+bash scripts/install.sh /path/to/deepseek-harness
+cd /path/to/deepseek-harness &amp;&amp; pnpm install &amp;&amp; pnpm run build &amp;&amp; pnpm dsh web</code></pre>
+    <p>然后打开 <code>http://127.0.0.1:3080</code> → 设置 → 通用设置 → 皮肤。退回原样：<code>bash scripts/uninstall.sh /path/to/deepseek-harness</code>。</p>
+    <p style="color:var(--ink-2)">第三方项目，作者 <a href="https://github.com/HeiGeAi" rel="noopener">HeiGeAi（黑哥Ai）</a>，MIT 许可，与 DeepSeek 无关。</p>
+
+    <p style="margin-top:24px"><a class="btn btn-ghost" href={themesUrl}>← 返回插件皮肤中心</a></p>
+  </section>
+</Base>
+
+<style>
+  .showcase { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; margin-top: 16px; }
+  .custom-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 16px; }
+  .shot { margin: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff; }
+  .shot img { display: block; width: 100%; height: auto; object-fit: cover; aspect-ratio: 4/3; }
+  .shot figcaption { padding: 9px 12px; font-size: 13px; color: var(--ink-2); }
+</style>
