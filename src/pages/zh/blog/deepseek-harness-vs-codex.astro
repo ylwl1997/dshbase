@@ -17,7 +17,7 @@ import BlogPost from '../../../layouts/BlogPost.astro';
 
   <h2>插件模型</h2>
   <p>Codex 让用户自定义 Skills 和 MCP，但其余是封装好的。DSH 把<strong>一切</strong>都做成插件——UI、工具、工作流，甚至 Agent 循环本身。你不是租一个 Agent，而是组装一个 Agent。</p>
-  <p>话好说，关键是生态到底成不成。我们花了时间验证。我们的<a href="/plugins/directory/">插件目录</a>收录了<strong>在 dsh 0.1.0-rc.6 上实测过的 101 个社区插件</strong>。结果并不全干净：</p>
+  <p>话好说，关键是生态到底成不成。我们花了时间验证。我们的<a href="/plugins/directory/">插件目录</a>已收录<strong>1100+ 个社区插件</strong>，其中包括我们在 dsh 0.1.0-rc.6 上深度实测的 101 个。结果并不全干净：</p>
   <ul>
     <li><strong>11 个 npm 包</strong>装上就能用——一条 <code>dsh plugin add &lt;名字&gt;</code> 搞定。</li>
     <li><strong>4 个需要 Web/TUI 环境</strong>——装得上，但只在 Web UI 或终端 profile 里才真正起效。</li>
@@ -60,7 +60,7 @@ import BlogPost from '../../../layouts/BlogPost.astro';
   <h3>DSH 插件能对标 Codex 的 Skills 和 MCP 吗？</h3>
   <p>机制不同。DSH 插件是带 <code>apply</code> 函数的 TypeScript 模块，能当 npm 或 GitHub URL 分享；更好写，但活在 dsh 进程里。MCP 跨客户端更可移植。</p>
   <h3>DSH 插件生态到底多成熟？</h3>
-  <p>早期但真实：已收录实测 101 个社区插件，但其中 81 个是 GitHub 源码（非 npm）、3 个安装失败。是生态「第一周」的形态，不是精修市场。</p>
+  <p>早期但真实：目录现已收录 1100+ 个社区插件——但首轮实测的 101 个里，81 个是 GitHub 源码（非 npm）、3 个安装失败。是生态「第一周」的形态，不是精修市场。</p>
 
   <h2>实操上</h2>
   <ul>

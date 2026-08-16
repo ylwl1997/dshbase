@@ -21,7 +21,7 @@ def main():
         m = re.search(r'github\.com/([^/]+)/([^/]+?)/?$', p.get('url') or '')
         if not m:
             continue
-        key = (m.group(1), m.group(2).rstrip('.git'))
+        key = (m.group(1), m.group(2).removesuffix('.git'))
         if key in seen:
             continue
         seen.add(key)

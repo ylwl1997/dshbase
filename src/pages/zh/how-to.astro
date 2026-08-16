@@ -1,11 +1,14 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
+import plugins from '../../data/plugins.json';
 const installUrl = getRelativeLocaleUrl('zh', '/install/');
 const tutorialUrl = getRelativeLocaleUrl('zh', '/tutorial/');
 const pluginsUrl = getRelativeLocaleUrl('zh', '/plugins/');
 const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
 const troubleshootingUrl = getRelativeLocaleUrl('zh', '/troubleshooting/');
+const allPlugins = Object.values(plugins).flat();
+const verifiedCount = allPlugins.filter((p) => p.test === 'verified').length.toLocaleString('en-US');
 ---
 <Base
   title="如何使用 DeepSeek Harness — 安装、开发插件、迁移 | dshbase 中文"
@@ -35,7 +38,7 @@ const troubleshootingUrl = getRelativeLocaleUrl('zh', '/troubleshooting/');
 
     <h2 style="margin-top:24px">如何安装插件</h2>
     <pre class="code-block"><code>dsh plugin --profile web add dsh-memory</code></pre>
-    <p>浏览 122+ 个带实测结果的插件，见<a href={directoryUrl}>插件目录</a>。</p>
+    <p>浏览 {verifiedCount} 个已实测插件，见<a href={directoryUrl}>插件目录</a>。</p>
 
     <h2 style="margin-top:24px">如何开发自己的插件</h2>
     <p>插件就是一个导出 <code>apply(ctx)</code> 的 TypeScript 模块，配 <code>cordis.patch.yml</code> 和 <code>dsh.bundle</code> 清单，必须 ESM。完整流程见<a href={pluginsUrl}>插件指南</a>。</p>

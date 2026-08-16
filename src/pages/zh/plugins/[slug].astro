@@ -29,13 +29,11 @@ const repo = p.url.replace('https://github.com/', '');
 const npmHome = p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
 const statusLabel = {
   verified: '已验证 · 可安装并启动',
-  pending: '待验证',
-  broken: '异常 · 安装/加载失败',
+  pending: '未测试',
 };
 const statusClass = {
   verified: 'st-ok',
   pending: 'st-warn',
-  broken: 'st-broken',
 };
 const desc = p.desc_zh || p.desc || `${cat} 类别的 DeepSeek Harness 插件。`;
 const fmt = (n) => (n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n ?? 0));
@@ -48,16 +46,12 @@ const verdict = p.archived
       : stars >= 20
         ? { label: '可用 — 实测通过，社区增长中', cls: 'v-ok', icon: '✅' }
         : { label: '可用 — 实测通过，早期项目', cls: 'v-ok', icon: '✅' }
-    : p.test === 'broken'
-      ? { label: '异常 — 安装或加载失败', cls: 'v-warn', icon: '⚠️' }
-      : { label: '待验证 — 尚未实测', cls: 'v-warn', icon: '⏳' };
+    : { label: '未测试 — 尚未实测', cls: 'v-warn', icon: '⏳' };
 const review = p.archived
   ? `该插件已归档、不再维护——除非你愿意自己维护，否则慎用。`
   : p.test === 'verified'
     ? `${desc} 实测能干净安装、正常启动。${stars >= 100 ? `${stars}+ stars，社区认可度高，是低风险选择。` : stars >= 20 ? `社区在增长，是个稳妥选择。` : `早期项目，但功能可用。`}`
-    : p.test === 'broken'
-      ? `${desc} 注意：目前有安装或加载问题——依赖它之前先看仓库。`
-      : `${desc} 尚未验证——请自行安装测试。`;
+    : `${desc} 尚未验证——请自行安装测试。`;
 const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6);
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -69,7 +63,6 @@ const jsonLd = {
   operatingSystem: 'Web',
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
   ...(p.ver ? { softwareVersion: p.ver } : {}),
-  ...(p.stars > 0 ? { aggregateRating: { '@type': 'AggregateRating', ratingValue: p.stars, bestRating: 1000, ratingCount: p.stars } } : {}),
 };
 ---
 <Base title={`${p.name} — DSH 插件安装指南与兼容性评估 | dshbase 中文`} description={`${desc} — 如何安装 ${p.name}（${p.npm ? `dsh plugin add ${p.pkg}` : 'npm 源码'}）及其与 dsh 0.1.0-rc.6 的兼容性。`} currentPath={`/plugins/${p.name}/`}>

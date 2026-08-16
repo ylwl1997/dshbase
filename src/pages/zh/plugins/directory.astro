@@ -19,7 +19,6 @@ const total = catOrder.reduce((s, k) => s + plugins[k].length, 0);
 const all = catOrder.flatMap((k) => plugins[k]);
 const nVerified = all.filter((p) => p.test === 'verified').length;
 const nPending = all.filter((p) => p.test === 'pending').length;
-const nBroken = all.filter((p) => p.test === 'broken').length;
 const nNpm = all.filter((p) => p.npm).length;
 
 // 分类分布（堆叠条）
@@ -54,16 +53,14 @@ const installCmd = (p) => p.npm && p.pkg ? `dsh plugin add ${p.pkg}` : `dsh plug
 const repo = (u) => u.replace('https://github.com/', '');
 const owner = (u) => (u.replace('https://github.com/', '').split('/')[0] || '');
 const npmHome = (p) => p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
-const isFeatured = (p) => (p.stars ?? 0) >= 100 && p.test !== 'broken';
+const isFeatured = (p) => (p.stars ?? 0) >= 100;
 const statusLabel = {
   verified: '已验证',
-  pending: '待验证',
-  broken: '异常',
+  pending: '未测试',
 };
 const statusClass = {
   verified: 'st-ok',
   pending: 'st-warn',
-  broken: 'st-broken',
 };
 ---
 <Base title={`DeepSeek Harness 插件目录 — ${total} 个插件、含实测结果与安装命令 | dshbase 中文`} description={`DeepSeek Harness（dsh）插件生态目录：${catOrder.length} 大类 ${total} 个插件，每张卡片标注 npm 可装状态、实测结果与安装命令，来自 awesome-dsh-plugin 精选列表。`} currentPath="/plugins/directory/">
@@ -89,8 +86,7 @@ const statusClass = {
       <div class="statline">
         <div class="stat"><b>{total.toLocaleString('en-US')}</b><span>插件总数</span></div>
         <div class="stat"><b>{nVerified}</b><span>已验证</span></div>
-        <div class="stat"><b>{nPending}</b><span>待验证</span></div>
-        <div class="stat"><b>{nBroken}</b><span>异常</span></div>
+        <div class="stat"><b>{nPending}</b><span>未测试</span></div>
         <div class="stat"><b>{nNpm}</b><span>npm 可装</span></div>
       </div>
       <div class="eco-cards">
@@ -308,8 +304,6 @@ const statusClass = {
   .st-src .dot { background: #9aa1ad; }
   .st-warn { color: #9a6700; border-color: #e5c27a; background: #fff8e6; }
   .st-warn .dot { background: #d4a72c; }
-  .st-broken { color: #c62828; border-color: #f0b9b9; background: #fff1f1; }
-  .st-broken .dot { background: #c62828; }
   .legend .badge { color: var(--ink-2); }
   .stats-line { font-size: 13px; color: var(--ink-2); margin: 10px 0 0; text-align: center; }
   .agent-box { font-size: 13.5px; color: var(--ink-2); background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 8px 14px; margin: 10px 0 0; overflow: hidden; }

@@ -74,7 +74,7 @@ import BlogPost from '../../layouts/BlogPost.astro';
   <h3>Why does the same DeepSeek model cost 7x more in Claude Code?</h3>
   <p>Claude Code's request shape — larger tool sets, history handling, and prompt structure — isn't built for DeepSeek's prefix caching. The model is identical; the harness re-sends more context on every step.</p>
   <h3>Is the DSH plugin ecosystem ready for production?</h3>
-  <p>Early. 101 community plugins are cataloged, but 81 are GitHub-source (not npm), 3 fail to install, and you'll hit build/ESM errors on a few. It's usable if you're willing to be your own quality gate.</p>
+  <p>Early. The directory now catalogs 1,100+ community plugins — though in our first test pass of 101, 81 were GitHub-source (not npm) and 3 failed to install — and you'll hit build/ESM errors on a few. It's usable if you're willing to be your own quality gate.</p>
   <h3>Which of these is most future-proof?</h3>
   <p>DSH if you believe the ecosystem compounds; Pi or Reasonix if you want a finished minimal tool today. Claude Code and Codex are safe but lock you to their model economics.</p>
 

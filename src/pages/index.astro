@@ -1,12 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
+import plugins from '../data/plugins.json';
 const tutorialUrl = getRelativeLocaleUrl('en', '/tutorial/');
 const installUrl = getRelativeLocaleUrl('en', '/install/');
 const pluginsUrl = getRelativeLocaleUrl('en', '/plugins/');
 const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
 const blogUrl = getRelativeLocaleUrl('en', '/blog/');
 const vsUrl = getRelativeLocaleUrl('en', '/blog/vs-claude-code/');
+const totalPlugins = Object.values(plugins).reduce((s, a) => s + a.length, 0).toLocaleString('en-US');
 ---
 <Base
   title="DeepSeek Harness (DSH) — Everything-Is-a-Plugin Agent Framework Guide | dshbase"
@@ -54,7 +56,7 @@ const vsUrl = getRelativeLocaleUrl('en', '/blog/vs-claude-code/');
     <div class="grid3">
       <a class="card card-link card-accent" href={tutorialUrl}><span class="cat">Guide</span><h3>DSH tutorial</h3><p>Install, configure, use plugins, and run real tasks — step by step. <span class="arr">&rarr;</span></p></a>
       <a class="card card-link" href={vsUrl}><span class="cat">Compare</span><h3>vs Claude Code</h3><p>Plugins vs MCP, pricing, and which to choose. <span class="arr">&rarr;</span></p></a>
-      <a class="card card-link" href={directoryUrl}><span class="cat">Ecosystem</span><h3>Plugin directory</h3><p>120+ plugins across 7 categories. <span class="arr">&rarr;</span></p></a>
+      <a class="card card-link" href={directoryUrl}><span class="cat">Ecosystem</span><h3>Plugin directory</h3><p>{totalPlugins} plugins across 7 categories. <span class="arr">&rarr;</span></p></a>
       <a class="card card-link" href={pluginsUrl}><span class="cat">Build</span><h3>Plugin guide</h3><p>Write your first dsh plugin and register tools. <span class="arr">&rarr;</span></p></a>
     </div>
   </section>

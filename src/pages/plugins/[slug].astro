@@ -30,13 +30,11 @@ const repo = p.url.replace('https://github.com/', '');
 const npmHome = p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
 const statusLabel = {
   verified: 'Verified · installs & boots on dsh',
-  pending: 'Pending verification',
-  broken: 'Broken · install/load issue',
+  pending: 'Untested',
 };
 const statusClass = {
   verified: 'st-ok',
   pending: 'st-warn',
-  broken: 'st-broken',
 };
 const desc = p.desc_en || p.desc || `A plugin in the ${cat} category for DeepSeek Harness.`;
 const fmt = (n) => (n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n ?? 0));
@@ -49,16 +47,12 @@ const verdict = p.archived
       : stars >= 20
         ? { label: 'Works — verified, growing community', cls: 'v-ok', icon: '✅' }
         : { label: 'Works — verified, early-stage project', cls: 'v-ok', icon: '✅' }
-    : p.test === 'broken'
-      ? { label: 'Broken — install or load issue', cls: 'v-warn', icon: '⚠️' }
-      : { label: 'Pending verification — not yet tested', cls: 'v-warn', icon: '⏳' };
+    : { label: 'Untested — not yet verified', cls: 'v-warn', icon: '⏳' };
 const review = p.archived
   ? `This plugin has been archived and is no longer maintained — use it only if you're willing to maintain it yourself.`
   : p.test === 'verified'
     ? `${desc} It installs cleanly and boots without issues in our testing. ${stars >= 100 ? `With ${stars}+ stars it's a community-endorsed, low-risk pick.` : stars >= 20 ? `It has a growing community — a solid choice.` : `It's early-stage but functional.`}`
-    : p.test === 'broken'
-      ? `${desc} Note: it currently has an install or load issue — check the repo before relying on it.`
-      : `${desc} Not yet verified — install and test it yourself.`;
+    : `${desc} Not yet verified — install and test it yourself.`;
 const related = (plugins[cat] || []).filter((x) => x.name !== p.name).slice(0, 6);
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -70,7 +64,6 @@ const jsonLd = {
   operatingSystem: 'Web',
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
   ...(p.ver ? { softwareVersion: p.ver } : {}),
-  ...(p.stars > 0 ? { aggregateRating: { '@type': 'AggregateRating', ratingValue: p.stars, bestRating: 1000, ratingCount: p.stars } } : {}),
 };
 ---
 <Base title={`${p.name} — DSH Plugin Install Guide & Compatibility Review | dshbase`} description={`${desc} — how to install ${p.name} (${p.npm ? `dsh plugin add ${p.pkg}` : 'npm source'}) and compatibility with dsh 0.1.0-rc.6.`} currentPath={`/plugins/${p.name}/`}>
@@ -120,7 +113,7 @@ const jsonLd = {
         <h2 style="margin-top:24px">Test report</h2>
         <p>{p.test === 'verified' && 'Verified end-to-end: installed via `dsh plugin add`, activated in the profile, and booted a task successfully.'}
            {p.test === 'pending' && 'Not yet verified — install and test it yourself, or check back later.'}
-           {p.test === 'broken' && 'Could not be installed — a dependency in its tree is not published to npm, or the build is broken. Check the repository.'}</p>
+</p>
       </Fragment>
     ) : (
       <Fragment>
@@ -144,7 +137,7 @@ const jsonLd = {
             <h2 style="margin-top:24px">Test report</h2>
             <p>{p.test === 'verified' && 'Verified: installed from GitHub, activated in the profile, and booted a task successfully.'}
                {p.test === 'pending' && 'Not yet verified — install and test it yourself.'}
-               {p.test === 'broken' && 'Could not be installed from GitHub — check the repository for missing dependencies or a broken build.'}</p>
+</p>
           </Fragment>
         )}
       </Fragment>
@@ -175,7 +168,6 @@ const jsonLd = {
   .st-ok { color: #1a7f37; border-color: #b7e0c0; background: #f0fff4; }
   .st-src { color: var(--ink-2); background: #f7f8fa; }
   .st-warn { color: #9a6700; border-color: #e5c27a; background: #fff8e6; }
-  .st-broken { color: #c62828; border-color: #f0b9b9; background: #fff1f1; }
   .what-it-does { font-size: 15px; line-height: 1.7; color: var(--ink); background: #f7f8fc; border-left: 3px solid var(--primary); padding: 14px 16px; border-radius: 8px; }
   .review-text { font-size: 14px; line-height: 1.7; color: var(--ink-2); margin: 10px 0 4px; }
   .build-box { font-size: 13.5px; color: var(--ink-2); background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px; padding: 12px 16px; margin: 14px 0; }

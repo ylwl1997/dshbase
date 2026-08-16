@@ -1,12 +1,14 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
+import plugins from '../../data/plugins.json';
 const tutorialUrl = getRelativeLocaleUrl('zh', '/tutorial/');
 const installUrl = getRelativeLocaleUrl('zh', '/install/');
 const pluginsUrl = getRelativeLocaleUrl('zh', '/plugins/');
 const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
 const blogUrl = getRelativeLocaleUrl('zh', '/blog/');
 const vsUrl = getRelativeLocaleUrl('zh', '/blog/vs-claude-code/');
+const totalPlugins = Object.values(plugins).reduce((s, a) => s + a.length, 0).toLocaleString('en-US');
 ---
 <Base
   title="DeepSeek Harness（DSH）— 一切皆插件的开源 Agent 框架 | dshbase 中文"
@@ -34,7 +36,7 @@ const vsUrl = getRelativeLocaleUrl('zh', '/blog/vs-claude-code/');
     <div class="grid3">
       <div class="card"><h3>&#x1F9E9; 一切皆插件</h3><p>工具、技能、会话、沙箱、Agent 循环都是 npm 插件，可自由拼装替换。</p></div>
       <div class="card"><h3>&#x1F680; 开源 &amp; 自进化</h3><p>基于 Cordis 内核，Agent 可在运行中装卸插件、改造自身。</p></div>
-      <div class="card"><h3>&#x1F4E6; npm 生态</h3><p>官方 + 社区 120+ 个插件，标注 <code>dsh-plugin</code> 话题即可被发现。</p></div>
+      <div class="card"><h3>&#x1F4E6; npm 生态</h3><p>官方 + 社区 {totalPlugins} 个插件，标注 <code>dsh-plugin</code> 话题即可被发现。</p></div>
     </div>
   </section>
 
@@ -54,7 +56,7 @@ const vsUrl = getRelativeLocaleUrl('zh', '/blog/vs-claude-code/');
     <div class="grid3">
       <a class="card card-link card-accent" href={tutorialUrl}><span class="cat">教程</span><h3>DSH 教程</h3><p>Web UI 使用、模型配置、首次任务——逐步讲解。 <span class="arr">&rarr;</span></p></a>
       <a class="card card-link" href={vsUrl}><span class="cat">对比</span><h3>vs Claude Code</h3><p>插件 vs MCP、价格与选择。 <span class="arr">&rarr;</span></p></a>
-      <a class="card card-link" href={directoryUrl}><span class="cat">生态</span><h3>插件目录</h3><p>7 大类 120+ 个社区插件。 <span class="arr">&rarr;</span></p></a>
+      <a class="card card-link" href={directoryUrl}><span class="cat">生态</span><h3>插件目录</h3><p>7 大类 {totalPlugins} 个社区插件。 <span class="arr">&rarr;</span></p></a>
       <a class="card card-link" href={pluginsUrl}><span class="cat">开发</span><h3>插件指南</h3><p>写第一个 dsh 插件，注册工具。 <span class="arr">&rarr;</span></p></a>
     </div>
   </section>

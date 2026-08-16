@@ -1,11 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
+import plugins from '../data/plugins.json';
 const tutorialUrl = getRelativeLocaleUrl('en', '/tutorial/');
 const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
 const noatmarkUrl = 'https://github.com/ylwl1997/noatmark-dsh-plugin';
 const noatmarkNpmUrl = 'https://www.npmjs.com/package/noatmark-dsh-plugin';
 const topicUrl = 'https://github.com/topics/dsh-plugin';
+const totalPlugins = Object.values(plugins).reduce((s, a) => s + a.length, 0).toLocaleString('en-US');
 ---
 <Base
   title="DeepSeek Harness Plugins — Everything-is-a-Plugin Development | dshbase"
@@ -37,7 +39,7 @@ const topicUrl = 'https://github.com/topics/dsh-plugin';
     <a class="dir-banner-inner" href={directoryUrl}>
       <div>
         <span class="cat">Plugin directory</span>
-        <h3>Browse 123 community plugins — with test results &amp; install commands</h3>
+        <h3>Browse {totalPlugins} community plugins — with test results &amp; install commands</h3>
         <p>Every plugin's npm status, verified test result, and exact <code>dsh plugin add</code> command, all in one place.</p>
       </div>
       <span class="btn btn-primary">Open the directory &rarr;</span>
@@ -88,7 +90,7 @@ ctx.tools.register(defineTool(&#123;
 &#125;))</code></pre>
 
     <h2 style="margin-top:24px">Community plugins &amp; publishing</h2>
-    <p>Tag your repo with <a href={topicUrl} target="_blank" rel="noopener"><code>dsh-plugin</code></a> to join the ecosystem, and see the <a href={directoryUrl}>plugin directory</a> (120+ curated).</p>
+    <p>Tag your repo with <a href={topicUrl} target="_blank" rel="noopener"><code>dsh-plugin</code></a> to join the ecosystem, and see the <a href={directoryUrl}>plugin directory</a> ({totalPlugins} curated).</p>
     <div class="grid3">
       <a class="card card-link" href={noatmarkNpmUrl} target="_blank" rel="noopener">
         <span class="cat">Text hygiene · on npm</span>
@@ -98,7 +100,7 @@ ctx.tools.register(defineTool(&#123;
       <a class="card card-link" href={directoryUrl}>
         <span class="cat">Ecosystem</span>
         <h3>Plugin directory</h3>
-        <p>120+ plugins across 7 categories. <span class="arr">&rarr;</span></p>
+        <p>{totalPlugins} plugins across 7 categories. <span class="arr">&rarr;</span></p>
       </a>
     </div>
 

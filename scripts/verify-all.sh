@@ -17,10 +17,8 @@ import json, re, sys, os
 d = json.load(open(sys.argv[1], encoding='utf-8'))
 filt = os.environ.get('VERIFY_FILTER', '')
 def keep(p):
-    if filt == 'broken-github':
-        return p.get('test') == 'broken' and not p.get('npm')
-    if filt == 'broken':
-        return p.get('test') == 'broken'
+    if filt == 'pending-github':
+        return p.get('test') == 'pending' and not p.get('npm')
     if filt == 'pending':
         return p.get('test') == 'pending'
     return True

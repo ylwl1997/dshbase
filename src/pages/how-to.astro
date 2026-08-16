@@ -1,11 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
+import plugins from '../data/plugins.json';
 const installUrl = getRelativeLocaleUrl('en', '/install/');
 const tutorialUrl = getRelativeLocaleUrl('en', '/tutorial/');
 const pluginsUrl = getRelativeLocaleUrl('en', '/plugins/');
 const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
 const troubleshootingUrl = getRelativeLocaleUrl('en', '/troubleshooting/');
+const allPlugins = Object.values(plugins).flat();
+const verifiedCount = allPlugins.filter((p) => p.test === 'verified').length.toLocaleString('en-US');
 ---
 <Base
   title="How to Use DeepSeek Harness — Install, Build Plugins, Migrate | dshbase"
@@ -35,7 +38,7 @@ const troubleshootingUrl = getRelativeLocaleUrl('en', '/troubleshooting/');
 
     <h2 style="margin-top:24px">How to install a plugin</h2>
     <pre class="code-block"><code>dsh plugin --profile web add dsh-memory</code></pre>
-    <p>Browse 122+ plugins with verified install results in the <a href={directoryUrl}>plugin directory</a>.</p>
+    <p>Browse {verifiedCount} verified plugins in the <a href={directoryUrl}>plugin directory</a>.</p>
 
     <h2 style="margin-top:24px">How to build your own plugin</h2>
     <p>A plugin is one TypeScript module exporting <code>apply(ctx)</code>, plus a <code>cordis.patch.yml</code> and a <code>dsh.bundle</code> manifest. Must be ESM. See the <a href={pluginsUrl}>plugin guide</a> for the full walkthrough.</p>

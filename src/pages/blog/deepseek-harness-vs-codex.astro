@@ -17,7 +17,7 @@ import BlogPost from '../../layouts/BlogPost.astro';
 
   <h2>The plugin model</h2>
   <p>Where Codex lets users customize Skills and MCP but keeps the rest baked in, DSH makes <strong>everything</strong> a plugin — the UI, tools, workflow, even the agent loop. You assemble an agent, not rent one.</p>
-  <p>The claim is easy to make; the question is whether the ecosystem is real. We spent time verifying it. Our <a href="/plugins/directory/">plugin directory</a> catalogs <strong>101 community plugins we tested on dsh 0.1.0-rc.6</strong>. The results aren't all clean:</p>
+  <p>The claim is easy to make; the question is whether the ecosystem is real. We spent time verifying it. Our <a href="/plugins/directory/">plugin directory</a> catalogs <strong>1,100+ community plugins</strong>, including the 101 we tested in depth on dsh 0.1.0-rc.6. The results aren't all clean:</p>
   <ul>
     <li><strong>11 npm packages</strong> install and work out of the box — one <code>dsh plugin add &lt;name&gt;</code> and you're done.</li>
     <li><strong>4 more need a Web/TUI context</strong> — they install fine but only do something inside the web UI or a terminal profile.</li>
@@ -60,7 +60,7 @@ import BlogPost from '../../layouts/BlogPost.astro';
   <h3>Can DSH plugins match Codex's Skills and MCP?</h3>
   <p>They're different mechanisms. A DSH plugin is a TypeScript module with an <code>apply</code> function, shareable as npm or a GitHub URL. It's simpler to write but lives inside the dsh process; MCP is more portable across clients.</p>
   <h3>How mature is the DSH plugin ecosystem really?</h3>
-  <p>Early but real: 101 community plugins cataloged and tested, but 81 of them are GitHub-source (not npm) and 3 fail to install. It's an ecosystem in week-one shape, not a polished marketplace.</p>
+  <p>Early but real: the directory now catalogs 1,100+ community plugins — though in our first test pass, 81 of 101 were GitHub-source (not npm) and 3 failed to install. It's an ecosystem in week-one shape, not a polished marketplace.</p>
 
   <h2>Practically</h2>
   <ul>

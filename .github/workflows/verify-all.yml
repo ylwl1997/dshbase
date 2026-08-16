@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       filter:
-        description: '验证子集（空=全部，broken-github=github源码异常，broken=全部异常，pending=待验证）'
+        description: '验证子集（空=全部，pending-github=github源码未测试，pending=全部未测试）'
         required: false
         default: ''
 

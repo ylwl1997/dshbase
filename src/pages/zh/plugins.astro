@@ -1,11 +1,13 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
+import plugins from '../../data/plugins.json';
 const tutorialUrl = getRelativeLocaleUrl('zh', '/tutorial/');
 const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
 const noatmarkUrl = 'https://github.com/ylwl1997/noatmark-dsh-plugin';
 const noatmarkNpmUrl = 'https://www.npmjs.com/package/noatmark-dsh-plugin';
 const topicUrl = 'https://github.com/topics/dsh-plugin';
+const totalPlugins = Object.values(plugins).reduce((s, a) => s + a.length, 0).toLocaleString('en-US');
 ---
 <Base
   title="DeepSeek Harness 插件 — 一切皆插件的插件开发 | dshbase 中文"
@@ -37,7 +39,7 @@ const topicUrl = 'https://github.com/topics/dsh-plugin';
     <a class="dir-banner-inner" href={directoryUrl}>
       <div>
         <span class="cat">插件目录</span>
-        <h3>浏览 123 个社区插件——含实测结果与安装命令</h3>
+        <h3>浏览 {totalPlugins} 个社区插件——含实测结果与安装命令</h3>
         <p>每个插件的 npm 状态、实测验证结果、精确的 <code>dsh plugin add</code> 命令，一处看全。</p>
       </div>
       <span class="btn btn-primary">打开目录 &rarr;</span>
@@ -88,7 +90,7 @@ ctx.tools.register(defineTool(&#123;
 &#125;))</code></pre>
 
     <h2 style="margin-top:24px">社区插件与发布</h2>
-    <p>给仓库加 <a href={topicUrl} target="_blank" rel="noopener"><code>dsh-plugin</code></a> 话题加入生态，浏览<a href={directoryUrl}>插件目录</a>（120+ 精选）。</p>
+    <p>给仓库加 <a href={topicUrl} target="_blank" rel="noopener"><code>dsh-plugin</code></a> 话题加入生态，浏览<a href={directoryUrl}>插件目录</a>（{totalPlugins} 精选）。</p>
     <div class="grid3">
       <a class="card card-link" href={noatmarkNpmUrl} target="_blank" rel="noopener">
         <span class="cat">文本卫生 · npm 可装</span>
@@ -98,7 +100,7 @@ ctx.tools.register(defineTool(&#123;
       <a class="card card-link" href={directoryUrl}>
         <span class="cat">生态</span>
         <h3>插件目录</h3>
-        <p>7 大类 120+ 个社区插件。 <span class="arr">&rarr;</span></p>
+        <p>7 大类 {totalPlugins} 个社区插件。 <span class="arr">&rarr;</span></p>
       </a>
     </div>
 
