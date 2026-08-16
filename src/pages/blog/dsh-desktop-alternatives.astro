@@ -1,0 +1,60 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const dirUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const slug = (name) => getRelativeLocaleUrl('en', `/plugins/${name}/`);
+---
+<BlogPost title="Is DeepSeek Harness a Desktop App? CLI, VSCode, TUI &amp; Electron Shells Explained | dshbase" description="DeepSeek Harness has no official desktop client — it's a local web app at 127.0.0.1:3080. Here are the real alternatives: the dsh CLI, TUI plugins, Electron shells, VSCode extensions and mobile companions." currentPath="/blog/dsh-desktop-alternatives/" category="Guide">
+  <h1>Is DeepSeek Harness a <span class="accent">desktop app</span>? CLI, VSCode, TUI &amp; Electron shells</h1>
+  <p class="muted small" style="margin-bottom:20px">August 16, 2026 · dshbase</p>
+
+  <p>The most-asked question in the official discussions (#172, #601) is some version of: "is DSH a desktop app?", "where's the CLI?", "is there a VSCode extension?". The short answer: DeepSeek Harness is a <strong>web app served locally</strong> — there is no official desktop client yet. But the community has already built every alternative shape you'd want, and the honest map of what exists is more useful than waiting for an official one.</p>
+
+  <h2>The truth: it's a local web app</h2>
+  <p><code>npx @deepseek-ai/dsh</code> starts a local server and hands you a URL. The "app" is a browser tab at <code>http://127.0.0.1:3080</code>. That's deliberate — it keeps the whole thing remote-drivable and skin-able via plugins — but it's also why the desktop question keeps coming up. People expect an app icon, a window, a system tray.</p>
+
+  <h2>The CLI (headless mode)</h2>
+  <p>The closest thing to a "real" CLI is <code>dsh</code> run headless: <code>dsh --headless "your prompt"</code>. It's the scriptable surface behind the CI workflows and IM bots — no UI, no browser, just the harness doing work. If you want the terminal as your interface, headless is the native answer, and the TUI plugins below are the prettier one.</p>
+
+  <h2>TUI plugins</h2>
+  <p>For the terminal purists, the community has built TUI frontends on top of the harness:</p>
+  <ul>
+    <li><strong><a href={slug('dsh-cc-tui')}>dsh-cc-tui</a></strong> — a Claude-Code-style terminal UI.</li>
+    <li><strong><a href={slug('deepseek-harness-tui')}>deepseek-harness-tui</a></strong> and <strong><a href={slug('dsh-tianshu-tui')}>dsh-tianshu-tui</a></strong> — lighter terminal frontends.</li>
+    <li><strong><a href={slug('dsh-grok-tui')}>dsh-grok-tui</a></strong> — a Grok-flavored variant.</li>
+  </ul>
+
+  <h2>Electron shells</h2>
+  <p>If you specifically want a window and a tray icon rather than a tab, this is the category:</p>
+  <ul>
+    <li><strong><a href={slug('dsh-desktop-electron')}>dsh-desktop-electron</a></strong> — a cross-platform Electron wrapper with a system-tray launcher.</li>
+    <li><strong><a href={slug('oh-dsh-desktop')}>oh-dsh-desktop</a></strong> — a macOS-focused desktop shell.</li>
+  </ul>
+  <p>Both are community wrappers around the same local web server — they don't reimplement the harness, they just give it a native window.</p>
+
+  <h2>VSCode extensions</h2>
+  <p>The VSCode story is the most crowded — several extensions bridge the editor to a running (or bundled) harness:</p>
+  <ul>
+    <li><strong><a href={slug('dsh4vscode')}>dsh4vscode</a></strong> — the most complete editor integration.</li>
+    <li><strong><a href={slug('deepseek-harness-for-vscode')}>deepseek-harness-for-vscode</a></strong> and <strong><a href={slug('vscode-deepseek-harness')}>vscode-deepseek-harness</a></strong> — alternative editor bridges.</li>
+    <li><strong><a href={slug('dsh-vscode')}>dsh-vscode</a></strong> and <strong><a href={slug('dsh-open-in-vscode')}>dsh-open-in-vscode</a></strong> — lighter extensions, including the "open the current context in VSCode" pattern.</li>
+  </ul>
+
+  <h2>Mobile companions</h2>
+  <ul>
+    <li><strong><a href={slug('deepseek-harness-mobile')}>deepseek-harness-mobile</a></strong> — an Android client for reaching your harness from your phone.</li>
+    <li><strong><a href={slug('dsh-mobile-control')}>dsh-mobile-control</a></strong> and <strong><a href={slug('dsh-mobile-gui-agent')}>dsh-mobile-gui-agent</a></strong> — remote control and GUI-agent companions.</li>
+  </ul>
+
+  <h2>Which one should you use?</h2>
+  <ul>
+    <li><strong>Just want to talk to it</strong> → the web UI, or <a href={slug('deepseek-harness-mobile')}>the mobile client</a>.</li>
+    <li><strong>Want a window + tray</strong> → <a href={slug('dsh-desktop-electron')}>dsh-desktop-electron</a>.</li>
+    <li><strong>Want it in your editor</strong> → <a href={slug('dsh4vscode')}>dsh4vscode</a>.</li>
+    <li><strong>Want the terminal</strong> → headless <code>dsh</code> or a TUI.</li>
+    <li><strong>Want it always-on, reachable from chat</strong> → headless + an <a href={getRelativeLocaleUrl('en', '/blog/dsh-im-integration/')}>IM bridge</a>.</li>
+  </ul>
+
+  <h2>Current state</h2>
+  <p>None of these are official, and none replace the harness itself — they're all frontends on the same local server, so their quality tracks how well they track upstream. The official answer to "where's the desktop app" is still "not yet," but the gap is being filled from the outside in. For the full, test-badged lineup of CLI, TUI, VSCode, Electron and mobile plugins — with install commands — start at the <a href={dirUrl}>plugin directory</a>.</p>
+</BlogPost>

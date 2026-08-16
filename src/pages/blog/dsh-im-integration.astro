@@ -1,0 +1,57 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const dirUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const slug = (name) => getRelativeLocaleUrl('en', `/plugins/${name}/`);
+---
+<BlogPost title="DeepSeek Harness IM Integrations — WeChat, QQ, Feishu, DingTalk &amp; Telegram Bots | dshbase" description="Put DeepSeek Harness inside the chat apps you already live in: WeChat (微信), QQ, 企业微信 WeCom, 飞书 Feishu/Lark, 钉钉 DingTalk and Telegram. The full community plugin lineup with what's verified and how to install." currentPath="/blog/dsh-im-integration/" category="Guide">
+  <h1>Put DeepSeek Harness inside your <span class="accent">IM</span> — WeChat, QQ, Feishu, DingTalk &amp; Telegram</h1>
+  <p class="muted small" style="margin-bottom:20px">August 16, 2026 · dshbase</p>
+
+  <p>DeepSeek Harness runs as a local web app at <code>127.0.0.1:3080</code> — but a large and loud part of its community has no interest in keeping a browser tab open. They want the agent to reach them where they already live: WeChat, QQ, 企业微信, 飞书, 钉钉, Telegram. The plugin ecosystem has answered with a fast-growing pile of IM bridges, and it's one of the most active corners of the official discussions (#1458, #1689, #2303). Here's the current lineup.</p>
+
+  <h2>Why IM bridges are the killer use case</h2>
+  <p>For 国内 users, the chat app is the operating system. Run <code>dsh</code> headless on a home server or a spare box, bolt on an IM bridge, and you get a <strong>24/7 agent reachable from your phone</strong> — no port forwarding, no browser, no SSH. The same pattern that made ClawBot-style QR-login bridges popular overnight. It's the natural pairing of dsh's <code>--headless</code> mode with the one surface people never close.</p>
+
+  <h2>WeChat (微信)</h2>
+  <p>The busiest category, and the one with the most caveats — WeChat has no official bot API, so every bridge is either a personal-account QR login or a webhook relay:</p>
+  <ul>
+    <li><strong><a href={slug('DeepSeek-harness-weixin')}>DeepSeek-harness-weixin</a></strong> — ClawBot-style QR login that binds your personal account as the agent.</li>
+    <li><strong><a href={slug('dsh-plugin-wechat')}>dsh-plugin-wechat</a></strong> — the earliest general-purpose WeChat adapter.</li>
+    <li><strong><a href={slug('dsh-wechat-maid')}>dsh-wechat-maid</a></strong> — a "personal maid" bot with session memory per contact.</li>
+    <li><strong><a href={slug('dsh2wechat')}>dsh2wechat</a></strong> and <strong><a href={slug('dsh-wechat-notify')}>dsh-wechat-notify</a></strong> — push notifications / one-way relays from dsh to WeChat.</li>
+  </ul>
+
+  <h2>QQ</h2>
+  <p>QQ is friendlier than WeChat for bots because of the OneBot protocol, which the ecosystem has standardized on:</p>
+  <ul>
+    <li><strong><a href={slug('dsh-qqbot')}>dsh-qqbot</a></strong> — the main QQ bridge.</li>
+    <li><strong><a href={slug('DeepSeek-harness-qqbot')}>DeepSeek-harness-qqbot</a></strong> — a parallel, actively-maintained implementation.</li>
+    <li><strong><a href={slug('dsh-onebot')}>dsh-onebot</a></strong> — speaks OneBot, so it works with most QQ bot frameworks, not just one client.</li>
+  </ul>
+
+  <h2>企业微信 (WeCom) &amp; 钉钉 (DingTalk)</h2>
+  <p>These two matter because they're the "official-looking" channels — WeCom and DingTalk both expose a proper bot/webhook API, so these bridges don't fight the platform the way WeChat bridges do:</p>
+  <ul>
+    <li><strong><a href={slug('DeepSeek-harness-wecom')}>DeepSeek-harness-wecom</a></strong>, <strong><a href={slug('dsh-wecom')}>dsh-wecom</a></strong>, <strong><a href={slug('dsh-WeCom-notify')}>dsh-WeCom-notify</a></strong> — WeCom bots and notify relays.</li>
+    <li><strong><a href={slug('DeepSeek-harness-dingtalk')}>DeepSeek-harness-dingtalk</a></strong> — the DingTalk bridge.</li>
+    <li><strong><a href={slug('dsh-notify')}>dsh-notify</a></strong> — a multi-channel notifier covering ServerChan, 钉钉, 飞书 and plain webhooks in one plugin.</li>
+  </ul>
+
+  <h2>飞书 / Lark</h2>
+  <p>Feishu is the most bot-native of the bunch — real webhook events, no QR login required. The standout is <strong><a href={slug('dsh-adapter-feishu')}>dsh-adapter-feishu</a></strong>, which connects over WebSocket so it <strong>needs no public IP</strong> — you can run it from a NAT'd home machine. Around it: <strong><a href={slug('dsh-lark')}>dsh-lark</a></strong>, <strong><a href={slug('dsh-lark-bot')}>dsh-lark-bot</a></strong>, <strong><a href={slug('dsh-feishu')}>dsh-feishu</a></strong>, <strong><a href={slug('dsh-feishu-bot')}>dsh-feishu-bot</a></strong>.</p>
+
+  <h2>Telegram &amp; multi-platform</h2>
+  <ul>
+    <li><strong><a href={slug('telegram')}>telegram</a></strong> (by LoserFox) — the Telegram bridge.</li>
+    <li><strong><a href={slug('dsh-im-hub')}>dsh-im-hub</a></strong> — a hub that fans one agent out to several platforms at once.</li>
+    <li><strong><a href={slug('plugin-notify')}>plugin-notify</a></strong> — webhook notifications to 飞书 / 企微 / 钉钉 / Slack / Discord.</li>
+    <li><strong><a href={slug('dsh-im-gateway')}>dsh-im-gateway</a></strong> and <strong><a href={slug('dsh-im-bridge')}>dsh-im-bridge</a></strong> — generic gateway/bridge scaffolding for building your own adapter.</li>
+  </ul>
+
+  <h2>Install reality check</h2>
+  <p>Most of these are <strong>early and install-from-source</strong> — a large share are marked <code>not-on-npm</code> in the directory, so expect to clone a repo and <code>dsh plugin add ./path</code> rather than a clean <code>dsh plugin add name</code>. The QR-login WeChat bridges, in particular, sit in a gray area with WeChat's risk-control and can get a personal account flagged — treat them as experimental, use a throwaway account, and prefer the webhook channels (Feishu / WeCom / DingTalk / Telegram) for anything you need to keep running unattended. Every detail page carries a test badge and an exact install command, so check before you commit.</p>
+
+  <h2>Before you build your own</h2>
+  <p>The gap between "I want my agent in WeChat" and "there's a plugin for that" is shrinking weekly. Search the <a href={dirUrl}>plugin directory</a> by platform before writing a new bridge — the OneBot, WebSocket-Feishu and webhook patterns are already solved, and you'll almost always be better off extending an existing adapter than starting from scratch.</p>
+</BlogPost>

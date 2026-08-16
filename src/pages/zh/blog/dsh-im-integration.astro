@@ -1,0 +1,57 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const dirUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const slug = (name) => getRelativeLocaleUrl('zh', `/plugins/${name}/`);
+---
+<BlogPost title="DeepSeek Harness 接入 IM — 微信、QQ、飞书、钉钉、Telegram 机器人全家桶 | dshbase 中文" description="把 DeepSeek Harness 塞进你天天在用的聊天软件：微信、QQ、企业微信、飞书/Lark、钉钉、Telegram。社区插件完整阵容，哪些实测过、怎么装，一次讲清。" currentPath="/blog/dsh-im-integration/" category="指南">
+  <h1>把 DeepSeek Harness 塞进你的 <span class="accent">IM</span> —— 微信、QQ、飞书、钉钉、Telegram</h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 16 日 · dshbase</p>
+
+  <p>DeepSeek Harness 是跑在 <code>127.0.0.1:3080</code> 的本地 Web 应用——但社区里有相当一部分人根本不想一直开着浏览器标签页。他们想让 Agent 主动找到自己，在微信、QQ、企业微信、飞书、钉钉、Telegram 这些天天不关的入口里。插件生态用一堆快速增长的 IM 桥接回应了这件事，这也是官方 discussion（#1458、#1689、#2303）里最活跃的角落之一。下面是当前阵容。</p>
+
+  <h2>为什么 IM 桥接是杀手级场景</h2>
+  <p>对国内用户来说，聊天软件就是操作系统。在家庭服务器或闲置机器上以 <code>--headless</code> 跑 <code>dsh</code>，再挂一个 IM 桥，你就得到一个<strong>从手机随时触达、24 小时在线的 Agent</strong>——不用端口转发、不用开浏览器、不用 SSH。正是这种模式让 ClawBot 式的扫码登录桥一夜爆火。它把 dsh 的 headless 能力，接上了人们唯一不会关掉的界面。</p>
+
+  <h2>微信</h2>
+  <p>最热闹、也是坑最多的一个——微信没有官方机器人 API，所以每条桥要么是个人号扫码登录，要么是 webhook 转发：</p>
+  <ul>
+    <li><strong><a href={slug('DeepSeek-harness-weixin')}>DeepSeek-harness-weixin</a></strong> —— ClawBot 式扫码登录，把你的个人号绑成 Agent。</li>
+    <li><strong><a href={slug('dsh-plugin-wechat')}>dsh-plugin-wechat</a></strong> —— 最早的通用微信适配器。</li>
+    <li><strong><a href={slug('dsh-wechat-maid')}>dsh-wechat-maid</a></strong> —— 「个人女仆」机器人，按联系人带会话记忆。</li>
+    <li><strong><a href={slug('dsh2wechat')}>dsh2wechat</a></strong> 和 <strong><a href={slug('dsh-wechat-notify')}>dsh-wechat-notify</a></strong> —— 从 dsh 到微信的推送 / 单向转发。</li>
+  </ul>
+
+  <h2>QQ</h2>
+  <p>因为 OneBot 协议的存在，QQ 对机器人比微信友好得多，生态也基本都往这个标准上靠：</p>
+  <ul>
+    <li><strong><a href={slug('dsh-qqbot')}>dsh-qqbot</a></strong> —— 主流的 QQ 桥。</li>
+    <li><strong><a href={slug('DeepSeek-harness-qqbot')}>DeepSeek-harness-qqbot</a></strong> —— 另一条持续维护的实现。</li>
+    <li><strong><a href={slug('dsh-onebot')}>dsh-onebot</a></strong> —— 讲 OneBot，所以不挑客户端，能接大多数 QQ 机器人框架。</li>
+  </ul>
+
+  <h2>企业微信 &amp; 钉钉</h2>
+  <p>这俩关键在于是「正式感」更强的通道——企业微信和钉钉都有正经的机器人 / webhook API，所以这些桥不用像微信那样跟平台对抗：</p>
+  <ul>
+    <li><strong><a href={slug('DeepSeek-harness-wecom')}>DeepSeek-harness-wecom</a></strong>、<strong><a href={slug('dsh-wecom')}>dsh-wecom</a></strong>、<strong><a href={slug('dsh-WeCom-notify')}>dsh-WeCom-notify</a></strong> —— 企业微信机器人和通知转发。</li>
+    <li><strong><a href={slug('DeepSeek-harness-dingtalk')}>DeepSeek-harness-dingtalk</a></strong> —— 钉钉桥。</li>
+    <li><strong><a href={slug('dsh-notify')}>dsh-notify</a></strong> —— 一个插件打包 ServerChan、钉钉、飞书和纯 webhook 的多通道通知。</li>
+  </ul>
+
+  <h2>飞书 / Lark</h2>
+  <p>飞书是这堆里最 bot 原生的——有真正的 webhook 事件，不用扫码登录。其中亮点是 <strong><a href={slug('dsh-adapter-feishu')}>dsh-adapter-feishu</a></strong>：走 WebSocket 连接，所以<strong>不需要公网 IP</strong>，在 NAT 后的家用机器上就能跑。围绕它的还有 <strong><a href={slug('dsh-lark')}>dsh-lark</a></strong>、<strong><a href={slug('dsh-lark-bot')}>dsh-lark-bot</a></strong>、<strong><a href={slug('dsh-feishu')}>dsh-feishu</a></strong>、<strong><a href={slug('dsh-feishu-bot')}>dsh-feishu-bot</a></strong>。</p>
+
+  <h2>Telegram &amp; 多平台</h2>
+  <ul>
+    <li><strong><a href={slug('telegram')}>telegram</a></strong>（LoserFox 出品）—— Telegram 桥。</li>
+    <li><strong><a href={slug('dsh-im-hub')}>dsh-im-hub</a></strong> —— 把一个 Agent 同时扇出到多个平台的集线器。</li>
+    <li><strong><a href={slug('plugin-notify')}>plugin-notify</a></strong> —— 飞书 / 企微 / 钉钉 / Slack / Discord 的 webhook 通知。</li>
+    <li><strong><a href={slug('dsh-im-gateway')}>dsh-im-gateway</a></strong> 和 <strong><a href={slug('dsh-im-bridge')}>dsh-im-bridge</a></strong> —— 自己造适配器用的通用网关 / 桥脚手架。</li>
+  </ul>
+
+  <h2>安装的现实</h2>
+  <p>这些大多<strong>还很早期、需要从源码装</strong>——目录里相当一部分标着 <code>not-on-npm</code>，所以别指望干净的 <code>dsh plugin add 名字</code>，多半得先 clone 仓库再 <code>dsh plugin add ./路径</code>。尤其是扫码登录的微信桥，处在微信风控的灰色地带，可能把个人号搞进风险池——当实验品看待，用小号，需要长期无人值守的场合优先选 webhook 通道（飞书 / 企微 / 钉钉 / Telegram）。每个详情页都带实测标签和确切安装命令，动手前先看一眼。</p>
+
+  <h2>动手自研之前</h2>
+  <p>「想让 Agent 进微信」和「已经有插件能办到」之间的差距，每周都在缩小。写新桥之前先按平台搜一遍<a href={dirUrl}>插件目录</a>——OneBot、WebSocket 飞书、webhook 这些套路都已经被人解过，绝大多数时候你扩展现成适配器，比从零开始划算得多。</p>
+</BlogPost>

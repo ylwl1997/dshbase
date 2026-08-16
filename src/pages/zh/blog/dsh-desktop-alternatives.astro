@@ -1,0 +1,60 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const dirUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const slug = (name) => getRelativeLocaleUrl('zh', `/plugins/${name}/`);
+---
+<BlogPost title="DeepSeek Harness 有桌面端吗？CLI、VSCode、TUI、Electron 替代方案全解 | dshbase 中文" description="DeepSeek Harness 没有官方桌面客户端——它是个跑在 127.0.0.1:3080 的本地 Web 应用。真正的替代方案：dsh CLI、TUI 插件、Electron 壳、VSCode 扩展和手机伴侣，一次讲清。" currentPath="/blog/dsh-desktop-alternatives/" category="指南">
+  <h1>DeepSeek Harness 有<span class="accent">桌面端</span>吗？CLI、VSCode、TUI、Electron 壳</h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 16 日 · dshbase</p>
+
+  <p>官方 discussion（#172、#601）里问得最多的一句话，不外乎「DSH 是桌面应用吗？」「CLI 在哪？」「有没有 VSCode 插件？」。简短答案是：DeepSeek Harness 是个<strong>本地 Web 应用</strong>——目前还没有官方桌面客户端。但社区已经把你想要的每一种形态都造出来了，把现有的东西讲清楚，比干等官方版更有用。</p>
+
+  <h2>真相：它是个本地 Web 应用</h2>
+  <p><code>npx @deepseek-ai/dsh</code> 起一个本地服务，丢给你一个 URL。所谓「应用」就是 <code>http://127.0.0.1:3080</code> 里的一个浏览器标签页。这是故意的——让整个东西能被远程驱动、能被插件换肤——但也正因如此，「桌面端」的问题才反复冒出来。大家期待的是应用图标、窗口、系统托盘。</p>
+
+  <h2>CLI（headless 模式）</h2>
+  <p>最接近「真 CLI」的是 headless 跑 <code>dsh</code>：<code>dsh --headless "你的指令"</code>。它是 CI 工作流和 IM 机器人背后的可脚本化接口——没有 UI、没有浏览器，只有 harness 在干活。想要终端当界面，headless 就是原生答案，下面的 TUI 插件是更好看的那一版。</p>
+
+  <h2>TUI 插件</h2>
+  <p>对终端原教旨主义者，社区在 harness 之上造了 TUI 前端：</p>
+  <ul>
+    <li><strong><a href={slug('dsh-cc-tui')}>dsh-cc-tui</a></strong> —— Claude Code 风格的终端 UI。</li>
+    <li><strong><a href={slug('deepseek-harness-tui')}>deepseek-harness-tui</a></strong> 和 <strong><a href={slug('dsh-tianshu-tui')}>dsh-tianshu-tui</a></strong> —— 更轻的终端前端。</li>
+    <li><strong><a href={slug('dsh-grok-tui')}>dsh-grok-tui</a></strong> —— Grok 风味的变体。</li>
+  </ul>
+
+  <h2>Electron 壳</h2>
+  <p>如果你就是想要个窗口和托盘图标、而不是一个标签页，这属于这一类：</p>
+  <ul>
+    <li><strong><a href={slug('dsh-desktop-electron')}>dsh-desktop-electron</a></strong> —— 跨平台 Electron 壳，带系统托盘启动器。</li>
+    <li><strong><a href={slug('oh-dsh-desktop')}>oh-dsh-desktop</a></strong> —— 偏 macOS 的桌面壳。</li>
+  </ul>
+  <p>两者都是包在同一个本地 Web 服务外面的社区壳——它们不重写 harness，只是给它一个原生窗口。</p>
+
+  <h2>VSCode 扩展</h2>
+  <p>VSCode 这条线最挤——好几个扩展把编辑器接到正在跑的（或内嵌的）harness 上：</p>
+  <ul>
+    <li><strong><a href={slug('dsh4vscode')}>dsh4vscode</a></strong> —— 最完整的编辑器集成。</li>
+    <li><strong><a href={slug('deepseek-harness-for-vscode')}>deepseek-harness-for-vscode</a></strong> 和 <strong><a href={slug('vscode-deepseek-harness')}>vscode-deepseek-harness</a></strong> —— 备选的编辑器桥。</li>
+    <li><strong><a href={slug('dsh-vscode')}>dsh-vscode</a></strong> 和 <strong><a href={slug('dsh-open-in-vscode')}>dsh-open-in-vscode</a></strong> —— 更轻的扩展，含「把当前上下文在 VSCode 里打开」这类套路。</li>
+  </ul>
+
+  <h2>手机伴侣</h2>
+  <ul>
+    <li><strong><a href={slug('deepseek-harness-mobile')}>deepseek-harness-mobile</a></strong> —— Android 客户端，从手机连你的 harness。</li>
+    <li><strong><a href={slug('dsh-mobile-control')}>dsh-mobile-control</a></strong> 和 <strong><a href={slug('dsh-mobile-gui-agent')}>dsh-mobile-gui-agent</a></strong> —— 远程控制和 GUI-agent 伴侣。</li>
+  </ul>
+
+  <h2>你该用哪个？</h2>
+  <ul>
+    <li><strong>只想跟它聊天</strong> → Web UI，或<a href={slug('deepseek-harness-mobile')}>手机客户端</a>。</li>
+    <li><strong>想要窗口 + 托盘</strong> → <a href={slug('dsh-desktop-electron')}>dsh-desktop-electron</a>。</li>
+    <li><strong>想在编辑器里用</strong> → <a href={slug('dsh4vscode')}>dsh4vscode</a>。</li>
+    <li><strong>想要终端</strong> → headless <code>dsh</code> 或某个 TUI。</li>
+    <li><strong>想让它常驻、从聊天软件里触达</strong> → headless + <a href={getRelativeLocaleUrl('zh', '/blog/dsh-im-integration/')}>IM 桥</a>。</li>
+  </ul>
+
+  <h2>现状</h2>
+  <p>这些都不是官方出品，也都不替代 harness 本身——它们全是同一个本地服务外面的前端，所以质量取决于它们对上游跟得紧不紧。「桌面端在哪」的官方答案依旧是「还没」，但这个缺口正从外面被一点点填上。要看 CLI、TUI、VSCode、Electron、手机这些插件当前、带实测标签的完整阵容（含安装命令），从<a href={dirUrl}>插件目录</a>开始。</p>
+</BlogPost>
