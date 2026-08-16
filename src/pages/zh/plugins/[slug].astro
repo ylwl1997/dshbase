@@ -110,9 +110,8 @@ const jsonLd = {
         <h2 style="margin-top:24px">包信息</h2>
         <p>npm：<a href={npmHome} target="_blank" rel="noopener">{p.pkg}</a> · 版本 <strong>{p.ver || '—'}</strong> · 实测环境 dsh <strong>0.1.0-rc.6</strong></p>
         <h2 style="margin-top:24px">实测报告</h2>
-        <p>{p.test === 'ok' && '端到端验证通过：`dsh plugin add` 安装成功、进入 profile 配置树、启动任务正常。'}
-           {p.test === 'ui' && '可安装并激活，但在 headless 测试环境无法启动——它需要 Web/TUI 界面。正常 `dsh web` 里应该能用。'}
-           {p.test === 'install-fail' && '安装失败——依赖树里有包没发到 npm。可到仓库看是否有待发布的依赖。'}</p>
+        <p>{p.test === 'verified' && '端到端验证通过：`dsh plugin add` 安装成功、进入 profile 配置树、启动任务正常。'}
+           {p.test === 'pending' && '尚未验证——请自行安装测试，或稍后回来查看。'}</p>
       </Fragment>
     ) : (
       <Fragment>
@@ -134,10 +133,8 @@ const jsonLd = {
         {p.test !== 'not-on-npm' && (
           <Fragment>
             <h2 style="margin-top:24px">实测报告</h2>
-            <p>{p.test === 'git-ok' && '验证通过：从 GitHub 安装成功、进入配置树、启动任务正常。'}
-               {p.test === 'git-ui' && '已安装并激活，但 headless 测试环境无法启动——需要 Web/TUI 界面，正常 `dsh web` 里应该能用。'}
-               {p.test === 'git-build' && '安装需构建步骤：插件带 `prepare` 脚本，pnpm 默认阻止。把提示的 key 加进 `pnpm-workspace.yaml` 的 `allowBuilds` 再重跑。'}
-               {p.test === 'git-fail' && '从 GitHub 安装失败——检查仓库是否有缺失依赖或损坏的构建。'}</p>
+            <p>{p.test === 'verified' && '验证通过：从 GitHub 安装成功、进入配置树、启动任务正常。'}
+               {p.test === 'pending' && '尚未验证——请自行安装测试。'}</p>
           </Fragment>
         )}
       </Fragment>
@@ -153,7 +150,7 @@ const jsonLd = {
           {related.map((r) => (
             <a class="card card-link" href={`/zh/plugins/${r.name}/`}>
               <h3>{r.name}</h3>
-              <p>{r.test === 'ok' ? '✅ 已验证' : r.npm ? 'npm 可装' : 'GitHub 源码'} · ★{r.stars ?? 0}</p>
+              <p>{r.test === 'verified' ? '✅ 已验证' : r.test === 'pending' ? '⏳ 未测试' : r.npm ? 'npm 可装' : 'GitHub 源码'} · ★{r.stars ?? 0}</p>
             </a>
           ))}
         </div>

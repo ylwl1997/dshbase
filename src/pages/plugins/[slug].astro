@@ -153,7 +153,7 @@ const jsonLd = {
           {related.map((r) => (
             <a class="card card-link" href={`/plugins/${r.name}/`}>
               <h3>{r.name}</h3>
-              <p>{r.test === 'ok' ? '✅ verified' : r.npm ? 'on npm' : 'GitHub source'} · ★{r.stars ?? 0}</p>
+              <p>{r.test === 'verified' ? '✅ verified' : r.test === 'pending' ? '⏳ untested' : r.npm ? 'on npm' : 'GitHub source'} · ★{r.stars ?? 0}</p>
             </a>
           ))}
         </div>
