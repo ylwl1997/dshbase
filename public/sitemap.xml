@@ -10,8 +10,6 @@
   <url><loc>https://dshbase.com/zh/plugins/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://dshbase.com/plugins/directory/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/directory/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://dshbase.com/plugins/compare/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/compare/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://dshbase.com/themes/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://dshbase.com/zh/themes/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://dshbase.com/advanced-skins/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1624,6 +1622,12 @@
   <url><loc>https://dshbase.com/zh/plugins/DSH-Encrypt/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-wending-git-workbench/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-wending-git-workbench/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-compliancehub/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/zh/plugins/dsh-compliancehub/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-deepread/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/zh/plugins/dsh-deepread/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/plugins/kubemd/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/zh/plugins/kubemd/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/colleague-skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/colleague-skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/ouroboros/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>

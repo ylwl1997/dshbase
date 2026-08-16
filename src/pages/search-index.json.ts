@@ -13,7 +13,6 @@ const PAGES: Array<{ path: string; title: string; title_zh: string; desc: string
   { path: '/tutorial/', title: 'Tutorial', title_zh: '教程', desc: 'Getting started with DeepSeek Harness.', desc_zh: 'DeepSeek Harness 快速上手。' },
   { path: '/plugins/', title: 'Plugins', title_zh: '插件', desc: 'How the DeepSeek Harness plugin system works.', desc_zh: 'DeepSeek Harness 插件系统工作原理。' },
   { path: '/plugins/directory/', title: 'Plugin directory', title_zh: '插件目录', desc: 'Browse the plugin ecosystem: categories, use cases, install commands.', desc_zh: '浏览插件生态：分类、使用场景、安装命令。' },
-  { path: '/plugins/compare/', title: 'Compare plugins', title_zh: '插件对比', desc: 'Compare DeepSeek Harness plugins side by side.', desc_zh: '并排对比 DeepSeek Harness 插件。' },
   { path: '/themes/', title: 'Themes & skins', title_zh: '皮肤主题', desc: 'Community themes and skins.', desc_zh: '社区皮肤与主题。' },
   { path: '/advanced-skins/', title: 'Advanced skins', title_zh: '高级皮肤', desc: 'Advanced skin customization.', desc_zh: '高级皮肤定制。' },
   { path: '/install/', title: 'Install', title_zh: '安装', desc: 'Install DeepSeek Harness and plugins.', desc_zh: '安装 DeepSeek Harness 与插件。' },
