@@ -10,6 +10,16 @@ const featuredIds = skinsData.featured || [];
 const featured = featuredIds.map((id) => skins.find((s) => s.id === id)).filter(Boolean);
 const grouped = groups.map((g) => ({ name: g.name, count: g.count, skins: skins.filter((s) => s.group === g.name) })).filter((g) => g.skins.length > 0);
 const thumb = (s, kind) => `/skins/${kind === 'light' ? s.thumb.light : s.thumb.dark}`;
+const advancedFeatured = [
+  { img: '/skins/heige/qq2008.webp', name: 'QQ 2008 · 粉', ip: 'QQ' },
+  { img: '/skins/heige/qq2007.webp', name: 'QQ 2007', ip: 'QQ' },
+  { img: '/skins/heige/genshin-dark.webp', name: '原神 · 璃月夜', ip: '原神' },
+  { img: '/skins/heige/waves-1.webp', name: '鸣潮 · 黑青', ip: '鸣潮' },
+  { img: '/skins/heige/miku.webp', name: '初音未来', ip: '初音未来' },
+  { img: '/skins/heige/deepseek-nv-q.webp', name: 'DeepSeek 娘 · Q 版', ip: 'DeepSeek 娘' },
+  { img: '/skins/heige/neice-dalao.webp', name: '内测大佬', ip: '原创' },
+  { img: '/skins/heige/fengge.webp', name: '峰哥骑鲸', ip: '原创' },
+];
 ---
 <Base title="DeepSeek Harness 皮肤中心 — 151 款昼夜皮肤 | dshbase 中文" description="DeepSeek Harness 皮肤中心：151 款昼夜皮肤、真实预览图、14 个风格分组。点击任意皮肤可切换日间/夜间。dsh plugin add dsh-themes 一键安装。" currentPath="/themes/">
   <section class="hero wrap">
@@ -21,7 +31,9 @@ const thumb = (s, kind) => `/skins/${kind === 'light' ? s.thumb.light : s.thumb.
   <section class="info wrap">
     <h2>安装</h2>
     <pre class="code-block"><code>dsh plugin add dsh-themes</code></pre>
-    <p>重启 <code>dsh web</code>，然后在 设置 → 插件 里找到皮肤中心。单款皮肤用 <code>dsh plugin add @whyihaveyou/dsh-skin-&lt;id&gt;</code> 安装。</p>
+    <p>重启 <code>dsh web</code>，然后在 设置 → 插件 里找到皮肤中心。单款皮肤：先克隆仓库，再按本地路径安装，<code>&lt;id&gt;</code> 见每张卡片下方：</p>
+    <pre class="code-block"><code>git clone https://github.com/whyihaveyou/dsh-themes.git
+dsh plugin add ./dsh-themes/skins/&lt;id&gt;</code></pre>
 
     <p class="callout">想要<strong>更高保真、带背景图的皮肤</strong>？我们还收录了一套源码级换肤引擎，21 款皮肤 + 传图定制——看<a href={advancedUrl}>高级皮肤页 →</a></p>
 
@@ -37,9 +49,32 @@ const thumb = (s, kind) => `/skins/${kind === 'light' ? s.thumb.light : s.thumb.
           <div class="skin-meta">
             <span class="skin-name">{s.name}</span>
             <span class="skin-tag">{s.tagline || s.group}</span>
+            <div class="skin-cmd">
+              <code>dsh plugin add ./dsh-themes/skins/{s.id}</code>
+              <button type="button" class="cmd-copy" data-cmd={`dsh plugin add ./dsh-themes/skins/${s.id}`}>复制</button>
+            </div>
           </div>
         </div>
       ))}
+    </div>
+
+    <div class="skin-group">
+      <h2 style="margin-top:36px">高级皮肤精选 <span class="muted small">(源码级 · 带背景图)</span></h2>
+      <p class="muted small" style="margin-top:-4px">更高保真的源码级皮肤，带完整背景图。点击图片可放大，完整 21 款见<a href={advancedUrl}>高级皮肤页 →</a></p>
+      <div class="skin-grid featured">
+        {advancedFeatured.map((s) => (
+          <div class="skin-card">
+            <button class="shot-frame" type="button" data-lightbox={s.img} aria-label={`${s.name} — 点击放大`}>
+              <img src={s.img} alt={`${s.name} 真机截图`} loading="lazy" width="320" height="200">
+              <span class="shot-tag">{s.ip}</span>
+            </button>
+            <div class="skin-meta">
+              <span class="skin-name">{s.name}</span>
+              <span class="skin-tag">{s.ip} · 源码级</span>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
 
     {grouped.map((g) => (
@@ -56,6 +91,10 @@ const thumb = (s, kind) => `/skins/${kind === 'light' ? s.thumb.light : s.thumb.
               <div class="skin-meta">
                 <span class="skin-name">{s.name}</span>
                 <span class="skin-tag">{s.tagline || s.group}</span>
+                <div class="skin-cmd">
+                  <code>dsh plugin add ./dsh-themes/skins/{s.id}</code>
+                  <button type="button" class="cmd-copy" data-cmd={`dsh plugin add ./dsh-themes/skins/${s.id}`}>复制</button>
+                </div>
               </div>
             </div>
           ))}
@@ -91,6 +130,13 @@ const thumb = (s, kind) => `/skins/${kind === 'light' ? s.thumb.light : s.thumb.
   .skin-tag { display: block; font-size: 12px; color: var(--ink-2); margin-top: 3px; line-height: 1.4; }
   .skin-group h2 { font-size: 20px; }
   .callout { border: 1px solid var(--border); border-left: 3px solid var(--primary); background: var(--primary-soft); border-radius: 10px; padding: 12px 16px; margin: 18px 0 0; }
+  .skin-cmd { display: flex; align-items: center; gap: 6px; margin-top: 10px; }
+  .skin-cmd code { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11px; background: var(--bg-soft); border: 1px solid var(--border); border-radius: 7px; padding: 4px 8px; color: var(--ink-2); }
+  .skin-cmd button { flex: none; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 7px; background: #fff; border: 1px solid var(--border-strong); color: var(--ink-2); cursor: pointer; }
+  .skin-cmd button:hover { border-color: var(--primary); color: var(--primary-600); }
+  .shot-frame { position: relative; display: block; width: 100%; padding: 0; margin: 0; border: none; cursor: zoom-in; background: #0b0d14; line-height: 0; }
+  .shot-frame img { display: block; width: 100%; height: auto; aspect-ratio: 16/10; object-fit: cover; }
+  .shot-frame:hover img { filter: brightness(1.05); }
 </style>
 
 <script>
@@ -99,6 +145,15 @@ const thumb = (s, kind) => `/skins/${kind === 'light' ? s.thumb.light : s.thumb.
       btn.classList.toggle('is-night');
       const tag = btn.querySelector('.shot-tag');
       if (tag) tag.textContent = btn.classList.contains('is-night') ? tag.dataset.night : tag.dataset.day;
+    });
+  });
+
+  document.querySelectorAll('.cmd-copy').forEach((btn) => {
+    const label = btn.textContent;
+    btn.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(btn.getAttribute('data-cmd')); btn.textContent = '已复制!'; }
+      catch (e) { btn.textContent = '失败'; }
+      setTimeout(() => { btn.textContent = label; }, 1500);
     });
   });
 </script>

@@ -4,27 +4,27 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 const themesUrl = getRelativeLocaleUrl('zh', '/themes/');
 
 const skins = [
-  { name: 'QQ 2007', appearance: '浅色', chrome: 'flat' },
-  { name: 'QQ 2008 · 粉', appearance: '浅色', chrome: 'glass' },
-  { name: '初音未来', appearance: '浅色', chrome: 'neon' },
-  { name: '原神 · 蒙德', appearance: '浅色', chrome: 'glass' },
-  { name: '原神 · 璃月夜', appearance: '深色', chrome: 'neon' },
-  { name: '恋与深空 · 星海', appearance: '浅色', chrome: 'glass' },
-  { name: '恋与深空 · 星际', appearance: '深色', chrome: 'neon' },
-  { name: '火影 · 鸣人', appearance: '深色', chrome: 'glass' },
-  { name: '火影 · 佐助', appearance: '深色', chrome: 'neon' },
-  { name: '鸣潮 · 黑青', appearance: '深色', chrome: 'neon' },
-  { name: '鸣潮 · 深紫', appearance: '深色', chrome: 'glass' },
-  { name: '龙珠 · 筋斗云', appearance: '浅色', chrome: 'glass' },
-  { name: '龙珠 · 超赛', appearance: '浅色', chrome: 'neon' },
-  { name: '大佬 · 烟灰', appearance: '深色', chrome: 'glass' },
-  { name: 'DeepSeek 娘 · 深海', appearance: '深色', chrome: 'neon' },
-  { name: 'DeepSeek 娘 · Q 版', appearance: '浅色', chrome: 'glass' },
-  { name: 'DeepSeek 青春版', appearance: '浅色', chrome: 'glass' },
-  { name: '内测大佬', appearance: '深色', chrome: 'neon' },
-  { name: '别影响 AGI', appearance: '浅色', chrome: 'glass' },
-  { name: '峰哥骑鲸', appearance: '浅色', chrome: 'flat' },
-  { name: '梁圣 · 静音', appearance: '浅色', chrome: 'glass' },
+  { name: 'QQ 2007', appearance: '浅色', chrome: 'flat', source: 'QQ（腾讯）' },
+  { name: 'QQ 2008 · 粉', appearance: '浅色', chrome: 'glass', source: 'QQ（腾讯）' },
+  { name: '初音未来', appearance: '浅色', chrome: 'neon', source: '初音未来' },
+  { name: '原神 · 蒙德', appearance: '浅色', chrome: 'glass', source: '原神（米哈游）' },
+  { name: '原神 · 璃月夜', appearance: '深色', chrome: 'neon', source: '原神（米哈游）' },
+  { name: '恋与深空 · 星海', appearance: '浅色', chrome: 'glass', source: '恋与深空（叠纸）' },
+  { name: '恋与深空 · 星际', appearance: '深色', chrome: 'neon', source: '恋与深空（叠纸）' },
+  { name: '火影 · 鸣人', appearance: '深色', chrome: 'glass', source: '火影忍者' },
+  { name: '火影 · 佐助', appearance: '深色', chrome: 'neon', source: '火影忍者' },
+  { name: '鸣潮 · 黑青', appearance: '深色', chrome: 'neon', source: '鸣潮（库洛）' },
+  { name: '鸣潮 · 深紫', appearance: '深色', chrome: 'glass', source: '鸣潮（库洛）' },
+  { name: '龙珠 · 筋斗云', appearance: '浅色', chrome: 'glass', source: '龙珠' },
+  { name: '龙珠 · 超赛', appearance: '浅色', chrome: 'neon', source: '龙珠' },
+  { name: '大佬 · 烟灰', appearance: '深色', chrome: 'glass', source: '原创' },
+  { name: 'DeepSeek 娘 · 深海', appearance: '深色', chrome: 'neon', source: 'DeepSeek 娘（二创）' },
+  { name: 'DeepSeek 娘 · Q 版', appearance: '浅色', chrome: 'glass', source: 'DeepSeek 娘（二创）' },
+  { name: 'DeepSeek 青春版', appearance: '浅色', chrome: 'glass', source: 'DeepSeek 娘（二创）' },
+  { name: '内测大佬', appearance: '深色', chrome: 'neon', source: '原创' },
+  { name: '别影响 AGI', appearance: '浅色', chrome: 'glass', source: '原创' },
+  { name: '峰哥骑鲸', appearance: '浅色', chrome: 'flat', source: '原创' },
+  { name: '梁圣 · 静音', appearance: '浅色', chrome: 'glass', source: '原创' },
 ];
 
 const showcase = [
@@ -62,12 +62,17 @@ const darkCount = skins.filter((s) => s.appearance === '深色').length;
       </tbody>
     </table>
 
+    <figure class="shot shot-wide">
+      <img src="/skins/heige/skin-center.webp" alt="DeepSeek Harness 设置面板里的皮肤选择器" loading="lazy" data-lightbox="/skins/heige/skin-center.webp">
+      <figcaption>设置面板里的皮肤选择器（skin-center）</figcaption>
+    </figure>
+
     <h2 style="margin-top:36px">真机截图</h2>
     <div class="showcase">
       {showcase.map((s) => (
         <figure class="shot">
-          <img src={s.img} alt={`${s.name} 皮肤套到 DeepSeek Harness 上的效果`} loading="lazy">
-          <figcaption>{s.name}</figcaption>
+          <img src={s.img} alt={`${s.name} 皮肤套到 DeepSeek Harness 上的效果`} loading="lazy" data-lightbox={s.img}>
+          <figcaption>{s.name} <span class="zoom-hint">· 点击放大</span></figcaption>
         </figure>
       ))}
     </div>
@@ -75,10 +80,10 @@ const darkCount = skins.filter((s) => s.appearance === '深色').length;
     <h2 style="margin-top:36px">内置 {skins.length} 套皮肤</h2>
     <p>{lightCount} 款浅色 + {darkCount} 款深色，每套带 <code>flat</code> / <code>glass</code> / <code>neon</code> 三种边框风格。QQ 2007 和 QQ 2008 是纯配色皮肤（不带位图）；其余 19 套各配一张背景图。</p>
     <table class="ztable">
-      <thead><tr><th>#</th><th>皮肤</th><th>外观</th><th>边框</th></tr></thead>
+      <thead><tr><th>#</th><th>皮肤</th><th>IP / 来源</th><th>外观</th><th>边框</th></tr></thead>
       <tbody>
         {skins.map((s, i) => (
-          <tr><td>{i + 1}</td><td>{s.name}</td><td>{s.appearance}</td><td><code>{s.chrome}</code></td></tr>
+          <tr><td>{i + 1}</td><td>{s.name}</td><td>{s.source}</td><td>{s.appearance}</td><td><code>{s.chrome}</code></td></tr>
         ))}
       </tbody>
     </table>
@@ -86,8 +91,8 @@ const darkCount = skins.filter((s) => s.appearance === '深色').length;
     <h2 style="margin-top:36px">传一张图，生成整套配色</h2>
     <p>皮肤选择器第一项是<strong>「自定义（选图）」</strong>。丢一张 PNG/JPG/WebP 进去，自动提取主色、副色、底色、文字色，按画面明暗调蒙版浓度保证文字可读，并按内容哈希存到本机。原图不出本机。</p>
     <div class="custom-row">
-      <figure class="shot"><img src="/skins/heige/custom-picker.webp" alt="自定义皮肤选择器" loading="lazy"><figcaption>自定义选择器</figcaption></figure>
-      <figure class="shot"><img src="/skins/heige/custom.webp" alt="传图生成的整套皮肤效果" loading="lazy"><figcaption>一张图 → 整套配色</figcaption></figure>
+      <figure class="shot"><img src="/skins/heige/custom-picker.webp" alt="自定义皮肤选择器" loading="lazy" data-lightbox="/skins/heige/custom-picker.webp"><figcaption>自定义选择器 <span class="zoom-hint">· 点击放大</span></figcaption></figure>
+      <figure class="shot"><img src="/skins/heige/custom.webp" alt="传图生成的整套皮肤效果" loading="lazy" data-lightbox="/skins/heige/custom.webp"><figcaption>一张图 → 整套配色 <span class="zoom-hint">· 点击放大</span></figcaption></figure>
     </div>
 
     <h2 style="margin-top:36px">安装</h2>
@@ -107,6 +112,9 @@ cd /path/to/deepseek-harness &amp;&amp; pnpm install &amp;&amp; pnpm run build &
   .showcase { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; margin-top: 16px; }
   .custom-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 16px; }
   .shot { margin: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff; }
-  .shot img { display: block; width: 100%; height: auto; object-fit: cover; aspect-ratio: 4/3; }
+  .shot img { display: block; width: 100%; height: auto; object-fit: cover; aspect-ratio: 4/3; cursor: zoom-in; }
   .shot figcaption { padding: 9px 12px; font-size: 13px; color: var(--ink-2); }
+  .shot-wide { grid-column: 1 / -1; }
+  .shot-wide img { aspect-ratio: auto; max-height: 520px; object-fit: contain; background: #0b0d14; }
+  .zoom-hint { color: var(--muted); }
 </style>

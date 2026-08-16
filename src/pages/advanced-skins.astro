@@ -4,27 +4,27 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 const themesUrl = getRelativeLocaleUrl('en', '/themes/');
 
 const skins = [
-  { name: 'QQ 2007', en: 'QQ 2007', appearance: 'Light', chrome: 'flat' },
-  { name: 'QQ 2008 · 粉', en: 'QQ 2008 Pink', appearance: 'Light', chrome: 'glass' },
-  { name: '初音未来', en: 'Hatsune Miku', appearance: 'Light', chrome: 'neon' },
-  { name: '原神 · 蒙德', en: 'Genshin Mondstadt', appearance: 'Light', chrome: 'glass' },
-  { name: '原神 · 璃月夜', en: 'Genshin Liyue Night', appearance: 'Dark', chrome: 'neon' },
-  { name: '恋与深空 · 星海', en: 'Love and Deepspace Starlit', appearance: 'Light', chrome: 'glass' },
-  { name: '恋与深空 · 星际', en: 'Love and Deepspace Starfield', appearance: 'Dark', chrome: 'neon' },
-  { name: '火影 · 鸣人', en: 'Naruto Naruto', appearance: 'Dark', chrome: 'glass' },
-  { name: '火影 · 佐助', en: 'Naruto Sasuke', appearance: 'Dark', chrome: 'neon' },
-  { name: '鸣潮 · 黑青', en: 'Wuthering Waves Dark Cyan', appearance: 'Dark', chrome: 'neon' },
-  { name: '鸣潮 · 深紫', en: 'Wuthering Waves Deep Purple', appearance: 'Dark', chrome: 'glass' },
-  { name: '龙珠 · 筋斗云', en: 'Dragon Ball Nimbus', appearance: 'Light', chrome: 'glass' },
-  { name: '龙珠 · 超赛', en: 'Dragon Ball Super Saiyan', appearance: 'Light', chrome: 'neon' },
-  { name: '大佬 · 烟灰', en: 'Boss Ash Grey', appearance: 'Dark', chrome: 'glass' },
-  { name: 'DeepSeek 娘 · 深海', en: 'DeepSeek Girl Deep Sea', appearance: 'Dark', chrome: 'neon' },
-  { name: 'DeepSeek 娘 · Q 版', en: 'DeepSeek Girl Chibi', appearance: 'Light', chrome: 'glass' },
-  { name: 'DeepSeek 青春版', en: 'DeepSeek Youth', appearance: 'Light', chrome: 'glass' },
-  { name: '内测大佬', en: 'Beta Tester', appearance: 'Dark', chrome: 'neon' },
-  { name: '别影响 AGI', en: "Don't Disturb AGI", appearance: 'Light', chrome: 'glass' },
-  { name: '峰哥骑鲸', en: 'Fengge Riding Whale', appearance: 'Light', chrome: 'flat' },
-  { name: '梁圣 · 静音', en: 'Liang Sheng Mute', appearance: 'Light', chrome: 'glass' },
+  { name: 'QQ 2007', en: 'QQ 2007', appearance: 'Light', chrome: 'flat', source: 'QQ (Tencent)' },
+  { name: 'QQ 2008 · 粉', en: 'QQ 2008 Pink', appearance: 'Light', chrome: 'glass', source: 'QQ (Tencent)' },
+  { name: '初音未来', en: 'Hatsune Miku', appearance: 'Light', chrome: 'neon', source: 'Hatsune Miku' },
+  { name: '原神 · 蒙德', en: 'Genshin Mondstadt', appearance: 'Light', chrome: 'glass', source: 'Genshin (miHoYo)' },
+  { name: '原神 · 璃月夜', en: 'Genshin Liyue Night', appearance: 'Dark', chrome: 'neon', source: 'Genshin (miHoYo)' },
+  { name: '恋与深空 · 星海', en: 'Love and Deepspace Starlit', appearance: 'Light', chrome: 'glass', source: 'Love & Deepspace' },
+  { name: '恋与深空 · 星际', en: 'Love and Deepspace Starfield', appearance: 'Dark', chrome: 'neon', source: 'Love & Deepspace' },
+  { name: '火影 · 鸣人', en: 'Naruto Naruto', appearance: 'Dark', chrome: 'glass', source: 'Naruto' },
+  { name: '火影 · 佐助', en: 'Naruto Sasuke', appearance: 'Dark', chrome: 'neon', source: 'Naruto' },
+  { name: '鸣潮 · 黑青', en: 'Wuthering Waves Dark Cyan', appearance: 'Dark', chrome: 'neon', source: 'Wuthering Waves (Kuro)' },
+  { name: '鸣潮 · 深紫', en: 'Wuthering Waves Deep Purple', appearance: 'Dark', chrome: 'glass', source: 'Wuthering Waves (Kuro)' },
+  { name: '龙珠 · 筋斗云', en: 'Dragon Ball Nimbus', appearance: 'Light', chrome: 'glass', source: 'Dragon Ball' },
+  { name: '龙珠 · 超赛', en: 'Dragon Ball Super Saiyan', appearance: 'Light', chrome: 'neon', source: 'Dragon Ball' },
+  { name: '大佬 · 烟灰', en: 'Boss Ash Grey', appearance: 'Dark', chrome: 'glass', source: 'Original' },
+  { name: 'DeepSeek 娘 · 深海', en: 'DeepSeek Girl Deep Sea', appearance: 'Dark', chrome: 'neon', source: 'DeepSeek-tan' },
+  { name: 'DeepSeek 娘 · Q 版', en: 'DeepSeek Girl Chibi', appearance: 'Light', chrome: 'glass', source: 'DeepSeek-tan' },
+  { name: 'DeepSeek 青春版', en: 'DeepSeek Youth', appearance: 'Light', chrome: 'glass', source: 'DeepSeek-tan' },
+  { name: '内测大佬', en: 'Beta Tester', appearance: 'Dark', chrome: 'neon', source: 'Original' },
+  { name: '别影响 AGI', en: "Don't Disturb AGI", appearance: 'Light', chrome: 'glass', source: 'Original' },
+  { name: '峰哥骑鲸', en: 'Fengge Riding Whale', appearance: 'Light', chrome: 'flat', source: 'Original' },
+  { name: '梁圣 · 静音', en: 'Liang Sheng Mute', appearance: 'Light', chrome: 'glass', source: 'Original' },
 ];
 
 const showcase = [
@@ -62,12 +62,17 @@ const darkCount = skins.filter((s) => s.appearance === 'Dark').length;
       </tbody>
     </table>
 
+    <figure class="shot shot-wide">
+      <img src="/skins/heige/skin-center.webp" alt="The skin picker inside the DeepSeek Harness settings panel" loading="lazy" data-lightbox="/skins/heige/skin-center.webp">
+      <figcaption>The skin picker inside the settings panel (skin-center)</figcaption>
+    </figure>
+
     <h2 style="margin-top:36px">Showcase</h2>
     <div class="showcase">
       {showcase.map((s) => (
         <figure class="shot">
-          <img src={s.img} alt={`${s.name} skin applied to DeepSeek Harness`} loading="lazy">
-          <figcaption>{s.name}</figcaption>
+          <img src={s.img} alt={`${s.name} skin applied to DeepSeek Harness`} loading="lazy" data-lightbox={s.img}>
+          <figcaption>{s.name} <span class="zoom-hint">· click to enlarge</span></figcaption>
         </figure>
       ))}
     </div>
@@ -75,10 +80,10 @@ const darkCount = skins.filter((s) => s.appearance === 'Dark').length;
     <h2 style="margin-top:36px">The {skins.length} built-in skins</h2>
     <p>{lightCount} light + {darkCount} dark, each with a <code>flat</code> / <code>glass</code> / <code>neon</code> chrome style. QQ 2007 and QQ 2008 are pure-color skins (no bitmap); the other 19 each carry a background image.</p>
     <table class="ztable">
-      <thead><tr><th>#</th><th>Skin</th><th>Appearance</th><th>Chrome</th></tr></thead>
+      <thead><tr><th>#</th><th>Skin</th><th>IP / Source</th><th>Appearance</th><th>Chrome</th></tr></thead>
       <tbody>
         {skins.map((s, i) => (
-          <tr><td>{i + 1}</td><td>{s.name}</td><td>{s.appearance === 'Light' ? 'Light' : 'Dark'}</td><td><code>{s.chrome}</code></td></tr>
+          <tr><td>{i + 1}</td><td>{s.name}</td><td>{s.source}</td><td>{s.appearance === 'Light' ? 'Light' : 'Dark'}</td><td><code>{s.chrome}</code></td></tr>
         ))}
       </tbody>
     </table>
@@ -86,8 +91,8 @@ const darkCount = skins.filter((s) => s.appearance === 'Dark').length;
     <h2 style="margin-top:36px">Upload one image, get a whole theme</h2>
     <p>The picker's first entry is <strong>Custom (pick image)</strong>. Drop in a PNG/JPG/WebP and it derives the accent, secondary, surface and text colors, auto-tunes the mask so text stays readable, and stores the result locally by content hash. The original image never leaves your machine.</p>
     <div class="custom-row">
-      <figure class="shot"><img src="/skins/heige/custom-picker.webp" alt="Custom skin picker" loading="lazy"><figcaption>Custom picker</figcaption></figure>
-      <figure class="shot"><img src="/skins/heige/custom.webp" alt="Custom image-derived skin result" loading="lazy"><figcaption>One image → full theme</figcaption></figure>
+      <figure class="shot"><img src="/skins/heige/custom-picker.webp" alt="Custom skin picker" loading="lazy" data-lightbox="/skins/heige/custom-picker.webp"><figcaption>Custom picker <span class="zoom-hint">· click to enlarge</span></figcaption></figure>
+      <figure class="shot"><img src="/skins/heige/custom.webp" alt="Custom image-derived skin result" loading="lazy" data-lightbox="/skins/heige/custom.webp"><figcaption>One image → full theme <span class="zoom-hint">· click to enlarge</span></figcaption></figure>
     </div>
 
     <h2 style="margin-top:36px">Install</h2>
@@ -107,6 +112,9 @@ cd /path/to/deepseek-harness &amp;&amp; pnpm install &amp;&amp; pnpm run build &
   .showcase { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; margin-top: 16px; }
   .custom-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 16px; }
   .shot { margin: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff; }
-  .shot img { display: block; width: 100%; height: auto; object-fit: cover; aspect-ratio: 4/3; }
+  .shot img { display: block; width: 100%; height: auto; object-fit: cover; aspect-ratio: 4/3; cursor: zoom-in; }
   .shot figcaption { padding: 9px 12px; font-size: 13px; color: var(--ink-2); }
+  .shot-wide { grid-column: 1 / -1; }
+  .shot-wide img { aspect-ratio: auto; max-height: 520px; object-fit: contain; background: #0b0d14; }
+  .zoom-hint { color: var(--muted); }
 </style>
