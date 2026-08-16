@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import plugins from '../../data/plugins.json';
+import notes from '../../data/plugin-notes.json';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -23,6 +24,7 @@ export function getStaticPaths() {
 }
 
 const { cat, p } = Astro.props;
+const note = notes[p.name];
 const catId = cat.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 const dirUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
 const catUrl = `${dirUrl}#${catId}`;
@@ -97,6 +99,17 @@ const jsonLd = {
       <div><strong>Our take</strong><br/>{verdict.label}</div>
     </div>
     <p class="review-text">{review}</p>
+
+    {note && (
+      <Fragment>
+        <h2 style="margin-top:24px">When to use it</h2>
+        <p>{note.use}</p>
+        <h2>Who it's for</h2>
+        <p>{note.aud}</p>
+        <h2>For developers — extending it</h2>
+        <p>{note.dev}</p>
+      </Fragment>
+    )}
 
     {p.npm && p.pkg ? (
       <Fragment>

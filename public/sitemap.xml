@@ -18,6 +18,10 @@
   <url><loc>https://dshbase.com/zh/troubleshooting/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://dshbase.com/privacy/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://dshbase.com/zh/privacy/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://dshbase.com/about/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://dshbase.com/zh/about/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://dshbase.com/contact/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://dshbase.com/zh/contact/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://dshbase.com/blog/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://dshbase.com/zh/blog/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-web-ui/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -2258,8 +2262,12 @@
   <url><loc>https://dshbase.com/zh/blog/deepseek-harness-vs-codex/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/dsh-bug-report/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/blog/dsh-bug-report/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/blog/dsh-desktop-alternatives/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/zh/blog/dsh-desktop-alternatives/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/dsh-feature-requests/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/blog/dsh-feature-requests/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/blog/dsh-im-integration/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/zh/blog/dsh-im-integration/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/dsh-mcp/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/blog/dsh-mcp/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/dsh-memory-guide/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>

@@ -34,7 +34,8 @@ const L = {
     </div>
     <div class="foot-col">
       <b>{L.about}</b>
-      <a href="mailto:hello@dshbase.com">{L.contact}</a>
+      <a href={getRelativeLocaleUrl(locale, '/about/')}>{L.about}</a>
+      <a href={getRelativeLocaleUrl(locale, '/contact/')}>{L.contact}</a>
       <a href={getRelativeLocaleUrl(locale, '/privacy/')}>{L.privacy}</a>
     </div>
   </div>

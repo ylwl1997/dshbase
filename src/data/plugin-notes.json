@@ -1,0 +1,466 @@
+{
+  "dsh-anchored-standard": {
+    "use": "When you want a reproducible agent preset instead of a half-configured boot: a minimal bootstrap comes up fast and only expands into the full Standard tool set once the session is confirmed healthy.",
+    "aud": "Teams that standardize on one preset across many projects, and anyone who has hit a broken full-toolset boot and wants a safer two-stage startup.",
+    "dev": "It is a preset/configuration plugin, so the natural extension is authoring your own phase profiles or choosing exactly which tools belong in the bootstrap vs. the full stage.",
+    "use_zh": "当你想要一个可复现的 agent 预设、而不是半配置状态启动时：先用最小引导快速起来，确认会话健康后再展开完整的 Standard 工具集。",
+    "aud_zh": "需要在多个项目间统一一套预设的团队，以及那些被完整工具集启动失败坑过、想要更安全的两段式启动的人。",
+    "dev_zh": "它本质是个预设/配置插件，最自然的二次开发是写自己的阶段配置，或指定哪些工具放引导阶段、哪些放完整阶段。"
+  },
+  "modlens": {
+    "use": "Paste a screenshot, UI mockup, or error screen into a text-only model and let it actually see the pixels instead of guessing from alt text.",
+    "aud": "Anyone running a text-only coding model who still needs occasional visual understanding of screenshots, designs, and rendered pages.",
+    "dev": "The bridge between image and text is the interesting seam — you can add more vision backends, tune the downsampling, or add OCR passthrough for code screenshots.",
+    "use_zh": "把截图、UI 草图或报错界面丢给纯文本模型，让它真正看到像素，而不是靠 alt 文本猜。",
+    "aud_zh": "用纯文本编码模型、却偶尔需要理解截图/设计稿/渲染页面的人。",
+    "dev_zh": "图像到文本的桥是最好下手的缝——可以加更多视觉后端、调降采样，或给代码截图加 OCR 直通。"
+  },
+  "dsh-web-ui": {
+    "use": "Give the plain web UI project-management surfaces — a task board and a git panel — without leaving the browser tab.",
+    "aud": "Web-first users who treat DSH as their primary workspace and want planning plus source control side by side.",
+    "dev": "It is already a plugin-plus-skin collection, so panels are the extension point: each new panel slots into the same registry the task board and git panel use.",
+    "use_zh": "给朴素的 web UI 加上项目管理界面——任务看板和 git 面板，不用离开浏览器标签页。",
+    "aud_zh": "把 DSH 当主工作区的 web 用户，想要规划与源码管理并排。",
+    "dev_zh": "它本身已是插件+皮肤合集，面板就是扩展点：每个新面板都挂进任务板/git 面板共用的注册表。"
+  },
+  "DSH-better-sidebar": {
+    "use": "Turn DSH into a full workbench — file render/edit, an embedded terminal, Git, and sub-agents all in one sidebar instead of tab-hopping.",
+    "aud": "Heavy web-UI users who want editor, shell, and version control inside one pane, closest to an IDE-in-the-browser feel.",
+    "dev": "Third-party tab registration is the designed extension point — expose your own tool or view as a sidebar tab, or deepen the existing terminal and Git panels.",
+    "use_zh": "把 DSH 变成完整工作台——文件渲染/编辑、内嵌终端、Git、子 agent 全塞进一个侧栏，不用来回切标签。",
+    "aud_zh": "重度 web UI 用户，想要编辑器+终端+版本控制一个面板搞定，最接近浏览器里的 IDE 体验。",
+    "dev_zh": "第三方标签注册是设计好的扩展点——把你自己的工具或视图暴露成侧栏标签，或加深现有终端/Git 面板。"
+  },
+  "awesome-dsh-plugins": {
+    "use": "Find which plugins actually work today — the list carries daily compatibility tracking rather than a static name dump.",
+    "aud": "Anyone evaluating plugins who wants a living compatibility signal instead of a README that may be stale.",
+    "dev": "It is a curated directory with CI, so contribution means feeding compatibility results or correcting entries — not writing plugin code.",
+    "use_zh": "找出哪些插件今天真的能用——列表带每日兼容性跟踪，而不是静态的名字罗列。",
+    "aud_zh": "在选插件、想要一个活着的兼容信号而非可能过时的 README 的人。",
+    "dev_zh": "它是个带 CI 的精选目录，贡献方式是把兼容结果喂进去或纠正条目——而不是写插件代码。"
+  },
+  "dsh-deep-whale": {
+    "use": "Swap the whole DSH Web UI into a whale-girl themed look with one install, when you want the workspace to feel less like a tool.",
+    "aud": "Users who spend hours in the web UI and want a distinctive, cohesive visual identity rather than default chrome.",
+    "dev": "It is a skin series, so adding a new character or colorway means authoring another skin entry that follows the existing theme manifest.",
+    "use_zh": "一次安装就把整个 DSH Web UI 换成鲸娘主题，当你想让工作区不那么像工具的时候。",
+    "aud_zh": "在 web UI 里一待就是几小时、想要一套有辨识度的整体视觉而非默认外观的人。",
+    "dev_zh": "它是皮肤系列，加新角色或配色就是按现有主题清单再写一个皮肤条目。"
+  },
+  "dsh-cc-tui": {
+    "use": "Drive DSH from a full-screen terminal UI that mirrors the Claude Code workflow — status line, streaming thinking, and context progress.",
+    "aud": "Terminal-first developers who want dsh to behave like the CLI agents they already know, with zero browser involved.",
+    "dev": "The TUI layout (status line, thinking stream, progress) is where extensions live — add a new panel or a keybinding-driven workflow on top of it.",
+    "use_zh": "用全屏终端 UI 驱动 DSH，复刻 Claude Code 的工作流——状态栏、流式思考、上下文进度。",
+    "aud_zh": "终端优先、想让 dsh 表现得像他们熟悉的那类 CLI agent 的开发者，全程不碰浏览器。",
+    "dev_zh": "TUI 布局（状态栏、思考流、进度）就是扩展点——往上加面板或快捷键驱动的工作流。"
+  },
+  "awesome-deepseek-harness": {
+    "use": "Browse the ecosystem by category — plugins, tools, and infrastructure — when you need the map before installing anything.",
+    "aud": "Newcomers getting oriented and veterans checking what the ecosystem has added since they last looked.",
+    "dev": "It is a curation list; contribution is submitting or categorizing an entry, and keeping the infra/tools split clean.",
+    "use_zh": "按类别浏览生态——插件、工具、基础设施——在动手装任何东西前先看清地图。",
+    "aud_zh": "正在摸清方向的新手，和想看看生态最近又加了什么的老手。",
+    "dev_zh": "它是精选列表，贡献方式是提交或归类条目，并保持「基础设施/工具」的划分清晰。"
+  },
+  "dsh-agent-teams": {
+    "use": "Spin up a team of agents to split a large task across parallel workers, instead of one agent grinding through it serially.",
+    "aud": "Users with decomposable jobs — multi-file refactors, research sweeps, test batches — who want them done concurrently.",
+    "dev": "The team configuration and role assignment is the extension surface: define team shapes, handoff rules, and how agents share context.",
+    "use_zh": "拉起一组 agent 把大任务拆给并行 worker，而不是一个 agent 串行硬啃。",
+    "aud_zh": "任务可拆的人——多文件重构、调研扫射、测试批量——想要并发完成。",
+    "dev_zh": "团队配置与角色分配就是扩展面：定义团队形态、交接规则和 agent 之间如何共享上下文。"
+  },
+  "dsh-vision-toolkit": {
+    "use": "Give a text-only model intent-aware image Q&A and long-screenshot handling, so it can read UI states and error screens.",
+    "aud": "Users on text-only models who need vision for debugging UIs, reading charts, or parsing long screenshots.",
+    "dev": "Add task-specific vision tools — OCR, layout extraction, region cropping — as the model-facing capabilities grow.",
+    "use_zh": "给纯文本模型加上意图感知的图像问答和长截图处理，让它能读 UI 状态和报错界面。",
+    "aud_zh": "用纯文本模型、却需要视觉来调 UI、读图表或解析长截图的人。",
+    "dev_zh": "按任务加视觉工具——OCR、布局抽取、区域裁剪——作为面向模型的能力扩展。"
+  },
+  "dsh-at-file": {
+    "use": "Reference workspace files from the composer with @file mentions and have their contents attached, the way Codex does.",
+    "aud": "Developers who want to give the model precise file context without copy-pasting code into the prompt.",
+    "dev": "The mention source is the seam — extend it to symbols, docs, or issues so @ can pull in more than raw file text.",
+    "use_zh": "在输入框里用 @file 引用工作区文件并附上内容，就像 Codex 那样。",
+    "aud_zh": "想给模型精确文件上下文、又不想复制粘贴代码进提示词的开发者。",
+    "dev_zh": "mention 的源头就是扩展缝——延伸到符号、文档、issue，让 @ 能拉进的不只是原始文件文本。"
+  },
+  "oh-dsh": {
+    "use": "Get TUI, desktop, and Web UI from a single distribution with layered config, when you want one install to cover every interface.",
+    "aud": "Newcomers who don't want to assemble plugins themselves and would rather start from a curated whole.",
+    "dev": "It is a distribution, so extending it means adding or replacing the bundled components and keeping the layered config coherent.",
+    "use_zh": "从单一发行版拿到 TUI、桌面端、Web UI，带分层配置，一次安装覆盖所有界面。",
+    "aud_zh": "不想自己拼插件、宁可从一个精选整体开始的新手。",
+    "dev_zh": "它是发行版，扩展意味着增删内嵌组件，并保持分层配置自洽。"
+  },
+  "whale-girl": {
+    "use": "Put a floating, draggable desktop pet in the corner of the web UI that you can feed and poke, purely for company.",
+    "aud": "Anyone who wants the workspace to have a bit of personality while long tasks run.",
+    "dev": "The animation and interaction model is the fun part to extend — new reactions, feeding mechanics, or idle behaviors.",
+    "use_zh": "在 web UI 角落放一只可拖动、可喂食的桌面宠物，纯属陪伴。",
+    "aud_zh": "想让工作区在长任务运行时有点个性的人。",
+    "dev_zh": "动画和交互模型是最有得玩的扩展点——新反应、喂食机制、待机行为。"
+  },
+  "dsh-browser": {
+    "use": "Let the agent drive a real Chrome window from a sidebar extension, so it can browse, click, and inspect pages itself.",
+    "aud": "Users who want browser automation — scraping, UI testing, web research — done by the agent rather than a separate script.",
+    "dev": "Expose more browser actions (form fill, downloads, tab management) as tool calls the model can invoke.",
+    "use_zh": "让 agent 通过侧栏扩展驱动真实 Chrome 窗口，自己去浏览、点击、检查页面。",
+    "aud_zh": "想要浏览器自动化——抓取、UI 测试、网页调研——交给 agent 而非另写脚本的人。",
+    "dev_zh": "把更多浏览器动作（填表、下载、标签管理）暴露成模型可调用的工具。"
+  },
+  "oh-dsh-desktop": {
+    "use": "Run DSH as a native macOS workbench with a real PTY, for the people who want an app window rather than a browser tab.",
+    "aud": "macOS users who prefer a native feel and need a proper terminal emulator inside their DSH workspace.",
+    "dev": "Native integration is the extension point — menus, shortcuts, system events, and deeper PTY handling.",
+    "use_zh": "把 DSH 当作带真 PTY 的原生 macOS 工作台运行，给那些想要应用窗口而非浏览器标签的人。",
+    "aud_zh": "偏爱原生体验、需要在 DSH 工作区里塞进一个正经终端模拟器的 macOS 用户。",
+    "dev_zh": "原生集成是扩展点——菜单、快捷键、系统事件、更深的 PTY 处理。"
+  },
+  "dsh-visualize": {
+    "use": "Render interactive HTML cards inside chat — charts, tables, forms — so the agent can answer with a UI instead of a wall of text.",
+    "aud": "Users who want the model's output as live, clickable artifacts for data, config, or decision views.",
+    "dev": "Add card types to the component library — new chart styles, form widgets, or mermaid variants the model can emit.",
+    "use_zh": "在聊天里渲染交互式 HTML 卡片——图表、表格、表单——让 agent 用 UI 而非一屏文字作答。",
+    "aud_zh": "想让模型输出变成可交互物件的用户，用于数据、配置或决策视图。",
+    "dev_zh": "往组件库加卡片类型——新图表样式、表单控件、或模型能生成的 mermaid 变体。"
+  },
+  "dsh-launcher": {
+    "use": "Launch DSH as a WebView2 desktop app on Windows, giving the web UI a start-menu icon and its own window.",
+    "aud": "Windows users who want the convenience of an installed app without losing the web UI's features.",
+    "dev": "Wrap more of the desktop lifecycle — auto-update, single-instance, tray behavior — around the WebView2 shell.",
+    "use_zh": "在 Windows 上以 WebView2 桌面应用方式启动 DSH，给 web UI 一个开始菜单图标和自己的窗口。",
+    "aud_zh": "想要已安装应用般的便利、又不丢 web UI 特性的 Windows 用户。",
+    "dev_zh": "把更多桌面生命周期——自动更新、单实例、托盘行为——包进 WebView2 壳。"
+  },
+  "modsearch": {
+    "use": "Give the agent a live web search tool so it can pull current information instead of answering from stale training data.",
+    "aud": "Users who need the model to answer questions about recent events, docs, or packages.",
+    "dev": "Swap or add search providers and tune result shaping — ranking, dedupe, and snippet extraction.",
+    "use_zh": "给 agent 一个实时联网搜索工具，让它拉取最新信息而不是靠过时训练数据作答。",
+    "aud_zh": "需要模型回答近期事件、文档或包相关问题的人。",
+    "dev_zh": "换或加搜索提供方，并调结果整形——排序、去重、摘要抽取。"
+  },
+  "dsh-tianshu-tui": {
+    "use": "Run DSH in the terminal with TDD and evidence-gate workflows baked in, so tests must pass before the task is considered done.",
+    "aud": "Developers who want discipline built into the loop — test-driven changes with explicit gates.",
+    "dev": "Add new gate types and workflow steps — lint gates, coverage gates — on top of the TDD/evidence loop.",
+    "use_zh": "在终端跑 DSH，内建 TDD 和证据门工作流，测试必须过才算任务完成。",
+    "aud_zh": "想要纪律内置进循环的开发者——测试驱动的改动加显式门槛。",
+    "dev_zh": "加新的门类型和工作流步骤——lint 门、覆盖率门——叠加在 TDD/证据循环之上。"
+  },
+  "dsh-memory-evolve": {
+    "use": "Keep long-term memory across sessions and let it self-evolve in the background, so the agent remembers projects and preferences.",
+    "aud": "Users running long-lived projects who are tired of re-explaining context every session.",
+    "dev": "The memory strategy is the seam — different consolidation triggers, forgetting policies, or cross-project memory sharing.",
+    "use_zh": "跨会话保持长期记忆并在后台自我进化，让 agent 记住项目和偏好。",
+    "aud_zh": "跑长周期项目、厌倦每会话重讲一遍上下文的人。",
+    "dev_zh": "记忆策略就是缝——不同的整合触发器、遗忘策略、或跨项目记忆共享。"
+  },
+  "dsh-noema": {
+    "use": "Give the agent durable, inspectable memory with recall tools and a settings page, so what it learns is human-auditable.",
+    "aud": "Users who want memory they can open up and read, not a black box that silently drifts.",
+    "dev": "The memory backend and recall API are the extension points — plug in vector stores or add inspection tools.",
+    "use_zh": "给 agent 持久、可检查的记忆，带召回工具和设置页，学到的东西人能审计。",
+    "aud_zh": "想要能打开读的记忆、而非默默漂移的黑盒的人。",
+    "dev_zh": "记忆后端和召回 API 是扩展点——插向量存储或加检查工具。"
+  },
+  "dsh_workflow": {
+    "use": "Bring Claude Code's UltraCode mode to DSH — turn one-off multi-agent scheduling into a generatable, savable workflow.",
+    "aud": "Users who orchestrate many agents repeatedly and want the plan captured as a reusable artifact instead of re-prompting.",
+    "dev": "Add workflow templates and save/load primitives so generated plans become a library the team shares.",
+    "use_zh": "把 Claude Code 的 UltraCode 模式带进 DSH——把一次性多 agent 调度变成可生成、可保存的工作流。",
+    "aud_zh": "反复编排多个 agent、想把计划沉淀成可复用产物而非重新提示的人。",
+    "dev_zh": "加工作流模板和存取原语，让生成的计划变成团队共享的库。"
+  },
+  "dsh-auto-mode": {
+    "use": "Let DSH auto-approve safe permissions so long-running tasks don't stall on confirmation prompts.",
+    "aud": "Users running unattended or batch work who trust the agent to make routine calls without babysitting.",
+    "dev": "The permission policy is the seam — add allow/deny rules, scoping, and audit logging for what got auto-approved.",
+    "use_zh": "让 DSH 自动批准安全权限，长任务不会卡在确认弹窗。",
+    "aud_zh": "跑无人值守或批量任务、相信 agent 能自己做常规调用的人。",
+    "dev_zh": "权限策略就是缝——加允许/拒绝规则、作用域，和自动批准了什么的审计日志。"
+  },
+  "dsh-turn-rewind": {
+    "use": "Rewind both the conversation and the workspace state through a persistent change ledger, to undo a bad step cleanly.",
+    "aud": "Users who experiment aggressively and want a reliable undo for both chat and files.",
+    "dev": "The change ledger is the extension point — add finer-grained snapshots or selective rewind of files vs. messages.",
+    "use_zh": "通过持久变更账本回滚对话和工作区状态，干净地撤销一步错棋。",
+    "aud_zh": "大胆试错、想要聊天和文件都有可靠撤销的人。",
+    "dev_zh": "变更账本是扩展点——加更细粒度的快照，或对文件/消息选择性回滚。"
+  },
+  "dsh-annotation": {
+    "use": "Select and annotate text in the web UI, then send it along with your message for precise, quoted references.",
+    "aud": "Users who reference exact passages — code, docs, prior messages — and want the model to see the highlighted slice.",
+    "dev": "Annotation types and how they're surfaced to the model are the seam — add comment threads or link annotations.",
+    "use_zh": "在 web UI 里选中并标注文本，随消息一起发出，做精确的带引用参考。",
+    "aud_zh": "要引用精确段落——代码、文档、旧消息——并想让模型看到高亮片段的人。",
+    "dev_zh": "标注类型及其呈现给模型的方式就是缝——加评论线程或链接标注。"
+  },
+  "dsh-toy": {
+    "use": "Control physical or robotic toys through the Toy Control Protocol, turning the agent into a hands-on automation bridge.",
+    "aud": "Hardware tinkerers who want the agent to drive real devices, from servos to toy robots.",
+    "dev": "Device drivers are the extension point — map new toy protocols and actuators into the control layer.",
+    "use_zh": "通过 Toy Control Protocol 控制实体或机器人玩具，把 agent 变成动手自动化的桥。",
+    "aud_zh": "想用 agent 驱动真实设备、从舵机到玩具机器人的硬件玩家。",
+    "dev_zh": "设备驱动是扩展点——把新的玩具协议和执行器映射进控制层。"
+  },
+  "anysearch-dsh": {
+    "use": "Give the agent a configurable search provider with advanced tools, so you pick the backend and the query shaping.",
+    "aud": "Users with a preferred search API or who need finer control over how results are fetched and ranked.",
+    "dev": "Add providers and customize query preprocessing — the adapter layer is meant to be swapped.",
+    "use_zh": "给 agent 一个可配置的搜索提供方加高级工具，让你选后端和查询整形。",
+    "aud_zh": "有偏好的搜索 API、或需要对结果抓取与排序做精细控制的人。",
+    "dev_zh": "加提供方、自定义查询预处理——适配层就是设计来换的。"
+  },
+  "dsh-notification": {
+    "use": "Get a desktop notification when a turn completes, with per-outcome controls and keyword include/exclude filters.",
+    "aud": "Users who kick off long tasks and switch away, wanting a ping only when something worth looking at happens.",
+    "dev": "Notification channels and trigger rules are the seam — add sound, mobile push, or richer filtering.",
+    "use_zh": "回合完成时收到桌面通知，带按结果的控制和关键词包含/排除过滤。",
+    "aud_zh": "启动长任务就切走、只想在有值得看的结果时才被提醒的人。",
+    "dev_zh": "通知通道和触发规则是缝——加声音、手机推送或更丰富的过滤。"
+  },
+  "dsh-genui": {
+    "use": "Render interactive UI components — layout, charts, plots, forms, quizzes, mermaid — directly in chat output.",
+    "aud": "Users who want the model to produce working widgets for data visualization or structured input capture.",
+    "dev": "Extend the component library — new chart types, form controls, or diagram renderers the model can target.",
+    "use_zh": "在聊天输出里直接渲染交互式 UI 组件——布局、图表、绘图、表单、测验、mermaid。",
+    "aud_zh": "想让模型产出可用控件，用于数据可视化或结构化输入采集的人。",
+    "dev_zh": "扩展组件库——新图表类型、表单控件或模型可指向的图表渲染器。"
+  },
+  "dsh-open-in-vscode": {
+    "use": "Jump from the web GUI straight into VS Code at the current workspace directory, one click from chat to editor.",
+    "aud": "Users who browse and chat in the web UI but do their real editing in VS Code.",
+    "dev": "Generalize the open-in-editor bridge to other editors and IDE remote protocols.",
+    "use_zh": "从 web GUI 一键跳进 VS Code 的当前工作区目录，从聊天到编辑器一步到位。",
+    "aud_zh": "在 web UI 里浏览聊天、却真正在 VS Code 里编辑的人。",
+    "dev_zh": "把 open-in-editor 桥泛化到其他编辑器和 IDE 远程协议。"
+  },
+  "dsh-automation": {
+    "use": "Schedule coding tasks to run in fresh agent sessions on a timer, so routine jobs happen without you starting them.",
+    "aud": "Users with recurring work — nightly tests, periodic refreshes — who want it cron-style and hands-off.",
+    "dev": "Schedule triggers and session templates are the seam — add event-driven or file-watch triggers.",
+    "use_zh": "定时在全新 agent 会话里跑编码任务，让例行工作不用你亲手启动。",
+    "aud_zh": "有周期性任务——每晚测试、定时刷新——想 cron 式无人值守的人。",
+    "dev_zh": "调度触发器和会话模板是缝——加事件驱动或文件监听触发。"
+  },
+  "dsh-vision": {
+    "use": "Add near-native image understanding to the agent so it can read diagrams, screenshots, and layouts inline.",
+    "aud": "Users who frequently hand the model visual input and want it handled natively rather than through a text bridge.",
+    "dev": "The vision model integration and image preprocessing are the seams — tune resolution, crop, and model routing.",
+    "use_zh": "给 agent 加近乎原生的图像理解，让它内联读取图表、截图和布局。",
+    "aud_zh": "频繁给模型视觉输入、想原生处理而非走文本桥的人。",
+    "dev_zh": "视觉模型集成和图像预处理是缝——调分辨率、裁剪、模型路由。"
+  },
+  "dsh-skill-viewer": {
+    "use": "Manage skills from a settings section in the web UI — enable, disable, delete, and add without touching config files.",
+    "aud": "Users who tweak skills often and would rather click than edit profile files by hand.",
+    "dev": "Skill metadata and hot-reload are the seam — expose skill schemas, dependencies, and descriptions in the UI.",
+    "use_zh": "在 web UI 的设置区管理技能——启用、禁用、删除、添加，不用碰配置文件。",
+    "aud_zh": "经常调技能、宁愿点几下也不手改 profile 文件的人。",
+    "dev_zh": "技能元数据和热重载是缝——在 UI 里暴露技能 schema、依赖和描述。"
+  },
+  "dsh-usage-stats": {
+    "use": "See a token-usage heatmap, per-model breakdown, and your DeepSeek account balance right in the web GUI.",
+    "aud": "Users watching costs who want to know which sessions and models are burning budget.",
+    "dev": "Add metrics — latency, cache hit rate, per-session cost — to the analytics surface.",
+    "use_zh": "在 web GUI 里直接看 token 用量热力图、按模型拆分和 DeepSeek 账户余额。",
+    "aud_zh": "盯成本、想知道哪些会话和模型在烧钱的人。",
+    "dev_zh": "加指标——延迟、缓存命中率、每会话成本——到分析面上。"
+  },
+  "superpowers-dsh": {
+    "use": "Get a skill pack for TDD, debugging, planning, and collaboration, ported from the obra/superpowers collection.",
+    "aud": "Developers who want proven workflow skills — red-green-refactor, systematic debugging — without authoring them from scratch.",
+    "dev": "Port more skills from the upstream collection and adapt them to dsh's tool surface.",
+    "use_zh": "拿到 TDD、调试、规划、协作的技能包，移植自 obra/superpowers 合集。",
+    "aud_zh": "想要成熟工作流技能——红绿重构、系统化调试——又不想从零写的开发者。",
+    "dev_zh": "从上游合集移植更多技能，并适配 dsh 的工具面。"
+  },
+  "dsh-cost-meter": {
+    "use": "Track session cost inline so you know what a conversation is costing before the bill arrives.",
+    "aud": "Users on paid DeepSeek plans who want per-session spend visibility without leaving the UI.",
+    "dev": "Add billing and budget integration — alerts, per-project caps, and cost forecasting.",
+    "use_zh": "内联跟踪会话成本，让账单来之前你就知道这次对话花了多少。",
+    "aud_zh": "用付费 DeepSeek 套餐、想不离开 UI 就看到每会话开销的人。",
+    "dev_zh": "加账单和预算集成——告警、按项目上限、成本预测。"
+  },
+  "dsh-mnemon": {
+    "use": "Integrate Mnemon for a complete local memory system — runtime memory, retrievable archives, and a query interface.",
+    "aud": "Users who want a serious, local-first memory stack rather than a thin recall hack.",
+    "dev": "The memory provider and retrieval query layer are the seams — plug new backends or richer recall strategies.",
+    "use_zh": "集成 Mnemon 得到完整本地记忆系统——运行时记忆、可检索档案、查询接口。",
+    "aud_zh": "想要一套正经的本地优先记忆栈、而非薄召回 hack 的人。",
+    "dev_zh": "记忆提供方和检索查询层是缝——插新后端或更丰富的召回策略。"
+  },
+  "plugin-manager": {
+    "use": "Browse, search, and one-click install plugins from a store inside the web UI, with compat badges and an installed list.",
+    "aud": "Users who want plugin discovery and management without the CLI.",
+    "dev": "The store backend and badge logic are the seams — add update checks, categories, and richer compatibility signals.",
+    "use_zh": "在 web UI 内的商店里浏览、搜索、一键安装插件，带兼容徽章和已装列表。",
+    "aud_zh": "想不碰 CLI 就发现和管理插件的人。",
+    "dev_zh": "商店后端和徽章逻辑是缝——加更新检查、分类和更丰富的兼容信号。"
+  },
+  "plugin-session-export": {
+    "use": "Export a session log to Markdown or HTML, grouped by source, to share, archive, or review a conversation.",
+    "aud": "Users who document what the agent did or need to hand a session to a human for review.",
+    "dev": "Add export formats and grouping rules — PDF, JSON, or per-turn diffs.",
+    "use_zh": "把会话日志导出成 Markdown 或 HTML，按来源分组，用来分享、归档或复盘对话。",
+    "aud_zh": "要记录 agent 做了什么、或把会话交给人来审的人。",
+    "dev_zh": "加导出格式和分组规则——PDF、JSON、或按轮次的 diff。"
+  },
+  "plugin-notify": {
+    "use": "Push completion notifications to IM webhooks — Feishu, WeCom, DingTalk, Slack, Discord — plus local alerts.",
+    "aud": "Users who work away from the terminal and want the agent to reach them on the chat apps they already watch.",
+    "dev": "Add IM channels and message templating — the webhook adapter layer is the natural extension point.",
+    "use_zh": "把完成通知推到 IM webhook——飞书、企微、钉钉、Slack、Discord——外加本地提醒。",
+    "aud_zh": "不守在终端前、想让 agent 通过自己本来就在看的聊天软件找人的人。",
+    "dev_zh": "加 IM 通道和消息模板——webhook 适配层是天然扩展点。"
+  },
+  "dsh-model-router": {
+    "use": "Route prompts across models with heuristic tier routing and failure fallback, optimizing cost without manual switching.",
+    "aud": "Users juggling multiple models who want cheap models for easy calls and premium ones only when needed.",
+    "dev": "Routing heuristics and fallback chains are the seams — add per-task routing rules and cost budgets.",
+    "use_zh": "用启发式分层路由和失败回退在模型间转发，优化成本而不用手动切换。",
+    "aud_zh": "同时用好几个模型、想简单调用用便宜模型、必要时才上贵模型的人。",
+    "dev_zh": "路由启发式和回退链是缝——加按任务的路由规则和成本预算。"
+  },
+  "dsh-lark": {
+    "use": "Drive agents from Feishu/Lark — chat in Feishu, and replies and approvals come back as messages.",
+    "aud": "Users who live in Feishu and want their agent reachable inside the app they use for work.",
+    "dev": "The message handling and approval flow are the seams — add interactive cards, threads, and richer commands.",
+    "use_zh": "从飞书/Lark 驱动 agent——在飞书里聊天，回复和审批以消息形式回来。",
+    "aud_zh": "日常在飞书、想让 agent 在办公软件里触达的人。",
+    "dev_zh": "消息处理和审批流是缝——加交互式卡片、线程和更丰富的命令。"
+  },
+  "dsh-custom-tool": {
+    "use": "Create and manage sandboxed JavaScript tools with a Monaco editor, so the model can call functions you define.",
+    "aud": "Users who want to extend the agent's capabilities with their own logic without building a full plugin.",
+    "dev": "The sandboxed JS runtime is the seam — add permissions, npm deps, and richer tool schemas.",
+    "use_zh": "用 Monaco 编辑器创建和管理沙箱化的 JS 工具，让模型能调用你定义的函数。",
+    "aud_zh": "想用自己的逻辑扩展 agent 能力、又不想写完整插件的人。",
+    "dev_zh": "沙箱 JS 运行时是缝——加权限、npm 依赖和更丰富的工具 schema。"
+  },
+  "dsh-catppuccin": {
+    "use": "Switch the whole web UI between Catppuccin's four flavors — Latte, Frappé, Macchiato, Mocha — in one click.",
+    "aud": "Fans of the Catppuccin palette who want their terminal and DSH UI to match.",
+    "dev": "Add the remaining Catppuccin accents and sync the palette tokens with upstream theme updates.",
+    "use_zh": "在 Catppuccin 四种风味——Latte、Frappé、Macchiato、Mocha——之间一键切换整个 web UI。",
+    "aud_zh": "喜欢 Catppuccin 配色、想让终端和 DSH UI 统一的人。",
+    "dev_zh": "补齐剩余的 Catppuccin 强调色，并随上游主题更新同步色板 token。"
+  },
+  "dsh-themes": {
+    "use": "Apply any of 151 day/night skins, import Open VSX themes, or tweak colors in a built-in editor.",
+    "aud": "Users who want deep control over appearance — from one-click skins to hand-tuned palettes.",
+    "dev": "The skin manifest and color editor are the seams — author new skins, or add Open VSX theme import formats.",
+    "use_zh": "套用 151 款昼夜皮肤、导入 Open VSX 主题，或在内置编辑器里调颜色。",
+    "aud_zh": "想深度控制外观——从一键皮肤到手调配色——的人。",
+    "dev_zh": "皮肤清单和颜色编辑器是缝——写新皮肤，或加 Open VSX 主题导入格式。"
+  },
+  "dsh-message-edit": {
+    "use": "Edit or reroll a message and keep a version timeline, so you can branch a conversation instead of living with a mistake.",
+    "aud": "Users who iterate on prompts and want to compare alternate continuations from the same point.",
+    "dev": "Versioning and branching are the seams — add named branches, merge, and richer diff views.",
+    "use_zh": "编辑或重掷一条消息并保留版本时间线，让对话可以分支而不是将错就错。",
+    "aud_zh": "反复打磨提示词、想从同一点对比不同续写的人。",
+    "dev_zh": "版本与分支是缝——加命名分支、合并和更丰富的 diff 视图。"
+  },
+  "dsh-prompt-stash": {
+    "use": "Stash and reuse prompts across sessions so your best system prompts and workflows don't get retyped.",
+    "aud": "Users with a stable set of prompts who want a personal prompt library inside the session flow.",
+    "dev": "Prompt sync, tagging, and templating are the seams — add variables and shared team prompt banks.",
+    "use_zh": "跨会话收藏并复用提示词，让你最好的系统提示词和工作流不用重打。",
+    "aud_zh": "有一批稳定提示词、想在会话流里内置个人提示词库的人。",
+    "dev_zh": "提示词同步、打标签、模板化是缝——加变量和团队共享提示词库。"
+  },
+  "dsh4vscode": {
+    "use": "Open DSH chat windows inside VS Code with independent sessions and model auto-routing, so the agent lives in your editor.",
+    "aud": "VS Code-centric developers who want DSH conversations side-by-side with code, not in a separate tab.",
+    "dev": "Editor integration is the seam — context from the open file, selection, and diagnostics into the chat window.",
+    "use_zh": "在 VS Code 内打开 DSH 聊天窗口，带独立会话和模型自动路由，让 agent 住进你的编辑器。",
+    "aud_zh": "以 VS Code 为中心的开发者，想让 DSH 对话与代码并排、而不是另开标签。",
+    "dev_zh": "编辑器集成是缝——把打开的文件、选中内容、诊断信息带进聊天窗口。"
+  },
+  "dsh-desktop-electron": {
+    "use": "Run DSH as a tray-resident Electron app on Windows, macOS, and Linux, so it stays available without a browser open.",
+    "aud": "Users who want a real desktop app with a system-tray presence rather than a tab they might close.",
+    "dev": "Native shell features are the seam — global shortcuts, auto-launch, notifications, and single-instance locking.",
+    "use_zh": "在 Windows、macOS、Linux 上以常驻托盘的 Electron 应用运行 DSH，不用开浏览器也一直在。",
+    "aud_zh": "想要真正的桌面应用带托盘驻留、而非一个可能被关掉的标签的人。",
+    "dev_zh": "原生壳特性是缝——全局快捷键、开机自启、通知、单实例锁。"
+  },
+  "dsh-adapter-feishu": {
+    "use": "Receive and send messages in Feishu over a long-connection WebSocket, so you can run a bot with no public IP.",
+    "aud": "Users behind NAT or a home network who want a Feishu bot without exposing a server to the internet.",
+    "dev": "Event handling and reply shaping are the seams — add interactive cards, buttons, and multi-user routing.",
+    "use_zh": "通过长连接 WebSocket 在飞书收发消息，不用公网 IP 就能跑机器人。",
+    "aud_zh": "在 NAT 或家庭网络后面、想让飞书机器人不暴露公网服务器的人。",
+    "dev_zh": "事件处理和回复整形是缝——加交互式卡片、按钮和多用户路由。"
+  },
+  "dsh-workspace-mcp": {
+    "use": "Load MCP servers per project from a .dsh/mcp.servers.yml file, auto-loading and unloading as you move between workspaces.",
+    "aud": "Users with project-specific external tools who want them scoped to a directory, not globally bleeding across sessions.",
+    "dev": "The YAML schema and server launcher are the seams — add server types, env injection, and health checks.",
+    "use_zh": "从 .dsh/mcp.servers.yml 按项目加载 MCP server，切换工作区时自动加载/卸载。",
+    "aud_zh": "有项目专属外部工具、想让它们限定在某个目录而非全局串会话的人。",
+    "dev_zh": "YAML schema 和 server 启动器是缝——加 server 类型、环境注入和健康检查。"
+  },
+  "dsh-im-hub": {
+    "use": "Run one agent per chat across Feishu, WeCom, and Telegram from a single gateway, keeping each chat isolated.",
+    "aud": "Users who want the same agent reachable from multiple chat apps without running a bridge per platform.",
+    "dev": "Add platform adapters and per-chat routing — the gateway is designed to fan out to new IMs.",
+    "use_zh": "从单一网关在飞书、企微、Telegram 上每个聊天跑一个 agent，各聊天相互隔离。",
+    "aud_zh": "想让同一个 agent 从多个聊天软件触达、又不想每个平台各跑一个桥的人。",
+    "dev_zh": "加平台适配器和按聊天路由——网关本就设计成扇出到新 IM。"
+  },
+  "dsh-doctor": {
+    "use": "Run an offline diagnostic CLI with 19 checks on profile, env, and session state before you boot or install.",
+    "aud": "Users debugging a broken install who want a checklist that pinpoints the failure instead of guessing.",
+    "dev": "Add checks for more failure modes — network, model auth, plugin conflicts — to grow the diagnostic surface.",
+    "use_zh": "在启动或安装前跑一个离线诊断 CLI，对 profile、环境、会话状态做 19 项检查。",
+    "aud_zh": "排查坏安装、想要一份定位失败原因的清单而非瞎猜的人。",
+    "dev_zh": "为更多故障模式加检查——网络、模型鉴权、插件冲突——扩大诊断面。"
+  },
+  "dsh-cowork": {
+    "use": "Read and write office docs and notebooks via doc_read/doc_write tools — xlsx, pdf, docx, pptx, ipynb.",
+    "aud": "Users whose work involves office files or notebooks and want the agent to read and produce them directly.",
+    "dev": "Add file formats and richer read/write semantics — charts, tables, and formatting round-trips.",
+    "use_zh": "通过 doc_read/doc_write 读写办公文档和笔记本——xlsx、pdf、docx、pptx、ipynb。",
+    "aud_zh": "工作涉及办公文件或笔记本、想让 agent 直接读和生成它们的人。",
+    "dev_zh": "加文件格式和更丰富的读写语义——图表、表格、格式往返。"
+  },
+  "dsh-vision-primitives": {
+    "use": "Do precise visual grounding with a Set-of-Mark numbered grid overlay, all natively with zero external MCP.",
+    "aud": "Users who need the model to point at exact screen regions — clicking, locating elements, precise QA.",
+    "dev": "The grounding algorithm and grid overlay are the seams — add object detection, OCR anchors, and finer grids.",
+    "use_zh": "用 Set-of-Mark 编号网格叠加做精确视觉定位，全程原生、零外部 MCP。",
+    "aud_zh": "需要模型精确指向屏幕区域——点击、定位元素、精细 QA——的人。",
+    "dev_zh": "定位算法和网格叠加是缝——加目标检测、OCR 锚点和更细网格。"
+  },
+  "dsh-memory": {
+    "use": "Get cited memory over dsh's lossless session log — distilled facts that link back to the exact source message.",
+    "aud": "Users who want the agent to remember, but with every memory traceable to where it came from.",
+    "dev": "Distillation and citation are the seams — tune what gets distilled and how facts cluster across sessions.",
+    "use_zh": "在 dsh 无损会话日志上做带引用的记忆——蒸馏出可追溯到原始消息的事实。",
+    "aud_zh": "想要 agent 记住、但每条记忆都能溯源到出处的人。",
+    "dev_zh": "蒸馏和引用是缝——调什么被蒸馏、事实如何跨会话聚类。"
+  },
+  "dsh-notify": {
+    "use": "Get task-completion notifications via ServerChan, DingTalk, Feishu, or generic webhooks when a job finishes.",
+    "aud": "Users running batch or long tasks who want completion pings on channels they already monitor.",
+    "dev": "Add webhook channels and payload templating — the notifier's channel list is meant to grow.",
+    "use_zh": "任务完成时通过 ServerChan、钉钉、飞书或通用 webhook 收到通知。",
+    "aud_zh": "跑批量或长任务、想在自己本来就在监控的通道收到完成提醒的人。",
+    "dev_zh": "加 webhook 通道和载荷模板——通知器的通道列表本就该扩展。"
+  },
+  "noatmark-dsh-plugin": {
+    "use": "Sanitize untrusted text, scan for invisible characters, clean LLM formatting, and escape CSV — hygiene before content touches the model.",
+    "aud": "Users who paste text from the web or untrusted sources and want zero-width/invisible-character attacks caught first.",
+    "dev": "Add hygiene rules and detectors — new invisible-character ranges, formatting normalizers, and sanitizer presets.",
+    "use_zh": "净化不可信文本、扫描隐形字符、清理 LLM 格式、转义 CSV——让内容进模型前先做卫生。",
+    "aud_zh": "会从网页或不可信来源粘贴文本、想先拦下零宽/隐形字符攻击的人。",
+    "dev_zh": "加卫生规则和检测器——新的隐形字符区间、格式归一化器和净化预设。"
+  }
+}
