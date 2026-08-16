@@ -1,15 +1,15 @@
-name: Daily sync from GitHub dsh-plugin topic
+name: Daily static security scan
 
 on:
   schedule:
-    - cron: '17 4 * * *'  # 每天 04:17 UTC（错峰）
+    - cron: '41 5 * * *'  # 每天 05:41 UTC（错峰，避开整点）
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  sync:
+  scan:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,12 +18,8 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run topic sync
-        run: |
-          python scripts/sync-topic.py
-          python scripts/gen-repos.py
-          python scripts/gen-sitemap.py
-          python scripts/gen-badges.py
+      - name: Run static security scan
+        run: python -u scripts/security-scan.py --limit 100
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -31,10 +27,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/plugins.json src/data/sync-date.json functions/api/repos.js functions/badges/data.js public/sitemap.xml
+          git add src/data/security.json
           if git diff --cached --quiet; then
             echo "no change"
           else
-            git commit -m "chore: daily sync ($(date -u +%Y-%m-%d))"
+            git commit -m "chore: daily security scan ($(date -u +%Y-%m-%d))"
             git push
           fi

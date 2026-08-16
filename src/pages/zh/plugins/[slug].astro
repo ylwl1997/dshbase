@@ -2,6 +2,7 @@
 import Base from '../../../layouts/Base.astro';
 import plugins from '../../../data/plugins.json';
 import notes from '../../../data/plugin-notes.json';
+import security from '../../../data/security.json';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -30,13 +31,19 @@ const catUrl = `${dirUrl}#${catId}`;
 const repo = p.url.replace('https://github.com/', '');
 const npmHome = p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
 const statusLabel = {
-  verified: '已验证 · 可安装并启动',
+  verified: '已验证 · 实测可装',
   pending: '未测试',
 };
 const statusClass = {
   verified: 'st-ok',
   pending: 'st-warn',
 };
+const sec = security[p.name];
+const riskLabel = { low: '低', medium: '中', high: '高', critical: '严重' };
+const riskClass = { low: 'sec-low', medium: 'sec-med', high: 'sec-high', critical: 'sec-crit' };
+const catLabel = { secrets: '硬编码密钥', 'dangerous-cmd': '危险命令', exfil: '外传回调', permissions: '越权访问' };
+const badgeAlt = p.test === 'verified' ? 'dshbase 实测可装' : 'dshbase 已收录';
+const badgeMd = `[![${badgeAlt}](https://dshbase.com/badges/${p.name}.svg)](https://dshbase.com/zh/plugins/${p.name}/)`;
 const desc = p.desc_zh || p.desc || `${cat} 类别的 DeepSeek Harness 插件。`;
 const fmt = (n) => (n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n ?? 0));
 const stars = p.stars ?? 0;
@@ -99,6 +106,31 @@ const jsonLd = {
     </div>
     <p class="review-text">{review}</p>
 
+    <p class="honest-note">「{p.test === 'verified' ? '已验证' : '未测试'}」表示我们的自动化 CI{' '}
+      {p.test === 'verified' ? (
+        <Fragment>在干净 profile 里实际执行了 <code>dsh plugin add</code> 并启动成功——仅此而已</Fragment>
+      ) : (
+        '尚未安装过该插件'
+      )}。功能描述与版本兼容性均为作者声明。这不是安全审计，也不代表对第三方代码的背书。</p>
+
+    <div class="sec-box">
+      {sec ? (
+        <Fragment>
+          <span class={`sec-badge ${riskClass[sec.risk]}`}>{sec.risk === 'low' ? '✓ ' : '⚠ '}{riskLabel[sec.risk]}风险</span>{' '}
+          <span class="sec-meta">静态扫描 · {sec.files} 个文件 · {sec.scannedAt?.slice(0, 10)}</span>
+          {sec.findings && sec.findings.length > 0 && (
+            <ul class="sec-findings">
+              {sec.findings.slice(0, 3).map((f) => (
+                <li>{catLabel[f.cat] || f.cat} <span class="muted">({f.sev})</span></li>
+              ))}
+            </ul>
+          )}
+        </Fragment>
+      ) : (
+        <span class="sec-meta">安全：尚未扫描——我们的每日静态扫描将很快覆盖它。</span>
+      )}
+    </div>
+
     {note && (
       <Fragment>
         <h2 style="margin-top:24px">使用场景</h2>
@@ -156,6 +188,12 @@ const jsonLd = {
     <h2 style="margin-top:28px">仓库</h2>
     <p><a href={p.url} target="_blank" rel="noopener">github.com/{repo} ↗</a>{p.archived ? ' · <span class="muted">已归档</span>' : ''}</p>
 
+    <h2 style="margin-top:28px">分享徽章</h2>
+    <p>把这段粘进你的 README——它会链回本页，测试状态变化时自动更新：</p>
+    <pre class="code-block"><code>{badgeMd}</code></pre>
+    <p><button type="button" class="btn btn-ghost btn-sm badge-copy" data-cmd={badgeMd}>复制徽章代码</button></p>
+    <p><img src={`/badges/${p.name}.svg`} alt={badgeAlt} width="210" height="20" style="height:20px" /></p>
+
     {related.length > 0 && (
       <Fragment>
         <h2 style="margin-top:28px">{cat} 里更多</h2>
@@ -180,6 +218,15 @@ const jsonLd = {
   .st-warn { color: #9a6700; border-color: #e5c27a; background: #fff8e6; }
   .what-it-does { font-size: 15px; line-height: 1.7; color: var(--ink); background: #f7f8fc; border-left: 3px solid var(--primary); padding: 14px 16px; border-radius: 8px; }
   .review-text { font-size: 14px; line-height: 1.7; color: var(--ink-2); margin: 10px 0 4px; }
+  .honest-note { font-size: 12.5px; line-height: 1.6; color: var(--ink-3); background: #f8fafc; border: 1px dashed var(--border); border-radius: 8px; padding: 10px 12px; margin: 12px 0; }
+  .sec-box { font-size: 13px; line-height: 1.6; color: var(--ink-2); background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin: 12px 0; }
+  .sec-badge { font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 6px; white-space: nowrap; }
+  .sec-low { color: #1a7f37; background: #f0fff4; border: 1px solid #b7e0c0; }
+  .sec-med { color: #9a6700; background: #fff8e6; border: 1px solid #e5c27a; }
+  .sec-high { color: #b45309; background: #fff1e6; border: 1px solid #f5c6a0; }
+  .sec-crit { color: #b91c1c; background: #fef2f2; border: 1px solid #fca5a5; }
+  .sec-meta { font-size: 12px; color: var(--ink-3); }
+  .sec-findings { margin: 8px 0 0; padding-left: 18px; font-size: 12.5px; color: var(--ink-2); }
   .build-box { font-size: 13.5px; color: var(--ink-2); background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px; padding: 12px 16px; margin: 14px 0; }
   .build-box .code-block { margin: 8px 0 0; }
   .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin: 4px 0; }
@@ -192,3 +239,15 @@ const jsonLd = {
   .v-warn { background: #fff8e6; border: 1px solid #e5c27a; color: #6b4d00; }
   .v-src { background: #f1f5f9; border: 1px solid #e2e8f0; color: #334155; }
 </style>
+
+<script>
+  document.querySelectorAll('.badge-copy').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      navigator.clipboard.writeText(btn.dataset.cmd).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = '✅ 已复制';
+        setTimeout(() => { btn.textContent = orig; }, 1500);
+      });
+    });
+  });
+</script>

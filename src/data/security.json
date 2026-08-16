@@ -1,0 +1,47 @@
+{
+ "dsh-anchored-standard": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-16T14:32:51+00:00"
+ },
+ "modlens": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-16T14:33:21+00:00"
+ },
+ "dsh-web-ui": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-16T14:33:57+00:00"
+ },
+ "DSH-better-sidebar": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-16T14:34:24+00:00"
+ },
+ "awesome-dsh-plugins": {
+  "risk": "low",
+  "findings": [],
+  "files": 24,
+  "scannedAt": "2026-08-16T14:34:47+00:00"
+ }
+}

@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import plugins from '../../data/plugins.json';
 import notes from '../../data/plugin-notes.json';
+import security from '../../data/security.json';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -31,13 +32,19 @@ const catUrl = `${dirUrl}#${catId}`;
 const repo = p.url.replace('https://github.com/', '');
 const npmHome = p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
 const statusLabel = {
-  verified: 'Verified · installs & boots on dsh',
+  verified: 'Verified · install-tested on dsh',
   pending: 'Untested',
 };
 const statusClass = {
   verified: 'st-ok',
   pending: 'st-warn',
 };
+const sec = security[p.name];
+const riskLabel = { low: 'Low', medium: 'Medium', high: 'High', critical: 'Critical' };
+const riskClass = { low: 'sec-low', medium: 'sec-med', high: 'sec-high', critical: 'sec-crit' };
+const catLabel = { secrets: 'Hardcoded secret', 'dangerous-cmd': 'Dangerous command', exfil: 'Exfiltration endpoint', permissions: 'Suspicious permission' };
+const badgeAlt = p.test === 'verified' ? 'dshbase install-tested' : 'dshbase listed';
+const badgeMd = `[![${badgeAlt}](https://dshbase.com/badges/${p.name}.svg)](https://dshbase.com/plugins/${p.name}/)`;
 const desc = p.desc_en || p.desc || `A plugin in the ${cat} category for DeepSeek Harness.`;
 const fmt = (n) => (n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n ?? 0));
 const stars = p.stars ?? 0;
@@ -100,6 +107,31 @@ const jsonLd = {
     </div>
     <p class="review-text">{review}</p>
 
+    <p class="honest-note">“{p.test === 'verified' ? 'Verified' : 'Untested'}” means our automated CI{' '}
+      {p.test === 'verified' ? (
+        <Fragment>actually ran <code>dsh plugin add</code> in a clean profile and it booted — nothing more</Fragment>
+      ) : (
+        'has not yet installed this plugin'
+      )}. Feature descriptions and version compatibility are the author’s claims. This is not a security audit and not an endorsement of third-party code.</p>
+
+    <div class="sec-box">
+      {sec ? (
+        <Fragment>
+          <span class={`sec-badge ${riskClass[sec.risk]}`}>{sec.risk === 'low' ? '✓ ' : '⚠ '}{riskLabel[sec.risk]} risk</span>{' '}
+          <span class="sec-meta">static scan · {sec.files} files · {sec.scannedAt?.slice(0, 10)}</span>
+          {sec.findings && sec.findings.length > 0 && (
+            <ul class="sec-findings">
+              {sec.findings.slice(0, 3).map((f) => (
+                <li>{catLabel[f.cat] || f.cat} <span class="muted">({f.sev})</span></li>
+              ))}
+            </ul>
+          )}
+        </Fragment>
+      ) : (
+        <span class="sec-meta">Security: not yet scanned — our daily static scan will cover it shortly.</span>
+      )}
+    </div>
+
     {note && (
       <Fragment>
         <h2 style="margin-top:24px">When to use it</h2>
@@ -159,6 +191,12 @@ const jsonLd = {
     <h2 style="margin-top:28px">Repository</h2>
     <p><a href={p.url} target="_blank" rel="noopener">github.com/{repo} ↗</a>{p.archived ? ' · <span class="muted">archived</span>' : ''}</p>
 
+    <h2 style="margin-top:28px">Share this badge</h2>
+    <p>Paste this into your README — it links back to this page and updates automatically when our test status changes:</p>
+    <pre class="code-block"><code>{badgeMd}</code></pre>
+    <p><button type="button" class="btn btn-ghost btn-sm badge-copy" data-cmd={badgeMd}>Copy badge markdown</button></p>
+    <p><img src={`/badges/${p.name}.svg`} alt={badgeAlt} width="210" height="20" style="height:20px" /></p>
+
     {related.length > 0 && (
       <Fragment>
         <h2 style="margin-top:28px">More in {cat}</h2>
@@ -183,6 +221,15 @@ const jsonLd = {
   .st-warn { color: #9a6700; border-color: #e5c27a; background: #fff8e6; }
   .what-it-does { font-size: 15px; line-height: 1.7; color: var(--ink); background: #f7f8fc; border-left: 3px solid var(--primary); padding: 14px 16px; border-radius: 8px; }
   .review-text { font-size: 14px; line-height: 1.7; color: var(--ink-2); margin: 10px 0 4px; }
+  .honest-note { font-size: 12.5px; line-height: 1.6; color: var(--ink-3); background: #f8fafc; border: 1px dashed var(--border); border-radius: 8px; padding: 10px 12px; margin: 12px 0; }
+  .sec-box { font-size: 13px; line-height: 1.6; color: var(--ink-2); background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin: 12px 0; }
+  .sec-badge { font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 6px; white-space: nowrap; }
+  .sec-low { color: #1a7f37; background: #f0fff4; border: 1px solid #b7e0c0; }
+  .sec-med { color: #9a6700; background: #fff8e6; border: 1px solid #e5c27a; }
+  .sec-high { color: #b45309; background: #fff1e6; border: 1px solid #f5c6a0; }
+  .sec-crit { color: #b91c1c; background: #fef2f2; border: 1px solid #fca5a5; }
+  .sec-meta { font-size: 12px; color: var(--ink-3); }
+  .sec-findings { margin: 8px 0 0; padding-left: 18px; font-size: 12.5px; color: var(--ink-2); }
   .build-box { font-size: 13.5px; color: var(--ink-2); background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px; padding: 12px 16px; margin: 14px 0; }
   .build-box .code-block { margin: 8px 0 0; }
   .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin: 4px 0; }
@@ -195,3 +242,15 @@ const jsonLd = {
   .v-warn { background: #fff8e6; border: 1px solid #e5c27a; color: #6b4d00; }
   .v-src { background: #f1f5f9; border: 1px solid #e2e8f0; color: #334155; }
 </style>
+
+<script>
+  document.querySelectorAll('.badge-copy').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      navigator.clipboard.writeText(btn.dataset.cmd).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = '✅ Copied!';
+        setTimeout(() => { btn.textContent = orig; }, 1500);
+      });
+    });
+  });
+</script>

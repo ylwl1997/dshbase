@@ -21,8 +21,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Generate sitemap
-        run: python3 scripts/gen-sitemap.py
+      - name: Generate sitemap & badge data
+        run: |
+          python3 scripts/gen-sitemap.py
+          python3 scripts/gen-badges.py
 
       - name: Build Astro
         run: npm run build
