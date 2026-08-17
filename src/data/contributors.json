@@ -1,5 +1,29 @@
 [
  {
+  "github": "wwumit",
+  "avatar": "https://avatars.githubusercontent.com/u/5894591?v=4",
+  "plugins": [
+   {
+    "name": "@wwumit/dsh-office",
+    "slug": "wwumit-dsh-office",
+    "npm": true,
+    "pkg": "@wwumit/dsh-office"
+   },
+   {
+    "name": "dsh-compliancehub",
+    "slug": "dsh-compliancehub",
+    "npm": true,
+    "pkg": "@wwumit/dsh-compliancehub"
+   },
+   {
+    "name": "dsh-plugin-tools",
+    "slug": "dsh-plugin-tools",
+    "npm": true,
+    "pkg": "@wwumit/dsh-plugin-tools"
+   }
+  ]
+ },
+ {
   "github": "dawsondx",
   "avatar": "https://avatars.githubusercontent.com/u/50289626?v=4",
   "plugins": [
@@ -50,24 +74,6 @@
     "slug": "thinking-level-override",
     "npm": true,
     "pkg": ""
-   }
-  ]
- },
- {
-  "github": "wwumit",
-  "avatar": "https://avatars.githubusercontent.com/u/5894591?v=4",
-  "plugins": [
-   {
-    "name": "dsh-compliancehub",
-    "slug": "dsh-compliancehub",
-    "npm": true,
-    "pkg": "@wwumit/dsh-compliancehub"
-   },
-   {
-    "name": "dsh-plugin-tools",
-    "slug": "dsh-plugin-tools",
-    "npm": true,
-    "pkg": "@wwumit/dsh-plugin-tools"
    }
   ]
  },
@@ -206,6 +212,18 @@
     "slug": "dsh-passwords",
     "npm": false,
     "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "SPYQWER1",
+  "avatar": "https://avatars.githubusercontent.com/u/242195996?v=4",
+  "plugins": [
+   {
+    "name": "dsh-codex-tools",
+    "slug": "dsh-codex-tools",
+    "npm": true,
+    "pkg": "dsh-codex-tools"
    }
   ]
  },

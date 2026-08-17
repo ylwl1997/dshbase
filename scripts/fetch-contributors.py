@@ -54,9 +54,10 @@ for cat, items in db.items():
         if p.get("url"):
             url_map.setdefault(norm(p["url"]), p)
 
-# repo renames: old issue URL -> current catalog URL
+# repo renames: old issue URL -> current catalog URL (all lowercase, keys/values must match norm())
 ALIASES = {
     "github.com/wwumit/dsh-skill-hub": "github.com/wwumit/dsh-compliancehub",
+    "github.com/spyqwer1/dsh-imagecraft": "github.com/spyqwer1/dsh-codex-tools",
 }
 
 RE = re.compile(r"github\.com/([\w.-]+)/([\w.-]+?)(?:\.git)?(?:[#/)\s]|$)", re.I)
