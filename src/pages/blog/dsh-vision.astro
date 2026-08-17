@@ -5,6 +5,7 @@ const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
 const modlensUrl = getRelativeLocaleUrl('en', '/plugins/modlens/');
 const visionPrimitivesUrl = getRelativeLocaleUrl('en', '/plugins/dsh-vision-primitives/');
 const dropToPathUrl = getRelativeLocaleUrl('en', '/plugins/dsh-drop-to-path/');
+const visionToolkitUrl = getRelativeLocaleUrl('en', '/plugins/dsh-vision-toolkit/');
 ---
 <BlogPost title="DeepSeek Harness Vision — Image Input, Upload Fixes & Vision Plugins | dshbase" description="How to give DeepSeek Harness (dsh) eyes: modlens, dsh-vision-toolkit, dsh-vision-primitives and dsh-drop-to-path, plus why image upload gets rejected on third-party vision models — all verified on dsh 0.1.0-rc.6." currentPath="/blog/dsh-vision/" category="Guide">
   <h1>DeepSeek Harness <span class="accent">vision</span>: giving a text-only agent eyes</h1>
@@ -22,7 +23,7 @@ const dropToPathUrl = getRelativeLocaleUrl('en', '/plugins/dsh-drop-to-path/');
   <p><strong><a href={modlensUrl}>modlens</a></strong> was the first vision plugin for DeepSeek Harness, and at nearly a thousand stars it's still the benchmark. The model: paste an image and get back <strong>structured JSON evidence</strong> — OCR, layout, and semantics — which your text-only model can then reason over. Instead of trying to force pixels into a model that can't read them, modlens converts the image into something the model <em>can</em> consume. It's the most-starred vision plugin in the <a href={directoryUrl}>plugin directory</a> and verified <code>ok</code> on dsh 0.1.0-rc.6.</p>
 
   <h2>dsh-vision-toolkit: the full toolbox</h2>
-  <p>If modlens is the reference implementation, <strong>dsh-vision-toolkit</strong> is the kitchen sink. It "helps text-only models handle vision tasks" across a much wider surface: <strong>intent-aware image Q&A, long-screenshot OCR, UI restoration, grounding, pixel diff, and Artifacts</strong>. That's the difference between "read this screenshot" and "read this 4000px scrolling screenshot, then diff it against the last one and tell me what changed in the UI." It builds from source (<code>git-build</code>) on dsh 0.1.0-rc.6 and carries real community weight.</p>
+  <p>If modlens is the reference implementation, <strong><a href={visionToolkitUrl}>dsh-vision-toolkit</a></strong> is the kitchen sink. It "helps text-only models handle vision tasks" across a much wider surface: <strong>intent-aware image Q&A, long-screenshot OCR, UI restoration, grounding, pixel diff, and Artifacts</strong>. That's the difference between "read this screenshot" and "read this 4000px scrolling screenshot, then diff it against the last one and tell me what changed in the UI." It builds from source (<code>git-build</code>) on dsh 0.1.0-rc.6 and carries real community weight.</p>
 
   <h2>dsh-vision-primitives: native grounding, zero MCP</h2>
   <p><strong><a href={visionPrimitivesUrl}>dsh-vision-primitives</a></strong> is the newer, more opinionated entry. It's a "native interactive visual-reasoning plugin" built around a <strong>Set-of-Mark numbered grid overlay</strong> for precise visual grounding, with "<strong>zero external MCP</strong>." The Set-of-Mark technique overlays numbered markers on image regions so the model can say "click #7" instead of "click the button that's sort of in the upper left." For UI automation and precise pointing, that's the mechanism you want. It's listed <code>not-on-npm</code>, so install from source.</p>
@@ -34,7 +35,7 @@ const dropToPathUrl = getRelativeLocaleUrl('en', '/plugins/dsh-drop-to-path/');
   <p>A rough rule of thumb: pick based on how much structure you need, not on star count. If you just need a reliable description of a single image, modlens is the fastest install and the most battle-tested. If your tasks involve long scrolling screenshots, UI diffs, or restoring a design from a picture, dsh-vision-toolkit earns its complexity. If you're automating a UI and need the model to point at exact regions, dsh-vision-primitives is the only one built for that. And regardless of which you pick, dsh-drop-to-path is a cheap companion that fixes the drag-and-drop flow.</p>
   <ul>
     <li><strong>Quickest path to "read this image"</strong> → <strong>modlens</strong>, paste and get JSON evidence.</li>
-    <li><strong>Heavy-duty vision workflows</strong> (screenshots, diffs, UI restoration) → <strong>dsh-vision-toolkit</strong>.</li>
+    <li><strong>Heavy-duty vision workflows</strong> (screenshots, diffs, UI restoration) → <strong><a href={visionToolkitUrl}>dsh-vision-toolkit</a></strong>.</li>
     <li><strong>Precise pointing / UI automation</strong> → <strong>dsh-vision-primitives</strong> and its Set-of-Mark overlay.</li>
     <li><strong>Just want drag-and-drop back</strong> → <strong>dsh-drop-to-path</strong>.</li>
   </ul>
