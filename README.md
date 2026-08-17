@@ -12,7 +12,7 @@
 
 | Highlight | What it is |
 |---|---|
-| 🧩 **1,100+ plugins** | across 7 categories: UI, sessions, tools, workflow, integrations, runtime, fun |
+| 🧩 **1,700+ plugins** | across 15 categories — developer tools, UI & skins, knowledge, automation, networking, and more |
 | 🌐 **Bilingual** | every page in English (`/`) and 中文 (`/zh/`), with hreflang + auto language switcher |
 | 📦 **Plugin detail pages** | one page per plugin: install command, status, stars/forks/issues, SEO metadata |
 | 📊 **Ecosystem overview** | live stats on the directory page: total, growth curve, category distribution, top 10 |
