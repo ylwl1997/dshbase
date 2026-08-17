@@ -1,0 +1,46 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('en', '/audit/');
+---
+<BlogPost title="Community Pulse #1 — What DeepSeek Harness Users Want Right Now (August 2026) | dshbase" description="We scanned all 2,638 discussions in the deepseek-ai/deepseek-harness repo and distilled what the community is asking for, the bugs they're hitting, and where the ecosystem is moving this month." currentPath="/blog/community-pulse-1/" category="Pulse">
+  <h1>Community Pulse <span class="accent">#1</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 17, 2026 · dshbase · a recurring report on the DeepSeek Harness community</p>
+
+  <p>Welcome to the first edition of <strong>Community Pulse</strong> — a recurring report where we scan the official <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" rel="noopener">deepseek-ai/deepseek-harness</a> discussion board and compress it into what matters: the loudest asks, the bugs people are actually hitting, and where the ecosystem is heading. Everything below is sourced from real discussions, pulled via the GitHub GraphQL API.</p>
+
+  <h2>The snapshot</h2>
+  <p>As of mid-August 2026, the repo holds <strong>2,638 discussions</strong> and effectively <strong>zero open issues</strong> — the community has fully migrated to the discussion board, so that's where all the signal lives. Across the ~60 most recently active threads, the category mix is <strong>General 25 · Show Your Plugins 21 · Ideas 8 · Q&amp;A 6</strong>. Plugins are the story, but a specific set of complaints is what's actually rising to the top.</p>
+
+  <h2>The loudest ask: a real client, a CLI, and VS Code</h2>
+  <p>One thread dominates everything else: <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/172" rel="noopener">#172</a> — "建议早点出独立客户端 + CLI，并出支持 vscode 的插件" — sits at <strong>165 upvotes and 36 comments</strong>, more than an order of magnitude above the next feature request. It's no longer a wish, it's a chorus. A sibling thread, <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2610" rel="noopener">#2610</a> (a non-Electron desktop), shows the same demand has a second edge: people also find the Electron shell heavy.</p>
+  <p>Memory remains the perennial #2: <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/14" rel="noopener">#14 求一个 memory 能力</a> (7 upvotes, 26 comments) keeps getting bumped because agents that forget everything between sessions waste the most time.</p>
+
+  <h2>Bug radar: this month's pain is session corruption and plugin crashes</h2>
+  <p>The most information-dense part of August's board is a cluster of stability reports that share a shape:</p>
+  <ul>
+    <li><strong>Corrupt session logs</strong> — <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/1586" rel="noopener">#1586</a> and <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2649" rel="noopener">#2649</a> both land on the same root cause: crash-recovery and a lingering execution stream write the same log concurrently, producing <code>seq gap in committed region</code> with no recovery path. <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2653" rel="noopener">#2653</a> is the same problem at the far end — a very large session overflows the call stack on load.</li>
+    <li><strong>One bad plugin kills the whole harness</strong> — <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2609" rel="noopener">#2609</a> and <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2663" rel="noopener">#2663</a> are both "I installed a plugin and DSH won't start." The community has already formalized the fix they want in <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2603" rel="noopener">#2603</a>: isolate per-plugin failures instead of aborting boot.</li>
+    <li><strong>Module instance splitting</strong> — <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2660" rel="noopener">#2660</a>, <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2667" rel="noopener">#2667</a>, and <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2616" rel="noopener">#2616</a> are one family: duplicated <code>dsh-tools</code> / framework packages split a Symbol identity, so every tool call throws <code>Cannot read properties of undefined (reading 'prepare')</code>.</li>
+    <li><strong>A data-loss-level bug on Windows</strong> — <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2593" rel="noopener">#2593</a> documents the agent running <code>Remove-Item $home</code> and wiping the user directory.</li>
+    <li><strong>Output truncation</strong> — <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2659" rel="noopener">#2659</a> reports output hard-truncated at 12189 tokens.</li>
+  </ul>
+  <p>The long tail is smaller but real: <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2658" rel="noopener">#2658</a> (new sessions fall back to an unrelated project), <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2661" rel="noopener">#2661</a> (orphaned <code>tool_calls</code> permanently poison a session), <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2656" rel="noopener">#2656</a> (persistent bash stalls ~3.5s in minimal mode), and <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/918" rel="noopener">#918</a> (a plugin writing custom session events makes a session unrecoverable).</p>
+
+  <h2>Cost and performance are back on the table</h2>
+  <p>Two threads frame the token-cost conversation this month. <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2654" rel="noopener">#2654</a> measures <em>History payload bloat</em> — a ~50-message page returns ~270k stream-delta events (~64 MB). And <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/1090" rel="noopener">#1090</a> asks to trim oversized tool results before the compression threshold and cap replay tokens. On the billing side, <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2554" rel="noopener">#2554</a> flags that usage mapping may misclassify cache hit/miss tokens — which matters because cache pricing is where the bill is won or lost.</p>
+
+  <h2>Ecosystem: the discovery layer is getting crowded</h2>
+  <p>August made one thing obvious — plugin <em>discovery</em> is now a competitive space. This month alone the board saw <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2423" rel="noopener">dsh-hub.cc</a> (claiming 5,600+ plugins with search and one-click install), <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/215" rel="noopener">Awesome DSH Plugin</a> (a curated list), <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/1758" rel="noopener">dsh-plugin-market</a>, and a community group (<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/1728" rel="noopener">#1728</a>) that's already organized 2,000+ people and collated 1,824 plugins to avoid duplicate work.</p>
+  <p>Count is easy; <em>does it actually run</em> is the hard part. That's the gap we fill at dshbase — we posted our own full verification run (<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2665" rel="noopener">#2665</a>) this week: <strong>551 passed, 351 failed</strong>, every failure classified. The numbers matter because most "5,000+ plugin" catalogs don't tell you which entries survive a clean install. Our <a href={directoryUrl}>plugin directory</a> only marks a plugin <em>verified</em> after it passes a real three-stage test; see <a href={auditUrl}>how we audit</a>.</p>
+
+  <h2>What to watch next</h2>
+  <ul>
+    <li><strong>A desktop/CLI/VS Code client</strong> is now loud enough that it will be hard for the official project to keep ignoring — expect it to surface in the roadmap.</li>
+    <li><strong>Session corruption and per-plugin failure isolation</strong> are the sharpest pains of the month; the next release candidate is the natural place for fixes, and <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2603" rel="noopener">#2603</a> in particular would change ecosystem health overnight if adopted.</li>
+    <li><strong>Discovery will consolidate.</strong> Several indexes are competing on raw count; the ones that survive will be the ones that can answer "does it run?" — which is exactly the bet dshbase is making.</li>
+  </ul>
+
+  <p><em>Community Pulse is a recurring report. Have a thread we should track, or a correction? Open an issue on <a href="https://github.com/ylwl1997/dshbase" rel="noopener">the dshbase repo</a>.</em></p>
+</BlogPost>

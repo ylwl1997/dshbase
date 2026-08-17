@@ -1,0 +1,46 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
+---
+<BlogPost title="社区脉搏 · 第 1 期：DeepSeek Harness 用户现在最想要什么（2026年8月）| dshbase 中文" description="我们扫完 deepseek-ai/deepseek-harness 官方讨论区全部 2638 个讨论，提炼出社区本月最响亮的呼声、正在踩的坑，以及生态的走向。" currentPath="/zh/blog/community-pulse-1/" category="脉搏">
+  <h1>社区脉搏 <span class="accent">第 1 期</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026年8月17日 · dshbase · DeepSeek Harness 社区定期报告</p>
+
+  <p>欢迎来到 <strong>社区脉搏</strong> 第一期——一个定期更新的栏目：我们扫描官方 <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" rel="noopener">deepseek-ai/deepseek-harness</a> 讨论区，把最响亮的诉求、大家真正踩到的坑、生态的动向，压缩成一份可读的报告。下面的每一条都来自真实讨论，通过 GitHub GraphQL API 拉取。</p>
+
+  <h2>数据快照</h2>
+  <p>截至 2026 年 8 月中旬，官方仓库有 <strong>2638 个讨论</strong>，而 open issue 基本是 <strong>零</strong>——社区已经完全迁移到了讨论区，所以所有信号都在那里。最近约 60 条活跃讨论里，分类占比是 <strong>General 25 · Show Your Plugins 21 · Ideas 8 · Q&amp;A 6</strong>。插件是主旋律，但真正浮上来的是一组具体的抱怨。</p>
+
+  <h2>最响亮的呼声：真正的客户端 + CLI + VS Code</h2>
+  <p>有一条讨论碾压式领先：<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/172" rel="noopener">#172</a>——「建议早点出独立客户端 + CLI，并出支持 vscode 的插件」——坐拥 <strong>165 个 upvote、36 条评论</strong>，比第二名高出一个数量级。这已经不是「想要」，而是合唱。姊妹帖 <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2610" rel="noopener">#2610</a>（非 Electron 桌面端）说明这份需求还有另一面：大家也觉得 Electron 壳太重。</p>
+  <p>Memory 依旧是万年老二：<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/14" rel="noopener">#14 求一个 memory 能力</a>（7 upvote、26 评论）持续被顶起——因为「会话之间全忘光」最浪费时间。</p>
+
+  <h2>Bug 雷达：本月的痛点是「会话损坏」和「插件拖垮启动」</h2>
+  <p>8 月讨论区信息密度最高的，是一串形状相似的稳定性报告：</p>
+  <ul>
+    <li><strong>会话日志损坏</strong>——<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/1586" rel="noopener">#1586</a> 和 <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2649" rel="noopener">#2649</a> 指向同一个根因：崩溃恢复与残留执行流并发写同一份日志，产生 <code>seq gap in committed region</code>，且没有恢复路径。<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2653" rel="noopener">#2653</a> 是同一问题的另一端——超大会话加载时直接栈溢出。</li>
+    <li><strong>一个坏插件拖垮整个 harness</strong>——<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2609" rel="noopener">#2609</a> 和 <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2663" rel="noopener">#2663</a> 都是「装了个插件 → 直接无法启动」。社区已经把想要的修法写成了正式提案 <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2603" rel="noopener">#2603</a>：逐个插件隔离失败，而不是中止整个启动。</li>
+    <li><strong>模块实例分裂</strong>——<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2660" rel="noopener">#2660</a>、<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2667" rel="noopener">#2667</a>、<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2616" rel="noopener">#2616</a> 是同一族：重复安装 <code>dsh-tools</code>/框架包导致 Symbol 身份分裂，任意工具调用都报 <code>Cannot read properties of undefined (reading 'prepare')</code>。</li>
+    <li><strong>Windows 数据丢失级别的 bug</strong>——<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2593" rel="noopener">#2593</a> 记录了 agent 执行 <code>Remove-Item $home</code> 清空用户主目录。</li>
+    <li><strong>输出截断</strong>——<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2659" rel="noopener">#2659</a> 报告输出在 12189 token 处被硬截断。</li>
+  </ul>
+  <p>长尾同样真实存在：<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2658" rel="noopener">#2658</a>（新建会话回退到无关项目）、<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2661" rel="noopener">#2661</a>（孤儿 <code>tool_calls</code> 永久毒化会话）、<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2656" rel="noopener">#2656</a>（极简模式 persistent bash 卡顿约 3.5 秒）、<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/918" rel="noopener">#918</a>（插件写自定义 session 事件导致会话永久无法恢复）。</p>
+
+  <h2>成本与性能重新回到台面</h2>
+  <p>本月有两条讨论框定了 token 成本的话题。<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2654" rel="noopener">#2654</a> 实测了 <em>History payload bloat</em>——约 50 条消息的页面返回约 27 万个 stream-delta 事件（约 64 MB）。<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/1090" rel="noopener">#1090</a> 则要求在压缩阈值前裁剪过大的工具结果、限制回放 token。账单侧，<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2554" rel="noopener">#2554</a> 指出 usage 映射可能误分类 cache hit/miss token——这点很关键，因为缓存定价正是账单输赢所在。</p>
+
+  <h2>生态：插件「发现层」正在变得拥挤</h2>
+  <p>8 月让一件事变得很明显——插件的 <em>发现</em> 已经是一个竞争赛道。仅本月讨论区就出现了 <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2423" rel="noopener">dsh-hub.cc</a>（号称 5600+ 插件、支持搜索和一键安装）、<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/215" rel="noopener">Awesome DSH Plugin</a>（精选列表）、<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/1758" rel="noopener">dsh-plugin-market</a>，还有一个社区群（<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/1728" rel="noopener">#1728</a>）已经组织起 2000+ 人、整理了 1824 款插件，避免重复开发。</p>
+  <p>数量好刷，「到底能不能跑」才是硬骨头。这正是 dshbase 在补的空——本周我们发布了自己的全量验证报告（<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2665" rel="noopener">#2665</a>）：<strong>551 通过、351 失败</strong>，每个失败都做了归类。这些数字之所以重要，是因为大多数「5000+ 插件」的目录都不会告诉你哪些条目能扛过一次干净安装。我们的<a href={directoryUrl}>插件目录</a>只有在插件通过真实的三级实测后才标注 <em>已验证</em>；详见<a href={auditUrl}>我们的审计方法</a>。</p>
+
+  <h2>接下来值得关注</h2>
+  <ul>
+    <li><strong>桌面端 / CLI / VS Code 客户端</strong>已经响到官方很难继续无视，预计会出现在路线图里。</li>
+    <li><strong>会话损坏与插件失败隔离</strong>是本月最痛的点，下一个 release candidate 是最可能的修复窗口——尤其是 <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2603" rel="noopener">#2603</a>，一旦落地会立刻改变插件生态的健康度。</li>
+    <li><strong>发现层会走向收敛。</strong>几个索引正在拼原始数量，但能活下来的，是能回答「能不能跑」的那一个——这正是 dshbase 押注的方向。</li>
+  </ul>
+
+  <p><em>社区脉搏是一份定期报告。有需要跟踪的帖子，或有要纠正的地方？到 <a href="https://github.com/ylwl1997/dshbase" rel="noopener">dshbase 仓库</a>开 issue。</em></p>
+</BlogPost>
