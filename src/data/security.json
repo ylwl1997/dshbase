@@ -8,7 +8,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-16T14:32:51+00:00"
+  "scannedAt": "2026-08-17T06:04:04+00:00"
  },
  "modlens": {
   "risk": "high",
@@ -19,15 +19,71 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-16T14:33:21+00:00"
+  "scannedAt": "2026-08-17T06:04:25+00:00"
  },
  "dsh-web-ui": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-16T14:33:57+00:00"
+  "scannedAt": "2026-08-17T06:03:58+00:00"
  },
  "DSH-better-sidebar": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:04:33+00:00"
+ },
+ "awesome-dsh-plugins": {
+  "risk": "low",
+  "findings": [],
+  "files": 24,
+  "scannedAt": "2026-08-17T06:05:06+00:00"
+ },
+ "OpenViking": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   },
+   {
+    "cat": "permissions",
+    "sev": "medium"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:03:23+00:00"
+ },
+ "colleague-skill": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:03:28+00:00"
+ },
+ "voyager": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:03:34+00:00"
+ },
+ "deepseek-harness-desktop": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:12:34+00:00"
+ },
+ "iPolloWork": {
+  "risk": "medium",
+  "findings": [
+   {
+    "cat": "permissions",
+    "sev": "medium"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:03:46+00:00"
+ },
+ "petdex": {
   "risk": "high",
   "findings": [
    {
@@ -36,12 +92,762 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-16T14:34:24+00:00"
+  "scannedAt": "2026-08-17T06:03:51+00:00"
  },
- "awesome-dsh-plugins": {
+ "EchoBird": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:04:11+00:00"
+ },
+ "Vibe-Skills": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:04:19+00:00"
+ },
+ "dsh-TUI": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   },
+   {
+    "cat": "permissions",
+    "sev": "medium"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:04:40+00:00"
+ },
+ "dsh-cc-tui": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   },
+   {
+    "cat": "permissions",
+    "sev": "medium"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:04:47+00:00"
+ },
+ "brooks-lint": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:04:54+00:00"
+ },
+ "dsh-deep-whale": {
+  "risk": "low",
+  "findings": [],
+  "files": 13,
+  "scannedAt": "2026-08-17T06:04:59+00:00"
+ },
+ "deeptide": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:05:13+00:00"
+ },
+ "Aegis": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   },
+   {
+    "cat": "permissions",
+    "sev": "medium"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:05:19+00:00"
+ },
+ "agent-vision-toolkit": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:05:26+00:00"
+ },
+ "wesight": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:05:34+00:00"
+ },
+ "agent-qa": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:05:41+00:00"
+ },
+ "dsh-market": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "permissions",
+    "sev": "medium"
+   },
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 23,
+  "scannedAt": "2026-08-17T06:05:47+00:00"
+ },
+ "awesome-deepseek-harness": {
+  "risk": "low",
+  "findings": [],
+  "files": 6,
+  "scannedAt": "2026-08-17T06:05:50+00:00"
+ },
+ "sandbase-harness": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "secrets",
+    "sev": "high"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:05:57+00:00"
+ },
+ "MuseAI": {
   "risk": "low",
   "findings": [],
   "files": 24,
-  "scannedAt": "2026-08-16T14:34:47+00:00"
+  "scannedAt": "2026-08-17T06:06:06+00:00"
+ },
+ "dsh-vision-toolkit": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:06:13+00:00"
+ },
+ "graph-memory": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:06:21+00:00"
+ },
+ "Deepseek-Harness-EAC": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   },
+   {
+    "cat": "permissions",
+    "sev": "medium"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:06:30+00:00"
+ },
+ "dsh-vision-router": {
+  "risk": "medium",
+  "findings": [
+   {
+    "cat": "permissions",
+    "sev": "medium"
+   }
+  ],
+  "files": 24,
+  "scannedAt": "2026-08-17T06:06:37+00:00"
+ },
+ "dsh-ads": {
+  "risk": "low",
+  "findings": [],
+  "files": 23,
+  "scannedAt": "2026-08-17T06:06:44+00:00"
+ },
+ "mnemon": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:06:51+00:00"
+ },
+ "dsh-agent-teams": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:06:58+00:00"
+ },
+ "treg": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "secrets",
+    "sev": "high"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:07:06+00:00"
+ },
+ "superdesign-skill": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:07:13+00:00"
+ },
+ "MisakaNet": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:07:21+00:00"
+ },
+ "dsh-handbook": {
+  "risk": "medium",
+  "findings": [
+   {
+    "cat": "permissions",
+    "sev": "medium"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:07:28+00:00"
+ },
+ "dsh_desktop": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:07:34+00:00"
+ },
+ "harmony-next.skills": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:07:42+00:00"
+ },
+ "dsh-at-file": {
+  "risk": "low",
+  "findings": [],
+  "files": 23,
+  "scannedAt": "2026-08-17T06:07:57+00:00"
+ },
+ "deepseek-harness-desktop-app": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "permissions",
+    "sev": "medium"
+   },
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:08:03+00:00"
+ },
+ "oh-dsh": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:08:10+00:00"
+ },
+ "tencentmeeting-cli": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 17,
+  "scannedAt": "2026-08-17T06:08:15+00:00"
+ },
+ "dsh-browser": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:08:21+00:00"
+ },
+ "whale-girl": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:08:27+00:00"
+ },
+ "dsh-tianshu-tui": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:08:34+00:00"
+ },
+ "awesome-dsh-plugin": {
+  "risk": "low",
+  "findings": [],
+  "files": 22,
+  "scannedAt": "2026-08-17T06:08:45+00:00"
+ },
+ "deepseek-harness-studio": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:08:53+00:00"
+ },
+ "DSH-Transparent-UI-Plugin": {
+  "risk": "low",
+  "findings": [],
+  "files": 24,
+  "scannedAt": "2026-08-17T06:09:00+00:00"
+ },
+ "oh-dsh-desktop": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:09:09+00:00"
+ },
+ "dsh-visualize": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:09:14+00:00"
+ },
+ "engramory": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:09:20+00:00"
+ },
+ "dsh-genui": {
+  "risk": "low",
+  "findings": [],
+  "files": 23,
+  "scannedAt": "2026-08-17T06:09:27+00:00"
+ },
+ "notes": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 24,
+  "scannedAt": "2026-08-17T06:09:33+00:00"
+ },
+ "anime-find": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:09:39+00:00"
+ },
+ "dsh-find-plugins": {
+  "risk": "low",
+  "findings": [],
+  "files": 5,
+  "scannedAt": "2026-08-17T06:09:40+00:00"
+ },
+ "dsh-memory-evolve": {
+  "risk": "low",
+  "findings": [],
+  "files": 22,
+  "scannedAt": "2026-08-17T06:09:46+00:00"
+ },
+ "dsh-launcher": {
+  "risk": "low",
+  "findings": [],
+  "files": 13,
+  "scannedAt": "2026-08-17T06:09:49+00:00"
+ },
+ "A-share-Ai": {
+  "risk": "low",
+  "findings": [],
+  "files": 11,
+  "scannedAt": "2026-08-17T06:09:52+00:00"
+ },
+ "dsh-gitbash-preset": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "permissions",
+    "sev": "medium"
+   },
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 8,
+  "scannedAt": "2026-08-17T06:09:55+00:00"
+ },
+ "dshfind": {
+  "risk": "low",
+  "findings": [],
+  "files": 24,
+  "scannedAt": "2026-08-17T06:10:03+00:00"
+ },
+ "dsh-context": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:10:10+00:00"
+ },
+ "modsearch": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "permissions",
+    "sev": "medium"
+   },
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:10:17+00:00"
+ },
+ "dsh-openpencil": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:10:24+00:00"
+ },
+ "Deepseek-Harness-Desktop": {
+  "risk": "medium",
+  "findings": [
+   {
+    "cat": "permissions",
+    "sev": "medium"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:10:32+00:00"
+ },
+ "Awesome-DeepSeek-Harness-Plugins": {
+  "risk": "low",
+  "findings": [],
+  "files": 2,
+  "scannedAt": "2026-08-17T06:10:33+00:00"
+ },
+ "humanizer-ru": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:10:40+00:00"
+ },
+ "DSH-Plugins-Marketplace": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 24,
+  "scannedAt": "2026-08-17T06:10:47+00:00"
+ },
+ "phi": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:10:54+00:00"
+ },
+ "argo": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:11:01+00:00"
+ },
+ "dsh-noema": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:11:06+00:00"
+ },
+ "dsh-super-injector": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   },
+   {
+    "cat": "permissions",
+    "sev": "medium"
+   }
+  ],
+  "files": 13,
+  "scannedAt": "2026-08-17T06:11:11+00:00"
+ },
+ "odai": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:11:17+00:00"
+ },
+ "seeWxapkg": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "permissions",
+    "sev": "medium"
+   },
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:11:24+00:00"
+ },
+ "DeepSeek-V4-J-Space-Capability-Realization-Report": {
+  "risk": "low",
+  "findings": [],
+  "files": 1,
+  "scannedAt": "2026-08-17T06:11:25+00:00"
+ },
+ "gal-view": {
+  "risk": "low",
+  "findings": [],
+  "files": 23,
+  "scannedAt": "2026-08-17T06:11:33+00:00"
+ },
+ "dsh-auto-mode": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 24,
+  "scannedAt": "2026-08-17T06:11:39+00:00"
+ },
+ "anysearch-dsh": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:11:47+00:00"
+ },
+ "dsh-dafeiyu": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:11:55+00:00"
+ },
+ "sealos-skills": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:12:03+00:00"
+ },
+ "deepseek-design": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:12:10+00:00"
+ },
+ "dsh-annotation": {
+  "risk": "low",
+  "findings": [],
+  "files": 9,
+  "scannedAt": "2026-08-17T06:12:13+00:00"
+ },
+ "dsh-pet": {
+  "risk": "low",
+  "findings": [],
+  "files": 19,
+  "scannedAt": "2026-08-17T06:12:19+00:00"
+ },
+ "awesome-DSH-plugin": {
+  "risk": "low",
+  "findings": [],
+  "files": 8,
+  "scannedAt": "2026-08-17T06:12:22+00:00"
+ },
+ "dsh-turn-rewind": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:12:28+00:00"
+ },
+ "forkprobe": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:12:41+00:00"
+ },
+ "dsh-webui-market-plugin": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   },
+   {
+    "cat": "permissions",
+    "sev": "medium"
+   }
+  ],
+  "files": 8,
+  "scannedAt": "2026-08-17T06:12:45+00:00"
+ },
+ "dsh-liang-skin": {
+  "risk": "low",
+  "findings": [],
+  "files": 14,
+  "scannedAt": "2026-08-17T06:12:48+00:00"
+ },
+ "hello-dsh": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:12:54+00:00"
+ },
+ "zat-dsh-engine": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 23,
+  "scannedAt": "2026-08-17T06:13:01+00:00"
+ },
+ "dsh-mnemon": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:13:08+00:00"
+ },
+ "dsh_workflow": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:13:15+00:00"
+ },
+ "dsh-mobile-apk": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 9,
+  "scannedAt": "2026-08-17T06:13:18+00:00"
+ },
+ "dsh-undo-plugin": {
+  "risk": "medium",
+  "findings": [
+   {
+    "cat": "permissions",
+    "sev": "medium"
+   }
+  ],
+  "files": 15,
+  "scannedAt": "2026-08-17T06:13:22+00:00"
+ },
+ "dsh-cost-meter": {
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 20,
+  "scannedAt": "2026-08-17T06:13:27+00:00"
+ },
+ "dsh-vision": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:13:33+00:00"
+ },
+ "dsh-plugins-store": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-17T06:13:40+00:00"
+ },
+ "dsh-usage-stats": {
+  "risk": "low",
+  "findings": [],
+  "files": 24,
+  "scannedAt": "2026-08-17T06:13:47+00:00"
  }
 }
