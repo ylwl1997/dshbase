@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import contributors from '../data/contributors.json';
+const locale = Astro.currentLocale ?? 'en';
+const detailUrl = (slug) => getRelativeLocaleUrl(locale, `/plugins/${slug}/`);
+const totalPlugins = contributors.reduce((s, c) => s + c.plugins.length, 0);
+---
+<Base
+  title={`Trusted Plugin Contributors — ${contributors.length} Developers Who Submitted DSH Plugins | dshbase`}
+  description={`Meet the ${contributors.length} developers who submitted plugins to the dshbase directory. Each entry links to their live plugin works, with npm-install status for every plugin.`}
+  currentPath="/contributors/"
+>
+  <section class="hero wrap">
+    <p class="eyebrow">Trusted contributors</p>
+    <h1>Trusted plugin <span class="accent">contributors</span></h1>
+    <p class="lede">The developers who submitted plugins through our directory — {contributors.length} authors, {totalPlugins} live plugin works cataloged so far.</p>
+    <div class="badge-row">
+      <span class="badge"><b>{contributors.length}</b> contributors</span>
+      <span class="badge"><b>{totalPlugins}</b> plugins</span>
+      <span class="badge"><span class="npm-dot"></span> npm = installable with <code>dsh plugin add</code></span>
+    </div>
+  </section>
+
+  <section class="info wrap">
+    <h2>How we define a contributor</h2>
+    <p>Anyone who filed a plugin submission through this site and whose plugin is now live in the catalog. Each card lists their name, GitHub profile, and every plugin they contributed — with an <strong>npm</strong> tag when the plugin is published to the npm registry (install it directly with <code>dsh plugin add</code>) or a <strong>git</strong> tag when it installs from source.</p>
+
+    <div class="contrib-grid">
+      {contributors.map((c) => (
+        <div class="contrib-card">
+          <a class="contrib-head" href={`https://github.com/${c.github}`} rel="noopener" target="_blank">
+            <img class="contrib-avatar" src={c.avatar} alt={`${c.github} avatar`} width="48" height="48" loading="lazy">
+            <div class="contrib-id">
+              <span class="contrib-name">{c.github}</span>
+              <span class="contrib-gh">@{c.github}</span>
+            </div>
+          </a>
+          <ul class="contrib-plugins">
+            {c.plugins.map((p) => (
+              <li>
+                <a href={detailUrl(p.slug)}>{p.name}</a>
+                {p.npm ? <span class="tag tag-npm" title="npm install">npm</span> : <span class="tag tag-git" title="source install">git</span>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .contrib-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; margin-top: 24px; }
+  .contrib-card {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 18px; box-shadow: var(--shadow-sm);
+    transition: box-shadow .18s, transform .1s, border-color .18s;
+  }
+  .contrib-card:hover { border-color: var(--primary); box-shadow: var(--shadow); transform: translateY(-2px); }
+  .contrib-head { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+  .contrib-avatar { width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--primary-soft); background: var(--bg-soft); flex: none; }
+  .contrib-id { display: flex; flex-direction: column; min-width: 0; }
+  .contrib-name { font-weight: 700; color: var(--ink); font-family: var(--font-display); font-size: 15px; }
+  .contrib-gh { font-size: 12px; color: var(--muted); }
+  .contrib-plugins { list-style: none; margin: 14px 0 0; padding: 12px 0 0; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 8px; }
+  .contrib-plugins li { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+  .contrib-plugins a { font-weight: 500; color: var(--ink); }
+  .contrib-plugins a:hover { color: var(--primary-600); }
+  .tag { flex: none; font-size: 10.5px; font-weight: 700; letter-spacing: 0.03em; border-radius: 999px; padding: 2px 8px; text-transform: lowercase; }
+  .tag-npm { color: #047857; background: var(--green-soft); border: 1px solid #A7F3D0; }
+  .tag-git { color: var(--ink-2); background: var(--bg-soft); border: 1px solid var(--border); }
+  .npm-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); display: inline-block; }
+</style>

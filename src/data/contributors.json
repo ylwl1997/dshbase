@@ -1,0 +1,284 @@
+[
+ {
+  "github": "dawsondx",
+  "avatar": "https://avatars.githubusercontent.com/u/50289626?v=4",
+  "plugins": [
+   {
+    "name": "dsh-doc-share",
+    "slug": "dsh-doc-share",
+    "npm": true,
+    "pkg": "dsh-doc-share"
+   },
+   {
+    "name": "dsh-web-open",
+    "slug": "dsh-web-open",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "maxwell-feng",
+  "avatar": "https://avatars.githubusercontent.com/u/149435110?v=4",
+  "plugins": [
+   {
+    "name": "dsh-tesseract-ocr",
+    "slug": "dsh-tesseract-ocr",
+    "npm": true,
+    "pkg": "@maxwell-feng/dsh-tesseract-ocr"
+   },
+   {
+    "name": "dsh-windows-ocr",
+    "slug": "dsh-windows-ocr",
+    "npm": true,
+    "pkg": "@maxwell-feng/dsh-windows-ocr"
+   }
+  ]
+ },
+ {
+  "github": "suninx",
+  "avatar": "https://avatars.githubusercontent.com/u/42999064?v=4",
+  "plugins": [
+   {
+    "name": "session-archive-manager",
+    "slug": "session-archive-manager",
+    "npm": false,
+    "pkg": ""
+   },
+   {
+    "name": "thinking-level-override",
+    "slug": "thinking-level-override",
+    "npm": true,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "wwumit",
+  "avatar": "https://avatars.githubusercontent.com/u/5894591?v=4",
+  "plugins": [
+   {
+    "name": "dsh-compliancehub",
+    "slug": "dsh-compliancehub",
+    "npm": true,
+    "pkg": "@wwumit/dsh-compliancehub"
+   },
+   {
+    "name": "dsh-plugin-tools",
+    "slug": "dsh-plugin-tools",
+    "npm": true,
+    "pkg": "@wwumit/dsh-plugin-tools"
+   }
+  ]
+ },
+ {
+  "github": "xiehuan123",
+  "avatar": "https://avatars.githubusercontent.com/u/82025141?v=4",
+  "plugins": [
+   {
+    "name": "coding-coach",
+    "slug": "coding-coach",
+    "npm": true,
+    "pkg": "coding-coach"
+   },
+   {
+    "name": "dsh-deepread",
+    "slug": "dsh-deepread",
+    "npm": true,
+    "pkg": "dsh-deepread"
+   }
+  ]
+ },
+ {
+  "github": "BorisShaw6",
+  "avatar": "https://avatars.githubusercontent.com/u/76441108?v=4",
+  "plugins": [
+   {
+    "name": "dsh-cyber-pet",
+    "slug": "dsh-cyber-pet",
+    "npm": true,
+    "pkg": "@borisshaw6/dsh-cyber-pet"
+   }
+  ]
+ },
+ {
+  "github": "guiyi-labs",
+  "avatar": "https://avatars.githubusercontent.com/u/277616126?v=4",
+  "plugins": [
+   {
+    "name": "kubemd",
+    "slug": "kubemd",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "Gxk96",
+  "avatar": "https://avatars.githubusercontent.com/u/104117495?v=4",
+  "plugins": [
+   {
+    "name": "dsh-ai-battle",
+    "slug": "dsh-ai-battle",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "HiNEM66",
+  "avatar": "https://avatars.githubusercontent.com/u/92151998?v=4",
+  "plugins": [
+   {
+    "name": "dsh-balance",
+    "slug": "dsh-balance",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "Hyperionjust",
+  "avatar": "https://avatars.githubusercontent.com/u/141640340?v=4",
+  "plugins": [
+   {
+    "name": "dsh-tool-underseal",
+    "slug": "dsh-tool-underseal",
+    "npm": true,
+    "pkg": "dsh-tool-underseal"
+   }
+  ]
+ },
+ {
+  "github": "jinguanghai",
+  "avatar": "https://avatars.githubusercontent.com/u/31503310?v=4",
+  "plugins": [
+   {
+    "name": "deepseek-harness-forge-plugins",
+    "slug": "deepseek-harness-forge-plugins",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "kongxiangyiren",
+  "avatar": "https://avatars.githubusercontent.com/u/72970235?v=4",
+  "plugins": [
+   {
+    "name": "dhs-theme-plugin",
+    "slug": "dhs-theme-plugin",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "Miku196",
+  "avatar": "https://avatars.githubusercontent.com/u/146407449?v=4",
+  "plugins": [
+   {
+    "name": "dsh-tokensave",
+    "slug": "dsh-tokensave",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "QinLuza",
+  "avatar": "https://avatars.githubusercontent.com/u/291772113?v=4",
+  "plugins": [
+   {
+    "name": "dsh-rollback-visual",
+    "slug": "dsh-rollback-visual",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "slywalker2006",
+  "avatar": "https://avatars.githubusercontent.com/u/121374969?v=4",
+  "plugins": [
+   {
+    "name": "dsh-passwords",
+    "slug": "dsh-passwords",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "sweven-tears",
+  "avatar": "https://avatars.githubusercontent.com/u/39357041?v=4",
+  "plugins": [
+   {
+    "name": "dsh-ghcli",
+    "slug": "dsh-ghcli",
+    "npm": true,
+    "pkg": "@sweven-tears/dsh-ghcli"
+   }
+  ]
+ },
+ {
+  "github": "tluoluo",
+  "avatar": "https://avatars.githubusercontent.com/u/266670047?v=4",
+  "plugins": [
+   {
+    "name": "dsh-persist",
+    "slug": "dsh-persist",
+    "npm": true,
+    "pkg": "dsh-persist"
+   }
+  ]
+ },
+ {
+  "github": "wuykjl",
+  "avatar": "https://avatars.githubusercontent.com/u/131710423?v=4",
+  "plugins": [
+   {
+    "name": "dsh-equip-engine",
+    "slug": "dsh-equip-engine",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "YOGEMOW",
+  "avatar": "https://avatars.githubusercontent.com/u/103344974?v=4",
+  "plugins": [
+   {
+    "name": "deepseek-prism-dsh",
+    "slug": "deepseek-prism-dsh",
+    "npm": true,
+    "pkg": "@yogemow/deepseek-prism-dsh"
+   }
+  ]
+ },
+ {
+  "github": "yokesky",
+  "avatar": "https://avatars.githubusercontent.com/u/142223246?v=4",
+  "plugins": [
+   {
+    "name": "dsh-usage-lens",
+    "slug": "dsh-usage-lens",
+    "npm": true,
+    "pkg": "@yokesky/dsh-usage-lens"
+   }
+  ]
+ },
+ {
+  "github": "ziyou979",
+  "avatar": "https://avatars.githubusercontent.com/u/75418548?v=4",
+  "plugins": [
+   {
+    "name": "dsh-llm-oauth",
+    "slug": "dsh-llm-oauth",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ }
+]
