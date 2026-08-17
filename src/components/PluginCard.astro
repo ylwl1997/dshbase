@@ -2,7 +2,8 @@
 const { plugin: p, cat = '', lang = 'en' } = Astro.props;
 const _repo = (u) => (u || '').replace('https://github.com/', '');
 const _owner = (u) => (u || '').replace('https://github.com/', '').split('/')[0] || '';
-const installCmd = p.npm && p.pkg ? `dsh plugin add ${p.pkg}` : `dsh plugin add github:${_repo(p.url)}`;
+const isNpm = p.npm && !!p.pkg;
+const installCmd = isNpm ? `dsh plugin add ${p.pkg}` : `dsh plugin add github:${_repo(p.url)}`;
 const statusLabel = p.test === 'verified' ? (lang === 'zh' ? '已验证' : 'Verified') : (lang === 'zh' ? '未验证' : 'Unverified');
 const copyLabel = lang === 'zh' ? '📋 安装' : '📋 copy';
 const statusClass = p.test === 'verified' ? 'st-ok' : 'st-warn';
@@ -15,7 +16,7 @@ const desc = lang === 'zh' ? (p.desc_zh || p.desc_en || p.desc || '') : (p.desc_
 const search = `${p.name} ${_owner(p.url)} ${p.pkg || ''} ${p.desc_en || p.desc || ''} ${p.desc_zh || ''} ${license} ${(p.ucs || []).join(' ')}`.toLowerCase();
 const trustClass = { Silver: 't-silver', Bronze: 't-bronze', Gold: 't-gold' }[trust] || 't-unrated';
 ---
-<a class="card pcard" href={`/plugins/${p.slug ?? p.name}/`} data-test={p.test} data-npm={p.npm ? '1' : '0'} data-name={p.name} data-slug={p.slug ?? p.name} data-ucs={ucs} data-search={search} data-cat={cat} data-stars={p.stars ?? 0} data-cmd={installCmd}>
+<a class="card pcard" href={`/plugins/${p.slug ?? p.name}/`} data-test={p.test} data-npm={isNpm ? '1' : '0'} data-name={p.name} data-slug={p.slug ?? p.name} data-ucs={ucs} data-search={search} data-cat={cat} data-stars={p.stars ?? 0} data-cmd={installCmd}>
   <div class="pcard-head">
     <img class="pcard-avatar" src={`https://github.com/${_owner(p.url)}.png`} alt="" loading="lazy" onerror="this.remove()" />
     <span class="pcard-owner">@{_owner(p.url)}</span>
@@ -29,7 +30,14 @@ const trustClass = { Silver: 't-silver', Bronze: 't-bronze', Gold: 't-gold' }[tr
   {desc && <p class="pcard-desc">{desc}</p>}
   <div class="pcard-foot">
     <span class="pcard-stars">★ {p.stars ?? 0}</span>
-    <span class="pcard-src">{p.npm ? 'npm' : 'GitHub'}</span>
+    {isNpm ? (
+      <Fragment>
+        <span class="pcard-inst pcard-inst-npm" title={`Install via npm: dsh plugin add ${p.pkg}`}>npm</span>
+        <span class="pcard-inst pcard-inst-git" title="Install from GitHub source">git</span>
+      </Fragment>
+    ) : (
+      <span class="pcard-inst pcard-inst-git" title="Install from GitHub source">git</span>
+    )}
     {license && <span class="pcard-meta">⚖ {license}</span>}
     {updated && <span class="pcard-updated" title={`Updated ${updated}`}>↻ {updated.slice(0, 10)}</span>}
     <span class="pcard-fav" role="button" data-fav={p.slug ?? p.name} aria-label="Save to favorites" title="Save to favorites">☆</span>
@@ -56,7 +64,9 @@ const trustClass = { Silver: 't-silver', Bronze: 't-bronze', Gold: 't-gold' }[tr
   .pcard-desc { font-size: 13px; color: var(--ink-2); margin: 0; line-height: 1.55; flex: 1; }
   .pcard-foot { display: flex; align-items: center; gap: 9px; margin-top: auto; flex-wrap: wrap; }
   .pcard-stars { font-size: 12px; color: #b45309; font-weight: 600; }
-  .pcard-src { font-size: 11.5px; color: var(--ink-3); }
+  .pcard-inst { font-size: 10.5px; font-weight: 700; padding: 2px 7px; border-radius: 6px; font-family: var(--mono, monospace); letter-spacing: .02em; }
+  .pcard-inst-npm { color: #4f46e5; background: #eef2ff; border: 1px solid #c7d2fe; }
+  .pcard-inst-git { color: #475569; background: #f1f5f9; border: 1px solid #cbd5e1; }
   .pcard-meta { font-size: 11px; color: var(--ink-3); white-space: nowrap; }
   .pcard-updated { font-size: 11px; color: var(--ink-3); white-space: nowrap; }
   .pcard-fav { margin-left: auto; font-size: 15px; color: #cbd5e1; cursor: pointer; line-height: 1; user-select: none; }
