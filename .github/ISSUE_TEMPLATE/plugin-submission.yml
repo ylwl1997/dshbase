@@ -39,13 +39,21 @@ body:
     attributes:
       label: 分类
       options:
-        - UI Enhancements（界面增强）
-        - Sessions & Messages（会话与消息）
-        - Tools & Capabilities（工具与能力）
-        - Workflow & Automation（工作流与自动化）
-        - Notifications & Integrations（通知与集成）
-        - Development & Runtime（开发与运行时）
-        - Just for Fun（趣味）
+        - Developer（开发）
+        - AI Models（AI 模型）
+        - UI & Skins（界面与皮肤）
+        - Knowledge（知识）
+        - Desktop（桌面端）
+        - Automation（自动化）
+        - Network（网络）
+        - Browser（浏览器）
+        - Terminal（终端）
+        - Storage（存储）
+        - Vision（视觉 / OCR）
+        - Data（数据）
+        - Security（安全）
+        - Productivity（效率）
+        - Content（内容）
     validations:
       required: true
   - type: checkboxes

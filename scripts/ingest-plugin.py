@@ -24,10 +24,21 @@ API = "https://api.github.com"
 BUNDLE_FILES = ("cordis.patch.yml", "cordis.yml", "dsh.bundle.patch", "dsh.bundle", "dsh.bundle.yml")
 
 CATEGORIES = [
-    "UI Enhancements", "Sessions & Messages", "Tools & Capabilities",
-    "Workflow & Automation", "Notifications & Integrations",
-    "Development & Runtime", "Just for Fun",
+    "Developer", "AI Models", "UI & Skins", "Knowledge", "Desktop",
+    "Automation", "Network", "Browser", "Terminal", "Storage",
+    "Vision", "Data", "Security", "Productivity", "Content",
 ]
+
+# 旧 7 类 -> 新 15 类（兼容历史 issue 模板 / 旧调用）
+OLD_TO_NEW = {
+    "UI Enhancements": "UI & Skins",
+    "Sessions & Messages": "Knowledge",
+    "Tools & Capabilities": "Developer",
+    "Workflow & Automation": "Automation",
+    "Notifications & Integrations": "Network",
+    "Development & Runtime": "Developer",
+    "Just for Fun": "UI & Skins",
+}
 
 
 def gh(path):
@@ -163,7 +174,7 @@ def find_existing(db, name, url):
 
 
 def add_plugin(db, entry, category):
-    cat = category if category in CATEGORIES else "Tools & Capabilities"
+    cat = category if category in CATEGORIES else "Developer"
     if cat not in db:
         db[cat] = []
     db[cat].append(entry)
@@ -180,6 +191,10 @@ def main():
     ap.add_argument("--desc-zh", default="", help="中文描述")
     ap.add_argument("--json", action="store_true", help="输出 JSON 结果")
     args = ap.parse_args()
+
+    # 旧 7 类名归一化到新 15 类（兼容历史模板 / 旧调用）
+    if args.category in OLD_TO_NEW:
+        args.category = OLD_TO_NEW[args.category]
 
     repo = parse_repo(args.repo) or args.repo
     data = fetch_repo(repo)
@@ -227,12 +242,12 @@ def main():
         install = f"`dsh plugin add {entry['pkg']}`" if entry["pkg"] else f"`dsh plugin add github:{repo}`"
         if issues:
             msg = ("✅ 已收录！感谢提交 🎉\n\n"
-                   f"- 分类：{args.category or 'Tools & Capabilities'}\n- 安装：{install}\n\n"
+                   f"- 分类：{args.category or 'Developer'}\n- 安装：{install}\n\n"
                    "建议补充以下内容（补充后回复我，我会更新）：\n"
                    + "\n".join(f"- [ ] {i}" for i in issues))
         else:
             msg = (f"✅ 已收录！感谢提交 🎉\n\n"
-                   f"- 分类：{args.category or 'Tools & Capabilities'}\n- 安装：{install}\n\n感谢提交！")
+                   f"- 分类：{args.category or 'Developer'}\n- 安装：{install}\n\n感谢提交！")
         result = {"status": "accepted", "name": name, "category": args.category, "install": install, "message": msg}
 
     if args.json:
