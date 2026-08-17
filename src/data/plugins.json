@@ -14879,6 +14879,32 @@
    ],
    "trust": "Unrated",
    "slug": "kubemd"
+  },
+  {
+   "name": "dsh-vision-toolkit",
+   "url": "https://github.com/Anionex/dsh-vision-toolkit",
+   "pkg": "",
+   "ver": "",
+   "npm": false,
+   "test": "verified",
+   "desc": "A DeepSeek Harness plugin that helps text-only models handle vision tasks: intent-aware image Q&A, long-screenshot OCR, UI restoration, grounding, pixel diff, and Artifacts.",
+   "desc_en": "A DeepSeek Harness plugin that helps text-only models handle vision tasks: intent-aware image Q&A, long-screenshot OCR, UI restoration, grounding, pixel diff, and Artifacts.",
+   "desc_zh": "让纯文本模型更好做视觉任务的 DeepSeek Harness 插件：带意图的图片问答、长截图 OCR、UI 还原、grounding、像素 diff 与 Artifacts。",
+   "stars": 539,
+   "forks": 28,
+   "issues": 3,
+   "language": "TypeScript",
+   "updated": "2026-08-17",
+   "archived": false,
+   "added": "2026-08-14",
+   "license": "MIT",
+   "ucs": [
+    "Vision / OCR",
+    "File",
+    "Web search"
+   ],
+   "trust": "Silver",
+   "slug": "dsh-vision-toolkit"
   }
  ],
  "AI Models": [
@@ -21623,6 +21649,104 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-client-ui-filesystem-manager"
+  },
+  {
+   "name": "dsh-cc-tui",
+   "url": "https://github.com/ccch1mneyyy/dsh-cc-tui",
+   "pkg": "dsh-cc-tui",
+   "ver": "0.3.5",
+   "npm": true,
+   "test": "verified",
+   "desc": "A Claude Code-style full-screen terminal TUI for DSH with a status line, streaming thinking, context progress bar, and TPS dashboard.",
+   "desc_en": "A Claude Code-style full-screen terminal TUI for DSH with a status line, streaming thinking, context progress bar, and TPS dashboard.",
+   "desc_zh": "Claude Code 风格全屏交互终端插件：实时工作状态行、思考流式展开、上下文进度条与 TPS 仪表，补位 DSH 官方终端 TUI。",
+   "stars": 1575,
+   "forks": 69,
+   "issues": 24,
+   "language": "TypeScript",
+   "updated": "2026-08-17",
+   "archived": false,
+   "added": "2026-08-14",
+   "license": "MIT",
+   "ucs": [
+    "Terminal / Shell",
+    "Memory"
+   ],
+   "trust": "Silver",
+   "slug": "dsh-cc-tui"
+  },
+  {
+   "name": "dsh-genui",
+   "url": "https://github.com/omdsh-dev/dsh-genui",
+   "pkg": "",
+   "ver": "",
+   "npm": false,
+   "test": "verified",
+   "desc": "GenUI for DeepSeek Harness renders interactive UI components (layout, charts, plots, forms, quizzes, mermaid, 3D scenes) inline in assistant replies via the dsh-ui fence.",
+   "desc_en": "GenUI for DeepSeek Harness renders interactive UI components (layout, charts, plots, forms, quizzes, mermaid, 3D scenes) inline in assistant replies via the dsh-ui fence.",
+   "desc_zh": "DeepSeek Harness 的 GenUI 插件，通过 dsh-ui 栅栏在助手回复中内联渲染布局、图表、表单、测验、mermaid、3D 场景等交互式 UI 组件。",
+   "stars": 146,
+   "forks": 14,
+   "issues": 4,
+   "language": "TypeScript",
+   "updated": "2026-08-16",
+   "archived": false,
+   "added": "2026-08-13",
+   "license": "MIT",
+   "ucs": [
+    "Web search"
+   ],
+   "trust": "Silver",
+   "slug": "dsh-genui"
+  },
+  {
+   "name": "dsh-tianshu-tui",
+   "url": "https://github.com/huiliyi37/dsh-tianshu-tui",
+   "pkg": "",
+   "ver": "",
+   "npm": false,
+   "test": "verified",
+   "desc": "An interactive terminal UI plugin for DeepSeek Harness that adds TDD and evidence-gate workflows on top of the official harness.",
+   "desc_en": "An interactive terminal UI plugin for DeepSeek Harness that adds TDD and evidence-gate workflows on top of the official harness.",
+   "desc_zh": "DeepSeek Harness 的交互式终端 UI 插件，在官方 harness 基础上增加了 TDD 与证据门等工作流。",
+   "stars": 194,
+   "forks": 8,
+   "issues": 7,
+   "language": "TypeScript",
+   "updated": "2026-08-16",
+   "archived": false,
+   "added": "2026-08-14",
+   "license": "Apache-2.0",
+   "ucs": [
+    "Terminal / Shell"
+   ],
+   "trust": "Silver",
+   "slug": "dsh-tianshu-tui"
+  },
+  {
+   "name": "dsh-web-ui",
+   "url": "https://github.com/zhu1090093659/dsh-web-ui",
+   "pkg": "@linxin666/dsh-web-ui-all",
+   "ver": "",
+   "npm": true,
+   "test": "verified",
+   "desc": "DSH Web UI plugin & skin collection: task board, git panel, etc.",
+   "desc_en": "DSH Web UI plugin & skin collection: task board, git panel, etc.",
+   "desc_zh": "DSH Web UI 插件与皮肤合集：任务板、Git 面板等",
+   "stars": 3516,
+   "forks": 207,
+   "issues": 46,
+   "language": "TypeScript",
+   "updated": "2026-08-17",
+   "archived": false,
+   "added": "2026-08-15",
+   "license": "Apache-2.0",
+   "ucs": [
+    "GitHub integration",
+    "Web search"
+   ],
+   "trust": "Unrated",
+   "slug": "dsh-web-ui"
   }
  ],
  "Knowledge": [
@@ -25634,6 +25758,31 @@
    ],
    "trust": "Silver",
    "slug": "find-dsh-plugins"
+  },
+  {
+   "name": "dsh-message-edit",
+   "url": "https://github.com/Moeblack/dsh-message-edit",
+   "pkg": "dsh-message-edit",
+   "ver": "",
+   "npm": true,
+   "test": "verified",
+   "desc": "Branch-based message editing, reroll, version timeline",
+   "desc_en": "Branch-based message editing, reroll, version timeline",
+   "desc_zh": "分支式消息编辑、reroll、版本时间线",
+   "stars": 25,
+   "forks": 4,
+   "issues": 10,
+   "language": "TypeScript",
+   "updated": "2026-08-16",
+   "archived": false,
+   "added": "2026-08-15",
+   "license": "",
+   "ucs": [
+    "Memory",
+    "GitHub integration"
+   ],
+   "trust": "Unrated",
+   "slug": "dsh-message-edit"
   }
  ],
  "Desktop": [

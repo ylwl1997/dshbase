@@ -13,3 +13,5 @@ dist/
 # 审计产物（脚本在 scripts/audit-dsh.py，不忽略）
 /audit-*
 /removed-*.txt
+/old-plugins.json
+/restore-meta.json
