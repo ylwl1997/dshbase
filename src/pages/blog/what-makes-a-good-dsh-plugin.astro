@@ -1,0 +1,55 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+---
+<BlogPost title="What makes a good DeepSeek Harness plugin — the author's checklist | dshbase" description="We've installed and verified 1,700+ DeepSeek Harness plugins. Here's the concrete checklist that separates plugins that just work from the ones that break — bundle manifest, ESM, version pins, inject declarations — and how to earn the Verified badge." currentPath="/blog/what-makes-a-good-dsh-plugin/" category="Guide">
+  <h1>What makes a <span class="accent">good</span> DeepSeek Harness plugin</h1>
+  <p class="muted small" style="margin-bottom:20px">August 17, 2026 · dshbase</p>
+
+  <p>We run <a href="https://dshbase.com">dshbase</a>, a community directory for DeepSeek Harness. To date we've installed and boot-tested <strong>1,700+ plugins</strong> on dsh 0.1.0-rc.6, and marked roughly <strong>1,400+ as verified</strong>. That means we've seen the same mistakes break plugins again and again — and the same habits make a plugin "just work." This is the checklist, for authors who want their plugin to be in the first group.</p>
+
+  <h2>1. Ship a bundle manifest — or you never load</h2>
+  <p>The single most common silent failure: a plugin installs fine but the agent never activates it. The cause is almost always a missing <strong>bundle manifest</strong>. A DSH plugin isn't just an npm package — it needs <code>cordis.patch.yml</code> (or <code>cordis.yml</code>) plus a <code>dsh.bundle</code> entry so the Cordis loader knows to mount it. Without it, <code>dsh plugin add</code> treats your plugin as a plain dependency and quietly ignores it.</p>
+  <p>Test it yourself: <code>dsh plugin add &lt;your-plugin&gt;</code>, then <code>dsh --profile &lt;name&gt; --dump-config</code>. If your plugin's entry doesn't appear in the tree, the manifest is wrong.</p>
+
+  <h2>2. Ship ESM, not CommonJS</h2>
+  <p>Core packages like <code>@deepseek-ai/dsh-tools</code> are ESM-only. A plugin compiled to CommonJS that imports them dies with <code>ERR_REQUIRE_ESM</code>. Set <code>"type": "module"</code> in your <code>package.json</code> and build to ESM. This is one of the most frequent hard failures we see in the directory.</p>
+
+  <h2>3. Mind your version pins (the dist-tag trap)</h2>
+  <p>Nearly every package under <code>@deepseek-ai/*</code> has a <code>latest</code> dist-tag pointing at a broken <code>0.0.1-rc.x</code>, while the working <code>0.1.0-rc.6</code> lives on the <code>next</code> tag. If your plugin declares a release range like <code>&gt;=0.1.0</code>, the prerelease <code>0.1.0-rc.6</code> does <em>not</em> satisfy it, and pnpm reports "No matching version found." Declare your peer deps against the actual published version, and test against <code>0.1.0-rc.6</code> explicitly.</p>
+
+  <h2>4. Declare your Cordis contract</h2>
+  <p>Cordis is strict about dependencies. Every service your plugin reads must be declared:</p>
+  <ul>
+    <li><strong><code>inject: [...]</code></strong> — reading a service without declaring it throws <code>cannot get property "X" without inject</code>.</li>
+    <li><strong><code>using</code> / <code>inject</code> the services you need</strong> — otherwise the loader leaves your entry <code>waiting for service: X</code> and it never starts.</li>
+    <li><strong>Don't collide on loader entry IDs</strong> — <code>code-runtime</code> is owned by the bundles; registering it again causes a "duplicate loader entry id" error.</li>
+  </ul>
+
+  <h2>5. Be honest about your runtime surface</h2>
+  <p>DSH has two sibling surfaces over the same base: <strong>headless</strong> (one-shot CLI, <code>dsh --profile x "task"</code>) and <strong>web</strong> (a full GUI server with <code>webServer</code>, <code>storage</code>, <code>workspace</code>). If your plugin is a GUI plugin that needs those services, say so — a headless-only test will show it as <code>waiting for service: webServer</code> and a naive tester will call it broken. The same goes for plugins that need an external account (an xAI login, GitHub Packages auth, a paid API). State it in the README, up front.</p>
+
+  <h2>6. Make install deterministic</h2>
+  <ul>
+    <li>Don't depend on <code>workspace:</code> references that only exist in your monorepo.</li>
+    <li>Don't ship a <code>prepare</code> build script that fails in a clean environment.</li>
+    <li>If you use native deps (<code>node-pty</code>, <code>koffi</code>, <code>protobufjs</code>), declare them so pnpm's <code>allowBuilds</code> can compile them.</li>
+  </ul>
+
+  <h2>7. The bar for "great" — not just "works"</h2>
+  <p>Everything above gets you to "installs and activates." A great plugin goes further:</p>
+  <ul>
+    <li><strong>One clear job.</strong> A plugin that does one thing well beats a grab-bag of twenty half-finished tools.</li>
+    <li><strong>A README with the exact install command</strong> and a sentence on what changes after install.</li>
+    <li><strong>A demo.</strong> If it's a UI plugin, one screenshot is worth a thousand words — and it's also the fastest verification evidence.</li>
+    <li><strong>A license</strong> and the <code>dsh-plugin</code> GitHub topic, so your plugin is discoverable.</li>
+    <li><strong>A test story.</strong> How do <em>you</em> know it works? Write that down; it becomes our verification signal too.</li>
+  </ul>
+
+  <h2>How to earn the Verified badge</h2>
+  <p>In the <a href={directoryUrl}>directory</a>, we verify what we can: a fresh-profile install plus a boot test. But some plugins legitimately need a full web runtime, an external account, or a special build environment — those we mark <strong>Unverified</strong> rather than guess wrong.</p>
+  <p><strong>If your plugin is one of those, you can close the gap yourself.</strong> On your plugin's page (or <a href="https://github.com/ylwl1997/dshbase/issues/new?template=verification-evidence.yml">directly here</a>), open an issue with the "Submit verification evidence" template, attach a screenshot or log of your plugin actually running in dsh, and we'll review and flip it to <strong>Verified</strong>. The badge is there for the taking — we just need something real to point to.</p>
+
+  <p>Related: <a href="/blog/dsh-plugin-philosophy/">everything-is-a-plugin vs plugin fatigue</a> · <a href="/blog/dsh-plugin-pollution/">how we vet real plugins from tag-squatters</a>.</p>
+</BlogPost>
