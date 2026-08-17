@@ -1,0 +1,113 @@
+#!/usr/bin/env bash
+# 全量插件验证（L1 安装 + L2 加载 + L3 headless 问答），并行执行。
+# 判定：ok=全过 / load-fail=加载失败 / runtime-fail=问答失败 / install-fail=装不上 / network-fail=网络问题
+# 用法：
+#   bash scripts/verify-runtime.sh                    # 全部 pending
+#   VERIFY_FILTER=pending-npm bash scripts/verify-runtime.sh   # 仅 npm 源 pending
+#   WORKERS=6 bash scripts/verify-runtime.sh          # 并行度（默认 6）
+set -uo pipefail
+
+PYTHON="${PYTHON:-python3}"
+DATA="src/data/plugins.json"
+# dsh 实际把 profile 放在 ~/.dsh/profiles（不认 DSH_HOME 环境变量）
+export PROFILE_ROOT="${DSH_PROFILE_ROOT:-$HOME/.dsh/profiles}"
+mkdir -p "$PROFILE_ROOT"
+WORKERS="${WORKERS:-6}"
+
+# credentials：从环境变量 DEEPSEEK_API_KEY 写入 ~/.dsh/.credentials.yaml（key 不进脚本）
+if [ -n "${DEEPSEEK_API_KEY:-}" ]; then
+  mkdir -p "$HOME/.dsh"
+  cat > "$HOME/.dsh/.credentials.yaml" <<YEOF
+DEEPSEEK_API_KEY: $DEEPSEEK_API_KEY
+YEOF
+  chmod 600 "$HOME/.dsh/.credentials.yaml"
+fi
+
+# 1. 生成待验证列表：name<TAB>source
+"$PYTHON" - "$DATA" <<'PYEOF' > /tmp/verify-list.tsv
+import json, re, sys, os
+d = json.load(open(sys.argv[1], encoding='utf-8'))
+filt = os.environ.get('VERIFY_FILTER', '')
+def keep(p):
+    if p.get('test') != 'pending':
+        return False
+    if filt == 'pending-github':
+        return not p.get('npm')
+    if filt == 'pending-npm':
+        return bool(p.get('npm'))
+    return True
+out = []
+for items in d.values():
+    for p in items:
+        if not keep(p):
+            continue
+        name = p['name']
+        src = ''
+        if p.get('npm') and p.get('pkg'):
+            src = p['pkg']
+        elif p.get('url'):
+            m = re.search(r'github\.com/([^/]+/[^/]+)', p['url'])
+            if m:
+                src = 'github:' + m.group(1).rstrip('/')
+        if src:
+            out.append((name, src))
+for name, src in out:
+    print(name + '\t' + src)
+PYEOF
+
+total=$(wc -l < /tmp/verify-list.tsv)
+echo "待验证: $total 个（并行 $WORKERS 路）" >&2
+
+# 2. 单插件验证函数
+verify_one() {
+  local name="$1" src="$2"
+  local prof="v_$(echo "$name" | tr -cd 'a-zA-Z0-9_-')"
+  local profdir="$PROFILE_ROOT/$prof"
+  rm -rf "$profdir"; mkdir -p "$profdir"
+  cat > "$profdir/pnpm-workspace.yaml" <<'YAML'
+dangerouslyAllowAllBuilds: true
+overrides:
+  '@deepseek-ai/dsh-base': 0.1.0-rc.6
+  '@deepseek-ai/dsh-headless': 0.1.0-rc.6
+  '@deepseek-ai/dsh-invariants': 0.1.0-rc.6
+  '@deepseek-ai/dsh-client-runtime': 0.1.0-rc.6
+  '@deepseek-ai/dsh-tools': 0.1.0-rc.6
+YAML
+  local log="/tmp/verify-$name.log"
+  local status="unknown"
+  local installed=0
+  for attempt in 1 2 3; do
+    if timeout 240 dsh plugin --profile "$prof" add "@deepseek-ai/dsh-base@0.1.0-rc.6" "@deepseek-ai/dsh-headless@0.1.0-rc.6" "$src" >"$log" 2>&1; then
+      installed=1; break
+    fi
+    sleep 5
+  done
+
+  if [ "$installed" -eq 1 ]; then
+    if timeout 90 dsh --profile "$prof" --dump-config >/dev/null 2>>"$log"; then
+      local out rc
+      out=$(timeout 90 dsh --profile "$prof" "Reply with exactly: OK" 2>>"$log")
+      rc=$?
+      if [ "$rc" -eq 0 ] && printf '%s' "$out" | grep -q "OK"; then
+        status="ok"
+      else
+        status="runtime-fail"
+      fi
+    else
+      status="load-fail"
+    fi
+  elif grep -qiE "failed to connect|could not connect|ENOTFOUND|ETIMEDOUT|UND_ERR|ECONNRESET|ECONNREFUSED|network is unreachable|git ls-remote.*fatal|EAI_AGAIN" "$log"; then
+    status="network-fail"
+  else
+    status="install-fail"
+  fi
+
+  printf '%s\t%s\n' "$name" "$status"
+  echo "[$name] $status" >&2
+}
+export -f verify_one
+
+# 3. 并行执行
+cat /tmp/verify-list.tsv | xargs -P "$WORKERS" -n 2 bash -c 'verify_one "$0" "$1"' > /tmp/verify-results.tsv
+
+echo "=== 结果文件 /tmp/verify-results.tsv ===" >&2

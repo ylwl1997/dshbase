@@ -9,7 +9,9 @@ import json
 import sys
 
 DATA = 'src/data/plugins.json'
-ORDER = {'ok': 0, 'load-fail': 1, 'install-fail': 2, 'network-fail': 3}
+ORDER = {'ok': 0, 'load-fail': 1, 'runtime-fail': 2, 'install-fail': 3, 'network-fail': 4}
+# 严格标准：只有 ok 升级 verified；安装/加载/运行时任一失败都视为未通过验证 → pending
+FAIL_STATES = {'install-fail', 'load-fail', 'runtime-fail'}
 
 
 def main(files):
@@ -19,7 +21,10 @@ def main(files):
             line = line.strip()
             if not line:
                 continue
-            name, status = line.split('\t', 1)
+            parts = line.split('\t', 1)
+            if len(parts) != 2:
+                continue
+            name, status = parts
             prev = res.get(name)
             if prev is None or ORDER.get(status, 9) < ORDER.get(prev, 9):
                 res[name] = status
@@ -35,7 +40,7 @@ def main(files):
             if st == 'ok' and old != 'verified':
                 p['test'] = 'verified'
                 upgraded += 1
-            elif st == 'install-fail' and old != 'verified' and old != 'pending':
+            elif st in FAIL_STATES and old != 'verified' and old != 'pending':
                 p['test'] = 'pending'
                 pending += 1
             else:
