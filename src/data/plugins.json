@@ -17782,7 +17782,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Plugin development and publishing tools provider for DSH, installing expert2skill, compliance, dependency, and malware scanners via ctx.skills.",
    "desc_en": "Plugin development and publishing tools provider for DSH, installing expert2skill, compliance, dependency, and malware scanners via ctx.skills.",
    "desc_zh": "DSH插件开发与发布工具集，通过ctx.skills安装专家沉淀、合规检查、依赖扫描和恶意代码检测工具。",
