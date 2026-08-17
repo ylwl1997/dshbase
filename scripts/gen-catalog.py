@@ -27,6 +27,7 @@ for cat, items in d.items():
             "pkg": p.get("pkg") or "",
             "npm": bool(p.get("npm")),
             "test": p.get("test") or "pending",
+            "platform": p.get("platform") or "any",
             "desc": p.get("desc_en") or p.get("desc") or "",
             "desc_zh": p.get("desc_zh") or "",
             "stars": p.get("stars") or 0,

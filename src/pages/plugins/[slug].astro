@@ -39,6 +39,8 @@ const statusClass = {
   verified: 'st-ok',
   pending: 'st-warn',
 };
+const platform = p.platform || 'any';
+const platformLabel = { win32: 'Windows', macos: 'macOS', linux: 'Linux', any: 'Cross-platform' }[platform] || platform;
 const sec = security[p.name];
 const riskLabel = { low: 'Low', medium: 'Medium', high: 'High', critical: 'Critical' };
 const riskClass = { low: 'sec-low', medium: 'sec-med', high: 'sec-high', critical: 'sec-crit' };
@@ -95,6 +97,7 @@ const jsonLd = {
       <div class="metric"><span class="m-val" data-stars-slug={p.slug} data-stats-kind="issues">{p.issues ?? 0}</span><span class="m-lab">Open issues</span></div>
       <div class="metric"><span class="m-val">{p.language || '—'}</span><span class="m-lab">Language</span></div>
       <div class="metric"><span class="m-val">{p.updated || '—'}</span><span class="m-lab">Last push</span></div>
+      <div class="metric"><span class="m-val">{platformLabel}</span><span class="m-lab">Platform</span></div>
     </div>
   </section>
 
@@ -113,7 +116,7 @@ const jsonLd = {
         <Fragment>actually ran <code>dsh plugin add</code> in a clean profile and it booted — nothing more</Fragment>
       ) : (
         'has not yet installed this plugin'
-      )}. Feature descriptions and version compatibility are the author’s claims. This is not a security audit and not an endorsement of third-party code.</p>
+      )}. {platform !== 'any' && p.test === 'verified' ? `Our CI runs on Linux, so it confirms install + boot but not this plugin's ${platformLabel}-specific behavior. ` : ''}Feature descriptions and version compatibility are the author’s claims. This is not a security audit and not an endorsement of third-party code.</p>
 
     <div class="sec-box">
       {sec ? (
@@ -160,6 +163,9 @@ const jsonLd = {
         <p>{p.test === 'verified' && 'Verified end-to-end: installed via `dsh plugin add`, activated in the profile, and booted a task successfully.'}
            {p.test === 'pending' && 'Not yet verified — install and test it yourself, or check back later.'}
 </p>
+        {p.bareNpm === 'missing-dep' && (
+          <p class="honest-note">⚠ A bare <code>npm install {p.pkg}</code> fails to import this package — a dependency is likely declared under <code>devDependencies</code> instead of <code>dependencies</code>, so it only installs cleanly via <code>dsh plugin add</code>.</p>
+        )}
       </Fragment>
     ) : (
       <Fragment>

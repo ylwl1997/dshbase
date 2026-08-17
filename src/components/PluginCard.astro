@@ -10,6 +10,7 @@ const statusClass = p.test === 'verified' ? 'st-ok' : 'st-warn';
 const trust = p.trust || '';
 const license = p.license || '';
 const updated = p.updated || '';
+const platformTag = { win32: '🪟 Windows', macos: '🍎 macOS', linux: '🐧 Linux' }[p.platform] || '';
 const ucs = (p.ucs || []).join('|');
 const featured = (p.stars ?? 0) >= 100;
 const desc = lang === 'zh' ? (p.desc_zh || p.desc_en || p.desc || '') : (p.desc_en || p.desc || '');
@@ -40,6 +41,7 @@ const trustClass = { Silver: 't-silver', Bronze: 't-bronze', Gold: 't-gold' }[tr
     )}
     {license && <span class="pcard-meta">⚖ {license}</span>}
     {updated && <span class="pcard-updated" title={`Updated ${updated}`}>↻ {updated.slice(0, 10)}</span>}
+    {platformTag && <span class="pcard-meta" title="Platform-specific">{platformTag}</span>}
     <span class="pcard-fav" role="button" data-fav={p.slug ?? p.name} aria-label="Save to favorites" title="Save to favorites">☆</span>
     <span class="pcard-copy" role="button" data-cmd={installCmd}>{copyLabel}</span>
   </div>

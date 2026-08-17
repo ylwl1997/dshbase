@@ -38,6 +38,8 @@ const statusClass = {
   verified: 'st-ok',
   pending: 'st-warn',
 };
+const platform = p.platform || 'any';
+const platformLabel = { win32: 'Windows', macos: 'macOS', linux: 'Linux', any: '跨平台' }[platform] || platform;
 const sec = security[p.name];
 const riskLabel = { low: '低', medium: '中', high: '高', critical: '严重' };
 const riskClass = { low: 'sec-low', medium: 'sec-med', high: 'sec-high', critical: 'sec-crit' };
@@ -94,6 +96,7 @@ const jsonLd = {
       <div class="metric"><span class="m-val" data-stars-slug={p.slug} data-stats-kind="issues">{p.issues ?? 0}</span><span class="m-lab">未关闭 issue</span></div>
       <div class="metric"><span class="m-val">{p.language || '—'}</span><span class="m-lab">语言</span></div>
       <div class="metric"><span class="m-val">{p.updated || '—'}</span><span class="m-lab">最近推送</span></div>
+      <div class="metric"><span class="m-val">{platformLabel}</span><span class="m-lab">平台</span></div>
     </div>
   </section>
 
@@ -112,7 +115,7 @@ const jsonLd = {
         <Fragment>在干净 profile 里实际执行了 <code>dsh plugin add</code> 并启动成功——仅此而已</Fragment>
       ) : (
         '尚未安装过该插件'
-      )}。功能描述与版本兼容性均为作者声明。这不是安全审计，也不代表对第三方代码的背书。</p>
+      )}。{platform !== 'any' && p.test === 'verified' ? `我们的 CI 跑在 Linux 上，只能确认安装+启动，无法验证该插件 ${platformLabel} 专属行为。` : ''}功能描述与版本兼容性均为作者声明。这不是安全审计，也不代表对第三方代码的背书。</p>
 
     <div class="sec-box">
       {sec ? (
@@ -158,6 +161,9 @@ const jsonLd = {
         <h2 style="margin-top:24px">实测报告</h2>
         <p>{p.test === 'verified' && '端到端验证通过：`dsh plugin add` 安装成功、进入 profile 配置树、启动任务正常。'}
            {p.test === 'pending' && '尚未验证——请自行安装测试，或稍后回来查看。'}</p>
+        {p.bareNpm === 'missing-dep' && (
+          <p class="honest-note">⚠ 裸 <code>npm install {p.pkg}</code> 无法导入该包——某个依赖可能被声明在 <code>devDependencies</code> 而非 <code>dependencies</code>，只有经 <code>dsh plugin add</code> 才能干净安装。</p>
+        )}
       </Fragment>
     ) : (
       <Fragment>
