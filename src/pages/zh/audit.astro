@@ -28,6 +28,36 @@ const stats = [
   { n: fmt(nPending), label: '待验证' },
   { n: fmt(nMit), label: 'MIT 协议' },
 ];
+
+const report = {
+  method: [
+    { k: 'L1 · 安装', v: '插件在干净 profile 里，与固定版本的 DSH 运行时一起安装。' },
+    { k: 'L2 · 加载', v: 'profile 成功启动并导出配置。' },
+    { k: 'L3 · 运行', v: '载入插件后跑一句 headless 问答；必须干净退出并返回预期答案。' },
+  ],
+  results: [
+    { n: '551', label: '通过', ok: true },
+    { n: '198', label: '运行失败' },
+    { n: '164', label: '安装失败' },
+    { n: '10', label: '加载失败' },
+  ],
+  causes: [
+    { title: '安装失败', total: '159', items: [
+      ['68', '声明的依赖版本在 registry 上不存在'],
+      ['63', '构建 / prepare 脚本失败（常因依赖了未发布的 @deepseek-ai/* 包）'],
+      ['15', '依赖包或仓库返回 404'],
+      ['13', '不支持的依赖结构（workspace / linked / exotic）'],
+    ] },
+    { title: '运行失败', total: '182', items: [
+      ['107', '插件 entry 启动时激活失败'],
+      ['70', 'loader entry 应用失败（schema DSL 不支持、缺配置、版本不匹配）'],
+      ['5', '其他'],
+    ] },
+    { title: '加载失败', total: '10', items: [
+      ['10', 'overlay 文件缺失（ENOENT）'],
+    ] },
+  ],
+};
 ---
 
 <Base
@@ -79,6 +109,38 @@ const stats = [
       <li><strong>热度不等于背书</strong>——star、fork、issue 数取自 GitHub，只作热度参考。</li>
     </ul>
 
+    <h2>全量验证报告 — 2026 年 8 月</h2>
+    <p>2026 年 8 月，我们把所有待验证插件在干净、隔离的 profile 里做了一次完整的三阶段实测。以下是结果。</p>
+    <h3>方法</h3>
+    <ul>
+      {report.method.map((m) => (
+        <li><strong>{m.k}</strong> —— {m.v}</li>
+      ))}
+    </ul>
+    <h3>范围</h3>
+    <p>923 个待验证条目 —— 878 个 GitHub 仓库 + 45 个 npm 包。</p>
+    <h3>结果</h3>
+    <div class="report-results">
+      {report.results.map((r) => (
+        <div class={`rstat${r.ok ? ' ok' : ''}`}>
+          <b>{r.n}</b>
+          <span>{r.label}</span>
+        </div>
+      ))}
+    </div>
+    <h3>其余为何未通过</h3>
+    <p>每条失败都从其安装日志归类。以下数字按去重后的唯一插件统计。</p>
+    {report.causes.map((g) => (
+      <div class="cause-group">
+        <h4>{g.title}（{g.total}）</h4>
+        <ul>
+          {g.items.map(([n, d]) => (
+            <li><strong>{n}</strong> —— {d}</li>
+          ))}
+        </ul>
+      </div>
+    ))}
+
     <h2>我们对可靠性的态度</h2>
     <ul>
       <li><strong>收录不等于背书。</strong>进入目录只意味着它通过了上述审计、真实存在于 DSH 生态——仅此而已。</li>
@@ -100,4 +162,12 @@ const stats = [
   .info ul li { margin: 10px 0; color: var(--ink-2, #475569); line-height: 1.7; padding-left: 20px; position: relative; }
   .info ul li::before { content: "›"; position: absolute; left: 2px; color: var(--primary, #4D6BFE); font-weight: 700; }
   .info h2 { margin-top: 30px; }
+  .report-results { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin: 14px 0 6px; }
+  .rstat { background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e9f0); border-radius: 14px; padding: 16px 14px; text-align: center; }
+  .rstat.ok { border-color: #b6e3c8; background: #f2fbf5; }
+  .rstat b { display: block; font-size: 26px; font-weight: 800; color: var(--ink, #1f2733); }
+  .rstat.ok b { color: #1a7f4b; }
+  .rstat span { font-size: 12px; color: var(--ink-2, #5b6472); text-transform: uppercase; letter-spacing: .04em; }
+  .cause-group { margin: 18px 0; }
+  .cause-group h4 { margin: 0 0 8px; font-size: 15px; color: var(--ink, #1f2733); }
 </style>

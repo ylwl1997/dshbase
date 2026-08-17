@@ -31,6 +31,36 @@ const stats = [
   { n: fmt(nPending), label: 'pending' },
   { n: fmt(nMit), label: 'MIT-licensed' },
 ];
+
+const report = {
+  method: [
+    { k: 'L1 · Install', v: 'the plugin is installed into a clean profile alongside a pinned DSH runtime.' },
+    { k: 'L2 · Load', v: 'the profile boots and dumps its configuration successfully.' },
+    { k: 'L3 · Runtime', v: 'a headless question is answered with the plugin loaded; the run must exit cleanly and return the expected answer.' },
+  ],
+  results: [
+    { n: '551', label: 'passed', ok: true },
+    { n: '198', label: 'runtime fail' },
+    { n: '164', label: 'install fail' },
+    { n: '10', label: 'load fail' },
+  ],
+  causes: [
+    { title: 'Install failures', total: '159', items: [
+      ['68', 'declared dependency version does not exist on the registry'],
+      ['63', 'build / prepare script failed (often a dependency on an unpublished @deepseek-ai/* package)'],
+      ['15', 'dependency package or repository returns 404'],
+      ['13', 'unsupported dependency structure (workspace / linked / exotic)'],
+    ] },
+    { title: 'Runtime failures', total: '182', items: [
+      ['107', 'plugin entry failed to activate at boot'],
+      ['70', 'loader entry failed to apply (unsupported schema DSL, missing config, version mismatch)'],
+      ['5', 'other'],
+    ] },
+    { title: 'Load failures', total: '10', items: [
+      ['10', 'overlay file missing (ENOENT)'],
+    ] },
+  ],
+};
 ---
 
 <Base
@@ -82,6 +112,38 @@ const stats = [
       <li><strong>Popularity is not endorsement</strong> — star, fork, and issue counts are pulled from GitHub and shown as a popularity signal only.</li>
     </ul>
 
+    <h2>Full verification run — August 2026</h2>
+    <p>In August 2026 we put every pending plugin through a complete three-stage runtime pass in clean, isolated profiles. Here is what we found.</p>
+    <h3>Method</h3>
+    <ul>
+      {report.method.map((m) => (
+        <li><strong>{m.k}</strong> — {m.v}</li>
+      ))}
+    </ul>
+    <h3>Scope</h3>
+    <p>923 pending entries — 878 GitHub repositories and 45 npm packages.</p>
+    <h3>Results</h3>
+    <div class="report-results">
+      {report.results.map((r) => (
+        <div class={`rstat${r.ok ? ' ok' : ''}`}>
+          <b>{r.n}</b>
+          <span>{r.label}</span>
+        </div>
+      ))}
+    </div>
+    <h3>Why the rest did not pass</h3>
+    <p>Every failure is classified from its install log. Numbers below count unique plugins.</p>
+    {report.causes.map((g) => (
+      <div class="cause-group">
+        <h4>{g.title} ({g.total})</h4>
+        <ul>
+          {g.items.map(([n, d]) => (
+            <li><strong>{n}</strong> — {d}</li>
+          ))}
+        </ul>
+      </div>
+    ))}
+
     <h2>Our stance on reliability</h2>
     <ul>
       <li><strong>Listing is not endorsement.</strong> Being in the directory means a plugin passed the audits above and genuinely exists in the DSH ecosystem — nothing more.</li>
@@ -103,4 +165,12 @@ const stats = [
   .info ul li { margin: 10px 0; color: var(--ink-2, #475569); line-height: 1.7; padding-left: 20px; position: relative; }
   .info ul li::before { content: "›"; position: absolute; left: 2px; color: var(--primary, #4D6BFE); font-weight: 700; }
   .info h2 { margin-top: 30px; }
+  .report-results { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin: 14px 0 6px; }
+  .rstat { background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e9f0); border-radius: 14px; padding: 16px 14px; text-align: center; }
+  .rstat.ok { border-color: #b6e3c8; background: #f2fbf5; }
+  .rstat b { display: block; font-size: 26px; font-weight: 800; color: var(--ink, #1f2733); }
+  .rstat.ok b { color: #1a7f4b; }
+  .rstat span { font-size: 12px; color: var(--ink-2, #5b6472); text-transform: uppercase; letter-spacing: .04em; }
+  .cause-group { margin: 18px 0; }
+  .cause-group h4 { margin: 0 0 8px; font-size: 15px; color: var(--ink, #1f2733); }
 </style>
