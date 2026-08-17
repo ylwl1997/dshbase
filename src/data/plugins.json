@@ -12084,11 +12084,11 @@
    "slug": "dsh-engineering-services"
   },
   {
-   "name": "pack-agent",
+   "name": "pack-agent-dsh",
    "url": "https://github.com/sakikoTGW/pack-agent",
-   "pkg": "",
-   "ver": "",
-   "npm": false,
+   "pkg": "@sakikotgw/pack-agent-dsh",
+   "ver": "0.4.3",
+   "npm": true,
    "test": "verified",
    "desc": "Agent Modpack - install your agent like installing a Minecraft modpack",
    "desc_en": "Agent Modpack - install your agent like installing a Minecraft modpack",
@@ -12107,7 +12107,7 @@
     "Terminal / Shell"
    ],
    "trust": "Silver",
-   "slug": "pack-agent"
+   "slug": "pack-agent-dsh"
   },
   {
    "name": "dsh-cc-connect",
@@ -17797,6 +17797,32 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Unrated"
+  },
+  {
+   "name": "dsh-what-changed",
+   "url": "https://github.com/sjh9714/dsh-what-changed",
+   "pkg": "dsh-what-changed",
+   "ver": "0.4.0",
+   "npm": true,
+   "test": "verified",
+   "desc": "See what the agent changed — a session-topbar summary of every file edit, with per-file diffs and a workspace-vs-HEAD view.",
+   "desc_en": "See what the agent changed — a session-topbar summary of every file edit, with per-file diffs and a workspace-vs-HEAD view.",
+   "desc_zh": "会话顶栏加按钮，汇总本次会话所有文件改动，点开按文件查看 diff，并对照工作区与 HEAD。",
+   "stars": 1,
+   "forks": 0,
+   "issues": 1,
+   "language": "TypeScript",
+   "updated": "2026-08-17",
+   "archived": false,
+   "added": "2026-08-17",
+   "license": "MIT",
+   "ucs": [
+    "File",
+    "Git",
+    "Session"
+   ],
+   "trust": "Unrated",
+   "slug": "dsh-what-changed"
   }
  ],
  "AI Models": [
@@ -18570,31 +18596,6 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "Agent_Extensions"
-  },
-  {
-   "name": "dsh-win32",
-   "url": "https://github.com/sjh9714/dsh-win32",
-   "pkg": "",
-   "ver": "",
-   "npm": false,
-   "test": "verified",
-   "desc": "First-class Windows for DeepSeek Harness: persistent Git Bash Minimal mode, doctor for install traps, one-command setup | Make DSH a first-class citizen on Windows.",
-   "desc_en": "First-class Windows for DeepSeek Harness: persistent Git Bash Minimal mode, doctor for install traps, one-command setup | Make DSH a first-class citizen on Windows.",
-   "desc_zh": "First-class Windows for DeepSeek Harness: persistent Git Bash Minimal mode, doctor for install traps, one-command setup | 让 DSH 在 Windows 上成为一等公民",
-   "stars": 6,
-   "forks": 2,
-   "issues": 5,
-   "language": "TypeScript",
-   "updated": "2026-08-17",
-   "archived": false,
-   "added": "2026-08-16",
-   "license": "MIT",
-   "ucs": [
-    "GitHub integration",
-    "Terminal / Shell"
-   ],
-   "trust": "Silver",
-   "slug": "dsh-win32"
   },
   {
    "name": "deepseek-harness-box",
@@ -36828,7 +36829,7 @@
    "name": "pi2dsh",
    "url": "https://github.com/weijiafu14/pi2dsh",
    "pkg": "pi2dsh",
-   "ver": "",
+   "ver": "0.12.3",
    "npm": true,
    "test": "verified",
    "desc": "Bridge the Pi and DeepSeek Harness ecosystems: one Pi Host ABI runs unmodified Pi extensions as native DSH plugins.",
@@ -39279,6 +39280,31 @@
    ],
    "trust": "Silver",
    "slug": "dsh-wending-ssh-manager"
+  },
+  {
+   "name": "dsh-win32",
+   "url": "https://github.com/sjh9714/dsh-win32",
+   "pkg": "dsh-win32",
+   "ver": "0.13.1",
+   "npm": true,
+   "test": "verified",
+   "desc": "First-class Windows for DeepSeek Harness: persistent Git Bash Minimal mode, doctor for install traps, one-command setup | Make DSH a first-class citizen on Windows.",
+   "desc_en": "First-class Windows for DeepSeek Harness: persistent Git Bash Minimal mode, doctor for install traps, one-command setup | Make DSH a first-class citizen on Windows.",
+   "desc_zh": "First-class Windows for DeepSeek Harness: persistent Git Bash Minimal mode, doctor for install traps, one-command setup | 让 DSH 在 Windows 上成为一等公民",
+   "stars": 6,
+   "forks": 2,
+   "issues": 5,
+   "language": "TypeScript",
+   "updated": "2026-08-17",
+   "archived": false,
+   "added": "2026-08-16",
+   "license": "MIT",
+   "ucs": [
+    "GitHub integration",
+    "Terminal / Shell"
+   ],
+   "trust": "Silver",
+   "slug": "dsh-win32"
   }
  ],
  "Storage": [

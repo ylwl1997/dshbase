@@ -60,6 +60,24 @@
   ]
  },
  {
+  "github": "sjh9714",
+  "avatar": "https://avatars.githubusercontent.com/u/163989462?v=4",
+  "plugins": [
+   {
+    "name": "dsh-win32",
+    "slug": "dsh-win32",
+    "npm": true,
+    "pkg": "dsh-win32"
+   },
+   {
+    "name": "dsh-what-changed",
+    "slug": "dsh-what-changed",
+    "npm": true,
+    "pkg": "dsh-what-changed"
+   }
+  ]
+ },
+ {
   "github": "suninx",
   "avatar": "https://avatars.githubusercontent.com/u/42999064?v=4",
   "plugins": [
@@ -72,7 +90,7 @@
    {
     "name": "thinking-level-override",
     "slug": "thinking-level-override",
-    "npm": true,
+    "npm": false,
     "pkg": ""
    }
   ]
@@ -204,6 +222,18 @@
   ]
  },
  {
+  "github": "sakikoTGW",
+  "avatar": "https://avatars.githubusercontent.com/u/247183209?v=4",
+  "plugins": [
+   {
+    "name": "pack-agent-dsh",
+    "slug": "pack-agent-dsh",
+    "npm": true,
+    "pkg": "@sakikotgw/pack-agent-dsh"
+   }
+  ]
+ },
+ {
   "github": "slywalker2006",
   "avatar": "https://avatars.githubusercontent.com/u/121374969?v=4",
   "plugins": [
@@ -248,6 +278,18 @@
     "slug": "dsh-persist",
     "npm": true,
     "pkg": "dsh-persist"
+   }
+  ]
+ },
+ {
+  "github": "weijiafu14",
+  "avatar": "https://avatars.githubusercontent.com/u/17469139?v=4",
+  "plugins": [
+   {
+    "name": "pi2dsh",
+    "slug": "pi2dsh",
+    "npm": true,
+    "pkg": "pi2dsh"
    }
   ]
  },

@@ -60,6 +60,20 @@ ALIASES = {
     "github.com/spyqwer1/dsh-imagecraft": "github.com/spyqwer1/dsh-codex-tools",
 }
 
+# Contributors who submitted via the official discussion (not the issue form).
+# Merged in on top of the issue-derived list so re-running keeps them.
+EXTRA = [
+    {"github": "sakikoTGW", "avatar": "https://avatars.githubusercontent.com/u/247183209?v=4",
+     "plugins": [{"name": "pack-agent-dsh", "slug": "pack-agent-dsh", "npm": True, "pkg": "@sakikotgw/pack-agent-dsh"}]},
+    {"github": "weijiafu14", "avatar": "https://avatars.githubusercontent.com/u/17469139?v=4",
+     "plugins": [{"name": "pi2dsh", "slug": "pi2dsh", "npm": True, "pkg": "pi2dsh"}]},
+    {"github": "sjh9714", "avatar": "https://avatars.githubusercontent.com/u/163989462?v=4",
+     "plugins": [
+        {"name": "dsh-win32", "slug": "dsh-win32", "npm": True, "pkg": "dsh-win32"},
+        {"name": "dsh-what-changed", "slug": "dsh-what-changed", "npm": True, "pkg": "dsh-what-changed"},
+     ]},
+]
+
 RE = re.compile(r"github\.com/([\w.-]+)/([\w.-]+?)(?:\.git)?(?:[#/)\s]|$)", re.I)
 
 contrib = {}   # author -> {plugin_name: plugin}
@@ -94,6 +108,17 @@ for author, pmap in contrib.items():
             "pkg": p.get("pkg") or "",
         })
     result.append({"github": author, "avatar": avatars.get(author, ""), "plugins": plugins})
+
+# merge discussion-sourced contributors (dedup by github, merge plugin lists)
+existing = {c["github"]: c for c in result}
+for e in EXTRA:
+    if e["github"] in existing:
+        seen = {p["name"] for p in existing[e["github"]]["plugins"]}
+        for p in e["plugins"]:
+            if p["name"] not in seen:
+                existing[e["github"]]["plugins"].append(p)
+    else:
+        result.append(e)
 
 result.sort(key=lambda c: (-len(c["plugins"]), c["github"].lower()))
 
