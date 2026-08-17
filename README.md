@@ -48,6 +48,8 @@ Open an issue with the "Submit your plugin" template — we verify, ingest, and 
 - has a LICENSE
 - ships a bundle manifest (`cordis.patch.yml` / `cordis.yml` / `dsh.bundle.patch`)
 
+Already listed but want the **Verified** badge? Open an issue with the **"Submit verification evidence"** template — attach screenshots or logs of your plugin actually running in dsh, and we'll review and mark it verified.
+
 ## 💻 Local development
 
 ```bash

@@ -48,6 +48,8 @@
 - 有 LICENSE
 - 带 bundle 清单（`cordis.patch.yml` / `cordis.yml` / `dsh.bundle.patch`）
 
+已经收录但想拿「已验证」标签？用「提交验证证据」模板开 issue——附上插件在 dsh 里实际运行的截图/日志，我们审核后即标记「已验证」。
+
 ## 💻 本地开发
 
 ```bash
