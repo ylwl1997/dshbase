@@ -1,0 +1,103 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import plugins from '../../data/plugins.json';
+import syncDate from '../../data/sync-date.json';
+
+const catOrder = Object.keys(plugins);
+const all = catOrder.flatMap((k) => plugins[k]);
+const total = all.length;
+const nCats = catOrder.length;
+
+const repoOf = (u) => (u || '').match(/github\.com\/([^/]+\/[^/]+?)(?:\/|$)/i)?.[1]?.toLowerCase() || '';
+const uniqueRepos = new Set(all.map((p) => repoOf(p.url)).filter(Boolean)).size;
+
+const nVerified = all.filter((p) => p.test === 'verified').length;
+const nPending = all.filter((p) => p.test === 'pending').length;
+const nMit = all.filter((p) => (p.license || '') === 'MIT').length;
+
+const fmt = (n) => n.toLocaleString('en-US');
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const pluginsUrl = getRelativeLocaleUrl('zh', '/plugins/');
+
+const stats = [
+  { n: fmt(total), label: '插件' },
+  { n: fmt(nCats), label: '分类' },
+  { n: fmt(uniqueRepos), label: '仓库' },
+  { n: fmt(nVerified), label: '已验证' },
+  { n: fmt(nPending), label: '待验证' },
+  { n: fmt(nMit), label: 'MIT 协议' },
+];
+---
+
+<Base
+  title="我们如何审计插件 — dshbase 验证方法 | dshbase 中文"
+  description="dshbase 目录里的每个 DeepSeek Harness 插件都经过来源、生态归属、元数据三重审计，并带明确的已验证/待验证状态。这里是我们的方法。"
+  currentPath="/audit/"
+>
+  <section class="hero wrap">
+    <p class="eyebrow">插件审计</p>
+    <h1>我们如何审计<span class="accent">每一个插件</span></h1>
+    <p class="lede">目录的可信度，取决于它最薄弱的那一条。dshbase 上架的每个插件，发布前都要过三道独立审计，每条都带明确的验证状态——让你始终清楚什么已实测、什么还在待验证。</p>
+  </section>
+
+  <section class="wrap audit-stats">
+    {stats.map((s) => (
+      <div class="astat">
+        <b>{s.n}</b>
+        <span>{s.label}</span>
+      </div>
+    ))}
+  </section>
+
+  <section class="info wrap">
+    <p class="as-of">数据截至 {syncDate.updated} · 每次构建时从<a href="https://github.com/ylwl1997/dshbase" rel="noopener">插件数据集</a>实时重算。</p>
+
+    <h2>上架前的三道审计</h2>
+    <p>我们不是抓个列表就发布。每条在进入<a href={directoryUrl}>目录</a>之前，都要按三条标准核对。</p>
+
+    <div class="grid3">
+      <div class="card">
+        <h3>1 · 来源审计</h3>
+        <p>每条都必须对应一个真实、可访问的 GitHub 仓库。改名、删除或不可达的仓库会被移除——目录里不留死链。</p>
+      </div>
+      <div class="card">
+        <h3>2 · 生态归属审计</h3>
+        <p>插件必须真正属于 DeepSeek Harness 生态。我们核对 DSH 专属清单（<code>cordis.patch.yml</code>、<code>dsh.bundle</code> 等根级标记）与对 DSH 的明确依赖，而不是只看仓库名或 topic 标签。只借标签、名不符实的仓库会被剔除。</p>
+      </div>
+      <div class="card">
+        <h3>3 · 元数据审计</h3>
+        <p>license、star/forks/issues、最近更新时间、语言、archived 状态逐条记录，直接展示在每张插件卡片上。</p>
+      </div>
+    </div>
+
+    <h2>我们如何验证</h2>
+    <p>审计回答「它该不该在这里」，验证回答「它到底能不能跑」。</p>
+    <ul>
+      <li><strong>安装验证（<code>verified</code> / <code>pending</code>）</strong>——最关键的证据。<strong>已验证</strong>指我们在干净 profile 里实测安装并成功启动；<strong>待验证</strong>指按仓库收录、尚未实测。两者绝不混为一谈，每张卡片都明确标注属于哪一种。</li>
+      <li><strong>信任分级（<code>Silver</code> / <code>Bronze</code> / <code>Unrated</code>）</strong>——一个简明的信心信号，是安装验证的补充。分级是起点，不是定论。</li>
+      <li><strong>热度不等于背书</strong>——star、fork、issue 数取自 GitHub，只作热度参考。</li>
+    </ul>
+
+    <h2>我们对可靠性的态度</h2>
+    <ul>
+      <li><strong>收录不等于背书。</strong>进入目录只意味着它通过了上述审计、真实存在于 DSH 生态——仅此而已。</li>
+      <li><strong>持续审计。</strong>新插件入库时完整过一遍，已收录条目也按固定节奏复核。失效或已脱离生态的插件会被下架。</li>
+      <li><strong>诚实、可复现。</strong>每个判断都建立在可核查的证据上——清单文件、仓库状态、实测结果——而不是靠猜或批量爬取。</li>
+    </ul>
+
+    <p>发现条目有误或插件已失效？<a href="mailto:hello@dshbase.com">告诉我们</a>，或<a href="https://github.com/ylwl1997/dshbase/issues/new?template=plugin-submission.yml" rel="noopener">提交 issue</a>。想亲眼看目录运作，去<a href={pluginsUrl}>插件指南</a>。</p>
+  </section>
+</Base>
+
+<style>
+  .audit-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; padding-bottom: 8px; }
+  .astat { background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e9f0); border-radius: 14px; padding: 18px 16px; text-align: center; }
+  .astat b { display: block; font-size: 30px; font-weight: 800; color: var(--primary, #4D6BFE); letter-spacing: -0.02em; }
+  .astat span { font-size: 12.5px; color: var(--ink-2, #5b6472); text-transform: uppercase; letter-spacing: .05em; }
+  .as-of { font-size: 13px; color: var(--ink-3, #8a93a3); }
+  .info ul { margin: 0 0 8px; padding-left: 0; list-style: none; }
+  .info ul li { margin: 10px 0; color: var(--ink-2, #475569); line-height: 1.7; padding-left: 20px; position: relative; }
+  .info ul li::before { content: "›"; position: absolute; left: 2px; color: var(--primary, #4D6BFE); font-weight: 700; }
+  .info h2 { margin-top: 30px; }
+</style>

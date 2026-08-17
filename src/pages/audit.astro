@@ -1,0 +1,106 @@
+---
+import Base from '../layouts/Base.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import plugins from '../data/plugins.json';
+import syncDate from '../data/sync-date.json';
+
+const catOrder = Object.keys(plugins);
+const all = catOrder.flatMap((k) => plugins[k]);
+const total = all.length;
+const nCats = catOrder.length;
+
+const repoOf = (u) => (u || '').match(/github\.com\/([^/]+\/[^/]+?)(?:\/|$)/i)?.[1]?.toLowerCase() || '';
+const uniqueRepos = new Set(all.map((p) => repoOf(p.url)).filter(Boolean)).size;
+
+const nVerified = all.filter((p) => p.test === 'verified').length;
+const nPending = all.filter((p) => p.test === 'pending').length;
+const trustCount = {};
+all.forEach((p) => { const t = p.trust || 'Unrated'; trustCount[t] = (trustCount[t] || 0) + 1; });
+const nMit = all.filter((p) => (p.license || '') === 'MIT').length;
+const nArchived = all.filter((p) => p.archived).length;
+
+const fmt = (n) => n.toLocaleString('en-US');
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const pluginsUrl = getRelativeLocaleUrl('en', '/plugins/');
+
+const stats = [
+  { n: fmt(total), label: 'plugins' },
+  { n: fmt(nCats), label: 'categories' },
+  { n: fmt(uniqueRepos), label: 'repositories' },
+  { n: fmt(nVerified), label: 'verified' },
+  { n: fmt(nPending), label: 'pending' },
+  { n: fmt(nMit), label: 'MIT-licensed' },
+];
+---
+
+<Base
+  title="How We Audit Plugins — dshbase Verification Methodology | dshbase"
+  description="Every DeepSeek Harness plugin in the dshbase directory passes three audits — source, ecosystem, and metadata — and carries an explicit verified/pending status. Here is our methodology."
+  currentPath="/audit/"
+>
+  <section class="hero wrap">
+    <p class="eyebrow">Plugin audit</p>
+    <h1>How we audit <span class="accent">every plugin</span></h1>
+    <p class="lede">A directory is only as trustworthy as its weakest entry. Every plugin listed on dshbase passes three independent audits before it is published, and every listing carries an explicit verification status — so you always know what has been tested and what is still pending.</p>
+  </section>
+
+  <section class="wrap audit-stats">
+    {stats.map((s) => (
+      <div class="astat">
+        <b>{s.n}</b>
+        <span>{s.label}</span>
+      </div>
+    ))}
+  </section>
+
+  <section class="info wrap">
+    <p class="as-of">Data current as of {syncDate.updated} · recalculated on every build from the live <a href="https://github.com/ylwl1997/dshbase" rel="noopener">plugin dataset</a>.</p>
+
+    <h2>Three audits before listing</h2>
+    <p>We do not scrape a list and publish it. Each entry is checked against three criteria before it appears in the <a href={directoryUrl}>directory</a>.</p>
+
+    <div class="grid3">
+      <div class="card">
+        <h3>1 · Source audit</h3>
+        <p>Every entry must map to a real, reachable GitHub repository. Renamed, deleted, or unreachable repositories are removed — we do not keep dead links in the directory.</p>
+      </div>
+      <div class="card">
+        <h3>2 · Ecosystem audit</h3>
+        <p>A plugin must actually belong to the DeepSeek Harness ecosystem. We check for DSH-specific manifests (<code>cordis.patch.yml</code>, <code>dsh.bundle</code>, and related root-level markers) and explicit DSH dependencies — not just a repo name or a topic tag. Repositories that borrow the label without the substance are excluded.</p>
+      </div>
+      <div class="card">
+        <h3>3 · Metadata audit</h3>
+        <p>License, stars, forks, issues, last-updated date, language, and archived status are recorded for every entry and shown directly on the plugin card.</p>
+      </div>
+    </div>
+
+    <h2>How we verify</h2>
+    <p>The audits answer "does this belong here?" Verification answers "does it actually work?"</p>
+    <ul>
+      <li><strong>Install verification (<code>verified</code> / <code>pending</code>)</strong> — the evidence that matters most. <strong>Verified</strong> means we installed the plugin in a clean profile and it booted successfully; <strong>pending</strong> means it is listed from its repository but we have not yet run it. The two are never mixed, and every card shows which one it is.</li>
+      <li><strong>Trust tier (<code>Silver</code> / <code>Bronze</code> / <code>Unrated</code>)</strong> — a coarse confidence signal, supplementary to install verification. A tier is a starting point, not a verdict.</li>
+      <li><strong>Popularity is not endorsement</strong> — star, fork, and issue counts are pulled from GitHub and shown as a popularity signal only.</li>
+    </ul>
+
+    <h2>Our stance on reliability</h2>
+    <ul>
+      <li><strong>Listing is not endorsement.</strong> Being in the directory means a plugin passed the audits above and genuinely exists in the DSH ecosystem — nothing more.</li>
+      <li><strong>We audit continuously.</strong> New plugins go through the full pass on intake, and existing entries are re-checked on a regular cadence. Plugins that go stale or drift out of the ecosystem are removed.</li>
+      <li><strong>Honest and reproducible.</strong> Every judgment rests on checkable evidence — manifest files, repository state, and actual test results — not on guesswork or bulk scraping.</li>
+    </ul>
+
+    <p>Found a wrong entry or a plugin that no longer works? <a href="mailto:hello@dshbase.com">Tell us</a>, or <a href="https://github.com/ylwl1997/dshbase/issues/new?template=plugin-submission.yml" rel="noopener">open an issue</a>. Browse the <a href={pluginsUrl}>plugin guide</a> to see the directory in action.</p>
+  </section>
+</Base>
+
+<style>
+  .audit-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; padding-bottom: 8px; }
+  .astat { background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e9f0); border-radius: 14px; padding: 18px 16px; text-align: center; }
+  .astat b { display: block; font-size: 30px; font-weight: 800; color: var(--primary, #4D6BFE); letter-spacing: -0.02em; }
+  .astat span { font-size: 12.5px; color: var(--ink-2, #5b6472); text-transform: uppercase; letter-spacing: .05em; }
+  .as-of { font-size: 13px; color: var(--ink-3, #8a93a3); }
+  .info ul { margin: 0 0 8px; padding-left: 0; list-style: none; }
+  .info ul li { margin: 10px 0; color: var(--ink-2, #475569); line-height: 1.7; padding-left: 20px; position: relative; }
+  .info ul li::before { content: "›"; position: absolute; left: 2px; color: var(--primary, #4D6BFE); font-weight: 700; }
+  .info h2 { margin-top: 30px; }
+</style>
