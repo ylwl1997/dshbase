@@ -1,8 +1,10 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import Base from '../../layouts/Base.astro';
 import PluginCard from '../../components/PluginCard.astro';
 import plugins from '../../data/plugins.json';
 import syncDate from '../../data/sync-date.json';
+const auditUrl = getRelativeLocaleUrl('en', '/audit/');
 const sortByStars = (a, b) => (b.stars ?? 0) - (a.stars ?? 0);
 const catOrder = Object.keys(plugins);
 // sort each category by stars desc
@@ -71,7 +73,7 @@ const COLORS = ['#4D6BFE', '#7c8cf8', '#8b5cf6', '#a78bfa', '#6366f1', '#93c5fd'
   </section>
 
   <section class="info wrap">
-    <p class="stats-line">Tested on dsh 0.1.0-rc.6 — every card shows the verified status and exact install command. GitHub-source plugins install with <code>dsh plugin add github:owner/repo</code>.</p>
+    <p class="stats-line">Tested on dsh 0.1.0-rc.6 — every card shows the verified status and exact install command. GitHub-source plugins install with <code>dsh plugin add github:owner/repo</code>. Every entry passes <a href={auditUrl}>three audits</a> before it is listed.</p>
     <div class="eco">
       <div class="statline">
         <div class="stat"><b>{total.toLocaleString('en-US')}</b><span>plugins</span></div>
