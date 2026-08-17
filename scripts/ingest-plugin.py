@@ -44,7 +44,7 @@ def parse_repo(url):
     m = re.search(r"github\.com/([^/\s]+)/([^/\s#?]+)", url or "")
     if not m:
         return None
-    return f"{m.group(1)}/{m.group(2)}".rstrip(".git")
+    return f"{m.group(1)}/{m.group(2)}".removesuffix(".git")
 
 
 def fetch_repo(repo):

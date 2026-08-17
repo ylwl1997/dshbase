@@ -81,7 +81,7 @@ def main():
             if not SIG.search(text):
                 m = re.search(r'github\.com/([^/]+/[^/]+?)/?$', p.get('url') or '')
                 if m:
-                    cand.append((cat, name, m.group(1).rstrip('.git').lower(), p.get('stars', 0)))
+                    cand.append((cat, name, m.group(1).removesuffix('.git').lower(), p.get('stars', 0)))
 
     _total = len(cand)
     print(f'候选 {len(cand)} 个，深查 DSH 专属标记...', flush=True)

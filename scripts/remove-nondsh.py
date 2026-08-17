@@ -53,7 +53,7 @@ for cat, items in d.items():
     keep = []
     for p in items:
         m = URL.search(p.get('url') or '')
-        key = m.group(1).rstrip('.git').lower() if m else ''
+        key = m.group(1).removesuffix('.git').lower() if m else ''
         if key in drop:
             removed.append((cat, p.get('name'), p.get('url'), key))
         else:

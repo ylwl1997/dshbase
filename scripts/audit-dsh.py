@@ -101,7 +101,7 @@ def main():
             m = re.search(r'github\.com/([^/]+/[^/]+?)/?$', p.get('url') or '')
             if not m:
                 continue
-            key = m.group(1).rstrip('.git').lower()
+            key = m.group(1).removesuffix('.git').lower()
             repo_map.setdefault(key, []).append((cat, p))
 
     _total = len(repo_map)

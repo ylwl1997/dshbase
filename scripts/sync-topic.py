@@ -49,7 +49,7 @@ def repo_key(url):
     m = re.search(r"github\.com/([^/]+)/([^/]+?)/?$", url or "")
     if not m:
         return None
-    return f"{m.group(1)}/{m.group(2)}".rstrip(".git").lower()
+    return f"{m.group(1)}/{m.group(2)}".removesuffix(".git").lower()
 
 def main():
     dry = "--dry-run" in sys.argv
