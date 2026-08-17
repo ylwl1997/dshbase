@@ -48,8 +48,6 @@
   <url><loc>https://dshbase.com/zh/plugins/anysearch-dsh/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-openbiliclaw/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-openbiliclaw/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/HoloGram/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/HoloGram/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-custom-tool/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-custom-tool/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-find-plugin/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -524,8 +522,6 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-oai-oauth/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-hotplug-engine/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-hotplug-engine/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/math-lean/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/math-lean/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/jumpserver-dsh/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/jumpserver-dsh/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-payload-capture/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -962,44 +958,22 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-shell-termux/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-tool-notify/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-tool-notify/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/reactive-resume/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/reactive-resume/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/archify/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/archify/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/yao/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/yao/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/openpencil/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/openpencil/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/petdex/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/petdex/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/EchoBird/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/EchoBird/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/BitFun/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/BitFun/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/deeptide/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/deeptide/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/Aegis/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/Aegis/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/agent-qa/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/agent-qa/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/coding-tools-mcp/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/coding-tools-mcp/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/helloagents/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/helloagents/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/sandbase-harness/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/sandbase-harness/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/J-Space-Cognition-Suite-V3.6/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/J-Space-Cognition-Suite-V3.6/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/rea/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/rea/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/harmony-next.skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/harmony-next.skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/axern/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/axern/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-find-plugins/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-find-plugins/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/KimiX/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/KimiX/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/humanizer-ru/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/humanizer-ru/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/Awesome-DeepSeek-Harness-Plugins/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1010,18 +984,10 @@
   <url><loc>https://dshbase.com/zh/plugins/DSH-Plugins-Marketplace/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/sealos-skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/sealos-skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/codex-switch/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/codex-switch/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/awesome-DSH-plugin/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/awesome-DSH-plugin/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/ru-marketplace-mcp/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/ru-marketplace-mcp/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/hello-dsh/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/hello-dsh/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/ProMentor/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/ProMentor/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/Tokdash/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/Tokdash/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugins-store/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugins-store/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/Oh-My-DSH/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1034,8 +1000,6 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-suite/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/deepseek-app/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/deepseek-app/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/flameox/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/flameox/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-dev-skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-dev-skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-minimal-turbo/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1044,16 +1008,10 @@
   <url><loc>https://dshbase.com/zh/plugins/allinluna/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/agent-handoff-skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/agent-handoff-skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/everything-kiro/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/everything-kiro/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/iosdev/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/iosdev/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-tianshu-build/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-tianshu-build/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-marketplace/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-marketplace/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/leantoken/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/leantoken/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-marketplace-2/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-marketplace-2/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-code/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1070,8 +1028,6 @@
   <url><loc>https://dshbase.com/zh/plugins/deepseek-harness-docker/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-AuthInOne/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-AuthInOne/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/ikanban/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/ikanban/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-harmony/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1094,8 +1050,6 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-global-rules/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh_plugin_swift_cycle/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh_plugin_swift_cycle/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/RE-Framework/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/RE-Framework/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-interpreters/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-interpreters/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/engineer-software/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1144,8 +1098,6 @@
   <url><loc>https://dshbase.com/zh/plugins/amadeus-for-dsh/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/deepseek-harness-auth/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/deepseek-harness-auth/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/anchorlaw/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/anchorlaw/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dib/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dib/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-file-claim/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1164,8 +1116,6 @@
   <url><loc>https://dshbase.com/zh/plugins/whale-notify/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-permgate/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-permgate/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/jarvis-index/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/jarvis-index/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-notifacation-frame/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-notifacation-frame/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-explorer/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1186,20 +1136,12 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-humanize/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-guide/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-guide/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/gitcontribute/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/gitcontribute/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/dr-agent-skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/dr-agent-skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/smokinggun/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/smokinggun/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-release-proof/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-release-proof/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-publisher/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-publisher/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-benchmark/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-benchmark/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/terrain/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/terrain/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-checkpoint-rewind/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-checkpoint-rewind/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-marketplace/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1214,8 +1156,6 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-builder/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-agent-relay/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-agent-relay/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/claude-conventions-skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/claude-conventions-skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-skill-hub/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-skill-hub/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-observation-journal/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1228,10 +1168,6 @@
   <url><loc>https://dshbase.com/zh/plugins/Deepseek-Harness-for-VS-Code/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-remote-tunnel/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-remote-tunnel/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/infographic/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/infographic/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/clamicro/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/clamicro/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/MistyMoon-DSH/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/MistyMoon-DSH/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-all-warmup/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1254,8 +1190,6 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-github-integration/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-review-skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-review-skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/intent-flow/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/intent-flow/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-dev-guide/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-dev-guide/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-ssh-remote/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1274,44 +1208,30 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-o11y-plugin/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-engineering-services/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-engineering-services/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/Stata-AI-Skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/Stata-AI-Skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/agent-fix/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/agent-fix/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/deepseek-harness-plugin-from-scratch/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/deepseek-harness-plugin-from-scratch/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-marketplace-4/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-marketplace-4/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/Lujo-MCP/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/Lujo-MCP/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/omdsh/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/omdsh/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/toybox/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/toybox/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-repro/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-repro/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/Build-HOS-mcp/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/Build-HOS-mcp/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-dedup/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-dedup/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/DSH-plugin-switch/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/DSH-plugin-switch/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/deepseek-harness-sdk-rs/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/deepseek-harness-sdk-rs/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/LiuHe/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/LiuHe/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-git-review/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-git-review/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/logicprobe/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/logicprobe/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/intent-gate/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/intent-gate/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/ironlaw/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/ironlaw/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-eval-regression/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-eval-regression/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/t1y-skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/t1y-skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-open-ecosystem/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-open-ecosystem/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-capability-inspector/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1324,10 +1244,6 @@
   <url><loc>https://dshbase.com/zh/plugins/skillhub/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-client-ui-git-branch/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-client-ui-git-branch/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/git-skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/git-skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/marketplace/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/marketplace/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dshp/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dshp/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-workspace-rules/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1340,8 +1256,6 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-fff/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-file-changes/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-file-changes/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/fasthtml-desktop/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/fasthtml-desktop/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-rules-paths/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-rules-paths/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-manager-registry/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1366,50 +1280,30 @@
   <url><loc>https://dshbase.com/zh/plugins/kubemd/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/colleague-skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/colleague-skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/ouroboros/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/ouroboros/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/iPolloWork/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/iPolloWork/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/Vibe-Skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/Vibe-Skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/mobius/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/mobius/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/Deepseek-Harness-EAC/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/Deepseek-Harness-EAC/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/mnemon/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/mnemon/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/de-anthropocentric-research-engine/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/de-anthropocentric-research-engine/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/Abu-Cowork/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/Abu-Cowork/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/open-managed-agents/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/open-managed-agents/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/deepseek-harness-studio/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/deepseek-harness-studio/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/argo/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/argo/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/tokenbank/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/tokenbank/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/forkprobe/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/forkprobe/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/deepseek-harness-desktop-4/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/deepseek-harness-desktop-4/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/deepseek-design/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/deepseek-design/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/jacobian/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/jacobian/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-multica-runtime-2/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-multica-runtime-2/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-claude-ux/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-claude-ux/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/atlas-cloud-skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/atlas-cloud-skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/AI-Inner-Os/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/AI-Inner-Os/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/zerotoken-skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/zerotoken-skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/pi-deepseek-anchor/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/pi-deepseek-anchor/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/DSH-Think-zh/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1420,8 +1314,6 @@
   <url><loc>https://dshbase.com/zh/plugins/SumSec-Skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-auto-blame/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-auto-blame/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/mcp-server/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/mcp-server/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/xiaoliuren-skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/xiaoliuren-skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/Agent_Extensions/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1436,8 +1328,6 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-win32/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/deepseek-harness-box/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/deepseek-harness-box/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/agent-guild/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/agent-guild/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-agent-message/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-agent-message/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/better-model-provider/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1464,8 +1354,6 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-ernie-image/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-voice-funasr/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-voice-funasr/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/vibemeter/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/vibemeter/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-meta-orchestrator/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-meta-orchestrator/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-output-styles/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1490,20 +1378,14 @@
   <url><loc>https://dshbase.com/zh/plugins/ai-sdk-provider-dsh/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/pawin-brain-deepseek-harness/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/pawin-brain-deepseek-harness/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/tokilake-ai-gateway/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/tokilake-ai-gateway/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/llm-adaptive/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/llm-adaptive/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/interest-memory/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/interest-memory/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/hana-dsh-bridge/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/hana-dsh-bridge/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-koboldcpp-hands/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-koboldcpp-hands/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/DSH_plugins_4U/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/DSH_plugins_4U/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/ContextGate/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/ContextGate/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-telegram/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-telegram/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-translator/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1518,8 +1400,6 @@
   <url><loc>https://dshbase.com/zh/plugins/chat2skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-proof/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-proof/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/inferglow/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/inferglow/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/agent-plaza/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/agent-plaza/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/evo-memory/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1544,8 +1424,6 @@
   <url><loc>https://dshbase.com/zh/plugins/prompt-polish/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-llm-vision-router/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-llm-vision-router/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/AgentFrame-v3/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/AgentFrame-v3/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-agent-memory/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-agent-memory/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/DSH-better-sidebar/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1836,10 +1714,6 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-auto-chess/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-douyin/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-douyin/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/zhuzhiliao/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/zhuzhiliao/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/working-activity/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/working-activity/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/superdesign-skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/superdesign-skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/engramory/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1858,14 +1732,10 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-hub/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-dream-skin/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-dream-skin/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/th08/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/th08/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-session-delete/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-session-delete/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-web-mobile/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-web-mobile/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/Aria/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/Aria/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-hanako/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-hanako/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-mobile/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1892,8 +1762,6 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-godot-skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-catppuccin-theme/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-catppuccin-theme/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/multi-screen-wireframe/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/multi-screen-wireframe/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-hud/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-hud/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-api-balance/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1926,8 +1794,6 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-skin-switcher/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-timeline/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-timeline/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/8x-skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/8x-skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-spur/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-spur/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-webUI-Glass-Theme/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1962,8 +1828,6 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-client-ui-trajectory-categories/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-restart-web/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-restart-web/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/design-playbook/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/design-playbook/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-client-ui-question-history/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-client-ui-question-history/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/blocker-notify/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -2280,28 +2144,16 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-netcafe/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-subagent-status/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-subagent-status/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/awesome-gpt-image-2/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/awesome-gpt-image-2/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/graph-memory/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/graph-memory/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-handbook/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-handbook/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/claude-paper/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/claude-paper/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/flowix/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/flowix/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/sivtr/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/sivtr/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dshfind/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dshfind/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/Co-Engram/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/Co-Engram/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/quantum-practices/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/quantum-practices/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-surfing-plugin/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-surfing-plugin/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/Cobsidian/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/Cobsidian/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/awesome-deepseek-harness-plugins-3/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/awesome-deepseek-harness-plugins-3/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/awesome-deepseek-harness-plugins-2/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -2310,16 +2162,12 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-deepresearch/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-md-notes/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-md-notes/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/TMCRA-Agent-Memory/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/TMCRA-Agent-Memory/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-better-markdown/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-better-markdown/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-zotero/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-zotero/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-apex-standard/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-apex-standard/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/paper_plane_x/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/paper_plane_x/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-web-search-Tavily/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-web-search-Tavily/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/gitlearnos/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -2334,26 +2182,18 @@
   <url><loc>https://dshbase.com/zh/plugins/url-manager/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-knowledge-graph/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-knowledge-graph/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/Primordial-soup-/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/Primordial-soup-/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/DshWebSearch/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/DshWebSearch/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/find-dsh-plugins/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/find-dsh-plugins/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/deepseek-harness-desktop/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/deepseek-harness-desktop/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/AI-Novel-Writer/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/AI-Novel-Writer/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh_desktop/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh_desktop/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/deepseek-harness-desktop-2/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/deepseek-harness-desktop-2/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/opc-nexus/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/opc-nexus/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/deepseek-harness-desktop-app/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/deepseek-harness-desktop-app/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/cetus/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/cetus/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/Deepseek-Harness-Desktop/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/Deepseek-Harness-Desktop/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/deepseek-harness-desktop-3/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -2490,8 +2330,6 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-desktop-launcher/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-notify-plugins/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-notify-plugins/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/ai-monitor/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/ai-monitor/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-desktop-15/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-desktop-15/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-desktop-14/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -2742,12 +2580,6 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-workflow-worktree/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-skill-lord-serf/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-skill-lord-serf/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/agentrq/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/agentrq/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/open-record-replay/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/open-record-replay/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/aflare/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/aflare/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-recall-plugin/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-recall-plugin/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-record-replay/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -2758,8 +2590,6 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-routing-suite/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/EasyDSH/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/EasyDSH/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/agent-skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/agent-skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-slack/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-slack/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/octie-dsh-plugin/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -2768,8 +2598,6 @@
   <url><loc>https://dshbase.com/zh/plugins/QAQ/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-task-progress-notifier/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-task-progress-notifier/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/fdtd-mcp/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/fdtd-mcp/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-discord/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-discord/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-webhook-bridge/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -2892,8 +2720,6 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-peer-link/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-LAN/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-LAN/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/RocketX/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/RocketX/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-ocgo-lite/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-ocgo-lite/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/plugin-switch/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -2908,8 +2734,6 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-client-ui-settings-mcp/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/voyager/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/voyager/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/browser-bridge/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/browser-bridge/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/DSHBox/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/DSHBox/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-liquid-glass/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -2934,8 +2758,6 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-mobile-2/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-client-ui-mobile/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-client-ui-mobile/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/chrome-mcp-bridge-2026-skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/chrome-mcp-bridge-2026-skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-web-search-tavily/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-web-search-tavily/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-prevent-scd/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -2956,18 +2778,12 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-chat-tools/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-oc/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-oc/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/RemoteOps/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/RemoteOps/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-atuin/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-atuin/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/DSH-Terminal/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/DSH-Terminal/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-wending-ssh-manager/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-wending-ssh-manager/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/mirage/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/mirage/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/zeromd/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/zeromd/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-memory-system/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-memory-system/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-files/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -2996,8 +2812,6 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-vision-complete/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/deepseek-visionary/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/deepseek-visionary/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/image-vision/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/image-vision/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-vision-opencode/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-vision-opencode/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-windows-ocr/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -3026,8 +2840,6 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-multimodal/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-image-inline/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-image-inline/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/shadow-vision/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/shadow-vision/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/deepseek-harness-vision-plugin/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/deepseek-harness-vision-plugin/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/pi-mm-vision/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -3044,14 +2856,8 @@
   <url><loc>https://dshbase.com/zh/plugins/prismrelay-mcp/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-vision/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-vision/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/minara-skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/minara-skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/mcp-for-stata/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/mcp-for-stata/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-docs/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-docs/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/goalfydata/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/goalfydata/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/Oh-My-DSH-2/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/Oh-My-DSH-2/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/clawock/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -3086,22 +2892,14 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-cost-balance/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-backup/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-backup/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/deep_option/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/deep_option/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-firecrawl/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-firecrawl/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-session-index/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-session-index/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/research-skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/research-skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-tool-market-data/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-tool-market-data/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-quant-workspace/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-quant-workspace/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/k8e/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/k8e/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/openguardrails/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/openguardrails/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-approve-for-me/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-approve-for-me/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-anti-ads/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -3140,20 +2938,10 @@
   <url><loc>https://dshbase.com/zh/plugins/DeepSeek-harness-lark/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-side-workspace/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-side-workspace/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/PlainDeck/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/PlainDeck/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-req-workbench/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-req-workbench/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-report-studio/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-report-studio/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/open-design/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/open-design/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/OpenBiliClaw/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/OpenBiliClaw/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/PicGo-Core/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/PicGo-Core/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/vocaloid-mcp/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/vocaloid-mcp/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-writing-guard/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-writing-guard/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-voice-input-plugin/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -3162,16 +2950,12 @@
   <url><loc>https://dshbase.com/zh/plugins/write-chinese-long-screenplay/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/anime-find/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/anime-find/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/geo-content-optimizer/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/geo-content-optimizer/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-image2-draw/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-image2-draw/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-composer-expand/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-composer-expand/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-tts/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-tts/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/litestartup-skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/litestartup-skills/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/OpenFlowFrames/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/OpenFlowFrames/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -3184,16 +2968,8 @@
   <url><loc>https://dshbase.com/zh/plugins/lx_music-for-dsh/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-md-preview/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-md-preview/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/content-to-editable-ppt-skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/content-to-editable-ppt-skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/visual-to-editable-ppt-skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/visual-to-editable-ppt-skill/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/interaction-doc/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/interaction-doc/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-codex-canvas/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-codex-canvas/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/plugins/pptkit-presentation/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/plugins/pptkit-presentation/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/deepseek-harness-architecture/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/blog/deepseek-harness-architecture/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/deepseek-harness-comparison/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
