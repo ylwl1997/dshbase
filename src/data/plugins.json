@@ -498,7 +498,8 @@
     "Web search"
    ],
    "trust": "Unrated",
-   "slug": "ego-browser"
+   "slug": "ego-browser",
+   "webonly": true
   },
   {
    "name": "deepseek-plugin-store",
@@ -697,7 +698,7 @@
    "pkg": "dsh-commandcode-provider",
    "ver": "",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "Unofficial DeepSeek Harness LLM provider plugin for Command Code: live model catalog, reasoning-effort support, Models-page card. Ported fr…",
    "desc_en": "Unofficial DeepSeek Harness LLM provider plugin for Command Code: live model catalog, reasoning-effort support, Models-page card. Ported fr…",
    "desc_zh": "DeepSeek Harness非官方LLM提供商插件：实时模型目录、推理强度支持、模型页卡片",
@@ -1105,7 +1106,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "dsh-sticky-note — DSH plugin (tools)",
    "desc_en": "dsh-sticky-note — DSH plugin (tools)",
    "desc_zh": "DSH 便签插件：随手记点子/感想/TODO，Markdown 预览 + 快捷键 + 历史归档，存储路径可配置",
@@ -1483,7 +1484,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Nowledge Mem community plugin bundle for DeepSeek Harness",
    "desc_en": "Nowledge Mem community plugin bundle for DeepSeek Harness",
    "desc_zh": "nowledge-mem-deepseek-harness — DSH 插件（工具）",
@@ -1762,7 +1763,8 @@
     "File"
    ],
    "trust": "Silver",
-   "slug": "dsh-plugin-healthcheck"
+   "slug": "dsh-plugin-healthcheck",
+   "webonly": true
   },
   {
    "name": "dsh-opencode-go-usage",
@@ -1841,7 +1843,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness plugin: describe_image — give a text-only model vision through an OpenAI-compatible VLM endpoint",
    "desc_en": "DeepSeek Harness plugin: describe_image — give a text-only model vision through an OpenAI-compatible VLM endpoint",
    "desc_zh": "describe_image插件：通过OpenAI兼容VLM端点赋予纯文本模型视觉",
@@ -1890,7 +1892,7 @@
    "pkg": "dsh-approval-llm",
    "ver": "0.1.3",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "Model-based permission approval (approve-for-me) for DeepSeek Harness: an approval/request answerer backed by a separate reviewer model",
    "desc_en": "Model-based permission approval (approve-for-me) for DeepSeek Harness: an approval/request answerer backed by a separate reviewer model",
    "desc_zh": "基于独立审查模型的审批/请求应答器",
@@ -2020,7 +2022,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "dsh-queue-plus"
+   "slug": "dsh-queue-plus",
+   "webonly": true
   },
   {
    "name": "dsh-continual-evolve",
@@ -2172,7 +2175,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DSH plugin: edit the system prompt (deployment persona) from the Settings page, with live preview.",
    "desc_en": "DSH plugin: edit the system prompt (deployment persona) from the Settings page, with live preview.",
    "desc_zh": "dsh-prompt-persona — DSH 插件（工具）",
@@ -2403,7 +2406,8 @@
     "Memory"
    ],
    "trust": "Silver",
-   "slug": "dsh-calculator"
+   "slug": "dsh-calculator",
+   "webonly": true
   },
   {
    "name": "DeepSeek-Harness-Skill",
@@ -4188,7 +4192,7 @@
    "pkg": "",
    "ver": "",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "SF Vision Bridge - give eyes to DeepSeek Harness for text-only models.",
    "desc_en": "SF Vision Bridge - give eyes to DeepSeek Harness for text-only models.",
    "desc_zh": "视觉桥：给纯文本模型装上眼睛",
@@ -4591,7 +4595,7 @@
    "pkg": "@yogemow/deepseek-prism-dsh",
    "ver": "",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "On-demand image recognition for text-only models: DSH zero-patch Cordis plugin (prism_see tool + image VEP degradation + skill runtime registration) + Codex Skill; multi-provider vision API, VEP/1 low-token visual evidence package",
    "desc_en": "On-demand image recognition for text-only models: DSH zero-patch Cordis plugin (prism_see tool + image VEP degradation + skill runtime registration) + Codex Skill; multi-provider vision API, VEP/1 low-token visual evidence package",
    "desc_zh": "为纯文本模型提供按需识图能力，图片自动转低 Token 视觉证据包入会话",
@@ -5158,7 +5162,8 @@
     "Notifications"
    ],
    "trust": "Silver",
-   "slug": "dsh-weixin"
+   "slug": "dsh-weixin",
+   "webonly": true
   },
   {
    "name": "dsh-model-modes",
@@ -5166,7 +5171,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Capability-aware reasoning controls and Fast model routing for DeepSeek Harness",
    "desc_en": "Capability-aware reasoning controls and Fast model routing for DeepSeek Harness",
    "desc_zh": "dsh-model-modes — DSH 插件（模型）",
@@ -5262,7 +5267,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Appearance customization plugin for DeepSeek Harness: theme color palette, background image, opacity/blur, glass effect",
    "desc_en": "Appearance customization plugin for DeepSeek Harness: theme color palette, background image, opacity/blur, glass effect",
    "desc_zh": "外观定制插件：主题色、背景图、透明度/模糊、玻璃效果",
@@ -5768,7 +5773,8 @@
     "Web search"
    ],
    "trust": "Unrated",
-   "slug": "dsh-tool-search"
+   "slug": "dsh-tool-search",
+   "webonly": true
   },
   {
    "name": "dsh-apple-mode",
@@ -6954,7 +6960,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness plugin for the SeismicX earthquake-catalog skill",
    "desc_en": "DeepSeek Harness plugin for the SeismicX earthquake-catalog skill",
    "desc_zh": "dsh-seismicx — DSH 插件（技能）",
@@ -7046,7 +7052,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "use your codex subscription in deepseek harness",
    "desc_en": "use your codex subscription in deepseek harness",
    "desc_zh": "在deepseek harness中使用你的codex订阅",
@@ -7609,7 +7615,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness plugin with per-task model and reasoning-effort selection",
    "desc_en": "DeepSeek Harness plugin with per-task model and reasoning-effort selection",
    "desc_zh": "按任务选择模型与推理强度插件",
@@ -8073,7 +8079,8 @@
    "license": "",
    "ucs": [],
    "trust": "Unrated",
-   "slug": "dsh-mcp-settings"
+   "slug": "dsh-mcp-settings",
+   "webonly": true
   },
   {
    "name": "dsh-project-file-explorer",
@@ -8595,7 +8602,8 @@
     "Code review"
    ],
    "trust": "Unrated",
-   "slug": "dsh-turn-diff"
+   "slug": "dsh-turn-diff",
+   "webonly": true
   },
   {
    "name": "dsh-plugin-llm-codex",
@@ -9846,7 +9854,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-lark-link"
+   "slug": "dsh-lark-link",
+   "webonly": true
   },
   {
    "name": "dsh-plugin-installer",
@@ -9946,7 +9955,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-telegram-channel"
+   "slug": "dsh-telegram-channel",
+   "webonly": true
   },
   {
    "name": "dsh-notification-center",
@@ -10044,7 +10054,8 @@
     "Terminal / Shell"
    ],
    "trust": "Silver",
-   "slug": "plugin-template"
+   "slug": "plugin-template",
+   "webonly": true
   },
   {
    "name": "DSH-telegram",
@@ -10068,7 +10079,8 @@
     "Notifications"
    ],
    "trust": "Silver",
-   "slug": "DSH-telegram"
+   "slug": "DSH-telegram",
+   "webonly": true
   },
   {
    "name": "dsh-task-notify",
@@ -10142,7 +10154,8 @@
     "File"
    ],
    "trust": "Silver",
-   "slug": "dsh-wsl-workspace"
+   "slug": "dsh-wsl-workspace",
+   "webonly": true
   },
   {
    "name": "Top",
@@ -10681,7 +10694,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "A simple TPS (tokens per second) display plugin for DSH.",
    "desc_en": "A simple TPS (tokens per second) display plugin for DSH.",
    "desc_zh": "一个简单的 TPS（每秒 token 数）显示插件。",
@@ -10825,7 +10838,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "dsh-im-bridge — DSH plugin (utility)",
    "desc_en": "dsh-im-bridge — DSH plugin (utility)",
    "desc_zh": "DSH 插件：把 DeepSeek Harness 桥接到 IM（v0.1 微信/iLink；钉钉/飞书/Telegram 预留）。turn/approval 推送 + 远程批准/注入，持久去重/收敛分段/合并窗口。",
@@ -10959,7 +10972,8 @@
     "Notifications"
    ],
    "trust": "Silver",
-   "slug": "dsh-WeCom-notify"
+   "slug": "dsh-WeCom-notify",
+   "webonly": true
   },
   {
    "name": "dsh-workspace-mcp",
@@ -11369,7 +11383,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "DSH-Plugins-Marketplace"
+   "slug": "DSH-Plugins-Marketplace",
+   "webonly": true
   },
   {
    "name": "sealos-skills",
@@ -11817,7 +11832,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "dsh-im"
+   "slug": "dsh-im",
+   "webonly": true
   },
   {
    "name": "awesome-deepseek-harness-plugins",
@@ -12002,7 +12018,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "reef"
+   "slug": "reef",
+   "webonly": true
   },
   {
    "name": "deepseek-harness-phone-remote",
@@ -12263,7 +12280,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-skill-manager-ytxue"
+   "slug": "dsh-skill-manager-ytxue",
+   "webonly": true
   },
   {
    "name": "dsh-github-login",
@@ -12357,7 +12375,8 @@
     "Storage"
    ],
    "trust": "Silver",
-   "slug": "dsh-file-upload"
+   "slug": "dsh-file-upload",
+   "webonly": true
   },
   {
    "name": "dsh-pluginmanager",
@@ -12501,7 +12520,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-open-in-ide"
+   "slug": "dsh-open-in-ide",
+   "webonly": true
   },
   {
    "name": "dsh-workspace-search",
@@ -12526,7 +12546,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-workspace-search"
+   "slug": "dsh-workspace-search",
+   "webonly": true
   },
   {
    "name": "dsh-minimal-v3",
@@ -12730,7 +12751,8 @@
    "license": "Apache-2.0",
    "ucs": [],
    "trust": "Silver",
-   "slug": "deepseek-harness-auth"
+   "slug": "deepseek-harness-auth",
+   "webonly": true
   },
   {
    "name": "dib",
@@ -12801,7 +12823,8 @@
     "File"
    ],
    "trust": "Silver",
-   "slug": "dsh-user-plugins-manager"
+   "slug": "dsh-user-plugins-manager",
+   "webonly": true
   },
   {
    "name": "dsh-forge",
@@ -12937,7 +12960,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "dsh-permgate"
+   "slug": "dsh-permgate",
+   "webonly": true
   },
   {
    "name": "dsh-notifacation-frame",
@@ -13102,7 +13126,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "dsh-skill-picker"
+   "slug": "dsh-skill-picker",
+   "webonly": true
   },
   {
    "name": "dsh-hub-workshop",
@@ -13275,7 +13300,8 @@
     "File"
    ],
    "trust": "Silver",
-   "slug": "dsh-checkpoint-rewind"
+   "slug": "dsh-checkpoint-rewind",
+   "webonly": true
   },
   {
    "name": "dsh-marketplace",
@@ -13299,7 +13325,8 @@
     "GitHub integration"
    ],
    "trust": "Silver",
-   "slug": "dsh-marketplace"
+   "slug": "dsh-marketplace",
+   "webonly": true
   },
   {
    "name": "dsh-workspace-env",
@@ -13374,7 +13401,8 @@
     "File"
    ],
    "trust": "Silver",
-   "slug": "dsh-workspace-explorer"
+   "slug": "dsh-workspace-explorer",
+   "webonly": true
   },
   {
    "name": "dsh-plugin-builder",
@@ -13496,7 +13524,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-file-mention"
+   "slug": "dsh-file-mention",
+   "webonly": true
   },
   {
    "name": "dsh-agentfuse-plugin",
@@ -13592,7 +13621,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Global frictionless warm-up layer plugin for DeepSeek Harness: first round auto-warm-up, full mode from second round",
    "desc_en": "Global frictionless warm-up layer plugin for DeepSeek Harness: first round auto-warm-up, full mode from second round",
    "desc_zh": "Global frictionless warm-up layer plugin for DeepSeek Harness | DeepSeek Harness 全局无感热身层插件：任何会话首轮自动热身，第二轮起恢复完整模式",
@@ -13632,7 +13661,8 @@
     "File"
    ],
    "trust": "Silver",
-   "slug": "dsh-web-enhanced"
+   "slug": "dsh-web-enhanced",
+   "webonly": true
   },
   {
    "name": "dsh-download-progress",
@@ -13657,7 +13687,8 @@
     "Storage"
    ],
    "trust": "Silver",
-   "slug": "dsh-download-progress"
+   "slug": "dsh-download-progress",
+   "webonly": true
   },
   {
    "name": "dsh-web-remote",
@@ -13728,7 +13759,8 @@
     "File"
    ],
    "trust": "Silver",
-   "slug": "dsh-plugin-workbench"
+   "slug": "dsh-plugin-workbench",
+   "webonly": true
   },
   {
    "name": "deepseek-harness-typescript-sdk",
@@ -14474,7 +14506,8 @@
     "GitHub integration"
    ],
    "trust": "Unrated",
-   "slug": "dsh-client-ui-git-branch"
+   "slug": "dsh-client-ui-git-branch",
+   "webonly": true
   },
   {
    "name": "dshp",
@@ -14550,7 +14583,8 @@
     "Terminal / Shell"
    ],
    "trust": "Silver",
-   "slug": "dsh-open-with"
+   "slug": "dsh-open-with",
+   "webonly": true
   },
   {
    "name": "dsh-lazy-tools",
@@ -14622,7 +14656,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-file-changes"
+   "slug": "dsh-file-changes",
+   "webonly": true
   },
   {
    "name": "dsh-rules-paths",
@@ -14808,7 +14843,8 @@
     "Notifications"
    ],
    "trust": "Silver",
-   "slug": "dsh-wending-git-workbench"
+   "slug": "dsh-wending-git-workbench",
+   "webonly": true
   },
   {
    "name": "dsh-compliancehub",
@@ -14854,7 +14890,8 @@
     "File"
    ],
    "trust": "Unrated",
-   "slug": "dsh-deepread"
+   "slug": "dsh-deepread",
+   "webonly": true
   },
   {
    "name": "kubemd",
@@ -15074,7 +15111,7 @@
    "pkg": "dsh-codex-connect",
    "ver": "",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "ChatGPT OAuth and Codex models for DeepSeek Harness.",
    "desc_en": "ChatGPT OAuth and Codex models for DeepSeek Harness.",
    "desc_zh": "dsh-codex-connect — DSH 插件（工具）",
@@ -16521,7 +16558,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Unrated",
-   "slug": "dsh-audio-alert"
+   "slug": "dsh-audio-alert",
+   "webonly": true
   },
   {
    "name": "dshbase-catalog",
@@ -17137,7 +17175,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-pocket"
+   "slug": "dsh-pocket",
+   "webonly": true
   },
   {
    "name": "dsh-reviewer-bot",
@@ -17207,7 +17246,8 @@
     "Notifications"
    ],
    "trust": "Unrated",
-   "slug": "dsh-updater-ui"
+   "slug": "dsh-updater-ui",
+   "webonly": true
   },
   {
    "name": "dsh-atomgit",
@@ -17375,7 +17415,8 @@
    "license": "",
    "ucs": [],
    "trust": "Unrated",
-   "slug": "dsh-pentest"
+   "slug": "dsh-pentest",
+   "webonly": true
   },
   {
    "name": "dsh-pref-kit",
@@ -17642,7 +17683,8 @@
     "GitHub integration"
    ],
    "trust": "Unrated",
-   "slug": "dsh-plugins-market"
+   "slug": "dsh-plugins-market",
+   "webonly": true
   },
   {
    "name": "dsh-liang-rheostat",
@@ -17694,7 +17736,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "dsh-compat is a legacy plugin compatibility layer for DeepSeek Harness (DSH). It allows plugins originally for Claude Code and Codex to run with minimal directory and semantic changes, rather than migrating each plugin to a DSH-native plugin",
    "desc_en": "dsh-compat is a legacy plugin compatibility layer for DeepSeek Harness (DSH). It allows plugins originally for Claude Code and Codex to run with minimal directory and semantic changes, rather than migrating each plugin to a DSH-native plugin",
    "desc_zh": "dsh-compat 是 DeepSeek Harness（DSH）的旧插件兼容层。它让原本面向 Claude Code、Codex 的插件尽量保持原目录与语义运行，而不是把每个插件重新迁移成 DSH 原生插件。",
@@ -18403,7 +18445,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "dsh-client-masquerade"
+   "slug": "dsh-client-masquerade",
+   "webonly": true
   },
   {
    "name": "dsh-free-search",
@@ -18636,7 +18679,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "dsh-meta-orchestrator"
+   "slug": "dsh-meta-orchestrator",
+   "webonly": true
   },
   {
    "name": "dsh-output-styles",
@@ -18706,7 +18750,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-prompt-polish"
+   "slug": "dsh-prompt-polish",
+   "webonly": true
   },
   {
    "name": "dsh-auxiliary",
@@ -18900,7 +18945,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "",
    "desc_en": "",
    "desc_zh": "",
@@ -19096,7 +19141,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "",
    "desc_en": "",
    "desc_zh": "",
@@ -19628,7 +19673,8 @@
     "Memory"
    ],
    "trust": "Silver",
-   "slug": "dsh-solo-thinking"
+   "slug": "dsh-solo-thinking",
+   "webonly": true
   },
   {
    "name": "internalcot",
@@ -19748,7 +19794,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "dsh-agent-team-gui"
+   "slug": "dsh-agent-team-gui",
+   "webonly": true
   },
   {
    "name": "dsh-llm-newapi",
@@ -19756,7 +19803,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "NewAPI (OpenAI-compatible gateway) LLM provider plugin for DeepSeek Harness (dsh): chat-only model discovery + Web settings section. Zero dsh modifications.",
    "desc_en": "NewAPI (OpenAI-compatible gateway) LLM provider plugin for DeepSeek Harness (dsh): chat-only model discovery + Web settings section. Zero dsh modifications.",
    "desc_zh": "NewAPI（OpenAI兼容网关）LLM提供商插件：仅聊天模型发现+Web设置区，零修改。",
@@ -19800,7 +19847,8 @@
     "GitHub integration"
    ],
    "trust": "Silver",
-   "slug": "DSH-better-sidebar"
+   "slug": "DSH-better-sidebar",
+   "webonly": true
   },
   {
    "name": "dsh-deep-whale",
@@ -19927,7 +19975,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Customize the whale-girl thinking-status label",
    "desc_en": "Customize the whale-girl thinking-status label",
    "desc_zh": "自定义「鲸鱼娘」思考状态的显示",
@@ -20592,7 +20640,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "dsh-sidebar-qa"
+   "slug": "dsh-sidebar-qa",
+   "webonly": true
   },
   {
    "name": "dsh-drop-to-path",
@@ -21317,7 +21366,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Obsidian-style [[wikilink]] mentions for the DeepSeek Harness web GUI: fuzzy-search note titles and attach their contents to the prompt",
    "desc_en": "Obsidian-style [[wikilink]] mentions for the DeepSeek Harness web GUI: fuzzy-search note titles and attach their contents to the prompt",
    "desc_zh": "dsh-wikilink — DSH 插件（界面）",
@@ -21979,7 +22028,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Private DSH Web turn navigation plugin.",
    "desc_en": "Private DSH Web turn navigation plugin.",
    "desc_zh": "私有 DSH Web 轮次导航插件。",
@@ -22110,7 +22159,8 @@
     "GitHub integration"
    ],
    "trust": "Silver",
-   "slug": "dsh-ui-workbench"
+   "slug": "dsh-ui-workbench",
+   "webonly": true
   },
   {
    "name": "dsh-test-runner",
@@ -23264,7 +23314,8 @@
     "File"
    ],
    "trust": "Silver",
-   "slug": "dsh-webui-market-plugin"
+   "slug": "dsh-webui-market-plugin",
+   "webonly": true
   },
   {
    "name": "zat-dsh-engine",
@@ -23272,7 +23323,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Visual plugin marketplace for DeepSeek Harness — browse, search and install community plugins",
    "desc_en": "Visual plugin marketplace for DeepSeek Harness — browse, search and install community plugins",
    "desc_zh": "可视化插件市场：浏览、搜索、安装社区插件",
@@ -23310,7 +23361,8 @@
    "license": "",
    "ucs": [],
    "trust": "Unrated",
-   "slug": "dsh-liang-skin"
+   "slug": "dsh-liang-skin",
+   "webonly": true
   },
   {
    "name": "dsh-plugin-hub",
@@ -23451,7 +23503,8 @@
    "license": "BSD-3-Clause",
    "ucs": [],
    "trust": "Silver",
-   "slug": "dsh-mobile"
+   "slug": "dsh-mobile",
+   "webonly": true
   },
   {
    "name": "seektty",
@@ -23733,7 +23786,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-hud"
+   "slug": "dsh-hud",
+   "webonly": true
   },
   {
    "name": "dsh-api-balance",
@@ -23828,7 +23882,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "dsh-any-background"
+   "slug": "dsh-any-background",
+   "webonly": true
   },
   {
    "name": "dsh-split-panes",
@@ -23924,7 +23979,8 @@
     "GitHub integration"
    ],
    "trust": "Silver",
-   "slug": "7d7d"
+   "slug": "7d7d",
+   "webonly": true
   },
   {
    "name": "dsh-client-usage",
@@ -23970,7 +24026,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-node-nav"
+   "slug": "dsh-node-nav",
+   "webonly": true
   },
   {
    "name": "dsh-mc-launcher",
@@ -23995,7 +24052,8 @@
     "Storage"
    ],
    "trust": "Silver",
-   "slug": "dsh-mc-launcher"
+   "slug": "dsh-mc-launcher",
+   "webonly": true
   },
   {
    "name": "awesome-dsh-background-plugin",
@@ -24048,7 +24106,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-input-plus"
+   "slug": "dsh-input-plus",
+   "webonly": true
   },
   {
    "name": "dsh-skin-switcher",
@@ -24072,7 +24131,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-skin-switcher"
+   "slug": "dsh-skin-switcher",
+   "webonly": true
   },
   {
    "name": "dsh-timeline",
@@ -24282,7 +24342,8 @@
     "File"
    ],
    "trust": "Silver",
-   "slug": "dsh-oh-my-theme"
+   "slug": "dsh-oh-my-theme",
+   "webonly": true
   },
   {
    "name": "dsh-local-filetree",
@@ -24307,7 +24368,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-local-filetree"
+   "slug": "dsh-local-filetree",
+   "webonly": true
   },
   {
    "name": "dsh-working-activity",
@@ -24451,7 +24513,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-plugin-description"
+   "slug": "dsh-plugin-description",
+   "webonly": true
   },
   {
    "name": "dsh-client-ui-trajectory-categories",
@@ -24501,7 +24564,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-restart-web"
+   "slug": "dsh-restart-web",
+   "webonly": true
   },
   {
    "name": "dsh-client-ui-question-history",
@@ -24548,7 +24612,8 @@
     "File"
    ],
    "trust": "Silver",
-   "slug": "blocker-notify"
+   "slug": "blocker-notify",
+   "webonly": true
   },
   {
    "name": "dsh-custom-workspace",
@@ -24670,7 +24735,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-usage-record"
+   "slug": "dsh-usage-record",
+   "webonly": true
   },
   {
    "name": "dsh-client-ui-settings-skills",
@@ -24784,7 +24850,8 @@
     "File"
    ],
    "trust": "Unrated",
-   "slug": "dsh-client-ui-filesystem-manager"
+   "slug": "dsh-client-ui-filesystem-manager",
+   "webonly": true
   },
   {
    "name": "dsh-cc-tui",
@@ -25451,7 +25518,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness plugin: masked password panel in the Web GUI (password_prompt tool) — bundle + dual-face plugin",
    "desc_en": "DeepSeek Harness plugin: masked password panel in the Web GUI (password_prompt tool) — bundle + dual-face plugin",
    "desc_zh": "DSH插件：Web GUI掩码密码面板，双面插件",
@@ -25761,7 +25828,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "dsh-deepseek-girl-pet"
+   "slug": "dsh-deepseek-girl-pet",
+   "webonly": true
   },
   {
    "name": "dsh-tui",
@@ -26132,7 +26200,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DSH advanced model configurator: one-click apply pi-ai preset model's context, output limit, and reasoning level to custom providers for DeepSeek Harness",
    "desc_en": "DSH advanced model configurator: one-click apply pi-ai preset model's context, output limit, and reasoning level to custom providers for DeepSeek Harness",
    "desc_zh": "DSH高级模型配置器：一键应用pi-ai预设模型的上下文、输出上限、推理挡位",
@@ -26202,7 +26270,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "dsh-model-config-sync — DSH plugin (session)",
    "desc_en": "dsh-model-config-sync — DSH plugin (session)",
    "desc_zh": "DSH 高级模型配置器：为 DeepSeek Harness 提供将 pi-ai 预设模型的上下文、输出上限、推理挡位一键应用到自定义提供商的能力。",
@@ -26447,7 +26515,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Archived conversation viewer: Cordis plugin to view, restore, and delete archived sessions in DSH settings page",
    "desc_en": "Archived conversation viewer: Cordis plugin to view, restore, and delete archived sessions in DSH settings page",
    "desc_zh": "归档对话查看器：DSH设置页查看、恢复、删除归档会话的Cordis插件",
@@ -26514,7 +26582,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-workbench"
+   "slug": "dsh-workbench",
+   "webonly": true
   },
   {
    "name": "dsh-token-panel",
@@ -26634,7 +26703,8 @@
     "Database"
    ],
    "trust": "Silver",
-   "slug": "dsh-token-usage"
+   "slug": "dsh-token-usage",
+   "webonly": true
   },
   {
    "name": "dsh-cue-plugin",
@@ -27488,7 +27558,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-session-hub"
+   "slug": "dsh-session-hub",
+   "webonly": true
   },
   {
    "name": "DeepSeek-Harness-for-VS-Code",
@@ -27776,7 +27847,8 @@
     "Memory"
    ],
    "trust": "Silver",
-   "slug": "Liltloom"
+   "slug": "Liltloom",
+   "webonly": true
   },
   {
    "name": "dsh-session-tree",
@@ -27897,7 +27969,8 @@
     "Notifications"
    ],
    "trust": "Silver",
-   "slug": "dsh-achievements"
+   "slug": "dsh-achievements",
+   "webonly": true
   },
   {
    "name": "dsh-balance-tide",
@@ -28151,7 +28224,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "An IM gateway for the DeepSeek Harness: bridge messengers into harness agent sessions and control them with slash commands.",
    "desc_en": "An IM gateway for the DeepSeek Harness: bridge messengers into harness agent sessions and control them with slash commands.",
    "desc_zh": "IM网关：桥接消息到DSH会话",
@@ -28201,7 +28274,7 @@
    "pkg": "",
    "ver": "",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "DSH side task plugin: temporary task panel on the right of main conversation (fork sub-session, delete with zero residue). By MyDSH community (mydsh.dev).",
    "desc_en": "DSH side task plugin: temporary task panel on the right of main conversation (fork sub-session, delete with zero residue). By MyDSH community (mydsh.dev).",
    "desc_zh": "DSH侧边任务面板，fork子会话",
@@ -28633,7 +28706,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Editable, session-isolated personalization memory for DeepSeek Harness",
    "desc_en": "Editable, session-isolated personalization memory for DeepSeek Harness",
    "desc_zh": "mindspace-dsh-session-memory — DSH 插件（会话）",
@@ -28777,7 +28850,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Import local Codex / Grok / Claude / OpenCode / CC Switch logins into DeepSeek Harness",
    "desc_en": "Import local Codex / Grok / Claude / OpenCode / CC Switch logins into DeepSeek Harness",
    "desc_zh": "导入本地Codex/Grok/Claude登录",
@@ -29285,7 +29358,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "MemoryDirector plugin for DeepSeek Harness: LLM-driven remember/forget (official harness has no memory)",
    "desc_en": "MemoryDirector plugin for DeepSeek Harness: LLM-driven remember/forget (official harness has no memory)",
    "desc_zh": "MemoryDirector插件：LLM驱动的记住/遗忘（官方无记忆）",
@@ -29602,7 +29675,8 @@
     "Storage"
    ],
    "trust": "Unrated",
-   "slug": "dsh-deepresearch"
+   "slug": "dsh-deepresearch",
+   "webonly": true
   },
   {
    "name": "dsh-md-notes",
@@ -29718,7 +29792,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-web-search-Tavily"
+   "slug": "dsh-web-search-Tavily",
+   "webonly": true
   },
   {
    "name": "gitlearnos",
@@ -29768,7 +29843,8 @@
     "Memory"
    ],
    "trust": "Silver",
-   "slug": "dsh-sysmon"
+   "slug": "dsh-sysmon",
+   "webonly": true
   },
   {
    "name": "gongwen-skill",
@@ -29864,7 +29940,8 @@
     "File"
    ],
    "trust": "Silver",
-   "slug": "dsh-knowledge-graph"
+   "slug": "dsh-knowledge-graph",
+   "webonly": true
   },
   {
    "name": "DshWebSearch",
@@ -29985,7 +30062,8 @@
     "Notifications"
    ],
    "trust": "Silver",
-   "slug": "dsh-interconnect"
+   "slug": "dsh-interconnect",
+   "webonly": true
   },
   {
    "name": "dsh-chat-import",
@@ -30197,7 +30275,8 @@
    "license": "",
    "ucs": [],
    "trust": "Unrated",
-   "slug": "dsh-agent-budget"
+   "slug": "dsh-agent-budget",
+   "webonly": true
   },
   {
    "name": "dsh-plugin-session-import",
@@ -30588,7 +30667,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Agent-driven compaction for DeepSeek Harness: the agent summarizes its own conversation (KV-cache friendly, no giant replay). Verified in p…",
    "desc_en": "Agent-driven compaction for DeepSeek Harness: the agent summarizes its own conversation (KV-cache friendly, no giant replay). Verified in p…",
    "desc_zh": "代理驱动压缩，自摘要会话",
@@ -30612,7 +30691,7 @@
    "pkg": "dsh-polling",
    "ver": "",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "dsh-polling — polling/scheduled task plugin for DeepSeek Harness: cron scheduled tasks as real sessions, natural-language creation, model tools (polling...",
    "desc_en": "dsh-polling — polling/scheduled task plugin for DeepSeek Harness: cron scheduled tasks as real sessions, natural-language creation, model tools (polling...",
    "desc_zh": "轮询/定时任务插件",
@@ -31593,7 +31672,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "deepseek-harness-workbench-plugin"
+   "slug": "deepseek-harness-workbench-plugin",
+   "webonly": true
   },
   {
    "name": "deepseek-harness-desktop",
@@ -31805,7 +31885,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "dsh-plugin-vscode-sidebar"
+   "slug": "dsh-plugin-vscode-sidebar",
+   "webonly": true
   },
   {
    "name": "Minke",
@@ -32087,7 +32168,8 @@
     "Terminal / Shell"
    ],
    "trust": "Silver",
-   "slug": "dsh-blue-whale-maid"
+   "slug": "dsh-blue-whale-maid",
+   "webonly": true
   },
   {
    "name": "dsh-desktop",
@@ -32310,7 +32392,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Per-conversation skill catalog picker for DeepSeek Harness (dsh) — choose which skills are loaded into each conversation. Unselected skills are unavailable in that conversation.",
    "desc_en": "Per-conversation skill catalog picker for DeepSeek Harness (dsh) — choose which skills are loaded into each conversation. Unselected skills are unavailable in that conversation.",
    "desc_zh": "DeepSeek Harness每会话技能目录选择器：选择每个会话加载的技能，未选技能不可用",
@@ -32534,7 +32616,8 @@
     "Notifications"
    ],
    "trust": "Silver",
-   "slug": "dsh-launcher-lifetime"
+   "slug": "dsh-launcher-lifetime",
+   "webonly": true
   },
   {
    "name": "dsh-webUI-pets",
@@ -32628,7 +32711,8 @@
    "license": "",
    "ucs": [],
    "trust": "Unrated",
-   "slug": "dsh-desktop-window"
+   "slug": "dsh-desktop-window",
+   "webonly": true
   },
   {
    "name": "peanut-dsh-plugin",
@@ -32907,7 +32991,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "DSH-arena"
+   "slug": "DSH-arena",
+   "webonly": true
   },
   {
    "name": "deepseek-harness-Kylin-desktop",
@@ -33185,7 +33270,8 @@
     "Code review"
    ],
    "trust": "Silver",
-   "slug": "dsh-desktop-safe-market"
+   "slug": "dsh-desktop-safe-market",
+   "webonly": true
   },
   {
    "name": "dsh-jingling",
@@ -33229,7 +33315,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "dsh-desk-pet"
+   "slug": "dsh-desk-pet",
+   "webonly": true
   },
   {
    "name": "AgentCat",
@@ -33487,7 +33574,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "dsh-deep-research"
+   "slug": "dsh-deep-research",
+   "webonly": true
   },
   {
    "name": "dsh-file-review",
@@ -33753,7 +33841,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "dsh-harness-mcp-server"
+   "slug": "dsh-harness-mcp-server",
+   "webonly": true
   },
   {
    "name": "DeepSeekHarnessRemoteGateway",
@@ -33836,7 +33925,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DSH plugin evaluation tool: YAML case-driven real agent regression eval + baseline comparison PASS/WARN/FAIL gates.",
    "desc_en": "DSH plugin evaluation tool: YAML case-driven real agent regression eval + baseline comparison PASS/WARN/FAIL gates.",
    "desc_zh": "dsh-eval-harness — DSH 插件（编排）",
@@ -34353,7 +34442,8 @@
     "GitHub integration"
    ],
    "trust": "Silver",
-   "slug": "dsh-trajectory-governance"
+   "slug": "dsh-trajectory-governance",
+   "webonly": true
   },
   {
    "name": "dsh-plugin-subagent-director",
@@ -35496,7 +35586,8 @@
     "File"
    ],
    "trust": "Silver",
-   "slug": "dsh-skill-panel"
+   "slug": "dsh-skill-panel",
+   "webonly": true
   },
   {
    "name": "dsh-agent-board",
@@ -35874,7 +35965,8 @@
     "Memory"
    ],
    "trust": "Silver",
-   "slug": "dsh-recall-plugin"
+   "slug": "dsh-recall-plugin",
+   "webonly": true
   },
   {
    "name": "dsh-record-replay",
@@ -35942,7 +36034,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "dsh-routing-suite"
+   "slug": "dsh-routing-suite",
+   "webonly": true
   },
   {
    "name": "EasyDSH",
@@ -36333,7 +36426,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "An adversarial closed-loop plugin for checkup, fix, and review: a check/fix/review toolset built on the official workflow engine.",
    "desc_en": "An adversarial closed-loop plugin for checkup, fix, and review: a check/fix/review toolset built on the official workflow engine.",
    "desc_zh": "发现问题（checkup）→ 修复交付（fix）→ 质量复查（review）的对抗式闭环插件：基于官方 workflow 引擎的检查/修复/复查工具集。",
@@ -36381,7 +36474,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Multi-CoT plugin for DeepSeek Harness: multi-sampled test-time compute, internal voting, and a plan/execute/review workflow",
    "desc_en": "Multi-CoT plugin for DeepSeek Harness: multi-sampled test-time compute, internal voting, and a plan/execute/review workflow",
    "desc_zh": "dsh-multi-cot — DSH 插件（编排）",
@@ -36455,7 +36548,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "File delivery protocol: send_artifact tool",
    "desc_en": "File delivery protocol: send_artifact tool",
    "desc_zh": "文件交付协议：send_artifact 工具",
@@ -37382,7 +37475,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "dsh-balance-display"
+   "slug": "dsh-balance-display",
+   "webonly": true
   },
   {
    "name": "dsh-kimi-bridge",
@@ -37834,7 +37928,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-web-lan-access"
+   "slug": "dsh-web-lan-access",
+   "webonly": true
   },
   {
    "name": "dsh-wechat-bridge",
@@ -37878,7 +37973,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "dsh-full-remote"
+   "slug": "dsh-full-remote",
+   "webonly": true
   },
   {
    "name": "dsh-peer-link",
@@ -37924,7 +38020,8 @@
    "license": "",
    "ucs": [],
    "trust": "Unrated",
-   "slug": "dsh-LAN"
+   "slug": "dsh-LAN",
+   "webonly": true
   },
   {
    "name": "dsh-ocgo-lite",
@@ -37946,7 +38043,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Unrated",
-   "slug": "dsh-ocgo-lite"
+   "slug": "dsh-ocgo-lite",
+   "webonly": true
   },
   {
    "name": "plugin-switch",
@@ -37970,7 +38068,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "plugin-switch"
+   "slug": "plugin-switch",
+   "webonly": true
   },
   {
    "name": "dsh-anchored-flash",
@@ -38064,7 +38163,8 @@
     "Web search"
    ],
    "trust": "Unrated",
-   "slug": "dsh-client-ui-settings-mcp"
+   "slug": "dsh-client-ui-settings-mcp",
+   "webonly": true
   },
   {
    "name": "dsh-agent-messaging",
@@ -38253,7 +38353,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Unrated",
-   "slug": "dsh-provider-billing"
+   "slug": "dsh-provider-billing",
+   "webonly": true
   },
   {
    "name": "dsh-msg-edit",
@@ -38349,7 +38450,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-liquid-glass"
+   "slug": "dsh-liquid-glass",
+   "webonly": true
   },
   {
    "name": "dsh-read-url",
@@ -38560,7 +38662,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-mobile-2"
+   "slug": "dsh-mobile-2",
+   "webonly": true
   },
   {
    "name": "dsh-client-ui-mobile",
@@ -38656,7 +38759,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-plugin-quota"
+   "slug": "dsh-plugin-quota",
+   "webonly": true
   },
   {
    "name": "dsh-plugin-market",
@@ -38756,7 +38860,8 @@
     "Terminal / Shell"
    ],
    "trust": "Silver",
-   "slug": "local-shell-mcp"
+   "slug": "local-shell-mcp",
+   "webonly": true
   },
   {
    "name": "dsh-git-bash",
@@ -38806,7 +38911,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-plugin-terminal"
+   "slug": "dsh-plugin-terminal",
+   "webonly": true
   },
   {
    "name": "dsh-chat-tools",
@@ -39227,7 +39333,8 @@
     "Vision / OCR"
    ],
    "trust": "Unrated",
-   "slug": "dsh-files"
+   "slug": "dsh-files",
+   "webonly": true
   },
   {
    "name": "dsh-session-link",
@@ -39352,7 +39459,8 @@
     "Storage"
    ],
    "trust": "Silver",
-   "slug": "dsh-attachments"
+   "slug": "dsh-attachments",
+   "webonly": true
   },
   {
    "name": "dsh-workspace",
@@ -39377,7 +39485,8 @@
     "Storage"
    ],
    "trust": "Silver",
-   "slug": "dsh-workspace"
+   "slug": "dsh-workspace",
+   "webonly": true
   },
   {
    "name": "dsh-bottom-info-bar",
@@ -39424,7 +39533,8 @@
     "Storage"
    ],
    "trust": "Silver",
-   "slug": "dsh-archive-manager"
+   "slug": "dsh-archive-manager",
+   "webonly": true
   },
   {
    "name": "dsh-self-harness-tools",
@@ -39497,7 +39607,8 @@
     "Terminal / Shell"
    ],
    "trust": "Silver",
-   "slug": "deepseekharnessdesktop-vault"
+   "slug": "deepseekharnessdesktop-vault",
+   "webonly": true
   },
   {
    "name": "dsh-traffic-light",
@@ -39519,7 +39630,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "dsh-traffic-light"
+   "slug": "dsh-traffic-light",
+   "webonly": true
   },
   {
    "name": "dsh-discord-bot",
@@ -39896,7 +40008,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek vision bridge for dsh: route image attachments to a vision model (Qwen3-VL via pi-ai/llama.cpp) and continue on a text-only LLM (DeepSeek)",
    "desc_en": "DeepSeek vision bridge for dsh: route image attachments to a vision model (Qwen3-VL via pi-ai/llama.cpp) and continue on a text-only LLM (DeepSeek)",
    "desc_zh": "视觉桥接：将图像附件路由到视觉模型，文本继续由纯文本LLM处理",
@@ -40302,7 +40414,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "ds-api-usage"
+   "slug": "ds-api-usage",
+   "webonly": true
   },
   {
    "name": "dsh-session-manager",
@@ -40352,7 +40465,8 @@
     "Storage"
    ],
    "trust": "Silver",
-   "slug": "dsh-delete-session"
+   "slug": "dsh-delete-session",
+   "webonly": true
   },
   {
    "name": "DSH-Plan-Graph",
@@ -40543,7 +40657,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "model-usage-plugin"
+   "slug": "model-usage-plugin",
+   "webonly": true
   },
   {
    "name": "dsh-context-provenance",
@@ -40594,7 +40709,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-attachment-formats"
+   "slug": "dsh-attachment-formats",
+   "webonly": true
   },
   {
    "name": "dsh-cost-balance",
@@ -40616,7 +40732,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "dsh-cost-balance"
+   "slug": "dsh-cost-balance",
+   "webonly": true
   },
   {
    "name": "dsh-backup",
@@ -40805,7 +40922,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "dsh-agent-pricing"
+   "slug": "dsh-agent-pricing",
+   "webonly": true
   }
  ],
  "Security": [
@@ -41149,7 +41267,8 @@
     "Notifications"
    ],
    "trust": "Silver",
-   "slug": "dsh-lark-meeting-notifier"
+   "slug": "dsh-lark-meeting-notifier",
+   "webonly": true
   },
   {
    "name": "dsh-android-app",
@@ -41298,7 +41417,8 @@
     "Notifications"
    ],
    "trust": "Silver",
-   "slug": "DeepSeek-harness-lark"
+   "slug": "DeepSeek-harness-lark",
+   "webonly": true
   },
   {
    "name": "dsh-side-workspace",
@@ -41349,7 +41469,8 @@
     "Web search"
    ],
    "trust": "Silver",
-   "slug": "dsh-req-workbench"
+   "slug": "dsh-req-workbench",
+   "webonly": true
   },
   {
    "name": "dsh-report-studio",
@@ -41526,7 +41647,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "",
    "desc_en": "",
    "desc_zh": "",
@@ -41654,7 +41775,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Silver",
-   "slug": "dsh-plugin-tts"
+   "slug": "dsh-plugin-tts",
+   "webonly": true
   },
   {
    "name": "OpenFlowFrames",
@@ -41922,7 +42044,8 @@
    "license": "NOASSERTION",
    "ucs": [],
    "trust": "Silver",
-   "slug": "dsh-ikun-pet"
+   "slug": "dsh-ikun-pet",
+   "webonly": true
   },
   {
    "name": "dsh-bilibili",

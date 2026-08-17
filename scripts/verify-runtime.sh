@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 # 全量插件验证（L1 安装 + L2 加载 + L3 headless 问答），并行执行。
-# 判定：ok=全过 / load-fail=加载失败 / runtime-fail=问答失败 / install-fail=装不上 / network-fail=网络问题
+# 判定：ok=全过 / web-only=GUI插件(headless无服务,非失败) / load-fail=加载失败 / runtime-fail=问答失败 / install-fail=装不上 / network-fail=网络问题
 # 用法：
 #   bash scripts/verify-runtime.sh                    # 全部 pending
 #   VERIFY_FILTER=pending-npm bash scripts/verify-runtime.sh   # 仅 npm 源 pending
 #   WORKERS=6 bash scripts/verify-runtime.sh          # 并行度（默认 6）
 set -uo pipefail
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export SCRIPT_DIR  # verify_one 经 xargs bash -c 在子 shell 运行，必须显式导出，否则 cat $SCRIPT_DIR/dsh-overrides.yaml 变 /dsh-overrides.yaml
 
 PYTHON="${PYTHON:-python3}"
 DATA="src/data/plugins.json"
@@ -64,15 +66,14 @@ verify_one() {
   local prof="v_$(echo "$name" | tr -cd 'a-zA-Z0-9_-')"
   local profdir="$PROFILE_ROOT/$prof"
   rm -rf "$profdir"; mkdir -p "$profdir"
-  cat > "$profdir/pnpm-workspace.yaml" <<'YAML'
-dangerouslyAllowAllBuilds: true
-overrides:
-  '@deepseek-ai/dsh-base': 0.1.0-rc.6
-  '@deepseek-ai/dsh-headless': 0.1.0-rc.6
-  '@deepseek-ai/dsh-invariants': 0.1.0-rc.6
-  '@deepseek-ai/dsh-client-runtime': 0.1.0-rc.6
-  '@deepseek-ai/dsh-tools': 0.1.0-rc.6
-YAML
+  # 完整 overrides：@deepseek-ai scope 下几乎所有 dsh-* 包的 latest 都指向坏的 0.0.1-rc.x，
+  # 正确版本 0.1.0-rc.6 只挂在 next 标签。插件声明的是 >=0.1.0 这类 release 区间，按 semver
+  # prerelease 0.1.0-rc.6 不满足，会误报「No matching version found」。必须全部 pin 掉。
+  {
+    echo "dangerouslyAllowAllBuilds: true"
+    echo "overrides:"
+    cat "$SCRIPT_DIR/dsh-overrides.yaml"
+  } > "$profdir/pnpm-workspace.yaml"
   local log="/tmp/verify-$name.log"
   local status="unknown"
   local installed=0
@@ -90,6 +91,10 @@ YAML
       rc=$?
       if [ "$rc" -eq 0 ] && printf '%s' "$out" | grep -q "OK"; then
         status="ok"
+      elif grep -q "waiting for service" "$log"; then
+        # entry 依赖 GUI 服务（webServer/storage/workspace/connection 等），headless 下服务不满足，
+        # 这是 web UI / 全运行时插件，不是失败。
+        status="web-only"
       else
         status="runtime-fail"
       fi
