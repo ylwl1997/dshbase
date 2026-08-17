@@ -4,7 +4,6 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
 const approvalUrl = getRelativeLocaleUrl('en', '/plugins/dsh-tool-approval/');
 const customToolUrl = getRelativeLocaleUrl('en', '/plugins/dsh-custom-tool/');
-const auditUrl = getRelativeLocaleUrl('en', '/plugins/dsh-security-audit/');
 const pluginCheckUrl = getRelativeLocaleUrl('en', '/plugins/dsh-plugin-check/');
 const contextDoctorUrl = getRelativeLocaleUrl('en', '/plugins/dsh-context-doctor/');
 ---
@@ -27,7 +26,7 @@ const contextDoctorUrl = getRelativeLocaleUrl('en', '/plugins/dsh-context-doctor
   <p>The most interesting security-adjacent plugin is <strong><a href={customToolUrl}>dsh-custom-tool</a></strong>, which lets you "create and manage <strong>sandboxed</strong> JavaScript tools" through a Monaco editor with a model-driven tool lifecycle. The keyword is <em>sandboxed</em>: when the model writes (or you write) a small JS utility, it runs in a constrained environment rather than with the full privileges of the host process. It's a clean pattern for letting the agent extend itself without handing it the keys — and it's one of the more polished plugins in the category, verified <code>ok</code> on dsh 0.1.0-rc.6.</p>
 
   <h2>dsh-security-audit: know your exposure</h2>
-  <p>Prevention needs eyes. <strong><a href={auditUrl}>dsh-security-audit</a></strong> is a local audit plugin that "reports on config, plugin sources, sessions, and network exposure with <strong>read-only, redacted</strong> risk reporting." The two design choices that make it trustworthy: it's read-only (it doesn't mutate anything while auditing), and it redacts secrets before they ever hit the report. It builds from source (<code>git-build</code>) on dsh 0.1.0-rc.6, and it's the fastest way to answer "what is this install actually exposing?" before you connect an agent to anything real.</p>
+  <p>Prevention needs eyes. <strong>dsh-security-audit</strong> is a local audit plugin that "reports on config, plugin sources, sessions, and network exposure with <strong>read-only, redacted</strong> risk reporting." The two design choices that make it trustworthy: it's read-only (it doesn't mutate anything while auditing), and it redacts secrets before they ever hit the report. It builds from source (<code>git-build</code>) on dsh 0.1.0-rc.6, and it's the fastest way to answer "what is this install actually exposing?" before you connect an agent to anything real.</p>
 
   <h2>Supply-chain safety: dsh-plugin-check</h2>
   <p>A huge share of dsh's surface area is third-party plugins, and every plugin is code running on your machine. <strong><a href={pluginCheckUrl}>dsh-plugin-check</a></strong> addresses that head-on: it "scans manifest protocol, patch format, build traps, and hub listing status of plugin repos, zero-dependency and read-only." Before you <code>dsh plugin add</code> something you found in a forum thread, this gives you a structural once-over of the repo — whether the manifest is well-formed, whether the patch format looks sane, whether there are obvious build-time traps. It's not a full security audit, but it's a cheap first filter, and it's one of the more-starred plugins in the Development & Runtime category.</p>

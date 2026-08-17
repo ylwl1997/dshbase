@@ -9,3 +9,6 @@ research/
 node_modules/
 dist/
 .astro/
+
+# 审计产物（脚本在 scripts/audit-dsh.py，不忽略）
+/audit-*

@@ -3,7 +3,6 @@ import BlogPost from '../../../layouts/BlogPost.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
 const modlensUrl = getRelativeLocaleUrl('zh', '/plugins/modlens/');
-const visionToolkitUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-vision-toolkit/');
 const visionPrimitivesUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-vision-primitives/');
 const dropToPathUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-drop-to-path/');
 ---
@@ -20,7 +19,7 @@ const dropToPathUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-drop-to-path/');
   <p><strong><a href={modlensUrl}>modlens</a></strong> 是 DeepSeek Harness 的第一个视觉插件，近千 star，至今仍是基准。它的模型是：粘一张图，拿回<strong>结构化的 JSON 证据</strong>——OCR、布局、语义——然后你的纯文本模型再据此推理。与其硬把像素塞进一个读不了的模型，modlens 把图片转成了模型<em>能</em>消化的东西。它是<a href={directoryUrl}>插件目录</a>里 star 最多的视觉插件，在 dsh 0.1.0-rc.6 上验证为 <code>ok</code>。</p>
 
   <h2>dsh-vision-toolkit：完整工具箱</h2>
-  <p>如果说 modlens 是参考实现，<strong><a href={visionToolkitUrl}>dsh-vision-toolkit</a></strong> 就是厨房水槽。它「帮纯文本模型处理视觉任务」，覆盖面广得多：<strong>意图感知的图片问答、长截图 OCR、UI 还原、grounding、像素 diff、Artifacts</strong>。差别就在「读这张截图」和「读这张 4000px 的滚动长截图，再跟上一张做 diff、告诉我 UI 哪里变了」之间。它在 dsh 0.1.0-rc.6 上从源码构建（<code>git-build</code>），社区份量很足。</p>
+  <p>如果说 modlens 是参考实现，<strong>dsh-vision-toolkit</strong> 就是厨房水槽。它「帮纯文本模型处理视觉任务」，覆盖面广得多：<strong>意图感知的图片问答、长截图 OCR、UI 还原、grounding、像素 diff、Artifacts</strong>。差别就在「读这张截图」和「读这张 4000px 的滚动长截图，再跟上一张做 diff、告诉我 UI 哪里变了」之间。它在 dsh 0.1.0-rc.6 上从源码构建（<code>git-build</code>），社区份量很足。</p>
 
   <h2>dsh-vision-primitives：原生定位，零 MCP</h2>
   <p><strong><a href={visionPrimitivesUrl}>dsh-vision-primitives</a></strong> 是更新、更有主张的那个。它是一个「原生交互式视觉推理插件」，围绕<strong>Set-of-Mark 编号网格覆盖层</strong>做精确视觉定位，且「<strong>零外部 MCP</strong>」。Set-of-Mark 技法在图片区域上叠编号标记，让模型说「点 7 号」而不是「点左上角那个大概是按钮的东西」。要做 UI 自动化、要精确指哪打哪，这就是你要的机制。目录标了 <code>not-on-npm</code>，需从源码装。</p>

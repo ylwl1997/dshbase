@@ -4,8 +4,6 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
 const sidechainUrl = getRelativeLocaleUrl('en', '/plugins/dsh-sidechain/');
 const crosstalkUrl = getRelativeLocaleUrl('en', '/plugins/dsh-crosstalk/');
-const interconnectUrl = getRelativeLocaleUrl('en', '/plugins/dsh-interconnect/');
-const dataAgentUrl = getRelativeLocaleUrl('en', '/plugins/dsh-data-agent/');
 const sgmeUrl = getRelativeLocaleUrl('en', '/plugins/dsh-sgme/');
 ---
 <BlogPost title="DeepSeek Harness Subagent — Multi-Agent, Fork & Model Switching Guide | dshbase" description="How to run multiple agents and subagents in DeepSeek Harness (dsh): agent presets, fork-based side conversations, cross-session messaging, and shared memory — grounded in the official repo discussions and the real plugins that implement them, verified on dsh 0.1.0-rc.6." currentPath="/blog/dsh-subagent/" category="Guide">
@@ -18,7 +16,7 @@ const sgmeUrl = getRelativeLocaleUrl('en', '/plugins/dsh-sgme/');
   <p>A word on expectations. If you come from a framework with a built-in <code>spawn_subagent()</code>, dsh will feel different — and deliberately so. The kernel is a plugin system, not an orchestration runtime, so multi-agent behavior is assembled from primitives rather than exposed as one blessed API. The upside is that the primitives are genuinely composable: the same fork mechanism that powers a throwaway side chat also underlies the messaging handoff, and the same preset mechanism that defines a data agent can define any other role you invent. The downside is that nothing is handed to you pre-wired — you assemble the pieces, which is why the patterns below matter more than any single plugin.</p>
 
   <h2>Agent presets: subagents by role</h2>
-  <p>The cleanest entry point is the <strong>preset</strong>. Rather than a single monolithic assistant, dsh lets a plugin declare a distinct agent role with its own tools and instructions. The concrete example in the <a href={directoryUrl}>plugin directory</a> is <strong><a href={dataAgentUrl}>dsh-data-agent</a></strong>, which "defines a dedicated Data Agent preset that lets AI query, update, and analyze data for you." You don't bolt data skills onto your coding agent — you get a second, purpose-built agent and switch into it when the task is data-shaped. That's the subagent idea in its simplest form: specialization via presets, not one bloated persona.</p>
+  <p>The cleanest entry point is the <strong>preset</strong>. Rather than a single monolithic assistant, dsh lets a plugin declare a distinct agent role with its own tools and instructions. The concrete example in the <a href={directoryUrl}>plugin directory</a> is <strong>dsh-data-agent</strong>, which "defines a dedicated Data Agent preset that lets AI query, update, and analyze data for you." You don't bolt data skills onto your coding agent — you get a second, purpose-built agent and switch into it when the task is data-shaped. That's the subagent idea in its simplest form: specialization via presets, not one bloated persona.</p>
 
   <h2>Fork-based side conversations</h2>
   <p>For lightweight parallel work, <strong><a href={sidechainUrl}>dsh-sidechain</a></strong> is the plugin to know. It adds <code>/side</code> for persistent side chats and <code>/btw</code> for one-off side questions, both of which "run in a temporary fork without writing to the main session history." That matters for two reasons: the main session's append-only log stays clean (so your trajectory stays auditable), and the fork inherits the parent's context so the side task can see where you left off. It's the closest thing to a native "spawn a subagent for this small thing" affordance we verified — <code>git-build</code> status on dsh 0.1.0-rc.6, i.e. it builds from source rather than npm.</p>
@@ -27,7 +25,7 @@ const sgmeUrl = getRelativeLocaleUrl('en', '/plugins/dsh-sgme/');
   <p>Once you have more than one agent, they need to talk. Two plugins cover the two scales:</p>
   <ul>
     <li><strong><a href={crosstalkUrl}>dsh-crosstalk</a></strong> — "any session on the machine can list and message any other, Claude Code-style." Local, same-machine fan-out.</li>
-    <li><strong><a href={interconnectUrl}>dsh-interconnect</a></strong> — "cross-instance message and event handoff" via an interconnect service plus tools. This is the one that reaches across processes and machines.</li>
+    <li><strong>dsh-interconnect</strong> — "cross-instance message and event handoff" via an interconnect service plus tools. This is the one that reaches across processes and machines.</li>
   </ul>
   <p>Together they turn a fleet of dsh instances into something that can delegate and report back — a supervisor sending work to workers, workers posting results, all without copy-pasting between browser tabs.</p>
 

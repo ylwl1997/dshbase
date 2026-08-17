@@ -4,7 +4,6 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
 const approvalUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-tool-approval/');
 const customToolUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-custom-tool/');
-const auditUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-security-audit/');
 const pluginCheckUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-plugin-check/');
 const contextDoctorUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-context-doctor/');
 ---
@@ -24,7 +23,7 @@ const contextDoctorUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-context-doctor
   <p>最有趣的跟安全沾边的插件是 <strong><a href={customToolUrl}>dsh-custom-tool</a></strong>，它让你「通过 Monaco 编辑器创建和管理<strong>沙箱化</strong>的 JavaScript 工具」，配模型驱动的工具生命周期。关键词是<em>沙箱化</em>：当模型（或你）写一个小 JS 工具时，它跑在一个受限环境里，而不是带着宿主进程的全部权限。这是个干净的模式——既让 Agent 能自我扩展，又不把钥匙交出去——而且是这个分类里打磨得比较好的插件之一，在 dsh 0.1.0-rc.6 上验证为 <code>ok</code>。</p>
 
   <h2>dsh-security-audit：看清你的暴露面</h2>
-  <p>光防不行，还得有眼睛。<strong><a href={auditUrl}>dsh-security-audit</a></strong> 是个本地审计插件，「上报配置、插件来源、会话与网络暴露面，且是<strong>只读、脱敏</strong>的风险报告」。让它可信的两个设计选择：只读（审计时不改动任何东西）、并且秘密在进报告之前就做了脱敏。它在 dsh 0.1.0-rc.6 上从源码构建（<code>git-build</code>），也是在把 Agent 连到任何真实东西之前，最快搞清「这次安装到底暴露了什么」的办法。</p>
+  <p>光防不行，还得有眼睛。<strong>dsh-security-audit</strong> 是个本地审计插件，「上报配置、插件来源、会话与网络暴露面，且是<strong>只读、脱敏</strong>的风险报告」。让它可信的两个设计选择：只读（审计时不改动任何东西）、并且秘密在进报告之前就做了脱敏。它在 dsh 0.1.0-rc.6 上从源码构建（<code>git-build</code>），也是在把 Agent 连到任何真实东西之前，最快搞清「这次安装到底暴露了什么」的办法。</p>
 
   <h2>供应链安全：dsh-plugin-check</h2>
   <p>dsh 的一大块攻击面是第三方插件，而每个插件都是跑在你机器上的代码。<strong><a href={pluginCheckUrl}>dsh-plugin-check</a></strong> 正面处理这件事：它「扫描插件仓库的 manifest 协议、patch 格式、构建陷阱与 hub 上架状态，零依赖、只读」。在你 <code>dsh plugin add</code> 某个从论坛帖子里翻到的东西之前，它能先给仓库做个结构性体检——manifest 是否合规、patch 格式是否正常、有没有明显的构建期陷阱。它不是完整安全审计，但胜在便宜、是第一道过滤，也是 Development & Runtime 分类里星数靠前的插件。</p>
