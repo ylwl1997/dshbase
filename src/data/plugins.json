@@ -17462,7 +17462,7 @@
    "name": "dsh-compliancehub",
    "url": "https://github.com/wwumit/dsh-compliancehub",
    "pkg": "@wwumit/dsh-compliancehub",
-   "ver": "1.0.0",
+   "ver": "1.1.1",
    "npm": true,
    "test": "pending",
    "desc": "Compliance skill hub provider for DeepSeek Harness: install compliance skills (CCPA/GDPR/COPPA/HIPAA + finance/tools) from a JSON catalog via ctx.skills (list/get), with DISCLOSURE v0.2 open-data-layer disclosure.",
@@ -17779,9 +17779,9 @@
   {
    "name": "dsh-plugin-tools",
    "url": "https://github.com/wwumit/dsh-plugin-tools",
-   "pkg": "",
-   "ver": "",
-   "npm": false,
+   "pkg": "@wwumit/dsh-plugin-tools",
+   "ver": "1.0.1",
+   "npm": true,
    "test": "verified",
    "desc": "Plugin development and publishing tools provider for DSH, installing expert2skill, compliance, dependency, and malware scanners via ctx.skills.",
    "desc_en": "Plugin development and publishing tools provider for DSH, installing expert2skill, compliance, dependency, and malware scanners via ctx.skills.",
@@ -17793,7 +17793,10 @@
    "updated": "2026-08-17",
    "archived": false,
    "added": "2026-08-17T16:13:44",
-   "slug": "dsh-plugin-tools"
+   "slug": "dsh-plugin-tools",
+   "license": "MIT",
+   "ucs": [],
+   "trust": "Unrated"
   }
  ],
  "AI Models": [
