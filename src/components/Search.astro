@@ -127,7 +127,7 @@ const t = {
 
     function addPlugin(p) {
       const title = lang === 'zh' ? (p.desc_zh || p.desc) : p.desc;
-      const test = p.test === 'verified' ? (lang === 'zh' ? '已验证' : 'verified') : (lang === 'zh' ? '未测试' : 'untested');
+      const test = p.test === 'verified' ? (lang === 'zh' ? '已验证' : 'verified') : (lang === 'zh' ? '未验证' : 'unverified');
       const avatar = p.owner ? `<img src="https://github.com/${esc(p.owner)}.png" alt="" loading="lazy" onerror="this.remove()">` : `<span class="ci-ico">🧩</span>`;
       const a = document.createElement('a');
       a.className = 'cmdk-item'; a.href = localize(`/plugins/${p.slug}/`);

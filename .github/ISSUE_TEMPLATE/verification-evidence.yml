@@ -1,0 +1,51 @@
+---
+name: 提交验证证据 / Submit verification evidence
+description: 插件作者提交自己的验证证据（截图/日志/录屏），审核通过后把该插件标记为「已验证」
+title: "[验证证据] 插件名称"
+labels: ["verification-evidence"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: 插件名称
+      description: 与 dshbase 目录中的名称一致
+      placeholder: dsh-xxx
+    validations:
+      required: true
+  - type: input
+    id: repo
+    attributes:
+      label: GitHub 仓库
+      placeholder: https://github.com/owner/repo
+    validations:
+      required: true
+  - type: dropdown
+    id: evidence-type
+    attributes:
+      label: 证据类型
+      options:
+        - 截图（安装 / 运行成功界面）
+        - 日志 / 终端输出
+        - 录屏 / 视频
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 验证证据
+      description: 拖拽图片/视频到正文，或粘贴外部链接；附上关键日志片段，说明你在什么环境、什么 dsh 版本下验证了什么功能
+      placeholder: 例如：dsh 0.1.0-rc.6 下 `dsh plugin add` 成功 + `dsh web` 中插件正常运行的截图与日志
+    validations:
+      required: true
+  - type: input
+    id: dsh-version
+    attributes:
+      label: 测试用的 dsh 版本
+      placeholder: 0.1.0-rc.6
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 确认
+      options:
+        - label: 我确认以上证据真实、未篡改，且来自该插件在 DeepSeek Harness 中的实际运行

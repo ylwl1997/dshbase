@@ -3,7 +3,7 @@ const { plugin: p, cat = '', lang = 'en' } = Astro.props;
 const _repo = (u) => (u || '').replace('https://github.com/', '');
 const _owner = (u) => (u || '').replace('https://github.com/', '').split('/')[0] || '';
 const installCmd = p.npm && p.pkg ? `dsh plugin add ${p.pkg}` : `dsh plugin add github:${_repo(p.url)}`;
-const statusLabel = p.test === 'verified' ? (lang === 'zh' ? '已验证' : 'Verified') : (lang === 'zh' ? '未测试' : 'Untested');
+const statusLabel = p.test === 'verified' ? (lang === 'zh' ? '已验证' : 'Verified') : (lang === 'zh' ? '未验证' : 'Unverified');
 const copyLabel = lang === 'zh' ? '📋 安装' : '📋 copy';
 const statusClass = p.test === 'verified' ? 'st-ok' : 'st-warn';
 const trust = p.trust || '';

@@ -33,7 +33,7 @@ const repo = p.url.replace('https://github.com/', '');
 const npmHome = p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
 const statusLabel = {
   verified: 'Verified · install-tested on dsh',
-  pending: 'Untested',
+  pending: 'Unverified',
 };
 const statusClass = {
   verified: 'st-ok',
@@ -45,6 +45,7 @@ const riskClass = { low: 'sec-low', medium: 'sec-med', high: 'sec-high', critica
 const catLabel = { secrets: 'Hardcoded secret', 'dangerous-cmd': 'Dangerous command', exfil: 'Exfiltration endpoint', permissions: 'Suspicious permission' };
 const badgeAlt = p.test === 'verified' ? 'dshbase install-tested' : 'dshbase listed';
 const badgeMd = `[![${badgeAlt}](https://dshbase.com/badges/${p.slug}.svg)](https://dshbase.com/plugins/${p.slug}/)`;
+const verifyUrl = `https://github.com/ylwl1997/dshbase/issues/new?template=verification-evidence.yml&name=${encodeURIComponent(p.name)}&repo=${encodeURIComponent(p.url)}`;
 const desc = p.desc_en || p.desc || `A plugin in the ${cat} category for DeepSeek Harness.`;
 const fmt = (n) => (n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n ?? 0));
 const stars = p.stars ?? 0;
@@ -56,7 +57,7 @@ const verdict = p.archived
       : stars >= 20
         ? { label: 'Works — verified, growing community', cls: 'v-ok', icon: '✅' }
         : { label: 'Works — verified, early-stage project', cls: 'v-ok', icon: '✅' }
-    : { label: 'Untested — not yet verified', cls: 'v-warn', icon: '⏳' };
+    : { label: 'Unverified — not yet verified', cls: 'v-warn', icon: '⏳' };
 const review = p.archived
   ? `This plugin has been archived and is no longer maintained — use it only if you're willing to maintain it yourself.`
   : p.test === 'verified'
@@ -107,7 +108,7 @@ const jsonLd = {
     </div>
     <p class="review-text">{review}</p>
 
-    <p class="honest-note">“{p.test === 'verified' ? 'Verified' : 'Untested'}” means our automated CI{' '}
+    <p class="honest-note">“{p.test === 'verified' ? 'Verified' : 'Unverified'}” means our automated CI{' '}
       {p.test === 'verified' ? (
         <Fragment>actually ran <code>dsh plugin add</code> in a clean profile and it booted — nothing more</Fragment>
       ) : (
@@ -188,6 +189,13 @@ const jsonLd = {
       </Fragment>
     )}
 
+    {p.test === 'pending' && !p.archived && (
+      <div class="verify-cta">
+        <strong>Plugin author?</strong> Get the “Verified” label — submit your own evidence (screenshots, logs, or a short demo) and we'll review and flip the badge.
+        <p style="margin-top:10px"><a class="btn btn-ghost btn-sm" href={verifyUrl} target="_blank" rel="noopener">Submit verification evidence ↗</a></p>
+      </div>
+    )}
+
     <h2 style="margin-top:28px">Repository</h2>
     <p><a href={p.url} target="_blank" rel="noopener">github.com/{repo} ↗</a>{p.archived ? ' · <span class="muted">archived</span>' : ''}</p>
 
@@ -204,7 +212,7 @@ const jsonLd = {
           {related.map((r) => (
             <a class="card card-link" href={`/plugins/${r.slug}/`}>
               <h3>{r.name}</h3>
-              <p>{r.test === 'verified' ? '✅ verified' : r.test === 'pending' ? '⏳ untested' : r.npm ? 'on npm' : 'GitHub source'} · ★{r.stars ?? 0}</p>
+              <p>{r.test === 'verified' ? '✅ verified' : r.test === 'pending' ? '⏳ unverified' : r.npm ? 'on npm' : 'GitHub source'} · ★{r.stars ?? 0}</p>
             </a>
           ))}
         </div>
@@ -232,6 +240,7 @@ const jsonLd = {
   .sec-findings { margin: 8px 0 0; padding-left: 18px; font-size: 12.5px; color: var(--ink-2); }
   .build-box { font-size: 13.5px; color: var(--ink-2); background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px; padding: 12px 16px; margin: 14px 0; }
   .build-box .code-block { margin: 8px 0 0; }
+  .verify-cta { font-size: 13.5px; line-height: 1.6; color: var(--ink-2); background: #f6f3ff; border: 1px solid #d6ccf5; border-radius: 10px; padding: 12px 16px; margin: 18px 0 0; }
   .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin: 4px 0; }
   .metric { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 12px; text-align: center; }
   .m-val { display: block; font-size: 20px; font-weight: 800; color: var(--ink); }
