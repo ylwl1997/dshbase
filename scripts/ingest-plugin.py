@@ -192,6 +192,36 @@ def load_db():
     return json.load(open(DATA, encoding="utf-8"))
 
 
+def run_verify(name, src):
+    """收录后自动验证（headless L1装+L2载+L3问答）。调用 verify-runtime.sh，返回 ('ok'|'fail', detail)。"""
+    try:
+        import subprocess, tempfile
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.tsv', delete=False, encoding='utf-8') as f:
+            f.write(f"{name}\t{src}\n")
+            lst = f.name
+        out = tempfile.mktemp(suffix='.tsv')
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        env = dict(os.environ)
+        env['VERIFY_LIST'] = lst
+        env['VERIFY_OUT'] = out
+        env['WORKERS'] = '1'
+        r = subprocess.run(['bash', os.path.join(script_dir, 'verify-runtime.sh')], env=env,
+                           capture_output=True, text=True, timeout=600)
+        status = 'fail'
+        if os.path.exists(out):
+            for line in open(out, encoding='utf-8'):
+                parts = line.strip().split('\t')
+                if len(parts) == 2 and parts[0] == name:
+                    status = parts[1]
+        os.unlink(lst)
+        if os.path.exists(out):
+            os.unlink(out)
+        ok = status == 'ok'
+        return (ok, status)
+    except Exception as e:
+        return (False, f'verify-error: {e}')
+
+
 def find_existing(db, name, url):
     """全局查重：按 name（小写）或 repo 是否已存在。"""
     target_repo = parse_repo(url)
@@ -222,6 +252,7 @@ def main():
     ap.add_argument("--name", default="", help="插件名（默认用仓库名）")
     ap.add_argument("--desc-zh", default="", help="中文描述")
     ap.add_argument("--force", action="store_true", help="跳过 DeepSeek 软判断直接收录（用于软判断误判但硬门槛全过的插件）")
+    ap.add_argument("--verify", action="store_true", help="收录后自动跑 headless 验证（L1装+L2载+L3问答），通过标 verified")
     ap.add_argument("--json", action="store_true", help="输出 JSON 结果")
     args = ap.parse_args()
 
@@ -283,14 +314,32 @@ def main():
     else:
         add_plugin(db, entry, args.category)
         install = f"`dsh plugin add {entry['pkg']}`" if entry["pkg"] else f"`dsh plugin add github:{repo}`"
+        # --verify：收录后自动验证，通过则标 verified（先验证再收录的完整流程）
+        if args.verify:
+            src = entry['pkg'] if entry['pkg'] else f"github:{repo}"
+            vok, vst = run_verify(entry['name'], src)
+            entry['test'] = 'verified' if vok else 'pending'
+            entry['testDate'] = datetime.now().strftime('%Y-%m-%d') if vok else None
+            if vst != 'ok':
+                entry['note'] = (entry.get('note', '') + '；' if entry.get('note') else '') + f'验证: {vst}'
+            # 重新写回
+            db = load_db()
+            for items in db.values():
+                for p in items:
+                    if p['name'] == entry['name']:
+                        p.update(entry)
+            json.dump(db, open(DATA, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         if issues:
             msg = ("✅ 已收录！感谢提交 🎉\n\n"
-                   f"- 分类：{args.category or 'Developer'}\n- 安装：{install}\n\n"
-                   "建议补充以下内容（补充后回复我，我会更新）：\n"
+                   f"- 分类：{args.category or 'Developer'}\n- 安装：{install}\n"
+                   + (f"- 验证：{'✅ 通过' if vok else '⚠️ ' + vst}\n" if args.verify else "")
+                   + "\n建议补充以下内容（补充后回复我，我会更新）：\n"
                    + "\n".join(f"- [ ] {i}" for i in issues))
         else:
             msg = (f"✅ 已收录！感谢提交 🎉\n\n"
-                   f"- 分类：{args.category or 'Developer'}\n- 安装：{install}\n\n感谢提交！")
+                   f"- 分类：{args.category or 'Developer'}\n- 安装：{install}\n"
+                   + (f"- 验证：{'✅ 通过' if vok else '⚠️ ' + vst}\n" if args.verify else "")
+                   + "\n感谢提交！")
         result = {"status": "accepted", "name": name, "category": args.category, "install": install, "message": msg}
 
     if args.json:
