@@ -24,7 +24,12 @@
    ],
    "trust": "Silver",
    "slug": "petdex",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 37,
+   "depCount": 35,
+   "depsOfficial": 0,
+   "repoOwner": "crafter-station",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-anchored-standard",
@@ -47,7 +52,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-anchored-standard",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 13,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "xiaobright",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "EchoBird",
@@ -75,7 +85,12 @@
    "platform": "any",
    "webonly": false,
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 8,
+   "depCount": 11,
+   "depsOfficial": 0,
+   "repoOwner": "edison7009",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "modlens",
@@ -100,7 +115,12 @@
    ],
    "trust": "Silver",
    "slug": "modlens",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 0,
+   "repoOwner": "liustack",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "brooks-lint",
@@ -125,7 +145,12 @@
    ],
    "trust": "Silver",
    "slug": "brooks-lint",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 4,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "hyhmrright",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "awesome-dsh-plugins",
@@ -151,7 +176,12 @@
    "trust": "Silver",
    "slug": "awesome-dsh-plugins",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 109,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "AdamPlatin123",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "deeptide",
@@ -177,7 +207,12 @@
    ],
    "trust": "Silver",
    "slug": "deeptide",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 11,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "paean-ai",
+   "_enriched": "2026-07-08|"
   },
   {
    "name": "Aegis",
@@ -203,7 +238,12 @@
    ],
    "trust": "Silver",
    "slug": "Aegis",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "GanyuanRan",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "agent-qa",
@@ -229,7 +269,12 @@
    ],
    "trust": "Silver",
    "slug": "agent-qa",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 4,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "vostride",
+   "_enriched": "2026-08-03|"
   },
   {
    "name": "awesome-deepseek-harness",
@@ -254,7 +299,12 @@
    ],
    "trust": "Silver",
    "slug": "awesome-deepseek-harness",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 254,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "0xsline",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "sandbase-harness",
@@ -279,7 +329,12 @@
    "slug": "sandbase-harness",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 3,
+   "depCount": 10,
+   "depsOfficial": 0,
+   "repoOwner": "sandbaseai",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "MuseAI",
@@ -305,7 +360,12 @@
    ],
    "trust": "Unrated",
    "slug": "MuseAI",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 19,
+   "depsOfficial": 0,
+   "repoOwner": "yejiming",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-vision-toolkit",
@@ -332,7 +392,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-vision-toolkit",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 6,
+   "depCount": 25,
+   "depsOfficial": 21,
+   "repoOwner": "Anionex",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-ads",
@@ -359,7 +424,12 @@
    "trust": "Unrated",
    "slug": "dsh-ads",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Nagi-ovo",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "treg",
@@ -387,7 +457,12 @@
    ],
    "trust": "Silver",
    "slug": "treg",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "superdesigndev",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "harmony-next.skills",
@@ -410,7 +485,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "harmony-next.skills",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "linhay",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "oh-dsh",
@@ -438,7 +518,12 @@
    "slug": "oh-dsh",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 load-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 load-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 13,
+   "depCount": 2,
+   "depsOfficial": 0,
+   "repoOwner": "hust-open-atom-club",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-browser",
@@ -465,7 +550,12 @@
    "trust": "Silver",
    "slug": "dsh-browser",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 4,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "Lum1104",
+   "_enriched": "2026-08-18|0.1.0"
   },
   {
    "name": "awesome-dsh-plugin",
@@ -489,7 +579,12 @@
    "trust": "Silver",
    "slug": "awesome-dsh-plugin",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 26,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "bruc3van",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "oh-dsh-desktop",
@@ -514,7 +609,12 @@
    "slug": "oh-dsh-desktop",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 load-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 load-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 13,
+   "depCount": 2,
+   "depsOfficial": 0,
+   "repoOwner": "hust-open-atom-club",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-visualize",
@@ -537,7 +637,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-visualize",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 9,
+   "depsOfficial": 8,
+   "repoOwner": "Nagi-ovo",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-find-plugins",
@@ -562,7 +667,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-find-plugins",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Nagi-ovo",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-launcher",
@@ -588,7 +698,12 @@
    "trust": "Bronze",
    "slug": "dsh-launcher",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 3,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Ruler4396",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "A-share-Ai",
@@ -613,7 +728,12 @@
    ],
    "trust": "Unrated",
    "slug": "A-share-Ai",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "hyqibot",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "modsearch",
@@ -639,7 +759,12 @@
    "trust": "Silver",
    "slug": "modsearch",
    "platform": "any",
-   "bareNpm": "install-fail"
+   "bareNpm": "install-fail",
+   "contributors": 2,
+   "depCount": 2,
+   "depsOfficial": 0,
+   "repoOwner": "liustack",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "Awesome-DeepSeek-Harness-Plugins",
@@ -664,7 +789,12 @@
    ],
    "trust": "Bronze",
    "slug": "Awesome-DeepSeek-Harness-Plugins",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 24,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Zhiyuan-Fan",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "humanizer-ru",
@@ -689,7 +819,12 @@
    ],
    "trust": "Silver",
    "slug": "humanizer-ru",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 7,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Vladimir-Human",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "DSH-Plugins-Marketplace",
@@ -718,7 +853,12 @@
    "webonly": false,
    "platform": "any",
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 5,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "bradeGithub",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "phi",
@@ -744,7 +884,12 @@
    ],
    "trust": "Silver",
    "slug": "phi",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 4,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "pulseaiclub",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-super-injector",
@@ -771,7 +916,12 @@
    "slug": "dsh-super-injector",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 2,
+   "depCount": 3,
+   "depsOfficial": 1,
+   "repoOwner": "yjh051108",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "seeWxapkg",
@@ -797,7 +947,12 @@
    ],
    "trust": "Silver",
    "slug": "seeWxapkg",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 4,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Leslie-SSS",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-auto-mode",
@@ -820,7 +975,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-auto-mode",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 6,
+   "repoOwner": "NanmiCoder",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "anysearch-dsh",
@@ -846,7 +1006,12 @@
    "trust": "Silver",
    "slug": "anysearch-dsh",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "anysearch-team",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "sealos-skills",
@@ -873,7 +1038,12 @@
    ],
    "trust": "Unrated",
    "slug": "sealos-skills",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 6,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "labring",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "awesome-DSH-plugin",
@@ -896,7 +1066,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "awesome-DSH-plugin",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 33,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Alex-Yanggg",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "hello-dsh",
@@ -919,7 +1094,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "hello-dsh",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "pingfanfan",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-vision",
@@ -945,7 +1125,12 @@
    "trust": "Silver",
    "slug": "dsh-vision",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "oil-oil",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-plugins-store",
@@ -971,7 +1156,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugins-store",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 8,
+   "depsOfficial": 0,
+   "repoOwner": "ZASENJC",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-toy",
@@ -994,7 +1184,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-toy",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "c3ll256",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-qqbot",
@@ -1020,7 +1215,12 @@
    "trust": "Silver",
    "slug": "dsh-qqbot",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 2,
+   "depCount": 8,
+   "depsOfficial": 5,
+   "repoOwner": "tencent-connect",
+   "_enriched": "2026-08-17|0.2.0"
   },
   {
    "name": "dsh-web-plugin-manager",
@@ -1047,7 +1247,12 @@
    "trust": "Silver",
    "slug": "dsh-web-plugin-manager",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 2,
+   "depCount": 5,
+   "depsOfficial": 3,
+   "repoOwner": "LX2000WASD",
+   "_enriched": "2026-08-17|0.2.2"
   },
   {
    "name": "dsh-skill-viewer",
@@ -1072,7 +1277,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-skill-viewer",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 8,
+   "depsOfficial": 3,
+   "repoOwner": "Fishquito7",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "deepseek-harness-applicants",
@@ -1095,7 +1305,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "deepseek-harness-applicants",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Octo-o-o-o",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "plugin-registry",
@@ -1119,7 +1334,12 @@
    "trust": "Silver",
    "slug": "plugin-registry",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 7,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "vlln",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "oh-my-dsh",
@@ -1143,7 +1363,12 @@
    "trust": "Unrated",
    "slug": "oh-my-dsh",
    "platform": "any",
-   "bareNpm": "install-fail"
+   "bareNpm": "install-fail",
+   "contributors": 0,
+   "depCount": 40,
+   "depsOfficial": 30,
+   "repoOwner": "LaplaceYoung",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "Oh-My-DSH",
@@ -1169,7 +1394,12 @@
    ],
    "trust": "Silver",
    "slug": "Oh-My-DSH",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 7,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "like-study1",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-commandcode-provider",
@@ -1195,7 +1425,12 @@
    "trust": "Silver",
    "slug": "dsh-commandcode-provider",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 3,
+   "depCount": 11,
+   "depsOfficial": 10,
+   "repoOwner": "Mars-Sea",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "superpowers-dsh",
@@ -1219,7 +1454,12 @@
    "trust": "Unrated",
    "slug": "superpowers-dsh",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "LayneChai",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-multica-runtime",
@@ -1244,7 +1484,12 @@
    "slug": "dsh-multica-runtime",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 10,
+   "repoOwner": "multica-ai",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-find-plugin",
@@ -1271,7 +1516,12 @@
    "trust": "Silver",
    "slug": "dsh-find-plugin",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "awesome-dsh-plugin",
+   "_enriched": "2026-08-14|0.3.4"
   },
   {
    "name": "caliper",
@@ -1294,7 +1544,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "caliper",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 4,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "edonadei",
+   "_enriched": "2026-08-05|"
   },
   {
    "name": "dsh-suite-all",
@@ -1318,7 +1573,12 @@
    "slug": "dsh-suite-all",
    "desc": "All-in-One first-party suite: plugin store, IM notify, session export, multi-agent board.",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 2,
+   "depCount": 4,
+   "depsOfficial": 0,
+   "repoOwner": "whyihaveyou",
+   "_enriched": "2026-08-18|0.1.0"
   },
   {
    "name": "dsh-suite",
@@ -1344,7 +1604,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-suite",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "whyihaveyou",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-openbiliclaw",
@@ -1369,7 +1634,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-openbiliclaw",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "whiteguo233",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "deepseek-app",
@@ -1396,7 +1666,12 @@
    "slug": "deepseek-app",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 3,
+   "depCount": 82,
+   "depsOfficial": 63,
+   "repoOwner": "RongleCat",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-stock-watch",
@@ -1421,7 +1696,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-stock-watch",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Awu12277",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-plugin-dev-skills",
@@ -1444,7 +1724,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugin-dev-skills",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "zimodzh",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-data-agent",
@@ -1469,7 +1754,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-data-agent",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 24,
+   "depsOfficial": 20,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-minimal-turbo",
@@ -1492,7 +1782,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-minimal-turbo",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "ChangedenCZD",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-plugin-mineru",
@@ -1517,7 +1812,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-mineru",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 11,
+   "depsOfficial": 8,
+   "repoOwner": "HuanLinOTO",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "allinluna",
@@ -1540,7 +1840,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "allinluna",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "zenx0x",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "awesome-deepseek-harness-plugins",
@@ -1565,7 +1870,12 @@
    ],
    "trust": "Silver",
    "slug": "awesome-deepseek-harness-plugins",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 29,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "imsai-sh",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "deepseek-pet",
@@ -1591,7 +1901,12 @@
    "trust": "Silver",
    "slug": "deepseek-pet",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 2,
+   "depCount": 7,
+   "depsOfficial": 6,
+   "repoOwner": "keleus",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "agent-handoff-skill",
@@ -1617,7 +1932,12 @@
    ],
    "trust": "Unrated",
    "slug": "agent-handoff-skill",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "WeirdSky924",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-custom-tool",
@@ -1642,7 +1962,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-custom-tool",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 9,
+   "depsOfficial": 8,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-lark",
@@ -1668,7 +1993,12 @@
    "trust": "Silver",
    "slug": "dsh-lark",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 4,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-plugin-check",
@@ -1694,7 +2024,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-check",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-plugin-marketplace",
@@ -1720,7 +2055,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-marketplace",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "AwesomeHou",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-code",
@@ -1747,7 +2087,12 @@
    "slug": "dsh-code",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 29,
+   "depsOfficial": 25,
+   "repoOwner": "UNLINEARITY",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-im",
@@ -1773,7 +2118,12 @@
    "webonly": false,
    "platform": "any",
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 2,
+   "depCount": 5,
+   "depsOfficial": 0,
+   "repoOwner": "xmanrui",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "TokenLedger",
@@ -1797,7 +2147,12 @@
    "trust": "Silver",
    "slug": "TokenLedger",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 0,
+   "repoOwner": "zh667",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "ds-spec-loop",
@@ -1820,7 +2175,12 @@
    "ucs": [],
    "trust": "Bronze",
    "slug": "ds-spec-loop",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "songyang0603",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-computer-use",
@@ -1845,7 +2205,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-computer-use",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 22,
+   "depsOfficial": 20,
+   "repoOwner": "Anionex",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "ego-browser",
@@ -1873,7 +2238,12 @@
    "slug": "ego-browser",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 3,
+   "depCount": 10,
+   "depsOfficial": 8,
+   "repoOwner": "Fisfzy",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-reverse-skill",
@@ -1899,7 +2269,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-reverse-skill",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "dhicoc",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-tianshu-build",
@@ -1928,7 +2303,12 @@
    "slug": "dsh-tianshu-build",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "huiliyi37",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "meoo-cli",
@@ -1956,7 +2336,12 @@
    ],
    "trust": "Unrated",
    "slug": "meoo-cli",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "ali-meoo",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-scholar",
@@ -1984,7 +2369,12 @@
    "trust": "Silver",
    "slug": "dsh-scholar",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 4,
+   "repoOwner": "lzszq",
+   "_enriched": "2026-08-17|0.1.0"
   },
   {
    "name": "dsh-toolkit",
@@ -2010,7 +2400,12 @@
    "platform": "any",
    "webonly": false,
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-pocket",
@@ -2038,7 +2433,12 @@
    "webonly": false,
    "platform": "any",
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E). dsh web needs pty (script -qfc) to stay up; pnpm needs @deepseek-ai overrides pinned to 0.1.0-rc.6 for peer deps."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E). dsh web needs pty (script -qfc) to stay up; pnpm needs @deepseek-ai overrides pinned to 0.1.0-rc.6 for peer deps.",
+   "contributors": 4,
+   "depCount": 3,
+   "depsOfficial": 1,
+   "repoOwner": "shaobeichen",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "deepseek-plugin-store",
@@ -2061,7 +2461,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "deepseek-plugin-store",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 7,
+   "depsOfficial": 4,
+   "repoOwner": "Ericwong5021",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-plugin-marketplace",
@@ -2087,7 +2492,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-marketplace-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 4,
+   "depsOfficial": 3,
+   "repoOwner": "YELEBAI",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "DSH-Decktop",
@@ -2110,7 +2520,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "DSH-Decktop",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "JustGenius-s",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-user-experience",
@@ -2137,7 +2552,12 @@
    "slug": "dsh-user-experience",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 3,
+   "depCount": 18,
+   "depsOfficial": 13,
+   "repoOwner": "DietCokewithSugar",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-theme-plugin",
@@ -2161,7 +2581,12 @@
    "trust": "Silver",
    "slug": "dsh-theme-plugin",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "nevertoday",
+   "_enriched": "2026-08-15|0.2.0"
   },
   {
    "name": "dsh-lark-bot",
@@ -2188,7 +2613,12 @@
    "trust": "Silver",
    "slug": "dsh-lark-bot",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 3,
+   "depCount": 9,
+   "depsOfficial": 3,
+   "repoOwner": "PlutoKeating",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-recommend",
@@ -2214,7 +2644,12 @@
    "trust": "Silver",
    "slug": "dsh-recommend",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 2,
+   "depCount": 7,
+   "depsOfficial": 7,
+   "repoOwner": "zp-home",
+   "_enriched": "2026-08-18|0.2.0"
   },
   {
    "name": "dsh-group-photo",
@@ -2241,7 +2676,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-group-photo",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "SenmuuuuW",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-codex-connect",
@@ -2268,7 +2708,12 @@
    "trust": "Silver",
    "slug": "dsh-codex-connect",
    "platform": "any",
-   "bareNpm": "install-fail"
+   "bareNpm": "install-fail",
+   "contributors": 3,
+   "depCount": 17,
+   "depsOfficial": 15,
+   "repoOwner": "franksong2702",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-codex",
@@ -2296,7 +2741,12 @@
    "platform": "any",
    "bareNpm": "other",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 2,
+   "depCount": 19,
+   "depsOfficial": 16,
+   "repoOwner": "Yan-Zero",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-lark-link",
@@ -2327,7 +2777,12 @@
    "platform": "any",
    "bareNpm": "other",
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 2,
+   "depCount": 15,
+   "depsOfficial": 9,
+   "repoOwner": "amlyczz",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "deepseek-harness-docker",
@@ -2354,7 +2809,12 @@
    ],
    "trust": "Silver",
    "slug": "deepseek-harness-docker",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "runzhliu",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "deepseek-harness-vsc-extension",
@@ -2379,7 +2839,12 @@
    ],
    "trust": "Silver",
    "slug": "deepseek-harness-vsc-extension",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "weinibuliu",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-web-review",
@@ -2409,7 +2874,12 @@
    "slug": "dsh-web-review",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 3,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "CanglongCl",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-plugin-hub",
@@ -2432,7 +2902,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugin-hub-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 2,
+   "depsOfficial": 0,
+   "repoOwner": "cclank",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-AuthInOne",
@@ -2457,7 +2932,12 @@
    "slug": "dsh-AuthInOne",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 24,
+   "depsOfficial": 21,
+   "repoOwner": "Stormycry-cryp",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-gui-customization",
@@ -2483,7 +2963,12 @@
    "trust": "Silver",
    "slug": "dsh-gui-customization",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "LAN-TINA-WS",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "fabric",
@@ -2509,7 +2994,12 @@
    "trust": "Unrated",
    "slug": "fabric",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-queue-plus",
@@ -2535,7 +3025,12 @@
    "webonly": false,
    "platform": "any",
    "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
-   "testDate": "2026-08-18"
+   "testDate": "2026-08-18",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 9,
+   "repoOwner": "starslittle",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-green-meter",
@@ -2562,7 +3057,12 @@
    "bareNpm": "other",
    "webonly": false,
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 2,
+   "depCount": 8,
+   "depsOfficial": 7,
+   "repoOwner": "dclichang2022",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh_plugin_swift_cycle",
@@ -2585,7 +3085,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh_plugin_swift_cycle",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Solismuchengxue",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-robotic-harness",
@@ -2611,7 +3116,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-robotic-harness",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "dingkaihu63",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-plugin-dev",
@@ -2636,7 +3146,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-plugin-dev",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-openmaic",
@@ -2659,7 +3174,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-openmaic",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 13,
+   "depsOfficial": 7,
+   "repoOwner": "THU-MAIC",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "dsh-codex-subscription",
@@ -2684,7 +3204,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-codex-subscription",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 7,
+   "depsOfficial": 4,
+   "repoOwner": "yequ172672",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "deepseek-harness-for-vscode",
@@ -2707,7 +3232,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "deepseek-harness-for-vscode",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 6,
+   "depsOfficial": 1,
+   "repoOwner": "skymecode",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-prompt-enhancer",
@@ -2730,7 +3260,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-prompt-enhancer",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "Fishsb",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-smooth-stream",
@@ -2753,7 +3288,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-smooth-stream",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 14,
+   "depsOfficial": 13,
+   "repoOwner": "Laplace-bit",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-security-audit",
@@ -2779,7 +3319,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-security-audit",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "project-blueprint",
@@ -2805,7 +3350,12 @@
    ],
    "trust": "Silver",
    "slug": "project-blueprint",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "shuguang1994",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "deepseek-harness-genui",
@@ -2830,7 +3380,12 @@
    "slug": "deepseek-harness-genui",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 23,
+   "depsOfficial": 14,
+   "repoOwner": "pengyue-polaron",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "deepseek-harness-action",
@@ -2856,7 +3411,12 @@
    ],
    "trust": "Silver",
    "slug": "deepseek-harness-action",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 3,
+   "depsOfficial": 0,
+   "repoOwner": "Lixiaoyiao",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-harness-ops",
@@ -2883,7 +3443,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-harness-ops",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "fakechris",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-design-skills",
@@ -2906,7 +3471,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-design-skills",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "zhaiyateng",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-office",
@@ -2931,7 +3501,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-office",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 11,
+   "depsOfficial": 3,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-continual-evolve",
@@ -2957,7 +3532,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-continual-evolve",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 4,
+   "repoOwner": "ZK-Andy",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-context-doctor",
@@ -2984,7 +3564,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-context-doctor",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "Zhenyu98",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-bash-terminal",
@@ -3010,7 +3595,12 @@
    "trust": "Unrated",
    "slug": "dsh-bash-terminal",
    "platform": "win32",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 3,
+   "depCount": 13,
+   "depsOfficial": 12,
+   "repoOwner": "MAXeaglet",
+   "_enriched": "2026-08-16|0.3.11"
   },
   {
    "name": "dsh-vision-proxy",
@@ -3036,7 +3626,12 @@
    "trust": "Silver",
    "slug": "dsh-vision-proxy",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "Flyvhidbwo",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-plugin-skills",
@@ -3062,7 +3657,12 @@
    ],
    "trust": "Bronze",
    "slug": "dsh-plugin-skills",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-11|"
   },
   {
    "name": "dsh-agy",
@@ -3089,7 +3689,12 @@
    "trust": "Silver",
    "slug": "dsh-agy",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 2,
+   "repoOwner": "chaos-03x",
+   "_enriched": "2026-08-16|0.1.1"
   },
   {
    "name": "dsh-hdc-bridge",
@@ -3117,7 +3722,12 @@
    "trust": "Silver",
    "slug": "dsh-hdc-bridge",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "1na-ko",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-opencode-go-usage",
@@ -3141,7 +3751,12 @@
    "trust": "Silver",
    "slug": "dsh-opencode-go-usage",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 2,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "Xenia0922",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh",
@@ -3164,7 +3779,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Bin-hy",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-harmony",
@@ -3189,7 +3809,12 @@
    "slug": "dsh-harmony",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 2,
+   "repoOwner": "CH4ACKO3",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "reef",
@@ -3218,7 +3843,12 @@
    "webonly": false,
    "platform": "any",
    "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
-   "testDate": "2026-08-18"
+   "testDate": "2026-08-18",
+   "contributors": 2,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "huey1in",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "deepseek-harness-auth",
@@ -3245,7 +3875,12 @@
    "platform": "any",
    "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nweb L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
    "needs": "Owner-set admin account/password (auth service is fail-closed)",
-   "needsZh": "需设置 owner 管理员账号密码（认证服务默认拒绝启动）"
+   "needsZh": "需设置 owner 管理员账号密码（认证服务默认拒绝启动）",
+   "contributors": 0,
+   "depCount": 8,
+   "depsOfficial": 4,
+   "repoOwner": "taichuy",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-grok-tui",
@@ -3272,7 +3907,12 @@
    "trust": "Silver",
    "slug": "dsh-grok-tui",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 2,
+   "depCount": 8,
+   "depsOfficial": 6,
+   "repoOwner": "chen-001",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "surfing-plugin",
@@ -3297,7 +3937,12 @@
    ],
    "trust": "Silver",
    "slug": "surfing-plugin",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "cyijun",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-llm-codebuddy",
@@ -3321,7 +3966,12 @@
    "trust": "Silver",
    "slug": "dsh-llm-codebuddy",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 8,
+   "depsOfficial": 5,
+   "repoOwner": "Axiaohungry",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-sticky-note",
@@ -3347,7 +3997,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-sticky-note",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 4,
+   "repoOwner": "Meredith2328",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-fail-logger",
@@ -3374,7 +4029,12 @@
    "trust": "Silver",
    "slug": "dsh-fail-logger",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 3,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Areium",
+   "_enriched": "2026-08-16|0.4.1"
   },
   {
    "name": "orbis",
@@ -3400,7 +4060,12 @@
    "trust": "Silver",
    "slug": "orbis",
    "platform": "any",
-   "bareNpm": "install-fail"
+   "bareNpm": "install-fail",
+   "contributors": 2,
+   "depCount": 7,
+   "depsOfficial": 0,
+   "repoOwner": "icodesign",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "plugin-template",
@@ -3428,7 +4093,12 @@
    "slug": "plugin-template",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nweb L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nweb L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 0,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "deepseek-harness-phone-remote",
@@ -3453,7 +4123,12 @@
    ],
    "trust": "Unrated",
    "slug": "deepseek-harness-phone-remote",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "zetaluolang-cyber",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-global-rules",
@@ -3478,7 +4153,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-global-rules",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "badai147",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-plugin-interpreters",
@@ -3505,7 +4185,12 @@
    "slug": "dsh-plugin-interpreters",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 13,
+   "depsOfficial": 11,
+   "repoOwner": "HuanLinOTO",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-pluginmanager",
@@ -3528,7 +4213,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-pluginmanager",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "buhuikongpan",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-docling",
@@ -3555,7 +4245,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-docling",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 4,
+   "repoOwner": "Sqhao-O",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-reviewer-bot",
@@ -3578,7 +4273,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-reviewer-bot",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "chaojixinren",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-better-browser",
@@ -3603,7 +4303,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-better-browser",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "titanwings",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "dsh-playwright-browser",
@@ -3629,7 +4334,12 @@
    "trust": "Silver",
    "slug": "dsh-playwright-browser",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "Clizo1209",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-plugin-working-status",
@@ -3652,7 +4362,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugin-working-status",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "Abyss-Seeker",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-llm-codex-oauth",
@@ -3675,7 +4390,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-llm-codex-oauth",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 5,
+   "depsOfficial": 4,
+   "repoOwner": "Player-MINEPIG",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-museai-tavern",
@@ -3701,7 +4421,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-museai-tavern",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 13,
+   "depsOfficial": 11,
+   "repoOwner": "yejiming",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-plugin-healthcheck",
@@ -3730,7 +4455,12 @@
    "webonly": false,
    "platform": "any",
    "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
-   "testDate": "2026-08-18"
+   "testDate": "2026-08-18",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 4,
+   "repoOwner": "chenw2759-wq",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-chat-timeline",
@@ -3755,7 +4485,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-chat-timeline",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 10,
+   "depsOfficial": 7,
+   "repoOwner": "jjxjjjjiik-bot",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-session-health",
@@ -3782,7 +4517,12 @@
    "trust": "Silver",
    "slug": "dsh-session-health",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 12,
+   "depsOfficial": 10,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-18|0.1.2"
   },
   {
    "name": "dsh-notification-center",
@@ -3809,7 +4549,12 @@
    "slug": "dsh-notification-center",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 4,
+   "repoOwner": "610la",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-bash-win",
@@ -3836,7 +4581,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-bash-win",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "zimzaza4",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "skills",
@@ -3862,7 +4612,12 @@
    ],
    "trust": "Silver",
    "slug": "skills-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "creght-dev",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "deepseek-harness-docker",
@@ -3887,7 +4642,12 @@
    ],
    "trust": "Silver",
    "slug": "deepseek-harness-docker-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "AlliotTech",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "snapgrep",
@@ -3915,7 +4675,12 @@
    "slug": "snapgrep",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 1,
+   "repoOwner": "Owen718",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-skill-picker",
@@ -3941,7 +4706,12 @@
    "webonly": false,
    "platform": "any",
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 0,
+   "depCount": 8,
+   "depsOfficial": 7,
+   "repoOwner": "a735624258",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-oauth-mcp-client",
@@ -3968,7 +4738,12 @@
    "slug": "dsh-oauth-mcp-client",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 12,
+   "depsOfficial": 9,
+   "repoOwner": "springbrand-lab",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-git-identity",
@@ -3994,7 +4769,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-git-identity",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "LoserFox",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "dsh-overleaf",
@@ -4020,7 +4800,12 @@
    "trust": "Silver",
    "slug": "dsh-overleaf",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "fly233338",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-mcp-manager",
@@ -4044,7 +4829,12 @@
    "trust": "Silver",
    "slug": "dsh-mcp-manager",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "hyqhyq3",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-codex-auth",
@@ -4071,7 +4861,12 @@
    "trust": "Silver",
    "slug": "dsh-codex-auth",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 2,
+   "depCount": 27,
+   "depsOfficial": 24,
+   "repoOwner": "suntianc",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-skills-mcp-manager",
@@ -4096,7 +4891,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-skills-mcp-manager",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 14,
+   "depsOfficial": 11,
+   "repoOwner": "zebbkira",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "deepseek-harness-zh-cn",
@@ -4121,7 +4921,12 @@
    ],
    "trust": "Silver",
    "slug": "deepseek-harness-zh-cn",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "imlishiyuan",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-tavern",
@@ -4146,7 +4951,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tavern",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "Player-MINEPIG",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-lark-bridge",
@@ -4173,7 +4983,12 @@
    "trust": "Silver",
    "slug": "dsh-lark-bridge",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "imetn",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-wechat-notify",
@@ -4198,7 +5013,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-wechat-notify",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "wssfk12138",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-lan",
@@ -4224,7 +5044,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-lan",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "moxisuki",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "dsh-telegram-channel",
@@ -4255,7 +5080,12 @@
    "webonly": false,
    "platform": "any",
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 2,
+   "depCount": 6,
+   "depsOfficial": 5,
+   "repoOwner": "hi-wenw",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-wsl-workspace",
@@ -4285,7 +5115,12 @@
    "platform": "any",
    "bareNpm": "other",
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 3,
+   "depCount": 6,
+   "depsOfficial": 6,
+   "repoOwner": "6Mikao9",
+   "_enriched": "2026-08-16|0.2.2"
   },
   {
    "name": "dsh-mygo",
@@ -4308,7 +5143,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-mygo",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-skill-manager-ytxue",
@@ -4337,7 +5177,12 @@
    "webonly": false,
    "platform": "any",
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 2,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "YTxue",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-extension-hub",
@@ -4362,7 +5207,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-extension-hub",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "Relistencode",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-router-flash",
@@ -4385,7 +5235,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-router-flash",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "xiaoxianyu-office",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-bash-encoding",
@@ -4412,7 +5267,12 @@
    "slug": "dsh-bash-encoding",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 1,
+   "repoOwner": "lhh010",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "dsh-director-toolkit",
@@ -4437,7 +5297,12 @@
    "slug": "dsh-director-toolkit",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "lhmd",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "dsh-huadongbianzuqi",
@@ -4462,7 +5327,12 @@
    "slug": "dsh-huadongbianzuqi",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "zjl88858",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "task-passport",
@@ -4489,7 +5359,12 @@
    "trust": "Silver",
    "slug": "task-passport",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "dongsheng123132",
+   "_enriched": "2026-08-15|0.2.2"
   },
   {
    "name": "DeepSeek-harness-qqbot",
@@ -4516,7 +5391,12 @@
    ],
    "trust": "Silver",
    "slug": "DeepSeek-harness-qqbot",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 14,
+   "depsOfficial": 13,
+   "repoOwner": "sliverp",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "harness-ai-kit",
@@ -4539,7 +5419,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "harness-ai-kit",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "seed-forge",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-composer-polish",
@@ -4562,7 +5447,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-composer-polish",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 3,
+   "repoOwner": "tianji-qingtian",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "telegram",
@@ -4588,7 +5478,12 @@
    "trust": "Unrated",
    "slug": "telegram",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 2,
+   "depCount": 14,
+   "depsOfficial": 0,
+   "repoOwner": "LoserFox",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "dsh-tool-calculator",
@@ -4611,7 +5506,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-tool-calculator",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "DIzzy-DSH",
@@ -4639,7 +5539,12 @@
    "slug": "DIzzy-DSH",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 0,
+   "repoOwner": "Acidmoon",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-us-stocks",
@@ -4662,7 +5567,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-us-stocks",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 7,
+   "repoOwner": "Realyujie",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-token-stats",
@@ -4686,7 +5596,12 @@
    "trust": "Silver",
    "slug": "dsh-token-stats",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 2,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "H1a3x",
+   "_enriched": "2026-08-13|0.2.0"
   },
   {
    "name": "dsh-balance-plugin",
@@ -4710,7 +5625,12 @@
    "trust": "Silver",
    "slug": "dsh-balance-plugin",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 3,
+   "repoOwner": "stevenx65",
+   "_enriched": "2026-08-14|0.1.0"
   },
   {
    "name": "dsh-worktree",
@@ -4736,7 +5656,12 @@
    "trust": "Silver",
    "slug": "dsh-worktree",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "FlashingChen",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "DSH-Plugs",
@@ -4761,7 +5686,12 @@
    ],
    "trust": "Unrated",
    "slug": "DSH-Plugs",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "JustGenius-s",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-plugin-describe-image",
@@ -4786,7 +5716,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-describe-image",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 8,
+   "depsOfficial": 8,
+   "repoOwner": "whitelonng",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-approval-llm",
@@ -4810,7 +5745,12 @@
    "trust": "Unrated",
    "slug": "dsh-approval-llm",
    "platform": "any",
-   "bareNpm": "install-fail"
+   "bareNpm": "install-fail",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 10,
+   "repoOwner": "Letter2025",
+   "_enriched": "2026-08-14|0.1.3"
   },
   {
    "name": "codex-plugin-dsh",
@@ -4835,7 +5775,12 @@
    ],
    "trust": "Silver",
    "slug": "codex-plugin-dsh",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 10,
+   "repoOwner": "wingoo",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-prompt-persona",
@@ -4860,7 +5805,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-prompt-persona",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 9,
+   "depsOfficial": 6,
+   "repoOwner": "Xilin3",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "dsh-vsc-integration",
@@ -4886,7 +5836,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-vsc-integration",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "HarcoChen",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-usage-dashboard",
@@ -4910,7 +5865,12 @@
    "trust": "Silver",
    "slug": "dsh-usage-dashboard",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 4,
+   "repoOwner": "Cassius0924",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-webchatlike",
@@ -4935,7 +5895,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-webchatlike",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 8,
+   "depsOfficial": 7,
+   "repoOwner": "cindyguyuehu123",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-plugin-diff-review",
@@ -4961,7 +5926,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-diff-review",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 15,
+   "depsOfficial": 3,
+   "repoOwner": "Civitasv",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-ui-appearance",
@@ -4986,7 +5956,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-ui-appearance",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 14,
+   "depsOfficial": 12,
+   "repoOwner": "TQSY114514",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-media-skills",
@@ -5011,7 +5986,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-media-skills",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "akqwpeter-prog",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-bottom-bar",
@@ -5034,7 +6014,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-bottom-bar",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "kc0ed",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-plugin-installer",
@@ -5060,7 +6045,12 @@
    "trust": "Silver",
    "slug": "dsh-plugin-installer",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "Toukaiteio",
+   "_enriched": "2026-08-15|2.0.0"
   },
   {
    "name": "DSH-Telegram-Relay",
@@ -5087,7 +6077,12 @@
    "slug": "DSH-Telegram-Relay",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 8,
+   "depsOfficial": 7,
+   "repoOwner": "congchuanling-dot",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "dsh-annotate",
@@ -5113,7 +6108,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-annotate",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 5,
+   "repoOwner": "BrambleXu",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-passwords",
@@ -5138,7 +6138,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-passwords",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 4,
+   "depsOfficial": 0,
+   "repoOwner": "slywalker2006",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "engineer-software",
@@ -5161,7 +6166,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "engineer-software",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "KirschBluteX",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-Agentlink",
@@ -5186,7 +6196,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-Agentlink",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 2,
+   "depsOfficial": 0,
+   "repoOwner": "hootandy321",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-github-login",
@@ -5214,7 +6229,12 @@
    "slug": "dsh-github-login",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Noob-stupid",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-from-scratch",
@@ -5237,7 +6257,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-from-scratch",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 4,
+   "depsOfficial": 0,
+   "repoOwner": "tsrigo",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "deepseek-harness-zh_pro",
@@ -5260,7 +6285,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "deepseek-harness-zh_pro",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "magian1127",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-file-upload",
@@ -5289,7 +6319,12 @@
    "webonly": false,
    "platform": "any",
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "GLFzr",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-message-rail",
@@ -5314,7 +6349,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-message-rail",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 7,
+   "depsOfficial": 6,
+   "repoOwner": "wx-yss",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-mcp-panel",
@@ -5337,7 +6377,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-mcp-panel",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 7,
+   "repoOwner": "PerryLink",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-open-in-ide",
@@ -5366,7 +6411,12 @@
    "webonly": false,
    "platform": "any",
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "LJninse",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "wanjiqi-meme",
@@ -5391,7 +6441,12 @@
    "slug": "wanjiqi-meme",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "Chu-Xin-r",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-plugin-msg-nav",
@@ -5414,7 +6469,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugin-msg-nav",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "SherUnlocked-4869",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "amadeus-for-dsh",
@@ -5437,7 +6497,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "amadeus-for-dsh",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "yyxcnasd",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-checkpoint-rewind",
@@ -5465,7 +6530,12 @@
    "trust": "Silver",
    "slug": "dsh-checkpoint-rewind",
    "platform": "any",
-   "bareNpm": "install-fail"
+   "bareNpm": "install-fail",
+   "contributors": 0,
+   "depCount": 8,
+   "depsOfficial": 7,
+   "repoOwner": "PerryLink",
+   "_enriched": "2026-08-18|0.5.2"
   },
   {
    "name": "dsh-deepread",
@@ -5494,7 +6564,12 @@
    "platform": "any",
    "bareNpm": "other",
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E). dsh web needs pty (script -qfc) to stay up; pnpm needs @deepseek-ai overrides pinned to 0.1.0-rc.6 for peer deps."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E). dsh web needs pty (script -qfc) to stay up; pnpm needs @deepseek-ai overrides pinned to 0.1.0-rc.6 for peer deps.",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 4,
+   "repoOwner": "xiehuan123",
+   "_enriched": "2026-08-16|0.5.4"
   },
   {
    "name": "dsh-token-cost",
@@ -5520,7 +6595,12 @@
    "trust": "Unrated",
    "slug": "dsh-token-cost",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 5,
+   "repoOwner": "le-soleil-se-couche",
+   "_enriched": "2026-08-14|0.1.5"
   },
   {
    "name": "dsh-llm-wechat",
@@ -5545,7 +6625,12 @@
    "slug": "dsh-llm-wechat",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 load-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 load-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 3,
+   "depCount": 9,
+   "depsOfficial": 9,
+   "repoOwner": "sulfide2085",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-updater-ui",
@@ -5575,7 +6660,12 @@
    "webonly": false,
    "platform": "any",
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "xingyingyuzhui",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-atomgit",
@@ -5601,7 +6691,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-atomgit",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "xiongjiamu",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-codex-port",
@@ -5624,7 +6719,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-codex-port",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "STARDUSTLC666",
+   "_enriched": "2026-08-16|"
   },
   {
    "platform": "any",
@@ -5651,7 +6751,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-movein",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "sjh9714",
+   "_enriched": "2026-08-18|0.6.0"
   },
   {
    "name": "graycode-for-dsh",
@@ -5677,7 +6782,12 @@
    ],
    "trust": "Silver",
    "slug": "graycode-for-dsh",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Komeiji-Shiki",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "nowledge-mem-deepseek-harness",
@@ -5702,7 +6812,12 @@
    ],
    "trust": "Unrated",
    "slug": "nowledge-mem-deepseek-harness",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 7,
+   "repoOwner": "nowledge-co",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-plugins",
@@ -5728,7 +6843,12 @@
    "trust": "Unrated",
    "slug": "dsh-plugins",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 3,
+   "depCount": 3,
+   "depsOfficial": 0,
+   "repoOwner": "HackSing",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-vision-sidecar",
@@ -5754,7 +6874,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-vision-sidecar",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 6,
+   "repoOwner": "121103qwq",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-llm-fallback",
@@ -5779,7 +6904,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-llm-fallback",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 8,
+   "depsOfficial": 8,
+   "repoOwner": "Visol-456",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-scrape-webpage",
@@ -5805,7 +6935,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-scrape-webpage",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "131CDA1",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-openai-oauth",
@@ -5829,7 +6964,12 @@
    "trust": "Silver",
    "slug": "dsh-openai-oauth",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 3,
+   "repoOwner": "DGPisces",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-plugin-anydoc",
@@ -5857,7 +6997,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-plugin-anydoc",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "beancookie",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-mindmap",
@@ -5883,7 +7028,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-mindmap",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 9,
+   "depsOfficial": 7,
+   "repoOwner": "chenw2759-wq",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "DSH-EvoResearch",
@@ -5906,7 +7056,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "DSH-EvoResearch",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Karbo123",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-ssh",
@@ -5933,7 +7088,12 @@
    "trust": "Silver",
    "slug": "dsh-ssh",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 9,
+   "depsOfficial": 8,
+   "repoOwner": "UynajGI",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "DeepSeek-harness-wecom",
@@ -5959,7 +7119,12 @@
    ],
    "trust": "Silver",
    "slug": "DeepSeek-harness-wecom",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 14,
+   "depsOfficial": 13,
+   "repoOwner": "sliverp",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-expression",
@@ -5989,7 +7154,12 @@
    "platform": "any",
    "bareNpm": "other",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 2,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "yyh-001",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "DeepSeek-Harness-Skill",
@@ -6015,7 +7185,12 @@
    ],
    "trust": "Unrated",
    "slug": "DeepSeek-Harness-Skill",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "itmoqing",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-envoy",
@@ -6041,7 +7216,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-envoy",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "KhalilYamber",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "trio",
@@ -6068,7 +7248,12 @@
    "trust": "Silver",
    "slug": "trio",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "huey1in",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-image-bridge",
@@ -6095,7 +7280,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-image-bridge",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "kbpoyo",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-opencode-go-quota",
@@ -6120,7 +7310,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-opencode-go-quota",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "GLFzr",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-github-connector",
@@ -6146,7 +7341,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-github-connector",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 4,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "kaziii",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-web-search-exa",
@@ -6171,7 +7371,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-web-search-exa",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 4,
+   "repoOwner": "TonyDua",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-composer-history",
@@ -6198,7 +7403,12 @@
    "trust": "Silver",
    "slug": "dsh-composer-history",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "PerryLink",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-multimodal",
@@ -6223,7 +7433,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-multimodal",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 8,
+   "repoOwner": "MC5lan",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-win-terminal-inspector",
@@ -6248,7 +7463,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-win-terminal-inspector",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "clearkurt",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-cyber-particle",
@@ -6273,7 +7493,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-cyber-particle",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "AKS1st",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-code-ide",
@@ -6296,7 +7521,12 @@
    "ucs": [],
    "trust": "Bronze",
    "slug": "dsh-code-ide",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 30,
+   "depsOfficial": 1,
+   "repoOwner": "SakalioLabs",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-tensorlake-sandbox",
@@ -6324,7 +7554,12 @@
    "slug": "dsh-tensorlake-sandbox",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 4,
+   "repoOwner": "tensorlakeai",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "DSH-telegram",
@@ -6352,7 +7587,12 @@
    "webonly": false,
    "platform": "any",
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 10,
+   "repoOwner": "yuko0331",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-task-notify",
@@ -6377,7 +7617,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-task-notify",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 8,
+   "depsOfficial": 6,
+   "repoOwner": "ltao0829",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-feishu-bridge",
@@ -6403,7 +7648,12 @@
    "trust": "Silver",
    "slug": "dsh-feishu-bridge",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "wz-heng",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-feishu",
@@ -6430,7 +7680,12 @@
    "trust": "Silver",
    "slug": "dsh-feishu",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "xmanrui",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-llm-oauth",
@@ -6456,7 +7711,12 @@
    "desc": "OAuth / subscription access for Grok, Codex, GitHub Copilot and other LLMs in DSH.",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 4,
+   "repoOwner": "ziyou979",
+   "_enriched": "2026-08-14|None"
   },
   {
    "name": "dsh-im-bridge",
@@ -6481,7 +7741,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-im-bridge",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 8,
+   "depsOfficial": 8,
+   "repoOwner": "BiBoyang",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "awesome-dsh-bridges",
@@ -6508,7 +7773,12 @@
    ],
    "trust": "Unrated",
    "slug": "awesome-dsh-bridges",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "YYTbit",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "dsh-acp-paseo",
@@ -6534,7 +7804,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-acp-paseo",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Pheobe-Southwood",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-workspace-search",
@@ -6562,7 +7837,12 @@
    "slug": "dsh-workspace-search",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "tsonglew",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-minimal-v3",
@@ -6589,7 +7869,12 @@
    ],
    "trust": "Bronze",
    "slug": "dsh-minimal-v3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "mikeyoubeach",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "DSH-changeproof",
@@ -6614,7 +7899,12 @@
    "slug": "DSH-changeproof",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 0,
+   "repoOwner": "Apageoflove",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-plugin-marketplace",
@@ -6637,7 +7927,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugin-marketplace-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 15,
+   "depsOfficial": 12,
+   "repoOwner": "w2112515",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-file-claim",
@@ -6663,7 +7958,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-file-claim",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Nwflower",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-explorer",
@@ -6690,7 +7990,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-explorer",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "No-PRM",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-navigation-bar",
@@ -6715,7 +8020,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-navigation-bar",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 1,
+   "repoOwner": "KeLearns",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "Dsh-FileExplorer",
@@ -6741,7 +8051,12 @@
    ],
    "trust": "Silver",
    "slug": "Dsh-FileExplorer",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "bearllfleed",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "zotero-harvest",
@@ -6768,7 +8083,12 @@
    ],
    "trust": "Silver",
    "slug": "zotero-harvest",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "Fisfzy",
+   "_enriched": "2026-08-08|"
   },
   {
    "name": "qiushi-dsh-evidence-audit",
@@ -6794,7 +8114,12 @@
    "trust": "Silver",
    "slug": "qiushi-dsh-evidence-audit",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "030611",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-tool-stat",
@@ -6817,7 +8142,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-tool-stat",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-verification-receipt",
@@ -6843,7 +8173,12 @@
    "trust": "Silver",
    "slug": "dsh-verification-receipt",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "030611",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-excel-chat",
@@ -6869,7 +8204,12 @@
    "trust": "Unrated",
    "slug": "dsh-excel-chat",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 5,
+   "repoOwner": "hccccc01333",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "harness-pet",
@@ -6892,7 +8232,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "harness-pet",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "cakeni",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "tuning-engines-cli",
@@ -6919,7 +8264,12 @@
    "slug": "tuning-engines-cli",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 3,
+   "depCount": 3,
+   "depsOfficial": 0,
+   "repoOwner": "cerebrixos-org",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-better-edit",
@@ -6946,7 +8296,12 @@
    "slug": "dsh-better-edit",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 7,
+   "repoOwner": "Rianico",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-pentest",
@@ -6972,7 +8327,12 @@
    "webonly": false,
    "platform": "any",
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "howmp",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-plugin-template",
@@ -6997,7 +8357,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-template",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "bugmaker2",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-github",
@@ -7024,7 +8389,12 @@
    "trust": "Unrated",
    "slug": "dsh-github",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 4,
+   "repoOwner": "PivotStackIntelligence",
+   "_enriched": "2026-08-17|0.1.0"
   },
   {
    "name": "dsh-spec-loop",
@@ -7050,7 +8420,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-spec-loop",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 8,
+   "repoOwner": "tianji-qingtian",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "Qwen-MM-Plugins",
@@ -7077,7 +8452,12 @@
    "slug": "Qwen-MM-Plugins",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 4,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-tool-turbo",
@@ -7100,7 +8480,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-tool-turbo",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "Electricitysheep",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-her-eyes",
@@ -7125,7 +8510,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-her-eyes",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "huashenglian",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "dsh-plugin-deepeye",
@@ -7151,7 +8541,12 @@
    "trust": "Unrated",
    "slug": "dsh-plugin-deepeye",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 4,
+   "repoOwner": "Favio8",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-plugin",
@@ -7179,7 +8574,12 @@
    "slug": "dsh-plugin",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "PicGo",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "deepseek-harness-openai-oauth",
@@ -7203,7 +8603,12 @@
    "trust": "Silver",
    "slug": "deepseek-harness-openai-oauth",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 3,
+   "repoOwner": "DGPisces",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-tool-csv",
@@ -7226,7 +8631,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-tool-csv",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-humanizer",
@@ -7250,7 +8660,12 @@
    "trust": "Silver",
    "slug": "dsh-humanizer",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 2,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "DEEP-IOS",
+   "_enriched": "2026-08-15|0.1.0-rc.8"
   },
   {
    "name": "dsh-calculator",
@@ -7278,7 +8693,12 @@
    "webonly": false,
    "platform": "any",
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 2,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "bobcat848",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-testgen",
@@ -7304,7 +8724,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-testgen",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 6,
+   "repoOwner": "bujue600-arch",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-mcp-admin",
@@ -7327,7 +8752,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-mcp-admin",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "kairoz9",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-tool-diff",
@@ -7353,7 +8783,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tool-diff",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-tool-time",
@@ -7376,7 +8811,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-tool-time",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-mcp-lens",
@@ -7401,7 +8841,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-mcp-lens",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 5,
+   "depsOfficial": 4,
+   "repoOwner": "labmimors",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-vision-provider",
@@ -7426,7 +8871,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-vision-provider",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "libinyam",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "upstream-radar",
@@ -7452,7 +8902,12 @@
    ],
    "trust": "Silver",
    "slug": "upstream-radar",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "MicroMilo",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-drop-file-to-path",
@@ -7477,7 +8932,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-drop-file-to-path",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "GLFzr",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-youmind-plugin",
@@ -7502,7 +8962,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-youmind-plugin",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "seamas0825-lab",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-plugin-opencode-bridge",
@@ -7529,7 +8994,12 @@
    "trust": "Silver",
    "slug": "dsh-plugin-opencode-bridge",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "YYTbit",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-fun-ticker",
@@ -7556,7 +9026,12 @@
    "slug": "dsh-fun-ticker",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 11,
+   "depsOfficial": 9,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "dsh-tool-vision",
@@ -7582,7 +9057,12 @@
    "trust": "Silver",
    "slug": "dsh-tool-vision",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 3,
+   "repoOwner": "Scorp1o117",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-gauge",
@@ -7607,7 +9087,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-gauge",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 9,
+   "depsOfficial": 8,
+   "repoOwner": "noone89A",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-commandcode-go-provider",
@@ -7630,7 +9115,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-commandcode-go-provider",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 7,
+   "repoOwner": "jiesou",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-go-rotator",
@@ -7653,7 +9143,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-go-rotator",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "echo-xianyu",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-file-panel",
@@ -7679,7 +9174,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-file-panel",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "yu2025-luo",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-plugin-subscriptions",
@@ -7706,7 +9206,12 @@
    "trust": "Silver",
    "slug": "dsh-plugin-subscriptions",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 6,
+   "repoOwner": "V1ki",
+   "_enriched": "2026-08-17|0.1.1"
   },
   {
    "name": "dsh-session-cleaner",
@@ -7732,7 +9237,12 @@
    "trust": "Silver",
    "slug": "dsh-session-cleaner",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "fountunt",
+   "_enriched": "2026-08-15|1.0.0"
   },
   {
    "name": "dsh-auto",
@@ -7755,7 +9265,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-auto",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "simon300000",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-plugin-knowledge-graph",
@@ -7781,7 +9296,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-knowledge-graph",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "Luke-Yong",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-tool-markdown",
@@ -7806,7 +9326,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tool-markdown",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-usage-meter",
@@ -7834,7 +9359,12 @@
    "slug": "dsh-usage-meter",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 14,
+   "depsOfficial": 11,
+   "repoOwner": "cute-baobao",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-plugin-store",
@@ -7861,7 +9391,12 @@
    "trust": "Unrated",
    "slug": "dsh-plugin-store",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 3,
+   "depCount": 13,
+   "depsOfficial": 10,
+   "repoOwner": "wink-run",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-chat-outline",
@@ -7885,7 +9420,12 @@
    "trust": "Silver",
    "slug": "dsh-chat-outline",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 8,
+   "depsOfficial": 7,
+   "repoOwner": "liliuCourier",
+   "_enriched": "2026-08-16|0.1.6"
   },
   {
    "name": "ds-vision-plugin",
@@ -7911,7 +9451,12 @@
    ],
    "trust": "Silver",
    "slug": "ds-vision-plugin",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 6,
+   "repoOwner": "Sorwcyra",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-plugin-mermaid",
@@ -7936,7 +9481,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-mermaid",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "lj970926",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "Top",
@@ -7963,7 +9513,12 @@
    "trust": "Unrated",
    "slug": "Top",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 0,
+   "repoOwner": "xiaohai-78",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "dsh-desktop-electron",
@@ -7989,7 +9544,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-desktop-electron",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "Void0312Aurora",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-win-notify",
@@ -8014,7 +9574,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-win-notify",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "MuziIsabel",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-notify-sound",
@@ -8042,7 +9607,12 @@
    "slug": "dsh-notify-sound",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 1,
+   "repoOwner": "xxxxxxxyu",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-notebooks",
@@ -8068,7 +9638,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-notebooks",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 13,
+   "depsOfficial": 11,
+   "repoOwner": "havingautism",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-auto-approve",
@@ -8093,7 +9668,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-auto-approve",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "Jiao-XXX",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-plugin-notify",
@@ -8119,7 +9699,12 @@
    "trust": "Silver",
    "slug": "dsh-plugin-notify",
    "platform": "any",
-   "bareNpm": "install-fail"
+   "bareNpm": "install-fail",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "huguangyu666",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-workspace-mcp",
@@ -8147,7 +9732,12 @@
    "slug": "dsh-workspace-mcp",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 8,
+   "depsOfficial": 5,
+   "repoOwner": "Momojie-S",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dib",
@@ -8170,7 +9760,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dib",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "MaimoryLab",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-user-plugins-manager",
@@ -8198,7 +9793,12 @@
    "webonly": false,
    "platform": "any",
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "zdjmrq",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-forge",
@@ -8223,7 +9823,12 @@
    "slug": "dsh-forge",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "zhn1100",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-docker",
@@ -8248,7 +9853,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-docker",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "STARDUSTLC666",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "deepseek-harness-whitepaper",
@@ -8271,7 +9881,12 @@
    "ucs": [],
    "trust": "Bronze",
    "slug": "deepseek-harness-whitepaper",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "feicaiclub",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-update-checker",
@@ -8294,7 +9909,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-update-checker",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "Airmetro",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "whale-notify",
@@ -8319,7 +9939,12 @@
    ],
    "trust": "Silver",
    "slug": "whale-notify",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Mochabafey",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-permgate",
@@ -8345,7 +9970,12 @@
    "webonly": false,
    "platform": "any",
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 2,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "MrWeiCodes",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-notifacation-frame",
@@ -8372,7 +10002,12 @@
    "slug": "dsh-notifacation-frame",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 3,
+   "repoOwner": "gameswu",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "raphael-loop",
@@ -8395,7 +10030,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "raphael-loop",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "raphael-liu",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "deepseek-harness-Install",
@@ -8418,7 +10058,12 @@
    "ucs": [],
    "trust": "Bronze",
    "slug": "deepseek-harness-Install",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "yu-wenchao",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-hub-workshop",
@@ -8445,7 +10090,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-hub-workshop",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-plugin-guide",
@@ -8471,7 +10121,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-guide",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "PerryLink",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-observation-journal",
@@ -8497,7 +10152,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-observation-journal",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Cavan-Ou",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-trajectory-governor",
@@ -8520,7 +10180,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-trajectory-governor",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 7,
+   "repoOwner": "chunsi-w",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-openapi",
@@ -8543,7 +10208,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-openapi",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 3,
+   "repoOwner": "Degurechaff57",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "dsh-tool-git",
@@ -8570,7 +10240,12 @@
    "trust": "Silver",
    "slug": "dsh-tool-git",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 2,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "lxj808624",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-capability-receipt",
@@ -8595,7 +10270,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-capability-receipt",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "dongsheng123132",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-obsidian-assistant",
@@ -8624,7 +10304,12 @@
    "slug": "dsh-obsidian-assistant",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 3,
+   "depCount": 5,
+   "depsOfficial": 4,
+   "repoOwner": "iamzcr",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "graphlint",
@@ -8649,7 +10334,12 @@
    ],
    "trust": "Unrated",
    "slug": "graphlint",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "AngelosZou",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "DSH-Plugin-Market",
@@ -8677,7 +10367,12 @@
    ],
    "trust": "Silver",
    "slug": "DSH-Plugin-Market",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "nanshan1995",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-pref-kit",
@@ -8700,7 +10395,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-pref-kit",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 6,
+   "repoOwner": "gameswu",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-restart",
@@ -8725,7 +10425,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-restart",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 12,
+   "depsOfficial": 10,
+   "repoOwner": "anweat",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-plugins-raincode",
@@ -8752,7 +10457,12 @@
    "trust": "Silver",
    "slug": "dsh-plugins-raincode",
    "platform": "any",
-   "bareNpm": "install-fail"
+   "bareNpm": "install-fail",
+   "contributors": 0,
+   "depCount": 11,
+   "depsOfficial": 10,
+   "repoOwner": "rainforest888",
+   "_enriched": "2026-08-14|0.1.0"
   },
   {
    "name": "dsh-plugin-browser",
@@ -8778,7 +10488,12 @@
    "trust": "Unrated",
    "slug": "dsh-plugin-browser",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 2,
+   "depCount": 4,
+   "depsOfficial": 3,
+   "repoOwner": "CriscolTheCoder",
+   "_enriched": "2026-08-14|0.1.0"
   },
   {
    "name": "sandbox-micro",
@@ -8803,7 +10518,12 @@
    "slug": "sandbox-micro",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 4,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "sandbox-nono",
@@ -8831,7 +10551,12 @@
    "slug": "sandbox-nono",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 2,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-plugin-cost-tracker",
@@ -8857,7 +10582,12 @@
    "trust": "Silver",
    "slug": "dsh-plugin-cost-tracker",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "YYTbit",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "dsh-research-notes",
@@ -8883,7 +10613,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-research-notes",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "fff122",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-safe-delete",
@@ -8910,7 +10645,12 @@
    "trust": "Silver",
    "slug": "dsh-safe-delete",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 9,
+   "depsOfficial": 8,
+   "repoOwner": "Qintsg",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-daily-fortune",
@@ -8935,7 +10675,12 @@
    "slug": "dsh-daily-fortune",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 12,
+   "depsOfficial": 10,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-fun-typewriter",
@@ -8960,7 +10705,12 @@
    "slug": "dsh-fun-typewriter",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 2,
+   "depCount": 10,
+   "depsOfficial": 9,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-pet-corner",
@@ -8988,7 +10738,12 @@
    "slug": "dsh-pet-corner",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 2,
+   "depCount": 10,
+   "depsOfficial": 8,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-music-plugin",
@@ -9013,7 +10768,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-music-plugin",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "syy-shark",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-whalito-desk",
@@ -9038,7 +10798,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-whalito-desk",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 0,
+   "repoOwner": "entireyu",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-tool-regex",
@@ -9061,7 +10826,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-tool-regex",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-tool-schema",
@@ -9086,7 +10856,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tool-schema",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-codex-tools",
@@ -9110,7 +10885,12 @@
    "trust": "Unrated",
    "slug": "dsh-codex-tools",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 3,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "SPYQWER1",
+   "_enriched": "2026-08-15|1.0.0"
   },
   {
    "name": "dsh-openai-codex-auth",
@@ -9133,7 +10913,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-openai-codex-auth",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "yoke233",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-skill-manager",
@@ -9160,7 +10945,12 @@
    "trust": "Silver",
    "slug": "dsh-skill-manager",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "Lanxing6480",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-effort-tweak",
@@ -9183,7 +10973,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-effort-tweak",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Toukaiteio",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "dsh-sticky-disclosure",
@@ -9208,7 +11003,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-sticky-disclosure",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Han-1413141",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-2origin",
@@ -9234,7 +11034,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-2origin",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "dongsheng123132",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-terminal",
@@ -9259,7 +11064,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-terminal",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 1,
+   "repoOwner": "ZgblKylin",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "deepseek-harness-plugin-manager",
@@ -9284,7 +11094,12 @@
    ],
    "trust": "Silver",
    "slug": "deepseek-harness-plugin-manager",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "hrhgit",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-cad-review",
@@ -9310,7 +11125,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-cad-review",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "dongsheng123132",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-mimo-agent-tools",
@@ -9336,7 +11156,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-mimo-agent-tools",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "ch1bug",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-background",
@@ -9365,7 +11190,12 @@
    "trust": "Silver",
    "slug": "dsh-background",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "luoyu-xingu",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-qrcode",
@@ -9391,7 +11221,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-qrcode",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "hellosky983",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-action-parity",
@@ -9416,7 +11251,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-action-parity",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "dongsheng123132",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-policy-drift-proof",
@@ -9442,7 +11282,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-policy-drift-proof",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "dongsheng123132",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-audit-bundle",
@@ -9468,7 +11313,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-audit-bundle",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "dongsheng123132",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-ci-doctor",
@@ -9494,7 +11344,12 @@
    "trust": "Silver",
    "slug": "dsh-ci-doctor",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 0,
+   "repoOwner": "jkrandom-sudo",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-conv-search",
@@ -9520,7 +11375,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-conv-search",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "beijingwahw",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-cmd-starter",
@@ -9546,7 +11406,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-cmd-starter",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 11,
+   "depsOfficial": 10,
+   "repoOwner": "PandaColour",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-suggested-replies",
@@ -9571,7 +11436,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-suggested-replies",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 22,
+   "depsOfficial": 19,
+   "repoOwner": "Anionex",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "promptwall",
@@ -9599,7 +11469,12 @@
    "trust": "Silver",
    "slug": "promptwall",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Chhlafiu4312",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-skills-manager",
@@ -9622,7 +11497,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-skills-manager",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "xiaoxianyu-office",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-tailscale-sync",
@@ -9648,7 +11528,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tailscale-sync",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "MoonGlassKitty",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-quote-reply",
@@ -9673,7 +11558,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-quote-reply",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "HOFO-GYG",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-image-tools",
@@ -9698,7 +11588,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-image-tools",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "xiaoxianyu-office",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "citeguard",
@@ -9725,7 +11620,12 @@
    "trust": "Silver",
    "slug": "citeguard",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 2,
+   "depCount": 5,
+   "depsOfficial": 0,
+   "repoOwner": "Chhlafiu4312",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-mattpocock-skills",
@@ -9750,7 +11650,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-mattpocock-skills",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "xiaoxiaosrm",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-livis-connector",
@@ -9773,7 +11678,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-livis-connector",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "fyy99",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-utility-tools",
@@ -9800,7 +11710,12 @@
    "trust": "Silver",
    "slug": "dsh-utility-tools",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "sharkymew",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-browseruse",
@@ -9825,7 +11740,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-browseruse",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "yzd6552-commits",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "douyin-plugin-dsh-plugin",
@@ -9848,7 +11768,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "douyin-plugin-dsh-plugin",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "chu557",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-sfversion",
@@ -9873,7 +11798,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-sfversion",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 12,
+   "depsOfficial": 5,
+   "repoOwner": "sparkmio",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-voice-mic",
@@ -9898,7 +11828,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-voice-mic",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 4,
+   "repoOwner": "Zachary7456",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "thinking-level-override",
@@ -9921,7 +11856,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "thinking-level-override",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "my-dsh-plugin",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-deepseek-vision",
@@ -9950,7 +11890,12 @@
    "platform": "any",
    "webonly": false,
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 0,
+   "depCount": 18,
+   "depsOfficial": 17,
+   "repoOwner": "Argonaut790",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-cost-tracker",
@@ -9973,7 +11918,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-cost-tracker",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 16,
+   "depsOfficial": 14,
+   "repoOwner": "yflmq001",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-mediacrawler",
@@ -9998,7 +11948,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-mediacrawler",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "xwh-01",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-article-publish",
@@ -10023,7 +11978,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-article-publish",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 3,
+   "repoOwner": "yangyongzhen",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-vision-primitives",
@@ -10048,7 +12008,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-vision-primitives",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "zouyuanqing",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "deepseek-prism-dsh",
@@ -10072,7 +12037,12 @@
    "trust": "Unrated",
    "slug": "deepseek-prism-dsh",
    "platform": "any",
-   "bareNpm": "install-fail"
+   "bareNpm": "install-fail",
+   "contributors": 2,
+   "depCount": 8,
+   "depsOfficial": 7,
+   "repoOwner": "YOGEMOW",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "session-archive-manager",
@@ -10098,7 +12068,12 @@
    ],
    "trust": "Silver",
    "slug": "session-archive-manager",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "my-dsh-plugin",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-tool-underseal",
@@ -10123,7 +12098,12 @@
    "slug": "dsh-tool-underseal",
    "desc": "Seal/encrypt communication between AIs (underseal).",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 4,
+   "repoOwner": "Hyperionjust",
+   "_enriched": "2026-08-14|None"
   },
   {
    "name": "dsh-pixluna",
@@ -10149,7 +12129,12 @@
    "trust": "Silver",
    "slug": "dsh-pixluna",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 6,
+   "repoOwner": "PixLunaLab",
+   "_enriched": "2026-08-15|1.0.2"
   },
   {
    "name": "dsh-xiapan-media",
@@ -10174,7 +12159,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-xiapan-media",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "dongsheng123132",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-plugin-text-translation",
@@ -10199,7 +12189,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-text-translation",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "1738348785",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-simplify",
@@ -10224,7 +12219,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-simplify",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "GongYuanCaiJi",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-cowork",
@@ -10251,7 +12251,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-cowork",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Jesse-njx",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "dsh-hub",
@@ -10274,7 +12279,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-hub",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "coderPerseus",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "safe-find-dsh-plugins",
@@ -10300,7 +12310,12 @@
    ],
    "trust": "Silver",
    "slug": "safe-find-dsh-plugins",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Jinsong-Zhou",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "deepseek-harness-forge-plugins",
@@ -10324,7 +12339,12 @@
    "trust": "Silver",
    "slug": "deepseek-harness-forge-plugins",
    "desc": "Forge-plus: math/logic/regex/eprover/sys tools — 3 plugins, 12 tools.",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 0,
+   "repoOwner": "jinguanghai",
+   "_enriched": "2026-08-15|None"
   },
   {
    "name": "dsh-wechat-maid",
@@ -10350,7 +12370,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-wechat-maid",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "skylar-fei",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-yolo-mode",
@@ -10375,7 +12400,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-yolo-mode",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 12,
+   "depsOfficial": 11,
+   "repoOwner": "SeverusZh",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-im-hub",
@@ -10401,7 +12431,12 @@
    "trust": "Silver",
    "slug": "dsh-im-hub",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 2,
+   "depCount": 11,
+   "depsOfficial": 11,
+   "repoOwner": "ThreeBody6666",
+   "_enriched": "2026-08-15|0.1.0"
   },
   {
    "name": "dsh-same-mode-sandbox-noop",
@@ -10424,7 +12459,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-same-mode-sandbox-noop",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "zhangzujian",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-humanize",
@@ -10449,7 +12489,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-humanize",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 18,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "zevorn",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "dsh-release-proof",
@@ -10474,7 +12519,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-release-proof",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "dongsheng123132",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-plugin-publisher",
@@ -10499,7 +12549,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-publisher",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "akira399",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-benchmark",
@@ -10524,7 +12579,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-benchmark",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "dongsheng123132",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-marketplace",
@@ -10552,7 +12612,12 @@
    "webonly": false,
    "platform": "any",
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 6,
+   "repoOwner": "ouyangyipeng",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-workspace-env",
@@ -10578,7 +12643,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-workspace-env",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Momojie-S",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-docker",
@@ -10605,7 +12675,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-docker-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "devLythen",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-workspace-explorer",
@@ -10633,7 +12708,12 @@
    "webonly": false,
    "platform": "any",
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 6,
+   "repoOwner": "3911ee",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-plugin-builder",
@@ -10656,7 +12736,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugin-builder",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "kingjly",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-agent-relay",
@@ -10681,7 +12766,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-agent-relay",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "Noelune",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-skill-hub",
@@ -10710,7 +12800,12 @@
    "slug": "dsh-skill-hub",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 3,
+   "depCount": 17,
+   "depsOfficial": 13,
+   "repoOwner": "cheshireez",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-file-mention",
@@ -10739,7 +12834,12 @@
    "webonly": false,
    "platform": "any",
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "hucj09",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-agentfuse-plugin",
@@ -10762,7 +12862,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-agentfuse-plugin",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "MkaliezZ",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "Deepseek-Harness-for-VS-Code",
@@ -10785,7 +12890,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "Deepseek-Harness-for-VS-Code",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Vithrive",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-remote-tunnel",
@@ -10810,7 +12920,12 @@
    "slug": "dsh-remote-tunnel",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 1,
+   "repoOwner": "Linjiangxian0203",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "MistyMoon-DSH",
@@ -10835,7 +12950,12 @@
    "slug": "MistyMoon-DSH",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 18,
+   "depsOfficial": 16,
+   "repoOwner": "mianyoubiaoqing",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-all-warmup",
@@ -10858,7 +12978,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-all-warmup",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "brunhildzhou",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-web-enhanced",
@@ -10888,7 +13013,12 @@
    "webonly": false,
    "platform": "any",
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 0,
+   "depCount": 13,
+   "depsOfficial": 11,
+   "repoOwner": "banlanzs",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-download-progress",
@@ -10917,7 +13047,12 @@
    "webonly": false,
    "platform": "any",
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "Fro2en12",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-web-remote",
@@ -10942,7 +13077,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-web-remote",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "godchen520",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-plugin-workbench",
@@ -10971,7 +13111,12 @@
    "webonly": false,
    "platform": "any",
    "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
-   "testDate": "2026-08-18"
+   "testDate": "2026-08-18",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "Pasumao",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-cost",
@@ -10995,7 +13140,12 @@
    "trust": "Silver",
    "slug": "dsh-cost",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 6,
+   "repoOwner": "GiantGKL",
+   "_enriched": "2026-08-13|0.2.1"
   },
   {
    "name": "Deepseek-omnimodal",
@@ -11018,7 +13168,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "Deepseek-omnimodal",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "good-boy4069",
+   "_enriched": "2026-08-10|"
   },
   {
    "name": "dsh-tool-encoding",
@@ -11044,7 +13199,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tool-encoding",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-plugin-wechat",
@@ -11070,7 +13230,12 @@
    "trust": "Unrated",
    "slug": "dsh-plugin-wechat",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 6,
+   "repoOwner": "gnulife",
+   "_enriched": "2026-08-16|0.3.3"
   },
   {
    "name": "dsh-pixel-ui",
@@ -11096,7 +13261,12 @@
    "trust": "Silver",
    "slug": "dsh-pixel-ui",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "zhang66633",
+   "_enriched": "2026-08-15|1.0.0"
   },
   {
    "name": "zotero-wave-rag",
@@ -11123,7 +13293,12 @@
    ],
    "trust": "Unrated",
    "slug": "zotero-wave-rag",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "Fisfzy",
+   "_enriched": "2026-08-07|"
   },
   {
    "name": "dsh-approval-ai",
@@ -11146,7 +13321,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-approval-ai",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 13,
+   "depsOfficial": 13,
+   "repoOwner": "ang-XWBWZ",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "long-draft-input",
@@ -11169,7 +13349,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "long-draft-input",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "Heyflyingpig",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-zh-output",
@@ -11192,7 +13377,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-zh-output",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "YKennen",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "mindspace-dsh-local-rag",
@@ -11219,7 +13409,12 @@
    "slug": "mindspace-dsh-local-rag",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 12,
+   "depsOfficial": 7,
+   "repoOwner": "Spirtxiaoqi7",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-pi",
@@ -11243,7 +13438,12 @@
    "trust": "Silver",
    "slug": "dsh-pi",
    "platform": "any",
-   "bareNpm": "install-fail"
+   "bareNpm": "install-fail",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 0,
+   "repoOwner": "TGYD-helige",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-sci",
@@ -11266,7 +13466,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-sci",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "Blaczz",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-zotero-wiki",
@@ -11295,7 +13500,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-zotero-wiki",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 0,
+   "repoOwner": "Wechsels",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-onebot",
@@ -11320,7 +13530,12 @@
    "slug": "dsh-onebot",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6: declares dsh.client platform=web and injects @deepseek-ai/dsh-client-runtime, but its bundle loader conflicts with dsh-web-app (duplicate loader entry id: code-runtime). Needs a web runtime that exposes code-runtime; cannot be validated with standard dsh web (base+web-app)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6: declares dsh.client platform=web and injects @deepseek-ai/dsh-client-runtime, but its bundle loader conflicts with dsh-web-app (duplicate loader entry id: code-runtime). Needs a web runtime that exposes code-runtime; cannot be validated with standard dsh web (base+web-app).",
+   "contributors": 0,
+   "depCount": 15,
+   "depsOfficial": 13,
+   "repoOwner": "Hoshino-Yumetsuki",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "knowlp-rag",
@@ -11345,7 +13560,12 @@
    ],
    "trust": "Silver",
    "slug": "knowlp-rag",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "wly8691-jpg",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-polyglot",
@@ -11368,7 +13588,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-polyglot",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 11,
+   "depsOfficial": 10,
+   "repoOwner": "Jesse-njx",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "dsh-file-mount",
@@ -11396,7 +13621,12 @@
    "slug": "dsh-file-mount",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 13,
+   "depsOfficial": 12,
+   "repoOwner": "acefun29",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-plugin-market",
@@ -11422,7 +13652,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-market-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "TheYoungChen",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-plugin-market",
@@ -11448,7 +13683,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-plugin-market-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "chnjames",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-plugin-market",
@@ -11474,7 +13714,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-market-4",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 3,
+   "repoOwner": "cyber-moshen",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-tool-json",
@@ -11500,7 +13745,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tool-json",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-plugin-graph",
@@ -11524,7 +13774,12 @@
    "trust": "Silver",
    "slug": "dsh-plugin-graph",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 6,
+   "repoOwner": "erduotong",
+   "_enriched": "2026-08-13|0.2.0"
   },
   {
    "name": "dsh-tiered-approval",
@@ -11550,7 +13805,12 @@
    "trust": "Silver",
    "slug": "dsh-tiered-approval",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 4,
+   "repoOwner": "Elaina-real",
+   "_enriched": "2026-08-14|0.1.0"
   },
   {
    "name": "dsh-mobile-control",
@@ -11576,7 +13836,12 @@
    "trust": "Silver",
    "slug": "dsh-mobile-control",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "PangYiMing",
+   "_enriched": "2026-08-14|0.1.1"
   },
   {
    "name": "dsh-tool-github",
@@ -11602,7 +13867,12 @@
    "trust": "Silver",
    "slug": "dsh-tool-github",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 6,
+   "repoOwner": "LJH-snow",
+   "_enriched": "2026-08-14|0.1.0"
   },
   {
    "name": "dsh-trellis",
@@ -11630,7 +13900,12 @@
    "trust": "Unrated",
    "slug": "dsh-trellis",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 6,
+   "repoOwner": "Beants",
+   "_enriched": "2026-08-14|0.1.0"
   },
   {
    "name": "dsh-paseo",
@@ -11656,7 +13931,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-paseo",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "renat3u",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "sandbox-mxc",
@@ -11683,7 +13963,12 @@
    "slug": "sandbox-mxc",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 3,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "web-components",
@@ -11709,7 +13994,12 @@
    "trust": "Unrated",
    "slug": "web-components",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 18,
+   "depsOfficial": 0,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-plugin-codex-bridge",
@@ -11735,7 +14025,12 @@
    "trust": "Silver",
    "slug": "dsh-plugin-codex-bridge",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "YYTbit",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-tool-policy",
@@ -11758,7 +14053,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-tool-policy",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "Drifter-yh",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-index",
@@ -11783,7 +14083,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-index",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 7,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Sunrisepeak",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-plugin-pi-bridge",
@@ -11809,7 +14114,12 @@
    "trust": "Silver",
    "slug": "dsh-plugin-pi-bridge",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "YYTbit",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-web-search-firecrawl",
@@ -11834,7 +14144,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-web-search-firecrawl",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "yangzhe1003",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-plugin-colorscheme",
@@ -11857,7 +14172,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugin-colorscheme",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "Civitasv",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-plugin-pixluna",
@@ -11885,7 +14205,12 @@
    "platform": "any",
    "webonly": false,
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 6,
+   "repoOwner": "PixLunaLab",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-soul-md",
@@ -11912,7 +14237,12 @@
    "trust": "Silver",
    "slug": "dsh-soul-md",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 4,
+   "repoOwner": "Scorp1o117",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-ui-spec",
@@ -11939,7 +14269,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-ui-spec",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "yumimanji",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-weixin",
@@ -11968,7 +14303,12 @@
    "platform": "any",
    "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nweb L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
    "needs": "WeChat account (QR scan login)",
-   "needsZh": "微信账号扫码登录"
+   "needsZh": "微信账号扫码登录",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 8,
+   "repoOwner": "xiaoshihou514",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-model-modes",
@@ -11991,7 +14331,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-model-modes",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 14,
+   "depsOfficial": 12,
+   "repoOwner": "DTSFO",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "matlab-modelsim-vivado-plugin",
@@ -12017,7 +14362,12 @@
    ],
    "trust": "Silver",
    "slug": "matlab-modelsim-vivado-plugin",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "sjscy05",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-tool-hashline",
@@ -12043,7 +14393,12 @@
    "trust": "Unrated",
    "slug": "dsh-tool-hashline",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "InklingYoshi584",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-ccswitch-import-lite",
@@ -12070,7 +14425,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-ccswitch-import-lite",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "chenhaolove89",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-recovery-proof",
@@ -12095,7 +14455,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-recovery-proof",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "dongsheng123132",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-dardar",
@@ -12118,7 +14483,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-dardar",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "benzhoupo",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-nebulagraph-v5",
@@ -12147,7 +14517,12 @@
    "platform": "any",
    "webonly": false,
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 2,
+   "depCount": 8,
+   "depsOfficial": 4,
+   "repoOwner": "xiajingchun",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "glm4v-vision-mcp",
@@ -12170,7 +14545,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "glm4v-vision-mcp",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "ethanweave",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-tool-somark",
@@ -12195,7 +14575,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-tool-somark",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 8,
+   "depsOfficial": 8,
+   "repoOwner": "saurtone",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-beacons",
@@ -12220,7 +14605,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-beacons",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 5,
+   "repoOwner": "Da-Mie",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "adb_dsh_plugin",
@@ -12246,7 +14636,12 @@
    ],
    "trust": "Silver",
    "slug": "adb_dsh_plugin",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 6,
+   "repoOwner": "mang0cola",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-plugin-image-wallpaper",
@@ -12273,7 +14668,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-plugin-image-wallpaper",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "CaoNing3212",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-zh-hant-hk",
@@ -12296,7 +14696,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-zh-hant-hk",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "Argonaut790",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-document-review",
@@ -12323,7 +14728,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-document-review",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 12,
+   "depsOfficial": 8,
+   "repoOwner": "yabo083",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-tokensave",
@@ -12349,7 +14759,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-tokensave",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "Miku196",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-specflow",
@@ -12372,7 +14787,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-specflow",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 10,
+   "repoOwner": "lonelymoon87",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-trace",
@@ -12397,7 +14817,12 @@
    "slug": "dsh-trace",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 8,
+   "depsOfficial": 6,
+   "repoOwner": "vibeinging",
+   "_enriched": "2026-08-12|"
   },
   {
    "name": "dsh-onlyne",
@@ -12423,7 +14848,12 @@
    "trust": "Silver",
    "slug": "dsh-onlyne",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 6,
+   "repoOwner": "dbydd",
+   "_enriched": "2026-08-13|0.1.1"
   },
   {
    "name": "dsh-deeptutor",
@@ -12451,7 +14881,12 @@
    "trust": "Unrated",
    "slug": "dsh-deeptutor",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "TecFancy",
+   "_enriched": "2026-08-14|0.1.9"
   },
   {
    "name": "dsh-claude-marketplace",
@@ -12477,7 +14912,12 @@
    "trust": "Silver",
    "slug": "dsh-claude-marketplace",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "ben7am1n",
+   "_enriched": "2026-08-13|0.1.0"
   },
   {
    "name": "dsh-plugin-miliastra-toolbox",
@@ -12502,7 +14942,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-plugin-miliastra-toolbox",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 4,
+   "repoOwner": "1475505",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-messager",
@@ -12527,7 +14972,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-messager",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 17,
+   "depsOfficial": 15,
+   "repoOwner": "ly6170",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-schedule-tasks",
@@ -12554,7 +15004,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-schedule-tasks",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 14,
+   "depsOfficial": 12,
+   "repoOwner": "uluckystar",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-remote-ssh",
@@ -12582,7 +15037,12 @@
    "slug": "dsh-remote-ssh",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 32,
+   "depsOfficial": 29,
+   "repoOwner": "Yan-Zero",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "deepseek-harness-typescript-sdk",
@@ -12607,7 +15067,12 @@
    ],
    "trust": "Silver",
    "slug": "deepseek-harness-typescript-sdk",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "openma-ai",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "dsh-code-check",
@@ -12634,7 +15099,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-code-check",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 4,
+   "repoOwner": "a179-sanae",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-github-integration",
@@ -12659,7 +15129,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-github-integration",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-review-skills",
@@ -12684,7 +15159,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-review-skills",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "ben7am1n",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "dsh-plugin-dev-guide",
@@ -12709,7 +15189,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-dev-guide",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "anweat",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-ssh-remote",
@@ -12735,7 +15220,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-ssh-remote",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 8,
+   "repoOwner": "CrazyShout",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "project-change-router-skill",
@@ -12761,7 +15251,12 @@
    ],
    "trust": "Silver",
    "slug": "project-change-router-skill",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "WeirdSky924",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-habits",
@@ -12788,7 +15283,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-habits",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "DimitriLIAN",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-update-checker",
@@ -12814,7 +15314,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-update-checker-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "duntansen",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-failure-capsule",
@@ -12840,7 +15345,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-failure-capsule",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 8,
+   "depsOfficial": 5,
+   "repoOwner": "YiHarvest",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-change-center",
@@ -12868,7 +15378,12 @@
    "slug": "dsh-change-center",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 2,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "Chance-Wu",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-o11y-plugin",
@@ -12893,7 +15408,12 @@
    "slug": "dsh-o11y-plugin",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 11,
+   "depsOfficial": 2,
+   "repoOwner": "fly3366",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-engineering-services",
@@ -12918,7 +15438,12 @@
    "slug": "dsh-engineering-services",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "wefio",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "pack-agent-dsh",
@@ -12946,7 +15471,12 @@
    "trust": "Silver",
    "slug": "pack-agent-dsh",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "sakikoTGW",
+   "_enriched": "2026-08-14|0.4.3"
   },
   {
    "name": "dsh-cc-connect",
@@ -12972,7 +15502,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-cc-connect",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 3,
+   "depsOfficial": 1,
+   "repoOwner": "whiteguo233",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-scout",
@@ -12999,7 +15534,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-scout",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 7,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-usage-cost",
@@ -13026,7 +15566,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-usage-cost",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "Dino6021",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "dsh-xai",
@@ -13054,7 +15599,12 @@
    "slug": "dsh-xai",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 11,
+   "depsOfficial": 9,
+   "repoOwner": "MirDie",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-vqa-agent",
@@ -13079,7 +15629,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-vqa-agent",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "jypjypjypjyp",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-skillport",
@@ -13107,7 +15662,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-skillport",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 9,
+   "depsOfficial": 8,
+   "repoOwner": "Jesse-njx",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "dsh-mimo-vision-hint",
@@ -13132,7 +15692,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-mimo-vision-hint",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Isekai-Mfu",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "dsh-model-thinking",
@@ -13155,7 +15720,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-model-thinking",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 7,
+   "repoOwner": "cyberlieflife",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-code-impact",
@@ -13181,7 +15751,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-code-impact",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 5,
+   "repoOwner": "baidd1011",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-subprocess-inherit-environment",
@@ -13204,7 +15779,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-subprocess-inherit-environment",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "zhangzujian",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "deepseek-hsrness-devkit",
@@ -13227,7 +15807,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "deepseek-hsrness-devkit",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "2472786266-spec",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-plugin-github-market",
@@ -13250,7 +15835,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-plugin-github-market",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "w1661884010-jpg",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-conversation-cost",
@@ -13273,7 +15863,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-conversation-cost",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 8,
+   "repoOwner": "Ayaka157",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "dsh-satori",
@@ -13299,7 +15894,12 @@
    "trust": "Unrated",
    "slug": "dsh-satori",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 15,
+   "depsOfficial": 13,
+   "repoOwner": "Ri0n72Y",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-conv-export",
@@ -13322,7 +15922,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-conv-export",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "beijingwahw",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-sight",
@@ -13346,7 +15951,12 @@
    "trust": "Unrated",
    "slug": "dsh-sight",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 2,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "Fu3rte",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-audio-alert",
@@ -13372,7 +15982,12 @@
    "webonly": false,
    "platform": "any",
    "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
-   "testDate": "2026-08-18"
+   "testDate": "2026-08-18",
+   "contributors": 0,
+   "depCount": 9,
+   "depsOfficial": 9,
+   "repoOwner": "ellelkktrraaa",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "deepseek-harness-cli",
@@ -13397,7 +16012,12 @@
    ],
    "trust": "Silver",
    "slug": "deepseek-harness-cli",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 32,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "soolaugust",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-desktop-pet",
@@ -13421,7 +16041,12 @@
    "trust": "Silver",
    "slug": "dsh-desktop-pet",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 2,
+   "repoOwner": "crabossss",
+   "_enriched": "2026-08-14|0.1.0"
   },
   {
    "name": "dsh-feishu-bot",
@@ -13445,7 +16070,12 @@
    "trust": "Unrated",
    "slug": "dsh-feishu-bot",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 9,
+   "depsOfficial": 3,
+   "repoOwner": "TingRuDeng",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-plugins-market",
@@ -13473,7 +16103,12 @@
    "webonly": false,
    "platform": "any",
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Luaphes",
+   "_enriched": "2026-08-14|"
   },
   {
    "platform": "any",
@@ -13502,7 +16137,12 @@
    "slug": "dsh-sandbox-tester",
    "webonly": false,
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "Sutera-Diffusus",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "noatmark-dsh-plugin",
@@ -13529,7 +16169,12 @@
    "trust": "Unrated",
    "slug": "noatmark-dsh-plugin",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 2,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "ylwl1997",
+   "_enriched": "2026-08-14|0.1.0"
   },
   {
    "name": "dsh-kb-sieve",
@@ -13557,7 +16202,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-kb-sieve",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 1,
+   "repoOwner": "omdsh-dev",
+   "_enriched": "2026-08-12|"
   },
   {
    "name": "dsh-tool-search",
@@ -13586,7 +16236,12 @@
    "platform": "any",
    "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
    "needs": "Additional service: invariants runtime",
-   "needsZh": "依赖 invariants 服务"
+   "needsZh": "依赖 invariants 服务",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 7,
+   "repoOwner": "vibeinging",
+   "_enriched": "2026-08-12|"
   },
   {
    "name": "dsh-apple-mode",
@@ -13611,7 +16266,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-apple-mode",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "jihongboo",
+   "_enriched": "2026-08-13|"
   },
   {
    "name": "coding-coach",
@@ -13634,7 +16294,12 @@
    "slug": "coding-coach",
    "desc": "Coding coach — real-time guidance and review as you code.",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "xiehuan123",
+   "_enriched": "2026-08-15|None"
   },
   {
    "name": "dsh-tool-reqpipe",
@@ -13662,7 +16327,12 @@
    "trust": "Silver",
    "slug": "dsh-tool-reqpipe",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "sikwoxy",
+   "_enriched": "2026-08-14|0.2.0"
   },
   {
    "name": "dsh-tool-browser",
@@ -13688,7 +16358,12 @@
    "trust": "Silver",
    "slug": "dsh-tool-browser",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 4,
+   "repoOwner": "MashedPotato817",
+   "_enriched": "2026-08-14|0.1.0"
   },
   {
    "name": "dsh-browser-control",
@@ -13714,7 +16389,12 @@
    "trust": "Silver",
    "slug": "dsh-browser-control",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "PangYiMing",
+   "_enriched": "2026-08-13|0.1.0"
   },
   {
    "name": "dsh-oai-oauth",
@@ -13738,7 +16418,12 @@
    "trust": "Unrated",
    "slug": "dsh-oai-oauth",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 4,
+   "repoOwner": "werifu",
+   "_enriched": "2026-08-14|0.1.0"
   },
   {
    "name": "dsh-hotplug-engine",
@@ -13762,7 +16447,12 @@
    "trust": "Unrated",
    "slug": "dsh-hotplug-engine",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 11,
+   "depsOfficial": 8,
+   "repoOwner": "AnothetLoice",
+   "_enriched": "2026-08-14|0.1.3"
   },
   {
    "name": "jumpserver-dsh",
@@ -13789,7 +16479,12 @@
    "slug": "jumpserver-dsh",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 7,
+   "repoOwner": "jumpserver-east",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-payload-capture",
@@ -13815,7 +16510,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-payload-capture",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Moeblack",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-dev-actions",
@@ -13841,7 +16541,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-dev-actions",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 17,
+   "depsOfficial": 12,
+   "repoOwner": "skitse",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "doubao-vision-dsh",
@@ -13867,7 +16572,12 @@
    ],
    "trust": "Silver",
    "slug": "doubao-vision-dsh",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "hawkongz",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-plugin-doctor",
@@ -13893,7 +16603,12 @@
    "trust": "Silver",
    "slug": "dsh-plugin-doctor",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 0,
+   "repoOwner": "lin-cheng-lab",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-vision-LMstudio",
@@ -13919,7 +16634,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-vision-LMstudio",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "TiankunDai",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "deepseek-harness-background",
@@ -13942,7 +16662,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "deepseek-harness-background",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "czzzlq",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-prompt-presets",
@@ -13968,7 +16693,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-prompt-presets",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "fff122",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-screenshot-diff",
@@ -13995,7 +16725,12 @@
    "trust": "Silver",
    "slug": "dsh-screenshot-diff",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "PangYiMing",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-turn-index",
@@ -14021,7 +16756,12 @@
    "trust": "Silver",
    "slug": "dsh-turn-index",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 2,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "Simon314620",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-tool-monitor",
@@ -14047,7 +16787,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tool-monitor",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 8,
+   "depsOfficial": 8,
+   "repoOwner": "yoke233",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-plugin-auto-docs",
@@ -14074,7 +16819,12 @@
    "trust": "Silver",
    "slug": "dsh-plugin-auto-docs",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "YYTbit",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-plugin-code-review",
@@ -14100,7 +16850,12 @@
    "trust": "Silver",
    "slug": "dsh-plugin-code-review",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "YYTbit",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-cloudflare-browser-run",
@@ -14130,7 +16885,12 @@
    "platform": "any",
    "bareNpm": "other",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 2,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "RealAlexandreAI",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-all-search",
@@ -14156,7 +16916,12 @@
    "trust": "Silver",
    "slug": "dsh-all-search",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 2,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "RealAlexandreAI",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-plugins-hub",
@@ -14179,7 +16944,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-plugins-hub",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "TYEclipse",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-find-skill",
@@ -14207,7 +16977,12 @@
    "trust": "Silver",
    "slug": "dsh-find-skill",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 6,
+   "repoOwner": "Moximxxx",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "multimodal-bridge",
@@ -14232,7 +17007,12 @@
    ],
    "trust": "Silver",
    "slug": "multimodal-bridge",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Spirit4471",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-plugin-review",
@@ -14257,7 +17037,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-review",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 1,
+   "repoOwner": "Mingxi2077",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-live-stats",
@@ -14282,7 +17067,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-live-stats",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 14,
+   "depsOfficial": 10,
+   "repoOwner": "Proton1917",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "spike-faye-lei-dsh-skills",
@@ -14307,7 +17097,12 @@
    ],
    "trust": "Silver",
    "slug": "spike-faye-lei-dsh-skills",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "spike-faye-lei",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-academic-skill",
@@ -14333,7 +17128,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-academic-skill",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "TohsakaRIN521",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-ajw",
@@ -14359,7 +17159,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-ajw",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 4,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "rsagacom",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-port-guard",
@@ -14385,7 +17190,12 @@
    "trust": "Silver",
    "slug": "dsh-port-guard",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "PangYiMing",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-plugin.github.io",
@@ -14410,7 +17220,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin.github.io",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "dsh-plugin",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-lens-lite",
@@ -14437,7 +17252,12 @@
    "trust": "Silver",
    "slug": "dsh-lens-lite",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 6,
+   "repoOwner": "ben7am1n",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-tavily-search",
@@ -14463,7 +17283,12 @@
    "trust": "Silver",
    "slug": "dsh-tavily-search",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "zhouzhencheng07",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-vision-helper",
@@ -14489,7 +17314,12 @@
    "trust": "Silver",
    "slug": "dsh-vision-helper",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Yuuz12",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-openai-codex-oauth",
@@ -14515,7 +17345,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-openai-codex-oauth",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 8,
+   "depsOfficial": 7,
+   "repoOwner": "dyuan311",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dshx",
@@ -14540,7 +17375,12 @@
    ],
    "trust": "Silver",
    "slug": "dshx",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 2,
+   "repoOwner": "why913",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-reloader",
@@ -14565,7 +17405,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-reloader",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "lin-cheng-lab",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-turn-meta",
@@ -14590,7 +17435,12 @@
    "slug": "dsh-turn-meta",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 4,
+   "repoOwner": "randerous",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-batch-regression",
@@ -14616,7 +17466,12 @@
    "trust": "Silver",
    "slug": "dsh-batch-regression",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "PangYiMing",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-eco-router",
@@ -14642,7 +17497,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-eco-router",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 16,
+   "depsOfficial": 15,
+   "repoOwner": "joyfoxai",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-image-to-path",
@@ -14668,7 +17528,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-image-to-path",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 6,
+   "depsOfficial": 6,
+   "repoOwner": "cesaryike",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-plugin-clawrouters",
@@ -14694,7 +17559,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-clawrouters",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 7,
+   "repoOwner": "ropon",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-survey",
@@ -14717,7 +17587,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-survey",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 3,
+   "depsOfficial": 1,
+   "repoOwner": "jinhuang712",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-co-authored-by",
@@ -14743,7 +17618,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-co-authored-by",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 6,
+   "depsOfficial": 6,
+   "repoOwner": "shelken",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-seismicx",
@@ -14770,7 +17650,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-seismicx",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 11,
+   "depsOfficial": 9,
+   "repoOwner": "MOLAaaaaaaa",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-qwen-mm",
@@ -14793,7 +17678,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-qwen-mm",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 9,
+   "depsOfficial": 9,
+   "repoOwner": "RRRosmontis",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-cost-display",
@@ -14816,7 +17706,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-cost-display",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "misakimiku2",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-view-modes",
@@ -14839,7 +17734,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-view-modes",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "NigelYao",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-codex-oauth",
@@ -14865,7 +17765,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-codex-oauth",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 4,
+   "depsOfficial": 3,
+   "repoOwner": "Babulubobo",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-figma-to-lottie",
@@ -14890,7 +17795,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-figma-to-lottie",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "zimai233",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "opencode-usage",
@@ -14914,7 +17824,12 @@
    "trust": "Silver",
    "slug": "opencode-usage",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 0,
+   "repoOwner": "AmaTsumeAkira",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-html-canvas",
@@ -14939,7 +17854,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-html-canvas",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Jinsong-Zhou",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-turn-approval",
@@ -14964,7 +17884,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-turn-approval",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "arrow949",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-vision-bridge",
@@ -14990,7 +17915,12 @@
    "trust": "Silver",
    "slug": "dsh-vision-bridge",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Xieweikang123",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-document-parser",
@@ -15015,7 +17945,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-document-parser",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 3,
+   "repoOwner": "miaobuao",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-playwright-native",
@@ -15040,7 +17975,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-playwright-native",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 7,
+   "repoOwner": "mitao-su",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-eyecare",
@@ -15064,7 +18004,12 @@
    "trust": "Unrated",
    "slug": "dsh-eyecare",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Yummyxl",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-plugin-longgraph",
@@ -15087,7 +18032,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugin-longgraph",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "levi-qiao",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "DeepSeek-harness-weixin",
@@ -15113,7 +18063,12 @@
    ],
    "trust": "Silver",
    "slug": "DeepSeek-harness-weixin",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 15,
+   "depsOfficial": 14,
+   "repoOwner": "sliverp",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-image-reader",
@@ -15136,7 +18091,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-image-reader",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "zcXie777",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-PaddleOCR-Skills",
@@ -15162,7 +18122,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-PaddleOCR-Skills",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 14,
+   "depsOfficial": 13,
+   "repoOwner": "Aidenwu0209",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "omdp",
@@ -15185,7 +18150,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "omdp",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "XJungit",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-pain-point-check",
@@ -15210,7 +18180,12 @@
    "slug": "dsh-pain-point-check",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 load-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 load-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "ICCuse",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-plugin-automations",
@@ -15238,7 +18213,12 @@
    "slug": "dsh-plugin-automations",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "contributors": 0,
+   "depCount": 12,
+   "depsOfficial": 11,
+   "repoOwner": "Sev7een",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-container",
@@ -15263,7 +18243,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-container",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "NIyueeE",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-vision-plugin",
@@ -15287,7 +18272,12 @@
    "trust": "Unrated",
    "slug": "dsh-vision-plugin",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Xin-Zhang-IceMan",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-vision-android",
@@ -15312,7 +18302,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-vision-android",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "superclaude1",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "deepseek-eyes",
@@ -15337,7 +18332,12 @@
    ],
    "trust": "Silver",
    "slug": "deepseek-eyes",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "fryghost",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "dsh-mcp-pack",

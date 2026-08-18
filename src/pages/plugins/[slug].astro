@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import plugins from '../../data/plugins.json';
 import notes from '../../data/plugin-notes.json';
 import security from '../../data/security.json';
+import readmes from '../../data/readmes.json';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -31,6 +32,7 @@ const dirUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
 const catUrl = `${dirUrl}#${catId}`;
 const repo = p.url.replace('https://github.com/', '');
 const npmHome = p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
+const readmeHtml = readmes[p.slug]?.html || '';
 const statusLabel = {
   verified: 'Verified · install-tested on dsh',
   pending: 'Unverified',
@@ -49,11 +51,23 @@ const badgeAlt = p.test === 'verified' ? 'dshbase install-tested' : 'dshbase lis
 const badgeMd = `[![${badgeAlt}](https://dshbase.com/badges/${p.slug}.svg)](https://dshbase.com/plugins/${p.slug}/)`;
 const verifyUrl = `https://github.com/ylwl1997/dshbase/issues/new?template=verification-evidence.yml&name=${encodeURIComponent(p.name)}&repo=${encodeURIComponent(p.url)}`;
 const desc = p.desc_en || p.desc || `A plugin in the ${cat} category for DeepSeek Harness.`;
-// 短功能卖点：取 desc_en 前 ~48 字符（用于 title，避免被 Google 截断且更有吸引力）
-const shortSell = (p.desc_en || desc).split(/[.，。!?；]/)[0].trim();
-const shortSellT = shortSell.length > 55 ? shortSell.slice(0, shortSell.lastIndexOf(' ', 55)) + '…' : shortSell;
+// 15 分类 → 能力槽映射（title 用，仿 dshplugin.online 的 slot 风格）
+const SLOT = {
+  'Developer': 'Tools', 'AI Models': 'Model', 'UI & Skins': 'UI', 'Knowledge': 'Skills',
+  'Desktop': 'Desktop', 'Automation': 'Workflow', 'Network': 'Integrations', 'Browser': 'Browser',
+  'Terminal': 'Terminal', 'Storage': 'Storage', 'Vision': 'Vision', 'Data': 'Data',
+  'Security': 'Security', 'Productivity': 'Productivity', 'Content': 'Content',
+};
+const slot = SLOT[cat] || 'Plugin';
+const pageTitle = `${p.name} — ${slot} plugin for DeepSeek Harness | dshbase`;
 const fmt = (n) => (n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n ?? 0));
 const stars = p.stars ?? 0;
+// 头部富化：作者 / 维护状态 / 官方包数（来自 fetch-repo-enrich.py）
+const repoOwner = p.repoOwner || (p.url ? p.url.replace('https://github.com/', '').split('/')[0] : '');
+const contribs = p.contributors ?? 0;
+const depsOff = p.depsOfficial ?? 0;
+const maintained = !p.archived && (p.updated || '') >= new Date(Date.now() - 90 * 864e5).toISOString().slice(0, 10);
+const langPure = (p.language || '').toLowerCase();
 const verdict = p.archived
   ? { label: 'Archived — no longer maintained, use with caution', cls: 'v-warn', icon: '⚠️' }
   : p.test === 'verified'
@@ -83,16 +97,26 @@ const jsonLd = {
   ...(p.ver ? { softwareVersion: p.ver } : {}),
 };
 ---
-<Base title={`${p.name}: ${shortSellT} | dshbase`} description={`${desc} — how to install ${p.name} (${p.npm ? `dsh plugin add ${p.pkg}` : 'npm source'}) and compatibility with dsh 0.1.0-rc.6.`} currentPath={`/plugins/${p.slug}/`}>
+<Base title={pageTitle} description={`${desc} — how to install ${p.name} (${p.npm ? `dsh plugin add ${p.pkg}` : 'npm source'}) and compatibility with dsh 0.1.0-rc.6.`} currentPath={`/plugins/${p.slug}/`}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <section class="hero wrap">
     <p class="eyebrow"><a href={dirUrl}>Plugin directory</a> / <a href={catUrl}>{cat}</a> / {p.name}</p>
     <h1>{p.name}</h1>
     <p class="lede">
       <span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span>{' '}
+      {repoOwner && <span class="badge badge-ghost">{repoOwner}</span>}{' '}
       <a href={p.url} target="_blank" rel="noopener">{repo} ↗</a>
     </p>
-    <p style="margin-top:14px"><a class="btn btn-ghost btn-sm" href={dirUrl}>&larr; Back to plugin directory</a></p>
+    <div class="badge-row">
+      {maintained && <span class="chip chip-ok">✓ Actively maintained</span>}
+      {contribs > 0 && <span class="chip">{fmt(contribs)} contributors</span>}
+      {depsOff > 0 && <span class="chip">Builds on {depsOff} official DSH packages</span>}
+      {langPure === 'typescript' && <span class="chip">Pure TypeScript</span>}
+    </div>
+    <p style="margin-top:14px" class="btn-row">
+      <a class="btn btn-ghost btn-sm" href={p.url} target="_blank" rel="noopener">View on GitHub ↗</a>{' '}
+      <a class="btn btn-ghost btn-sm" href={dirUrl}>&larr; Back to plugin directory</a>
+    </p>
   </section>
 
   <section class="wrap">
@@ -152,14 +176,24 @@ const jsonLd = {
       </Fragment>
     )}
 
+    {readmeHtml && (
+      <Fragment>
+        <h2 style="margin-top:24px">README</h2>
+        <div class="readme" set:html={readmeHtml} />
+      </Fragment>
+    )}
+
     {p.npm && p.pkg ? (
       <Fragment>
         <h2>Install</h2>
+        <p class="muted small">Web profile:</p>
         <pre class="code-block"><code>dsh plugin --profile web add {p.pkg}</code></pre>
+        <p class="muted small">Headless (CLI) profile:</p>
+        <pre class="code-block"><code>dsh plugin --profile headless add {p.pkg}</code></pre>
         <ol class="steps">
           <li>Install pnpm once: <code>npm install -g pnpm</code> (the plugin manager forwards to it).</li>
-          <li>Add the plugin to your web profile: <code>dsh plugin --profile web add {p.pkg}</code>.</li>
-          <li>Restart <code>dsh web</code> — the plugin loads on the next launch.</li>
+          <li>Add the plugin to your web or headless profile: <code>dsh plugin --profile web add {p.pkg}</code>.</li>
+          <li>Restart <code>dsh web</code> (or the CLI session) — the plugin loads on the next launch.</li>
           <li>Verify: <code>dsh plugin --profile web list</code>.</li>
         </ol>
         <h2 style="margin-top:24px">Package</h2>
@@ -176,7 +210,10 @@ const jsonLd = {
       <Fragment>
         <h2>Install</h2>
         <p>This plugin is <strong>GitHub source</strong> (not published to npm) — install it straight from the repo:</p>
+        <p class="muted small">Web profile:</p>
         <pre class="code-block"><code>dsh plugin --profile web add github:{repo}</code></pre>
+        <p class="muted small">Headless (CLI) profile:</p>
+        <pre class="code-block"><code>dsh plugin --profile headless add github:{repo}</code></pre>
         <ol class="steps">
           <li>Install pnpm once: <code>npm install -g pnpm</code>.</li>
           <li>Add it from GitHub: <code>dsh plugin --profile web add github:{repo}</code>.</li>
@@ -267,6 +304,25 @@ const jsonLd = {
   .metric { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 12px; text-align: center; }
   .m-val { display: block; font-size: 20px; font-weight: 800; color: var(--ink); }
   .m-lab { font-size: 11px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .03em; }
+  .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .chip { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; color: var(--ink-2); background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 999px; padding: 4px 12px; }
+  .chip-ok { background: #f0fff4; border-color: #b7e0c0; color: #1a4d2e; }
+  .btn-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .readme { margin-top: 18px; font-size: 14.5px; line-height: 1.75; color: var(--ink-2); }
+  .readme h1, .readme h2, .readme h3 { color: var(--ink); margin: 22px 0 8px; }
+  .readme h2 { font-size: 20px; } .readme h3 { font-size: 17px; }
+  .readme p { margin: 10px 0; }
+  .readme ul, .readme ol { margin: 8px 0; padding-left: 24px; }
+  .readme li { margin: 4px 0; }
+  .readme code { background: var(--bg-2, #f1f5f9); border-radius: 4px; padding: 1px 5px; font-size: 13px; }
+  .readme pre { background: #0f172a; color: #e2e8f0; border-radius: 8px; padding: 14px 16px; overflow-x: auto; margin: 12px 0; }
+  .readme pre code { background: transparent; color: inherit; padding: 0; }
+  .readme table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 13.5px; }
+  .readme th, .readme td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; }
+  .readme th { background: var(--bg-2, #f8fafc); font-weight: 700; }
+  .readme img { max-width: 100%; height: auto; border-radius: 8px; margin: 8px 0; }
+  .readme blockquote { border-left: 3px solid var(--primary); margin: 12px 0; padding-left: 14px; color: var(--ink-2); }
+  .readme a { color: var(--primary); }
   .verdict { display: flex; align-items: center; gap: 12px; margin: 18px 0 6px; padding: 14px 16px; border-radius: 10px; font-size: 14px; line-height: 1.5; }
   .v-icon { font-size: 22px; }
   .v-ok { background: #f0fff4; border: 1px solid #b7e0c0; color: #1a4d2e; }
