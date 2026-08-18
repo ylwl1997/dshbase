@@ -84,6 +84,24 @@
   ]
  },
  {
+  "github": "QinLuza",
+  "avatar": "https://avatars.githubusercontent.com/u/291772113?v=4",
+  "plugins": [
+   {
+    "name": "dsh-file-undo",
+    "slug": "dsh-file-undo",
+    "npm": false,
+    "pkg": ""
+   },
+   {
+    "name": "dsh-rollback-visual",
+    "slug": "dsh-rollback-visual",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "suninx",
   "avatar": "https://avatars.githubusercontent.com/u/42999064?v=4",
   "plugins": [
@@ -228,18 +246,6 @@
   ]
  },
  {
-  "github": "QinLuza",
-  "avatar": "https://avatars.githubusercontent.com/u/291772113?v=4",
-  "plugins": [
-   {
-    "name": "dsh-rollback-visual",
-    "slug": "dsh-rollback-visual",
-    "npm": false,
-    "pkg": ""
-   }
-  ]
- },
- {
   "github": "sakikoTGW",
   "avatar": "https://avatars.githubusercontent.com/u/247183209?v=4",
   "plugins": [
@@ -248,6 +254,18 @@
     "slug": "pack-agent-dsh",
     "npm": true,
     "pkg": "@sakikotgw/pack-agent-dsh"
+   }
+  ]
+ },
+ {
+  "github": "shaoshi20",
+  "avatar": "https://avatars.githubusercontent.com/u/146538072?v=4",
+  "plugins": [
+   {
+    "name": "@shaoshi/dshscan",
+    "slug": "shaoshi-dshscan",
+    "npm": true,
+    "pkg": "@shaoshi/dshscan"
    }
   ]
  },

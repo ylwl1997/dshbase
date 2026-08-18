@@ -209,7 +209,8 @@ def add_plugin(db, entry, category):
     if cat not in db:
         db[cat] = []
     db[cat].append(entry)
-    db[cat].sort(key=lambda p: -(p.get("stars") or 0))
+    # 不 sort 整个分类——分类可能按 stars 排序过，重排会产生数千行无意义 diff。
+    # 新条目 append 末尾即可，排序交给 sync-topic/日常刷新脚本。
     json.dump(db, open(DATA, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
 
@@ -220,6 +221,7 @@ def main():
     ap.add_argument("--npm", default="", help="npm 包名（可选）")
     ap.add_argument("--name", default="", help="插件名（默认用仓库名）")
     ap.add_argument("--desc-zh", default="", help="中文描述")
+    ap.add_argument("--force", action="store_true", help="跳过 DeepSeek 软判断直接收录（用于软判断误判但硬门槛全过的插件）")
     ap.add_argument("--json", action="store_true", help="输出 JSON 结果")
     args = ap.parse_args()
 
@@ -255,6 +257,11 @@ def main():
             args.desc_zh = enrich["desc_zh"]
         if not enrich.get("is_real_plugin", True):
             spam = enrich.get("spam_reason") or "看起来不是真正的 dsh 插件（蹭 dsh-plugin topic）"
+
+    # --force：跳过 DeepSeek 软判断（软判断可能误判——如安全扫描器/工具类插件被当成非插件）。
+    # 使用前提：硬门槛已通过（bundle 清单 + topic + LICENSE），且调用方人工确认是真实插件。
+    if args.force:
+        spam = None
 
     entry = build_entry(data, args, npm_ver, npm_license)
     if enrich and enrich.get("desc_en"):
