@@ -234,6 +234,18 @@
   ]
  },
  {
+  "github": "nan1010082085",
+  "avatar": "https://avatars.githubusercontent.com/u/26052449?v=4",
+  "plugins": [
+   {
+    "name": "dsh-plugin-ima-sync",
+    "slug": "dsh-plugin-ima-sync",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "ohoyour",
   "avatar": "https://avatars.githubusercontent.com/u/73328479?v=4",
   "plugins": [

@@ -58,6 +58,7 @@ for cat, items in db.items():
 ALIASES = {
     "github.com/wwumit/dsh-skill-hub": "github.com/wwumit/dsh-compliancehub",
     "github.com/spyqwer1/dsh-imagecraft": "github.com/spyqwer1/dsh-codex-tools",
+    "github.com/nan1010082085/dsh-plugins": "github.com/nan1010082085/dsh-plugins/tree/main/packages/ima-sync",
 }
 
 # Contributors who submitted via the official discussion (not the issue form).
