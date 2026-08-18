@@ -28,11 +28,11 @@ import BlogPost from '../../../layouts/BlogPost.astro';
 
   <h2>只追加的会话日志</h2>
   <p>会话是<strong>只追加的事件日志</strong>——系统提示词、推理、工具调用、权限变化都成为事件，下一轮历史从日志重新推导。Agent 失败时能精确定位到哪一步。可观测、可审计、可复现。</p>
-  <p>测插件时我们几乎一直在用它：插件崩溃时，日志能告诉你<em>是哪个</em>事件干掉了它，而不只是一句「失败了」。完整拆解见我们的<a href="/blog/deepseek-harness-session-log/">会话日志指南</a>。</p>
+  <p>测插件时我们几乎一直在用它：插件崩溃时，日志能告诉你<em>是哪个</em>事件干掉了它，而不只是一句「失败了」。完整拆解见我们的<a href="/zh/blog/deepseek-harness-session-log/">会话日志指南</a>。</p>
 
   <h2>不锁死 DeepSeek，生态健康</h2>
   <p>支持自定义提供方（基础 URL、协议、模型列表）——你完全可以在里面跑 GLM。值得装的社区插件：<a href="https://github.com/omdsh-dev/dsh-at-file" target="_blank" rel="noopener">dsh-at-file</a>、<a href="https://github.com/omdsh-dev/dsh-genui" target="_blank" rel="noopener">dsh-genui</a>、<a href="https://github.com/titanwings/dsh-automation" target="_blank" rel="noopener">dsh-automation</a>、<a href="https://github.com/omdsh-dev/DSH-better-sidebar" target="_blank" rel="noopener">DSH-better-sidebar</a>、<a href="https://github.com/liustack/modlens" target="_blank" rel="noopener">ModLens</a>。</p>
-  <p>「健康」这个词我们决定亲自验证。我们的<a href="/plugins/directory/">插件目录</a>现在收录了<strong>在 dsh 0.1.0-rc.6 上实测过的 101 个社区插件</strong>，分布才是真正的故事：</p>
+  <p>「健康」这个词我们决定亲自验证。我们的<a href="/zh/plugins/directory/">插件目录</a>现在收录了<strong>在 dsh 0.1.0-rc.6 上实测过的 101 个社区插件</strong>，分布才是真正的故事：</p>
   <ul>
     <li><strong>11 个 npm 包</strong>——装上即用。</li>
     <li><strong>4 个</strong>——装得上，但只在 Web/TUI 环境里才做得了事。</li>
@@ -50,7 +50,7 @@ import BlogPost from '../../../layouts/BlogPost.astro';
     <li><strong><code>cannot get property "systemPrompt" without inject</code></strong>——插件代码调了 <code>ctx.systemPrompt</code> 却没声明 <code>inject: ["systemPrompt"]</code>。</li>
     <li><strong><code>allowBuilds</code> 提示</strong>——带 <code>prepare</code> 脚本的 git 插件触发 pnpm 的构建拦截；把 key 加进 <code>allowBuilds</code> 再重跑。</li>
   </ul>
-  <p>这些的一行修复都在我们的<a href="/troubleshooting/">排错指南</a>。结论不是「它坏了」——而是 DSH 是开发者优先，默认你愿意读堆栈。如果你愿意，这些报错是十分钟的小麻烦；如果不愿意，它们会像墙。</p>
+  <p>这些的一行修复都在我们的<a href="/zh/troubleshooting/">排错指南</a>。结论不是「它坏了」——而是 DSH 是开发者优先，默认你愿意读堆栈。如果你愿意，这些报错是十分钟的小麻烦；如果不愿意，它们会像墙。</p>
 
   <h2>诚实评价</h2>
   <p>系统很迷人、插件概念很强——但对开发者不友好：术语密集、学习曲线陡、UI 简陋。这是一个注重科研的团队的取舍。</p>
@@ -64,5 +64,5 @@ import BlogPost from '../../../layouts/BlogPost.astro';
   <h3>该从哪个模式开始？</h3>
   <p>标准。它是完整 Agent，最不折腾。想省 token 再上 PTC，想动手造东西才开创造模式。</p>
   <h3>怎么分辨好插件和坏插件？</h3>
-  <p>看它有没有 <code>dsh.bundle</code> 清单、是不是构建成 ESM。我们的<a href="/plugins/directory/">插件目录</a>已经替你做完了这套筛选，每个插件都标着验证状态。</p>
+  <p>看它有没有 <code>dsh.bundle</code> 清单、是不是构建成 ESM。我们的<a href="/zh/plugins/directory/">插件目录</a>已经替你做完了这套筛选，每个插件都标着验证状态。</p>
 </BlogPost>

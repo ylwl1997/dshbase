@@ -36,20 +36,20 @@ import BlogPost from '../../../layouts/BlogPost.astro';
 
   <h2>DeepSeek 原生工具：成本竞赛</h2>
   <p>有意思的竞争在这里。<strong>Pi</strong>（开源，约 8.6 万 star）靠刻意极简的设计领跑——四个默认工具、只追加会话，实测约 <strong>99.93% 前缀缓存命中率</strong>。<strong>Reasonix</strong> 采用类似的 99%+ 缓存命中架构。<strong>CodeWhale</strong> 报告约 80% token 成本降低。<strong>OpenCode</strong> 和 <strong>Kimi Code</strong> 也面向 DeepSeek 用户。</p>
-  <p>它们的共同经验：<strong>小工具集 + 只追加会话 = 便宜的 DeepSeek</strong>。见我们的<a href="/blog/pi-deepseek-cache/">缓存优化深度解析</a>。</p>
+  <p>它们的共同经验：<strong>小工具集 + 只追加会话 = 便宜的 DeepSeek</strong>。见我们的<a href="/zh/blog/pi-deepseek-cache/">缓存优化深度解析</a>。</p>
 
   <h2>DSH 的位置</h2>
-  <p>DeepSeek Harness 是官方答案：一个<strong>一切皆插件</strong>的 harness（见<a href="/blog/deepseek-harness-architecture/">架构深度解析</a>），不把你锁死在 DeepSeek 模型上。它的极简模式呼应 Pi 的理念，PTC 模式把中间数据留在上下文外省 token。与终端工具不同，DSH 是完整的<strong>框架</strong>——100+ 一方插件 + 可扩展的生态。</p>
+  <p>DeepSeek Harness 是官方答案：一个<strong>一切皆插件</strong>的 harness（见<a href="/zh/blog/deepseek-harness-architecture/">架构深度解析</a>），不把你锁死在 DeepSeek 模型上。它的极简模式呼应 Pi 的理念，PTC 模式把中间数据留在上下文外省 token。与终端工具不同，DSH 是完整的<strong>框架</strong>——100+ 一方插件 + 可扩展的生态。</p>
 
   <h2>DSH 的生态，实测数据</h2>
-  <p>喊「一切皆插件」容易，我们想知道生态到底成不成。在 dsh 0.1.0-rc.6 上，我们在<a href="/plugins/directory/">插件目录</a>里收录并实测了 <strong>101 个社区插件</strong>。结果：</p>
+  <p>喊「一切皆插件」容易，我们想知道生态到底成不成。在 dsh 0.1.0-rc.6 上，我们在<a href="/zh/plugins/directory/">插件目录</a>里收录并实测了 <strong>101 个社区插件</strong>。结果：</p>
   <ul>
     <li><strong>11 个 npm 包</strong>装上即用。</li>
     <li><strong>4 个</strong>需要 Web/TUI 环境才起效。</li>
     <li><strong>3 个</strong>直接安装失败。</li>
     <li><strong>81 个是 GitHub 源码仓库</strong>，用 <code>dsh plugin add github:owner/repo</code> 安装。</li>
   </ul>
-  <p>最后一个数字是成熟度最诚实的信号：生态大头以源码而非 registry 包分发。安装也不总顺利——我们踩到 <code>ERR_PNPM_FETCH_404</code>（npm 镜像滞后）、<code>ERR_REQUIRE_ESM</code>（CJS 插件依赖 ESM-only 包）、因缺 <code>dsh.bundle</code> 清单而装上却不激活的插件，以及 git 插件的 <code>allowBuilds</code> 构建确认提示。修复都在我们的<a href="/troubleshooting/">排错指南</a>里。</p>
+  <p>最后一个数字是成熟度最诚实的信号：生态大头以源码而非 registry 包分发。安装也不总顺利——我们踩到 <code>ERR_PNPM_FETCH_404</code>（npm 镜像滞后）、<code>ERR_REQUIRE_ESM</code>（CJS 插件依赖 ESM-only 包）、因缺 <code>dsh.bundle</code> 清单而装上却不激活的插件，以及 git 插件的 <code>allowBuilds</code> 构建确认提示。修复都在我们的<a href="/zh/troubleshooting/">排错指南</a>里。</p>
   <p>这些都不是劝退理由——是一个「才满一周、跑得飞快」的生态的代价。但如果你期待 Claude Code 那样经过审核的市场，DSH 会显得糙。</p>
 
   <h2>成本速览</h2>

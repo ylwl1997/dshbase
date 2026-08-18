@@ -13,11 +13,11 @@ import BlogPost from '../../../layouts/BlogPost.astro';
 
   <h2>可重建的会话</h2>
   <p>Codex 的会话是不透明的。DSH 的会话是<strong>只追加的事件日志</strong>——系统提示词、推理、工具调用、权限变化都成为事件，下一轮历史从日志重新推导，而不是保存在黑盒状态里。Agent 失败或死循环时，你能定位到具体跑偏的步骤。</p>
-  <p>测试期间我们比预想更依赖这一点：一个加载即崩的插件，报错能精确对应到单个事件，而不是一句笼统的「任务失败」。想了解日志里到底有什么，见我们的<a href="/blog/deepseek-harness-session-log/">会话日志拆解</a>。这是 Codex 不提供的观测优势。</p>
+  <p>测试期间我们比预想更依赖这一点：一个加载即崩的插件，报错能精确对应到单个事件，而不是一句笼统的「任务失败」。想了解日志里到底有什么，见我们的<a href="/zh/blog/deepseek-harness-session-log/">会话日志拆解</a>。这是 Codex 不提供的观测优势。</p>
 
   <h2>插件模型</h2>
   <p>Codex 让用户自定义 Skills 和 MCP，但其余是封装好的。DSH 把<strong>一切</strong>都做成插件——UI、工具、工作流，甚至 Agent 循环本身。你不是租一个 Agent，而是组装一个 Agent。</p>
-  <p>话好说，关键是生态到底成不成。我们花了时间验证。我们的<a href="/plugins/directory/">插件目录</a>已收录<strong>1100+ 个社区插件</strong>，其中包括我们在 dsh 0.1.0-rc.6 上深度实测的 101 个。结果并不全干净：</p>
+  <p>话好说，关键是生态到底成不成。我们花了时间验证。我们的<a href="/zh/plugins/directory/">插件目录</a>已收录<strong>1100+ 个社区插件</strong>，其中包括我们在 dsh 0.1.0-rc.6 上深度实测的 101 个。结果并不全干净：</p>
   <ul>
     <li><strong>11 个 npm 包</strong>装上就能用——一条 <code>dsh plugin add &lt;名字&gt;</code> 搞定。</li>
     <li><strong>4 个需要 Web/TUI 环境</strong>——装得上，但只在 Web UI 或终端 profile 里才真正起效。</li>
@@ -50,7 +50,7 @@ import BlogPost from '../../../layouts/BlogPost.astro';
     <li><strong><code>cannot get property "systemPrompt" without inject</code></strong>——插件 bug：代码调了 <code>ctx.systemPrompt</code> 却没声明 <code>inject: ["systemPrompt"]</code>。</li>
     <li><strong><code>allowBuilds</code> 提示</strong>——GitHub 托管的插件带 <code>prepare</code> 构建脚本，pnpm 默认阻止。</li>
   </ul>
-  <p>完整清单和一行修复见我们的<a href="/troubleshooting/">排错指南</a>。诚实的说法：DSH 的插件模型比 Codex 更开放，但开放意味着<em>你</em>自己就是质量把关人。Codex 由厂商替你筛选；DSH 里你得先读几条报错，才能认出「好插件」长什么样。</p>
+  <p>完整清单和一行修复见我们的<a href="/zh/troubleshooting/">排错指南</a>。诚实的说法：DSH 的插件模型比 Codex 更开放，但开放意味着<em>你</em>自己就是质量把关人。Codex 由厂商替你筛选；DSH 里你得先读几条报错，才能认出「好插件」长什么样。</p>
 
   <h2>FAQ</h2>
   <h3>DeepSeek Harness 只是 Codex 的开源复刻吗？</h3>
