@@ -48,6 +48,8 @@ const badgeAlt = p.test === 'verified' ? 'dshbase 实测可装' : 'dshbase 已�
 const badgeMd = `[![${badgeAlt}](https://dshbase.com/badges/${p.slug}.svg)](https://dshbase.com/zh/plugins/${p.slug}/)`;
 const verifyUrl = `https://github.com/ylwl1997/dshbase/issues/new?template=verification-evidence.yml&name=${encodeURIComponent(p.name)}&repo=${encodeURIComponent(p.url)}`;
 const desc = p.desc_zh || p.desc || `${cat} 类别的 DeepSeek Harness 插件。`;
+// 短功能卖点（用于 title）：取 desc_zh 第一句，限 30 字
+const shortSell = (p.desc_zh || p.desc || '').split(/[。；!?！？;]/)[0].trim().slice(0, 30);
 const fmt = (n) => (n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n ?? 0));
 const stars = p.stars ?? 0;
 const verdict = p.archived
@@ -79,7 +81,7 @@ const jsonLd = {
   ...(p.ver ? { softwareVersion: p.ver } : {}),
 };
 ---
-<Base title={`${p.name} — DSH 插件安装指南与兼容性评估 | dshbase 中文`} description={`${desc} — 如何安装 ${p.name}（${p.npm ? `dsh plugin add ${p.pkg}` : 'npm 源码'}）及其与 dsh 0.1.0-rc.6 的兼容性。`} currentPath={`/plugins/${p.slug}/`}>
+<Base title={`${p.name}：${shortSell} | dshbase`} description={`${desc} — 如何安装 ${p.name}（${p.npm ? `dsh plugin add ${p.pkg}` : 'npm 源码'}）及其与 dsh 0.1.0-rc.6 的兼容性。`} currentPath={`/plugins/${p.slug}/`}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <section class="hero wrap">
     <p class="eyebrow"><a href={dirUrl}>插件目录</a> / <a href={catUrl}>{cat}</a> / {p.name}</p>
