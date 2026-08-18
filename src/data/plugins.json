@@ -18798,7 +18798,7 @@
    "pkg": "@ohoyo/dsh-file-mention",
    "ver": "0.1.4",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness plugin: type @ to reference workspace files and directories",
    "desc_en": "DeepSeek Harness plugin: type @ to reference workspace files and directories",
    "desc_zh": "让DeepSeek Harness支持使用 @ 引用工作区中的文件和目录",
@@ -18811,7 +18811,9 @@
    "added": "2026-08-18",
    "license": "MIT",
    "slug": "ohoyo-dsh-file-mention",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Verified L1-L3 on dsh 0.1.0-rc.6 (headless). pnpm isolation caveat: bundle subpackages (@ohoyo/dsh-file-mention-host, @ohoyo/dsh-client-ui-file-mention) are not hoisted to the profile top-level; symlink them under node_modules/@ohoyo/ for headless load. Monorepo bundle at packages/bundle/cordis.patch.yml."
   }
  ],
  "AI Models": [
