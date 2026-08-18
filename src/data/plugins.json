@@ -1991,7 +1991,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Put DeepSeek Harness in your pocket: run dsh web on computer, scan QR code with phone for synchronized access (LAN + public network, real-time same screen)",
    "desc_en": "Put DeepSeek Harness in your pocket: run dsh web on computer, scan QR code with phone for synchronized access (LAN + public network, real-time same screen)",
    "desc_zh": "把 DeepSeek Harness 装进你的口袋：电脑上跑 dsh web，手机扫码即同步访问（局域网 + 公网，实时同屏）",
@@ -2008,8 +2008,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-pocket",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E). dsh web needs pty (script -qfc) to stay up; pnpm needs @deepseek-ai overrides pinned to 0.1.0-rc.6 for peer deps."
   },
   {
    "name": "deepseek-plugin-store",
@@ -5383,7 +5385,7 @@
    "pkg": "dsh-deepread",
    "ver": "0.5.4",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "AI deep-reading assistant: extract core claims, argument structure, and key evidence from books and articles. Five modes (quick, deep, knowledge map, Feynman, full book); knowledge-map reports include confidence levels, data facts, relation labels, Mermaid mindmaps, and recall questions. Reads WeChat article URLs, TXT/Markdown/HTML/PDF files, or pasted text (built-in pure-JS PDF extractor). Exports Markdown, FreeMind/XMind mindmaps, and HTML reports. DeepSeek Harness plugin.",
    "desc_en": "AI deep-reading assistant: extract core claims, argument structure, and key evidence from books and articles. Five modes (quick, deep, knowledge map, Feynman, full book); knowledge-map reports include confidence levels, data facts, relation labels, Mermaid mindmaps, and recall questions. Reads WeChat article URLs, TXT/Markdown/HTML/PDF files, or pasted text (built-in pure-JS PDF extractor). Exports Markdown, FreeMind/XMind mindmaps, and HTML reports. DeepSeek Harness plugin.",
    "desc_zh": "五种模式精读图书与文章（快速要点 / 深度精读 / 知识地图 / 费曼读书法 / 全书精读），输出「观点—证据—数据—关系」报告与四档置信度；支持公众号链接、PDF（内置纯 JS 提取器）与粘贴文本；批量对比、预算预检与后台任务进度透明；可导出 MD / FreeMind 思维导图 / HTML 报告。",
@@ -5400,9 +5402,11 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-deepread",
-   "webonly": true,
+   "webonly": false,
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E). dsh web needs pty (script -qfc) to stay up; pnpm needs @deepseek-ai overrides pinned to 0.1.0-rc.6 for peer deps."
   },
   {
    "name": "dsh-token-cost",
@@ -27716,7 +27720,7 @@
    "pkg": "dsh-interconnect",
    "ver": "0.1.0",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "Cross-instance message and event handoff plugins for DSH (interconnect service + tools).",
    "desc_en": "Cross-instance message and event handoff plugins for DSH (interconnect service + tools).",
    "desc_zh": "DSH 跨实例消息/事件交接插件（interconnect 服务 + 工具）。",
@@ -27733,9 +27737,11 @@
    ],
    "trust": "Silver",
    "slug": "dsh-interconnect",
-   "webonly": true,
+   "webonly": false,
    "platform": "any",
-   "bareNpm": "install-fail"
+   "bareNpm": "install-fail",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E). dsh web needs pty (script -qfc) to stay up; pnpm needs @deepseek-ai overrides pinned to 0.1.0-rc.6 for peer deps."
   },
   {
    "name": "dsh-message-edit",
