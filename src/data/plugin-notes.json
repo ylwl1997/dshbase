@@ -13726,5 +13726,13 @@
     "use_zh": "把 dsh 跑成原生桌面应用——独立窗口、托盘图标、快捷键——而不是浏览器标签。",
     "aud_zh": "想要已安装应用的感觉和系统集成（托盘、全局热键、开机自启）的人。",
     "dev_zh": "原生壳是缝——加全局快捷键、通知、单实例锁或按 OS 定制的行为。"
+  },
+  "@ohoyo/dsh-file-mention": {
+    "use": "Extend the agent's coding surface — give it a new tool, workflow, or integration so it handles a dev task it couldn't before.",
+    "aud": "Developers who want dsh to behave like a teammate on real codebases — editing, running, and verifying changes rather than just answering.",
+    "dev": "The tool/command surface is the seam: expose more of the SDK, add smarter context wiring, or tighten the loop between code changes and verification.",
+    "use_zh": "扩展 agent 的编码能力面——给它一个新工具、工作流或集成，让它接手以前做不了的开发任务。",
+    "aud_zh": "想让 dsh 在真实代码库上像队友一样干活的开发者——能改、能跑、能验证，而不只是回答问题。",
+    "dev_zh": "工具/命令面就是缝：暴露更多 SDK 能力、加更聪明的上下文接线，或收紧改代码与验证之间的循环。"
   }
 }
