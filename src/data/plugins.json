@@ -55,7 +55,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "One-click install + model switch:Claude Code,Codex CLI (OpenAI), Grok Build (xAI), DeepSeek Harness, Kimi Code (Moonshot) ,Qwen Code,Aider,OpenCode,MiMo Code (Xiaomi),ZCode (Z.AI),OpenClaw,Pi,OpenScience,Vibe-Trading,Claude Desktop (3P profile),ChatGPT desktop,OpenCode Desktop,",
    "desc_en": "One-click install + model switch:Claude Code,Codex CLI (OpenAI), Grok Build (xAI), DeepSeek Harness, Kimi Code (Moonshot) ,Qwen Code,Aider,OpenCode,MiMo Code (Xiaomi),ZCode (Z.AI),OpenClaw,Pi,OpenScience,Vibe-Trading,Claude Desktop (3P profile),ChatGPT desktop,OpenCode Desktop,",
    "desc_zh": "一键安装和模型切换：支持Claude Code、Codex CLI等众多工具。",
@@ -72,7 +72,10 @@
    ],
    "trust": "Silver",
    "slug": "EchoBird",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "modlens",
@@ -274,7 +277,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "sandbase-harness",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "MuseAI",
@@ -431,7 +436,9 @@
    ],
    "trust": "Silver",
    "slug": "oh-dsh",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 load-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-browser",
@@ -505,7 +512,9 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "oh-dsh-desktop",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 load-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-visualize",
@@ -760,7 +769,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-super-injector",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "seeWxapkg",
@@ -1231,7 +1242,9 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-multica-runtime",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-find-plugin",
@@ -1381,7 +1394,9 @@
    ],
    "trust": "Silver",
    "slug": "deepseek-app",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-stock-watch",
@@ -1730,7 +1745,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-code",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-im",
@@ -1909,7 +1926,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-tianshu-build",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "meoo-cli",
@@ -1973,7 +1992,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "A zero-dependency DSH tool collection: time, encoding, json, calculator, csv, regex, markdown, diff, stat, and schema — ten deterministic tools installed from one entry point.",
    "desc_en": "A zero-dependency DSH tool collection: time, encoding, json, calculator, csv, regex, markdown, diff, stat, and schema — ten deterministic tools installed from one entry point.",
    "desc_zh": "DSH 零依赖工具包集合：time / encoding / json / calculator / csv / regex / markdown / diff / stat / schema 十个确定性工具，统一入口一键安装。",
@@ -1988,7 +2007,10 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-toolkit",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-pocket",
@@ -2113,7 +2135,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-user-experience",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-theme-plugin",
@@ -2270,7 +2294,9 @@
    "trust": "Silver",
    "slug": "dsh-codex",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-lark-link",
@@ -2381,7 +2407,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-web-review",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-plugin-hub",
@@ -2427,7 +2455,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-AuthInOne",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-gui-customization",
@@ -2513,7 +2543,7 @@
    "pkg": "dsh-green-meter",
    "ver": "",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "Energy & carbon metering for DeepSeek Harness: per-turn/per-request energy, cache carbon savings, electricity cost.",
    "desc_en": "Energy & carbon metering for DeepSeek Harness: per-turn/per-request energy, cache carbon savings, electricity cost.",
    "desc_zh": "能源与碳计量：每次请求能耗、缓存碳节省、电费",
@@ -2529,7 +2559,10 @@
    "trust": "Silver",
    "slug": "dsh-green-meter",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "webonly": false,
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh_plugin_swift_cycle",
@@ -2795,7 +2828,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "deepseek-harness-genui",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "deepseek-harness-action",
@@ -3152,7 +3187,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-harmony",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "reef",
@@ -3466,7 +3503,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-interpreters",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-pluginmanager",
@@ -3768,7 +3807,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-notification-center",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-bash-win",
@@ -3872,7 +3913,9 @@
    ],
    "trust": "Silver",
    "slug": "snapgrep",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-skill-picker",
@@ -3923,7 +3966,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-oauth-mcp-client",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-git-identity",
@@ -4365,7 +4410,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-bash-encoding",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-director-toolkit",
@@ -4388,7 +4435,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-director-toolkit",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-huadongbianzuqi",
@@ -4411,7 +4460,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-huadongbianzuqi",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "task-passport",
@@ -4586,7 +4637,9 @@
    ],
    "trust": "Unrated",
    "slug": "DIzzy-DSH",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-us-stocks",
@@ -5032,7 +5085,9 @@
    ],
    "trust": "Silver",
    "slug": "DSH-Telegram-Relay",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-annotate",
@@ -5157,7 +5212,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-github-login",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-from-scratch",
@@ -5332,7 +5389,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "wanjiqi-meme",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-plugin-msg-nav",
@@ -5484,7 +5543,9 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-llm-wechat",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 load-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-updater-ui",
@@ -5926,7 +5987,9 @@
    "trust": "Silver",
    "slug": "dsh-expression",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "DeepSeek-Harness-Skill",
@@ -6259,7 +6322,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tensorlake-sandbox",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "DSH-telegram",
@@ -6389,7 +6454,9 @@
    "trust": "Silver",
    "slug": "dsh-llm-oauth",
    "desc": "OAuth / subscription access for Grok, Codex, GitHub Copilot and other LLMs in DSH.",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-im-bridge",
@@ -6545,7 +6612,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "DSH-changeproof",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-plugin-marketplace",
@@ -6848,7 +6917,9 @@
    ],
    "trust": "Silver",
    "slug": "tuning-engines-cli",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-better-edit",
@@ -6873,7 +6944,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-better-edit",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-pentest",
@@ -7002,7 +7075,9 @@
    ],
    "trust": "Unrated",
    "slug": "Qwen-MM-Plugins",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-tool-turbo",
@@ -7102,7 +7177,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-plugin",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "deepseek-harness-openai-oauth",
@@ -7477,7 +7554,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-fun-ticker",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-tool-vision",
@@ -7753,7 +7832,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-usage-meter",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-plugin-store",
@@ -7959,7 +8040,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-notify-sound",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-notebooks",
@@ -8062,7 +8145,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-workspace-mcp",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dib",
@@ -8136,7 +8221,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-forge",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-docker",
@@ -8283,7 +8370,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-notifacation-frame",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "raphael-loop",
@@ -8533,7 +8622,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-obsidian-assistant",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "graphlint",
@@ -8710,7 +8801,9 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "sandbox-micro",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "sandbox-nono",
@@ -8736,7 +8829,9 @@
    ],
    "trust": "Unrated",
    "slug": "sandbox-nono",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-plugin-cost-tracker",
@@ -8838,7 +8933,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-daily-fortune",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-fun-typewriter",
@@ -8861,7 +8958,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-fun-typewriter",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-pet-corner",
@@ -8887,7 +8986,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-pet-corner",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-music-plugin",
@@ -9828,7 +9929,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Image understanding, OCR, and persistent visual evidence for text-only DeepSeek Harness models",
    "desc_en": "Image understanding, OCR, and persistent visual evidence for text-only DeepSeek Harness models",
    "desc_zh": "图像理解、OCR、持久视觉证据",
@@ -9846,7 +9947,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-deepseek-vision",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-cost-tracker",
@@ -10604,7 +10708,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-skill-hub",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-file-mention",
@@ -10702,7 +10808,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-remote-tunnel",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "MistyMoon-DSH",
@@ -10725,7 +10833,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "MistyMoon-DSH",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-all-warmup",
@@ -11107,7 +11217,9 @@
    ],
    "trust": "Silver",
    "slug": "mindspace-dsh-local-rag",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-pi",
@@ -11206,7 +11318,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-onebot",
-   "platform": "any"
+   "platform": "any",
+   "webonly": true,
+   "note": "web L3 web-only on dsh 0.1.0-rc.6 (headless lacks GUI service, needs web runtime)."
   },
   {
    "name": "knowlp-rag",
@@ -11280,7 +11394,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-file-mount",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-plugin-market",
@@ -11565,7 +11681,9 @@
    ],
    "trust": "Unrated",
    "slug": "sandbox-mxc",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "web-components",
@@ -11747,7 +11865,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "dsh-plugin-pixluna | Let DSH look at lewd images itself!",
    "desc_en": "dsh-plugin-pixluna | Let DSH look at lewd images itself!",
    "desc_zh": "dsh-plugin-pixluna — DSH 插件（工具）",
@@ -11764,7 +11882,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-pixluna",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-soul-md",
@@ -12005,7 +12126,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "nebula v5 plugin for deepseek harness",
    "desc_en": "nebula v5 plugin for deepseek harness",
    "desc_zh": "nebula v5 插件",
@@ -12023,7 +12144,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-nebulagraph-v5",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "glm4v-vision-mcp",
@@ -12271,7 +12395,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-trace",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-onlyne",
@@ -12454,7 +12580,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-remote-ssh",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "deepseek-harness-typescript-sdk",
@@ -12738,7 +12866,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-change-center",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-o11y-plugin",
@@ -12761,7 +12891,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-o11y-plugin",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-engineering-services",
@@ -12784,7 +12916,9 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-engineering-services",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "pack-agent-dsh",
@@ -12918,7 +13052,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-xai",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-vqa-agent",
@@ -13341,7 +13477,7 @@
   },
   {
    "platform": "any",
-   "test": "pending",
+   "test": "verified",
    "name": "dsh-sandbox-tester",
    "url": "https://github.com/Sutera-Diffusus/dsh-sandbox-tester",
    "pkg": "",
@@ -13363,7 +13499,10 @@
     "Terminal / Shell"
    ],
    "trust": "Unrated",
-   "slug": "dsh-sandbox-tester"
+   "slug": "dsh-sandbox-tester",
+   "webonly": false,
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "noatmark-dsh-plugin",
@@ -13648,7 +13787,9 @@
    ],
    "trust": "Silver",
    "slug": "jumpserver-dsh",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-payload-capture",
@@ -13987,7 +14128,9 @@
    "trust": "Silver",
    "slug": "dsh-cloudflare-browser-run",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-all-search",
@@ -14445,7 +14588,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-turn-meta",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-batch-regression",
@@ -15063,7 +15208,9 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-pain-point-check",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 load-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-plugin-automations",
@@ -15089,7 +15236,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-plugin-automations",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-container",
@@ -16732,7 +16881,9 @@
    ],
    "trust": "Unrated",
    "slug": "DSH-plugin-switch",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "deepseek-harness-sdk-rs",
@@ -16884,7 +17035,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-capability-inspector",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-md-table-formatter",
@@ -16907,7 +17060,9 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-md-table-formatter",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-agency-agents",
@@ -17007,7 +17162,9 @@
    ],
    "trust": "Silver",
    "slug": "dshp",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-lazy-tools",
@@ -17030,7 +17187,9 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-lazy-tools",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-rules-paths",
@@ -17082,7 +17241,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-manager-registry",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "deepseek-harness-plugins",
@@ -17233,7 +17394,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-rag",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-turn-budget",
@@ -17384,7 +17547,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-oauth-api",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-win-launchscript",
@@ -18016,7 +18181,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-geo",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-api-usage-bar",
@@ -18459,7 +18626,9 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-interrupt-send",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "ucloud-dsh-plugin",
@@ -18833,7 +19002,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Credential encryption plugin for DeepSeek Harness WebUI admin password",
    "desc_en": "Credential encryption plugin for DeepSeek Harness WebUI admin password",
    "desc_zh": "DeepSeek Harness 的 WebUI 管理密码的凭证加密插件。",
@@ -18848,7 +19017,10 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "DSH-Encrypt",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-plugin-tools",
@@ -18993,7 +19165,9 @@
    ],
    "trust": "Silver",
    "slug": "wesight",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "Deepseek-Harness-EAC",
@@ -19044,7 +19218,9 @@
    ],
    "trust": "Silver",
    "slug": "mnemon",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "deepseek-harness-studio",
@@ -19069,7 +19245,9 @@
    ],
    "trust": "Silver",
    "slug": "deepseek-harness-studio",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "argo",
@@ -19282,7 +19460,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-multica-runtime-2",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "skills",
@@ -19463,7 +19643,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-plugin-aigc-canvas",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-plugin-yet-another-subagent",
@@ -19489,7 +19671,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-yet-another-subagent",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-plugin-auto-blame",
@@ -19512,7 +19696,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugin-auto-blame",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "internalcot",
@@ -19585,7 +19771,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-mini-tui",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "SumSec-Skills",
@@ -19593,7 +19781,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "SummerSec personal custom Skill repository.",
    "desc_en": "SummerSec personal custom Skill repository.",
    "desc_zh": "SummerSec 个人自定义Skill仓库",
@@ -19608,7 +19796,10 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "SumSec-Skills",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-free-search",
@@ -19659,7 +19850,9 @@
    ],
    "trust": "Unrated",
    "slug": "molibot",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "xiaoliuren-skill",
@@ -20092,7 +20285,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "mcp-sentinel",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-ernie-image",
@@ -20119,7 +20314,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-ernie-image",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-voice-funasr",
@@ -20142,7 +20339,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-voice-funasr",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-meta-orchestrator",
@@ -20293,7 +20492,9 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-model-failover",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-task-relay",
@@ -20341,7 +20542,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-expert-mode",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "deepseek-harness-huggingface",
@@ -20488,7 +20691,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-koboldcpp-hands",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "DSH_plugins_4U",
@@ -20716,7 +20921,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "agent-plaza",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "evo-memory",
@@ -20742,7 +20949,9 @@
    ],
    "trust": "Silver",
    "slug": "evo-memory",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "deepseek-plugins",
@@ -21011,7 +21220,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-agent-memory",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   }
  ],
  "UI & Skins": [
@@ -21295,7 +21506,9 @@
    ],
    "trust": "Silver",
    "slug": "engramory",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-genui",
@@ -22376,7 +22589,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "deepseek-harness-ux",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "touhou-hakurei",
@@ -22424,7 +22639,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-stock-market",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-qq2006",
@@ -22447,7 +22664,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-qq2006",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 load-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-git-graph",
@@ -22683,7 +22902,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Session completion + 4-state notifications",
    "desc_en": "Session completion + 4-state notifications",
    "desc_zh": "会话完成等四状态通知",
@@ -22700,7 +22919,10 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-session-notification",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-outline",
@@ -22872,7 +23094,9 @@
    ],
    "trust": "Silver",
    "slug": "seektty",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-visual-plugin",
@@ -23890,7 +24114,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-xiaohei",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-aemeath-pet",
@@ -24172,7 +24398,9 @@
    "trust": "Silver",
    "slug": "dsh-web-open",
    "desc": "Auto-open the browser when dsh web starts — no manual URL copy.",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 load-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-workshop",
@@ -24198,7 +24426,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-workshop",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-gadgets",
@@ -24620,7 +24850,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-fun-weather",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-skin-claude-code",
@@ -24793,7 +25025,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-web-theme-packs",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-hotreload-plugin-manager",
@@ -24893,7 +25127,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-101",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-plugin-suite",
@@ -24971,7 +25207,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-auto-chess",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-webUI-Glass-Theme",
@@ -25734,7 +25972,9 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "ex-setting",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-whale-subagent",
@@ -25782,7 +26022,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-home-ui",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "WhaleKit",
@@ -26125,7 +26367,9 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-ui-skins",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-pixel-whale",
@@ -26735,7 +26979,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-custom-css",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-tonghuashun",
@@ -26815,7 +27061,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-client-ui-trajectory-categories",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 load-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-restart-web",
@@ -26921,7 +27169,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-custom-workspace",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 load-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-wallpaper",
@@ -26972,7 +27222,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-skills-viewer",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-client-ui-peak-valley",
@@ -27048,7 +27300,9 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-client-ui-settings-skills",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-client-ui-filesystem",
@@ -27073,7 +27327,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-client-ui-filesystem",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-ui-topbar-compact",
@@ -27554,7 +27810,9 @@
    ],
    "trust": "Silver",
    "slug": "graph-memory",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "MisakaNet",
@@ -27581,7 +27839,9 @@
    ],
    "trust": "Silver",
    "slug": "MisakaNet",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-handbook",
@@ -28221,7 +28481,9 @@
    ],
    "trust": "Silver",
    "slug": "powercontext-dsh",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-archived-sessions",
@@ -28424,7 +28686,9 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-evolve",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "DeepSeek-Harness-billing-plugin",
@@ -28576,7 +28840,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-md-notes",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-web-archive",
@@ -29858,7 +30124,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-learn-everything",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-llm-wiki",
@@ -29884,7 +30152,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-llm-wiki",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-openviking",
@@ -30064,7 +30334,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-revive",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-usage-plugin",
@@ -30478,7 +30750,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-teacher",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-subagent-admission",
@@ -30765,7 +31039,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "gongwen-skill",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-mcp",
@@ -31123,7 +31399,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-goal-mode-enhance",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-opencode-usage",
@@ -31531,7 +31809,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-obsidian-export",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 load-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "DSHwiki",
@@ -31761,7 +32041,9 @@
    "trust": "Silver",
    "slug": "dsh-nocturne-memory",
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-claude-mem",
@@ -31786,7 +32068,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-claude-mem",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-plugin-wepre",
@@ -32914,7 +33198,9 @@
    ],
    "trust": "Silver",
    "slug": "find-dsh-plugins",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-auto-compact",
@@ -33046,7 +33332,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness Desktop App: a local AI desktop workspace for DSH Sessions, projects, files, web research, plugins, and Office artifacts.",
    "desc_en": "DeepSeek Harness Desktop App: a local AI desktop workspace for DSH Sessions, projects, files, web research, plugins, and Office artifacts.",
    "desc_zh": "DeepSeek Harness 桌面应用：本地 AI 桌面工作区，用于 DSH 会话、项目、文件、网络研究、插件和 Office 工件。",
@@ -33064,7 +33350,10 @@
    ],
    "trust": "Silver",
    "slug": "deepseek-harness-desktop-app",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "Deepseek-Harness-Desktop",
@@ -33235,7 +33524,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "Tydora",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dshcode",
@@ -33258,7 +33549,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dshcode",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "DSH-Desktop",
@@ -33668,7 +33961,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-live2d-pets",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-desktop",
@@ -33796,7 +34091,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-net-access",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-notify-windows",
@@ -34308,7 +34605,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness (DSH) desktop client: double-click to use, bundled backend, tray resident, sync with official releases",
    "desc_en": "DeepSeek Harness (DSH) desktop client: double-click to use, bundled backend, tray resident, sync with official releases",
    "desc_zh": "DeepSeek Harness (DSH) desktop client: double-click to use, bundled backend, tray resident, sync with official releases | DSH 桌面客户端, 双击即用, 内置后端",
@@ -34323,7 +34620,10 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "DeepSeekHarness----Desktop",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "deepseek-launcher",
@@ -34442,7 +34742,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-jingling",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-desk-pet",
@@ -35350,7 +35652,9 @@
     "Session"
    ],
    "trust": "Unrated",
-   "slug": "dsh-pet-codex"
+   "slug": "dsh-pet-codex",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   }
  ],
  "Automation": [
@@ -35916,7 +36220,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-record-replay",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-track",
@@ -36146,7 +36452,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-self-control-guard",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-landscape",
@@ -36347,7 +36655,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-book2skill",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-a2a",
@@ -36427,7 +36737,7 @@
    "pkg": "dsh-auto-approval",
    "ver": "0.1.0",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "(no description)",
    "desc_en": "(no description)",
    "desc_zh": "（无描述）",
@@ -36443,7 +36753,10 @@
    "trust": "Unrated",
    "slug": "dsh-auto-approval",
    "platform": "any",
-   "bareNpm": "install-fail"
+   "bareNpm": "install-fail",
+   "webonly": false,
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-trajectory-governance",
@@ -36583,7 +36896,7 @@
    "pkg": "dsh-plugin-finder",
    "ver": "0.1.1",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "Natural-language plugin search for DeepSeek Harness — ask what you need, get matching dsh.so plugins with install commands.",
    "desc_en": "Natural-language plugin search for DeepSeek Harness — ask what you need, get matching dsh.so plugins with install commands.",
    "desc_zh": "自然语言插件搜索，返回匹配插件及安装命令",
@@ -36599,7 +36912,10 @@
    "trust": "Unrated",
    "slug": "dsh-plugin-finder",
    "platform": "any",
-   "bareNpm": "install-fail"
+   "bareNpm": "install-fail",
+   "webonly": false,
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-smarthome",
@@ -37450,7 +37766,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-discord",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-playwright-cli",
@@ -37742,7 +38060,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-governance",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "DSH-Chrome-devtools",
@@ -38204,7 +38524,9 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-role-router",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-story",
@@ -39028,7 +39350,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-web-search-pro",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-IDE",
@@ -39350,7 +39674,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-peer-link",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-usage-chart",
@@ -39753,7 +40079,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-agent-messaging",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-balance-float",
@@ -40577,7 +40905,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-msg-edit",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-lan-uuid-fix",
@@ -40629,7 +40959,9 @@
    ],
    "trust": "Silver",
    "slug": "voyager",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "DSHBox",
@@ -40728,7 +41060,9 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-better-deepseek",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "deepseek-harness-android-app",
@@ -40978,7 +41312,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-web-search-tavily",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-prevent-scd",
@@ -41059,7 +41395,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-TUI",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-gitbash-preset",
@@ -41215,7 +41553,9 @@
    ],
    "trust": "Silver",
    "slug": "turtle-ui",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-oc",
@@ -41240,7 +41580,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-oc",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-tui-plugin-OhMyPi",
@@ -41265,7 +41607,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tui-plugin-OhMyPi",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-tui",
@@ -41422,7 +41766,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-claude-tui",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "cli",
@@ -41498,7 +41844,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-atuin",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "DSH-Terminal",
@@ -41551,7 +41899,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-wending-ssh-manager",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-win32",
@@ -41606,7 +41956,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-memory-system",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-files",
@@ -42238,7 +42590,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-paddle-ocr",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "GrassVison",
@@ -42517,7 +42871,9 @@
    ],
    "trust": "Silver",
    "slug": "free-vision-skill",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-tesseract-ocr",
@@ -42822,7 +43178,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-Remote",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "ds-api-usage",
@@ -42982,7 +43340,9 @@
    ],
    "trust": "Unrated",
    "slug": "session-persistence-rdb",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-longbridge",
@@ -43005,7 +43365,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-longbridge",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-lineage",
@@ -43367,7 +43729,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-approve-for-me",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-plugin-anti-ads",
@@ -43443,7 +43807,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-audit",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-cyber-sec",
@@ -43518,7 +43884,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-security-suite",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-sandbox-audit",
@@ -43805,7 +44173,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-daily-progress",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-calendar",
@@ -43911,7 +44281,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-side-workspace",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-awiki",
@@ -44192,7 +44564,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-promotion-toolkit",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-ikun-pet",
@@ -44264,7 +44638,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "write-chinese-long-screenplay",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-tool-writing",
@@ -44490,7 +44866,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "lx_music-for-dsh",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-bilibili",
@@ -44594,7 +44972,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-codex-canvas",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   }
  ]
 }

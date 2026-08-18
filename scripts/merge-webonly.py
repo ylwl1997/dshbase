@@ -51,12 +51,20 @@ def main():
                 add = "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
                 p["note"] = note + "\n" + add if note else add
                 updated["ok"] += 1
+            elif st == "web-only":
+                # 装+载通过，headless 缺 GUI 服务（web/全运行时插件）——不算失败
+                p["test"] = "pending"
+                p["webonly"] = True
+                note = p.get("note", "")
+                add = "web L3 web-only on dsh 0.1.0-rc.6 (headless lacks GUI service, needs web runtime)."
+                p["note"] = note + "\n" + add if note else add
+                updated["web-only"] = updated.get("web-only", 0) + 1
             else:
                 p["test"] = "pending"
                 note = p.get("note", "")
                 add = f"web L3 {st} on dsh 0.1.0-rc.6 (CDP E2E)."
                 p["note"] = note + "\n" + add if note else add
-                updated[st] += 1
+                updated[st] = updated.get(st, 0) + 1
 
     json.dump(db, open(DATA, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(json.dumps(updated, ensure_ascii=False))
