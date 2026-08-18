@@ -50,10 +50,15 @@ make_workspace() {
   } > "$PROF_ROOT/$prof/pnpm-workspace.yaml"
 }
 
-# 启动/停止 web 服务（用指定 profile 和端口）
+# 启动/停止 web 服务（用指定 profile 和端口；并行时只杀自己的 profile）
 web_stop() {
-  pkill -f 'dsh --profile v_' 2>/dev/null
-  pkill -f 'dsh web' 2>/dev/null
+  local prof="${1:-}"
+  if [ -n "$prof" ]; then
+    pkill -f "dsh --profile $prof" 2>/dev/null
+  else
+    pkill -f 'dsh --profile v_' 2>/dev/null
+    pkill -f 'dsh web' 2>/dev/null
+  fi
   sleep 2
 }
 
@@ -92,7 +97,7 @@ verify_one() {
       "$src" > "$logf" 2>&1; then
     if timeout 90 dsh --profile "$prof" --dump-config >/dev/null 2>>"$logf"; then
       # 3. L3: boot web + CDP 端到端
-      web_stop
+      web_stop "$prof"
       local port=$((WEB_PORT + 0))
       if web_boot "$prof" "$port"; then
         if (cd "$WEBVERIFY_DIR" && timeout 100 node l3.mjs \
@@ -101,10 +106,10 @@ verify_one() {
         else
           status="runtime-fail"
         fi
-        web_stop
+        web_stop "$prof"
       else
         status="runtime-fail"   # web 没起来
-        web_stop
+        web_stop "$prof"
       fi
     else
       status="load-fail"
