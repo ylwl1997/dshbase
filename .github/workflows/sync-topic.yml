@@ -24,6 +24,7 @@ jobs:
           python scripts/gen-repos.py
           python scripts/gen-sitemap.py
           python scripts/gen-badges.py
+          python scripts/fetch-contributors.py > /tmp/contributors.log 2>&1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -31,7 +32,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/plugins.json src/data/sync-date.json functions/api/repos.js functions/badges/data.js public/sitemap.xml
+          git add src/data/plugins.json src/data/sync-date.json functions/api/repos.js functions/badges/data.js public/sitemap.xml src/data/contributors.json
           if git diff --cached --quiet; then
             echo "no change"
           else

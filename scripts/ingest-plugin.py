@@ -5,7 +5,7 @@
   GITHUB_TOKEN=xxx python scripts/ingest-plugin.py https://github.com/owner/repo \
       --category "UI Enhancements" --npm "@scope/pkg" --desc-zh "中文描述"
 
-- 验证：仓库存在 / dsh-plugin topic / LICENSE / bundle 清单（cordis.patch.yml 等）
+- 验证：仓库存在 / dsh-plugin topic / LICENSE / bundle 清单（cordis.patch.yml 等，递归查子目录支持 monorepo）
 - 收录：写入 src/data/plugins.json，全局去重（按 name 和 repo）
 - 输出：--json 时输出 JSON 结果供自动化使用，否则打印人类可读文本
 
@@ -14,6 +14,7 @@
 import argparse
 import json
 import os
+import posixpath
 import re
 import sys
 import urllib.request
@@ -21,6 +22,7 @@ from datetime import datetime
 
 DATA = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src", "data", "plugins.json"))
 API = "https://api.github.com"
+NPM = "https://registry.npmjs.org"
 BUNDLE_FILES = ("cordis.patch.yml", "cordis.yml", "dsh.bundle.patch", "dsh.bundle", "dsh.bundle.yml")
 
 CATEGORIES = [
@@ -66,11 +68,29 @@ def fetch_repo(repo):
 
 
 def fetch_files(repo):
+    """递归列出仓库 blob 路径（monorepo 子目录的 bundle 清单也能命中）。"""
     try:
-        items = gh(f"/repos/{repo}/contents/")
-        return [f.get("name", "") for f in items if isinstance(f, dict)]
+        meta = gh(f"/repos/{repo}")
+        branch = meta.get("default_branch") or "main"
+        tree = gh(f"/repos/{repo}/git/trees/{branch}?recursive=1")
+        return [t.get("path", "") for t in tree.get("tree", []) if t.get("type") == "blob"]
     except Exception:
-        return []
+        try:
+            items = gh(f"/repos/{repo}/contents/")
+            return [f.get("name", "") for f in items if isinstance(f, dict)]
+        except Exception:
+            return []
+
+
+def fetch_npm(pkg):
+    """查 npm registry，返回 (license, latest_version)。失败返回 (None, '')."""
+    try:
+        url = NPM + "/" + pkg.replace("/", "%2F")
+        with urllib.request.urlopen(url, timeout=20) as r:
+            d = json.loads(r.read().decode("utf-8"))
+        return (d.get("license"), d.get("dist-tags", {}).get("latest", ""))
+    except Exception:
+        return (None, "")
 
 
 def fetch_readme(repo):
@@ -121,6 +141,13 @@ def llm_enrich(name, readme):
         return None
 
 
+def make_slug(name):
+    """scoped 名 @owner/pkg -> owner-pkg（URL 安全），普通名原样。"""
+    if name.startswith("@"):
+        return name.lstrip("@").replace("/", "-")
+    return name
+
+
 def verify(repo, data, files):
     """返回 (ok, issues, data)。issues 是缺失项列表。"""
     issues = []
@@ -129,19 +156,20 @@ def verify(repo, data, files):
         issues.append("仓库未加 `dsh-plugin` topic")
     if not data.get("license"):
         issues.append("无 LICENSE 许可")
-    if not any(f in files for f in BUNDLE_FILES):
+    if not any(posixpath.basename(f) in BUNDLE_FILES for f in files):
         issues.append("无 bundle 清单（cordis.patch.yml 等）")
     return (len(issues) == 0, issues, data)
 
 
-def build_entry(data, args):
+def build_entry(data, args, npm_ver="", npm_license=None):
     desc_en = (data.get("description") or "").strip()
     is_npm = bool(args.npm)
+    name = args.name or data["name"]
     return {
-        "name": args.name or data["name"],
+        "name": name,
         "url": data["html_url"],
         "pkg": args.npm or "",
-        "ver": "",
+        "ver": npm_ver,
         "npm": is_npm,
         "test": "pending",
         "desc": desc_en or args.desc_zh or "",
@@ -154,6 +182,9 @@ def build_entry(data, args):
         "updated": (data.get("pushed_at") or "")[:10],
         "archived": bool(data.get("archived")),
         "added": datetime.now().isoformat(timespec='seconds'),
+        "license": npm_license or (data.get("license") or {}).get("spdx_id") or "",
+        "slug": make_slug(name),
+        "platform": "any",
     }
 
 
@@ -208,6 +239,11 @@ def main():
     _, issues, data = verify(repo, data, files)
     name = args.name or data["name"]
 
+    # npm 元数据（license + 版本）
+    npm_ver, npm_license = "", None
+    if args.npm:
+        npm_license, npm_ver = fetch_npm(args.npm)
+
     # 软判断：DeepSeek 生成描述/分类 + 垃圾检测（缺 topic/license/bundle 不拦截，仅标注）
     spam = None
     enrich = llm_enrich(name, fetch_readme(repo))
@@ -220,7 +256,7 @@ def main():
         if not enrich.get("is_real_plugin", True):
             spam = enrich.get("spam_reason") or "看起来不是真正的 dsh 插件（蹭 dsh-plugin topic）"
 
-    entry = build_entry(data, args)
+    entry = build_entry(data, args, npm_ver, npm_license)
     if enrich and enrich.get("desc_en"):
         entry["desc_en"] = enrich["desc_en"]
         entry["desc"] = enrich["desc_en"]
