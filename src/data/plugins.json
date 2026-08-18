@@ -11319,8 +11319,8 @@
    "trust": "Silver",
    "slug": "dsh-onebot",
    "platform": "any",
-   "webonly": true,
-   "note": "web L3 web-only on dsh 0.1.0-rc.6 (headless lacks GUI service, needs web runtime)."
+   "webonly": false,
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6: declares dsh.client platform=web and injects @deepseek-ai/dsh-client-runtime, but its bundle loader conflicts with dsh-web-app (duplicate loader entry id: code-runtime). Needs a web runtime that exposes code-runtime; cannot be validated with standard dsh web (base+web-app)."
   },
   {
    "name": "knowlp-rag",
