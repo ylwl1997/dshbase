@@ -25,11 +25,14 @@ YEOF
   chmod 600 "$HOME/.dsh/.credentials.yaml"
 fi
 
-# 1. 生成待验证列表：name<TAB>source（或使用外部列表 VERIFY_LIST）
+# 1. 生成待验证列表：name<TAB>source（或使用外部列表 VERIFY_LIST）。
+#    列表用 PID 隔离，避免多实例并行时互相覆盖 /tmp/verify-list.tsv。
 if [ -n "${VERIFY_LIST:-}" ] && [ -f "$VERIFY_LIST" ]; then
-  cp "$VERIFY_LIST" /tmp/verify-list.tsv
+  LIST_FILE="/tmp/verify-list-$$.tsv"
+  tr -d '\r' < "$VERIFY_LIST" > "$LIST_FILE"   # 去 CR（Windows 行尾）
 else
-"$PYTHON" - "$DATA" <<'PYEOF' > /tmp/verify-list.tsv
+  LIST_FILE="/tmp/verify-list-$$.tsv"
+"$PYTHON" - "$DATA" <<'PYEOF' > "$LIST_FILE"
 import json, re, sys, os
 d = json.load(open(sys.argv[1], encoding='utf-8'))
 filt = os.environ.get('VERIFY_FILTER', '')
@@ -61,7 +64,7 @@ for name, src in out:
 PYEOF
 fi
 
-total=$(wc -l < /tmp/verify-list.tsv)
+total=$(wc -l < "$LIST_FILE")
 echo "待验证: $total 个（并行 $WORKERS 路）" >&2
 
 # 2. 单插件验证函数
@@ -173,6 +176,6 @@ PYEOF
 export -f verify_one
 
 # 3. 并行执行
-cat /tmp/verify-list.tsv | xargs -P "$WORKERS" -n 2 bash -c 'verify_one "$0" "$1"' > "${VERIFY_OUT:-/tmp/verify-results.tsv}"
+cat "$LIST_FILE" | xargs -P "$WORKERS" -n 2 bash -c 'verify_one "$0" "$1"' > "${VERIFY_OUT:-/tmp/verify-results.tsv}"
 
 echo "=== 结果文件 ${VERIFY_OUT:-/tmp/verify-results.tsv} ===" >&2
