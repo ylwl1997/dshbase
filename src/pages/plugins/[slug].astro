@@ -50,7 +50,7 @@ const badgeMd = `[![${badgeAlt}](https://dshbase.com/badges/${p.slug}.svg)](http
 const verifyUrl = `https://github.com/ylwl1997/dshbase/issues/new?template=verification-evidence.yml&name=${encodeURIComponent(p.name)}&repo=${encodeURIComponent(p.url)}`;
 const desc = p.desc_en || p.desc || `A plugin in the ${cat} category for DeepSeek Harness.`;
 // 短功能卖点：取 desc_en 前 ~48 字符（用于 title，避免被 Google 截断且更有吸引力）
-const shortSell = (desc_en || desc).split(/[.，。!?；]/)[0].trim().slice(0, 48);
+const shortSell = (p.desc_en || desc).split(/[.，。!?；]/)[0].trim().slice(0, 48);
 const fmt = (n) => (n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n ?? 0));
 const stars = p.stars ?? 0;
 const verdict = p.archived
