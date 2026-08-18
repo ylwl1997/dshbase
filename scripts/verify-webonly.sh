@@ -90,11 +90,76 @@ verify_one() {
   mkdir -p "$PROF_ROOT/$prof"
   make_workspace "$prof"
 
-  # 2. L1+L2: 装 base+web-app+插件，dump-config 判定
-  if timeout 300 dsh plugin --profile "$prof" add \
-      "@deepseek-ai/dsh-base@0.1.0-rc.6" \
-      "@deepseek-ai/dsh-web-app@0.1.0-rc.6" \
-      "$src" > "$logf" 2>&1; then
+  # 2. L1+L2: 装 base+web-app+插件，dump-config 判定。
+  #    git 源插件 prepare 脚本会被 pnpm 拦（GIT_DEP_PREPARE_NOT_ALLOWED / IGNORED_BUILDS），
+  #    自动解析 pnpm 提示的 key 追加进 allowBuilds 重试（最多 3 次）。
+  local installed="no"
+  for attempt in 1 2 3; do
+    if timeout 300 dsh plugin --profile "$prof" add \
+        "@deepseek-ai/dsh-base@0.1.0-rc.6" \
+        "@deepseek-ai/dsh-web-app@0.1.0-rc.6" \
+        "$src" > "$logf" 2>&1; then
+      installed="yes"
+      break
+    fi
+    local new_keys
+    new_keys=$(python3 - "$logf" <<'PYEOF'
+import re, sys
+log = open(sys.argv[1], encoding='utf-8', errors='replace').read()
+keys = []
+# pnpm 报错格式 1: allowBuilds:\n  <key>: true
+for m in re.finditer(r'^\s{2}(\S+): true$', log, re.M):
+    if not m.group(1).startswith('@') or '/' in m.group(1):
+        keys.append(m.group(1))
+# 报错格式 2: Ignored build scripts: a@1.0.0, b@2.0.0
+m = re.search(r'Ignored build scripts:\s*(.+)$', log, re.M)
+if m:
+    for part in m.group(1).split(','):
+        part = part.strip()
+        if part:
+            keys.append(part)
+seen = []
+for k in keys:
+    if k and k not in seen:
+        seen.append(k)
+print('\n'.join(seen))
+PYEOF
+)
+    if [ -z "$new_keys" ]; then
+      break   # 没有可 allow 的 key，真失败
+    fi
+    # 追加到 workspace 的 allowBuilds 块（key 含 @/:/ 必须加引号，否则 YAML 解析错）
+    python3 - "$prof" "$new_keys" <<'PYEOF'
+import sys, os
+prof, keys = sys.argv[1], sys.argv[2].splitlines()
+ws = os.path.expanduser(f'~/.dsh/profiles/{prof}/pnpm-workspace.yaml')
+if not os.path.exists(ws):
+    sys.exit(0)
+s = open(ws, encoding='utf-8').read()
+add = []
+for k in keys:
+    kk = k.strip()
+    if not kk:
+        continue
+    quoted = f'"{kk}": true'
+    if f'  {quoted}' not in s and f'  {kk}:' not in s:
+        add.append(f'  {quoted}')
+if add:
+    lines = s.splitlines()
+    out = []
+    inserted = False
+    for line in lines:
+        out.append(line)
+        if line.strip() == 'allowBuilds:' and not inserted:
+            out.extend(add)
+            inserted = True
+    open(ws, 'w', encoding='utf-8').write('\n'.join(out) + '\n')
+    print('added allowBuilds:', ', '.join(kk for kk in keys))
+PYEOF
+    log "  attempt $attempt: added allowBuilds keys, retrying"
+  done
+
+  if [ "$installed" = "yes" ]; then
     if timeout 90 dsh --profile "$prof" --dump-config >/dev/null 2>>"$logf"; then
       # 3. L3: boot web + CDP 端到端
       web_stop "$prof"
@@ -161,8 +226,13 @@ main() {
 if [ "${1:-}" = "--one" ]; then
   name="${2:-}"
   [ -z "$name" ] && { echo "usage: $0 --one <name|src>" >&2; exit 1; }
-  # src 可能是 npm 包名 或 github:owner/repo
-  verify_one "$name" "$name"
+  # src 可能是 npm 包名 或 github:owner/repo；git 源时用 repo 名作 name
+  display="$name"
+  if [[ "$name" == github:* ]]; then
+    display="${name#github:}"
+    display="${display##*/}"
+  fi
+  verify_one "$display" "$name"
   exit 0
 fi
 

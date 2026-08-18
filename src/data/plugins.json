@@ -2487,7 +2487,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Reorder, clear, and undo controls for the DeepSeek Harness prompt queue",
    "desc_en": "Reorder, clear, and undo controls for the DeepSeek Harness prompt queue",
    "desc_zh": "提示队列的重排、清除和撤销控制",
@@ -2504,7 +2504,8 @@
    "slug": "dsh-queue-plus",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "dsh-green-meter",
@@ -3159,7 +3160,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DSH plugin family: browser automation + MCP Server + GitHub/GitLab auto review + native embedded panel | One install, five modules for DeepSeek Harness: browser automation, MCP server, GitHub & GitLab automation, native in-app panel",
    "desc_en": "DSH plugin family: browser automation + MCP Server + GitHub/GitLab auto review + native embedded panel | One install, five modules for DeepSeek Harness: browser automation, MCP server, GitHub & GitLab automation, native in-app panel",
    "desc_zh": "DSH 插件全家桶:浏览器自动化 + MCP Server + GitHub/GitLab 自动评审 + 原生嵌入面板 | One install, five modules for DeepSeek Harness: browser automation, MCP server, GitHub & GitLab automation, native in-app panel",
@@ -3179,7 +3180,8 @@
    "slug": "reef",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "deepseek-harness-auth",
@@ -3204,7 +3206,7 @@
    "slug": "deepseek-harness-auth",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nweb L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-grok-tui",
@@ -3387,7 +3389,7 @@
    "slug": "plugin-template",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nweb L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "deepseek-harness-phone-remote",
@@ -3666,7 +3668,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Afraid plugins crash after install? Use this plugin to check if plugins are normal or contain trojans!",
    "desc_en": "Afraid plugins crash after install? Use this plugin to check if plugins are normal or contain trojans!",
    "desc_zh": "检测插件是否正常/含木马，防止崩溃",
@@ -3686,7 +3688,8 @@
    "slug": "dsh-plugin-healthcheck",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "dsh-chat-timeline",
@@ -10835,7 +10838,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "VS Code-style workspace file explorer with editable preview for the DSH web GUI",
    "desc_en": "VS Code-style workspace file explorer with editable preview for the DSH web GUI",
    "desc_zh": "DSH Web GUI的VS Code风格文件浏览器",
@@ -10855,7 +10858,8 @@
    "slug": "dsh-plugin-workbench",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "dsh-cost",
@@ -11839,7 +11843,7 @@
    "slug": "dsh-weixin",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nweb L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-model-modes",
@@ -13210,7 +13214,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "dsh interruption sound alerts (configurable audio) - browser audio alerts for dsh attention edges: approval requests, ask-user questions, and finished turns.",
    "desc_en": "dsh interruption sound alerts (configurable audio) - browser audio alerts for dsh attention edges: approval requests, ask-user questions, and finished turns.",
    "desc_zh": "DSH中断声音提示喵（可配置音频喵）：浏览器音频提醒DSH注意力边缘：审批请求、提问用户、完成回合",
@@ -13227,7 +13231,8 @@
    "slug": "dsh-audio-alert",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "deepseek-harness-cli",
@@ -15654,7 +15659,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "dsh MCP server config management",
    "desc_en": "dsh MCP server config management",
    "desc_zh": "dsh MCP服务器配置管理",
@@ -15671,7 +15676,8 @@
    "slug": "dsh-mcp-settings",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "dsh-project-file-explorer",
@@ -16949,7 +16955,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "A customized DeepSeek Harness git branch UI plugin.",
    "desc_en": "A customized DeepSeek Harness git branch UI plugin.",
    "desc_zh": "定制的DeepSeek Harness git分支UI插件。",
@@ -16968,7 +16974,8 @@
    "slug": "dsh-client-ui-git-branch",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "dshp",
@@ -18477,7 +18484,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Codex-style Git workbench for DSH: workspace-scoped changes, diff, stage, commit, guarded branch operations, graph history, fetch, fast-forward pull, and upstream push through official plugin APIs.",
    "desc_en": "Codex-style Git workbench for DSH: workspace-scoped changes, diff, stage, commit, guarded branch operations, graph history, fetch, fast-forward pull, and upstream push through official plugin APIs.",
    "desc_zh": "DSH的Codex风格Git工作台：工作区范围的更改、差异、暂存、提交、受保护的分支操作、图形历史、获取、快进拉取和通过官方插件API的上游推送。",
@@ -18498,7 +18505,8 @@
    "slug": "dsh-wending-git-workbench",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "dsh-compliancehub",
@@ -19351,7 +19359,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Persistent multi-model agent squads for DeepSeek Harness — reusable teams, per-agent model/tool policies, and ordinary-chat collaboration.",
    "desc_en": "Persistent multi-model agent squads for DeepSeek Harness — reusable teams, per-agent model/tool policies, and ordinary-chat collaboration.",
    "desc_zh": "DeepSeek Harness持久多模型智能体小队：可复用团队、每智能体模型/工具策略、普通聊天协作。",
@@ -19368,7 +19376,8 @@
    "slug": "dsh-agent-team-gui",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "cosyncing",
@@ -20135,7 +20144,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "A model-native meta-agent plugin for DeepSeek Harness that uses the underlying model’s reasoning and planning capabilities to synthesize task-specific workflows at runtime and coordinate tools and subagents.",
    "desc_en": "A model-native meta-agent plugin for DeepSeek Harness that uses the underlying model’s reasoning and planning capabilities to synthesize task-specific workflows at runtime and coordinate tools and subagents.",
    "desc_zh": "模型原生元智能体插件：利用底层模型推理规划，运行时合成任务工作流，协调工具与子智能体。",
@@ -20152,7 +20161,8 @@
    "slug": "dsh-meta-orchestrator",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "dsh-output-styles",
@@ -21032,7 +21042,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "A full sidebar workbench for DSH with file render/edit, terminal, Git, sub-agent, and third-party tab registration.",
    "desc_en": "A full sidebar workbench for DSH with file render/edit, terminal, Git, sub-agent, and third-party tab registration.",
    "desc_zh": "一个侧边栏完整工作台：内置文件渲染编辑、终端、Git、子代理，并支持三方拓展注册新 Tab 页面。",
@@ -21053,7 +21063,8 @@
    "slug": "DSH-better-sidebar",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "dsh-cc-tui",
@@ -22261,7 +22272,7 @@
    "slug": "dsh-sidebar-qa",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nweb L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-mobile",
@@ -25990,7 +26001,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "dsh-ui-workbench — DSH plugin (ui)",
    "desc_en": "dsh-ui-workbench — DSH plugin (ui)",
    "desc_zh": "DeepSeek Harness WebUI 的右侧边文件管理以及变更审查界面插件。",
@@ -26011,7 +26022,8 @@
    "slug": "dsh-ui-workbench",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "dsh-test-runner",
@@ -26856,7 +26868,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "dsh-blocker-notify — Real-time attention alerts for DeepSeek Harness: a global banner + flashing workspace entries when the agent is blocked (approval request / sandbox denial).",
    "desc_en": "dsh-blocker-notify — Real-time attention alerts for DeepSeek Harness: a global banner + flashing workspace entries when the agent is blocked (approval request / sandbox denial).",
    "desc_zh": "dsh-blocker-notify：代理被阻塞时全局横幅+闪烁工作区条目提醒。",
@@ -26876,7 +26888,8 @@
    "slug": "blocker-notify",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "dsh-custom-workspace",
@@ -27390,7 +27403,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "A customized DeepSeek Harness filetree manager UI plugin.",
    "desc_en": "A customized DeepSeek Harness filetree manager UI plugin.",
    "desc_zh": "定制 DeepSeek Harness 文件树管理器 UI 插件。",
@@ -27409,7 +27422,8 @@
    "slug": "dsh-client-ui-filesystem-manager",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "dsh-whale-tui",
@@ -30385,7 +30399,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Yuzhi: Chinese-first, user-controllable AI writing style memory layer, letting AI learn your expression, invoked when needed. Chinese-first style memory for AI; DeepSeek Harness adapter included.",
    "desc_en": "Yuzhi: Chinese-first, user-controllable AI writing style memory layer, letting AI learn your expression, invoked when needed. Chinese-first style memory for AI; DeepSeek Harness adapter included.",
    "desc_zh": "语织：中文优先、用户可控的 AI 写作风格记忆层",
@@ -30404,7 +30418,8 @@
    "slug": "Liltloom",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "dsh-session-tree",
@@ -33706,7 +33721,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Sidebar with VS Code-style features and functionality",
    "desc_en": "Sidebar with VS Code-style features and functionality",
    "desc_zh": "提供vscode风格和功能的侧栏",
@@ -33723,7 +33738,8 @@
    "slug": "dsh-plugin-vscode-sidebar",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "DSH-Launcher",
@@ -35118,7 +35134,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Local-first experiment and evaluation workbench plugin for DeepSeek Harness (DSH).",
    "desc_en": "Local-first experiment and evaluation workbench plugin for DeepSeek Harness (DSH).",
    "desc_zh": "本地优先的实验与评估工作台插件",
@@ -35135,7 +35151,8 @@
    "slug": "DSH-arena",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "deepseek-harness-Kylin-desktop",
@@ -35769,7 +35786,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Lightweight, localized task routing for DeepSeek Harness",
    "desc_en": "Lightweight, localized task routing for DeepSeek Harness",
    "desc_zh": "轻量本地任务路由",
@@ -35786,7 +35803,8 @@
    "slug": "dsh-routing-suite",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "dsh-plugin-development",
@@ -36425,7 +36443,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Agent trajectory governance & anomaly diagnosis plugin for DeepSeek Harness (dsh): multi-branch trajectory trees, loop-deadlock / invalid-r…",
    "desc_en": "Agent trajectory governance & anomaly diagnosis plugin for DeepSeek Harness (dsh): multi-branch trajectory trees, loop-deadlock / invalid-r…",
    "desc_zh": "轨迹治理与异常诊断：多分支树/死锁检测",
@@ -36446,7 +36464,8 @@
    "slug": "dsh-trajectory-governance",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "dsh-browser-companion",
@@ -39090,7 +39109,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "dsh-plugin: Fix DeepSeek Harness 403s over tunnels. Token-gated reverse proxy restores settings.* / credentials.* / host.listDirectory remotely. Per-device sessions, WebSocket/SSE, mobile control panel.",
    "desc_en": "dsh-plugin: Fix DeepSeek Harness 403s over tunnels. Token-gated reverse proxy restores settings.* / credentials.* / host.listDirectory remotely. Per-device sessions, WebSocket/SSE, mobile control panel.",
    "desc_zh": "dsh插件：修复隧道403，令牌反向代理，远程恢复设置/凭据/目录，设备会话，WebSocket/SSE，移动控制台",
@@ -39107,7 +39126,8 @@
    "slug": "dsh-full-remote",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "dsh-lan-gate",
@@ -40103,7 +40123,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek API balance overlay for DeepSeek Harness",
    "desc_en": "DeepSeek API balance overlay for DeepSeek Harness",
    "desc_zh": "dsh-balance-display — DSH 插件（桥接）",
@@ -40120,7 +40140,8 @@
    "slug": "dsh-balance-display",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "dsh-kimi-bridge",
@@ -40476,7 +40497,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Manage MCP servers in DeepSeek Harness settings page: add/edit/enable/disable/reconnect/delete at runtime, live status, auto-reconnect, bilingual UI.",
    "desc_en": "Manage MCP servers in DeepSeek Harness settings page: add/edit/enable/disable/reconnect/delete at runtime, live status, auto-reconnect, bilingual UI.",
    "desc_zh": "在 DeepSeek Harness 设置页管理 MCP 服务器：运行时添加/编辑/启停/重连/删除，实时状态、自动重连，中英双语界面。MCP server manager for DeepSeek Harness — add, edit, enable/disable, reconnect & delete MCP servers from the web settings page, with live status and auto-reconnect.",
@@ -40495,7 +40516,8 @@
    "slug": "dsh-client-ui-settings-mcp",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "dsh-provider-billing",
@@ -41768,7 +41790,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "A plugin that brings file workspace directly into DeepSeek Harness WebUI and provides stable remote API for mobile and third-party clients. A bilingual file workspace and secure remote API for DeepSeek Harness WebUI and mobile clients.",
    "desc_en": "A plugin that brings file workspace directly into DeepSeek Harness WebUI and provides stable remote API for mobile and third-party clients. A bilingual file workspace and secure remote API for DeepSeek Harness WebUI and mobile clients.",
    "desc_zh": "一个把文件工作区直接带进 DeepSeek Harness WebUI，并为手机和第三方客户端提供稳定的远程接口插件。A bilingual file workspace and secure remote API for DeepSeek Harness WebUI and mobile clients.",
@@ -41788,7 +41810,8 @@
    "slug": "dsh-workspace",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "dsh-snapshot",
@@ -41881,7 +41904,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Multi-session agent status monitor for DeepSeek Harness.",
    "desc_en": "Multi-session agent status monitor for DeepSeek Harness.",
    "desc_zh": "多会话代理状态监控器",
@@ -41898,7 +41921,8 @@
    "slug": "dsh-traffic-light",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "dsh-discord-bot",
@@ -43056,7 +43080,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Codex-style attachment formats for the DeepSeek Harness Web GUI: PDF text-layer extraction, Office text extraction, scanned-PDF OCR, long-document spill + index cards, image-to-PNG.",
    "desc_en": "Codex-style attachment formats for the DeepSeek Harness Web GUI: PDF text-layer extraction, Office text extraction, scanned-PDF OCR, long-document spill + index cards, image-to-PNG.",
    "desc_zh": "Codex风格附件：PDF/Office/OCR/长文档/图片转PNG",
@@ -43078,7 +43102,8 @@
    "slug": "dsh-attachment-formats",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "dsh-cost-balance",
@@ -43983,7 +44008,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness Web UI plugin: requirements management workbench, parse requirements & subtasks from conversations/text/local files, with deadlines and timeout reminders.",
    "desc_en": "DeepSeek Harness Web UI plugin: requirements management workbench, parse requirements & subtasks from conversations/text/local files, with deadlines and timeout reminders.",
    "desc_zh": "DeepSeek Harness Web UI 插件：需求管理工作台，从对话/文本/本地文件解析并管理需求与子任务，支持截止时间与超时提醒。",
@@ -44004,7 +44029,8 @@
    "slug": "dsh-req-workbench",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-18"
   },
   {
    "name": "dsh-plugin-cost",
