@@ -688,7 +688,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DSH Plugin Marketplace: browse, install & update all GitHub dsh-plugin plugins in the DSH Web GUI",
    "desc_en": "DSH Plugin Marketplace: browse, install & update all GitHub dsh-plugin plugins in the DSH Web GUI",
    "desc_zh": "DSH插件市场 / DSH Plugin Marketplace: 在 DeepSeek Harness Web GUI 中一键浏览、安装与更新 GitHub topic:dsh-plugin 的全部插件 | browse, install & update all GitHub dsh-plugin plugins in the DSH Web GUI",
@@ -706,8 +706,10 @@
    ],
    "trust": "Silver",
    "slug": "DSH-Plugins-Marketplace",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "phi",
@@ -1736,7 +1738,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Connect IM bots to DeepSeek Harness via QR code scan (supports Feishu, WeChat, DingTalk, QQ, WeCom, etc.)",
    "desc_en": "Connect IM bots to DeepSeek Harness via QR code scan (supports Feishu, WeChat, DingTalk, QQ, WeCom, etc.)",
    "desc_zh": "通过扫码把IM机器人接入DeepSeek Harness（支持飞书、微信、钉钉、QQ、企业微信等）",
@@ -1751,8 +1753,10 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-im",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "TokenLedger",
@@ -1850,8 +1854,9 @@
    ],
    "trust": "Unrated",
    "slug": "ego-browser",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-reverse-skill",
@@ -2273,7 +2278,7 @@
    "pkg": "dsh-lark-link",
    "ver": "",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "High-reliability Feishu/Lark bridge for DeepSeek Harness — QR one-click auth, multi-mode agents, card-based commands, zero-loss outbox, med…",
    "desc_en": "High-reliability Feishu/Lark bridge for DeepSeek Harness — QR one-click auth, multi-mode agents, card-based commands, zero-loss outbox, med…",
    "desc_zh": "飞书/朗桥接，扫码登录，多模式代理，卡片命令，零丢失发件箱",
@@ -2292,9 +2297,11 @@
    ],
    "trust": "Silver",
    "slug": "dsh-lark-link",
-   "webonly": true,
+   "webonly": false,
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "deepseek-harness-docker",
@@ -2495,8 +2502,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-queue-plus",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-green-meter",
@@ -3169,8 +3177,9 @@
    ],
    "trust": "Silver",
    "slug": "reef",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "deepseek-harness-auth",
@@ -3193,8 +3202,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "deepseek-harness-auth",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-grok-tui",
@@ -3375,8 +3385,9 @@
    ],
    "trust": "Silver",
    "slug": "plugin-template",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "deepseek-harness-phone-remote",
@@ -3673,8 +3684,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-healthcheck",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-chat-timeline",
@@ -3863,7 +3875,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DSH implements WorkBuddy-style skill selection | WorkBuddy-style skill picker for DeepSeek Harness: pick a skill in the composer, insert the official /skill-name gesture, and DSH loads it with your message.",
    "desc_en": "DSH implements WorkBuddy-style skill selection | WorkBuddy-style skill picker for DeepSeek Harness: pick a skill in the composer, insert the official /skill-name gesture, and DSH loads it with your message.",
    "desc_zh": "DSH 实现 workbuddy 同款选择 skill 功能 | WorkBuddy-style skill picker for DeepSeek Harness: pick a skill in the composer, insert the official /skill-name gesture, and DSH loads it with your message.",
@@ -3878,8 +3890,10 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-skill-picker",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-oauth-mcp-client",
@@ -4168,7 +4182,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness Telegram mobile remote: bind live Web sessions (Codex-style). Install: dsh plugin add github:hi-wenw/dsh-telegram-channel",
    "desc_en": "DeepSeek Harness Telegram mobile remote: bind live Web sessions (Codex-style). Install: dsh plugin add github:hi-wenw/dsh-telegram-channel",
    "desc_zh": "Telegram移动远程，绑定实时Web会话，安装命令",
@@ -4188,8 +4202,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-telegram-channel",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-wsl-workspace",
@@ -4197,7 +4213,7 @@
    "pkg": "dsh-wsl-workspace",
    "ver": "0.2.2",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "WSL workspace support for DeepSeek Harness - seamless WSL workspace experience, no need to install dsh inside WSL; after installing the plugin, add WSL workspace directly in GUI.",
    "desc_en": "WSL workspace support for DeepSeek Harness - seamless WSL workspace experience, no need to install dsh inside WSL; after installing the plugin, add WSL workspace directly in GUI.",
    "desc_zh": "WSL工作区支持，无需在WSL内安装dsh，GUI直接添加",
@@ -4215,9 +4231,11 @@
    ],
    "trust": "Silver",
    "slug": "dsh-wsl-workspace",
-   "webonly": true,
+   "webonly": false,
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-mygo",
@@ -4248,7 +4266,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DSH web plugin: skill manager in the Settings sidebar - list/enable/disable, folder batch import with conflict prompts, state-driven one-click DSH-spec check & auto-fix, system/project scope labels.",
    "desc_en": "DSH web plugin: skill manager in the Settings sidebar - list/enable/disable, folder batch import with conflict prompts, state-driven one-click DSH-spec check & auto-fix, system/project scope labels.",
    "desc_zh": "DSH Web插件：设置侧边栏技能管理，支持列表/启用/禁用、文件夹批量导入及冲突提示、一键DSH规范检查与自动修复、系统/项目范围标签。",
@@ -4266,8 +4284,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-skill-manager-ytxue",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-extension-hub",
@@ -5186,7 +5206,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DSH drag file to path plugin: Codex-style drag, path auto-inserted into input box (Drop File to Path for DeepSeek Harness)",
    "desc_en": "DSH drag file to path plugin: Codex-style drag, path auto-inserted into input box (Drop File to Path for DeepSeek Harness)",
    "desc_zh": "DSH 拖拽文件转路径插件：Codex 式拖拽，路径自动插入输入框（Drop File to Path for DeepSeek Harness）",
@@ -5204,8 +5224,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-file-upload",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-message-rail",
@@ -5261,7 +5283,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness Web UI plugin: add an IDE button that auto-detects local IDEs and opens the current workspace folder.",
    "desc_en": "DeepSeek Harness Web UI plugin: add an IDE button that auto-detects local IDEs and opens the current workspace folder.",
    "desc_zh": "DSH Web UI插件：添加IDE按钮，自动检测本地IDE并打开当前工作区文件夹。",
@@ -5279,8 +5301,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-open-in-ide",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "wanjiqi-meme",
@@ -5463,7 +5487,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "",
    "desc_en": "",
    "desc_zh": "",
@@ -5482,8 +5506,10 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-updater-ui",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-atomgit",
@@ -6236,7 +6262,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Remote control and view DeepSeek Harness via Telegram private chat",
    "desc_en": "Remote control and view DeepSeek Harness via Telegram private chat",
    "desc_zh": "通过Telegram私聊远程使用和查看DSH",
@@ -6253,8 +6279,10 @@
    ],
    "trust": "Silver",
    "slug": "DSH-telegram",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-task-notify",
@@ -6460,8 +6488,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-workspace-search",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-minimal-v3",
@@ -6847,7 +6876,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Penetration testing mode for DeepSeek Harness (dsh) @CloverSecLabs",
    "desc_en": "Penetration testing mode for DeepSeek Harness (dsh) @CloverSecLabs",
    "desc_zh": "面向 DeepSeek Harness（dsh）的渗透测试模式  @CloverSecLabs",
@@ -6862,8 +6891,10 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-pentest",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-plugin-template",
@@ -7145,7 +7176,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Calculate the real-time cost of DeepSeek API calls made by DeepSeek Harness.",
    "desc_en": "Calculate the real-time cost of DeepSeek API calls made by DeepSeek Harness.",
    "desc_zh": "计算DeepSeek API调用的实时成本",
@@ -7162,8 +7193,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-calculator",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-testgen",
@@ -8055,7 +8088,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DSH user plugin manager: in Settings→Plugins, uniformly manage plugin directory loose parts, runtime tree plugins, and npm plugin packages—mount/unmount/enable/disable (cordis.patch.yml patch layer + HMR hot effect)",
    "desc_en": "DSH user plugin manager: in Settings→Plugins, uniformly manage plugin directory loose parts, runtime tree plugins, and npm plugin packages—mount/unmount/enable/disable (cordis.patch.yml patch layer + HMR hot effect)",
    "desc_zh": "DSH 用户插件管理器:在 设置→插件 统一管理插件目录散件、运行树插件与 npm 插件包——挂载/卸载/启用/停用(cordis.patch.yml 补丁层 + HMR 热生效)",
@@ -8072,8 +8105,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-user-plugins-manager",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-forge",
@@ -8200,7 +8235,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Fine-grained permission control plugin for DeepSeek Harness (DSH)",
    "desc_en": "Fine-grained permission control plugin for DeepSeek Harness (DSH)",
    "desc_zh": "为 DeepSeek Harness（DSH）提供的细粒度权限控制插件",
@@ -8215,8 +8250,10 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-permgate",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-notifacation-frame",
@@ -10386,7 +10423,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "A safe, live plugin marketplace for DeepSeek Harness",
    "desc_en": "A safe, live plugin marketplace for DeepSeek Harness",
    "desc_zh": "安全、实时的DSH插件市场。",
@@ -10403,8 +10440,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-marketplace",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-workspace-env",
@@ -10465,7 +10504,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "VS Code-style dual-pane explorer. Left: multi-workspace file tree with language-colored SVG icons, inline rename, new file/folder; Right: resizable editor with line numbers, status bar, syntax highlighting (functions/keywords/comments/strings in 10 languages)",
    "desc_en": "VS Code-style dual-pane explorer. Left: multi-workspace file tree with language-colored SVG icons, inline rename, new file/folder; Right: resizable editor with line numbers, status bar, syntax highlighting (functions/keywords/comments/strings in 10 languages)",
    "desc_zh": "VS Code 风格双栏资源管理器。左侧多工作区文件树：语言着色 SVG 图标、行内重命名、新建文件/文件夹；右侧编辑器可拖拽缩放，行号 + 状态栏，语法高亮（函数/关键字/注释/字符串分色，支持 10 种语言）",
@@ -10482,8 +10521,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-workspace-explorer",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-plugin-builder",
@@ -10566,7 +10607,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DSH (DeepSeek Harness) Web GUI plugin: input @ to reference workspace files, Claude Code-style @file",
    "desc_en": "DSH (DeepSeek Harness) Web GUI plugin: input @ to reference workspace files, Claude Code-style @file",
    "desc_zh": "DSH (DeepSeek Harness) Web GUI 插件：输入 @ 引用工作区文件，体验类似 Claude Code 的 @file。",
@@ -10584,8 +10625,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-file-mention",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-agentfuse-plugin",
@@ -10708,7 +10751,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "[building……] DeepSeek Harness's web enhancement plugin—brings task dashboards, Git graphs, workspace file panels, balance displays, and graph recognition into the DSH web interface.",
    "desc_en": "[building……] DeepSeek Harness's web enhancement plugin—brings task dashboards, Git graphs, workspace file panels, balance displays, and graph recognition into the DSH web interface.",
    "desc_zh": "DSH Web增强插件：任务仪表盘、Git图、文件面板等",
@@ -10727,8 +10770,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-web-enhanced",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-download-progress",
@@ -10736,7 +10781,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DSH web plugin: download progress panel (AI artifact)",
    "desc_en": "DSH web plugin: download progress panel (AI artifact)",
    "desc_zh": "DSH web plugin: 下载进度面板（AI 产物）",
@@ -10754,8 +10799,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-download-progress",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-web-remote",
@@ -10806,8 +10853,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-workbench",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-cost",
@@ -11789,8 +11837,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-weixin",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-model-modes",
@@ -13176,8 +13225,9 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-audio-alert",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "deepseek-harness-cli",
@@ -13258,7 +13308,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "",
    "desc_en": "",
    "desc_zh": "",
@@ -13275,8 +13325,10 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-plugins-market",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "platform": "any",
@@ -13382,8 +13434,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-tool-search",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-apple-mode",
@@ -15616,8 +15669,9 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-mcp-settings",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-project-file-explorer",
@@ -16419,7 +16473,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness (dsh) plugin: event-driven WeCom group bot notifications - goal completion/blocking and per-round dialogue auto-push, plus wechat_notify tool; uses official webhook, zero ban risk.",
    "desc_en": "DeepSeek Harness (dsh) plugin: event-driven WeCom group bot notifications - goal completion/blocking and per-round dialogue auto-push, plus wechat_notify tool; uses official webhook, zero ban risk.",
    "desc_zh": "企业微信群机器人通知，事件驱动，含wechat_notify工具",
@@ -16436,8 +16490,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-WeCom-notify",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-doctor",
@@ -16910,8 +16966,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-client-ui-git-branch",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dshp",
@@ -17620,7 +17677,7 @@
    "pkg": "dsh-turn-diff",
    "ver": "0.1.0",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "(no description)",
    "desc_en": "(no description)",
    "desc_zh": "(无描述)",
@@ -17638,9 +17695,11 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-turn-diff",
-   "webonly": true,
+   "webonly": false,
    "platform": "any",
-   "bareNpm": "install-fail"
+   "bareNpm": "install-fail",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-plugin-llm-codex",
@@ -18265,7 +18324,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Open DeepSeek Harness workspaces in detected or configured local editors",
    "desc_en": "Open DeepSeek Harness workspaces in detected or configured local editors",
    "desc_zh": "在检测到或配置的本地编辑器中打开DeepSeek Harness工作区。",
@@ -18283,8 +18342,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-open-with",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-fff",
@@ -18317,7 +18378,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness web plugin: per-turn file-change panel with diff viewing and filesystem reveal",
    "desc_en": "DeepSeek Harness web plugin: per-turn file-change panel with diff viewing and filesystem reveal",
    "desc_zh": "DeepSeek Harness Web插件：每轮文件更改面板，带差异查看和文件系统显示。",
@@ -18336,8 +18397,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-file-changes",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-ambience",
@@ -18433,8 +18496,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-wending-git-workbench",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-compliancehub",
@@ -19302,8 +19366,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-agent-team-gui",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "cosyncing",
@@ -19337,7 +19402,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Solo-style isolated brainstorm branches and Handoffs for DeepSeek Harness",
    "desc_en": "Solo-style isolated brainstorm branches and Handoffs for DeepSeek Harness",
    "desc_zh": "DeepSeek Harness的Solo式隔离头脑风暴分支与交接。",
@@ -19354,8 +19419,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-solo-thinking",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-plugin-aigc-canvas",
@@ -19725,7 +19792,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness dynamic plugin: masquerade a custom llm-pi-ai provider as Claude Code / Codex clients (spoofed identity headers).",
    "desc_en": "DeepSeek Harness dynamic plugin: masquerade a custom llm-pi-ai provider as Claude Code / Codex clients (spoofed identity headers).",
    "desc_zh": "DeepSeek Harness动态插件：伪装自定义llm-pi-ai提供商为Claude Code/Codex客户端。",
@@ -19740,8 +19807,10 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-client-masquerade",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-prompt-rail",
@@ -20081,8 +20150,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-meta-orchestrator",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-output-styles",
@@ -20138,7 +20208,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "A DeepSeek Harness (DSH) plugin: adds a ✨ icon button to the web input box's tool row. Click to choose polishing style, the connected LLM rewrites your draft prompt to be more professional and AI-understandable. A DeepSeek Harness plugin: icon-only composer button that rewrites your prompt via the connected LLM (balanced/concise/detailed/code styles, i18n).",
    "desc_en": "A DeepSeek Harness (DSH) plugin: adds a ✨ icon button to the web input box's tool row. Click to choose polishing style, the connected LLM rewrites your draft prompt to be more professional and AI-understandable. A DeepSeek Harness plugin: icon-only composer button that rewrites your prompt via the connected LLM (balanced/concise/detailed/code styles, i18n).",
    "desc_zh": "一个 DeepSeek Harness（DSH）插件： 在 Web 输入框的工具行中添加一个 ✨ 图标按钮。点击后选择打磨风格，已接入的大模型 会把你草稿中的提示词改写得更专业、更易被 AI 理解 。A DeepSeek Harness plugin: icon-only composer button that rewrites your prompt via the connected LLM (balanced/concise/detailed/code styles, i18n)",
@@ -20155,8 +20225,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-prompt-polish",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-auxiliary",
@@ -20979,8 +21051,9 @@
    ],
    "trust": "Silver",
    "slug": "DSH-better-sidebar",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-cc-tui",
@@ -21337,7 +21410,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "dsh Web GUI community plugin market: browse awesome-dsh-plugin.com plugin directory, one-click install/uninstall to profile. Community plugin market for the DeepSeek Harness (dsh) web GUI: browse, install and uninstall plugins into a profile.",
    "desc_en": "dsh Web GUI community plugin market: browse awesome-dsh-plugin.com plugin directory, one-click install/uninstall to profile. Community plugin market for the DeepSeek Harness (dsh) web GUI: browse, install and uninstall plugins into a profile.",
    "desc_zh": "dsh Web GUI 社区插件市场：浏览 awesome-dsh-plugin.com 插件目录，一键安装/卸载到 profile。Community plugin market for the DeepSeek Harness (dsh) web GUI: browse, install and uninstall plugins into a profile.",
@@ -21356,8 +21429,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-webui-market-plugin",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-liang-skin",
@@ -21365,7 +21440,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness sliding rheostat skin.",
    "desc_en": "DeepSeek Harness sliding rheostat skin.",
    "desc_zh": "DeepSeek Harness 滑动变阻器皮肤",
@@ -21380,8 +21455,10 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-liang-skin",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "zat-dsh-engine",
@@ -22182,8 +22259,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-sidebar-qa",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-mobile",
@@ -22191,7 +22269,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "No description provided.",
    "desc_en": "No description provided.",
    "desc_zh": "无描述。",
@@ -22206,8 +22284,10 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-mobile",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-drag-and-drop",
@@ -23004,7 +23084,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Custom theme plugin with background image (size and position), main and settings UI (opacity, full-color wheel theme color)",
    "desc_en": "Custom theme plugin with background image (size and position), main and settings UI (opacity, full-color wheel theme color)",
    "desc_zh": "一个自定义主题插件，包括背景图（大小和位置），主界面和设置界面（透明度，色轮全色主题色）插件",
@@ -23019,8 +23099,10 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-any-background",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-paste-input",
@@ -23396,7 +23478,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "HUD status panel plugin for DeepSeek Harness (dsh) web: git status, MCP servers, skills, model & token usage in a floating panel",
    "desc_en": "HUD status panel plugin for DeepSeek Harness (dsh) web: git status, MCP servers, skills, model & token usage in a floating panel",
    "desc_zh": "HUD状态面板：git状态、MCP服务器、技能、模型与token用量浮动面板。",
@@ -23414,8 +23496,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-hud",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-api-balance",
@@ -24205,7 +24289,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "No description provided.",
    "desc_en": "No description provided.",
    "desc_zh": "无描述。",
@@ -24224,8 +24308,10 @@
    ],
    "trust": "Silver",
    "slug": "7d7d",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-node-nav",
@@ -24233,7 +24319,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Conversation node navigation: right-side node chain in DSH Web GUI, hover preview, click to jump, active pill follows reading position",
    "desc_en": "Conversation node navigation: right-side node chain in DSH Web GUI, hover preview, click to jump, active pill follows reading position",
    "desc_zh": "对话节点导航：DSH Web GUI 右侧节点串，hover 预览、点击跳转、active 药丸跟随阅读位置",
@@ -24250,8 +24336,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-node-nav",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-mc-launcher",
@@ -24259,7 +24347,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Minecraft launcher built on DeepSeek Harness: full-screen launcher UI (root slot) with version download, Microsoft device-code login and game launch from the DSH host process. UNOFFICIAL open-source launcher.",
    "desc_en": "Minecraft launcher built on DeepSeek Harness: full-screen launcher UI (root slot) with version download, Microsoft device-code login and game launch from the DSH host process. UNOFFICIAL open-source launcher.",
    "desc_zh": "基于DeepSeek Harness的Minecraft启动器：全屏UI，版本下载，微软设备码登录，游戏启动。非官方开源。",
@@ -24277,8 +24365,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-mc-launcher",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "awesome-dsh-background-plugin",
@@ -24314,7 +24404,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DSH Web UI plugin for workspace file references, prompt history, and lightweight composer enhancements.",
    "desc_en": "DSH Web UI plugin for workspace file references, prompt history, and lightweight composer enhancements.",
    "desc_zh": "DSH Web UI插件：工作区文件引用、提示历史、轻量编辑器增强。",
@@ -24333,8 +24423,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-input-plus",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-skin-switcher",
@@ -24342,7 +24434,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Skin switcher plugin for DeepSeek Harness Web GUI: one-click switch installed skins in settings",
    "desc_en": "Skin switcher plugin for DeepSeek Harness Web GUI: one-click switch installed skins in settings",
    "desc_zh": "DeepSeek Harness Web GUI 皮肤切换插件：设置界面一键切换已安装皮肤",
@@ -24359,8 +24451,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-skin-switcher",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-timeline",
@@ -24391,7 +24485,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Animated deepseek girl desktop pet plugin for DeepSeek Harness",
    "desc_en": "Animated deepseek girl desktop pet plugin for DeepSeek Harness",
    "desc_zh": "动画DeepSeek女孩桌面宠物插件。",
@@ -24406,8 +24500,10 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-deepseek-girl-pet",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-chat-width",
@@ -25013,7 +25109,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness (dsh) web plugin with themes, global typography, @file mentions, project file tree, and Markdown preview.",
    "desc_en": "DeepSeek Harness (dsh) web plugin with themes, global typography, @file mentions, project file tree, and Markdown preview.",
    "desc_zh": "DSH Web插件：主题、全局排版、@文件提及、项目文件树、Markdown预览。",
@@ -25031,8 +25127,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-oh-my-theme",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-ultra-ui",
@@ -25454,7 +25552,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "File tree panel for the DSH Web UI: the right details column shows the current session workspace tree (lazy, read-only).",
    "desc_en": "File tree panel for the DSH Web UI: the right details column shows the current session workspace tree (lazy, read-only).",
    "desc_zh": "DSH Web UI 文件树面板：右侧详情列显示当前会话工作区树（懒加载、只读）。",
@@ -25472,8 +25570,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-local-filetree",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-working-activity",
@@ -25909,8 +26009,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-ui-workbench",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-test-runner",
@@ -26649,7 +26750,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "mount one row in the composition and every plugin card on the Web Settings plugin list page gets a bilingual (zh/en) description; it also publishes the pluginDescriptions service so other plugins can register their own descriptions.",
    "desc_en": "mount one row in the composition and every plugin card on the Web Settings plugin list page gets a bilingual (zh/en) description; it also publishes the pluginDescriptions service so other plugins can register their own descriptions.",
    "desc_zh": "在 Web 设置插件列表页为每个插件卡片挂载双语描述，并发布 pluginDescriptions 服务。",
@@ -26666,8 +26767,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-description",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-client-ui-trajectory-categories",
@@ -26702,7 +26805,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "New 'Restart' entry in DSH Web settings page: one-click safe restart of the entire DSH process, page auto-reconnects after ~5 seconds",
    "desc_en": "New 'Restart' entry in DSH Web settings page: one-click safe restart of the entire DSH process, page auto-reconnects after ~5 seconds",
    "desc_zh": "DSH Web 设置页新增的「重启」入口：点击即可安全重启整个 DSH 进程，页面约 5 秒后自动重新连接。",
@@ -26719,8 +26822,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-restart-web",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-client-ui-question-history",
@@ -26769,8 +26874,9 @@
    ],
    "trust": "Silver",
    "slug": "blocker-notify",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-custom-workspace",
@@ -26880,7 +26986,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Question navigation rail on the left side of DSH Web conversation area: horizontal line=question, click to jump + fisheye + scroll follow + background preload",
    "desc_en": "Question navigation rail on the left side of DSH Web conversation area: horizontal line=question, click to jump + fisheye + scroll follow + background preload",
    "desc_zh": "DSH Web 对话区左侧提问导航轨：横线=提问，点击跳转+鱼眼+滚动跟随+后台预加载",
@@ -26897,8 +27003,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-usage-record",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-client-ui-settings-skills",
@@ -27299,8 +27407,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-client-ui-filesystem-manager",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-whale-tui",
@@ -28558,7 +28667,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "No description provided.",
    "desc_en": "No description provided.",
    "desc_zh": "无描述。",
@@ -28577,8 +28686,10 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-deepresearch",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-compaction-instant",
@@ -28736,9 +28847,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-workbench",
-   "webonly": true,
+   "webonly": false,
    "platform": "any",
-   "bareNpm": "install-fail"
+   "bareNpm": "install-fail",
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-token-panel",
@@ -29028,7 +29140,7 @@
    "pkg": "dsh-token-usage",
    "ver": "0.1.0",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "(no description)",
    "desc_en": "(no description)",
    "desc_zh": "(无描述)",
@@ -29046,9 +29158,11 @@
    ],
    "trust": "Silver",
    "slug": "dsh-token-usage",
-   "webonly": true,
+   "webonly": false,
    "platform": "any",
-   "bareNpm": "install-fail"
+   "bareNpm": "install-fail",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "context-vista",
@@ -29455,7 +29569,7 @@
    "pkg": "dsh-session-hub",
    "ver": "",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "Aggregate and natively control multiple remote DeepSeek Harness (DSH) servers' sessions from one official Web UI — hub gateway + official-U…",
    "desc_en": "Aggregate and natively control multiple remote DeepSeek Harness (DSH) servers' sessions from one official Web UI — hub gateway + official-U…",
    "desc_zh": "dsh-session-hub — DSH 插件（会话）",
@@ -29473,9 +29587,11 @@
    ],
    "trust": "Silver",
    "slug": "dsh-session-hub",
-   "webonly": true,
+   "webonly": false,
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "DeepSeek-Harness-for-VS-Code",
@@ -30286,8 +30402,9 @@
    ],
    "trust": "Silver",
    "slug": "Liltloom",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-session-tree",
@@ -30371,7 +30488,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness achievement & gamification plugin: cross-session badges for turns, tool calls, sessions and daily streaks, with a badge pa…",
    "desc_en": "DeepSeek Harness achievement & gamification plugin: cross-session badges for turns, tool calls, sessions and daily streaks, with a badge pa…",
    "desc_zh": "DSH 成就与游戏化插件：跨会话徽章、连续天数等",
@@ -30389,8 +30506,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-achievements",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-billing-glass",
@@ -30527,7 +30646,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Adds Tavily Search API as a web search provider for DSH.",
    "desc_en": "Adds Tavily Search API as a web search provider for DSH.",
    "desc_zh": "为 DSH 添加 Tavily 搜索 API 作为 Web 搜索提供者。",
@@ -30544,8 +30663,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-web-search-Tavily",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "gitlearnos",
@@ -30579,7 +30700,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DSH Web system status overlay: real-time CPU/memory/disk usage",
    "desc_en": "DSH Web system status overlay: real-time CPU/memory/disk usage",
    "desc_zh": "DSH Web 系统状态悬浮窗：实时 CPU/内存/磁盘占用率 | System-status overlay showing live CPU, memory and disk usage for DSH Web",
@@ -30597,8 +30718,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-sysmon",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "gongwen-skill",
@@ -31139,7 +31262,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DSH Cordis plugin: turn any source text into an AI knowledge graph (facts/inferences/concepts/definitions/examples/counter-examples/rules) with two-way linking between the graph and the original text.",
    "desc_en": "DSH Cordis plugin: turn any source text into an AI knowledge graph (facts/inferences/concepts/definitions/examples/counter-examples/rules) with two-way linking between the graph and the original text.",
    "desc_zh": "DSH Cordis 插件：将任何源文本转换为 AI 知识图谱（事实/推断/概念/定义/示例/反例/规则），并在图谱和原文之间建立双向链接。",
@@ -31157,8 +31280,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-knowledge-graph",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-agent-budget",
@@ -31166,7 +31291,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Native agent-tree token budget plugin",
    "desc_en": "Native agent-tree token budget plugin",
    "desc_zh": "原生 agent 树 token 预算插件",
@@ -31181,8 +31306,10 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-agent-budget",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-client-ui-voice-input",
@@ -33360,7 +33487,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Deepseek-harness-workbench-plugin",
    "desc_en": "Deepseek-harness-workbench-plugin ",
    "desc_zh": "Deepseek-harness-workbench插件",
@@ -33375,8 +33502,10 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "deepseek-harness-workbench-plugin",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "deepseek-harness-desktop",
@@ -33592,8 +33721,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugin-vscode-sidebar",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "DSH-Launcher",
@@ -33725,7 +33855,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "The only DSH marketplace focused on security, advocating review-before-install",
    "desc_en": "The only DSH marketplace focused on security, advocating review-before-install",
    "desc_zh": "唯一主打安全，提倡先审查再安装的 DSH 市场 (review-before-install DSH marketplace)",
@@ -33742,8 +33872,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-desktop-safe-market",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-desktop",
@@ -33897,7 +34029,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "No description provided.",
    "desc_en": "No description provided.",
    "desc_zh": "无描述。",
@@ -33915,8 +34047,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-blue-whale-maid",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "DshCockpit",
@@ -34309,8 +34443,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-desk-pet",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "AgentCat",
@@ -34511,7 +34646,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness (dsh) plugin: control the dsh service lifetime (always-on / tray / follow-window) for the dsh-launcher shell",
    "desc_en": "DeepSeek Harness (dsh) plugin: control the dsh service lifetime (always-on / tray / follow-window) for the dsh-launcher shell",
    "desc_zh": "DeepSeek Harness插件：控制dsh服务生命周期（常驻/托盘/跟随窗口），用于dsh-launcher壳",
@@ -34529,8 +34664,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-launcher-lifetime",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-webUI-pets",
@@ -34687,7 +34824,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "No description provided.",
    "desc_en": "No description provided.",
    "desc_zh": "无描述。",
@@ -34702,8 +34839,10 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-desktop-window",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "peanut-dsh-plugin",
@@ -34994,8 +35133,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "DSH-arena",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "deepseek-harness-Kylin-desktop",
@@ -35413,8 +35553,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-deep-research",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "DeepSeekHarnessRemoteGateway",
@@ -35473,7 +35614,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DSH message recall plugin: return to the state when that message was sent.",
    "desc_en": "DSH message recall plugin: return to the state when that message was sent.",
    "desc_zh": "DSH 消息撤回插件：回到发送该消息时的状态",
@@ -35490,8 +35631,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-recall-plugin",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "deepseek-harness-fnos",
@@ -35641,8 +35784,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-routing-suite",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-plugin-development",
@@ -35781,7 +35925,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Expose DeepSeek Harness agent capabilities as an MCP server (brain=Hermes, arms=Harness)",
    "desc_en": "Expose DeepSeek Harness agent capabilities as an MCP server (brain=Hermes, arms=Harness)",
    "desc_zh": "dsh-harness-mcp-server — DSH 插件（编排）",
@@ -35796,8 +35940,10 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-harness-mcp-server",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "hermes-dsh-collab",
@@ -36298,8 +36444,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-trajectory-governance",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-browser-companion",
@@ -38085,7 +38232,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DSH plugin: manage agent skills in settings.",
    "desc_en": "DSH plugin: manage agent skills in settings.",
    "desc_zh": "设置页技能管理面板",
@@ -38102,8 +38249,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-skill-panel",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-agent-board",
@@ -38887,7 +39036,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness (dsh) Web plugin",
    "desc_en": "DeepSeek Harness (dsh) Web plugin",
    "desc_zh": "DSH Web插件",
@@ -38904,8 +39053,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-web-lan-access",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-remote",
@@ -38954,8 +39105,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-full-remote",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-lan-gate",
@@ -39276,7 +39428,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "OpenCode Go usage bar: plan remaining ring + token/cost real-time stats (current session/all scopes + per-model, official real-time pricing), one-click copy API Key.",
    "desc_en": "OpenCode Go usage bar: plan remaining ring + token/cost real-time stats (current session/all scopes + per-model, official real-time pricing), one-click copy API Key.",
    "desc_zh": "OpenCode Go 用量常驻条：套餐余量圆环 + token/花费实时统计（本次会话/全部范围 + 按模型联动，官方实时定价），一键复制 API Key。OpenCode Go usage bar for DeepSeek Harness.",
@@ -39291,8 +39443,10 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-ocgo-lite",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-server-deployment",
@@ -39528,7 +39682,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Plugin to enable LAN access and mobile page for DeepSeek Harness.",
    "desc_en": "Plugin to enable LAN access and mobile page for DeepSeek Harness.",
    "desc_zh": "为DeepSeek  harness开启局域网访问及移动端页面的插件",
@@ -39543,8 +39697,10 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-LAN",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-agent-messaging",
@@ -39700,7 +39856,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DSH web plugin: toggle plugins on/off from the GUI without restarting the server",
    "desc_en": "DSH web plugin: toggle plugins on/off from the GUI without restarting the server",
    "desc_zh": "DSH Web插件：GUI切换插件，无需重启",
@@ -39717,8 +39873,10 @@
    ],
    "trust": "Silver",
    "slug": "plugin-switch",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-anchored-flash",
@@ -39960,8 +40118,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-balance-display",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-kimi-bridge",
@@ -40334,8 +40493,9 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-client-ui-settings-mcp",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-provider-billing",
@@ -40343,7 +40503,7 @@
    "pkg": "dsh-provider-billing",
    "ver": "",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness plugin: provider account balance inside each Models settings row, queried through a loopback-pinned RPC channel with the s…",
    "desc_en": "DeepSeek Harness plugin: provider account balance inside each Models settings row, queried through a loopback-pinned RPC channel with the s…",
    "desc_zh": "模型设置行内显示账户余额",
@@ -40358,9 +40518,11 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-provider-billing",
-   "webonly": true,
+   "webonly": false,
    "platform": "any",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-msg-edit",
@@ -40493,7 +40655,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Wallpaper plus optional Liquid Glass overlay for DeepSeek Harness Web UI",
    "desc_en": "Wallpaper plus optional Liquid Glass overlay for DeepSeek Harness Web UI",
    "desc_zh": "壁纸及可选玻璃覆盖层，用于DSH Web UI",
@@ -40510,8 +40672,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-liquid-glass",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-better-deepseek",
@@ -40638,7 +40802,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Use DeepSeek Harness from your iPhone / iPad: LAN reverse proxy, iOS PWA (add-to-home-screen) chrome, and touch/mobile CSS for the web GUI",
    "desc_en": "Use DeepSeek Harness from your iPhone / iPad: LAN reverse proxy, iOS PWA (add-to-home-screen) chrome, and touch/mobile CSS for the web GUI",
    "desc_zh": "iPhone/iPad使用DSH：局域网代理，PWA，触屏CSS",
@@ -40655,8 +40819,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-mobile-2",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-webfetch",
@@ -40815,7 +40981,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek account quota (balance) and session token usage for the DeepSeek Harness web UI",
    "desc_en": "DeepSeek account quota (balance) and session token usage for the DeepSeek Harness web UI",
    "desc_zh": "DeepSeek账户配额和会话令牌使用量，用于Web UI",
@@ -40832,8 +40998,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-quota",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   }
  ],
  "Terminal": [
@@ -40938,8 +41106,9 @@
    ],
    "trust": "Silver",
    "slug": "local-shell-mcp",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-tui",
@@ -41141,8 +41310,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-terminal",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-chat-tools",
@@ -41412,7 +41582,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness dual-face plugin: session-isolated file upload with colorful composer cards + read_document tool (text/PDF/DOCX/XLSX) with content sniffing and LRU caching",
    "desc_en": "DeepSeek Harness dual-face plugin: session-isolated file upload with colorful composer cards + read_document tool (text/PDF/DOCX/XLSX) with content sniffing and LRU caching",
    "desc_zh": "DeepSeek Harness双面插件：会话隔离文件上传，彩色卡片+文档读取工具，含嗅探与LRU缓存",
@@ -41431,8 +41601,10 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-files",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "session-seed-plugin",
@@ -41567,7 +41739,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Cross-platform DSH WebUI multimedia input and workspace attachments",
    "desc_en": "Cross-platform DSH WebUI multimedia input and workspace attachments",
    "desc_zh": "跨平台DSH WebUI多媒体输入与工作区附件",
@@ -41585,8 +41757,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-attachments",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-workspace",
@@ -41612,8 +41786,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-workspace",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-snapshot",
@@ -41647,7 +41822,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness data vault plugin (dsh-vault) — auto backup, purge detection, one-click restore, protecting chat history and workspace data; install via desktop or command line dsh plugin add.",
    "desc_en": "DeepSeek Harness data vault plugin (dsh-vault) — auto backup, purge detection, one-click restore, protecting chat history and workspace data; install via desktop or command line dsh plugin add.",
    "desc_zh": "DeepSeek Harness 数据保险箱插件（dsh-vault）—— 自动备份、清空检测、一键恢复，保护聊天记录与工作区数据；可经桌面端一键安装或命令行 dsh plugin add 安装。",
@@ -41666,8 +41841,10 @@
    ],
    "trust": "Silver",
    "slug": "deepseekharnessdesktop-vault",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-archive-manager",
@@ -41675,7 +41852,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "No description provided.",
    "desc_en": "No description provided.",
    "desc_zh": "无描述",
@@ -41693,8 +41870,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-archive-manager",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-traffic-light",
@@ -41717,8 +41896,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-traffic-light",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-discord-bot",
@@ -42616,7 +42796,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "No description provided.",
    "desc_en": "No description provided.",
    "desc_zh": "无描述。",
@@ -42631,8 +42811,10 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "ds-api-usage",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-session-manager",
@@ -42666,7 +42848,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Delete DSH conversation sessions from a Settings panel/在设置面板中增加删除会话管理以便删除无用会话",
    "desc_en": "Delete DSH conversation sessions from a Settings panel/在设置面板中增加删除会话管理以便删除无用会话",
    "desc_zh": "Delete DSH conversation sessions from a Settings panel/在设置面板中增加删除会话管理以便删除无用会话",
@@ -42684,8 +42866,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-delete-session",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "model-usage-plugin",
@@ -42693,7 +42877,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Model token usage stats and cost estimation with account balance for DSH",
    "desc_en": "Model token usage stats and cost estimation with account balance for DSH",
    "desc_zh": "统计各模型 tokens 消耗并估算费用，显示账户余额 | Model token usage stats and cost estimation with account balance for DSH",
@@ -42708,8 +42892,10 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "model-usage-plugin",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "reSanity",
@@ -42890,8 +43076,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-attachment-formats",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-cost-balance",
@@ -42914,8 +43101,9 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-cost-balance",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-backup",
@@ -42997,7 +43185,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Real-time session cost preview for DeepSeek Harness: live cost readout, today usage chart, price_estimate/session_cost tools, prices kept in sync with the DeepSeek official site (peak/off-peak aware)",
    "desc_en": "Real-time session cost preview for DeepSeek Harness: live cost readout, today usage chart, price_estimate/session_cost tools, prices kept in sync with the DeepSeek official site (peak/off-peak aware)",
    "desc_zh": "实时会话成本预览：费用、图表、工具、同步官网",
@@ -43012,8 +43200,10 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-agent-pricing",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-firecrawl",
@@ -43480,7 +43670,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "A side-effect-only DeepSeekHarness plugin: reminds you to attend carbon-based meetings when you're too deep in AI chat.",
    "desc_en": "A side-effect-only DeepSeekHarness plugin: reminds you to attend carbon-based meetings when you're too deep in AI chat.",
    "desc_zh": "一个只有副作用的DeepSeekHarness插件：在你跟 AI 聊得神魂颠倒时，提醒你「该去跟碳基生命开会了」。",
@@ -43497,8 +43687,10 @@
    ],
    "trust": "Silver",
    "slug": "dsh-lark-meeting-notifier",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-android-app",
@@ -43634,7 +43826,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Feishu and Lark text and image channel plugin for DeepSeek Harness",
    "desc_en": "Feishu and Lark text and image channel plugin for DeepSeek Harness",
    "desc_zh": "飞书/Lark文本图像通道插件",
@@ -43653,8 +43845,10 @@
    ],
    "trust": "Silver",
    "slug": "DeepSeek-harness-lark",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-side-workspace",
@@ -43808,8 +44002,9 @@
    ],
    "trust": "Silver",
    "slug": "dsh-req-workbench",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E)."
   },
   {
    "name": "dsh-plugin-cost",
@@ -43967,7 +44162,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "🐤 DeepSeek Harness (DSH) permanent plugin: fills the block below deep-dive status with Kun pet GIFs during deep-diving answers—progress bar 0%→100%, action & text switch every 20%, system-level 'What are you doing~Ouch' on completion.",
    "desc_en": "🐤 DeepSeek Harness (DSH) permanent plugin: fills the block below deep-dive status with Kun pet GIFs during deep-diving answers—progress bar 0%→100%, action & text switch every 20%, system-level 'What are you doing~Ouch' on completion.",
    "desc_zh": "🐤 DeepSeek Harness（DSH）永久插件：Deep diving 回答期间用坤宠动图填满深潜状态行下方区块——进度条 0%→100%，每 20% 切换动作与文案，完成时系统级播放「你干嘛~哎哟」",
@@ -43982,8 +44177,10 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-ikun-pet",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-voice-input-plugin",
@@ -44064,7 +44261,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Edge TTS voice plugin for DeepSeek Harness: read assistant replies aloud, auto-read toggle, voice settings panel (free, no API key)",
    "desc_en": "Edge TTS voice plugin for DeepSeek Harness: read assistant replies aloud, auto-read toggle, voice settings panel (free, no API key)",
    "desc_zh": "Edge TTS语音插件：朗读回复，自动朗读，语音设置",
@@ -44079,8 +44276,10 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugin-tts",
-   "webonly": true,
-   "platform": "any"
+   "webonly": false,
+   "platform": "any",
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   },
   {
    "name": "dsh-image2-draw",
