@@ -19075,7 +19075,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Undo file write/edit operations in DSH via /undo command with snapshot history.",
    "desc_en": "Undo file write/edit operations in DSH via /undo command with snapshot history.",
    "desc_zh": "通过/undo命令撤销DSH中文件写入/编辑操作，支持快照历史。",
@@ -19089,15 +19089,17 @@
    "license": "MIT",
    "slug": "dsh-file-undo",
    "platform": "any",
-   "note": "仓库未加 `dsh-plugin` topic"
+   "note": "仓库未加 `dsh-plugin` topic\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "webonly": false,
+   "testDate": "2026-08-18"
   },
-    {
+  {
    "name": "dsh-plugin-ima-sync",
    "url": "https://github.com/nan1010082085/dsh-plugins/tree/main/packages/ima-sync",
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Upload DSH conversation progress to Tencent IMA (daily notes + Work knowledge base).",
    "desc_en": "Upload DSH conversation progress to Tencent IMA (daily notes + Work knowledge base).",
    "desc_zh": "DSH 插件：把对话内容自动上传到腾讯 IMA 知识库（每日笔记 + 工作笔记）。",
@@ -19111,7 +19113,9 @@
    "license": "MIT",
    "slug": "dsh-plugin-ima-sync",
    "platform": "any",
-   "note": "Monorepo subpackage (packages/ima-sync); root repo is a multi-plugin workspace. cordis.patch.yml + LICENSE live in the subpackage; root lacks dsh-plugin topic."
+   "note": "Monorepo subpackage (packages/ima-sync); root repo is a multi-plugin workspace. cordis.patch.yml + LICENSE live in the subpackage; root lacks dsh-plugin topic.\nWeb L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "webonly": false,
+   "testDate": "2026-08-18"
   }
  ],
  "AI Models": [
@@ -44041,7 +44045,7 @@
    "pkg": "@shaoshi/dshscan",
    "ver": "0.2.3",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "Security auditor for DSH plugins, providing risk scores, severity, evidence, and install recommendations.",
    "desc_en": "Security auditor for DSH plugins, providing risk scores, severity, evidence, and install recommendations.",
    "desc_zh": "DSH插件安全审查器，提供风险评分、严重等级、证据和安装建议。",
@@ -44054,7 +44058,10 @@
    "added": "2026-08-18T13:33:44",
    "license": "MIT",
    "slug": "shaoshi-dshscan",
-   "platform": "any"
+   "platform": "any",
+   "webonly": false,
+   "testDate": "2026-08-18",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
   }
  ],
  "Productivity": [

@@ -73,7 +73,7 @@ verify_one() {
   local prof="v_$(echo "$name" | tr -cd 'a-zA-Z0-9_-')"
   local profdir="$PROFILE_ROOT/$prof"
   rm -rf "$profdir"; mkdir -p "$profdir"
-  local log="/tmp/verify-$name.log"
+  local log="/tmp/verify-$prof.log"   # sanitize (scoped pkg @a/b has /)
   local status="unknown"
   local installed=0
   # allowBuilds 白名单：native 依赖先放行；git 插件自身的 prepare 脚本在安装报错时
