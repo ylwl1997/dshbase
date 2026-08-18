@@ -16,7 +16,7 @@ const canonical = getAbsoluteLocaleUrl(locale, currentPath);
 const enUrl = getAbsoluteLocaleUrl('en', currentPath);
 const zhUrl = getAbsoluteLocaleUrl('zh', currentPath);
 const homeUrl = getRelativeLocaleUrl(locale, '/');
-const ogImage = getAbsoluteLocaleUrl('en', '/og.png');
+const ogImage = 'https://dshbase.com/og.png';
 const ogLocale = locale === 'en' ? 'en_US' : 'zh_CN';
 const otherLocale = locale === 'en' ? 'zh' : 'en';
 const otherLangUrl = getRelativeLocaleUrl(otherLocale, currentPath);
