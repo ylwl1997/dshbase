@@ -1,0 +1,56 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness 冲击美国 Agent 工具：5 天 15.8 万星，对 Claude Code、Codex、Cursor 意味着什么 | dshbase" description="DeepSeek Harness 发布 5 天冲到 15.8 万 GitHub star，已超过 OpenAI 的 Codex、逼近 Claude Code。我们从插件目录的实测视角，拆解一个免费开源、一切皆插件的中国 Harness，如何冲击美国闭源 Agent 工具的定价、生态与护城河——用 1,777 个我们真实验证过的插件说话。" currentPath="/zh/blog/dsh-vs-american-tools/" category="分析">
+  <h1>DeepSeek Harness 冲击美国 Agent 工具——<span class="accent">真正起作用的数字</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026年8月18日 · dshbase</p>
+
+  <p>8 月 13 日，DeepSeek 开源了一个 Agent Harness。五天后它拿到 <strong>约 15.8 万 GitHub star</strong>——比 OpenAI 的 Codex（约 10.6 万）还多，直逼 Anthropic 的 Claude Code（约 14.1 万）。没有人预料到「AI 编程工具」这个赛道会这么快出现一枚火箭。这篇文章不是评测 DSH 好不好用，而是看这个轨迹对<strong>美国闭源编程 Agent 的商业模式</strong>意味着什么——以及我们这些真装过 1,777 个插件的目录，从一线看到了什么。</p>
+
+  <h2>Star 数据，直接来自 GitHub</h2>
+  <p>我们拉了实时数字，不凭感觉说话：</p>
+  <table class="ztable">
+    <tr><th>工具</th><th>GitHub star</th><th>许可</th><th>模型锁定</th></tr>
+    <tr><td><strong>DeepSeek Harness</strong>（发布 5 天）</td><td>约 158,000</td><td>MIT 开源</td><td>任意 OpenAI 兼容（DeepSeek + 其他）</td></tr>
+    <tr><td><strong>Claude Code</strong></td><td>约 141,000</td><td>闭源</td><td>Anthropic 模型</td></tr>
+    <tr><td><strong>OpenAI Codex</strong></td><td>约 106,000</td><td>闭源</td><td>OpenAI 模型</td></tr>
+    <tr><td><strong>Cursor</strong></td><td>商业应用</td><td>闭源</td><td>自带 key，默认前沿模型</td></tr>
+    <tr><td><strong>GitHub Copilot</strong></td><td>商业产品</td><td>闭源</td><td>微软/OpenAI 栈</td></tr>
+  </table>
+  <p>必须诚实：star 不是收入，开源采纳也不等于商业。但<strong>速度本身就是信号</strong>。一个中国开源项目在不到一周内超过 Codex 的 star 数，等于把整个赛道重新定义为「Harness + 插件」，而不是「厂商应用 + 订阅」。</p>
+
+  <h2>为什么 Harness 在吃掉 App</h2>
+  <p>Claude Code 和 Codex 是<strong>产品</strong>：厂商选好模型、交互和扩展机制，你整体租用。DSH 是<strong>Harness</strong>：一个把插件（模型、工具、UI、甚至 Agent 循环本身）组装成属于你的 Agent 的壳。这个区别听起来抽象，直到你看到它解锁了什么：</p>
+  <ul>
+    <li><strong>模型不再是护城河。</strong>让 DSH 指向 DeepSeek、Anthropic key、或任意 OpenAI 兼容服务。Harness 跟随你的成本与合规需求；产品不会。</li>
+    <li><strong>插件才是护城河——而且是开放的。</strong>npm 就是分发层。谁都能发布；没有应用商店审核，没有厂商门槛。</li>
+    <li><strong>Agent 是一个可以版本化的文件。</strong>预设和会话是只追加日志，可重建、可 diff、可分享。这不是闭源 App 的功能，而是品类差异。</li>
+  </ul>
+  <p>我们在 dshbase 已经这么过了五天：<strong>收录 1,777 个插件，1,580 个是在 dsh 0.1.0-rc.6 上真装过验证的</strong>，315 个一条命令从 npm 装。当一个开放生态不到一周就长出这么大的目录，闭源 App 的策展市场要回答的问题，比「谁的补全更好」难得多。</p>
+
+  <h2>真正承压的是什么</h2>
+  <h3>定价，尤其是订阅</h3>
+  <p>Claude Code 在 Pro/Max 订阅后面；Codex 靠 OpenAI 额度；Cursor 每月 20–200 美元。DSH 免费、可自托管。压力不是大家明天都会切换，而是<strong>「一个编程 Agent 的参考价」刚刚跌到 0</strong>。那些本来就在质疑按席定价的企业买家，现在有了一个可信的「在 Harness 上自建」的谈判筹码。</p>
+  <h3>扩展生态——这才是真正的护城河</h3>
+  <p>闭源工具押注策展的 Skills/MCP 市场。DSH 押注<strong>一切皆插件、跑在 npm 上</strong>。当社区一天内能造出 1,777 个插件、Harness 允许你一条命令装任意一个时，护城河从「厂商策展了什么」变成「社区造了什么」——闭源 App 不开放自己的扩展模型，就没法对等。</p>
+  <h3>成本竞赛的默认选项</h3>
+  <p>在我们的<a href="/zh/blog/deepseek-harness-cost/">成本分析</a>里，同一模型下 Harness 的选择能让 token 账单差到 7 倍。DeepSeek 的定价 + DSH 的只追加会话设计，意味着「便宜」不再是变通方案，而是默认。为自家模型调优的美国工具，根本抓不住 DeepSeek 的缓存友好经济学。</p>
+
+  <h2>什么（暂时）没有被冲击</h2>
+  <p>也说说限制，保持诚实：</p>
+  <ul>
+    <li><strong>打磨过的体验。</strong>Cursor 的编辑器集成、Copilot 的 IDE 无处不在，是真实产品。DSH 的「一切皆插件」强大，但也意味着大量组装。</li>
+    <li><strong>插件生态还很年轻。</strong>我们验证了 1,777 个插件，但失败是真实的——装不上、有的需要 web 运行时、质量参差。这是开放的代价。</li>
+    <li><strong>企业支持。</strong>闭源厂商卖 SLA、合规和手把手。开源卖的是自己。买家不同。</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <h3>DeepSeek Harness 是 Claude Code 的威胁吗？</h3>
+  <p>今天作为即插即用的替代品，不是——但作为重置整个赛道经济学的力量，是。抛开 star 速度不谈，它改变了参考价格和扩展模型。闭源工具要么在开放性、要么在价格上作出回应。</p>
+  <h3>美国工具里谁最危险？</h3>
+  <p>护城河<em>只是</em>模型或<em>只是</em>订阅的那个。如果一个工具的区别是「我们把自己的模型调得好」，DSH 的模型无关 Harness 正好釜底抽薪。最安全的是有深度编辑器/IDE 集成和企业分发渠道的。</p>
+  <h3>开源在这里真的会赢吗？</h3>
+  <p>不会自动赢。闭源 App 的上手和企业支持仍然更好。变的是，「开源」现在有了一个可信、快速演进的具体实现——以及一个 1,777 条已验证插件的目录，任何买家在选厂商前都能先查。</p>
+
+  <p class="muted small" style="margin-top:30px">自己看验证数据：浏览全部 <a href="/zh/plugins/directory/">1,777 个插件</a>、读我们的 <a href="/zh/blog/deepseek-harness-comparison/">12 工具横向对比</a>、或深挖 <a href="/zh/blog/deepseek-harness-cost/">为什么 Harness 的选择让成本差 7 倍</a>。</p>
+</BlogPost>

@@ -1,32 +1,281 @@
 [
-  { "path": "/blog/vs-claude-code/", "cat": "Comparison", "cat_zh": "对比", "en": "DeepSeek Harness vs Claude Code", "zh": "DeepSeek Harness vs Claude Code", "desc_en": "Plugins vs MCP, open source vs closed, pricing, and which to choose.", "desc_zh": "插件 vs MCP、开源 vs 闭源、价格与选择。" },
-  { "path": "/blog/why-deepseek-harness/", "cat": "Concept", "cat_zh": "概念", "en": "Why it's called a Harness", "zh": "为什么叫 Harness", "desc_en": "Agent = Model + Harness, the Cordis kernel, and time/spatial composability.", "desc_zh": "Agent = Model + Harness、Cordis 内核与时间/空间可组合性。" },
-  { "path": "/blog/deepseek-harness-modes/", "cat": "Guide", "cat_zh": "指南", "en": "The four modes", "zh": "四种模式", "desc_en": "Standard, PTC, Minimal, and Create — a complete guide.", "desc_zh": "标准 / PTC / 极简 / 创造——完整指南。" },
-  { "path": "/blog/deepseek-harness-session-log/", "cat": "Analysis", "cat_zh": "分析", "en": "Append-only session logs", "zh": "只追加会话日志", "desc_en": "Observable, auditable, reproducible agent debugging.", "desc_zh": "可观测、可审计、可复现的 Agent 调试。" },
-  { "path": "/blog/deepseek-harness-cost/", "cat": "Analysis", "cat_zh": "分析", "en": "Cost & caching", "zh": "成本与缓存", "desc_en": "How harness choice moves the token bill by up to 7x.", "desc_zh": "Harness 的选择如何让 token 成本差到 7 倍。" },
-  { "path": "/blog/deepseek-harness-review/", "cat": "Review", "cat_zh": "评测", "en": "First impressions & V4 Pro pricing", "zh": "上手体验与 V4 Pro 定价", "desc_en": "37k stars, cache pricing up 12x, the four modes, and the best community plugins.", "desc_zh": "37k star、缓存价涨 12 倍、四模式与最佳社区插件。" },
-  { "path": "/blog/deepseek-harness-architecture/", "cat": "Architecture", "cat_zh": "架构", "en": "The self-modifying agent", "zh": "自进化 Agent", "desc_en": "Everything-is-a-plugin, Cordis, and the \"make your own wrench\" Create mode.", "desc_zh": "一切皆插件、Cordis 与「现场造扳手」的创造模式。" },
-  { "path": "/blog/deepseek-harness-vs-codex/", "cat": "Comparison", "cat_zh": "对比", "en": "vs Codex", "zh": "vs Codex", "desc_en": "Agent presets vs scenario modes, rebuildable sessions, and the plugin model.", "desc_zh": "Agent 预设 vs 场景模式、可重建会话与插件模型。" },
-  { "path": "/blog/pi-deepseek-cache/", "cat": "Analysis", "cat_zh": "分析", "en": "Pi & the 99.93% cache hit rate", "zh": "Pi 与 99.93% 缓存命中率", "desc_en": "Minimal tools + append-only sessions = cheap DeepSeek.", "desc_zh": "最小工具集 + 只追加会话 = 便宜的 DeepSeek。" },
-  { "path": "/blog/deepseek-harness-comparison/", "cat": "Comparison", "cat_zh": "对比", "en": "vs 12 coding agents", "zh": "横向对比 12 个编程工具", "desc_en": "Claude Code, Codex, Cline, Pi, Reasonix, CodeWhale and more.", "desc_zh": "Claude Code、Codex、Cline、Pi、Reasonix、CodeWhale 等。" },
-  { "path": "/blog/dsh-plugin-philosophy/", "cat": "Concept", "cat_zh": "概念", "en": "Plugin philosophy: everything vs fatigue", "zh": "插件哲学：一切皆插件 vs 疲劳", "desc_en": "How DSH differs from VS Code and Claude Code.", "desc_zh": "DSH 与 VS Code、Claude Code 有何不同。" },
-  { "path": "/blog/dsh-self-evolving-software/", "cat": "Concept", "cat_zh": "概念", "en": "Self-evolving software: miracle or chaos", "zh": "自进化软件：福音还是灾难", "desc_en": "The Create mode, Cordis, and OpenClaw's warning.", "desc_zh": "创造模式、Cordis 与 OpenClaw 的警示。" },
-  { "path": "/blog/why-typescript-agent-harness/", "cat": "Analysis", "cat_zh": "分析", "en": "Why TypeScript / Node.js", "zh": "为什么是 TypeScript / Node.js", "desc_en": "npm is the plugin distribution layer.", "desc_zh": "npm 是插件分发层。" },
-  { "path": "/blog/dsh-trajectory-tracing/", "cat": "Tutorial", "cat_zh": "教程", "en": "Trajectory tracing: the killer feature", "zh": "Trajectory 追踪：killer feature", "desc_en": "Debug agents and cut token waste from the trace.", "desc_zh": "从轨迹调试 Agent、削减 token 浪费。" },
-  { "path": "/blog/dsh-plugin-ecosystem/", "cat": "Analysis", "cat_zh": "分析", "en": "Plugin ecosystem: 209 plugins", "zh": "插件生态：209 个插件", "desc_en": "Ten categories of community plugins from the Show and tell firehose.", "desc_zh": "从 Show and tell 里归出十大类社区插件。" },
-  { "path": "/blog/dsh-feature-requests/", "cat": "Analysis", "cat_zh": "分析", "en": "The 10 most-requested features", "zh": "社区最想要的 10 个功能", "desc_en": "297 Ideas ranked — desktop, CLI/TUI, memory, Docker, and more.", "desc_zh": "297 条 Ideas 排行——桌面端、CLI/TUI、记忆、Docker 等。" },
-  { "path": "/blog/dsh-plugin-pollution/", "cat": "Analysis", "cat_zh": "分析", "en": "The dsh-plugin topic is polluted", "zh": "dsh-plugin topic 被蹭标签污染", "desc_en": "How we vet real DSH plugins from tag-squatters.", "desc_zh": "我们如何鉴别真 DSH 插件与蹭标签仓库。" },
-  { "path": "/blog/deepseek-harness-faq/", "cat": "FAQ", "cat_zh": "FAQ", "en": "FAQ: the community's most-asked questions", "zh": "FAQ：社区高频问题", "desc_en": "Permissions, image input, token cost, install crashes, Docker, memory.", "desc_zh": "权限、图片输入、token 成本、安装崩溃、Docker、记忆。" },
-  { "path": "/blog/dsh-bug-report/", "cat": "Analysis", "cat_zh": "分析", "en": "Community bug report: 321 discussions", "zh": "社区 Bug 报告全景：321 个讨论", "desc_en": "Eight categories of real-world issues.", "desc_zh": "归成 8 大类真实问题。" },
-  { "path": "/blog/dsh-mcp/", "cat": "Guide", "cat_zh": "指南", "en": "MCP: connecting servers to DSH", "zh": "MCP：接入 MCP Server", "desc_en": "dsh-workspace-mcp and friends.", "desc_zh": "dsh-workspace-mcp 等。" },
-  { "path": "/blog/dsh-memory-guide/", "cat": "Guide", "cat_zh": "指南", "en": "Memory plugins: dsh-memory, dsh-mnemon", "zh": "记忆插件：dsh-memory / dsh-mnemon", "desc_en": "A complete guide to DSH memory plugins.", "desc_zh": "DSH 记忆插件全景。" },
-  { "path": "/blog/dsh-model-setup/", "cat": "Guide", "cat_zh": "指南", "en": "Model setup: official API, OpenCode Go", "zh": "模型接入：官方 API、OpenCode Go", "desc_en": "Three ways to power DeepSeek Harness.", "desc_zh": "三种给 DSH 接模型的方式。" },
-  { "path": "/blog/dsh-sandbox/", "cat": "Guide", "cat_zh": "指南", "en": "Sandbox: permissions & security", "zh": "Sandbox：权限与安全", "desc_en": "Permissions, security & tool approval.", "desc_zh": "权限预设、工具审批。" },
-  { "path": "/blog/dsh-subagent/", "cat": "Guide", "cat_zh": "指南", "en": "Subagent: multi-agent, fork & more", "zh": "Subagent：多 Agent、fork 子代理", "desc_en": "Run multiple agents and subagents.", "desc_zh": "跑多 Agent / 子代理。" },
-  { "path": "/blog/dsh-vision/", "cat": "Guide", "cat_zh": "指南", "en": "Vision: image input & plugins", "zh": "Vision：图片输入与视觉插件", "desc_en": "modlens, dsh-vision-toolkit, upload fixes.", "desc_zh": "modlens、dsh-vision-toolkit、上传修复。" },
-  { "path": "/blog/vs-cowork/", "cat": "Comparison", "cat_zh": "对比", "en": "vs Claude Cowork", "zh": "vs Claude Cowork", "desc_en": "Open-source harness vs closed agent.", "desc_zh": "开源框架 vs 闭源 Agent。" },
-  { "path": "/blog/vs-cursor/", "cat": "Comparison", "cat_zh": "对比", "en": "vs Cursor", "zh": "vs Cursor", "desc_en": "Agent harness vs AI IDE.", "desc_zh": "Agent 框架 vs AI 编辑器。" },
-  { "path": "/blog/dsh-desktop-alternatives/", "cat": "Guide", "cat_zh": "指南", "en": "Is DeepSeek Harness a desktop app? CLI, VSCode, TUI & Electron shells", "zh": "DeepSeek Harness 有桌面端吗？CLI、VSCode、TUI、Electron 替代方案", "desc_en": "DSH has no official desktop client — here are the real alternatives.", "desc_zh": "DSH 没有官方桌面客户端——这里是真正的替代方案。" },
-  { "path": "/blog/dsh-im-integration/", "cat": "Guide", "cat_zh": "指南", "en": "IM integrations: WeChat, QQ, Feishu, DingTalk & Telegram", "zh": "IM 接入：微信、QQ、飞书、钉钉、Telegram", "desc_en": "Put DeepSeek Harness inside your chat apps — the full plugin lineup.", "desc_zh": "把 DeepSeek Harness 塞进你的聊天软件——社区插件完整阵容。" },
-  { "path": "/blog/community-pulse-1/", "cat": "Pulse", "cat_zh": "脉搏", "en": "Community Pulse #1 — what users want right now", "zh": "社区脉搏 · 第 1 期：用户现在最想要什么", "desc_en": "2,638 discussions distilled: the loudest asks, this month's session-corruption bugs, and the crowded plugin-discovery race.", "desc_zh": "扫完 2638 个讨论：最响亮的诉求、本月的会话损坏 bug，以及拥挤的插件发现赛道。" }
+ {
+  "path": "/blog/vs-claude-code/",
+  "cat": "Comparison",
+  "cat_zh": "对比",
+  "en": "DeepSeek Harness vs Claude Code",
+  "zh": "DeepSeek Harness vs Claude Code",
+  "desc_en": "Plugins vs MCP, open source vs closed, pricing, and which to choose.",
+  "desc_zh": "插件 vs MCP、开源 vs 闭源、价格与选择。"
+ },
+ {
+  "path": "/blog/why-deepseek-harness/",
+  "cat": "Concept",
+  "cat_zh": "概念",
+  "en": "Why it's called a Harness",
+  "zh": "为什么叫 Harness",
+  "desc_en": "Agent = Model + Harness, the Cordis kernel, and time/spatial composability.",
+  "desc_zh": "Agent = Model + Harness、Cordis 内核与时间/空间可组合性。"
+ },
+ {
+  "path": "/blog/deepseek-harness-modes/",
+  "cat": "Guide",
+  "cat_zh": "指南",
+  "en": "The four modes",
+  "zh": "四种模式",
+  "desc_en": "Standard, PTC, Minimal, and Create — a complete guide.",
+  "desc_zh": "标准 / PTC / 极简 / 创造——完整指南。"
+ },
+ {
+  "path": "/blog/deepseek-harness-session-log/",
+  "cat": "Analysis",
+  "cat_zh": "分析",
+  "en": "Append-only session logs",
+  "zh": "只追加会话日志",
+  "desc_en": "Observable, auditable, reproducible agent debugging.",
+  "desc_zh": "可观测、可审计、可复现的 Agent 调试。"
+ },
+ {
+  "path": "/blog/deepseek-harness-cost/",
+  "cat": "Analysis",
+  "cat_zh": "分析",
+  "en": "Cost & caching",
+  "zh": "成本与缓存",
+  "desc_en": "How harness choice moves the token bill by up to 7x.",
+  "desc_zh": "Harness 的选择如何让 token 成本差到 7 倍。"
+ },
+ {
+  "path": "/blog/deepseek-harness-review/",
+  "cat": "Review",
+  "cat_zh": "评测",
+  "en": "First impressions & V4 Pro pricing",
+  "zh": "上手体验与 V4 Pro 定价",
+  "desc_en": "37k stars, cache pricing up 12x, the four modes, and the best community plugins.",
+  "desc_zh": "37k star、缓存价涨 12 倍、四模式与最佳社区插件。"
+ },
+ {
+  "path": "/blog/deepseek-harness-architecture/",
+  "cat": "Architecture",
+  "cat_zh": "架构",
+  "en": "The self-modifying agent",
+  "zh": "自进化 Agent",
+  "desc_en": "Everything-is-a-plugin, Cordis, and the \"make your own wrench\" Create mode.",
+  "desc_zh": "一切皆插件、Cordis 与「现场造扳手」的创造模式。"
+ },
+ {
+  "path": "/blog/deepseek-harness-vs-codex/",
+  "cat": "Comparison",
+  "cat_zh": "对比",
+  "en": "vs Codex",
+  "zh": "vs Codex",
+  "desc_en": "Agent presets vs scenario modes, rebuildable sessions, and the plugin model.",
+  "desc_zh": "Agent 预设 vs 场景模式、可重建会话与插件模型。"
+ },
+ {
+  "path": "/blog/pi-deepseek-cache/",
+  "cat": "Analysis",
+  "cat_zh": "分析",
+  "en": "Pi & the 99.93% cache hit rate",
+  "zh": "Pi 与 99.93% 缓存命中率",
+  "desc_en": "Minimal tools + append-only sessions = cheap DeepSeek.",
+  "desc_zh": "最小工具集 + 只追加会话 = 便宜的 DeepSeek。"
+ },
+ {
+  "path": "/blog/deepseek-harness-comparison/",
+  "cat": "Comparison",
+  "cat_zh": "对比",
+  "en": "vs 12 coding agents",
+  "zh": "横向对比 12 个编程工具",
+  "desc_en": "Claude Code, Codex, Cline, Pi, Reasonix, CodeWhale and more.",
+  "desc_zh": "Claude Code、Codex、Cline、Pi、Reasonix、CodeWhale 等。"
+ },
+ {
+  "path": "/blog/dsh-plugin-philosophy/",
+  "cat": "Concept",
+  "cat_zh": "概念",
+  "en": "Plugin philosophy: everything vs fatigue",
+  "zh": "插件哲学：一切皆插件 vs 疲劳",
+  "desc_en": "How DSH differs from VS Code and Claude Code.",
+  "desc_zh": "DSH 与 VS Code、Claude Code 有何不同。"
+ },
+ {
+  "path": "/blog/dsh-self-evolving-software/",
+  "cat": "Concept",
+  "cat_zh": "概念",
+  "en": "Self-evolving software: miracle or chaos",
+  "zh": "自进化软件：福音还是灾难",
+  "desc_en": "The Create mode, Cordis, and OpenClaw's warning.",
+  "desc_zh": "创造模式、Cordis 与 OpenClaw 的警示。"
+ },
+ {
+  "path": "/blog/why-typescript-agent-harness/",
+  "cat": "Analysis",
+  "cat_zh": "分析",
+  "en": "Why TypeScript / Node.js",
+  "zh": "为什么是 TypeScript / Node.js",
+  "desc_en": "npm is the plugin distribution layer.",
+  "desc_zh": "npm 是插件分发层。"
+ },
+ {
+  "path": "/blog/dsh-trajectory-tracing/",
+  "cat": "Tutorial",
+  "cat_zh": "教程",
+  "en": "Trajectory tracing: the killer feature",
+  "zh": "Trajectory 追踪：killer feature",
+  "desc_en": "Debug agents and cut token waste from the trace.",
+  "desc_zh": "从轨迹调试 Agent、削减 token 浪费。"
+ },
+ {
+  "path": "/blog/dsh-plugin-ecosystem/",
+  "cat": "Analysis",
+  "cat_zh": "分析",
+  "en": "Plugin ecosystem: 209 plugins",
+  "zh": "插件生态：209 个插件",
+  "desc_en": "Ten categories of community plugins from the Show and tell firehose.",
+  "desc_zh": "从 Show and tell 里归出十大类社区插件。"
+ },
+ {
+  "path": "/blog/dsh-feature-requests/",
+  "cat": "Analysis",
+  "cat_zh": "分析",
+  "en": "The 10 most-requested features",
+  "zh": "社区最想要的 10 个功能",
+  "desc_en": "297 Ideas ranked — desktop, CLI/TUI, memory, Docker, and more.",
+  "desc_zh": "297 条 Ideas 排行——桌面端、CLI/TUI、记忆、Docker 等。"
+ },
+ {
+  "path": "/blog/dsh-plugin-pollution/",
+  "cat": "Analysis",
+  "cat_zh": "分析",
+  "en": "The dsh-plugin topic is polluted",
+  "zh": "dsh-plugin topic 被蹭标签污染",
+  "desc_en": "How we vet real DSH plugins from tag-squatters.",
+  "desc_zh": "我们如何鉴别真 DSH 插件与蹭标签仓库。"
+ },
+ {
+  "path": "/blog/deepseek-harness-faq/",
+  "cat": "FAQ",
+  "cat_zh": "FAQ",
+  "en": "FAQ: the community's most-asked questions",
+  "zh": "FAQ：社区高频问题",
+  "desc_en": "Permissions, image input, token cost, install crashes, Docker, memory.",
+  "desc_zh": "权限、图片输入、token 成本、安装崩溃、Docker、记忆。"
+ },
+ {
+  "path": "/blog/dsh-bug-report/",
+  "cat": "Analysis",
+  "cat_zh": "分析",
+  "en": "Community bug report: 321 discussions",
+  "zh": "社区 Bug 报告全景：321 个讨论",
+  "desc_en": "Eight categories of real-world issues.",
+  "desc_zh": "归成 8 大类真实问题。"
+ },
+ {
+  "path": "/blog/dsh-mcp/",
+  "cat": "Guide",
+  "cat_zh": "指南",
+  "en": "MCP: connecting servers to DSH",
+  "zh": "MCP：接入 MCP Server",
+  "desc_en": "dsh-workspace-mcp and friends.",
+  "desc_zh": "dsh-workspace-mcp 等。"
+ },
+ {
+  "path": "/blog/dsh-memory-guide/",
+  "cat": "Guide",
+  "cat_zh": "指南",
+  "en": "Memory plugins: dsh-memory, dsh-mnemon",
+  "zh": "记忆插件：dsh-memory / dsh-mnemon",
+  "desc_en": "A complete guide to DSH memory plugins.",
+  "desc_zh": "DSH 记忆插件全景。"
+ },
+ {
+  "path": "/blog/dsh-model-setup/",
+  "cat": "Guide",
+  "cat_zh": "指南",
+  "en": "Model setup: official API, OpenCode Go",
+  "zh": "模型接入：官方 API、OpenCode Go",
+  "desc_en": "Three ways to power DeepSeek Harness.",
+  "desc_zh": "三种给 DSH 接模型的方式。"
+ },
+ {
+  "path": "/blog/dsh-sandbox/",
+  "cat": "Guide",
+  "cat_zh": "指南",
+  "en": "Sandbox: permissions & security",
+  "zh": "Sandbox：权限与安全",
+  "desc_en": "Permissions, security & tool approval.",
+  "desc_zh": "权限预设、工具审批。"
+ },
+ {
+  "path": "/blog/dsh-subagent/",
+  "cat": "Guide",
+  "cat_zh": "指南",
+  "en": "Subagent: multi-agent, fork & more",
+  "zh": "Subagent：多 Agent、fork 子代理",
+  "desc_en": "Run multiple agents and subagents.",
+  "desc_zh": "跑多 Agent / 子代理。"
+ },
+ {
+  "path": "/blog/dsh-vision/",
+  "cat": "Guide",
+  "cat_zh": "指南",
+  "en": "Vision: image input & plugins",
+  "zh": "Vision：图片输入与视觉插件",
+  "desc_en": "modlens, dsh-vision-toolkit, upload fixes.",
+  "desc_zh": "modlens、dsh-vision-toolkit、上传修复。"
+ },
+ {
+  "path": "/blog/vs-cowork/",
+  "cat": "Comparison",
+  "cat_zh": "对比",
+  "en": "vs Claude Cowork",
+  "zh": "vs Claude Cowork",
+  "desc_en": "Open-source harness vs closed agent.",
+  "desc_zh": "开源框架 vs 闭源 Agent。"
+ },
+ {
+  "path": "/blog/vs-cursor/",
+  "cat": "Comparison",
+  "cat_zh": "对比",
+  "en": "vs Cursor",
+  "zh": "vs Cursor",
+  "desc_en": "Agent harness vs AI IDE.",
+  "desc_zh": "Agent 框架 vs AI 编辑器。"
+ },
+ {
+  "path": "/blog/dsh-desktop-alternatives/",
+  "cat": "Guide",
+  "cat_zh": "指南",
+  "en": "Is DeepSeek Harness a desktop app? CLI, VSCode, TUI & Electron shells",
+  "zh": "DeepSeek Harness 有桌面端吗？CLI、VSCode、TUI、Electron 替代方案",
+  "desc_en": "DSH has no official desktop client — here are the real alternatives.",
+  "desc_zh": "DSH 没有官方桌面客户端——这里是真正的替代方案。"
+ },
+ {
+  "path": "/blog/dsh-im-integration/",
+  "cat": "Guide",
+  "cat_zh": "指南",
+  "en": "IM integrations: WeChat, QQ, Feishu, DingTalk & Telegram",
+  "zh": "IM 接入：微信、QQ、飞书、钉钉、Telegram",
+  "desc_en": "Put DeepSeek Harness inside your chat apps — the full plugin lineup.",
+  "desc_zh": "把 DeepSeek Harness 塞进你的聊天软件——社区插件完整阵容。"
+ },
+ {
+  "path": "/blog/community-pulse-1/",
+  "cat": "Pulse",
+  "cat_zh": "脉搏",
+  "en": "Community Pulse #1 — what users want right now",
+  "zh": "社区脉搏 · 第 1 期：用户现在最想要什么",
+  "desc_en": "2,638 discussions distilled: the loudest asks, this month's session-corruption bugs, and the crowded plugin-discovery race.",
+  "desc_zh": "扫完 2638 个讨论：最响亮的诉求、本月的会话损坏 bug，以及拥挤的插件发现赛道。"
+ },
+ {
+  "path": "/blog/dsh-vs-american-tools/",
+  "cat": "Analysis",
+  "cat_zh": "分析",
+  "en": "DeepSeek Harness vs America’s agent tools",
+  "zh": "冲击美国 Agent 工具",
+  "desc_en": "158k stars in 5 days — what it does to Claude Code, Codex, Cursor and Copilot.",
+  "desc_zh": "5 天 15.8 万星——对 Claude Code、Codex、Cursor、Copilot 的冲击。"
+ }
 ]
