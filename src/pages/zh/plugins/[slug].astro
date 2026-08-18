@@ -63,7 +63,9 @@ const review = p.archived
   ? `该插件已归档、不再维护——除非你愿意自己维护，否则慎用。`
   : p.test === 'verified'
     ? `${desc} 实测能干净安装、正常启动。${stars >= 100 ? `${stars}+ stars，社区认可度高，是低风险选择。` : stars >= 20 ? `社区在增长，是个稳妥选择。` : `早期项目，但功能可用。`}`
-    : `${desc} 尚未验证——请自行安装测试。`;
+    : p.needs
+      ? `${desc} 尚未验证——它需要外部账号或服务，我们的沙箱无法提供，因此未能完整安装测试。它在你自己的环境里可能工作正常。`
+      : `${desc} 尚未验证——请自行安装测试。`;
 const related = (plugins[cat] || []).filter((x) => x.slug !== p.slug).slice(0, 6);
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -202,7 +204,7 @@ const jsonLd = {
       </div>
     )}
 
-    {p.test === 'pending' && !p.archived && (
+    {p.test === 'pending' && !p.archived && !p.needs && (
       <div class="verify-cta">
         <strong>你是插件作者？</strong> 想拿到「已验证」标签——提交你自己的验证证据（截图、日志或短视频），我们审核通过后即改为「已验证」。
         <p style="margin-top:10px"><a class="btn btn-ghost btn-sm" href={verifyUrl} target="_blank" rel="noopener">提交验证证据 ↗</a></p>

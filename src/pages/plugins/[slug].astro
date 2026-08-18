@@ -64,7 +64,9 @@ const review = p.archived
   ? `This plugin has been archived and is no longer maintained — use it only if you're willing to maintain it yourself.`
   : p.test === 'verified'
     ? `${desc} It installs cleanly and boots without issues in our testing. ${stars >= 100 ? `With ${stars}+ stars it's a community-endorsed, low-risk pick.` : stars >= 20 ? `It has a growing community — a solid choice.` : `It's early-stage but functional.`}`
-    : `${desc} Not yet verified — install and test it yourself.`;
+    : p.needs
+      ? `${desc} Not yet verified — it needs an external account or service our sandbox can't provide, so we couldn't run a full install test. It may work fine in your own environment.`
+      : `${desc} Not yet verified — install and test it yourself.`;
 const related = (plugins[cat] || []).filter((x) => x.slug !== p.slug).slice(0, 6);
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -205,7 +207,7 @@ const jsonLd = {
       </div>
     )}
 
-    {p.test === 'pending' && !p.archived && (
+    {p.test === 'pending' && !p.archived && !p.needs && (
       <div class="verify-cta">
         <strong>Plugin author?</strong> Get the “Verified” label — submit your own evidence (screenshots, logs, or a short demo) and we'll review and flip the badge.
         <p style="margin-top:10px"><a class="btn btn-ghost btn-sm" href={verifyUrl} target="_blank" rel="noopener">Submit verification evidence ↗</a></p>
