@@ -124,8 +124,19 @@ def fetch_readme(repo, pkg):
     return ""
 
 
-def sanitize_html(html):
-    """剥离第三方 README 里的危险内容：script / iframe / on* 事件属性 / javascript: 链接。"""
+def detect_branch(repo):
+    """探测仓库默认分支（main/master）。"""
+    for b in ("main", "master"):
+        try:
+            with urllib.request.urlopen(f"https://raw.githubusercontent.com/{repo}/{b}/package.json", timeout=10):
+                return b
+        except Exception:
+            continue
+    return "main"
+
+
+def sanitize_html(html, repo=None, branch="main"):
+    """剥离第三方 README 里的危险内容；相对路径资源重写为 GitHub raw URL。"""
     # 1. 删 script/style/iframe/object/embed
     html = re.sub(r'<(script|style|iframe|object|embed|form)\b.*?</\1>', '', html, flags=re.S | re.I)
     html = re.sub(r'<script\b[^>]*>.*', '', html, flags=re.S | re.I)  # 未闭合的兜底
@@ -133,11 +144,21 @@ def sanitize_html(html):
     html = re.sub(r'\son\w+\s*=\s*("[^"]*"|\'[^\']*\'|[^\s>]+)', '', html, flags=re.I)
     # 3. 禁 javascript:/data: 协议链接
     html = re.sub(r'(href|src)\s*=\s*(["\'])\s*(?:javascript|data|vbscript):[^"\']*\2', r'\1=\2#\2', html, flags=re.I)
+    # 4. 相对路径 → GitHub raw（src/href 非绝对、非锚点、非 mailto/data）
+    if repo:
+        base = f"https://raw.githubusercontent.com/{repo}/{branch}/"
+        def _rw(m):
+            attr, path = m.group(1), m.group(2)
+            if path.startswith(("#", "mailto:", "data:", "http")):
+                return m.group(0)
+            clean = path.lstrip("./")
+            return f'{attr}="{base}{clean}"'
+        html = re.sub(r'(src|href)="([^"]*)"', _rw, html)
     return html
 
 
-def to_html(md):
-    """markdown → HTML（用 marked，node 侧），后处理 sanitize。"""
+def to_html(md, repo=None, branch="main"):
+    """markdown → HTML（用 marked，node 侧），后处理 sanitize + 相对路径重写。"""
     if not md:
         return ""
     import subprocess
@@ -146,7 +167,7 @@ def to_html(md):
             ["node", "-e", "const {marked}=require('marked');let s='';process.stdin.on('data',d=>s+=d).on('end',()=>process.stdout.write(marked.parse(s,{breaks:true})))"],
             input=md, capture_output=True, text=True, timeout=30)
         if r.returncode == 0 and r.stdout.strip():
-            return sanitize_html(r.stdout)
+            return sanitize_html(r.stdout, repo, branch)
     except Exception:
         pass
     # fallback: 基本转义 + 段落
@@ -200,7 +221,8 @@ def main():
 
         md = fetch_readme(repo, pkg)
         if md:
-            readmes[p["slug"]] = {"html": to_html(md), "updatedAt": p.get("updated", "")}
+            branch = detect_branch(repo) if repo else "main"
+            readmes[p["slug"]] = {"html": to_html(md, repo, branch), "updatedAt": p.get("updated", "")}
         done += 1
         print(f"[{args.start + i}/{total}] {name}: contrib={contrib} deps={dep_cnt} official={dep_off} readme={len(md)}")
 

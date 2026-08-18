@@ -176,13 +176,6 @@ const jsonLd = {
       </Fragment>
     )}
 
-    {readmeHtml && (
-      <Fragment>
-        <h2 style="margin-top:24px">README</h2>
-        <div class="readme" set:html={readmeHtml} />
-      </Fragment>
-    )}
-
     {p.npm && p.pkg ? (
       <Fragment>
         <h2>Install</h2>
@@ -262,6 +255,13 @@ const jsonLd = {
     <pre class="code-block"><code>{badgeMd}</code></pre>
     <p><button type="button" class="btn btn-ghost btn-sm badge-copy" data-cmd={badgeMd}>Copy badge markdown</button></p>
     <p><img src={`/badges/${p.slug}.svg`} alt={badgeAlt} width="210" height="20" style="height:20px" /></p>
+
+    {readmeHtml && (
+      <Fragment>
+        <h2 style="margin-top:28px">README</h2>
+        <div class="readme" set:html={readmeHtml} />
+      </Fragment>
+    )}
 
     {related.length > 0 && (
       <Fragment>
