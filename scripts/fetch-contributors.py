@@ -8,7 +8,7 @@ group matched plugins by author.
 import os, json, re, sys, urllib.request
 
 token = os.environ["GITHUB_TOKEN"]
-ROOT = r"C:\Users\Administrator\dshbase"
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def gh(url):

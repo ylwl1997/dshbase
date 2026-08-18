@@ -18791,6 +18791,27 @@
    "trust": "Unrated",
    "platform": "any",
    "bareNpm": "other"
+  },
+  {
+   "name": "@ohoyo/dsh-file-mention",
+   "url": "https://github.com/ohoyour/dsh-file-mention",
+   "pkg": "@ohoyo/dsh-file-mention",
+   "ver": "0.1.4",
+   "npm": true,
+   "test": "pending",
+   "desc": "DeepSeek Harness plugin: type @ to reference workspace files and directories",
+   "desc_en": "DeepSeek Harness plugin: type @ to reference workspace files and directories",
+   "desc_zh": "让DeepSeek Harness支持使用 @ 引用工作区中的文件和目录",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-18",
+   "archived": false,
+   "added": "2026-08-18",
+   "license": "MIT",
+   "slug": "ohoyo-dsh-file-mention",
+   "platform": "any"
   }
  ],
  "AI Models": [

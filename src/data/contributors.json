@@ -1,5 +1,29 @@
 [
  {
+  "github": "sjh9714",
+  "avatar": "https://avatars.githubusercontent.com/u/163989462?v=4",
+  "plugins": [
+   {
+    "name": "dsh-movein",
+    "slug": "dsh-movein",
+    "npm": true,
+    "pkg": "dsh-movein"
+   },
+   {
+    "name": "dsh-what-changed",
+    "slug": "dsh-what-changed",
+    "npm": true,
+    "pkg": "dsh-what-changed"
+   },
+   {
+    "name": "dsh-win32",
+    "slug": "dsh-win32",
+    "npm": true,
+    "pkg": "dsh-win32"
+   }
+  ]
+ },
+ {
   "github": "wwumit",
   "avatar": "https://avatars.githubusercontent.com/u/5894591?v=4",
   "plugins": [
@@ -56,24 +80,6 @@
     "slug": "dsh-windows-ocr",
     "npm": true,
     "pkg": "@maxwell-feng/dsh-windows-ocr"
-   }
-  ]
- },
- {
-  "github": "sjh9714",
-  "avatar": "https://avatars.githubusercontent.com/u/163989462?v=4",
-  "plugins": [
-   {
-    "name": "dsh-win32",
-    "slug": "dsh-win32",
-    "npm": true,
-    "pkg": "dsh-win32"
-   },
-   {
-    "name": "dsh-what-changed",
-    "slug": "dsh-what-changed",
-    "npm": true,
-    "pkg": "dsh-what-changed"
    }
   ]
  },
@@ -210,6 +216,18 @@
   ]
  },
  {
+  "github": "ohoyour",
+  "avatar": "https://avatars.githubusercontent.com/u/73328479?v=4",
+  "plugins": [
+   {
+    "name": "@ohoyo/dsh-file-mention",
+    "slug": "ohoyo-dsh-file-mention",
+    "npm": true,
+    "pkg": "@ohoyo/dsh-file-mention"
+   }
+  ]
+ },
+ {
   "github": "QinLuza",
   "avatar": "https://avatars.githubusercontent.com/u/291772113?v=4",
   "plugins": [
@@ -326,6 +344,18 @@
     "slug": "dsh-usage-lens",
     "npm": true,
     "pkg": "@yokesky/dsh-usage-lens"
+   }
+  ]
+ },
+ {
+  "github": "zhengendong",
+  "avatar": "https://avatars.githubusercontent.com/u/45273227?v=4",
+  "plugins": [
+   {
+    "name": "dsh-pet-codex",
+    "slug": "dsh-pet-codex",
+    "npm": false,
+    "pkg": ""
    }
   ]
  },
