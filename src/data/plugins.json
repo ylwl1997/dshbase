@@ -3206,7 +3206,9 @@
    "slug": "deepseek-harness-auth",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nweb L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nweb L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "needs": "Owner-set admin account/password (auth service is fail-closed)",
+   "needsZh": "需设置 owner 管理员账号密码（认证服务默认拒绝启动）"
   },
   {
    "name": "dsh-grok-tui",
@@ -11843,7 +11845,9 @@
    "slug": "dsh-weixin",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nweb L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 install-fail on dsh 0.1.0-rc.6 (CDP E2E).\nweb L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "needs": "WeChat account (QR scan login)",
+   "needsZh": "微信账号扫码登录"
   },
   {
    "name": "dsh-model-modes",
@@ -13441,7 +13445,9 @@
    "slug": "dsh-tool-search",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "needs": "Additional service: invariants runtime",
+   "needsZh": "依赖 invariants 服务"
   },
   {
    "name": "dsh-apple-mode",
@@ -35572,7 +35578,9 @@
    "slug": "dsh-deep-research",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "needs": "Additional service: workflows runtime",
+   "needsZh": "依赖 workflows 服务"
   },
   {
    "name": "DeepSeekHarnessRemoteGateway",
@@ -41130,7 +41138,9 @@
    "slug": "local-shell-mcp",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "needs": "Own Local Shell MCP server (Docker + OAuth 2.1 + optional Cloudflare Tunnel)",
+   "needsZh": "需自建 Local Shell MCP 服务（Docker+OAuth）"
   },
   {
    "name": "dsh-tui",
@@ -43128,7 +43138,9 @@
    "slug": "dsh-cost-balance",
    "webonly": false,
    "platform": "any",
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E)."
+   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "needs": "DEEPSEEK_API_KEY in profile credentials",
+   "needsZh": "需 profile 配置 DEEPSEEK_API_KEY 查余额"
   },
   {
    "name": "dsh-backup",

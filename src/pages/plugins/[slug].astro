@@ -195,6 +195,16 @@ const jsonLd = {
       </Fragment>
     )}
 
+    {p.needs && (
+      <div class="needs-cta">
+        <strong>⚠ External account / service required</strong> — this plugin was not fully verified because it needs
+        something our sandbox can't provide: <em>{p.needs}</em>. It may work fine in your own environment.
+        <p style="margin-top:10px">Author? Either provide the required account/service, <strong>or submit a self-test
+          report</strong> (environment + install + run evidence) — we'll review and flip the badge.
+          <a class="btn btn-ghost btn-sm" href={verifyUrl} target="_blank" rel="noopener">Submit evidence or self-test report ↗</a></p>
+      </div>
+    )}
+
     {p.test === 'pending' && !p.archived && (
       <div class="verify-cta">
         <strong>Plugin author?</strong> Get the “Verified” label — submit your own evidence (screenshots, logs, or a short demo) and we'll review and flip the badge.
@@ -247,6 +257,7 @@ const jsonLd = {
   .build-box { font-size: 13.5px; color: var(--ink-2); background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px; padding: 12px 16px; margin: 14px 0; }
   .build-box .code-block { margin: 8px 0 0; }
   .verify-cta { font-size: 13.5px; line-height: 1.6; color: var(--ink-2); background: #f6f3ff; border: 1px solid #d6ccf5; border-radius: 10px; padding: 12px 16px; margin: 18px 0 0; }
+  .needs-cta { font-size: 13.5px; line-height: 1.6; color: var(--ink-2); background: #fff8e6; border: 1px solid #f2d894; border-radius: 10px; padding: 12px 16px; margin: 18px 0 0; }
   .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin: 4px 0; }
   .metric { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 12px; text-align: center; }
   .m-val { display: block; font-size: 20px; font-weight: 800; color: var(--ink); }

@@ -56,6 +56,22 @@ body:
         - Content（内容）
     validations:
       required: true
+  - type: dropdown
+    id: needs
+    attributes:
+      label: 是否需要外部账号 / 服务才能完整运行？（用于验证流程分级）
+      description: 如果插件依赖第三方账号（微信/GitHub/API Key 等）或额外服务（数据库/外部运行时等），选「是」——我们会把它标为「需要外部条件」而不是误判为故障。
+      options:
+        - 否，开箱即用
+        - 是，需要外部账号 / 服务
+    validations:
+      required: true
+  - type: input
+    id: needs_desc
+    attributes:
+      label: 需要的外部账号 / 服务（选了「是」时填写）
+      description: 具体需要什么？例如「需要微信账号扫码登录」「需要用户自己的 DEEPSEEK_API_KEY」「需要自建 MCP 服务器」
+      placeholder: 需要微信账号扫码登录
   - type: checkboxes
     id: checklist
     attributes:

@@ -23,17 +23,47 @@ body:
     id: evidence-type
     attributes:
       label: 证据类型
+      description: 可以提交截图/日志/录屏，也可以提交结构化自测报告
       options:
+        - 自测报告（结构化填写：环境/步骤/结果）
         - 截图（安装 / 运行成功界面）
         - 日志 / 终端输出
         - 录屏 / 视频
         - 其他
     validations:
       required: true
+  - type: dropdown
+    id: needs
+    attributes:
+      label: 该插件是否需要外部账号 / 服务才能完整运行？
+      description: 若需要（如微信登录、API Key、自建服务），如实说明即可——我们不会误判为故障
+      options:
+        - 否，开箱即用
+        - 是，需要外部账号 / 服务
+    validations:
+      required: true
+  - type: input
+    id: needs_desc
+    attributes:
+      label: 需要的外部账号 / 服务（选了「是」时填写）
+      placeholder: 需要微信账号扫码登录 / 需要用户自己的 DEEPSEEK_API_KEY
+  - type: textarea
+    id: self-report
+    attributes:
+      label: 自测报告（结构化，可选——选了「自测报告」时填写）
+      description: 逐项填写：测试环境（OS / Node / dsh 版本）→ 安装步骤 → 启动情况 → 验证的功能点 → 结果。附关键日志片段更佳。
+      placeholder: |
+        测试环境：Ubuntu 24.04 / Node 22 / dsh 0.1.0-rc.6
+        安装：`dsh plugin --profile web add <pkg>` 成功
+        启动：`dsh web` 正常，插件 UI 出现在侧边栏
+        功能验证：输入 `@文件名` 成功插入引用，模型回复正常
+        结果：通过
+    validations:
+      required: false
   - type: textarea
     id: evidence
     attributes:
-      label: 验证证据
+      label: 验证证据（截图 / 日志 / 链接）
       description: 拖拽图片/视频到正文，或粘贴外部链接；附上关键日志片段，说明你在什么环境、什么 dsh 版本下验证了什么功能
       placeholder: 例如：dsh 0.1.0-rc.6 下 `dsh plugin add` 成功 + `dsh web` 中插件正常运行的截图与日志
     validations:
