@@ -147,7 +147,8 @@
    ],
    "trust": "Silver",
    "slug": "awesome-dsh-plugins",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "deeptide",
@@ -352,7 +353,8 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-ads",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "treg",
@@ -455,7 +457,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-browser",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "awesome-dsh-plugin",
@@ -478,7 +481,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "awesome-dsh-plugin",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "oh-dsh-desktop",
@@ -574,7 +578,8 @@
    ],
    "trust": "Bronze",
    "slug": "dsh-launcher",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "A-share-Ai",
@@ -624,7 +629,8 @@
    ],
    "trust": "Silver",
    "slug": "modsearch",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "Awesome-DeepSeek-Harness-Plugins",
@@ -826,7 +832,8 @@
    ],
    "trust": "Silver",
    "slug": "anysearch-dsh",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "sealos-skills",
@@ -924,7 +931,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-vision",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugins-store",
@@ -998,7 +1006,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-qqbot",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-web-plugin-manager",
@@ -1024,7 +1033,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-web-plugin-manager",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-skill-viewer",
@@ -1095,7 +1105,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "plugin-registry",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "oh-my-dsh",
@@ -1118,7 +1129,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "oh-my-dsh",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "Oh-My-DSH",
@@ -1169,7 +1181,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-commandcode-provider",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "superpowers-dsh",
@@ -1192,7 +1205,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "superpowers-dsh",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-multica-runtime",
@@ -1241,7 +1255,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-find-plugin",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "caliper",
@@ -1287,7 +1302,8 @@
    "trust": "Unrated",
    "slug": "dsh-suite-all",
    "desc": "All-in-One first-party suite: plugin store, IM notify, session export, multi-agent board.",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-suite",
@@ -1557,7 +1573,8 @@
    ],
    "trust": "Silver",
    "slug": "deepseek-pet",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "agent-handoff-skill",
@@ -1633,7 +1650,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-lark",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-check",
@@ -1757,7 +1775,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "TokenLedger",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "ds-spec-loop",
@@ -1940,7 +1959,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-scholar",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-toolkit",
@@ -2109,7 +2129,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-theme-plugin",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-lark-bot",
@@ -2135,7 +2156,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-lark-bot",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-recommend",
@@ -2160,7 +2182,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-recommend",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-group-photo",
@@ -2213,7 +2236,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-codex-connect",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "dsh-codex",
@@ -2238,7 +2262,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-codex",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-lark-link",
@@ -2266,7 +2291,8 @@
    "trust": "Silver",
    "slug": "dsh-lark-link",
    "webonly": true,
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "deepseek-harness-docker",
@@ -2417,7 +2443,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-gui-customization",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "fabric",
@@ -2442,7 +2469,8 @@
    ],
    "trust": "Unrated",
    "slug": "fabric",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-queue-plus",
@@ -2489,7 +2517,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-green-meter",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh_plugin_swift_cycle",
@@ -2934,7 +2963,8 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-bash-terminal",
-   "platform": "win32"
+   "platform": "win32",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-vision-proxy",
@@ -2959,7 +2989,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-vision-proxy",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-skills",
@@ -3011,7 +3042,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-agy",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-hdc-bridge",
@@ -3038,7 +3070,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-hdc-bridge",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-opencode-go-usage",
@@ -3061,7 +3094,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-opencode-go-usage",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh",
@@ -3184,7 +3218,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-grok-tui",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "surfing-plugin",
@@ -3232,7 +3267,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-llm-codebuddy",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-sticky-note",
@@ -3284,7 +3320,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-fail-logger",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "orbis",
@@ -3309,7 +3346,8 @@
    ],
    "trust": "Silver",
    "slug": "orbis",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "plugin-template",
@@ -3534,7 +3572,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-playwright-browser",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-working-status",
@@ -3684,7 +3723,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-session-health",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-notification-center",
@@ -3913,7 +3953,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-overleaf",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-mcp-manager",
@@ -3936,7 +3977,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-mcp-manager",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-codex-auth",
@@ -3962,7 +4004,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-codex-auth",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-skills-mcp-manager",
@@ -4063,7 +4106,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-lark-bridge",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-wechat-notify",
@@ -4170,7 +4214,8 @@
    "trust": "Silver",
    "slug": "dsh-wsl-workspace",
    "webonly": true,
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-mygo",
@@ -4365,7 +4410,8 @@
    ],
    "trust": "Silver",
    "slug": "task-passport",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "DeepSeek-harness-qqbot",
@@ -4463,7 +4509,8 @@
    ],
    "trust": "Unrated",
    "slug": "telegram",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-tool-calculator",
@@ -4558,7 +4605,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-token-stats",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-balance-plugin",
@@ -4581,7 +4629,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-balance-plugin",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-worktree",
@@ -4606,7 +4655,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-worktree",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "DSH-Plugs",
@@ -4679,7 +4729,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-approval-llm",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "codex-plugin-dsh",
@@ -4778,7 +4829,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-usage-dashboard",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-webchatlike",
@@ -4927,7 +4979,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-installer",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "DSH-Telegram-Relay",
@@ -5321,7 +5374,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-checkpoint-rewind",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "dsh-deepread",
@@ -5347,7 +5401,8 @@
    "trust": "Unrated",
    "slug": "dsh-deepread",
    "webonly": true,
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-token-cost",
@@ -5372,7 +5427,8 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-token-cost",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-llm-wechat",
@@ -5498,7 +5554,8 @@
     "Storage"
    ],
    "trust": "Unrated",
-   "slug": "dsh-movein"
+   "slug": "dsh-movein",
+   "bareNpm": "other"
   },
   {
    "name": "graycode-for-dsh",
@@ -5574,7 +5631,8 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-plugins",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-vision-sidecar",
@@ -5674,7 +5732,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-openai-oauth",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-anydoc",
@@ -5777,7 +5836,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-ssh",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "DeepSeek-harness-wecom",
@@ -5830,7 +5890,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-expression",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "DeepSeek-Harness-Skill",
@@ -5908,7 +5969,8 @@
    ],
    "trust": "Silver",
    "slug": "trio",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-image-bridge",
@@ -6037,7 +6099,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-composer-history",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-multimodal",
@@ -6237,7 +6300,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-feishu-bridge",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-feishu",
@@ -6263,7 +6327,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-feishu",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-llm-oauth",
@@ -6621,7 +6686,8 @@
    ],
    "trust": "Silver",
    "slug": "qiushi-dsh-evidence-audit",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-tool-stat",
@@ -6669,7 +6735,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-verification-receipt",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-excel-chat",
@@ -6694,7 +6761,8 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-excel-chat",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "harness-pet",
@@ -6842,7 +6910,8 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-github",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-spec-loop",
@@ -6966,7 +7035,8 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-plugin-deepeye",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin",
@@ -7015,7 +7085,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "deepseek-harness-openai-oauth",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-tool-csv",
@@ -7061,7 +7132,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-humanizer",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-calculator",
@@ -7337,7 +7409,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-opencode-bridge",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-fun-ticker",
@@ -7387,7 +7460,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tool-vision",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-gauge",
@@ -7510,7 +7584,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-subscriptions",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-session-cleaner",
@@ -7535,7 +7610,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-session-cleaner",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-auto",
@@ -7661,7 +7737,8 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-plugin-store",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-chat-outline",
@@ -7684,7 +7761,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-chat-outline",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "ds-vision-plugin",
@@ -7761,7 +7839,8 @@
    ],
    "trust": "Unrated",
    "slug": "Top",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-desktop-electron",
@@ -7914,7 +7993,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-notify",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "dsh-workspace-mcp",
@@ -8354,7 +8434,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tool-git",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-capability-receipt",
@@ -8533,7 +8614,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugins-raincode",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "dsh-plugin-browser",
@@ -8558,7 +8640,8 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-plugin-browser",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "sandbox-micro",
@@ -8632,7 +8715,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-cost-tracker",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-research-notes",
@@ -8684,7 +8768,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-safe-delete",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-daily-fortune",
@@ -8877,7 +8962,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-codex-tools",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-openai-codex-auth",
@@ -8926,7 +9012,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-skill-manager",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-effort-tweak",
@@ -9130,7 +9217,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-background",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-qrcode",
@@ -9258,7 +9346,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-ci-doctor",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-conv-search",
@@ -9362,7 +9451,8 @@
    ],
    "trust": "Silver",
    "slug": "promptwall",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-skills-manager",
@@ -9487,7 +9577,8 @@
    ],
    "trust": "Silver",
    "slug": "citeguard",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-mattpocock-skills",
@@ -9561,7 +9652,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-utility-tools",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-browseruse",
@@ -9829,7 +9921,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "deepseek-prism-dsh",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "session-archive-manager",
@@ -9879,7 +9972,8 @@
    "trust": "Unrated",
    "slug": "dsh-tool-underseal",
    "desc": "Seal/encrypt communication between AIs (underseal).",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-pixluna",
@@ -9904,7 +9998,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-pixluna",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-xiapan-media",
@@ -10155,7 +10250,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-im-hub",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-same-mode-sandbox-noop",
@@ -10730,7 +10826,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-cost",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "Deepseek-omnimodal",
@@ -10804,7 +10901,8 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-plugin-wechat",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-pixel-ui",
@@ -10829,7 +10927,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-pixel-ui",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "zotero-wave-rag",
@@ -10973,7 +11072,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-pi",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "dsh-sci",
@@ -11249,7 +11349,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugin-graph",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-tiered-approval",
@@ -11274,7 +11375,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tiered-approval",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-mobile-control",
@@ -11299,7 +11401,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-mobile-control",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-tool-github",
@@ -11324,7 +11427,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tool-github",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-trellis",
@@ -11351,7 +11455,8 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-trellis",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-paseo",
@@ -11427,7 +11532,8 @@
    ],
    "trust": "Unrated",
    "slug": "web-components",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-codex-bridge",
@@ -11452,7 +11558,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-codex-bridge",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-tool-policy",
@@ -11525,7 +11632,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-pi-bridge",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-web-search-firecrawl",
@@ -11624,7 +11732,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-soul-md",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-ui-spec",
@@ -11751,7 +11860,8 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-tool-hashline",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-ccswitch-import-lite",
@@ -12125,7 +12235,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-onlyne",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-deeptutor",
@@ -12152,7 +12263,8 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-deeptutor",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-claude-marketplace",
@@ -12177,7 +12289,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-claude-marketplace",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-miliastra-toolbox",
@@ -12637,7 +12750,8 @@
    ],
    "trust": "Silver",
    "slug": "pack-agent-dsh",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-cc-connect",
@@ -12987,7 +13101,8 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-satori",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-conv-export",
@@ -13033,7 +13148,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-sight",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-audio-alert",
@@ -13105,7 +13221,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-desktop-pet",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-feishu-bot",
@@ -13128,7 +13245,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-feishu-bot",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugins-market",
@@ -13206,7 +13324,8 @@
    ],
    "trust": "Unrated",
    "slug": "noatmark-dsh-plugin",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-kb-sieve",
@@ -13307,7 +13426,8 @@
    "trust": "Unrated",
    "slug": "coding-coach",
    "desc": "Coding coach — real-time guidance and review as you code.",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-tool-reqpipe",
@@ -13334,7 +13454,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tool-reqpipe",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-tool-browser",
@@ -13359,7 +13480,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tool-browser",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-browser-control",
@@ -13384,7 +13506,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-browser-control",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-oai-oauth",
@@ -13407,7 +13530,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-oai-oauth",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-hotplug-engine",
@@ -13430,7 +13554,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-hotplug-engine",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "jumpserver-dsh",
@@ -13558,7 +13683,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-doctor",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-vision-LMstudio",
@@ -13659,7 +13785,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-screenshot-diff",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-turn-index",
@@ -13684,7 +13811,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-turn-index",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-tool-monitor",
@@ -13736,7 +13864,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-auto-docs",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-code-review",
@@ -13761,7 +13890,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-code-review",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-cloudflare-browser-run",
@@ -13788,7 +13918,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-cloudflare-browser-run",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-all-search",
@@ -13813,7 +13944,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-all-search",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugins-hub",
@@ -13863,7 +13995,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-find-skill",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "multimodal-bridge",
@@ -14040,7 +14173,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-port-guard",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin.github.io",
@@ -14091,7 +14225,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-lens-lite",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-tavily-search",
@@ -14116,7 +14251,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tavily-search",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-vision-helper",
@@ -14141,7 +14277,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-vision-helper",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-openai-codex-oauth",
@@ -14265,7 +14402,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-batch-regression",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-eco-router",
@@ -14562,7 +14700,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "opencode-usage",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-html-canvas",
@@ -14637,7 +14776,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-vision-bridge",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-document-parser",
@@ -14710,7 +14850,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-eyecare",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-longgraph",
@@ -14928,7 +15069,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-vision-plugin",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-vision-android",
@@ -15139,7 +15281,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-read-history",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-tokenmeter",
@@ -15516,7 +15659,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-mcp-center",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-skill-remote",
@@ -15729,7 +15873,8 @@
    ],
    "trust": "Silver",
    "slug": "iterate-plugin",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-math-team",
@@ -15825,7 +15970,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-mac-vision",
-   "platform": "macos"
+   "platform": "macos",
+   "bareNpm": "install-fail"
   },
   {
    "name": "dsh-plugin-quote-reply",
@@ -15848,7 +15994,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-plugin-quote-reply",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-tool-describe-image",
@@ -15871,7 +16018,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-tool-describe-image",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-backup-sync",
@@ -16036,7 +16184,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-vision-tools",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-llm-fallbacks",
@@ -16059,7 +16208,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-llm-fallbacks",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-tool-approval",
@@ -16082,7 +16232,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-tool-approval",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-tps",
@@ -16207,7 +16358,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-notify",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-openclaw-acp",
@@ -16927,7 +17079,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-vision-toolkit",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-suggest-prompt",
@@ -17031,7 +17184,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-turn-budget",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-bisect-debug",
@@ -17057,7 +17211,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-bisect-debug",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-effort-config",
@@ -17354,7 +17509,8 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-what-changed",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-browser-bsk",
@@ -17377,7 +17533,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-browser-bsk",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-hello",
@@ -17400,7 +17557,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-plugin-hello",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-web-search-provider",
@@ -17425,7 +17583,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-web-search-provider",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-eval",
@@ -17448,7 +17607,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-eval",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-turn-diff",
@@ -17475,7 +17635,8 @@
    "trust": "Unrated",
    "slug": "dsh-turn-diff",
    "webonly": true,
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "dsh-plugin-llm-codex",
@@ -17613,7 +17774,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-gen3d",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-mdbox",
@@ -18015,7 +18177,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-ghcli",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "dsh-shell-termux",
@@ -18290,7 +18453,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-compliancehub",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "kubemd",
@@ -18338,7 +18502,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dshbase-catalog",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-tool-backtest",
@@ -18361,7 +18526,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-tool-backtest",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-usage-report",
@@ -18479,7 +18645,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-prompt-inject",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-installer-pkg",
@@ -18622,7 +18789,8 @@
    "license": "MIT",
    "ucs": [],
    "trust": "Unrated",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   }
  ],
  "AI Models": [
@@ -20756,7 +20924,8 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-web-ui",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "DSH-better-sidebar",
@@ -20810,7 +20979,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-cc-tui",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-deep-whale",
@@ -21131,7 +21301,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-pet",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-webui-market-plugin",
@@ -21304,7 +21475,8 @@
    "trust": "Unrated",
    "slug": "plugin-manager",
    "desc": "DSH Web UI plugin store - browse/search/one-click install/compat badges/installed list.",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "ui-status-label",
@@ -21725,7 +21897,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-focus-chat",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-skin",
@@ -21750,7 +21923,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-skin",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-market",
@@ -21800,7 +21974,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-balance-meter",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-diff-viewer",
@@ -21878,7 +22053,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-side-panel",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-file-explorer",
@@ -21903,7 +22079,8 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-file-explorer",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-milestone",
@@ -21928,7 +22105,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-milestone",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-status-rotator",
@@ -22423,7 +22601,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-outline",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-catppuccin-theme",
@@ -22914,7 +23093,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-builtin-toggles",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-webui-auth",
@@ -22937,7 +23117,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-webui-auth",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "deepseek-harness-themes",
@@ -23085,7 +23266,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-catppuccin",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-blue-whale",
@@ -23355,7 +23537,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-web-attention-badge",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-commit-review",
@@ -23657,7 +23840,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-theme-neko",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-ui-quote-selection",
@@ -23682,7 +23866,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-ui-quote-selection",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-wordbox",
@@ -23708,7 +23893,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-wordbox",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "dsh-thinking-status-customizer",
@@ -23807,7 +23993,8 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-science",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-black-whale",
@@ -23906,7 +24093,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-gadgets",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-media-preview",
@@ -23981,7 +24169,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-doublecheck",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "7d7d",
@@ -24214,7 +24403,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-chat-width",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "dsh-wikilink",
@@ -24266,7 +24456,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-web-search-tavily",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-fun-weather",
@@ -24314,7 +24505,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-skin-claude-code",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-skins",
@@ -24360,7 +24552,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugin-manager",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-narrative-ledger",
@@ -24612,7 +24805,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-pomodoro",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-auto-chess",
@@ -24885,7 +25079,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-voice-input",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-qr-connect",
@@ -24958,7 +25153,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-vault",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-waterball-pet",
@@ -25176,7 +25372,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-usage-lens",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-client-ui-responsive",
@@ -25369,7 +25566,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-cyber-pet",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "ex-setting",
@@ -25608,7 +25806,8 @@
    "trust": "Unrated",
    "slug": "dsh-themes",
    "desc": "Appearance and theme plugin - built-in palettes, Open VSX import, color editor, 151 day/night skins.",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-ths-skin",
@@ -26132,7 +26331,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-theme-pack",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-width-tiers",
@@ -26155,7 +26355,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-width-tiers",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-layout-tools",
@@ -26338,7 +26539,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "nightwhale",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-update-radar",
@@ -26740,7 +26942,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-ui-topbar-compact",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-devecocli",
@@ -26903,7 +27106,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "Dsh-UI-Enhance",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-system-control",
@@ -26949,7 +27153,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "sebastian-kitchen-board",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "deepseek-skin-studio",
@@ -27323,7 +27528,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-context",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-noema",
@@ -27402,7 +27608,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-mnemon",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-cost-meter",
@@ -27453,7 +27660,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-chat-import",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "plugin-session-export",
@@ -27476,7 +27684,8 @@
    "trust": "Unrated",
    "slug": "plugin-session-export",
    "desc": "Export session log to Markdown/HTML, grouped by source.",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-interconnect",
@@ -27502,7 +27711,8 @@
    "trust": "Silver",
    "slug": "dsh-interconnect",
    "webonly": true,
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "dsh-message-edit",
@@ -27528,7 +27738,8 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-message-edit",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-share",
@@ -27657,7 +27868,8 @@
    ],
    "trust": "Silver",
    "slug": "billion-context-dsh",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "quantum-practices",
@@ -27705,7 +27917,8 @@
    ],
    "trust": "Silver",
    "slug": "blender",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "deepseek-manners",
@@ -27751,7 +27964,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-client-pricing",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "DSH-recall-plugin",
@@ -28151,7 +28365,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-bookmarks",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-memoir",
@@ -28255,7 +28470,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-import-agents",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-claude-bridge",
@@ -28281,7 +28497,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-claude-bridge",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "awesome-deepseek-harness-plugins",
@@ -28358,7 +28575,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-compaction-instant",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-side-chat",
@@ -28383,7 +28601,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-side-chat",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-billing",
@@ -28408,7 +28627,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-billing",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-archived-conversations",
@@ -28459,7 +28679,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-session-deeplink",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-workbench",
@@ -28487,7 +28708,8 @@
    "trust": "Silver",
    "slug": "dsh-workbench",
    "webonly": true,
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "dsh-token-panel",
@@ -28512,7 +28734,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-token-panel",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-btw",
@@ -28587,7 +28810,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-latex-tools",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-better-archive",
@@ -28665,7 +28889,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugin-langfuse",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-balance-tide",
@@ -28765,7 +28990,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-codex-provider",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-token-usage",
@@ -28792,7 +29018,8 @@
    "trust": "Silver",
    "slug": "dsh-token-usage",
    "webonly": true,
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "context-vista",
@@ -28817,7 +29044,8 @@
    ],
    "trust": "Silver",
    "slug": "context-vista",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-tdai-memory",
@@ -28844,7 +29072,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tdai-memory",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-apex-standard",
@@ -28890,7 +29119,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-requirements-alignment",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-stream-rules",
@@ -29140,7 +29370,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-undo",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh4vscode",
@@ -29186,7 +29417,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "sage-mem",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-session-hub",
@@ -29213,7 +29445,8 @@
    "trust": "Silver",
    "slug": "dsh-session-hub",
    "webonly": true,
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "DeepSeek-Harness-for-VS-Code",
@@ -29363,7 +29596,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-session-import",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "dsh-deepseek-billing",
@@ -29613,7 +29847,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-superpowers",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-archive-viewer",
@@ -29740,7 +29975,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-prompt-stash",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-tool-user-memory",
@@ -29766,7 +30002,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tool-user-memory",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-session-pins",
@@ -29814,7 +30051,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-telemetry-redactor",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-balance-stats",
@@ -29893,7 +30131,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-background-agents",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-skillradar",
@@ -29992,7 +30231,8 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-quote-annotate",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "Liltloom",
@@ -30044,7 +30284,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-session-tree",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "dsh-teacher",
@@ -30171,7 +30412,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-memento",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-mcp-bridge",
@@ -30247,7 +30489,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-sgme",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-web-search-Tavily",
@@ -30399,7 +30642,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-session-cost",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-session-import",
@@ -30426,7 +30670,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-session-import",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-consult",
@@ -30502,7 +30747,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-browser-playwright",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "dsh-ops-kit",
@@ -30626,7 +30872,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-ergonomics",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-postmortem",
@@ -30956,7 +31203,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-llmwiki",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-usage-widget",
@@ -31154,7 +31402,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-memory",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-conversation-share",
@@ -31205,7 +31454,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-meta-memory",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-lingshu-memory",
@@ -31228,7 +31478,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-lingshu-memory",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-rewind",
@@ -31253,7 +31504,8 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-rewind",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-session-pin",
@@ -31305,7 +31557,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-mcp-proxy",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-nocturne-memory",
@@ -31330,7 +31583,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-nocturne-memory",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-claude-mem",
@@ -31403,7 +31657,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-context-compressor",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-context-taxonomy",
@@ -31453,7 +31708,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-context-lens",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-resume-plugin",
@@ -31901,7 +32157,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-gpu",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-window-stats",
@@ -31949,7 +32206,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-gzip",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "pa-dsh",
@@ -31995,7 +32253,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "prompt-optimizer",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-of-your-own",
@@ -32041,7 +32300,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-doc-share",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-hotkeys",
@@ -32135,7 +32395,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-polling",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "dsh-persist",
@@ -32158,7 +32419,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-persist",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-session-analyst",
@@ -32181,7 +32443,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-session-analyst",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-codex-import",
@@ -32258,7 +32521,8 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-skill-evolve",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-mcp-adapter",
@@ -32281,7 +32545,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-mcp-adapter",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-asmemory",
@@ -32398,7 +32663,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-netcafe",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-subagent-status",
@@ -34917,7 +35183,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-agent-teams",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh_workflow",
@@ -35066,7 +35333,8 @@
    ],
    "trust": "Unrated",
    "slug": "distill",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-file-review",
@@ -35092,7 +35360,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-file-review",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-deep-research",
@@ -35166,7 +35435,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-product-subagents",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-recall-plugin",
@@ -35295,7 +35565,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-clawrouter",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-sleep",
@@ -35392,7 +35663,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "godot-bridge",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "sandbase-skills",
@@ -35544,7 +35816,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-orchestrator",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plannotator",
@@ -35646,7 +35919,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-science-workbench",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-self-control-guard",
@@ -35740,7 +36014,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-codex-pet",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-greet",
@@ -35765,7 +36040,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-greet",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-inspect",
@@ -35842,7 +36118,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-advisor",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-book2skill",
@@ -35964,7 +36241,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-auto-approval",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "dsh-trajectory-governance",
@@ -36117,7 +36395,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-plugin-finder",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "install-fail"
   },
   {
    "name": "dsh-smarthome",
@@ -36140,7 +36419,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-smarthome",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "securstack-dsh-plugin",
@@ -36192,7 +36472,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-wecom",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "oh_my_deepseek_harness",
@@ -36263,7 +36544,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-dashboard",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-preset-minimal-windows",
@@ -36315,7 +36597,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-dynamic-island",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-call-me",
@@ -36659,7 +36942,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-git-plugin",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "shopline-ai-toolkit-dsh",
@@ -36911,7 +37195,8 @@
    ],
    "trust": "Unrated",
    "slug": "git-worktree",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-task-progress-notifier",
@@ -37133,7 +37418,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-agent-eval",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-self-evolution",
@@ -37156,7 +37442,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-self-evolution",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-agent-arcade",
@@ -37375,7 +37662,8 @@
    ],
    "trust": "Silver",
    "slug": "amber-protocol",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-product-delivery-workflow",
@@ -37499,7 +37787,8 @@
    ],
    "trust": "Silver",
    "slug": "dash",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-gatedflow",
@@ -37758,7 +38047,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugin-audiolib",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-skill-panel",
@@ -38046,7 +38336,8 @@
    ],
    "trust": "Silver",
    "slug": "sai",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-dated-folders",
@@ -38069,7 +38360,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-plugin-dated-folders",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-push",
@@ -38092,7 +38384,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-push",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "sai-dsh-plugins",
@@ -38353,7 +38646,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-usage-stats",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-notification",
@@ -38427,7 +38721,8 @@
    "trust": "Unrated",
    "slug": "plugin-notify",
    "desc": "IM webhook (Feishu/WeCom/DingTalk/Slack/Discord) + local notifications.",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-notifier",
@@ -38475,7 +38770,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "pi2dsh",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-web-ui-notify",
@@ -38605,7 +38901,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-remote",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-full-remote",
@@ -38772,7 +39069,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "deepseek-harness-acp",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-balance-monitor",
@@ -38868,7 +39166,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-usage-chart",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-chatnode-wechat",
@@ -38939,7 +39238,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-spend",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-ocgo-lite",
@@ -39013,7 +39313,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "widget-dock",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-easyssh",
@@ -39087,7 +39388,8 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-weather",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-pdf",
@@ -39113,7 +39415,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-pdf",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "deepseek-harness-lan",
@@ -39359,7 +39662,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-deepseek-quota",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "plugin-switch",
@@ -39525,7 +39829,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-deepseek-usage",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-codex-bridge",
@@ -39602,7 +39907,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-deepseek-balance",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-balance-display",
@@ -39749,7 +40055,8 @@
    ],
    "trust": "Silver",
    "slug": "Dcode",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "deepseek-harness-codex-bridge",
@@ -39922,7 +40229,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-tailscale-console",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-netdoctor",
@@ -40022,7 +40330,8 @@
    "trust": "Unrated",
    "slug": "dsh-provider-billing",
    "webonly": true,
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-msg-edit",
@@ -41037,7 +41346,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-win32",
-   "platform": "win32"
+   "platform": "win32",
+   "bareNpm": "other"
   }
  ],
  "Storage": [
@@ -41580,7 +41890,8 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-windows-ocr",
-   "platform": "win32"
+   "platform": "win32",
+   "bareNpm": "other"
   },
   {
    "name": "eyes-for-deepseek",
@@ -41988,7 +42299,8 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-tesseract-ocr",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-mm-vision",
@@ -43026,7 +43338,8 @@
    ],
    "trust": "Silver",
    "slug": "dsh-skill-pack-security",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-file-checksum",
@@ -43513,7 +43826,8 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "wwumit-dsh-office",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other"
   }
  ],
  "Content": [
