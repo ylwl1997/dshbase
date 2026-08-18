@@ -25,7 +25,10 @@ YEOF
   chmod 600 "$HOME/.dsh/.credentials.yaml"
 fi
 
-# 1. 生成待验证列表：name<TAB>source
+# 1. 生成待验证列表：name<TAB>source（或使用外部列表 VERIFY_LIST）
+if [ -n "${VERIFY_LIST:-}" ] && [ -f "$VERIFY_LIST" ]; then
+  cp "$VERIFY_LIST" /tmp/verify-list.tsv
+else
 "$PYTHON" - "$DATA" <<'PYEOF' > /tmp/verify-list.tsv
 import json, re, sys, os
 d = json.load(open(sys.argv[1], encoding='utf-8'))
@@ -56,6 +59,7 @@ for items in d.values():
 for name, src in out:
     print(name + '\t' + src)
 PYEOF
+fi
 
 total=$(wc -l < /tmp/verify-list.tsv)
 echo "待验证: $total 个（并行 $WORKERS 路）" >&2
@@ -66,21 +70,77 @@ verify_one() {
   local prof="v_$(echo "$name" | tr -cd 'a-zA-Z0-9_-')"
   local profdir="$PROFILE_ROOT/$prof"
   rm -rf "$profdir"; mkdir -p "$profdir"
-  # 完整 overrides：@deepseek-ai scope 下几乎所有 dsh-* 包的 latest 都指向坏的 0.0.1-rc.x，
-  # 正确版本 0.1.0-rc.6 只挂在 next 标签。插件声明的是 >=0.1.0 这类 release 区间，按 semver
-  # prerelease 0.1.0-rc.6 不满足，会误报「No matching version found」。必须全部 pin 掉。
-  {
-    echo "dangerouslyAllowAllBuilds: true"
-    echo "overrides:"
-    cat "$SCRIPT_DIR/dsh-overrides.yaml"
-  } > "$profdir/pnpm-workspace.yaml"
   local log="/tmp/verify-$name.log"
   local status="unknown"
   local installed=0
+  # allowBuilds 白名单：native 依赖先放行；git 插件自身的 prepare 脚本在安装报错时
+  # 动态解析 pnpm 提示的 exact key 追加重试（dangerouslyAllowAllBuilds 在 pnpm 11.22 已失效）。
+  {
+    echo "allowBuilds:"
+    echo "  '@deepseek-ai/dsh-subprocess-local': true"
+    echo "  '@google/genai': true"
+    echo "  koffi: true"
+    echo "  node-pty: true"
+    echo "  protobufjs: true"
+    echo "overrides:"
+    cat "$SCRIPT_DIR/dsh-overrides.yaml"
+  } > "$profdir/pnpm-workspace.yaml"
   for attempt in 1 2 3; do
     if timeout 240 dsh plugin --profile "$prof" add "@deepseek-ai/dsh-base@0.1.0-rc.6" "@deepseek-ai/dsh-headless@0.1.0-rc.6" "$src" >"$log" 2>&1; then
       installed=1; break
     fi
+    # 解析 pnpm 提示的 allowBuilds key（含 @/:/ 的 key 必须加引号，否则 YAML 解析错）
+    local new_keys
+    new_keys=$(python3 - "$log" <<'PYEOF'
+import re, sys
+log = open(sys.argv[1], encoding='utf-8', errors='replace').read()
+keys = []
+for m in re.finditer(r'^\s{2}(\S+): true$', log, re.M):
+    if not m.group(1).startswith('@') or '/' in m.group(1):
+        keys.append(m.group(1))
+m = re.search(r'Ignored build scripts:\s*(.+)$', log, re.M)
+if m:
+    for part in m.group(1).split(','):
+        part = part.strip()
+        if part:
+            keys.append(part)
+seen = []
+for k in keys:
+    if k and k not in seen:
+        seen.append(k)
+print('\n'.join(seen))
+PYEOF
+)
+    if [ -z "$new_keys" ]; then
+      sleep 5; continue
+    fi
+    python3 - "$prof" "$new_keys" <<'PYEOF'
+import sys, os
+prof, keys = sys.argv[1], sys.argv[2].splitlines()
+ws = os.path.expanduser(f'~/.dsh/profiles/{prof}/pnpm-workspace.yaml')
+if not os.path.exists(ws):
+    sys.exit(0)
+s = open(ws, encoding='utf-8').read()
+add = []
+for k in keys:
+    kk = k.strip()
+    if not kk:
+        continue
+    quoted = f'"{kk}": true'
+    if f'  {quoted}' not in s and f'  {kk}:' not in s:
+        add.append(f'  {quoted}')
+if add:
+    lines = s.splitlines()
+    out = []
+    inserted = False
+    for line in lines:
+        out.append(line)
+        if line.strip() == 'allowBuilds:' and not inserted:
+            out.extend(add)
+            inserted = True
+    open(ws, 'w', encoding='utf-8').write('\n'.join(out) + '\n')
+    print('added allowBuilds:', ', '.join(kk for kk in keys))
+PYEOF
     sleep 5
   done
 
@@ -113,6 +173,6 @@ verify_one() {
 export -f verify_one
 
 # 3. 并行执行
-cat /tmp/verify-list.tsv | xargs -P "$WORKERS" -n 2 bash -c 'verify_one "$0" "$1"' > /tmp/verify-results.tsv
+cat /tmp/verify-list.tsv | xargs -P "$WORKERS" -n 2 bash -c 'verify_one "$0" "$1"' > "${VERIFY_OUT:-/tmp/verify-results.tsv}"
 
-echo "=== 结果文件 /tmp/verify-results.tsv ===" >&2
+echo "=== 结果文件 ${VERIFY_OUT:-/tmp/verify-results.tsv} ===" >&2
