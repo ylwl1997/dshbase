@@ -148,17 +148,6 @@ const jsonLd = {
           '尚未安装过该插件'
         )}。{platform !== 'any' && p.test === 'verified' ? `我们的 CI 跑在 Linux 上，只能确认安装+启动，无法验证该插件 ${platformLabel} 专属行为。` : ''}功能描述与版本兼容性均为作者声明。这不是安全审计，也不代表对第三方代码的背书。</p>
 
-      {note && (
-        <Fragment>
-          <h2 style="margin-top:24px">使用场景</h2>
-          <p>{note.use_zh}</p>
-          <h2>适合谁</h2>
-          <p>{note.aud_zh}</p>
-          <h2>二次开发建议</h2>
-          <p>{note.dev_zh}</p>
-        </Fragment>
-      )}
-
       {p.needs && (
         <div class="needs-cta">
           <strong>⚠ 需要外部账号 / 服务</strong> — 该插件未通过完整验证，因为它需要我们的沙箱无法提供的东西：
@@ -231,6 +220,17 @@ const jsonLd = {
               </Fragment>
             )}
           </Fragment>
+        )}
+
+        {note && (
+          <div class="notes-box">
+            <h2>使用场景</h2>
+            <p>{note.use_zh}</p>
+            <h2>适合谁</h2>
+            <p>{note.aud_zh}</p>
+            <h2>二次开发建议</h2>
+            <p>{note.dev_zh}</p>
+          </div>
         )}
 
         <div class="sec-box">
@@ -348,6 +348,10 @@ const jsonLd = {
   .catalog-box { font-size: 13.5px; line-height: 1.6; color: var(--ink-2); background: linear-gradient(180deg, #f5f8ff, #eef3ff); border: 1px solid #c7d7fe; border-radius: 10px; padding: 12px 16px; margin: 14px 0; }
   .catalog-box strong { color: #2f3f77; }
   .catalog-box .code-block { margin: 8px 0; }
+  .notes-box { font-size: 13px; line-height: 1.6; color: var(--ink-2); background: #fafbfd; border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; margin: 14px 0; }
+  .notes-box h2 { margin: 14px 0 2px; font-size: 13.5px; color: var(--ink); }
+  .notes-box h2:first-child { margin-top: 0; }
+  .notes-box p { margin: 0 0 0; }
   .share-box { margin-top: 4px; }
   .badge-preview { display: flex; align-items: center; justify-content: center; padding: 18px 12px; background: #f8fafc; border: 1px dashed var(--border-strong); border-radius: 8px; margin: 10px 0; }
   .badge-preview a { display: inline-flex; }
