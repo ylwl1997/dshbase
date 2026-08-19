@@ -312,6 +312,8 @@ const jsonLd = {
   .dg-main { min-width: 0; }
   .side-card { border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; background: var(--bg, #fff); }
   .side-card h2 { margin-top: 0; }
+  /* 侧栏代码块：浅色 + 换行不横向滚动 */
+  :global(.side-card .code-block) { background: #f6f8fa; color: var(--ink); border: 1px solid var(--border); font-size: 12px; padding: 10px 12px; overflow-x: hidden; white-space: pre-wrap; word-break: break-all; }
   @media (max-width: 900px) {
     .detail-grid { grid-template-columns: 1fr; }
   }
