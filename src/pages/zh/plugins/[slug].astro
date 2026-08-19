@@ -103,8 +103,7 @@ const jsonLd = {
     <h1>{p.name}</h1>
     <p class="lede">
       <span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span>{' '}
-      {repoOwner && <span class="badge badge-ghost">{repoOwner}</span>}{' '}
-      <a href={p.url} target="_blank" rel="noopener">{repo} ↗</a>
+      {repoOwner && <span class="badge badge-ghost">{repoOwner}</span>}
     </p>
     <div class="badge-row">
       {maintained && <span class="chip chip-ok">✓ 持续维护</span>}
