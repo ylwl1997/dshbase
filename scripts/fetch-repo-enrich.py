@@ -144,15 +144,20 @@ def sanitize_html(html, repo=None, branch="main"):
     html = re.sub(r'\son\w+\s*=\s*("[^"]*"|\'[^\']*\'|[^\s>]+)', '', html, flags=re.I)
     # 3. 禁 javascript:/data: 协议链接
     html = re.sub(r'(href|src)\s*=\s*(["\'])\s*(?:javascript|data|vbscript):[^"\']*\2', r'\1=\2#\2', html, flags=re.I)
-    # 4. 相对路径 → GitHub raw（src/href 非绝对、非锚点、非 mailto/data）
+    # 4. 相对路径重写：
+    #    - src（图片/资源）→ jsDelivr CDN（国内可访问）
+    #    - href（链接）→ 锚点保留；.md/相对路径 → GitHub 页面（避免跳到 raw 源文件）
     if repo:
-        base = f"https://raw.githubusercontent.com/{repo}/{branch}/"
+        cdn = f"https://cdn.jsdelivr.net/gh/{repo}@{branch}/"
+        gh_base = f"https://github.com/{repo}/blob/{branch}/"
         def _rw(m):
             attr, path = m.group(1), m.group(2)
             if path.startswith(("#", "mailto:", "data:", "http")):
                 return m.group(0)
             clean = path.lstrip("./")
-            return f'{attr}="{base}{clean}"'
+            if attr == "src":
+                return f'{attr}="{cdn}{clean}"'
+            return f'{attr}="{gh_base}{clean}"'
         html = re.sub(r'(src|href)="([^"]*)"', _rw, html)
     return html
 
