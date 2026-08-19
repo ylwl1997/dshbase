@@ -129,136 +129,143 @@ const jsonLd = {
     </div>
   </section>
 
-  <section class="info wrap">
-    <h2>功能简介</h2>
-    <p class="what-it-does">{desc}</p>
+  <section class="detail-grid wrap">
+    <div class="dg-main">
+      <h2>功能简介</h2>
+      <p class="what-it-does">{desc}</p>
 
-    <div class={`verdict ${verdict.cls}`}>
-      <span class="v-icon">{verdict.icon}</span>
-      <div><strong>我们的评价</strong><br/>{verdict.label}</div>
-    </div>
-    <p class="review-text">{review}</p>
+      <div class={`verdict ${verdict.cls}`}>
+        <span class="v-icon">{verdict.icon}</span>
+        <div><strong>我们的评价</strong><br/>{verdict.label}</div>
+      </div>
+      <p class="review-text">{review}</p>
 
-    <p class="honest-note">「{p.test === 'verified' ? '已验证' : '未验证'}」表示我们的自动化 CI{' '}
-      {p.test === 'verified' ? (
-        <Fragment>在干净 profile 里实际执行了 <code>dsh plugin add</code> 并启动成功——仅此而已</Fragment>
-      ) : (
-        '尚未安装过该插件'
-      )}。{platform !== 'any' && p.test === 'verified' ? `我们的 CI 跑在 Linux 上，只能确认安装+启动，无法验证该插件 ${platformLabel} 专属行为。` : ''}功能描述与版本兼容性均为作者声明。这不是安全审计，也不代表对第三方代码的背书。</p>
+      <p class="honest-note">「{p.test === 'verified' ? '已验证' : '未验证'}」表示我们的自动化 CI{' '}
+        {p.test === 'verified' ? (
+          <Fragment>在干净 profile 里实际执行了 <code>dsh plugin add</code> 并启动成功——仅此而已</Fragment>
+        ) : (
+          '尚未安装过该插件'
+        )}。{platform !== 'any' && p.test === 'verified' ? `我们的 CI 跑在 Linux 上，只能确认安装+启动，无法验证该插件 ${platformLabel} 专属行为。` : ''}功能描述与版本兼容性均为作者声明。这不是安全审计，也不代表对第三方代码的背书。</p>
 
-    <div class="sec-box">
-      {sec ? (
+      {note && (
         <Fragment>
-          <span class={`sec-badge ${riskClass[sec.risk]}`}>{sec.risk === 'low' ? '✓ ' : '⚠ '}{riskLabel[sec.risk]}风险</span>{' '}
-          <span class="sec-meta">静态扫描 · {sec.files} 个文件 · {sec.scannedAt?.slice(0, 10)}</span>
-          {sec.findings && sec.findings.length > 0 && (
-            <ul class="sec-findings">
-              {sec.findings.slice(0, 3).map((f) => (
-                <li>{catLabel[f.cat] || f.cat} <span class="muted">({f.sev})</span></li>
-              ))}
-            </ul>
-          )}
+          <h2 style="margin-top:24px">使用场景</h2>
+          <p>{note.use_zh}</p>
+          <h2>适合谁</h2>
+          <p>{note.aud_zh}</p>
+          <h2>二次开发建议</h2>
+          <p>{note.dev_zh}</p>
         </Fragment>
-      ) : (
-        <span class="sec-meta">安全：尚未扫描——我们的每日静态扫描将很快覆盖它。</span>
+      )}
+
+      {p.needs && (
+        <div class="needs-cta">
+          <strong>⚠ 需要外部账号 / 服务</strong> — 该插件未通过完整验证，因为它需要我们的沙箱无法提供的东西：
+          <em>{p.needsZh || p.needs}</em>。它在你自己的环境里可能工作正常。
+          <p style="margin-top:10px">你是作者？可以提供所需账号 / 服务，<strong>或提交一份自测报告</strong>
+            （环境 + 安装步骤 + 运行结果），我们审核后点亮徽章。
+            <a class="btn btn-ghost btn-sm" href={verifyUrl} target="_blank" rel="noopener">提交证据或自测报告 ↗</a></p>
+        </div>
+      )}
+
+      {p.test === 'pending' && !p.archived && !p.needs && (
+        <div class="verify-cta">
+          <strong>你是插件作者？</strong> 想拿到「已验证」标签——提交你自己的验证证据（截图、日志或短视频），我们审核通过后即改为「已验证」。
+          <p style="margin-top:10px"><a class="btn btn-ghost btn-sm" href={verifyUrl} target="_blank" rel="noopener">提交验证证据 ↗</a></p>
+        </div>
+      )}
+
+      {readmeHtml && (
+        <Fragment>
+          <h2 style="margin-top:28px">README</h2>
+          <div class="readme" set:html={readmeHtml} />
+        </Fragment>
       )}
     </div>
 
-    {note && (
-      <Fragment>
-        <h2 style="margin-top:24px">使用场景</h2>
-        <p>{note.use_zh}</p>
-        <h2>适合谁</h2>
-        <p>{note.aud_zh}</p>
-        <h2>二次开发建议</h2>
-        <p>{note.dev_zh}</p>
-      </Fragment>
-    )}
-
-    {p.npm && p.pkg ? (
-      <Fragment>
-        <h2>安装</h2>
-        <p class="muted small">Web profile：</p>
-        <pre class="code-block"><code>dsh plugin --profile web add {p.pkg}</code></pre>
-        <p class="muted small">Headless（CLI）profile：</p>
-        <pre class="code-block"><code>dsh plugin --profile headless add {p.pkg}</code></pre>
-        <ol class="steps">
-          <li>先装 pnpm：<code>npm install -g pnpm</code>（插件管理会调用它）。</li>
-          <li>装进 web 或 headless profile：<code>dsh plugin --profile web add {p.pkg}</code>。</li>
-          <li>重启 <code>dsh web</code>（或 CLI 会话）——下次启动自动加载。</li>
-          <li>验证：<code>dsh plugin --profile web list</code>。</li>
-        </ol>
-        <h2 style="margin-top:24px">包信息</h2>
-        <p>npm：<a href={npmHome} target="_blank" rel="noopener">{p.pkg}</a> · 版本 <strong>{p.ver || '—'}</strong> · 实测环境 dsh <strong>0.1.0-rc.6</strong></p>
-        <h2 style="margin-top:24px">实测报告</h2>
-        <p>{p.test === 'verified' && '端到端验证通过：`dsh plugin add` 安装成功、进入 profile 配置树、启动任务正常。'}
-           {p.test === 'pending' && '尚未验证——请自行安装测试，或稍后回来查看。'}</p>
-        {p.bareNpm === 'missing-dep' && (
-          <p class="honest-note">⚠ 裸 <code>npm install {p.pkg}</code> 无法导入该包——某个依赖可能被声明在 <code>devDependencies</code> 而非 <code>dependencies</code>，只有经 <code>dsh plugin add</code> 才能干净安装。</p>
-        )}
-      </Fragment>
-    ) : (
-      <Fragment>
-        <h2>安装</h2>
-        <p>该插件是 <strong>GitHub 源码</strong>（未发 npm）——直接从仓库装：</p>
-        <p class="muted small">Web profile：</p>
-        <pre class="code-block"><code>dsh plugin --profile web add github:{repo}</code></pre>
-        <p class="muted small">Headless（CLI）profile：</p>
-        <pre class="code-block"><code>dsh plugin --profile headless add github:{repo}</code></pre>
-        <ol class="steps">
-          <li>先装 pnpm：<code>npm install -g pnpm</code>。</li>
-          <li>从 GitHub 装：<code>dsh plugin --profile web add github:{repo}</code>。</li>
-          <li>重启 <code>dsh web</code>。</li>
-        </ol>
-        <p class="muted small">注：带 <code>prepare</code> 构建脚本的插件，pnpm 会要求确认——把提示的 key 加进 <code>pnpm-workspace.yaml</code> 的 <code>allowBuilds</code> 再重跑即可。</p>
-        {buildsMap[p.name] && (
-          <div class="build-box">
-            <strong>⚡ 有预构建版</strong> — 跳过构建步骤，直接装编译好的版本：
-            <pre class="code-block"><code>dsh plugin --profile web add https://dshbase.com/builds/{buildsMap[p.name]}</code></pre>
-          </div>
-        )}
-        {p.test !== 'not-on-npm' && (
+    <div class="dg-side">
+      <div class="side-card">
+        {p.npm && p.pkg ? (
           <Fragment>
-            <h2 style="margin-top:24px">实测报告</h2>
-            <p>{p.test === 'verified' && '验证通过：从 GitHub 安装成功、进入配置树、启动任务正常。'}
-               {p.test === 'pending' && '尚未验证——请自行安装测试。'}</p>
+            <h2>安装</h2>
+            <p class="muted small">Web profile：</p>
+            <pre class="code-block"><code>dsh plugin --profile web add {p.pkg}</code></pre>
+            <p class="muted small">Headless（CLI）profile：</p>
+            <pre class="code-block"><code>dsh plugin --profile headless add {p.pkg}</code></pre>
+            <ol class="steps">
+              <li>先装 pnpm：<code>npm install -g pnpm</code>（插件管理会调用它）。</li>
+              <li>装进 web 或 headless profile：<code>dsh plugin --profile web add {p.pkg}</code>。</li>
+              <li>重启 <code>dsh web</code>（或 CLI 会话）——下次启动自动加载。</li>
+              <li>验证：<code>dsh plugin --profile web list</code>。</li>
+            </ol>
+            <h2 style="margin-top:20px">包信息</h2>
+            <p>npm：<a href={npmHome} target="_blank" rel="noopener">{p.pkg}</a> · 版本 <strong>{p.ver || '—'}</strong> · 实测环境 dsh <strong>0.1.0-rc.6</strong></p>
+            <h2 style="margin-top:20px">实测报告</h2>
+            <p>{p.test === 'verified' && '端到端验证通过：`dsh plugin add` 安装成功、进入 profile 配置树、启动任务正常。'}
+               {p.test === 'pending' && '尚未验证——请自行安装测试，或稍后回来查看。'}</p>
+            {p.bareNpm === 'missing-dep' && (
+              <p class="honest-note">⚠ 裸 <code>npm install {p.pkg}</code> 无法导入该包——某个依赖可能被声明在 <code>devDependencies</code> 而非 <code>dependencies</code>，只有经 <code>dsh plugin add</code> 才能干净安装。</p>
+            )}
+          </Fragment>
+        ) : (
+          <Fragment>
+            <h2>安装</h2>
+            <p>该插件是 <strong>GitHub 源码</strong>（未发 npm）——直接从仓库装：</p>
+            <p class="muted small">Web profile：</p>
+            <pre class="code-block"><code>dsh plugin --profile web add github:{repo}</code></pre>
+            <p class="muted small">Headless（CLI）profile：</p>
+            <pre class="code-block"><code>dsh plugin --profile headless add github:{repo}</code></pre>
+            <ol class="steps">
+              <li>先装 pnpm：<code>npm install -g pnpm</code>。</li>
+              <li>从 GitHub 装：<code>dsh plugin --profile web add github:{repo}</code>。</li>
+              <li>重启 <code>dsh web</code>。</li>
+            </ol>
+            <p class="muted small">注：带 <code>prepare</code> 构建脚本的插件，pnpm 会要求确认——把提示的 key 加进 <code>pnpm-workspace.yaml</code> 的 <code>allowBuilds</code> 再重跑即可。</p>
+            {buildsMap[p.name] && (
+              <div class="build-box">
+                <strong>⚡ 有预构建版</strong> — 跳过构建步骤，直接装编译好的版本：
+                <pre class="code-block"><code>dsh plugin --profile web add https://dshbase.com/builds/{buildsMap[p.name]}</code></pre>
+              </div>
+            )}
+            {p.test !== 'not-on-npm' && (
+              <Fragment>
+                <h2 style="margin-top:20px">实测报告</h2>
+                <p>{p.test === 'verified' && '验证通过：从 GitHub 安装成功、进入配置树、启动任务正常。'}
+                   {p.test === 'pending' && '尚未验证——请自行安装测试。'}</p>
+              </Fragment>
+            )}
           </Fragment>
         )}
-      </Fragment>
-    )}
 
-    {p.needs && (
-      <div class="needs-cta">
-        <strong>⚠ 需要外部账号 / 服务</strong> — 该插件未通过完整验证，因为它需要我们的沙箱无法提供的东西：
-        <em>{p.needsZh || p.needs}</em>。它在你自己的环境里可能工作正常。
-        <p style="margin-top:10px">你是作者？可以提供所需账号 / 服务，<strong>或提交一份自测报告</strong>
-          （环境 + 安装步骤 + 运行结果），我们审核后点亮徽章。
-          <a class="btn btn-ghost btn-sm" href={verifyUrl} target="_blank" rel="noopener">提交证据或自测报告 ↗</a></p>
+        <div class="sec-box">
+          {sec ? (
+            <Fragment>
+              <span class={`sec-badge ${riskClass[sec.risk]}`}>{sec.risk === 'low' ? '✓ ' : '⚠ '}{riskLabel[sec.risk]}风险</span>{' '}
+              <span class="sec-meta">静态扫描 · {sec.files} 个文件 · {sec.scannedAt?.slice(0, 10)}</span>
+              {sec.findings && sec.findings.length > 0 && (
+                <ul class="sec-findings">
+                  {sec.findings.slice(0, 3).map((f) => (
+                    <li>{catLabel[f.cat] || f.cat} <span class="muted">({f.sev})</span></li>
+                  ))}
+                </ul>
+              )}
+            </Fragment>
+          ) : (
+            <span class="sec-meta">安全：尚未扫描——我们的每日静态扫描将很快覆盖它。</span>
+          )}
+        </div>
+
+        <h2 style="margin-top:20px">仓库</h2>
+        <p><a href={p.url} target="_blank" rel="noopener">github.com/{repo} ↗</a>{p.archived ? ' · <span class="muted">已归档</span>' : ''}</p>
+
+        <h2 style="margin-top:20px">分享徽章</h2>
+        <p>把这段粘进你的 README——它会链回本页，测试状态变化时自动更新：</p>
+        <pre class="code-block"><code>{badgeMd}</code></pre>
+        <p><button type="button" class="btn btn-ghost btn-sm badge-copy" data-cmd={badgeMd}>复制徽章代码</button></p>
+        <p><img src={`/badges/${p.slug}.svg`} alt={badgeAlt} width="210" height="20" style="height:20px" /></p>
       </div>
-    )}
-
-    {p.test === 'pending' && !p.archived && !p.needs && (
-      <div class="verify-cta">
-        <strong>你是插件作者？</strong> 想拿到「已验证」标签——提交你自己的验证证据（截图、日志或短视频），我们审核通过后即改为「已验证」。
-        <p style="margin-top:10px"><a class="btn btn-ghost btn-sm" href={verifyUrl} target="_blank" rel="noopener">提交验证证据 ↗</a></p>
-      </div>
-    )}
-
-    <h2 style="margin-top:28px">仓库</h2>
-    <p><a href={p.url} target="_blank" rel="noopener">github.com/{repo} ↗</a>{p.archived ? ' · <span class="muted">已归档</span>' : ''}</p>
-
-    <h2 style="margin-top:28px">分享徽章</h2>
-    <p>把这段粘进你的 README——它会链回本页，测试状态变化时自动更新：</p>
-    <pre class="code-block"><code>{badgeMd}</code></pre>
-    <p><button type="button" class="btn btn-ghost btn-sm badge-copy" data-cmd={badgeMd}>复制徽章代码</button></p>
-    <p><img src={`/badges/${p.slug}.svg`} alt={badgeAlt} width="210" height="20" style="height:20px" /></p>
-
-    {readmeHtml && (
-      <Fragment>
-        <h2 style="margin-top:28px">README</h2>
-        <div class="readme" set:html={readmeHtml} />
-      </Fragment>
-    )}
+    </div>
+  </section>
 
     {related.length > 0 && (
       <Fragment>
@@ -298,6 +305,15 @@ const jsonLd = {
   .verify-cta { font-size: 13.5px; line-height: 1.6; color: var(--ink-2); background: #f6f3ff; border: 1px solid #d6ccf5; border-radius: 10px; padding: 12px 16px; margin: 18px 0 0; }
   .needs-cta { font-size: 13.5px; line-height: 1.6; color: var(--ink-2); background: #fff8e6; border: 1px solid #f2d894; border-radius: 10px; padding: 12px 16px; margin: 18px 0 0; }
   .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin: 4px 0; }
+  .detail-grid { display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr); gap: 32px; align-items: start; }
+  .dg-main { min-width: 0; }
+  .dg-side { position: sticky; top: 84px; }
+  .side-card { border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; background: var(--bg, #fff); }
+  .side-card h2 { margin-top: 0; }
+  @media (max-width: 900px) {
+    .detail-grid { grid-template-columns: 1fr; }
+    .dg-side { position: static; }
+  }
   .metric { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 12px; text-align: center; }
   .m-val { display: block; font-size: 20px; font-weight: 800; color: var(--ink); }
   .m-lab { font-size: 11px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .03em; }
