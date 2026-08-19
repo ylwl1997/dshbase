@@ -187,18 +187,21 @@ const jsonLd = {
 
     <div class="dg-side">
       <div class="side-card">
+        <h2>Install</h2>
+        {p.slug !== 'dshbase-catalog' && (
+          <div class="catalog-box">
+            <strong>🧩 Let your agent install it (recommended)</strong>
+            <p>Install the catalog once, then DeepSeek Harness can find and install any plugin from this site automatically:</p>
+            <pre class="code-block"><code>dsh plugin add dshbase-catalog</code></pre>
+            <p class="muted small">Then say <em>"install {p.name} for me"</em> — your agent finds it in the directory and installs it.</p>
+          </div>
+        )}
         {p.npm && p.pkg ? (
           <Fragment>
-            <h2>Install</h2>
             <p class="muted small">Web profile:</p>
             <pre class="code-block"><code>dsh plugin --profile web add {p.pkg}</code></pre>
             <p class="muted small">Headless (CLI) profile:</p>
             <pre class="code-block"><code>dsh plugin --profile headless add {p.pkg}</code></pre>
-            <ol class="steps">
-              <li>Add the plugin to your web or headless profile: <code>dsh plugin --profile web add {p.pkg}</code>.</li>
-              <li>Restart <code>dsh web</code> (or the CLI session) — the plugin loads on the next launch.</li>
-              <li>Verify: <code>dsh plugin --profile web list</code>.</li>
-            </ol>
             <h2 style="margin-top:20px">Package</h2>
             <p>npm: <a href={npmHome} target="_blank" rel="noopener">{p.pkg}</a> · version <strong>{p.ver || '—'}</strong> · tested on dsh <strong>0.1.0-rc.6</strong></p>
             <h2 style="margin-top:20px">Test report</h2>
@@ -211,17 +214,11 @@ const jsonLd = {
           </Fragment>
         ) : (
           <Fragment>
-            <h2>Install</h2>
             <p>This plugin is <strong>GitHub source</strong> (not published to npm) — install it straight from the repo:</p>
             <p class="muted small">Web profile:</p>
             <pre class="code-block"><code>dsh plugin --profile web add github:{repo}</code></pre>
             <p class="muted small">Headless (CLI) profile:</p>
             <pre class="code-block"><code>dsh plugin --profile headless add github:{repo}</code></pre>
-            <ol class="steps">
-              <li>Add it from GitHub: <code>dsh plugin --profile web add github:{repo}</code>.</li>
-              <li>Restart <code>dsh web</code>.</li>
-            </ol>
-            <p class="muted small">Note: plugins that ship a <code>prepare</code> build script may prompt pnpm to allow the build — add the key it prints under <code>allowBuilds</code> in <code>pnpm-workspace.yaml</code>, then re-run.</p>
             {buildsMap[p.name] && (
               <div class="build-box">
                 <strong>⚡ Prebuilt copy available</strong> — skip the build step, install the compiled version directly:
@@ -237,15 +234,6 @@ const jsonLd = {
               </Fragment>
             )}
           </Fragment>
-        )}
-
-        {p.slug !== 'dshbase-catalog' && (
-          <div class="catalog-box">
-            <strong>🧩 Let your agent install it (recommended)</strong>
-            <p>Install the catalog once, then DeepSeek Harness can find and install any plugin from this site automatically:</p>
-            <pre class="code-block"><code>dsh plugin add dshbase-catalog</code></pre>
-            <p class="muted small">Then say <em>"install {p.name} for me"</em> — your agent finds it in the directory and installs it.</p>
-          </div>
         )}
 
         <div class="sec-box">
@@ -265,9 +253,6 @@ const jsonLd = {
             <span class="sec-meta">Security: not yet scanned — our daily static scan will cover it shortly.</span>
           )}
         </div>
-
-        <h2 style="margin-top:20px">Repository</h2>
-        <p><a href={p.url} target="_blank" rel="noopener">github.com/{repo} ↗</a>{p.archived ? ' · <span class="muted">archived</span>' : ''}</p>
 
         <h2 style="margin-top:20px">Share this badge</h2>
         <div class="share-box">

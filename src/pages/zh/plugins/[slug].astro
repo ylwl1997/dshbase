@@ -186,18 +186,21 @@ const jsonLd = {
 
     <div class="dg-side">
       <div class="side-card">
+        <h2>安装</h2>
+        {p.slug !== 'dshbase-catalog' && (
+          <div class="catalog-box">
+            <strong>🧩 让 Agent 自动装（推荐）</strong>
+            <p>装一次目录插件，之后本站所有插件都能让 DeepSeek Harness 自动找、自动装：</p>
+            <pre class="code-block"><code>dsh plugin add dshbase-catalog</code></pre>
+            <p class="muted small">然后对 agent 说「帮我装 <em>{p.name}</em>」，它会在目录里找到并自动安装。</p>
+          </div>
+        )}
         {p.npm && p.pkg ? (
           <Fragment>
-            <h2>安装</h2>
             <p class="muted small">Web profile：</p>
             <pre class="code-block"><code>dsh plugin --profile web add {p.pkg}</code></pre>
             <p class="muted small">Headless（CLI）profile：</p>
             <pre class="code-block"><code>dsh plugin --profile headless add {p.pkg}</code></pre>
-            <ol class="steps">
-              <li>装进 web 或 headless profile：<code>dsh plugin --profile web add {p.pkg}</code>。</li>
-              <li>重启 <code>dsh web</code>（或 CLI 会话）——下次启动自动加载。</li>
-              <li>验证：<code>dsh plugin --profile web list</code>。</li>
-            </ol>
             <h2 style="margin-top:20px">包信息</h2>
             <p>npm：<a href={npmHome} target="_blank" rel="noopener">{p.pkg}</a> · 版本 <strong>{p.ver || '—'}</strong> · 实测环境 dsh <strong>0.1.0-rc.6</strong></p>
             <h2 style="margin-top:20px">实测报告</h2>
@@ -209,17 +212,11 @@ const jsonLd = {
           </Fragment>
         ) : (
           <Fragment>
-            <h2>安装</h2>
             <p>该插件是 <strong>GitHub 源码</strong>（未发 npm）——直接从仓库装：</p>
             <p class="muted small">Web profile：</p>
             <pre class="code-block"><code>dsh plugin --profile web add github:{repo}</code></pre>
             <p class="muted small">Headless（CLI）profile：</p>
             <pre class="code-block"><code>dsh plugin --profile headless add github:{repo}</code></pre>
-            <ol class="steps">
-              <li>从 GitHub 装：<code>dsh plugin --profile web add github:{repo}</code>。</li>
-              <li>重启 <code>dsh web</code>。</li>
-            </ol>
-            <p class="muted small">注：带 <code>prepare</code> 构建脚本的插件，pnpm 会要求确认——把提示的 key 加进 <code>pnpm-workspace.yaml</code> 的 <code>allowBuilds</code> 再重跑即可。</p>
             {buildsMap[p.name] && (
               <div class="build-box">
                 <strong>⚡ 有预构建版</strong> — 跳过构建步骤，直接装编译好的版本：
@@ -234,15 +231,6 @@ const jsonLd = {
               </Fragment>
             )}
           </Fragment>
-        )}
-
-        {p.slug !== 'dshbase-catalog' && (
-          <div class="catalog-box">
-            <strong>🧩 让 Agent 自动装（推荐）</strong>
-            <p>装一次目录插件，之后本站所有插件都能让 DeepSeek Harness 自动找、自动装：</p>
-            <pre class="code-block"><code>dsh plugin add dshbase-catalog</code></pre>
-            <p class="muted small">然后对 agent 说「帮我装 <em>{p.name}</em>」，它会在目录里找到并自动安装。</p>
-          </div>
         )}
 
         <div class="sec-box">
@@ -262,9 +250,6 @@ const jsonLd = {
             <span class="sec-meta">安全：尚未扫描——我们的每日静态扫描将很快覆盖它。</span>
           )}
         </div>
-
-        <h2 style="margin-top:20px">仓库</h2>
-        <p><a href={p.url} target="_blank" rel="noopener">github.com/{repo} ↗</a>{p.archived ? ' · <span class="muted">已归档</span>' : ''}</p>
 
         <h2 style="margin-top:20px">分享徽章</h2>
         <div class="share-box">
