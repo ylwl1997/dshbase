@@ -310,13 +310,28 @@ const jsonLd = {
   .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin: 4px 0; }
   .detail-grid { display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr); gap: 32px; align-items: start; }
   .dg-main { min-width: 0; }
-  .dg-side { position: sticky; top: 84px; }
   .side-card { border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; background: var(--bg, #fff); }
   .side-card h2 { margin-top: 0; }
   @media (max-width: 900px) {
     .detail-grid { grid-template-columns: 1fr; }
-    .dg-side { position: static; }
   }
+  /* README 由 set:html 注入，Astro scoped 选择器不匹配，必须用 :global */
+  :global(.readme) { margin-top: 18px; font-size: 14.5px; line-height: 1.75; color: var(--ink-2); }
+  :global(.readme h1), :global(.readme h2), :global(.readme h3) { color: var(--ink); margin: 22px 0 8px; }
+  :global(.readme h2) { font-size: 20px; }
+  :global(.readme h3) { font-size: 17px; }
+  :global(.readme p) { margin: 10px 0; }
+  :global(.readme ul), :global(.readme ol) { margin: 8px 0; padding-left: 24px; }
+  :global(.readme li) { margin: 4px 0; }
+  :global(.readme code) { background: var(--bg-2, #f1f5f9); border-radius: 4px; padding: 1px 5px; font-size: 13px; }
+  :global(.readme pre) { background: #f6f8fa; color: var(--ink); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; overflow-x: auto; margin: 12px 0; }
+  :global(.readme pre code) { background: transparent; color: inherit; padding: 0; }
+  :global(.readme table) { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 13.5px; }
+  :global(.readme th), :global(.readme td) { border: 1px solid var(--border); padding: 8px 10px; text-align: left; }
+  :global(.readme th) { background: var(--bg-2, #f8fafc); font-weight: 700; }
+  :global(.readme img) { max-width: 100%; height: auto; border-radius: 8px; margin: 8px 0; }
+  :global(.readme blockquote) { border-left: 3px solid var(--primary); margin: 12px 0; padding-left: 14px; color: var(--ink-2); }
+  :global(.readme a) { color: var(--primary); }
   .metric { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 12px; text-align: center; }
   .m-val { display: block; font-size: 20px; font-weight: 800; color: var(--ink); }
   .m-lab { font-size: 11px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .03em; }
@@ -324,21 +339,6 @@ const jsonLd = {
   .chip { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; color: var(--ink-2); background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 999px; padding: 4px 12px; }
   .chip-ok { background: #f0fff4; border-color: #b7e0c0; color: #1a4d2e; }
   .btn-row { display: flex; flex-wrap: wrap; gap: 8px; }
-  .readme { margin-top: 18px; font-size: 14.5px; line-height: 1.75; color: var(--ink-2); }
-  .readme h1, .readme h2, .readme h3 { color: var(--ink); margin: 22px 0 8px; }
-  .readme h2 { font-size: 20px; } .readme h3 { font-size: 17px; }
-  .readme p { margin: 10px 0; }
-  .readme ul, .readme ol { margin: 8px 0; padding-left: 24px; }
-  .readme li { margin: 4px 0; }
-  .readme code { background: var(--bg-2, #f1f5f9); border-radius: 4px; padding: 1px 5px; font-size: 13px; }
-  .readme pre { background: #0f172a; color: #e2e8f0; border-radius: 8px; padding: 14px 16px; overflow-x: auto; margin: 12px 0; }
-  .readme pre code { background: transparent; color: inherit; padding: 0; }
-  .readme table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 13.5px; }
-  .readme th, .readme td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; }
-  .readme th { background: var(--bg-2, #f8fafc); font-weight: 700; }
-  .readme img { max-width: 100%; height: auto; border-radius: 8px; margin: 8px 0; }
-  .readme blockquote { border-left: 3px solid var(--primary); margin: 12px 0; padding-left: 14px; color: var(--ink-2); }
-  .readme a { color: var(--primary); }
   .verdict { display: flex; align-items: center; gap: 12px; margin: 18px 0 6px; padding: 14px 16px; border-radius: 10px; font-size: 14px; line-height: 1.5; }
   .v-icon { font-size: 22px; }
   .v-ok { background: #f0fff4; border: 1px solid #b7e0c0; color: #1a4d2e; }
