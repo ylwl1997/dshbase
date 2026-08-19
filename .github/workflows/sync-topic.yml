@@ -32,7 +32,7 @@ jobs:
           python scripts/gen-sitemap.py
           python scripts/gen-badges.py
           python scripts/fetch-contributors.py > /tmp/contributors.log 2>&1
-          python scripts/fetch-repo-enrich.py --limit 300 >> /tmp/contributors.log 2>&1
+          python scripts/fetch-repo-enrich.py --limit 500 >> /tmp/contributors.log 2>&1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

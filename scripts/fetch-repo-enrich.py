@@ -18,6 +18,7 @@ import argparse
 import json
 import os
 import re
+import subprocess
 import sys
 import time
 import urllib.request
@@ -28,7 +29,20 @@ README_OUT = os.path.join(ROOT, "src", "data", "readmes.json")
 API = "https://api.github.com"
 NPM = "https://registry.npmjs.org"
 
-TOKEN = os.environ.get("GITHUB_TOKEN", "")
+TOKEN = os.environ.get("GITHUB_TOKEN", "") or os.environ.get("GH_TOKEN", "")
+if not TOKEN:
+    try:
+        r = subprocess.run(
+            ["git", "credential", "fill"],
+            input="protocol=https\nhost=github.com\n\n",
+            capture_output=True, text=True, timeout=10,
+        )
+        for line in (r.stdout or "").splitlines():
+            if line.startswith("password="):
+                TOKEN = line.split("=", 1)[1].strip()
+                break
+    except Exception:
+        TOKEN = TOKEN or ""
 HDRS = {"User-Agent": "dshbase-enrich", "Accept": "application/vnd.github+json"}
 if TOKEN:
     HDRS["Authorization"] = "Bearer " + TOKEN
@@ -166,13 +180,16 @@ def to_html(md, repo=None, branch="main"):
     """markdown → HTML（用 marked，node 侧），后处理 sanitize + 相对路径重写。"""
     if not md:
         return ""
-    import subprocess
     try:
         r = subprocess.run(
             ["node", "-e", "const {marked}=require('marked');let s='';process.stdin.on('data',d=>s+=d).on('end',()=>process.stdout.write(marked.parse(s,{breaks:true})))"],
-            input=md, capture_output=True, text=True, timeout=30)
-        if r.returncode == 0 and r.stdout.strip():
-            return sanitize_html(r.stdout, repo, branch)
+            input=md.encode("utf-8"),
+            capture_output=True,
+            timeout=30,
+        )
+        out = (r.stdout or b"").decode("utf-8", errors="replace")
+        if r.returncode == 0 and out.strip():
+            return sanitize_html(out, repo, branch)
     except Exception:
         pass
     # fallback: 基本转义 + 段落
@@ -182,6 +199,21 @@ def to_html(md, repo=None, branch="main"):
     esc = re.sub(r"`([^`]+)`", r"<code>\1</code>", esc)
     esc = re.sub(r"\[([^\]]+)\]\((https?://[^)]+)\)", r'<a href="\1" rel="noopener">\2</a>', esc)
     return f"<div class=\"readme-fallback\">{esc}</div>"
+
+
+def _flush(db, readmes):
+    json.dump(db, open(DATA, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump(readmes, open(README_OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+
+
+def _needs_enrich(p, readmes, force):
+    """未打标、缓存失效、或还没有 README 缓存的，都要跑。"""
+    if force:
+        return True
+    if not p.get("slug") and not p.get("name"):
+        return False
+    cur = f"{p.get('updated')}|{p.get('ver')}"
+    return (p.get("_enriched") or "") != cur
 
 
 def main():
@@ -196,25 +228,25 @@ def main():
     if os.path.exists(README_OUT):
         readmes = json.load(open(README_OUT, encoding="utf-8"))
 
-    # 扁平化待处理列表
     allp = []
     for items in db.values():
         for p in items:
             allp.append(p)
-    total = len(allp)
-    done = updated = 0
-    for i, p in enumerate(allp[args.start:args.start + args.limit], 1):
+    pending = [p for p in allp if _needs_enrich(p, readmes, args.force)]
+    queue = pending[args.start:args.start + args.limit]
+    print(f"catalog={len(allp)} pending={len(pending)} this_run={len(queue)} (start={args.start} limit={args.limit})", flush=True)
+
+    done = 0
+    for i, p in enumerate(queue, 1):
         name = p["name"]
         repo = parse_repo(p.get("url"))
         pkg = p.get("pkg") or ""
-        if not repo and not pkg:
-            continue
-        # 跳过已富化且未强制（按 updated 缓存）
-        prev = p.get("_enriched") or ""
         cur = f"{p.get('updated')}|{p.get('ver')}"
-        if not args.force and prev == cur:
+        if not repo and not pkg:
+            p["_enriched"] = cur
+            print(f"[{i}/{len(queue)}] {name}: skip (no repo/pkg)", flush=True)
             continue
-        time.sleep(0.2)  # 限流
+        time.sleep(0.15)
 
         contrib = fetch_contributors(repo) if repo else 0
         dep_cnt, dep_off = fetch_deps(repo, pkg)
@@ -222,18 +254,21 @@ def main():
         p["depCount"] = dep_cnt
         p["depsOfficial"] = dep_off
         p["repoOwner"] = repo.split("/")[0] if repo else (pkg.split("/")[0].lstrip("@") if "/" in pkg else "")
-        p["_enriched"] = cur
+        p["_enriched"] = cur  # 即使无 README 也打标，避免永久重试
 
         md = fetch_readme(repo, pkg)
         if md:
             branch = detect_branch(repo) if repo else "main"
             readmes[p["slug"]] = {"html": to_html(md, repo, branch), "updatedAt": p.get("updated", "")}
         done += 1
-        print(f"[{args.start + i}/{total}] {name}: contrib={contrib} deps={dep_cnt} official={dep_off} readme={len(md)}")
+        print(f"[{i}/{len(queue)}] {name}: contrib={contrib} deps={dep_cnt} official={dep_off} readme={len(md)}", flush=True)
+        if done % 40 == 0:
+            _flush(db, readmes)
+            print(f"  flushed ({done} new, readmes={len(readmes)})", flush=True)
 
-    json.dump(db, open(DATA, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    json.dump(readmes, open(README_OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    print(f"done: {done} plugins enriched, readmes={len(readmes)}")
+    _flush(db, readmes)
+    left = len([p for p in allp if _needs_enrich(p, readmes, False)])
+    print(f"done: {done} plugins enriched, readmes={len(readmes)}, still_pending={left}")
 
 
 if __name__ == "__main__":

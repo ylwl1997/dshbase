@@ -166,11 +166,13 @@ const jsonLd = {
         </div>
       )}
 
-      {readmeHtml && (
+      {readmeHtml ? (
         <Fragment>
           <h2 style="margin-top:28px">README</h2>
           <div class="readme" set:html={readmeHtml} />
         </Fragment>
+      ) : (
+        <p class="muted small" style="margin-top:28px">No README cached for this plugin yet. Check GitHub, or wait for the next daily sync.</p>
       )}
     </div>
 
