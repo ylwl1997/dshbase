@@ -237,10 +237,10 @@
   "path": "/blog/vs-cursor/",
   "cat": "Comparison",
   "cat_zh": "对比",
-  "en": "vs Cursor",
-  "zh": "vs Cursor",
-  "desc_en": "Agent harness vs AI IDE.",
-  "desc_zh": "Agent 框架 vs AI 编辑器。"
+  "en": "DeepSeek Harness vs Cursor (2026)",
+  "zh": "DeepSeek Harness vs Cursor（2026）",
+  "desc_en": "Updated: both have agents now. Harness + CI vs AI IDE — when to use both.",
+  "desc_zh": "更新：两边都有 Agent。开源 harness + CI vs AI IDE，以及怎么一起用。"
  },
  {
   "path": "/blog/dsh-desktop-alternatives/",

@@ -3,56 +3,73 @@ import BlogPost from '../../../layouts/BlogPost.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const installUrl = getRelativeLocaleUrl('zh', '/install/');
 const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const vsCcUrl = getRelativeLocaleUrl('zh', '/blog/vs-claude-code/');
+const desktopUrl = getRelativeLocaleUrl('zh', '/blog/dsh-desktop-alternatives/');
 ---
-<BlogPost title="DeepSeek Harness vs Cursor — Agent 框架 vs AI 编辑器对比 | dshbase 中文" description="DeepSeek Harness 与 Cursor 对比：可运行的 Agent 框架 vs AI 代码编辑器。开源、架构、自动化深度与 2026 年怎么选——基于我们 dsh 0.1.0-rc.6 实测。" currentPath="/blog/vs-cursor/" category="对比">
+<BlogPost title="DeepSeek Harness vs Cursor（2026）— Agent 框架 vs AI IDE | dshbase 中文" description="2026 年 8 月更新：DeepSeek Harness 对比 Cursor Agent。两者都能规划、改文件、跑工具。真正差别是开源 harness + CI，还是打磨好的 AI IDE。含决策表与组合用法。" currentPath="/blog/vs-cursor/" category="对比">
   <h1>DeepSeek Harness <span class="accent">vs Cursor</span></h1>
-  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+  <p class="muted small" style="margin-bottom:20px">更新于 2026 年 8 月 19 日 · 初稿 8 月 14 日 · dshbase</p>
 
-  <p>DeepSeek Harness（DSH）和 Cursor 常被归为一类，因为都用 AI 写代码——但它们是不同的工具类别，选错了一整天都在跟工具较劲。DSH 是<strong>可运行的 Agent 框架</strong>：一个自主规划并端到端执行多步任务的 agent。Cursor 是<strong>AI 代码编辑器</strong>：一个在你保持参与时行内补全和编辑代码的 IDE。</p>
+  <p>搜「DeepSeek Harness vs Cursor」的人，往往想选一个赢家。到 2026 年 8 月，这个问法已经过时。Cursor 不再只是 Tab 补全，它有 Agent、计划、询问、调试、多任务。DeepSeek Harness（DSH）也不再只是玩具 CLI，而是 MIT 开源的 Agent 运行时：循环、沙箱、界面都可以当插件换。</p>
+  <p>有用的问题是：<strong>你要的是 AI IDE、可独立跑的 harness，还是两个一起用？</strong></p>
 
-  <h2>速览</h2>
+  <h2>速览（2026 年 8 月）</h2>
   <div style="overflow-x:auto">
     <table>
       <thead><tr><th></th><th>DeepSeek Harness</th><th>Cursor</th></tr></thead>
       <tbody>
-        <tr><td><strong>类别</strong></td><td>Agent 框架</td><td>AI 代码编辑器（IDE）</td></tr>
-        <tr><td><strong>开源</strong></td><td>MIT，完全开源</td><td>闭源</td></tr>
-        <tr><td><strong>使用方式</strong></td><td>给任务，它自主规划+跑命令+改文件</td><td>编辑器里，AI 行内辅助</td></tr>
-        <tr><td><strong>扩展</strong></td><td>一切皆插件（npm）</td><td>扩展 + MCP</td></tr>
-        <tr><td><strong>界面</strong></td><td>Web UI、headless、TUI、Python SDK</td><td>桌面 IDE</td></tr>
-        <tr><td><strong>成本</strong></td><td>免费 + 模型 API</td><td>订阅</td></tr>
-        <tr><td><strong>适合</strong></td><td>自主多步任务、CI、自托管</td><td>交互式编码 + 行内 AI</td></tr>
+        <tr><td><strong>类别</strong></td><td>开源 Agent 框架</td><td>AI 原生 IDE（VS Code 系）</td></tr>
+        <tr><td><strong>许可</strong></td><td>MIT，可 fork 循环本身</td><td>闭源产品</td></tr>
+        <tr><td><strong>主界面</strong></td><td>Web UI、headless CLI、TUI、Python SDK</td><td>桌面 IDE + Cloud Agents</td></tr>
+        <tr><td><strong>自主性（2026）</strong></td><td>给任务即可规划 + 工具 + 改文件，适合 CI</td><td>Agent 模式：规划、改代码、终端、浏览器 MCP——人仍在编辑器里</td></tr>
+        <tr><td><strong>扩展</strong></td><td>一切皆插件（<code>dsh plugin add</code>）</td><td>VS Code 扩展 + MCP + Cursor skills</td></tr>
+        <tr><td><strong>模型</strong></td><td>DeepSeek 或任意 OpenAI 兼容端点</td><td>Cursor 路由（也可自接兼容端点）</td></tr>
+        <tr><td><strong>成本形态</strong></td><td>框架免费 + 你的 API 账单</td><td>订阅 + 包含额度 / 超额</td></tr>
+        <tr><td><strong>无人值守 / CI</strong></td><td>一等公民（<code>dsh --profile headless</code>）</td><td>可用 Cloud Agents / 脚本，但默认心智是编辑器</td></tr>
+        <tr><td><strong>编辑体验</strong></td><td>薄（文件浏览 Web UI，不是完整 IDE）</td><td>Diff、调试器、标签页、搜索、Git——你打开它的理由</td></tr>
       </tbody>
     </table>
   </div>
 
-  <h2>核心区别：Agent vs 编辑器</h2>
-  <p><strong>DSH</strong> 是 <strong>agent</strong>——给它「总结这个仓库并修复失败测试」，它自主执行：读文件、跑命令、改代码、迭代。可以 headless 跑在 CI 或浏览器 UI，你可以放着不管让它跑完。</p>
-  <p><strong>Cursor</strong> 是 <strong>编辑器</strong>——你一直在循环里，AI 在你输入、重构、聊代码时辅助。它在行内补全和小重构上很出色，但不会自己跑长任务。</p>
+  <h2>相对初稿改了什么</h2>
+  <p>8 月 14 日那版写 Cursor「不会自己跑长任务」。这句话过时了。Cursor Agent 可以扫仓库、改一批文件、跑命令、驱动已登录浏览器。如果记忆还停在 2025 年的 Cursor，需要更新。</p>
+  <p>没变的是：Cursor 仍是 IDE 产品；DSH 仍是你可以安装、钉版本、不依赖那套 IDE 就能跑的 harness。重叠变多了，品类差还在。</p>
 
-  <h2>开源与掌控</h2>
-  <p>DSH <strong>MIT 完全开源</strong>——读 agent 循环、fork 它、替换核心部件。我们直接验证过：在 dsh 0.1.0-rc.6 上，模型适配器、会话存储、沙箱、甚至 agent 循环本身都是可替换的插件。Cursor 闭源；只能扩展，永远无法拥有。</p>
+  <h2>重叠区</h2>
+  <ul>
+    <li>多步写码：读、改、测、再改。</li>
+    <li>工具：终端、文件、搜索、MCP 类连接器。</li>
+    <li>Diff 还是要人看。谁也不能替你对仓库负责。</li>
+  </ul>
 
-  <h2>自动化深度</h2>
-  <p>DSH 的 headless 模式可脚本化、CI 友好：</p>
+  <h2>DSH 仍然更强的地方</h2>
+  <p><strong>运行时归你。</strong> 在 dsh 0.1.0-rc.6 上我们核实过：模型适配、会话存储、沙箱、乃至 agent 循环都是可替换插件。这和「用我们的 App」不是同一份合同。</p>
+  <p><strong>Headless 是产品，不是后门。</strong></p>
   <pre class="code-block"><code>dsh --profile headless "检查仓库并修复失败测试"</code></pre>
-  <p>定时、流水线、服务器上都能跑。Cursor 交互优先，不适合无人值守，也没法像 harness 那样接进 CI 任务。</p>
+  <p>定时任务、GitHub Actions、一台 Linux 机器——同一条命令。Cursor 也能自动化，但重心仍是那扇编辑器窗口。</p>
+  <p><strong>面向 harness 的插件密度。</strong> 目录当前收录 <strong>1780</strong> 个 DSH 插件（npm + git），并对一部分做每日安装实测。Cursor 市场对<em>编辑器</em>极大；DSH 的 npm 图对<em>Agent 能力</em>极大（IM、皮肤、记忆、视觉、目录搜索）。去看<a href={directoryUrl}>插件目录</a>。</p>
+  <p><strong>成本路由。</strong> DSH 指向 DeepSeek（或兼容 API），隔夜批量活付的是模型，不是 IDE 坐席。更长的讨论见<a href={getRelativeLocaleUrl('zh', '/blog/deepseek-harness-cost/')}>成本与缓存</a>。</p>
 
-  <h2>扩展模型</h2>
-  <p>DSH 通过 <code>dsh plugin add</code> 扩展——一个现已收录 <strong>1100+ 个插件</strong>的社区生态（首轮实测了 101 个，其中 20 个发在 npm、81 个是 GitHub 源码，用 <code>dsh plugin add github:owner/repo</code> 装）。完整结果和安装命令见<a href={directoryUrl}>插件目录</a>。Cursor 通过扩展市场和 MCP 服务器扩展。</p>
+  <h2>Cursor 仍然更强的地方</h2>
+  <p><strong>编辑器就是工作台。</strong> 行内 Tab、精确 Diff、调试、多根工作区、语言服务——DSH 的 Web UI 没打算替代这些。社区壳子见<a href={desktopUrl}>桌面端替代方案</a>。</p>
+  <p><strong>模式收在一个产品里。</strong> 计划 / 询问 / Agent / 调试 / 多任务是产品化工作流。DSH 有标准 / PTC / 极简 / 创造，但它们活在 harness 里，不在十年 IDE 肌肉记忆里。</p>
+  <p><strong>团队与评审习惯。</strong> 很多团队已经活在 VS Code 快捷键里。把 Agent 放进这种文化，Cursor 摩擦最低。</p>
 
-  <h2>该用哪个？</h2>
-  <p><strong>用 DeepSeek Harness</strong>：自主多步任务、自托管 agent、CI/CD 自动化，或想要开源和完全掌控。</p>
-  <p><strong>用 Cursor</strong>：交互式编码，想要 IDE 里的行内 AI 辅助。</p>
-  <p>两者互补而非替代——在 Cursor 里交互编辑，再把整个任务交给 DSH 无人值守地跑。</p>
+  <h2>实际怎么拆（我们自己的建议）</h2>
+  <ol>
+    <li><strong>交互改动、UI 细节、对着 Diff 读：</strong> Cursor（或任意 IDE）。</li>
+    <li><strong>可重复任务、插件验证、「丢服务器上跑」：</strong> DSH headless / web profile。</li>
+    <li><strong>同一个人、同一周：</strong> Cursor 里起草，再把边界清楚的任务交给 DSH，或者反过来。互补，不是站队。</li>
+  </ol>
+  <p>如果比较对象是 Claude Code 而不是 Cursor，请看 <a href={vsCcUrl}>DSH vs Claude Code</a>——那才是两个 Agent 框架之间的对比。</p>
 
   <h2>FAQ</h2>
-  <h3>DeepSeek Harness 能替代我的编辑器吗？</h3>
-  <p>不能，也没想替代。DSH 除了一个文件浏览的 web UI，没有自己的编辑界面。它是你派任务的 agent；你还是需要一个编辑器（或 IDE）来读和审查它改的东西。</p>
-  <h3>DSH 需要 GPU 或复杂配置吗？</h3>
-  <p>不需要。它是跟托管模型 API 对话的 Node.js 程序——不用本地 GPU。安装就是 <code>npx @deepseek-ai/dsh web</code> 加一个 Node LTS。</p>
-  <h3>能在 DSH 里用 Cursor 的模型吗？</h3>
-  <p>只有当那个模型暴露 OpenAI 兼容端点才行。DSH 指向 DeepSeek 或任意 OpenAI 兼容 API，不走 Cursor 的私有模型路由。</p>
-
-  <p>看<a href={installUrl}>安装指南</a>试试 DSH，亲身体会 agent 的区别。</p>
+  <h3>DSH 能替代 Cursor 吗？</h3>
+  <p>「打开文件、跳转到定义、在 IDE 里调试」——不能。 「没 GUI 的机器上跑任务」——通常 DSH 更合适。</p>
+  <h3>Cursor 能替代 DSH 吗？</h3>
+  <p>日常在编辑器里用 Agent，经常可以。自托管循环、CI Agent、「我要换 harness 内核」——不行。</p>
+  <h3>DSH 需要 GPU 吗？</h3>
+  <p>不需要。Node.js 调 API。安装从 <code>npx @deepseek-ai/dsh web</code> 加 Node LTS 开始。详见<a href={installUrl}>安装指南</a>。</p>
+  <h3>能把 Cursor 的模型接到 DSH 吗？</h3>
+  <p>只有当模型暴露成 OpenAI 兼容端点才行。DSH 不走 Cursor 私有路由。</p>
 </BlogPost>

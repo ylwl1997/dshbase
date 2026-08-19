@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const locale = Astro.currentLocale ?? 'en';
 const posts = [
+  { path: '/blog/vs-cursor/', cat: 'Comparison', en: 'DeepSeek Harness vs Cursor (2026)', zh: 'DeepSeek Harness vs Cursor（2026）', desc_en: 'Updated: both have agents now. Harness + CI vs AI IDE — when to use both.', desc_zh: '更新：两边都有 Agent。开源 harness + CI vs AI IDE，以及怎么一起用。' },
   { path: '/blog/vs-claude-code/', cat: 'Comparison', en: 'DeepSeek Harness vs Claude Code', zh: 'DeepSeek Harness vs Claude Code', desc_en: 'Plugins vs MCP, open source vs closed, pricing, and which to choose.', desc_zh: '插件 vs MCP、开源 vs 闭源、价格与选择。' },
   { path: '/blog/why-deepseek-harness/', cat: 'Concept', en: "Why it's called a Harness", zh: '为什么叫 Harness', desc_en: 'Agent = Model + Harness, the Cordis kernel, and time/spatial composability.', desc_zh: 'Agent = Model + Harness、Cordis 内核与时间/空间可组合性。' },
   { path: '/blog/deepseek-harness-modes/', cat: 'Guide', en: 'The four modes', zh: '四种模式', desc_en: 'Standard, PTC, Minimal, and Create — a complete guide.', desc_zh: '标准 / PTC / 极简 / 创造——完整指南。' },
@@ -30,7 +31,6 @@ const posts = [
   { path: '/blog/dsh-subagent/', cat: 'Guide', en: 'Subagent: multi-agent, fork & more', zh: 'Subagent：多 Agent、fork 子代理', desc_en: 'Run multiple agents and subagents.', desc_zh: '跑多 Agent / 子代理。' },
   { path: '/blog/dsh-vision/', cat: 'Guide', en: 'Vision: image input & plugins', zh: 'Vision：图片输入与视觉插件', desc_en: 'modlens, dsh-vision-toolkit, upload fixes.', desc_zh: 'modlens、dsh-vision-toolkit、上传修复。' },
   { path: '/blog/vs-cowork/', cat: 'Comparison', en: 'vs Claude Cowork', zh: 'vs Claude Cowork', desc_en: 'Open-source harness vs closed agent.', desc_zh: '开源框架 vs 闭源 Agent。' },
-  { path: '/blog/vs-cursor/', cat: 'Comparison', en: 'vs Cursor', zh: 'vs Cursor', desc_en: 'Agent harness vs AI IDE.', desc_zh: 'Agent 框架 vs AI 编辑器。' },
   { path: '/blog/dsh-desktop-alternatives/', cat: 'Guide', en: 'Is DeepSeek Harness a desktop app? CLI, VSCode, TUI & Electron shells', zh: 'DeepSeek Harness 有桌面端吗？CLI、VSCode、TUI、Electron 替代方案', desc_en: 'DSH has no official desktop client — here are the real alternatives.', desc_zh: 'DSH 没有官方桌面客户端——这里是真正的替代方案。' },
   { path: '/blog/dsh-im-integration/', cat: 'Guide', en: 'IM integrations: WeChat, QQ, Feishu, DingTalk & Telegram', zh: 'IM 接入：微信、QQ、飞书、钉钉、Telegram', desc_en: 'Put DeepSeek Harness inside your chat apps — the full plugin lineup.', desc_zh: '把 DeepSeek Harness 塞进你的聊天软件——社区插件完整阵容。' },
   { path: '/blog/community-pulse-1/', cat: 'Pulse', en: 'Community Pulse #1 — what users want right now', zh: '社区脉搏 · 第 1 期：用户现在最想要什么', desc_en: '2,638 discussions distilled: the loudest asks, this month\'s session-corruption bugs, and the crowded plugin-discovery race.', desc_zh: '扫完 2638 个讨论：最响亮的诉求、本月的会话损坏 bug，以及拥挤的插件发现赛道。' },
