@@ -5745,7 +5745,7 @@
    "trust": "Unrated",
    "slug": "dsh-approval-llm",
    "platform": "any",
-   "bareNpm": "install-fail",
+   "bareNpm": "other",
    "contributors": 0,
    "depCount": 10,
    "depsOfficial": 10,
@@ -22067,7 +22067,8 @@
    "slug": "ohoyo-dsh-file-mention",
    "platform": "any",
    "testDate": "2026-08-18",
-   "note": "Verified L1-L3 on dsh 0.1.0-rc.6 (headless). pnpm isolation caveat: bundle subpackages (@ohoyo/dsh-file-mention-host, @ohoyo/dsh-client-ui-file-mention) are not hoisted to the profile top-level; symlink them under node_modules/@ohoyo/ for headless load. Monorepo bundle at packages/bundle/cordis.patch.yml."
+   "note": "Verified L1-L3 on dsh 0.1.0-rc.6 (headless). pnpm isolation caveat: bundle subpackages (@ohoyo/dsh-file-mention-host, @ohoyo/dsh-client-ui-file-mention) are not hoisted to the profile top-level; symlink them under node_modules/@ohoyo/ for headless load. Monorepo bundle at packages/bundle/cordis.patch.yml.",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-file-undo",
@@ -47061,7 +47062,8 @@
    "platform": "any",
    "webonly": false,
    "testDate": "2026-08-18",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "bareNpm": "other"
   }
  ],
  "Productivity": [
