@@ -48,7 +48,9 @@ const riskLabel = { low: 'Low', medium: 'Medium', high: 'High', critical: 'Criti
 const riskClass = { low: 'sec-low', medium: 'sec-med', high: 'sec-high', critical: 'sec-crit' };
 const catLabel = { secrets: 'Hardcoded secret', 'dangerous-cmd': 'Dangerous command', exfil: 'Exfiltration endpoint', permissions: 'Suspicious permission' };
 const badgeAlt = p.test === 'verified' ? 'dshbase install-tested' : 'dshbase listed';
-const badgeMd = `[![${badgeAlt}](https://dshbase.com/badges/${p.slug}.svg)](https://dshbase.com/plugins/${p.slug}/)`;
+const badgeHref = `https://dshbase.com/plugins/${p.slug}/`;
+const badgeMd = `[![${badgeAlt}](https://dshbase.com/badges/${p.slug}.svg)](${badgeHref})`;
+const badgeHtml = `<a href="${badgeHref}"><img src="https://dshbase.com/badges/${p.slug}.svg" alt="${badgeAlt}"></a>`;
 const verifyUrl = `https://github.com/ylwl1997/dshbase/issues/new?template=verification-evidence.yml&name=${encodeURIComponent(p.name)}&repo=${encodeURIComponent(p.url)}`;
 const desc = p.desc_en || p.desc || `A plugin in the ${cat} category for DeepSeek Harness.`;
 // 15 分类 → 能力槽映射（title 用，仿 dshplugin.online 的 slot 风格）
@@ -193,7 +195,6 @@ const jsonLd = {
             <p class="muted small">Headless (CLI) profile:</p>
             <pre class="code-block"><code>dsh plugin --profile headless add {p.pkg}</code></pre>
             <ol class="steps">
-              <li>Install pnpm once: <code>npm install -g pnpm</code> (the plugin manager forwards to it).</li>
               <li>Add the plugin to your web or headless profile: <code>dsh plugin --profile web add {p.pkg}</code>.</li>
               <li>Restart <code>dsh web</code> (or the CLI session) — the plugin loads on the next launch.</li>
               <li>Verify: <code>dsh plugin --profile web list</code>.</li>
@@ -217,7 +218,6 @@ const jsonLd = {
             <p class="muted small">Headless (CLI) profile:</p>
             <pre class="code-block"><code>dsh plugin --profile headless add github:{repo}</code></pre>
             <ol class="steps">
-              <li>Install pnpm once: <code>npm install -g pnpm</code>.</li>
               <li>Add it from GitHub: <code>dsh plugin --profile web add github:{repo}</code>.</li>
               <li>Restart <code>dsh web</code>.</li>
             </ol>
@@ -237,6 +237,15 @@ const jsonLd = {
               </Fragment>
             )}
           </Fragment>
+        )}
+
+        {p.slug !== 'dshbase-catalog' && (
+          <div class="catalog-box">
+            <strong>🧩 Let your agent install it (recommended)</strong>
+            <p>Install the catalog once, then DeepSeek Harness can find and install any plugin from this site automatically:</p>
+            <pre class="code-block"><code>dsh plugin add dshbase-catalog</code></pre>
+            <p class="muted small">Then say <em>"install {p.name} for me"</em> — your agent finds it in the directory and installs it.</p>
+          </div>
         )}
 
         <div class="sec-box">
@@ -261,10 +270,19 @@ const jsonLd = {
         <p><a href={p.url} target="_blank" rel="noopener">github.com/{repo} ↗</a>{p.archived ? ' · <span class="muted">archived</span>' : ''}</p>
 
         <h2 style="margin-top:20px">Share this badge</h2>
-        <p>Paste this into your README — it links back to this page and updates automatically when our test status changes:</p>
-        <pre class="code-block"><code>{badgeMd}</code></pre>
-        <p><button type="button" class="btn btn-ghost btn-sm badge-copy" data-cmd={badgeMd}>Copy badge markdown</button></p>
-        <p><img src={`/badges/${p.slug}.svg`} alt={badgeAlt} width="210" height="20" style="height:20px" /></p>
+        <div class="share-box">
+          <p class="muted small">Drop this badge into your README — it links back here and updates automatically when our test status changes:</p>
+          <div class="badge-preview">
+            <a href={badgeHref} target="_blank" rel="noopener"><img src={`/badges/${p.slug}.svg`} alt={badgeAlt} height="20" /></a>
+          </div>
+          <div class="share-tabs" role="tablist">
+            <button type="button" class="share-tab is-active" data-share-tab="md">Markdown</button>
+            <button type="button" class="share-tab" data-share-tab="html">HTML</button>
+          </div>
+          <pre class="code-block share-code" data-share-pane="md"><code>{badgeMd}</code></pre>
+          <pre class="code-block share-code" data-share-pane="html" hidden><code>{badgeHtml}</code></pre>
+          <button type="button" class="btn btn-primary btn-sm badge-copy" data-cmd={badgeMd}>📋 Copy badge code</button>
+        </div>
       </div>
     </div>
   </section>
@@ -345,6 +363,17 @@ const jsonLd = {
   .v-ok { background: #f0fff4; border: 1px solid #b7e0c0; color: #1a4d2e; }
   .v-warn { background: #fff8e6; border: 1px solid #e5c27a; color: #6b4d00; }
   .v-src { background: #f1f5f9; border: 1px solid #e2e8f0; color: #334155; }
+  .catalog-box { font-size: 13.5px; line-height: 1.6; color: var(--ink-2); background: linear-gradient(180deg, #f5f8ff, #eef3ff); border: 1px solid #c7d7fe; border-radius: 10px; padding: 12px 16px; margin: 14px 0; }
+  .catalog-box strong { color: #2f3f77; }
+  .catalog-box .code-block { margin: 8px 0; }
+  .share-box { margin-top: 4px; }
+  .badge-preview { display: flex; align-items: center; justify-content: center; padding: 18px 12px; background: #f8fafc; border: 1px dashed var(--border-strong); border-radius: 8px; margin: 10px 0; }
+  .badge-preview a { display: inline-flex; }
+  .badge-preview img { display: block; }
+  .share-tabs { display: flex; gap: 6px; margin: 10px 0 6px; }
+  .share-tab { font-size: 12px; font-weight: 600; padding: 5px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-card); color: var(--ink-2); cursor: pointer; font-family: inherit; }
+  .share-tab.is-active { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .share-code { margin: 6px 0 12px; }
 </style>
 
 <script>
@@ -355,6 +384,21 @@ const jsonLd = {
         btn.textContent = '✅ Copied!';
         setTimeout(() => { btn.textContent = orig; }, 1500);
       });
+    });
+  });
+
+  // Share badge: toggle Markdown / HTML snippet
+  document.querySelectorAll('.share-tab').forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const which = tab.dataset.shareTab;
+      const box = tab.closest('.share-box');
+      box.querySelectorAll('.share-tab').forEach((t) => t.classList.toggle('is-active', t === tab));
+      box.querySelectorAll('[data-share-pane]').forEach((pane) => {
+        pane.hidden = pane.dataset.sharePane !== which;
+      });
+      const code = box.querySelector(`[data-share-pane="${which}"] code`)?.textContent || '';
+      const btn = box.querySelector('.badge-copy');
+      if (btn) btn.dataset.cmd = code;
     });
   });
 </script>
