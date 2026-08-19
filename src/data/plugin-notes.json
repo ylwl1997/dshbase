@@ -13734,5 +13734,29 @@
     "use_zh": "扩展 agent 的编码能力面——给它一个新工具、工作流或集成，让它接手以前做不了的开发任务。",
     "aud_zh": "想让 dsh 在真实代码库上像队友一样干活的开发者——能改、能跑、能验证，而不只是回答问题。",
     "dev_zh": "工具/命令面就是缝：暴露更多 SDK 能力、加更聪明的上下文接线，或收紧改代码与验证之间的循环。"
+  },
+  "dsh-file-undo": {
+    "use": "Extend the agent's coding surface — give it a new tool, workflow, or integration so it handles a dev task it couldn't before.",
+    "aud": "Developers who want dsh to behave like a teammate on real codebases — editing, running, and verifying changes rather than just answering.",
+    "dev": "The tool/command surface is the seam: expose more of the SDK, add smarter context wiring, or tighten the loop between code changes and verification.",
+    "use_zh": "扩展 agent 的编码能力面——给它一个新工具、工作流或集成，让它接手以前做不了的开发任务。",
+    "aud_zh": "想让 dsh 在真实代码库上像队友一样干活的开发者——能改、能跑、能验证，而不只是回答问题。",
+    "dev_zh": "工具/命令面就是缝：暴露更多 SDK 能力、加更聪明的上下文接线，或收紧改代码与验证之间的循环。"
+  },
+  "dsh-plugin-ima-sync": {
+    "use": "Extend the agent's coding surface — give it a new tool, workflow, or integration so it handles a dev task it couldn't before.",
+    "aud": "Developers who want dsh to behave like a teammate on real codebases — editing, running, and verifying changes rather than just answering.",
+    "dev": "The tool/command surface is the seam: expose more of the SDK, add smarter context wiring, or tighten the loop between code changes and verification.",
+    "use_zh": "扩展 agent 的编码能力面——给它一个新工具、工作流或集成，让它接手以前做不了的开发任务。",
+    "aud_zh": "想让 dsh 在真实代码库上像队友一样干活的开发者——能改、能跑、能验证，而不只是回答问题。",
+    "dev_zh": "工具/命令面就是缝：暴露更多 SDK 能力、加更聪明的上下文接线，或收紧改代码与验证之间的循环。"
+  },
+  "@shaoshi/dshscan": {
+    "use": "Harden the agent or its workspace — scanning, sanitizing, or auditing — so untrusted content and code are caught first.",
+    "aud": "Users who care about supply-chain and prompt-injection risk and want defenses built in.",
+    "dev": "Detectors and policies are the seams — add rules, scopes, or richer audit logging for what was flagged.",
+    "use_zh": "加固 agent 或其工作区——扫描、净化或审计——先拦下不可信内容和代码。",
+    "aud_zh": "在意供应链和提示注入风险、想要内置防护的人。",
+    "dev_zh": "检测器和策略是缝——加规则、作用域或更丰富的被标记项审计日志。"
   }
 }
