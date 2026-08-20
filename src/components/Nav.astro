@@ -62,6 +62,13 @@ const more: NavItem[] = [
 
 const isActive = (path: string) => currentPath === path;
 const groupActive = (items: NavItem[]) => items.some((it) => isActive(it.path));
+
+/** Locale-agnostic path for twin URLs (guards against pages that passed `/zh/...`). */
+const twinPath = currentPath.replace(/^\/zh(?=\/|$)/, '') || '/';
+const otherLocale = locale === 'en' ? 'zh' : 'en';
+const otherLangUrl = getRelativeLocaleUrl(otherLocale, twinPath);
+const langLabel = locale === 'en' ? '中文' : 'EN';
+const langAria = locale === 'en' ? 'Switch to Chinese' : 'Switch to English';
 ---
 
 <header class="top">
@@ -103,7 +110,17 @@ const groupActive = (items: NavItem[]) => items.some((it) => isActive(it.path));
         </div>
       </details>
     </nav>
-    <Search />
+    <div class="nav-tools">
+      <Search />
+      <a
+        href={otherLangUrl}
+        class="lang-switch"
+        hreflang={otherLocale === 'en' ? 'en' : 'zh-CN'}
+        lang={otherLocale === 'en' ? 'en' : 'zh-CN'}
+        aria-label={langAria}
+        title={langAria}
+      >{langLabel}</a>
+    </div>
   </div>
 </header>
 

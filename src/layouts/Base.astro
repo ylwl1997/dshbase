@@ -1,5 +1,5 @@
 ---
-import { getAbsoluteLocaleUrl, getRelativeLocaleUrl } from 'astro:i18n';
+import { getAbsoluteLocaleUrl } from 'astro:i18n';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 
@@ -11,17 +11,16 @@ interface Props {
   robots?: string;
 }
 
-const { title, description, currentPath, robots = 'index, follow, max-image-preview:large' } = Astro.props;
+const { title, description, currentPath: rawPath, robots = 'index, follow, max-image-preview:large' } = Astro.props;
+/** Strip accidental `/zh` prefix so twin URLs / canonical stay locale-agnostic. */
+const currentPath = rawPath.replace(/^\/zh(?=\/|$)/, '') || '/';
 const locale = Astro.currentLocale ?? 'en';
 const htmlLang = locale === 'en' ? 'en' : 'zh-CN';
 const canonical = getAbsoluteLocaleUrl(locale, currentPath);
 const enUrl = getAbsoluteLocaleUrl('en', currentPath);
 const zhUrl = getAbsoluteLocaleUrl('zh', currentPath);
-const homeUrl = getRelativeLocaleUrl(locale, '/');
 const ogImage = 'https://dshbase.com/og.png';
 const ogLocale = locale === 'en' ? 'en_US' : 'zh_CN';
-const otherLocale = locale === 'en' ? 'zh' : 'en';
-const otherLangUrl = getRelativeLocaleUrl(otherLocale, currentPath);
 const t = {
   en: { tagline: 'DeepSeek Harness guides, tutorials & plugin ecosystem.', note: 'Unofficial community resource. Not affiliated with DeepSeek.' },
   zh: { tagline: 'DeepSeek Harness 中文指南、教程与插件生态。', note: '非官方社区资源。与 DeepSeek 无关。' },
@@ -82,10 +81,6 @@ const t = {
       <slot />
     </main>
     <Footer tagline={t.tagline} note={t.note} />
-    <a href={otherLangUrl} class="lang-switch" aria-label="Switch language">
-      <span class="lang-switch-ico">&#x1F310;</span>
-      <span>{locale === 'en' ? '中文' : 'English'}</span>
-    </a>
   </div>
 
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">

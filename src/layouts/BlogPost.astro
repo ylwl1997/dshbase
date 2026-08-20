@@ -14,12 +14,13 @@ const locale = Astro.currentLocale ?? 'en';
 const blogUrl = getRelativeLocaleUrl(locale, '/blog/');
 const allLabel = locale === 'en' ? 'All articles →' : '全部文章 →';
 const tocTitle = locale === 'en' ? 'On this page' : '目录';
+const blogEyebrow = locale === 'en' ? 'Blog' : '博客';
 ---
 
 <Base title={title} description={description} currentPath={currentPath}>
   <div class="post-wrap wrap">
     <article class="post-main">
-      <p class="eyebrow">Blog · {category}</p>
+      <p class="eyebrow">{blogEyebrow} · {category}</p>
       <slot />
       <p style="margin-top:26px"><a class="btn btn-ghost" href={blogUrl}>{allLabel}</a></p>
     </article>
