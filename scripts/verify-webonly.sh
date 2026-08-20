@@ -162,7 +162,7 @@ if add:
             out.extend(add)
             inserted = True
     open(ws, 'w', encoding='utf-8').write('\n'.join(out) + '\n')
-    print('added allowBuilds:', ', '.join(kk for kk in keys))
+    print('added allowBuilds:', ', '.join(kk for kk in keys), file=sys.stderr)
 PYEOF
     log "  attempt $attempt: added allowBuilds keys, retrying"
   done
