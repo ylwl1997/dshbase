@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
-"""合并 verify-runtime.sh 的结果 TSV，写回 plugins.json。
+"""合并 verify-runtime.sh（L1–L3 headless）结果 TSV，写回 plugins.json。
 
-判定：ok 升级 verified；web-only（安装+加载通过、但 headless 缺 GUI 服务、L3 未验证）保持 pending
-并打 webonly 标记，待 web 运行时复测；install-fail/load-fail/runtime-fail 保持/降为 pending。
+判定：
+  ok        → verified（headless L3 已过，无需 L4）
+  web-only  → 保持 pending + webonly=True + note「待 L4」
+              （MUST 再跑 verify-webonly.sh / verify-full.sh 的 L4；只有 L4 ok 才 verified）
+  *-fail    → pending + 失败 note
+
 多次结果取「最好」的（ok > web-only > load-fail > runtime-fail > install-fail > network-fail）。
 用法：python scripts/merge-verify.py result1.tsv result2.tsv ...
+完整流水线：bash scripts/verify-full.sh 然后 merge-verify + merge-webonly。
 """
 import json
 import sys
@@ -12,8 +17,7 @@ from datetime import date
 
 DATA = 'src/data/plugins.json'
 ORDER = {'ok': 0, 'web-only': 1, 'load-fail': 2, 'runtime-fail': 3, 'install-fail': 4, 'network-fail': 5}
-# 严格标准：只有 ok 升级 verified。web-only = 安装+加载通过、但 headless 缺 GUI 服务（L3 未验证），
-# 不算 verified，保持 pending 并打 webonly 标记。安装/加载/运行时任一失败 → pending。
+# 严格标准：headless ok → verified。web-only 不算过关，必须 L4（web CDP）后再由 merge-webonly 升级。
 FAIL_STATES = {'install-fail', 'load-fail', 'runtime-fail', 'network-fail'}
 
 
@@ -52,12 +56,11 @@ def main(files):
                 if old != 'verified':
                     upgraded += 1
             elif st == 'web-only':
-                # 安装+加载通过，但 headless 缺 GUI 服务（webServer/storage/workspace 等），L3 未验证。
-                # 不算 verified，保持 pending 并打 webonly 标记，待 web 运行时复测。
+                # L3 headless 判定为 GUI/web 插件：不算 verified，必须跑 L4（verify-webonly CDP）。
                 p['webonly'] = True
                 p['test'] = 'pending'
                 p['testDate'] = today
-                p['note'] = '验证: web-only'
+                p['note'] = '验证: web-only；待 L4 web CDP'
                 webonly += 1
                 if old != 'pending':
                     pending += 1

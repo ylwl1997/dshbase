@@ -89,7 +89,12 @@ verify_one() {
 
   log "== $name  ($src)  profile=$prof =="
 
-  # 1. 建独立 profile + workspace（allowBuilds + overrides）
+  # 0. 干净 profile + 释放 web 端口（避免上一轮残留导致假 boot / CDP 误杀）
+  web_stop "$prof"
+  web_stop
+  fuser -k "${WEB_PORT}/tcp" 2>/dev/null || true
+  sleep 1
+  rm -rf "$PROF_ROOT/$prof"
   mkdir -p "$PROF_ROOT/$prof"
   make_workspace "$prof"
 

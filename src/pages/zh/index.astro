@@ -46,11 +46,12 @@ const nVerified = flat.filter((p) => p.test === 'verified').length.toLocaleStrin
 
   <section class="info wrap">
     <h2>这里的 <span class="accent">已验证</span> 是什么意思</h2>
-    <p>dshbase 上的<strong>已验证</strong>不是 topic 计数，也不是「清单能解析就算过」。它表示我们在 dsh <code>0.1.0-rc.6</code> 上跑过完整三关实测：</p>
+    <p>dshbase 上的<strong>已验证</strong>不是 topic 计数，也不是「清单能解析就算过」。它表示我们在 dsh <code>0.1.0-rc.6</code> 上跑过完整实测：</p>
     <div class="grid3">
       <div class="card"><h3>L1 · 安装</h3><p>干净 profile 里执行 <code>dsh plugin add</code>，包真正装得上。</p></div>
       <div class="card"><h3>L2 · 加载</h3><p>profile 启动并导出配置，插件已激活。</p></div>
-      <div class="card"><h3>L3 · 运行</h3><p>headless（或 web CDP）问答干净退出并返回预期答案。</p></div>
+      <div class="card"><h3>L3 · Headless</h3><p>无头问答跑通。若判定为仅 Web（web-only），不在此停。</p></div>
+      <div class="card"><h3>L4 · Web CDP</h3><p>web-only 必经：Web profile + 浏览器 CDP 问答。通过才标已验证。</p></div>
     </div>
     <p style="margin-top:14px">当前 {nVerified} / {totalPlugins} 条为已验证。有的商店把「可安装」也标成已验证——这里表示<strong>我们真跑过</strong>。详见<a href={auditUrl}>审计方法</a>、<a href={directoryUrl}>插件目录</a>，或从<a href={packsUrl}>仅含已验证插件的场景包</a>开始。</p>
   </section>
@@ -71,8 +72,8 @@ const nVerified = flat.filter((p) => p.test === 'verified').length.toLocaleStrin
     <div class="grid3">
       <a class="card card-link card-accent" href={tutorialUrl}><span class="cat">教程</span><h3>DSH 教程</h3><p>Web UI 使用、模型配置、首次任务——逐步讲解。 <span class="arr">&rarr;</span></p></a>
       <a class="card card-link" href={vsUrl}><span class="cat">对比</span><h3>vs Claude Code</h3><p>插件 vs MCP、价格与选择。 <span class="arr">&rarr;</span></p></a>
-      <a class="card card-link" href={directoryUrl}><span class="cat">生态</span><h3>插件目录</h3><p>{totalPlugins} 个插件——其中 {nVerified} 个 L1–L3 实测通过。 <span class="arr">&rarr;</span></p></a>
-      <a class="card card-link" href={packsUrl}><span class="cat">场景包</span><h3>已验证场景包</h3><p>每个槽位都是 L3 已验证，不是按最高 Star 凑。 <span class="arr">&rarr;</span></p></a>
+      <a class="card card-link" href={directoryUrl}><span class="cat">生态</span><h3>插件目录</h3><p>{totalPlugins} 个插件——其中 {nVerified} 个 L1–L4 实测通过。 <span class="arr">&rarr;</span></p></a>
+      <a class="card card-link" href={packsUrl}><span class="cat">场景包</span><h3>已验证场景包</h3><p>每个槽位都是已验证，不是按最高 Star 凑。 <span class="arr">&rarr;</span></p></a>
       <a class="card card-link" href={pluginsUrl}><span class="cat">开发</span><h3>插件指南</h3><p>写第一个 dsh 插件，注册工具。 <span class="arr">&rarr;</span></p></a>
       <a class="card card-link" href={auditUrl}><span class="cat">信任</span><h3>我们如何审计</h3><p>L1 / L2 / L3 方法与可浏览的待验证失败。 <span class="arr">&rarr;</span></p></a>
     </div>

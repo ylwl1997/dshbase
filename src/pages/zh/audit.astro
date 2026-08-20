@@ -39,7 +39,8 @@ const report = {
   method: [
     { k: 'L1 · 安装', v: '插件在干净 profile 里，与固定版本的 DSH 运行时一起安装。' },
     { k: 'L2 · 加载', v: 'profile 成功启动并导出配置。' },
-    { k: 'L3 · 运行', v: '载入插件后跑一句 headless 问答；必须干净退出并返回预期答案。仅 GUI 插件走 webonly CDP。' },
+    { k: 'L3 · Headless', v: '载入插件后跑 headless 问答。若判定为仅 Web（web-only），L3 不算通过。' },
+    { k: 'L4 · Web CDP', v: 'L3 为 web-only 时必经：启动 Web profile + 浏览器 CDP 问答。只有 L4 ok 才升为已验证。' },
   ],
   results: [
     { n: '551', label: '通过', ok: true },
@@ -68,13 +69,13 @@ const report = {
 
 <Base
   title="我们如何审计插件 — dshbase 验证方法 | dshbase 中文"
-  description="dshbase 的已验证 = L1 安装 + L2 加载 + L3 运行，不是 topic 计数。可按失败类型浏览待验证插件。"
+  description="dshbase 的已验证 = L1–L3 headless，web-only 必须再过 L4 Web CDP。可按失败类型浏览待验证插件。"
   currentPath="/audit/"
 >
   <section class="hero wrap">
     <p class="eyebrow">插件审计</p>
     <h1>我们如何审计<span class="accent">每一个插件</span></h1>
-    <p class="lede"><strong>已验证</strong>表示在 dsh 0.1.0-rc.6 上跑过 L1 安装 + L2 加载 + L3 运行问答——不是 topic 计数，也不是「清单能解析」。待验证条目若有失败备注，会公开列出。</p>
+    <p class="lede"><strong>已验证</strong>表示在 dsh 0.1.0-rc.6 上过了 L1 安装 + L2 加载 + L3 headless；若 L3 为 web-only，则<strong>必须再过 L4 Web CDP</strong>。不是 topic 计数，也不是「清单能解析」。</p>
   </section>
 
   <section class="wrap audit-stats">
@@ -97,8 +98,8 @@ const report = {
       ))}
     </ul>
     <ul>
-      <li><strong><code>verified</code></strong> — 三关通过（或 GUI 插件的 webonly CDP L3）。</li>
-      <li><strong><code>pending</code></strong> — 已上架但未 L3 通过（或上次失败——见备注）。</li>
+      <li><strong><code>verified</code></strong> — L3 headless 通过，或 L3 为 web-only 且 L4 CDP 通过。</li>
+      <li><strong><code>pending</code></strong> — 已收录但未通过（含 web-only 待 L4，或先前失败——见备注）。</li>
       <li><strong>信任等级</strong>只是辅助；star 只表示热度。</li>
     </ul>
 

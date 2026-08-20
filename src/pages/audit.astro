@@ -39,7 +39,8 @@ const report = {
   method: [
     { k: 'L1 · Install', v: 'the plugin is installed into a clean profile alongside a pinned DSH runtime.' },
     { k: 'L2 · Load', v: 'the profile boots and dumps its configuration successfully.' },
-    { k: 'L3 · Runtime', v: 'a headless question is answered with the plugin loaded; the run must exit cleanly and return the expected answer. GUI-only plugins use webonly CDP.' },
+    { k: 'L3 · Headless', v: 'a headless question is answered with the plugin loaded. If the plugin is GUI-only, L3 returns web-only — that is not a pass.' },
+    { k: 'L4 · Web CDP', v: 'required when L3 is web-only: boot a web profile and run browser CDP Q&A. Only L4 ok upgrades to verified.' },
   ],
   results: [
     { n: '551', label: 'passed', ok: true },
@@ -68,13 +69,13 @@ const report = {
 
 <Base
   title="How We Audit Plugins — dshbase Verification Methodology | dshbase"
-  description="Verified on dshbase means L1 install + L2 load + L3 runtime — not a topic count. Browse pending failures by class, and read how we audit every DeepSeek Harness plugin."
+  description="Verified on dshbase means L1–L3 headless, plus L4 web CDP when needed — not a topic count. Browse pending failures by class."
   currentPath="/audit/"
 >
   <section class="hero wrap">
     <p class="eyebrow">Plugin audit</p>
     <h1>How we audit <span class="accent">every plugin</span></h1>
-    <p class="lede"><strong>Verified</strong> means we ran L1 install + L2 load + L3 runtime Q&amp;A on dsh 0.1.0-rc.6 — not a topic count or a parseable-manifest badge. Pending entries stay visible with the failure note when we have one.</p>
+    <p class="lede"><strong>Verified</strong> means L1 install + L2 load + L3 headless on dsh 0.1.0-rc.6; if L3 is web-only, <strong>L4 web CDP is mandatory</strong>. Not a topic count or a parseable-manifest badge.</p>
   </section>
 
   <section class="wrap audit-stats">
@@ -97,8 +98,8 @@ const report = {
       ))}
     </ul>
     <ul>
-      <li><strong><code>verified</code></strong> — all three stages passed (or webonly CDP L3 for GUI plugins).</li>
-      <li><strong><code>pending</code></strong> — listed, but not yet L3-passed (or a prior run failed — see the note).</li>
+      <li><strong><code>verified</code></strong> — L3 headless ok, or L3 web-only + L4 CDP ok.</li>
+      <li><strong><code>pending</code></strong> — listed but not yet passed (including web-only waiting on L4, or a prior failure — see the note).</li>
       <li><strong>Trust tier</strong> is supplementary; stars are popularity only.</li>
     </ul>
 

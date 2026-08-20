@@ -46,11 +46,12 @@ const nVerified = flat.filter((p) => p.test === 'verified').length.toLocaleStrin
 
   <section class="info wrap">
     <h2>What <span class="accent">Verified</span> means here</h2>
-    <p><strong>Verified</strong> on dshbase is not a topic count or a parseable-manifest check. It means we ran a real three-stage install test on dsh <code>0.1.0-rc.6</code>:</p>
+    <p><strong>Verified</strong> on dshbase is not a topic count or a parseable-manifest check. It means we ran a real install test on dsh <code>0.1.0-rc.6</code> — L1–L3 for headless plugins, plus L4 web CDP when L3 reports web-only:</p>
     <div class="grid3">
       <div class="card"><h3>L1 · Install</h3><p><code>dsh plugin add</code> into a clean profile — the package actually installs.</p></div>
       <div class="card"><h3>L2 · Load</h3><p>The profile boots and dumps config with the plugin activated.</p></div>
-      <div class="card"><h3>L3 · Runtime</h3><p>A headless (or web CDP) Q&amp;A run exits cleanly with the expected answer.</p></div>
+      <div class="card"><h3>L3 · Headless</h3><p>Headless Q&amp;A exits cleanly. If the plugin is GUI-only (web-only), we do not stop here.</p></div>
+      <div class="card"><h3>L4 · Web CDP</h3><p>Required for web-only plugins: live web profile + browser CDP Q&amp;A. Pass → Verified.</p></div>
     </div>
     <p style="margin-top:14px">{nVerified} of {totalPlugins} listings are Verified today. Some other catalogs label “verified” when a plugin is merely installable from a manifest — here it means <em>we ran it</em>. See the <a href={auditUrl}>audit methodology</a>, browse the <a href={directoryUrl}>directory</a>, or start from a <a href={packsUrl}>verified-only scene pack</a>.</p>
   </section>
@@ -71,10 +72,10 @@ const nVerified = flat.filter((p) => p.test === 'verified').length.toLocaleStrin
     <div class="grid3">
       <a class="card card-link card-accent" href={tutorialUrl}><span class="cat">Guide</span><h3>DSH tutorial</h3><p>Install, configure, use plugins, and run real tasks — step by step. <span class="arr">&rarr;</span></p></a>
       <a class="card card-link" href={vsUrl}><span class="cat">Compare</span><h3>vs Claude Code</h3><p>Plugins vs MCP, pricing, and which to choose. <span class="arr">&rarr;</span></p></a>
-      <a class="card card-link" href={directoryUrl}><span class="cat">Ecosystem</span><h3>Plugin directory</h3><p>{totalPlugins} plugins — {nVerified} install-tested (L1–L3). <span class="arr">&rarr;</span></p></a>
-      <a class="card card-link" href={packsUrl}><span class="cat">Packs</span><h3>Verified scene packs</h3><p>Curated setups — every slot is L3-verified, not just highest stars. <span class="arr">&rarr;</span></p></a>
+      <a class="card card-link" href={directoryUrl}><span class="cat">Ecosystem</span><h3>Plugin directory</h3><p>{totalPlugins} plugins — {nVerified} install-tested (L1–L4). <span class="arr">&rarr;</span></p></a>
+      <a class="card card-link" href={packsUrl}><span class="cat">Packs</span><h3>Verified scene packs</h3><p>Curated setups — every slot is verified, not just highest stars. <span class="arr">&rarr;</span></p></a>
       <a class="card card-link" href={pluginsUrl}><span class="cat">Build</span><h3>Plugin guide</h3><p>Write your first dsh plugin and register tools. <span class="arr">&rarr;</span></p></a>
-      <a class="card card-link" href={auditUrl}><span class="cat">Trust</span><h3>How we audit</h3><p>L1 / L2 / L3 methodology and transparent pending failures. <span class="arr">&rarr;</span></p></a>
+      <a class="card card-link" href={auditUrl}><span class="cat">Trust</span><h3>How we audit</h3><p>L1–L4 methodology and transparent pending failures. <span class="arr">&rarr;</span></p></a>
     </div>
   </section>
 
