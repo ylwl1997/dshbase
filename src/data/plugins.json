@@ -23049,7 +23049,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "WebGPU ocean skin for DeepSeek Harness — DSH plugin, Harness-only Chrome/Edge extension, static installer, and native integration.",
    "desc_en": "WebGPU ocean skin for DeepSeek Harness — DSH plugin, Harness-only Chrome/Edge extension, static installer, and native integration.",
    "desc_zh": "",
@@ -23065,7 +23065,7 @@
    "platform": "any",
    "webonly": true,
    "testDate": "2026-08-20",
-   "note": "验证: web-only"
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.6."
   },
   {
    "name": "DeepSeek-Balance-Whale-Widget",
@@ -23073,7 +23073,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness（DSH）一只住在 DSH 界面右下角的小鲸鱼娘，帮你盯着DeepSeek账户余额。QQ弹弹，支持拖拽吸附、左吸附翻转、数字滚动动画，随界面自动启用，建议直接喊来你的dsh安装",
    "desc_en": "DeepSeek Harness（DSH）一只住在 DSH 界面右下角的小鲸鱼娘，帮你盯着DeepSeek账户余额。QQ弹弹，支持拖拽吸附、左吸附翻转、数字滚动动画，随界面自动启用，建议直接喊来你的dsh安装",
    "desc_zh": "",
@@ -23087,7 +23087,7 @@
    "license": "",
    "slug": "DeepSeek-Balance-Whale-Widget",
    "platform": "any",
-   "note": "验证: web-only",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.6.",
    "webonly": true,
    "testDate": "2026-08-20"
   },
@@ -23097,7 +23097,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DSH crash-rescue plugin: undo config & plugin-code changes, secret-safe snapshots, one-click SAFE MODE, plus offline CLI/GUI that work even when DSH won't boot.",
    "desc_en": "DSH crash-rescue plugin: undo config & plugin-code changes, secret-safe snapshots, one-click SAFE MODE, plus offline CLI/GUI that work even when DSH won't boot.",
    "desc_zh": "",
@@ -23113,7 +23113,7 @@
    "platform": "any",
    "webonly": true,
    "testDate": "2026-08-20",
-   "note": "验证: web-only"
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.6."
   },
   {
    "name": "dsh-wallpaper-engine",
@@ -23121,7 +23121,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "一个插件让你的dsh可以自由切换你的wallpaper engine里面的壁纸资源，还可以通过多个滑动条来控制透壁纸的模糊程度，亮度，边框，以及对话框的液态玻璃效果，让你的dsh更加美观，感谢jerry的mac版本支持",
    "desc_en": "一个插件让你的dsh可以自由切换你的wallpaper engine里面的壁纸资源，还可以通过多个滑动条来控制透壁纸的模糊程度，亮度，边框，以及对话框的液态玻璃效果，让你的dsh更加美观，感谢jerry的mac版本支持",
    "desc_zh": "",
@@ -23135,7 +23135,7 @@
    "license": "",
    "slug": "dsh-wallpaper-engine",
    "platform": "any",
-   "note": "验证: web-only",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.6.",
    "webonly": true,
    "testDate": "2026-08-20"
   },
@@ -23167,7 +23167,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Generate images directly in DeepSeek Harness chats",
    "desc_en": "Generate images directly in DeepSeek Harness chats",
    "desc_zh": "",
@@ -23183,7 +23183,7 @@
    "platform": "any",
    "webonly": true,
    "testDate": "2026-08-20",
-   "note": "验证: web-only"
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.6."
   },
   {
    "name": "DSH-taskboard",
@@ -23236,7 +23236,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness account monitoring, usage accounting, completion alerts, official recharge, flexible layout, and agent-assisted session controls. / 账户监控、提醒、充值与会话控制中心",
    "desc_en": "DeepSeek Harness account monitoring, usage accounting, completion alerts, official recharge, flexible layout, and agent-assisted session controls. / 账户监控、提醒、充值与会话控制中心",
    "desc_zh": "",
@@ -23252,7 +23252,7 @@
    "platform": "any",
    "webonly": true,
    "testDate": "2026-08-20",
-   "note": "验证: web-only"
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.6."
   },
   {
    "name": "dsh-skin-market",
@@ -23395,7 +23395,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Cross-preset session migration for DeepSeek Harness: fixed-schema handoff summaries instead of bypassing the preset lock. 26-run benchmark + A/B evidence. 跨 preset 会话迁移插件（固定 schema 交接摘要），含实测 benchmark 与 A/B 对照。",
    "desc_en": "Cross-preset session migration for DeepSeek Harness: fixed-schema handoff summaries instead of bypassing the preset lock. 26-run benchmark + A/B evidence. 跨 preset 会话迁移插件（固定 schema 交接摘要），含实测 benchmark 与 A/B 对照。",
    "desc_zh": "",
@@ -23411,7 +23411,7 @@
    "platform": "any",
    "webonly": true,
    "testDate": "2026-08-20",
-   "note": "验证: web-only"
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.6."
   },
   {
    "name": "dsh-auto-collapse",
@@ -23619,7 +23619,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "🌊 Persistent dock & fully-customizable balance/usage panel for DeepSeek Harness — activity heatmap, dual-channel comparison, local-only & privacy-first",
    "desc_en": "🌊 Persistent dock & fully-customizable balance/usage panel for DeepSeek Harness — activity heatmap, dual-channel comparison, local-only & privacy-first",
    "desc_zh": "",
@@ -23635,7 +23635,7 @@
    "platform": "any",
    "webonly": true,
    "testDate": "2026-08-20",
-   "note": "验证: web-only"
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.6."
   },
   {
    "name": "DSH-pipeline-kernel",
@@ -23659,7 +23659,7 @@
    "platform": "any",
    "webonly": true,
    "testDate": "2026-08-20",
-   "note": "验证: web-only"
+   "note": "验证: web-only；L4 web CDP runtime-fail on dsh 0.1.0-rc.6."
   },
   {
    "name": "rapid-mlx-dsh-provider",
@@ -23689,7 +23689,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "A sidebar can pop out a separate browser tab (drag it to another monitor)",
    "desc_en": "A sidebar can pop out a separate browser tab (drag it to another monitor)",
    "desc_zh": "",
@@ -23705,7 +23705,7 @@
    "platform": "any",
    "webonly": true,
    "testDate": "2026-08-20",
-   "note": "验证: web-only"
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.6."
   }
  ],
  "AI Models": [
