@@ -43618,7 +43618,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness 个人中心:用量统计 / 自定义指令 / 成本估算 / 桌面宠物(纯本地，不联网）。 Personal center & custom instructions for DSH",
    "desc_en": "DeepSeek Harness 个人中心:用量统计 / 自定义指令 / 成本估算 / 桌面宠物(纯本地，不联网）。 Personal center & custom instructions for DSH",
    "desc_zh": "DeepSeek Harness 的「个人中心」设置分区：本地用量统计（Token/工具调用/热力图/按模型分布）+ 全局自定义指令 + 按模型成本估算（峰谷分时）+ 由真实用量驱动情绪的桌面宠物黑鲸。纯本地运行，只聚合数字、不读聊天正文。",
@@ -43632,7 +43632,8 @@
    "license": "MIT",
    "slug": "dsh-personal-center",
    "platform": "any",
-   "note": "仓库未加 `dsh-plugin` topic"
+   "note": "仓库未加 `dsh-plugin` topic",
+   "testDate": "2026-08-20"
   }
  ],
  "Automation": [
