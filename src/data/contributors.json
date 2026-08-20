@@ -1,5 +1,29 @@
 [
  {
+  "github": "nan1010082085",
+  "avatar": "https://avatars.githubusercontent.com/u/26052449?v=4",
+  "plugins": [
+   {
+    "name": "dsh-chat-sync",
+    "slug": "dsh-chat-sync",
+    "npm": true,
+    "pkg": "dsh-chat-sync"
+   },
+   {
+    "name": "dsh-mcp-sync",
+    "slug": "dsh-mcp-sync",
+    "npm": true,
+    "pkg": "dsh-mcp-sync"
+   },
+   {
+    "name": "dsh-plugin-ima-sync",
+    "slug": "dsh-plugin-ima-sync",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "sjh9714",
   "avatar": "https://avatars.githubusercontent.com/u/163989462?v=4",
   "plugins": [
@@ -138,6 +162,18 @@
   ]
  },
  {
+  "github": "biubiukam",
+  "avatar": "https://avatars.githubusercontent.com/u/23185852?v=4",
+  "plugins": [
+   {
+    "name": "dsh-runtime-nutrition-label",
+    "slug": "dsh-runtime-nutrition-label",
+    "npm": true,
+    "pkg": "dsh-runtime-nutrition-label"
+   }
+  ]
+ },
+ {
   "github": "BorisShaw6",
   "avatar": "https://avatars.githubusercontent.com/u/76441108?v=4",
   "plugins": [
@@ -234,18 +270,6 @@
   ]
  },
  {
-  "github": "nan1010082085",
-  "avatar": "https://avatars.githubusercontent.com/u/26052449?v=4",
-  "plugins": [
-   {
-    "name": "dsh-plugin-ima-sync",
-    "slug": "dsh-plugin-ima-sync",
-    "npm": false,
-    "pkg": ""
-   }
-  ]
- },
- {
   "github": "ohoyour",
   "avatar": "https://avatars.githubusercontent.com/u/73328479?v=4",
   "plugins": [
@@ -290,6 +314,18 @@
     "slug": "dsh-passwords",
     "npm": false,
     "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "sorry123maker",
+  "avatar": "https://avatars.githubusercontent.com/u/91934254?v=4",
+  "plugins": [
+   {
+    "name": "@zhuyh-sai7n/dsh-plugin-manager",
+    "slug": "zhuyh-sai7n-dsh-plugin-manager",
+    "npm": true,
+    "pkg": "@zhuyh-sai7n/dsh-plugin-manager"
    }
   ]
  },
