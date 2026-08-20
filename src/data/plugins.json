@@ -23726,7 +23726,9 @@
    "added": "2026-08-20T09:02:04",
    "license": "MIT",
    "slug": "wanghailong0419-dsh-toolkit",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-20",
+   "note": "Scoped catalog name to distinguish from omdsh-dev/dsh-toolkit. 验证: runtime-fail on dsh 0.1.0-rc.6 with pinned @wanghailong0419/dsh-toolkit@0.1.3 (L1 install OK; profile package.json recorded 0.1.3; boot fails ERR_MODULE_NOT_FOUND for @wanghailong0419/dsh-mcp-manager and @wanghailong0419/dsh-skill-manager — bundle patches those loader entries but they are not installed as profile dependencies)."
   }
  ],
  "AI Models": [
