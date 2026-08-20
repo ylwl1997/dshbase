@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import plugins from '../data/plugins.json';
 import syncDate from '../data/sync-date.json';
-import { pendingFailRows, FAIL_LABELS_EN } from '../lib/audit-fail.js';
+import { pendingFailRows, FAIL_LABELS_EN, FAIL_ORDER } from '../lib/audit-fail.js';
 
 const catOrder = Object.keys(plugins);
 const all = catOrder.flatMap((k) => plugins[k]);
@@ -24,7 +24,7 @@ const pluginsUrl = getRelativeLocaleUrl('en', '/plugins/');
 const failRows = pendingFailRows(plugins);
 const failCounts = {};
 failRows.forEach((r) => { failCounts[r.failClass] = (failCounts[r.failClass] || 0) + 1; });
-const failOrder = ['install-fail', 'load-fail', 'runtime-fail', 'webonly', 'external-deps', 'other', 'untested'];
+const failOrder = FAIL_ORDER;
 
 const stats = [
   { n: fmt(total), label: 'plugins' },
@@ -121,7 +121,7 @@ const report = {
     </div>
 
     <h2 id="pending">Pending &amp; failure browser</h2>
-    <p>{fmt(nPending)} plugins are currently <code>pending</code>. Filter by failure class parsed from the catalog note (live data — not the August batch snapshot below).</p>
+    <p>{fmt(nPending)} plugins are currently <code>pending</code>. Filter by failure class parsed from the catalog note (live data — not the August batch snapshot below). <strong>Awaiting L4</strong> means L3 returned web-only and CDP has not passed yet; <strong>L4 failed</strong> means CDP already ran and failed. Old notes like “web L3 … CDP E2E” are ordinary install/load/runtime fails — not an L4 queue.</p>
     <div class="fail-filters" id="fail-filters" role="tablist" aria-label="Filter pending by failure class">
       <button type="button" class="fchip is-active" data-fail="all">All <b>{failRows.length}</b></button>
       {failOrder.filter((k) => failCounts[k]).map((k) => (

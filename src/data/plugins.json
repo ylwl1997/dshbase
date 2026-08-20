@@ -23659,7 +23659,7 @@
    "platform": "any",
    "webonly": true,
    "testDate": "2026-08-20",
-   "note": "验证: web-only；L4 web CDP runtime-fail on dsh 0.1.0-rc.6."
+   "note": "验证: web-only；L4 web CDP runtime-fail on dsh 0.1.0-rc.6. Author/plugin fix needed — CDP Q&A did not complete on a clean port; not marked verified."
   },
   {
    "name": "rapid-mlx-dsh-provider",

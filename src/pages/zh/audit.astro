@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import plugins from '../../data/plugins.json';
 import syncDate from '../../data/sync-date.json';
-import { pendingFailRows, FAIL_LABELS_ZH } from '../../lib/audit-fail.js';
+import { pendingFailRows, FAIL_LABELS_ZH, FAIL_ORDER } from '../../lib/audit-fail.js';
 
 const catOrder = Object.keys(plugins);
 const all = catOrder.flatMap((k) => plugins[k]);
@@ -24,7 +24,7 @@ const pluginsUrl = getRelativeLocaleUrl('zh', '/plugins/');
 const failRows = pendingFailRows(plugins);
 const failCounts = {};
 failRows.forEach((r) => { failCounts[r.failClass] = (failCounts[r.failClass] || 0) + 1; });
-const failOrder = ['install-fail', 'load-fail', 'runtime-fail', 'webonly', 'external-deps', 'other', 'untested'];
+const failOrder = FAIL_ORDER;
 
 const stats = [
   { n: fmt(total), label: '插件' },
@@ -121,7 +121,7 @@ const report = {
     </div>
 
     <h2 id="pending">待验证与失败浏览</h2>
-    <p>当前 <code>pending</code> {fmt(nPending)} 条。按备注解析出的失败类型筛选（实时数据，不是下方八月批次快照）。</p>
+    <p>当前 <code>pending</code> {fmt(nPending)} 条。按备注解析出的失败类型筛选（实时数据，不是下方八月批次快照）。<strong>待 L4 CDP</strong> 表示 L3 判为 web-only、尚未过 CDP；<strong>L4 未通过</strong> 表示已跑过 CDP 且失败。旧备注「web L3 … CDP E2E」属于普通安装/加载/运行失败，不是 L4 队列。</p>
     <div class="fail-filters" id="fail-filters" role="tablist" aria-label="按失败类型筛选">
       <button type="button" class="fchip is-active" data-fail="all">全部 <b>{failRows.length}</b></button>
       {failOrder.filter((k) => failCounts[k]).map((k) => (
