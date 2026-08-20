@@ -138,6 +138,32 @@ def main():
         return 0
 
     if not os.environ.get("GITHUB_TOKEN"):
+        # Fall back to git credential / ~/.git-credentials (never print token)
+        try:
+            r = subprocess.run(
+                ["git", "credential", "fill"],
+                input="protocol=https\nhost=github.com\n\n",
+                capture_output=True,
+                text=True,
+                timeout=10,
+                cwd=str(ROOT),
+            )
+            for line in (r.stdout or "").splitlines():
+                if line.startswith("password="):
+                    os.environ["GITHUB_TOKEN"] = line.split("=", 1)[1].strip()
+                    break
+        except Exception:
+            pass
+        if not os.environ.get("GITHUB_TOKEN"):
+            cred = Path.home() / ".git-credentials"
+            if cred.exists():
+                for line in cred.read_text(encoding="utf-8", errors="replace").splitlines():
+                    if "github.com" in line.lower() and "@" in line:
+                        mid = line.split("://", 1)[1]
+                        part = mid.split("@", 1)[0]
+                        os.environ["GITHUB_TOKEN"] = part.split(":", 1)[-1]
+                        break
+    if not os.environ.get("GITHUB_TOKEN"):
         print("ERROR: GITHUB_TOKEN required for --ingest", file=sys.stderr)
         return 1
 

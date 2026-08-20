@@ -8,12 +8,13 @@
 """
 import json
 import sys
+from datetime import date
 
 DATA = 'src/data/plugins.json'
 ORDER = {'ok': 0, 'web-only': 1, 'load-fail': 2, 'runtime-fail': 3, 'install-fail': 4, 'network-fail': 5}
 # 严格标准：只有 ok 升级 verified。web-only = 安装+加载通过、但 headless 缺 GUI 服务（L3 未验证），
 # 不算 verified，保持 pending 并打 webonly 标记。安装/加载/运行时任一失败 → pending。
-FAIL_STATES = {'install-fail', 'load-fail', 'runtime-fail'}
+FAIL_STATES = {'install-fail', 'load-fail', 'runtime-fail', 'network-fail'}
 
 
 def main(files):
@@ -31,6 +32,7 @@ def main(files):
             if prev is None or ORDER.get(status, 9) < ORDER.get(prev, 9):
                 res[name] = status
 
+    today = date.today().isoformat()
     d = json.load(open(DATA, encoding='utf-8'))
     upgraded = pending = webonly = skipped = 0
     for items in d.values():
@@ -40,19 +42,32 @@ def main(files):
                 continue
             old = p.get('test')
             if st == 'ok':
+                p['test'] = 'verified'
+                p['testDate'] = today
+                p.pop('webonly', None)
+                # drop prior failure notes
+                note = p.get('note') or ''
+                if note.startswith('验证:') or '；验证:' in note:
+                    p.pop('note', None)
                 if old != 'verified':
-                    p['test'] = 'verified'
                     upgraded += 1
             elif st == 'web-only':
                 # 安装+加载通过，但 headless 缺 GUI 服务（webServer/storage/workspace 等），L3 未验证。
                 # 不算 verified，保持 pending 并打 webonly 标记，待 web 运行时复测。
                 p['webonly'] = True
-                if old != 'pending':
-                    p['test'] = 'pending'
-                    pending += 1
-                webonly += 1
-            elif st in FAIL_STATES and old != 'verified' and old != 'pending':
                 p['test'] = 'pending'
+                p['testDate'] = today
+                p['note'] = '验证: web-only'
+                webonly += 1
+                if old != 'pending':
+                    pending += 1
+            elif st in FAIL_STATES:
+                if old == 'verified':
+                    skipped += 1
+                    continue
+                p['test'] = 'pending'
+                p['testDate'] = today
+                p['note'] = f'验证: {st}'
                 pending += 1
             else:
                 skipped += 1
