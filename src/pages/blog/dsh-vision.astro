@@ -2,44 +2,51 @@
 import BlogPost from '../../layouts/BlogPost.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const packsUrl = getRelativeLocaleUrl('en', '/packs/');
+const auditUrl = getRelativeLocaleUrl('en', '/audit/');
+const modelSetupUrl = getRelativeLocaleUrl('en', '/blog/dsh-model-setup/');
 const modlensUrl = getRelativeLocaleUrl('en', '/plugins/modlens/');
+const visionToolkitUrl = getRelativeLocaleUrl('en', '/plugins/dsh-vision-toolkit/');
+const visionRouterUrl = getRelativeLocaleUrl('en', '/plugins/dsh-vision-router/');
 const visionPrimitivesUrl = getRelativeLocaleUrl('en', '/plugins/dsh-vision-primitives/');
 const dropToPathUrl = getRelativeLocaleUrl('en', '/plugins/dsh-drop-to-path/');
-const visionToolkitUrl = getRelativeLocaleUrl('en', '/plugins/dsh-vision-toolkit/');
 ---
-<BlogPost title="DeepSeek Harness Vision — Image Input, Upload Fixes & Vision Plugins | dshbase" description="How to give DeepSeek Harness (dsh) eyes: modlens, dsh-vision-toolkit, dsh-vision-primitives and dsh-drop-to-path, plus why image upload gets rejected on third-party vision models — all verified on dsh 0.1.0-rc.6." currentPath="/blog/dsh-vision/" category="Guide">
-  <h1>DeepSeek Harness <span class="accent">vision</span>: giving a text-only agent eyes</h1>
-  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+<BlogPost title="DeepSeek Harness Vision on rc.8 — Official Narrative vs Catalog Gap vs Verified Packs | dshbase" description="rc.8 sells multimodal. deepseek-v4-flash-vision-exp is not ready for the formal catalog. The path that works today: verified vision packs (modlens, dsh-vision-toolkit, dsh-vision-router) — not Hub counts." currentPath="/blog/dsh-vision/" category="Guide">
+  <h1>DeepSeek Harness <span class="accent">vision</span> on rc.8: three different “can see images” stories</h1>
+  <p class="muted small" style="margin-bottom:20px">August 20, 2026 · dshbase · updated for 0.1.0-rc.8</p>
 
-  <p>DeepSeek's own models are text-only — they have no vision modality, so they literally cannot "see" an image you upload. That single fact spawned the richest corner of the dsh plugin ecosystem: a race to give a blind agent eyes, hands, and a drop target. Here's what actually works on dsh 0.1.0-rc.6, and what to do when image upload just gets rejected.</p>
+  <p>After <strong>dsh 0.1.0-rc.8</strong>, a lot of coverage says DeepSeek Harness “can see images now.” That sentence conflates three things that are <em>not</em> the same: the product narrative, the official model catalog, and the plugins that actually pass install tests. This page is the side-by-side: what marketing implies, what the repo still withholds, and what you should install today.</p>
 
-  <h2>The upload problem: why your image gets rejected</h2>
-  <p>Before you install anything, understand the failure mode. The most common complaint in the official repo is that <strong>vision-capable third-party models (gpt-5.4, kimi, o1/o3/o4, grok) cannot upload images</strong> — the request round-trips through dsh's gateway and the vision modality doesn't survive, so the model never actually receives the pixels. DeepSeek's own first-party models are unaffected <em>because</em> they're text-only: the frontend shouldn't offer them image upload in the first place. The fix is twofold: pick a vision-capable model that survives the round-trip, or — more reliably — hand the image to a dedicated vision <em>plugin</em> that describes it back in text.</p>
+  <h2>1. The rc.8 multimodal narrative</h2>
+  <p>rc.8’s story is real as a <em>harness</em> story: image attachments in flows like <code>/goal</code> / <code>/plan</code>, Agent Store–style plugin discovery, and the idea that a text-only agent can still “borrow eyes.” Community write-ups often flatten that into “native vision works.” That oversell is the trap. The harness can route pixels; that does not mean DeepSeek’s official vision endpoint is open for everyday API use.</p>
 
-  <h2>Delegation vs. native modality: two philosophies</h2>
-  <p>There are two ways to give a text-only model vision, and the plugins split cleanly along the line. The <em>delegation</em> approach sends the image to a separate vision-capable model — usually an OpenAI-compatible endpoint — and brings back a text or JSON description for the text model to reason over. That's modlens and dsh-vision-toolkit. The <em>native</em> approach keeps everything inside dsh and adds structured overlays (like Set-of-Mark numbering) so the text model can "see" by reference rather than by pixels — that's dsh-vision-primitives. Neither is strictly better: delegation gives you richer recognition (a real vision model did the looking), while native gives you lower latency, no external API key, and no data leaving your box. Most setups end up using both.</p>
+  <h2>2. The catalog gap: <code>deepseek-v4-flash-vision-exp</code></h2>
+  <p>In the official tree you can find experimental vision wiring — names like <code>deepseek-v4-flash-vision-exp</code> and <code>input: [text, image]</code> — plus notes that the model stays <strong>out of the formal catalog until the endpoint is ready</strong>. So: scaffolding may be present; the public, catalogued, ready-to-point-at vision API is not. Do not configure a “official DeepSeek vision model” today and expect image understanding to just work. See also the short status note on the <a href={modelSetupUrl}>model setup</a> page.</p>
+  <p class="muted small">Honest info gap: we cite the public release / agents notes that say “not in catalog until endpoint ready.” We are not claiming insider ship dates. When the catalog lights up, this page will move the CTA — until then, plugins remain the working path.</p>
 
-  <h2>modlens: the first, and still the reference</h2>
-  <p><strong><a href={modlensUrl}>modlens</a></strong> was the first vision plugin for DeepSeek Harness, and at nearly a thousand stars it's still the benchmark. The model: paste an image and get back <strong>structured JSON evidence</strong> — OCR, layout, and semantics — which your text-only model can then reason over. Instead of trying to force pixels into a model that can't read them, modlens converts the image into something the model <em>can</em> consume. It's the most-starred vision plugin in the <a href={directoryUrl}>plugin directory</a> and verified <code>ok</code> on dsh 0.1.0-rc.6.</p>
-
-  <h2>dsh-vision-toolkit: the full toolbox</h2>
-  <p>If modlens is the reference implementation, <strong><a href={visionToolkitUrl}>dsh-vision-toolkit</a></strong> is the kitchen sink. It "helps text-only models handle vision tasks" across a much wider surface: <strong>intent-aware image Q&A, long-screenshot OCR, UI restoration, grounding, pixel diff, and Artifacts</strong>. That's the difference between "read this screenshot" and "read this 4000px scrolling screenshot, then diff it against the last one and tell me what changed in the UI." It builds from source (<code>git-build</code>) on dsh 0.1.0-rc.6 and carries real community weight.</p>
-
-  <h2>dsh-vision-primitives: native grounding, zero MCP</h2>
-  <p><strong><a href={visionPrimitivesUrl}>dsh-vision-primitives</a></strong> is the newer, more opinionated entry. It's a "native interactive visual-reasoning plugin" built around a <strong>Set-of-Mark numbered grid overlay</strong> for precise visual grounding, with "<strong>zero external MCP</strong>." The Set-of-Mark technique overlays numbered markers on image regions so the model can say "click #7" instead of "click the button that's sort of in the upper left." For UI automation and precise pointing, that's the mechanism you want. It's listed <code>not-on-npm</code>, so install from source.</p>
-
-  <h2>dsh-drop-to-path: keep the drag-and-drop</h2>
-  <p>The UX glue is <strong><a href={dropToPathUrl}>dsh-drop-to-path</a></strong>: it "lets you drag images and files straight to text-only models, keeping the native attachment UX and auto-converting to a path on send." The point is subtle but real — with a text-only model, a raw image paste is meaningless, but a <em>path</em> to the file is something the model can hand off to a vision tool or read directly. This plugin preserves the familiar drag-and-drop gesture while converting the payload into something a text model can actually use.</p>
-
-  <h2>How to choose</h2>
-  <p>A rough rule of thumb: pick based on how much structure you need, not on star count. If you just need a reliable description of a single image, modlens is the fastest install and the most battle-tested. If your tasks involve long scrolling screenshots, UI diffs, or restoring a design from a picture, dsh-vision-toolkit earns its complexity. If you're automating a UI and need the model to point at exact regions, dsh-vision-primitives is the only one built for that. And regardless of which you pick, dsh-drop-to-path is a cheap companion that fixes the drag-and-drop flow.</p>
+  <h2>3. The verified path: vision packs</h2>
+  <p>What <em>does</em> work on a clean profile is the plugin path we already L1–L4 tested. Start from the scene packs, not from star count:</p>
   <ul>
-    <li><strong>Quickest path to "read this image"</strong> → <strong>modlens</strong>, paste and get JSON evidence.</li>
-    <li><strong>Heavy-duty vision workflows</strong> (screenshots, diffs, UI restoration) → <strong><a href={visionToolkitUrl}>dsh-vision-toolkit</a></strong>.</li>
-    <li><strong>Precise pointing / UI automation</strong> → <strong>dsh-vision-primitives</strong> and its Set-of-Mark overlay.</li>
-    <li><strong>Just want drag-and-drop back</strong> → <strong>dsh-drop-to-path</strong>.</li>
+    <li><strong><a href={`${packsUrl}#vision`}>Vision for text-only models</a></strong> — <a href={modlensUrl}>modlens</a> (vision bridge / OCR+layout JSON), <a href={visionToolkitUrl}>dsh-vision-toolkit</a> (image Q&amp;A, long-screenshot OCR), <a href={visionRouterUrl}>dsh-vision-router</a> (routing / free vision chain).</li>
+    <li><strong><a href={`${packsUrl}#artist-creative`}>Artist &amp; creative vision</a></strong> — same bridge + toolkit, plus design/GenUI slots (<code>dsh-openpencil</code>, <code>dsh-genui</code>) when you need a creative surface, not just OCR.</li>
+  </ul>
+  <p>Every pack slot on dshbase points at a <code>plugins.json</code> entry with <code>test=verified</code>. That is a different bar from Hub badges or “700+ dsh-plugin” store counts. How we define verified: <a href={auditUrl}>audit methodology</a>.</p>
+
+  <h2>Delegation vs native overlays (still the useful split)</h2>
+  <p>Delegation plugins send the image to a vision-capable endpoint (or a free chain) and return text/JSON for the text model — <strong>modlens</strong>, <strong>dsh-vision-toolkit</strong>, <strong>dsh-vision-router</strong>. Native overlays keep grounding inside dsh — <strong><a href={visionPrimitivesUrl}>dsh-vision-primitives</a></strong> (Set-of-Mark grid). UX glue: <strong><a href={dropToPathUrl}>dsh-drop-to-path</a></strong> turns drag-and-drop into a path the text model can hand to a vision tool. Prefer packs for the default install set; reach for primitives only when you need precise pointing.</p>
+
+  <h2>Upload rejection is still a separate bug</h2>
+  <p>Third-party vision models (gpt-class, kimi, o-series, grok, …) can still fail image upload through the gateway even when the model itself is multimodal. That is an upstream round-trip issue, not proof that “DeepSeek officially sees.” Routing through a verified vision plugin remains the reliable workaround.</p>
+
+  <h2>How to choose today</h2>
+  <ul>
+    <li><strong>Just need “read this image”</strong> → install the <a href={`${packsUrl}#vision`}>vision pack</a> (start with <strong>modlens</strong>).</li>
+    <li><strong>Long screenshots / UI diffs / Artifacts</strong> → keep <strong>dsh-vision-toolkit</strong> in the pack.</li>
+    <li><strong>Routing / free chain</strong> → <strong>dsh-vision-router</strong>.</li>
+    <li><strong>Design / charts on top of vision</strong> → <a href={`${packsUrl}#artist-creative`}>artist pack</a>.</li>
+    <li><strong>Waiting for official API vision</strong> → watch the catalog; do not treat rc.8 marketing as “endpoint live.”</li>
   </ul>
 
   <h2>The bottom line</h2>
-  <p>Until DeepSeek ships a native vision model, the playbook is: don't fight the upload gate, route images through a plugin that turns pixels into text or structured JSON. modlens and dsh-vision-toolkit cover almost every case, dsh-vision-primitives adds precise grounding, and dsh-drop-to-path keeps the ergonomics. Start with modlens for a single-image read, add dsh-vision-toolkit when you need long-screenshot OCR or pixel diffs, and layer in dsh-vision-primitives only when you need precise Set-of-Mark pointing. For the current, test-verified lineup of all four — with exact install commands — head to the <a href={directoryUrl}>plugin directory</a>.</p>
+  <p>rc.8 made the multimodal <em>story</em> loud. The formal vision catalog entry is still gated. The path we verified is packs → modlens / dsh-vision-toolkit / dsh-vision-router (and friends), measured on clean profiles — not Agent Store headcount. Start at <a href={packsUrl}>/packs/</a>; read <a href={auditUrl}>how we audit</a>; browse install commands in the <a href={directoryUrl}>plugin directory</a>.</p>
 </BlogPost>

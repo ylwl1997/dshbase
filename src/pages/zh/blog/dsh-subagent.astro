@@ -7,40 +7,58 @@ const crosstalkUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-crosstalk/');
 const sgmeUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-sgme/');
 const dataAgentUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-data-agent/');
 const interconnectUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-interconnect/');
+const productSubagentsUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-plugin-product-subagents/');
+const crewUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-crew/');
+const claudeBridgeUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-plugin-claude-bridge/');
+const codexBridgeUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-codex-bridge/');
+const pluginCcUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-plugin-cc/');
+const harnessSkillUrl = getRelativeLocaleUrl('zh', '/plugins/DeepSeek-Harness-Skill/');
+const delegateUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-delegate/');
 ---
-<BlogPost title="DeepSeek Harness Subagent — 多 Agent、fork 子代理与模型切换指南 | dshbase 中文" description="如何在 DeepSeek Harness（dsh）里跑多 Agent / 子代理：Agent 预设、fork 侧会话、跨会话消息与共享记忆——基于官方仓库讨论与真正落地的插件，全部在 dsh 0.1.0-rc.6 上实测。" currentPath="/blog/dsh-subagent/" category="指南">
-  <h1>DeepSeek Harness <span class="accent">子代理</span>：不离开 dsh 的多 Agent 玩法</h1>
-  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+<BlogPost title="DeepSeek Harness Subagent（rc.8）— Claude Code、Codex 与多 Agent 玩法 | dshbase 中文" description="DeepSeek Harness 0.1.0-rc.8 子代理怎么玩：Claude Code / Codex 作 worker、安装边界、预设、fork、消息通道，以及目录里已验证的桥与角色预设（dsh-plugin-product-subagents、dsh-crew 等）。" currentPath="/blog/dsh-subagent/" category="指南">
+  <h1>DeepSeek Harness <span class="accent">子代理</span>（rc.8）：不离开 harness 的多 Agent</h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 20 日 · dshbase · 对齐 0.1.0-rc.8</p>
 
-  <p>DeepSeek Harness 内核上是一个单 Agent 循环。但一个只能跑一个大脑的 harness 很快就施展不开，官方仓库的讨论——外加一波社区插件——一直在悄悄补全多 Agent 的故事。最终成形的不是一个死板的「spawn 子代理」API，而是一套可以自由组合的<strong>预设、fork 与消息通道</strong>。下面是这些零件到底怎么拼，全部对照 dsh 0.1.0-rc.6 和当下真实发货的插件验证过。</p>
+  <p>DeepSeek Harness 内核上仍是单 Agent 循环——但 <strong>0.1.0-rc.8</strong> 把多 Agent 故事讲响了：社区科普里 Claude Code / Codex 常被写成可当子代理 / worker，插件目录里也已经有对应的已验证桥与角色预设。成形的不是一条神圣的 <code>spawn_subagent()</code> API，而是可组合的<strong>预设、fork、消息通道与外部 Agent 桥</strong>。下面是零件怎么拼，并标明安装边界。</p>
+
+  <h2>为什么还是没有单一的 spawn 命令</h2>
+  <p>如果你来自自带 spawn API 的框架，dsh 会显得不一样——而且是故意的。内核是插件系统，不是编排运行时，多 Agent 靠原语拼出来。驱动一次性侧聊的 fork，也支撑消息交接；定义 Data Agent 的预设，也可以定义 Claude Code 形的 worker。没有预装全家桶——要自己组装。</p>
+
+  <h2>Claude Code / Codex 作子代理（rc.8 口径）</h2>
+  <p>rc.8 报道常说可以把 <strong>Claude Code</strong>、<strong>Codex</strong> 当子代理。实操上通常是三种形态——请选清楚，别混营销标签：</p>
+  <ul>
+    <li><strong>在 dsh 内的角色预设</strong> — <a href={productSubagentsUrl}>dsh-plugin-product-subagents</a> 提供基于角色的 Codex / Claude Code / ACP 子代理预设（已验证）。你仍在 harness 里；「Claude/Codex」更多是人设与工具策略，不一定再起第二个二进制。</li>
+    <li><strong>从 Claude Code / Codex 派活进 dsh</strong> — <a href={crewUrl}>dsh-crew</a> 让 Claude Code / Codex 把工作派给 DSH Agent（进度、机内 worker、分档预设）。反向桥 <a href={pluginCcUrl}>dsh-plugin-cc</a> 把 DSH 嵌进 Claude Code 做评审与委派。<a href={harnessSkillUrl}>DeepSeek-Harness-Skill</a> 是 Codex/Claude 侧「把这任务交给 DSH」的 skill 入口。</li>
+    <li><strong>配置 / CLI 桥</strong> — <a href={claudeBridgeUrl}>dsh-plugin-claude-bridge</a> 把 Claude Code 的记忆、技能与配置拉进 DSH；<a href={codexBridgeUrl}>dsh-codex-bridge</a> 暴露 Codex CLI 宿主工具与 Web 会话页。这是迁移 / 互操作缝，不是魔法共享内存。</li>
+  </ul>
+  <p><strong>安装与边界：</strong>每座桥都要自备凭据（Anthropic / OpenAI / ChatGPT OAuth——以该插件文档为准）。当外部 Agent 能写文件时，工作区权限档位要诚实（只读 vs 完全访问）。安装命令以目录里已验证页为准；高 star 的 pending 不等于干净 profile 实测通过。若要在 dsh 内做按模型派生子调用，见 <a href={delegateUrl}>dsh-delegate</a>。</p>
 
   <h2>Agent 预设：按角色拆子代理</h2>
-  <p>最干净的入口是<strong>预设（preset）</strong>。dsh 不是只有一个臃肿的助理，而是允许插件声明一个独立的 Agent 角色，自带工具与指令。<a href={directoryUrl}>插件目录</a>里的具体例子是 <strong><a href={dataAgentUrl}>dsh-data-agent</a></strong>，它「定义了一个专用的 Data Agent 预设，让 AI 替你查询、更新、分析数据」。你不是把数据技能硬塞给编程 Agent，而是拿到第二个专精的 Agent，遇到数据型任务时切过去。这就是子代理最朴素的样子：靠预设做专业化，而不是堆一个万能人设。</p>
+  <p>harness 内最干净的入口仍是<strong>预设</strong>。<strong><a href={dataAgentUrl}>dsh-data-agent</a></strong> 定义专用 Data Agent，负责查、改、分析数据。不是把所有技能塞进一个编程人设——任务偏数据时切过去。product-subagents 把同一思路延伸到 Claude/Codex 形角色。</p>
 
   <h2>基于 fork 的侧会话</h2>
-  <p>要做轻量的并行活儿，得认识 <strong><a href={sidechainUrl}>dsh-sidechain</a></strong>。它加了 <code>/side</code> 持久侧会话和 <code>/btw</code> 一次性侧问，两者都「在临时 fork 里运行，不写入主会话历史」。这有两点意义：主会话的只追加日志保持干净（你的轨迹依旧可审计），同时 fork 继承了父会话的上下文，侧任务能看到你停在哪。这是我们实测里最接近原生「为这点小事 spawn 个子代理」的能力——在 dsh 0.1.0-rc.6 上是 <code>git-build</code> 状态，也就是从源码构建而非 npm。</p>
+  <p>轻量并行用 <strong><a href={sidechainUrl}>dsh-sidechain</a></strong>：<code>/side</code>（持久）与 <code>/btw</code>（一次性）在临时 fork 里跑，「不写入主会话历史」。主会话只追加日志仍可审计；fork 继承父上下文。目录里已验证（常见是 <code>git-build</code> 而非 npm）。</p>
 
   <h2>跨会话与跨实例消息</h2>
-  <p>一旦有了不止一个 Agent，它们就得能对话。两个插件覆盖两个尺度：</p>
   <ul>
-    <li><strong><a href={crosstalkUrl}>dsh-crosstalk</a></strong>——「本机上任意会话可互相列出、互发消息，Claude Code 风格」。同机本地扇出。</li>
-    <li><strong><a href={interconnectUrl}>dsh-interconnect</a></strong>——「跨实例消息 / 事件交接」，靠 interconnect 服务 + 工具实现。这是能跨进程、跨机器的那一个。</li>
+    <li><strong><a href={crosstalkUrl}>dsh-crosstalk</a></strong> — 本机任意会话可互列、互发，Claude Code 风格。</li>
+    <li><strong><a href={interconnectUrl}>dsh-interconnect</a></strong> — 跨实例消息 / 事件交接，靠 interconnect 服务 + 工具。</li>
   </ul>
-  <p>两者加起来，能把一群 dsh 实例变成能派活、能回传的协作体——监督者把工作发给工人，工人贴回结果，全程不用在浏览器标签之间复制粘贴。</p>
+  <p>两者加起来，一群 dsh 实例就能派活、回传，不必在标签页之间复制粘贴。</p>
 
   <h2>跨 Agent 共享记忆</h2>
-  <p>消息在 Agent 之间搬任务；记忆让它们保持一致。<strong><a href={sgmeUrl}>dsh-sgme</a></strong> 就是那个「通过 HTTP 实现多 agent 共享长期记忆」的桥。如果每个子代理只记得自己的会话，那每次交接都会丢上下文。有了共享的 SGME 存储，Agent A 学到的东西，Agent B 就能查到。它还很早期（星数低），但在 dsh 0.1.0-rc.6 上验证为 <code>ok</code>，而且是唯一一个直接瞄准多 agent 场景的记忆插件。</p>
+  <p><strong><a href={sgmeUrl}>dsh-sgme</a></strong> 是「通过 HTTP 做多 agent 共享长期记忆」的桥。消息搬任务；共享记忆让交接不丢上下文。仍早期（星数低）但已验证——目录里仍是最明确对准多 agent 的记忆槽。</p>
 
   <h2>模型切换：另一个「多」的杠杆</h2>
-  <p>子代理不只是「几个 Agent」的问题，也是「每个 Agent 跑哪个模型」的问题。dsh 的模型选择器天生与供应商无关，所以最自然的多 Agent 打法是：路由用便宜/快的模型，重活用强模型，按会话或按任务切换。因为模型在 dsh 里是一等公民、可随意换（选择器是核心功能而非插件），「子代理」既可以指「同一个 harness、换模型」，也可以指「同一个模型、换角色」。把它跟预设一结合，就是一套实用的分工：小模型跑路由 Agent，中模型跑数据 Agent，大模型跑编程 Agent。</p>
+  <p>「子代理」也可以指同一个 harness、换模型：路由用便宜/快，重活用更强，按会话或任务切。再叠预设（以及真正需要第二运行时时的 Claude/Codex 桥），就是实用分工，而不必假装存在一条万能 spawn。</p>
 
-  <h2>拼起来</h2>
-  <p>目前还没有一条命令能给你一个成型的子代理系统——零件仍是社区长出来的、参差不齐。但在 dsh 0.1.0-rc.6 上这套打法已经能跑通：</p>
+  <h2>在 rc.8 上拼起来</h2>
   <ol>
-    <li>用<strong>预设</strong>定义角色（<code>dsh-data-agent</code>）。</li>
-    <li>用<strong>fork</strong>跑一次性并行活（<code>dsh-sidechain</code>）。</li>
-    <li>用<strong>消息</strong>把 Agent 串起来（本机 <code>dsh-crosstalk</code>，跨实例 <code>dsh-interconnect</code>）。</li>
-    <li>给它们<strong>共享记忆</strong>（<code>dsh-sgme</code>）与<strong>按角色的模型</strong>。</li>
+    <li>要在 dsh <em>内</em> 要 Claude/Codex 形 worker → <strong>dsh-plugin-product-subagents</strong>（可选 <strong>dsh-delegate</strong>）。</li>
+    <li>要 Claude Code / Codex <em>派活进</em> dsh → <strong>dsh-crew</strong> / <strong>DeepSeek-Harness-Skill</strong> / <strong>dsh-plugin-cc</strong>。</li>
+    <li>要一次性并行 → <strong>dsh-sidechain</strong> fork。</li>
+    <li>要 Agent 互聊 → 本机 <strong>dsh-crosstalk</strong> / 跨实例 <strong>dsh-interconnect</strong>。</li>
+    <li>要共享记忆 → <strong>dsh-sgme</strong>。</li>
   </ol>
-  <p>这些都不需要 fork 内核——全是 Cordis 内核之上的插件，这正是它出现得这么快的原因。要看这些及相关插件当前、实测过的阵容（含安装命令），从<a href={directoryUrl}>插件目录</a>开始。</p>
+  <p>以上都是 Cordis 内核上的插件（或 skill）——所以从早期 rc.6 文到 rc.8，多 Agent 故事推进得这么快。安装命令与当前验证状态，从<a href={directoryUrl}>插件目录</a>开始。</p>
 </BlogPost>

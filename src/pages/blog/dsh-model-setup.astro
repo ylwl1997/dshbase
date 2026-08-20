@@ -2,18 +2,20 @@
 import BlogPost from '../../layouts/BlogPost.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const tutorialUrl = getRelativeLocaleUrl('en', '/tutorial/');
+const visionBlogUrl = getRelativeLocaleUrl('en', '/blog/dsh-vision/');
+const packsUrl = getRelativeLocaleUrl('en', '/packs/');
 ---
-<BlogPost title="DeepSeek Harness Model Setup — Official API, OpenCode Go &amp; Free Agnes | dshbase" description="Three ways to power DeepSeek Harness: the official DeepSeek API, the OpenCode Go token plan (60 credits for $5), and Agnes free unlimited API. Setup steps and base URLs." currentPath="/blog/dsh-model-setup/" category="Guide">
+<BlogPost title="DeepSeek Harness Model Setup — Official API, OpenCode Go &amp; Free Agnes | dshbase" description="Three ways to power DeepSeek Harness: official DeepSeek API, OpenCode Go, and Agnes. Plus the rc.8 vision API status: native endpoint not ready — use a verified vision pack meanwhile." currentPath="/blog/dsh-model-setup/" category="Guide">
   <h1>DeepSeek Harness <span class="accent">model setup</span></h1>
-  <p class="muted small" style="margin-bottom:20px">August 14, 2026 · dshbase</p>
+  <p class="muted small" style="margin-bottom:20px">August 20, 2026 · dshbase · vision status note added</p>
 
-  <p>DeepSeek Harness is model-agnostic — point it at any OpenAI-compatible API. Here are the three setups the community actually uses, from the official API to free tiers.</p>
+  <p>DeepSeek Harness is model-agnostic — point it at any OpenAI-compatible API. Here are the three setups the community actually uses, from the official API to free tiers. Separately: do not assume official DeepSeek image understanding works today — see the vision status section below.</p>
 
   <h2>1. Official DeepSeek API</h2>
   <p>The default and simplest. Register at <a href="https://platform.deepseek.com" target="_blank" rel="noopener">platform.deepseek.com</a>, create an API key, and set it in dsh:</p>
   <pre class="code-block"><code>DEEPSEEK_API_KEY: sk-your-key-here
 # base URL: https://api.deepseek.com</code></pre>
-  <p>Store it in <code>~/.dsh/.credentials.yaml</code> or under <strong>Settings → Models</strong>. No referral program — just direct registration and pay-as-you-go.</p>
+  <p>Store it in <code>~/.dsh/.credentials.yaml</code> or under <strong>Settings → Models</strong>. No referral program — just direct registration and pay-as-you-go. This path is text (and whatever the live catalog lists) — not a substitute for a ready vision endpoint.</p>
 
   <h2>2. OpenCode Go — $5 for $60 of credits</h2>
   <p><a href="https://opencode.ai/go?ref=S7Y0RD7RBS" target="_blank" rel="noopener">OpenCode Go</a> is a token plan: <strong>first month $5 gives you $60 of credits</strong>, billed per model. The most useful models on it are DeepSeek and MiMo. It pairs cleanly with dsh — hand dsh a task, let OpenCode's model credits do the work.</p>
@@ -22,10 +24,18 @@ const tutorialUrl = getRelativeLocaleUrl('en', '/tutorial/');
   <p>Get it here (referral): <a href="https://opencode.ai/go?ref=S7Y0RD7RBS" target="_blank" rel="noopener">opencode.ai/go?ref=S7Y0RD7RBS</a></p>
 
   <h2>3. Agnes — free, unlimited multimodal API</h2>
-  <p>Agnes (by Sapiens AI) offers a <strong>permanently free</strong> multimodal API — the <code>agnes-2.5-flash</code> coding model is free with no rate limit, covering code, image, and more. A domestic China endpoint is also available.</p>
+  <p>Agnes (by Sapiens AI) offers a <strong>permanently free</strong> multimodal API — the <code>agnes-2.5-flash</code> coding model is free with no rate limit, covering code, image, and more. A domestic China endpoint is also available. This is a <em>third-party</em> provider, not DeepSeek’s official vision catalog.</p>
   <pre class="code-block"><code># add Agnes as a custom OpenAI-compatible provider in dsh
 # base URL (agnes endpoint) + your Agnes key + model: agnes-2.5-flash</code></pre>
   <p>Register at <a href="https://www.agnes-ai.com" target="_blank" rel="noopener">agnes-ai.com</a>, then add it as a custom provider in dsh's Settings → Models (lowercase Provider ID + base URL + key + model).</p>
+
+  <h2>Vision API status (rc.8)</h2>
+  <p>rc.8 marketing talks about multimodal agents. In the official tree, experimental names like <code>deepseek-v4-flash-vision-exp</code> appear with notes that they stay <strong>out of the formal catalog until the endpoint is ready</strong>. Practical takeaway for setup:</p>
+  <ul>
+    <li><strong>Do not claim</strong> that official DeepSeek image understanding works out of the box today.</li>
+    <li><strong>Meanwhile</strong>: use a verified vision pack — <a href={`${packsUrl}#vision`}>/packs/#vision</a> or <a href={`${packsUrl}#artist-creative`}>artist</a> — and plugins such as <code>modlens</code> / <code>dsh-vision-toolkit</code>.</li>
+    <li>Full side-by-side (narrative vs catalog vs packs): <a href={visionBlogUrl}>vision guide</a>.</li>
+  </ul>
 
   <h2>How to add a custom provider in dsh</h2>
   <ol class="steps">
@@ -37,8 +47,9 @@ const tutorialUrl = getRelativeLocaleUrl('en', '/tutorial/');
 
   <h2>Which to pick?</h2>
   <ul>
-    <li><strong>Official DeepSeek</strong> — simplest, pay-as-you-go.</li>
+    <li><strong>Official DeepSeek</strong> — simplest, pay-as-you-go (text / live catalog).</li>
     <li><strong>OpenCode Go</strong> — best bang for buck early on ($60 credits for $5).</li>
-    <li><strong>Agnes</strong> — totally free, great for testing or light use.</li>
+    <li><strong>Agnes</strong> — free third-party multimodal for testing or light use.</li>
+    <li><strong>Need eyes on screenshots today</strong> — vision pack, not “wait for official vision.”</li>
   </ul>
 </BlogPost>

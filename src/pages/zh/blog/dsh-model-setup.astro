@@ -2,18 +2,20 @@
 import BlogPost from '../../../layouts/BlogPost.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const tutorialUrl = getRelativeLocaleUrl('zh', '/tutorial/');
+const visionBlogUrl = getRelativeLocaleUrl('zh', '/blog/dsh-vision/');
+const packsUrl = getRelativeLocaleUrl('zh', '/packs/');
 ---
-<BlogPost title="DeepSeek Harness 模型接入 — 官方 API、OpenCode Go 与免费 Agnes | dshbase 中文" description="三种给 DeepSeek Harness 接模型的方式：官方 DeepSeek API、OpenCode Go 套餐（5 刀换 60 刀额度）、Agnes 免费无限量 API。配置步骤与 base URL。" currentPath="/blog/dsh-model-setup/" category="指南">
+<BlogPost title="DeepSeek Harness 模型接入 — 官方 API、OpenCode Go 与免费 Agnes | dshbase 中文" description="三种给 DeepSeek Harness 接模型的方式：官方 DeepSeek API、OpenCode Go、Agnes。另附 rc.8 视觉 API 现状：原生端点未就绪——过渡期用已验证 vision pack。" currentPath="/blog/dsh-model-setup/" category="指南">
   <h1>DeepSeek Harness <span class="accent">模型接入</span></h1>
-  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 20 日 · dshbase · 增补视觉 API 现状</p>
 
-  <p>DeepSeek Harness 不绑定模型——指向任意 OpenAI 兼容 API 都能跑。这里是社区实际在用的三种接入方式，从官方 API 到免费档。</p>
+  <p>DeepSeek Harness 不绑定模型——指向任意 OpenAI 兼容 API 都能跑。这里是社区实际在用的三种接入方式，从官方 API 到免费档。另外：请勿默认「官方 DeepSeek 今天就能识图」——见下方视觉 API 现状。</p>
 
   <h2>1. 官方 DeepSeek API</h2>
   <p>最简单、默认。到 <a href="https://platform.deepseek.com" target="_blank" rel="noopener">platform.deepseek.com</a> 注册、创建 API key，然后配到 dsh：</p>
   <pre class="code-block"><code>DEEPSEEK_API_KEY: sk-你的key
 # base URL：https://api.deepseek.com</code></pre>
-  <p>写进 <code>~/.dsh/.credentials.yaml</code>，或在<strong>设置 → 模型</strong>里填。官方没有邀请返佣计划——直接注册、按量付费。</p>
+  <p>写进 <code>~/.dsh/.credentials.yaml</code>，或在<strong>设置 → 模型</strong>里填。官方没有邀请返佣计划——直接注册、按量付费。这条路径对应文本（以及当前 catalog 里已上架的模型）——不能当成「官方视觉端点已就绪」。</p>
 
   <h2>2. OpenCode Go — 5 刀换 60 刀额度</h2>
   <p><a href="https://opencode.ai/go?ref=S7Y0RD7RBS" target="_blank" rel="noopener">OpenCode Go</a> 是个 token 套餐：<strong>首月 5 刀给 60 刀额度</strong>，按模型计费。上面最好用的是 DeepSeek 和 MiMo 两个模型。跟 dsh 配合很顺——给 dsh 派个任务，用 OpenCode 的模型额度跑。</p>
@@ -22,10 +24,18 @@ const tutorialUrl = getRelativeLocaleUrl('zh', '/tutorial/');
   <p>邀请链接：<a href="https://opencode.ai/go?ref=S7Y0RD7RBS" target="_blank" rel="noopener">opencode.ai/go?ref=S7Y0RD7RBS</a></p>
 
   <h2>3. Agnes — 免费、不限量多模态 API</h2>
-  <p>Agnes（Sapiens AI 出品）提供<strong>永久免费</strong>的多模态 API——<code>agnes-2.5-flash</code> 编码模型免费且不限量，覆盖代码、图像等。也有国内 API 节点。</p>
+  <p>Agnes（Sapiens AI 出品）提供<strong>永久免费</strong>的多模态 API——<code>agnes-2.5-flash</code> 编码模型免费且不限量，覆盖代码、图像等。也有国内 API 节点。这是<strong>第三方</strong>供应商，不是 DeepSeek 官方视觉 catalog。</p>
   <pre class="code-block"><code># 在 dsh 里把 Agnes 加为自定义 OpenAI 兼容 provider
 # base URL（agnes 节点）+ 你的 Agnes key + 模型：agnes-2.5-flash</code></pre>
   <p>到 <a href="https://www.agnes-ai.com" target="_blank" rel="noopener">agnes-ai.com</a> 注册，然后在 dsh 的<strong>设置 → 模型</strong>里加为自定义 provider（小写 Provider ID + base URL + key + 模型）。</p>
+
+  <h2>视觉 API 现状（rc.8）</h2>
+  <p>rc.8 的营销会谈多模态 Agent。官方树里能看到实验名如 <code>deepseek-v4-flash-vision-exp</code>，并注明<strong>端点就绪前不进正式 catalog</strong>。接入时的实操结论：</p>
+  <ul>
+    <li><strong>不要宣称</strong>官方 DeepSeek 识图今天已经开箱可用。</li>
+    <li><strong>过渡期</strong>：用已验证 vision 场景包——<a href={`${packsUrl}#vision`}>/packs/#vision</a> 或<a href={`${packsUrl}#artist-creative`}>艺术家包</a>——以及 <code>modlens</code> / <code>dsh-vision-toolkit</code> 等插件。</li>
+    <li>完整对照（叙事 vs catalog vs packs）：见<a href={visionBlogUrl}>视觉指南</a>。</li>
+  </ul>
 
   <h2>如何在 dsh 里加自定义 provider</h2>
   <ol class="steps">
@@ -37,8 +47,9 @@ const tutorialUrl = getRelativeLocaleUrl('zh', '/tutorial/');
 
   <h2>选哪个？</h2>
   <ul>
-    <li><strong>官方 DeepSeek</strong>——最简单，按量付费。</li>
+    <li><strong>官方 DeepSeek</strong>——最简单，按量付费（文本 / 当前 catalog）。</li>
     <li><strong>OpenCode Go</strong>——早期最划算（5 刀换 60 刀额度）。</li>
-    <li><strong>Agnes</strong>——完全免费，适合测试或轻量使用。</li>
+    <li><strong>Agnes</strong>——免费第三方多模态，适合测试或轻量使用。</li>
+    <li><strong>今天就要看截图</strong>——走 vision pack，而不是「等官方视觉」。</li>
   </ul>
 </BlogPost>

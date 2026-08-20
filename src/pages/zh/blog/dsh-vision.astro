@@ -2,40 +2,51 @@
 import BlogPost from '../../../layouts/BlogPost.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const packsUrl = getRelativeLocaleUrl('zh', '/packs/');
+const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
+const modelSetupUrl = getRelativeLocaleUrl('zh', '/blog/dsh-model-setup/');
 const modlensUrl = getRelativeLocaleUrl('zh', '/plugins/modlens/');
+const visionToolkitUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-vision-toolkit/');
+const visionRouterUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-vision-router/');
 const visionPrimitivesUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-vision-primitives/');
 const dropToPathUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-drop-to-path/');
-const visionToolkitUrl = getRelativeLocaleUrl('zh', '/plugins/dsh-vision-toolkit/');
 ---
-<BlogPost title="DeepSeek Harness Vision — 图片输入、上传被拒的修复与视觉插件 | dshbase 中文" description="如何给 DeepSeek Harness（dsh）装上眼睛：modlens、dsh-vision-toolkit、dsh-vision-primitives、dsh-drop-to-path，以及为什么第三方视觉模型会上传图片被拒——全部在 dsh 0.1.0-rc.6 上实测。" currentPath="/blog/dsh-vision/" category="指南">
-  <h1>DeepSeek Harness <span class="accent">视觉</span>：给纯文本 Agent 装上眼睛</h1>
-  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 14 日 · dshbase</p>
+<BlogPost title="DeepSeek Harness Vision（rc.8）— 官方叙事 vs 未进 catalog vs 已验证场景包 | dshbase 中文" description="rc.8 把多模态讲得很响；deepseek-v4-flash-vision-exp 在端点就绪前不进正式 catalog。今天能用的是已验证 vision pack（modlens / dsh-vision-toolkit / dsh-vision-router），不是 Hub 数量。" currentPath="/blog/dsh-vision/" category="指南">
+  <h1>DeepSeek Harness <span class="accent">视觉</span>（rc.8）：三种「能看图」不是一回事</h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 20 日 · dshbase · 按 0.1.0-rc.8 更新</p>
 
-  <p>DeepSeek 自家的模型是纯文本的——没有视觉模态，所以它「看」不了你上传的图片。就这一个事实，催生了 dsh 插件生态里最热闹的一角：大家抢着给一个瞎的 Agent 装眼睛、装手、装投放目标。下面是 dsh 0.1.0-rc.6 上真正好用的那些，以及图片上传被拒时该怎么办。</p>
+  <p><strong>dsh 0.1.0-rc.8</strong> 之后，不少科普文写成「DeepSeek Harness 已经能看图了」。这句话把三件不同的事揉成了一句：产品叙事、官方模型 catalog、以及真正通过安装实测的插件。这篇是对照文——营销暗示什么、仓库仍扣着什么、你今天该装什么。</p>
 
-  <h2>上传问题：图片为什么会被拒</h2>
-  <p>装任何东西之前，先搞懂失败模式。官方仓库里最常见的抱怨是：<strong>支持视觉的第三方模型（gpt-5.4、kimi、o1/o3/o4、grok）无法上传图片</strong>——请求在 dsh 的网关里打了个来回，视觉模态没能活着出来，于是模型压根没收到像素。DeepSeek 自家的一手模型反而<em>不受影响</em>，因为它们本就是纯文本：前端本就不该给它们弹图片上传。修复有两条路：选一个能撑过这次往返的视觉模型，或者——更靠谱——把图片交给一个专门的视觉<em>插件</em>，让它用文字描述回来。</p>
+  <h2>1. rc.8 的多模态叙事</h2>
+  <p>作为 <em>harness</em> 叙事，rc.8 说的是真的：<code>/goal</code> / <code>/plan</code> 一类流程里可以带图、插件发现更像 Agent Store、纯文本 Agent 仍可「借眼睛」。大众文常把它压成「原生视觉已可用」——这就是坑。Harness 能路由像素，不等于 DeepSeek 官方视觉 API 已对日常调用开放。</p>
 
-  <h2>modlens：第一个，也仍是标杆</h2>
-  <p><strong><a href={modlensUrl}>modlens</a></strong> 是 DeepSeek Harness 的第一个视觉插件，近千 star，至今仍是基准。它的模型是：粘一张图，拿回<strong>结构化的 JSON 证据</strong>——OCR、布局、语义——然后你的纯文本模型再据此推理。与其硬把像素塞进一个读不了的模型，modlens 把图片转成了模型<em>能</em>消化的东西。它是<a href={directoryUrl}>插件目录</a>里 star 最多的视觉插件，在 dsh 0.1.0-rc.6 上验证为 <code>ok</code>。</p>
+  <h2>2. Catalog 缺口：<code>deepseek-v4-flash-vision-exp</code></h2>
+  <p>官方树里已经能看到实验性视觉接线——例如 <code>deepseek-v4-flash-vision-exp</code>、<code>input: [text, image]</code>——以及说明：<strong>端点就绪前不进正式 catalog</strong>。也就是：脚手架可能在，公开、可点选、可指望的官方视觉 API 还不在。今天不要去配一个「官方 DeepSeek 视觉模型」并指望识图开箱即用。短版现状也写在<a href={modelSetupUrl}>模型接入</a>页。</p>
+  <p class="muted small">信息差说清楚：我们引用的是公开 release / agents note 里「endpoint ready 前不进 catalog」的表述，不猜发版日期。等 catalog 点亮，这篇的 CTA 会跟着改——在此之前，插件仍是主路径。</p>
 
-  <h2>dsh-vision-toolkit：完整工具箱</h2>
-  <p>如果说 modlens 是参考实现，<strong><a href={visionToolkitUrl}>dsh-vision-toolkit</a></strong> 就是厨房水槽。它「帮纯文本模型处理视觉任务」，覆盖面广得多：<strong>意图感知的图片问答、长截图 OCR、UI 还原、grounding、像素 diff、Artifacts</strong>。差别就在「读这张截图」和「读这张 4000px 的滚动长截图，再跟上一张做 diff、告诉我 UI 哪里变了」之间。它在 dsh 0.1.0-rc.6 上从源码构建（<code>git-build</code>），社区份量很足。</p>
-
-  <h2>dsh-vision-primitives：原生定位，零 MCP</h2>
-  <p><strong><a href={visionPrimitivesUrl}>dsh-vision-primitives</a></strong> 是更新、更有主张的那个。它是一个「原生交互式视觉推理插件」，围绕<strong>Set-of-Mark 编号网格覆盖层</strong>做精确视觉定位，且「<strong>零外部 MCP</strong>」。Set-of-Mark 技法在图片区域上叠编号标记，让模型说「点 7 号」而不是「点左上角那个大概是按钮的东西」。要做 UI 自动化、要精确指哪打哪，这就是你要的机制。目录标了 <code>not-on-npm</code>，需从源码装。</p>
-
-  <h2>dsh-drop-to-path：把拖拽找回来</h2>
-  <p>UX 上的粘合剂是 <strong><a href={dropToPathUrl}>dsh-drop-to-path</a></strong>：它「让你把图片和文件直接拖给纯文本模型，保留原生附件体验，发送时自动转成路径」。这点很微妙但很实在——对纯文本模型来说，一张原始图片粘贴没有意义，但一个指向文件的<em>路径</em>，是模型能转交给视觉工具或直接读取的东西。这个插件保留了熟悉的拖拽手势，同时把载荷换成文本模型真能用的形态。</p>
-
-  <h2>怎么选</h2>
+  <h2>3. 已验证路径：vision 场景包</h2>
+  <p>在干净 profile 上真正能跑通的，是我们已经做完 L1–L4 的插件路径。请从场景包入手，而不是从 star 数入手：</p>
   <ul>
-    <li><strong>最快实现「读这张图」</strong> → <strong>modlens</strong>，粘贴拿 JSON 证据。</li>
-    <li><strong>重型视觉工作流</strong>（截图、diff、UI 还原）→ <strong><a href={visionToolkitUrl}>dsh-vision-toolkit</a></strong>。</li>
-    <li><strong>精确指哪 / UI 自动化</strong> → <strong>dsh-vision-primitives</strong> 的 Set-of-Mark 覆盖层。</li>
-    <li><strong>只想把拖拽找回来</strong> → <strong>dsh-drop-to-path</strong>。</li>
+    <li><strong><a href={`${packsUrl}#vision`}>纯文本模型视觉外挂</a></strong> — <a href={modlensUrl}>modlens</a>（视觉桥 / OCR+布局 JSON）、<a href={visionToolkitUrl}>dsh-vision-toolkit</a>（图片问答、长截图 OCR）、<a href={visionRouterUrl}>dsh-vision-router</a>（路由 / 免费视觉链）。</li>
+    <li><strong><a href={`${packsUrl}#artist-creative`}>艺术家 / 创意视觉包</a></strong> — 同一套桥 + toolkit，再加设计 / GenUI 槽位（<code>dsh-openpencil</code>、<code>dsh-genui</code>），适合要创作面而不只 OCR 的人。</li>
+  </ul>
+  <p>dshbase 上每个 pack 槽位都指向 <code>plugins.json</code> 里 <code>test=verified</code> 的条目。这和 Hub 徽章、「700+ dsh-plugin」商店数量不是同一把尺子。验证怎么定义：见<a href={auditUrl}>审计方法</a>。</p>
+
+  <h2>委托 vs 原生覆盖层（仍然好用的分法）</h2>
+  <p>委托型插件把图交给视觉端点（或免费链），再把文字/JSON 交回纯文本模型——<strong>modlens</strong>、<strong>dsh-vision-toolkit</strong>、<strong>dsh-vision-router</strong>。原生覆盖层把定位留在 dsh 内——<strong><a href={visionPrimitivesUrl}>dsh-vision-primitives</a></strong>（Set-of-Mark 网格）。UX 粘合：<strong><a href={dropToPathUrl}>dsh-drop-to-path</a></strong> 把拖拽变成路径，方便文本模型转交视觉工具。默认装 pack；只有要精确「指哪打哪」时再加 primitives。</p>
+
+  <h2>上传被拒仍是另一类问题</h2>
+  <p>第三方视觉模型（gpt 系、kimi、o 系列、grok 等）即便本身多模态，经网关上传仍可能失败。那是上游往返问题，不能当成「DeepSeek 官方已经会看图」的反证。走已验证视觉插件，依旧是最稳的绕法。</p>
+
+  <h2>今天怎么选</h2>
+  <ul>
+    <li><strong>只要「读这张图」</strong> → 装<a href={`${packsUrl}#vision`}>vision 包</a>（先从 <strong>modlens</strong> 起）。</li>
+    <li><strong>长截图 / UI diff / Artifacts</strong> → 保留包内的 <strong>dsh-vision-toolkit</strong>。</li>
+    <li><strong>路由 / 免费链</strong> → <strong>dsh-vision-router</strong>。</li>
+    <li><strong>视觉之上还要设计 / 图表</strong> → <a href={`${packsUrl}#artist-creative`}>艺术家包</a>。</li>
+    <li><strong>在等官方 API 视觉</strong> → 盯 catalog；别把 rc.8 营销当成「端点已 live」。</li>
   </ul>
 
   <h2>结语</h2>
-  <p>在 DeepSeek 出原生视觉模型之前，打法就是：别跟上传承门较劲，把图片交给插件，让它转成文字或结构化 JSON。modlens 和 dsh-vision-toolkit 覆盖了绝大多数场景，dsh-vision-primitives 补上精确定位，dsh-drop-to-path 保住手感。要看这四者当前、实测过的阵容（含确切安装命令），去<a href={directoryUrl}>插件目录</a>。</p>
+  <p>rc.8 把多模态<em>故事</em>讲响了；正式 vision catalog 仍被闸住。我们实测能交付的是 packs → modlens / dsh-vision-toolkit / dsh-vision-router（及伙伴），干净 profile 上测过——不是 Agent Store 头数。从 <a href={packsUrl}>/packs/</a> 开始；读<a href={auditUrl}>我们怎么审计</a>；安装命令在<a href={directoryUrl}>插件目录</a>。</p>
 </BlogPost>

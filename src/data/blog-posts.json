@@ -194,8 +194,8 @@
   "cat_zh": "指南",
   "en": "Model setup: official API, OpenCode Go",
   "zh": "模型接入：官方 API、OpenCode Go",
-  "desc_en": "Three ways to power DeepSeek Harness.",
-  "desc_zh": "三种给 DSH 接模型的方式。"
+  "desc_en": "Three setups + rc.8 vision API status (use packs meanwhile).",
+  "desc_zh": "三种接入 + rc.8 视觉 API 现状（过渡期用 packs）。"
  },
  {
   "path": "/blog/dsh-sandbox/",
@@ -210,19 +210,19 @@
   "path": "/blog/dsh-subagent/",
   "cat": "Guide",
   "cat_zh": "指南",
-  "en": "Subagent: multi-agent, fork & more",
-  "zh": "Subagent：多 Agent、fork 子代理",
-  "desc_en": "Run multiple agents and subagents.",
-  "desc_zh": "跑多 Agent / 子代理。"
+  "en": "Subagent: Claude Code, Codex & forks",
+  "zh": "Subagent：Claude Code / Codex / fork",
+  "desc_en": "rc.8 subagents: Claude Code/Codex bridges + verified plugins.",
+  "desc_zh": "rc.8 子代理：Claude Code/Codex 桥与已验证插件。"
  },
  {
   "path": "/blog/dsh-vision/",
   "cat": "Guide",
   "cat_zh": "指南",
-  "en": "Vision: image input & plugins",
-  "zh": "Vision：图片输入与视觉插件",
-  "desc_en": "modlens, dsh-vision-toolkit, upload fixes.",
-  "desc_zh": "modlens、dsh-vision-toolkit、上传修复。"
+  "en": "Vision: rc.8 narrative vs verified packs",
+  "zh": "Vision：rc.8 叙事 vs 已验证 packs",
+  "desc_en": "Catalog gap vs modlens / vision toolkit packs.",
+  "desc_zh": "catalog 缺口 vs modlens / vision toolkit 场景包。"
  },
  {
   "path": "/blog/vs-cowork/",
