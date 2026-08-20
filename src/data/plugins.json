@@ -22973,6 +22973,28 @@
    "testDate": "2026-08-20",
    "note": "Scoped catalog name to distinguish from wink-run/dsh-plugin-store. Not on npm; git install resolved @sandbaseai/dsh-plugin-store@0.1.0-preview.5. Headless is web-only (waiting for webServer). Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
    "repoOwner": "sandbaseai"
+  },
+  {
+   "name": "dsh-dir-tree",
+   "url": "https://github.com/bentong-chain/dsh-dir-tree",
+   "pkg": "dsh-dir-tree",
+   "ver": "0.1.0",
+   "npm": true,
+   "test": "pending",
+   "desc": "Floating workspace directory tree for DeepSeek Harness: drag-drop file paths into chat, lazy-load, search, and auto-follow workspace switches.",
+   "desc_en": "Floating workspace directory tree for DeepSeek Harness: drag-drop file paths into chat, lazy-load, search, and auto-follow workspace switches.",
+   "desc_zh": "DSH 浮窗工作区目录树插件：拖拽文件/文件夹路径到对话框、懒加载展开、搜索过滤，切换工作区/会话自动跟随。",
+   "stars": 2,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-08-20",
+   "archived": false,
+   "added": "2026-08-20T06:32:00",
+   "license": "MIT",
+   "slug": "dsh-dir-tree",
+   "platform": "any",
+   "repoOwner": "bentong-chain"
   }
  ],
  "AI Models": [

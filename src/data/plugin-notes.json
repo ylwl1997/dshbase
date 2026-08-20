@@ -13806,5 +13806,13 @@
     "use_zh": "在 Settings 里浏览 4000+ 社区 DSH 插件：搜索、Tag、排序、分页，以及受限的一键安装，不用离开 web UI。",
     "aud_zh": "想在应用内发现插件、看安装状态，而不是翻 GitHub topic 或敲 CLI 的人。",
     "dev_zh": "目录 API、安装事务和 Settings 视图是缝——收紧 provenance 门禁、回滚，或加更丰富的兼容信号。"
+  },
+  "dsh-dir-tree": {
+    "use": "Open a floating workspace directory tree, drag file or folder paths into chat, search, and follow workspace or session switches without leaving the web UI.",
+    "aud": "Users who want a visible file tree in the DSH web workspace so they can pick paths instead of typing them.",
+    "dev": "The client inject (layout/runtime/connection) and lazy directory listing are the seams — add richer file actions, git status, or tighter workspace sync.",
+    "use_zh": "打开浮窗工作区目录树，把文件或文件夹路径拖进对话框，搜索过滤，切换工作区/会话时自动跟随，不用离开 web UI。",
+    "aud_zh": "想在 DSH web 工作区里看到目录树、点选路径而不是手打的人。",
+    "dev_zh": "client inject（layout/runtime/connection）和懒加载列目录是缝——加更丰富的文件操作、git 状态或更紧的工作区同步。"
   }
 }
