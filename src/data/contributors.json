@@ -206,6 +206,12 @@
     "slug": "sandbase-harness",
     "npm": false,
     "pkg": ""
+   },
+   {
+    "name": "@sandbaseai/dsh-plugin-store",
+    "slug": "sandbaseai-dsh-plugin-store",
+    "npm": false,
+    "pkg": ""
    }
   ]
  },

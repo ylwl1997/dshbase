@@ -13798,5 +13798,13 @@
     "use_zh": "把 dsh 接进你真正在用的工具——办公文档、任务板或聊天软件——让它融入你的工作流。",
     "aud_zh": "想让 agent 在既有生产力工具栈里干活、而非被隔离在孤岛的人。",
     "dev_zh": "集成和适配器是缝——加新的应用连接器、更丰富的读写或工作流触发。"
+  },
+  "@sandbaseai/dsh-plugin-store": {
+    "use": "Open Settings and browse 4,000+ community DSH plugins with search, tags, sort, and a bounded one-click install, without leaving the web UI.",
+    "aud": "Users who want an in-app marketplace for discovery and install status instead of hunting GitHub topics or running CLI add commands.",
+    "dev": "The catalog API, install transaction, and Settings views are the seams — tighten provenance gates, rollback, or add richer compatibility signals.",
+    "use_zh": "在 Settings 里浏览 4000+ 社区 DSH 插件：搜索、Tag、排序、分页，以及受限的一键安装，不用离开 web UI。",
+    "aud_zh": "想在应用内发现插件、看安装状态，而不是翻 GitHub topic 或敲 CLI 的人。",
+    "dev_zh": "目录 API、安装事务和 Settings 视图是缝——收紧 provenance 门禁、回滚，或加更丰富的兼容信号。"
   }
 }
