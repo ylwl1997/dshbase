@@ -22922,7 +22922,7 @@
    "pkg": "dsh-plugin-observatory",
    "ver": "0.1.0",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "DSH plugin compatibility audit and bounded Loader lifecycle observation",
    "desc_en": "DSH plugin compatibility audit and bounded Loader lifecycle observation",
    "desc_zh": "为 DeepSeek Harness 插件提供有界静态兼容性审计与 Loader 生命周期观测，注册 plugin_audit 和 plugin_observe 两个只读模型工具。",
@@ -22935,7 +22935,10 @@
    "added": "2026-08-20T04:02:46",
    "license": "MIT",
    "slug": "dsh-plugin-observatory",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-20",
+   "webonly": false,
+   "note": "Headless L3 verified on dsh 0.1.0-rc.6 (install + load + Q&A)."
   }
  ],
  "AI Models": [
