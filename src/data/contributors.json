@@ -186,6 +186,18 @@
   ]
  },
  {
+  "github": "CMSKL",
+  "avatar": "https://avatars.githubusercontent.com/u/132124550?v=4",
+  "plugins": [
+   {
+    "name": "dsh-plugin-observatory",
+    "slug": "dsh-plugin-observatory",
+    "npm": true,
+    "pkg": "dsh-plugin-observatory"
+   }
+  ]
+ },
+ {
   "github": "guiyi-labs",
   "avatar": "https://avatars.githubusercontent.com/u/277616126?v=4",
   "plugins": [

@@ -13758,5 +13758,45 @@
     "use_zh": "加固 agent 或其工作区——扫描、净化或审计——先拦下不可信内容和代码。",
     "aud_zh": "在意供应链和提示注入风险、想要内置防护的人。",
     "dev_zh": "检测器和策略是缝——加规则、作用域或更丰富的被标记项审计日志。"
+  },
+  "dsh-runtime-nutrition-label": {
+    "use": "Extend the agent's coding surface — give it a new tool, workflow, or integration so it handles a dev task it couldn't before.",
+    "aud": "Developers who want dsh to behave like a teammate on real codebases — editing, running, and verifying changes rather than just answering.",
+    "dev": "The tool/command surface is the seam: expose more of the SDK, add smarter context wiring, or tighten the loop between code changes and verification.",
+    "use_zh": "扩展 agent 的编码能力面——给它一个新工具、工作流或集成，让它接手以前做不了的开发任务。",
+    "aud_zh": "想让 dsh 在真实代码库上像队友一样干活的开发者——能改、能跑、能验证，而不只是回答问题。",
+    "dev_zh": "工具/命令面就是缝：暴露更多 SDK 能力、加更聪明的上下文接线，或收紧改代码与验证之间的循环。"
+  },
+  "dsh-plugin-observatory": {
+    "use": "Extend the agent's coding surface — give it a new tool, workflow, or integration so it handles a dev task it couldn't before.",
+    "aud": "Developers who want dsh to behave like a teammate on real codebases — editing, running, and verifying changes rather than just answering.",
+    "dev": "The tool/command surface is the seam: expose more of the SDK, add smarter context wiring, or tighten the loop between code changes and verification.",
+    "use_zh": "扩展 agent 的编码能力面——给它一个新工具、工作流或集成，让它接手以前做不了的开发任务。",
+    "aud_zh": "想让 dsh 在真实代码库上像队友一样干活的开发者——能改、能跑、能验证，而不只是回答问题。",
+    "dev_zh": "工具/命令面就是缝：暴露更多 SDK 能力、加更聪明的上下文接线，或收紧改代码与验证之间的循环。"
+  },
+  "dsh-chat-sync": {
+    "use": "Automate a repetitive job — scheduling, chaining tasks, or reacting to events — so it runs without you starting it.",
+    "aud": "Users with recurring work who want it cron-style and hands-off rather than manually triggered.",
+    "dev": "Triggers and task templates are the seams — add event-driven or file-watch triggers, and richer workflow composition.",
+    "use_zh": "自动化一项重复工作——调度、串联任务或响应事件——不用你亲手启动。",
+    "aud_zh": "有周期性工作、想 cron 式无人值守而非手动触发的人。",
+    "dev_zh": "触发器和任务模板是缝——加事件驱动或文件监听触发，以及更丰富的流程编排。"
+  },
+  "dsh-mcp-sync": {
+    "use": "Automate a repetitive job — scheduling, chaining tasks, or reacting to events — so it runs without you starting it.",
+    "aud": "Users with recurring work who want it cron-style and hands-off rather than manually triggered.",
+    "dev": "Triggers and task templates are the seams — add event-driven or file-watch triggers, and richer workflow composition.",
+    "use_zh": "自动化一项重复工作——调度、串联任务或响应事件——不用你亲手启动。",
+    "aud_zh": "有周期性工作、想 cron 式无人值守而非手动触发的人。",
+    "dev_zh": "触发器和任务模板是缝——加事件驱动或文件监听触发，以及更丰富的流程编排。"
+  },
+  "@zhuyh-sai7n/dsh-plugin-manager": {
+    "use": "Connect dsh to the tools you actually work in — office docs, task boards, or chat apps — so it fits your workflow.",
+    "aud": "Users who want the agent to operate inside their existing productivity stack instead of a silo.",
+    "dev": "Integrations and adapters are the seams — add a new app connector, richer read/write, or workflow triggers.",
+    "use_zh": "把 dsh 接进你真正在用的工具——办公文档、任务板或聊天软件——让它融入你的工作流。",
+    "aud_zh": "想让 agent 在既有生产力工具栈里干活、而非被隔离在孤岛的人。",
+    "dev_zh": "集成和适配器是缝——加新的应用连接器、更丰富的读写或工作流触发。"
   }
 }
