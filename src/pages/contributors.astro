@@ -1,7 +1,33 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
-import contributors from '../data/contributors.json';
+import contributorsRaw from '../data/contributors.json';
+import pluginsDb from '../data/plugins.json';
+
+// npm/git tags must follow live catalog — contributors.json is only the author↔plugin map
+const byName = {};
+const bySlug = {};
+for (const items of Object.values(pluginsDb)) {
+  for (const p of items) {
+    byName[p.name] = p;
+    if (p.slug) bySlug[p.slug] = p;
+  }
+}
+const contributors = contributorsRaw.map((c) => ({
+  ...c,
+  plugins: c.plugins.map((pl) => {
+    const live = byName[pl.name] || bySlug[pl.slug];
+    if (!live) return pl;
+    return {
+      ...pl,
+      name: live.name,
+      slug: live.slug || pl.slug,
+      npm: !!(live.npm && live.pkg),
+      pkg: live.pkg || '',
+    };
+  }),
+}));
+
 const locale = Astro.currentLocale ?? 'en';
 const detailUrl = (slug) => getRelativeLocaleUrl(locale, `/plugins/${slug}/`);
 const totalPlugins = contributors.reduce((s, c) => s + c.plugins.length, 0);
