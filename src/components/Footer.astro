@@ -5,8 +5,8 @@ interface Props { tagline: string; note: string }
 const { tagline, note } = Astro.props;
 const locale = Astro.currentLocale ?? 'en';
 const L = {
-  en: { guides: 'Guides', tutorial: 'Tutorial', install: 'Install', plugins: 'Plugins', resources: 'Resources', directory: 'Plugin directory', contributors: 'Contributors', audit: 'Plugin audit', what: 'What is DSH', blog: 'Blog', vscode: 'vs Claude Code', about: 'About', contact: 'Contact', privacy: 'Privacy' },
-  zh: { guides: '指南', tutorial: '教程', install: '安装', plugins: '插件', resources: '资源', directory: '插件目录', contributors: '贡献者', audit: '插件审计', what: 'What is DSH', blog: '博客', vscode: 'vs Claude Code', about: '关于', contact: '联系', privacy: '隐私' },
+  en: { guides: 'Guides', tutorial: 'Tutorial', install: 'Install', plugins: 'Plugins', troubleshooting: 'Troubleshooting', resources: 'Resources', directory: 'Plugin directory', packs: 'Packs', themes: 'Themes', contributors: 'Contributors', audit: 'Plugin audit', what: 'What is DSH', blog: 'Blog', vscode: 'vs Claude Code', about: 'About', contact: 'Contact', privacy: 'Privacy' },
+  zh: { guides: '指南', tutorial: '教程', install: '安装', plugins: '插件', troubleshooting: '排错', resources: '资源', directory: '插件目录', packs: '场景包', themes: '皮肤', contributors: '贡献者', audit: '插件审计', what: 'What is DSH', blog: '博客', vscode: 'vs Claude Code', about: '关于', contact: '联系', privacy: '隐私' },
 }[locale];
 ---
 
@@ -24,10 +24,13 @@ const L = {
       <a href={getRelativeLocaleUrl(locale, '/tutorial/')}>{L.tutorial}</a>
       <a href={getRelativeLocaleUrl(locale, '/install/')}>{L.install}</a>
       <a href={getRelativeLocaleUrl(locale, '/plugins/')}>{L.plugins}</a>
+      <a href={getRelativeLocaleUrl(locale, '/troubleshooting/')}>{L.troubleshooting}</a>
     </div>
     <div class="foot-col">
       <b>{L.resources}</b>
       <a href={getRelativeLocaleUrl(locale, '/plugins/directory/')}>{L.directory}</a>
+      <a href={getRelativeLocaleUrl(locale, '/packs/')}>{L.packs}</a>
+      <a href={getRelativeLocaleUrl(locale, '/themes/')}>{L.themes}</a>
       <a href={getRelativeLocaleUrl(locale, '/contributors/')}>{L.contributors}</a>
       <a href={getRelativeLocaleUrl(locale, '/audit/')}>{L.audit}</a>
       <a href={getRelativeLocaleUrl(locale, '/')}>{L.what}</a>

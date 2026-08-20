@@ -8,35 +8,121 @@ const locale = Astro.currentLocale ?? 'en';
 const homeUrl = getRelativeLocaleUrl(locale, '/');
 
 const labels = {
-  en: { home: 'Home', tutorial: 'Tutorial', plugins: 'Plugins', directory: 'Directory', packs: 'Packs', audit: 'Audit', contributors: 'Contributors', themes: 'Themes', install: 'Install', troubleshooting: 'Troubleshooting', blog: 'Blog' },
-  zh: { home: '首页', tutorial: '教程', plugins: '插件', directory: '插件目录', packs: '场景包', audit: '审计', contributors: '贡献者', themes: '皮肤', install: '安装', troubleshooting: '排错', blog: '博客' },
+  en: {
+    tutorial: 'Tutorial',
+    plugins: 'Plugins',
+    directory: 'Directory',
+    blog: 'Blog',
+    install: 'Install',
+    ecosystem: 'Ecosystem',
+    packs: 'Packs',
+    themes: 'Themes',
+    contributors: 'Contributors',
+    more: 'More',
+    audit: 'Audit',
+    troubleshooting: 'Troubleshooting',
+  },
+  zh: {
+    tutorial: '教程',
+    plugins: '插件',
+    directory: '插件目录',
+    blog: '博客',
+    install: '安装',
+    ecosystem: '生态',
+    packs: '场景包',
+    themes: '皮肤',
+    contributors: '贡献者',
+    more: '更多',
+    audit: '审计',
+    troubleshooting: '排错',
+  },
 }[locale];
-const items = [
-  { key: 'home', path: '/' },
+
+type ItemKey = 'tutorial' | 'plugins' | 'directory' | 'blog' | 'install' | 'packs' | 'themes' | 'contributors' | 'audit' | 'troubleshooting';
+type NavItem = { key: ItemKey; path: string };
+
+const primary: NavItem[] = [
   { key: 'tutorial', path: '/tutorial/' },
   { key: 'plugins', path: '/plugins/' },
   { key: 'directory', path: '/plugins/directory/' },
-  { key: 'packs', path: '/packs/' },
-  { key: 'audit', path: '/audit/' },
-  { key: 'contributors', path: '/contributors/' },
-  { key: 'themes', path: '/themes/' },
-  { key: 'install', path: '/install/' },
-  { key: 'troubleshooting', path: '/troubleshooting/' },
   { key: 'blog', path: '/blog/' },
+  { key: 'install', path: '/install/' },
 ];
+
+const ecosystem: NavItem[] = [
+  { key: 'packs', path: '/packs/' },
+  { key: 'themes', path: '/themes/' },
+  { key: 'contributors', path: '/contributors/' },
+];
+
+const more: NavItem[] = [
+  { key: 'audit', path: '/audit/' },
+  { key: 'troubleshooting', path: '/troubleshooting/' },
+];
+
+const isActive = (path: string) => currentPath === path;
+const groupActive = (items: NavItem[]) => items.some((it) => isActive(it.path));
 ---
 
 <header class="top">
   <div class="wrap top-in">
-    <a class="brand" href={homeUrl}>
+    <a class="brand" href={homeUrl} aria-current={currentPath === '/' ? 'page' : undefined}>
       <img class="brand-logo" src="/logo.svg" alt="dshbase logo" width="30" height="30">
       <span>dsh</span><strong>base</strong>
     </a>
     <nav class="nav" aria-label="Main">
-      {items.map((it) => (
-        <a href={getRelativeLocaleUrl(locale, it.path)} set:aria-current={currentPath === it.path ? 'page' : undefined}>{labels[it.key]}</a>
+      {primary.map((it) => (
+        <a
+          class="nav-link"
+          href={getRelativeLocaleUrl(locale, it.path)}
+          aria-current={isActive(it.path) ? 'page' : undefined}
+        >{labels[it.key]}</a>
       ))}
+
+      <details class:list={['nav-dd', { 'is-active': groupActive(ecosystem) }]}>
+        <summary class="nav-link nav-dd-sum">{labels.ecosystem}</summary>
+        <div class="nav-dd-menu" role="group" aria-label={labels.ecosystem}>
+          {ecosystem.map((it) => (
+            <a
+              href={getRelativeLocaleUrl(locale, it.path)}
+              aria-current={isActive(it.path) ? 'page' : undefined}
+            >{labels[it.key]}</a>
+          ))}
+        </div>
+      </details>
+
+      <details class:list={['nav-dd', { 'is-active': groupActive(more) }]}>
+        <summary class="nav-link nav-dd-sum">{labels.more}</summary>
+        <div class="nav-dd-menu" role="group" aria-label={labels.more}>
+          {more.map((it) => (
+            <a
+              href={getRelativeLocaleUrl(locale, it.path)}
+              aria-current={isActive(it.path) ? 'page' : undefined}
+            >{labels[it.key]}</a>
+          ))}
+        </div>
+      </details>
     </nav>
     <Search />
   </div>
 </header>
+
+<script>
+  // Accordion + dismiss for nav dropdowns (progressive enhancement).
+  const dds = Array.from(document.querySelectorAll('details.nav-dd'));
+  dds.forEach((dd) => {
+    dd.addEventListener('toggle', () => {
+      if (!dd.open) return;
+      dds.forEach((other) => { if (other !== dd) other.open = false; });
+    });
+  });
+  document.addEventListener('click', (e) => {
+    const t = e.target;
+    if (!(t instanceof Element) || !t.closest('details.nav-dd')) {
+      dds.forEach((dd) => { dd.open = false; });
+    }
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') dds.forEach((dd) => { dd.open = false; });
+  });
+</script>
