@@ -2,69 +2,181 @@
 interface Props {}
 const locale = Astro.currentLocale ?? 'en';
 const t = {
-  en: { label: 'Search', placeholder: 'Search articles, plugins, troubleshooting…' },
-  zh: { label: '搜索', placeholder: '搜索文章、插件、排错…' },
+  en: {
+    label: 'Search',
+    placeholder: 'Search articles, plugins, troubleshooting…',
+    hint: 'Press Ctrl+K',
+    loading: 'Loading…',
+    empty: 'No results',
+    emptyHint: 'Try a plugin name, page, or topic',
+    noIndex: 'Search index unavailable',
+    page: 'Page',
+    post: 'Article',
+    plugin: 'Plugin',
+    foot: '↑↓ navigate · Enter open · Esc close',
+  },
+  zh: {
+    label: '搜索',
+    placeholder: '搜索文章、插件、排错…',
+    hint: '按 Ctrl+K',
+    loading: '加载中…',
+    empty: '没有找到相关结果',
+    emptyHint: '试试插件名、页面或关键词',
+    noIndex: '搜索索引不可用',
+    page: '页面',
+    post: '文章',
+    plugin: '插件',
+    foot: '↑↓ 选择 · Enter 打开 · Esc 关闭',
+  },
 }[locale];
 ---
 
-<button class="search-trigger" id="search-trigger" type="button" aria-label={t.label}>
-  <span class="search-ico">🔍</span>
+<button
+  class="search-trigger"
+  id="search-trigger"
+  type="button"
+  aria-label={`${t.label} (${locale === 'zh' ? 'Ctrl+K 或 ⌘K' : 'Ctrl+K or ⌘K'})`}
+  aria-haspopup="dialog"
+  aria-controls="site-search"
+  aria-expanded="false"
+  title={`${t.label} — ${t.hint}`}
+>
+  <svg class="search-ico" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+    <path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </svg>
   <span class="search-trigger-label">{t.label}</span>
-  <kbd class="search-kbd">⌘K</kbd>
+  <kbd class="search-kbd" data-search-kbd>Ctrl K</kbd>
 </button>
 
-<div class="cmdk" id="site-search" hidden>
+<div
+  class="cmdk"
+  id="site-search"
+  hidden
+  role="dialog"
+  aria-modal="true"
+  aria-label={t.label}
+>
   <div class="cmdk-inner">
     <div class="cmdk-input-wrap">
-      <span class="cmdk-icon">🔍</span>
-      <input id="site-search-input" type="search" placeholder={t.placeholder} autocomplete="off" aria-label={t.label} />
+      <svg class="cmdk-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+        <path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <input
+        id="site-search-input"
+        type="search"
+        placeholder={t.placeholder}
+        autocomplete="off"
+        spellcheck="false"
+        aria-label={t.label}
+        aria-autocomplete="list"
+        aria-controls="site-search-results"
+      />
       <kbd class="cmdk-esc">Esc</kbd>
     </div>
-    <div class="cmdk-results" id="site-search-results"></div>
-    <div class="cmdk-foot" id="site-search-foot">↑↓ {locale === 'en' ? 'navigate' : '选择'} · Enter {locale === 'en' ? 'open' : '打开'} · Esc {locale === 'en' ? 'close' : '关闭'}</div>
+    <div class="cmdk-results" id="site-search-results" role="listbox" aria-label={t.label}></div>
+    <div class="cmdk-foot" id="site-search-foot">{t.foot}</div>
   </div>
 </div>
 
-<style>
+<style is:global>
   .search-trigger {
-    display: inline-flex; align-items: center; gap: 7px;
-    font-family: inherit; font-size: 13.5px; font-weight: 500; color: var(--ink-2);
-    background: var(--bg-card, #fff); border: 1px solid var(--border);
-    border-radius: 999px; padding: 7px 12px 7px 14px; cursor: pointer;
-    flex-shrink: 0; line-height: 1;
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font); font-size: 13.5px; font-weight: 500; color: var(--ink-2);
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 999px; padding: 7px 11px 7px 12px; cursor: pointer;
+    flex-shrink: 0; line-height: 1; min-height: 34px;
+    transition: color .12s, border-color .12s, background .12s;
   }
-  .search-trigger:hover { color: var(--ink); border-color: var(--border-strong); }
-  .search-ico { font-size: 14px; }
+  .search-trigger:hover,
+  .search-trigger:focus-visible {
+    color: var(--ink); border-color: var(--border-strong); background: var(--bg-soft);
+    outline: none;
+  }
+  .search-trigger:focus-visible { box-shadow: 0 0 0 3px var(--primary-soft); }
+  .search-ico { display: block; flex-shrink: 0; opacity: .85; }
+  .search-trigger-label { white-space: nowrap; }
   .search-kbd {
-    font-family: var(--mono, monospace); font-size: 11px; color: var(--ink-3);
-    background: #f1f5f9; border: 1px solid #cbd5e1; border-bottom-width: 2px;
-    border-radius: 6px; padding: 2px 6px;
+    font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--muted);
+    background: var(--bg-soft); border: 1px solid var(--border);
+    border-bottom-width: 2px; border-radius: 6px; padding: 2px 6px;
+    line-height: 1.2;
   }
-  .cmdk { position: fixed; inset: 0; z-index: 300; display: flex; align-items: flex-start; justify-content: center; background: rgba(15, 23, 42, 0.5); padding: 12vh 20px 20px; }
-  .cmdk[hidden] { display: none; }
-  .cmdk-inner { background: #fff; border-radius: 14px; width: 100%; max-width: 660px; box-shadow: 0 24px 60px rgba(0,0,0,.28); overflow: hidden; }
-  .cmdk-input-wrap { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--border); }
-  .cmdk-icon { font-size: 16px; }
-  .cmdk-input-wrap input { flex: 1; border: none; outline: none; font-size: 16px; color: var(--ink); font-family: inherit; background: none; }
-  .cmdk-esc { font-family: var(--mono, monospace); font-size: 11px; color: var(--ink-3); background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; padding: 2px 7px; }
-  .cmdk-results { max-height: 52vh; overflow: auto; padding: 8px; }
-  .cmdk-group { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); padding: 12px 12px 4px; }
-  .cmdk-item { display: flex; align-items: center; gap: 12px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: inherit; }
-  .cmdk-item:hover, .cmdk-item.is-sel { background: #f1f5f9; }
-  .cmdk-item img { width: 26px; height: 26px; border-radius: 50%; background: #eef1f6; flex-shrink: 0; }
-  .cmdk-item .ci-ico { width: 26px; height: 26px; border-radius: 7px; background: var(--primary-soft, #eef2ff); color: var(--primary); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+  .cmdk {
+    position: fixed; inset: 0; z-index: 300;
+    display: flex; align-items: flex-start; justify-content: center;
+    background: rgba(15, 23, 42, 0.45); padding: 12vh 20px 20px;
+  }
+  .cmdk[hidden] { display: none !important; }
+  .cmdk-inner {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 14px; width: 100%; max-width: 660px;
+    box-shadow: var(--shadow-lg); overflow: hidden;
+  }
+  .cmdk-input-wrap {
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 16px; border-bottom: 1px solid var(--border);
+  }
+  .cmdk-icon { flex-shrink: 0; color: var(--muted); }
+  .cmdk-input-wrap input {
+    flex: 1; border: none; outline: none; font-size: 16px;
+    color: var(--ink); font-family: var(--font); background: none; min-width: 0;
+  }
+  .cmdk-input-wrap input::placeholder { color: var(--muted); }
+  .cmdk-esc {
+    font-family: var(--mono); font-size: 11px; color: var(--muted);
+    background: var(--bg-soft); border: 1px solid var(--border);
+    border-radius: 6px; padding: 2px 7px; flex-shrink: 0;
+  }
+  .cmdk-results { max-height: 52vh; overflow: auto; padding: 8px; overscroll-behavior: contain; }
+  .cmdk-group {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .05em; color: var(--muted); padding: 12px 12px 4px;
+  }
+  .cmdk-item {
+    display: flex; align-items: center; gap: 12px; padding: 9px 12px;
+    border-radius: 10px; text-decoration: none; color: inherit; cursor: pointer;
+  }
+  .cmdk-item:hover, .cmdk-item.is-sel { background: var(--bg-soft); }
+  .cmdk-item.is-sel { outline: none; }
+  .cmdk-item img { width: 26px; height: 26px; border-radius: 50%; background: var(--bg-soft); flex-shrink: 0; }
+  .cmdk-item .ci-ico {
+    width: 26px; height: 26px; border-radius: 7px; background: var(--primary-soft);
+    color: var(--primary); display: inline-flex; align-items: center; justify-content: center;
+    font-size: 13px; flex-shrink: 0;
+  }
   .cmdk-item .ci-main { flex: 1; min-width: 0; }
-  .cmdk-item .ci-name { font-size: 14px; font-weight: 600; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .cmdk-item .ci-meta { font-size: 12px; color: var(--ink-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .cmdk-item .ci-badge { font-size: 10px; font-weight: 700; color: var(--primary); background: var(--primary-soft, #eef2ff); border-radius: 5px; padding: 1px 6px; flex-shrink: 0; }
-  .cmdk-item .ci-right { font-size: 12px; color: var(--ink-3); white-space: nowrap; flex-shrink: 0; }
-  .cmdk-item .ci-cmd { font-family: var(--mono, monospace); font-size: 11px; color: var(--primary); }
-  .cmdk-empty { text-align: center; padding: 28px 16px; color: var(--ink-3); font-size: 14px; }
-  .cmdk-foot { padding: 8px 16px; border-top: 1px solid var(--border); font-size: 11px; color: var(--ink-3); }
+  .cmdk-item .ci-name {
+    font-size: 14px; font-weight: 600; color: var(--ink);
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .cmdk-item .ci-meta {
+    font-size: 12px; color: var(--muted);
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .cmdk-item .ci-badge {
+    font-size: 10px; font-weight: 700; color: var(--primary-600);
+    background: var(--primary-soft); border-radius: 5px; padding: 1px 6px; flex-shrink: 0;
+  }
+  .cmdk-item .ci-right { font-size: 12px; color: var(--muted); white-space: nowrap; flex-shrink: 0; }
+  .cmdk-item .ci-cmd { font-family: var(--mono); font-size: 11px; color: var(--primary-600); }
+  .cmdk-empty { text-align: center; padding: 36px 20px; color: var(--muted); font-size: 14px; }
+  .cmdk-empty strong { display: block; color: var(--ink-2); font-weight: 600; margin-bottom: 6px; }
+  .cmdk-empty .cmdk-empty-hint { font-size: 13px; margin-top: 4px; }
+  .cmdk-loading {
+    text-align: center; padding: 36px 20px; color: var(--muted); font-size: 14px;
+  }
+  .cmdk-foot {
+    padding: 8px 16px; border-top: 1px solid var(--border);
+    font-size: 11px; color: var(--muted);
+  }
   @media (max-width: 640px) {
-    .cmdk { padding: 6vh 12px 12px; }
-    .search-trigger-label { display: none; }
-    .search-trigger { padding: 8px 11px; margin-left: auto; }
+    .cmdk { padding: 8vh 12px 12px; align-items: flex-start; }
+    .cmdk-inner { max-height: 84vh; display: flex; flex-direction: column; }
+    .cmdk-results { max-height: none; flex: 1; }
+    .search-trigger { padding: 8px 12px; margin-left: auto; min-width: 44px; min-height: 36px; justify-content: center; }
+    .search-kbd { display: none; }
   }
 </style>
 
@@ -72,15 +184,28 @@ const t = {
   (() => {
     const lang = (document.documentElement.lang || '').startsWith('zh') ? 'zh' : 'en';
     const I18N = {
-      en: { page: 'Page', post: 'Article', plugin: 'Plugin', empty: 'No results', noIndex: 'Search index unavailable' },
-      zh: { page: '页面', post: '文章', plugin: '插件', empty: '没有找到相关结果', noIndex: '搜索索引不可用' },
+      en: {
+        page: 'Page', post: 'Article', plugin: 'Plugin',
+        empty: 'No results', emptyHint: 'Try a plugin name, page, or topic',
+        noIndex: 'Search index unavailable', loading: 'Loading…',
+      },
+      zh: {
+        page: '页面', post: '文章', plugin: '插件',
+        empty: '没有找到相关结果', emptyHint: '试试插件名、页面或关键词',
+        noIndex: '搜索索引不可用', loading: '加载中…',
+      },
     }[lang];
 
     const modal = document.getElementById('site-search');
     const input = document.getElementById('site-search-input');
     const resultsEl = document.getElementById('site-search-results');
     const trigger = document.getElementById('search-trigger');
-    if (!modal || !input || !resultsEl || !trigger) return;
+    const kbdEl = document.querySelector('[data-search-kbd]');
+    if (!modal || !(input instanceof HTMLInputElement) || !resultsEl || !trigger) return;
+
+    const isMac = /Mac|iPhone|iPad|iPod/i.test(navigator.platform || '') ||
+      (navigator.userAgentData && navigator.userAgentData.platform === 'macOS');
+    if (kbdEl) kbdEl.textContent = isMac ? '⌘K' : 'Ctrl K';
 
     const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
     const localize = (p) => {
@@ -91,12 +216,18 @@ const t = {
 
     let indexPromise = null;
     const loadIndex = () => {
-      if (!indexPromise) indexPromise = fetch('/search-index.json').then((r) => r.json()).catch(() => null);
+      if (!indexPromise) {
+        indexPromise = fetch('/search-index.json')
+          .then((r) => (r.ok ? r.json() : null))
+          .catch(() => null);
+      }
       return indexPromise;
     };
 
     let items = [];
     let selIdx = 0;
+    let renderSeq = 0;
+    let lastFocus = null;
 
     function groupItem(anchor) { items.push(anchor); }
 
@@ -109,7 +240,7 @@ const t = {
 
     function addPage(p) {
       const a = document.createElement('a');
-      a.className = 'cmdk-item'; a.href = localize(p.path);
+      a.className = 'cmdk-item'; a.href = localize(p.path); a.setAttribute('role', 'option');
       a.innerHTML = `<span class="ci-ico">📄</span><div class="ci-main"><div class="ci-name">${esc(lang === 'zh' ? p.title_zh : p.title)}</div><div class="ci-meta">${esc(lang === 'zh' ? (p.desc_zh || p.desc) : p.desc)}</div></div><span class="ci-badge">${I18N.page}</span>`;
       wire(a); resultsEl.appendChild(a); groupItem(a);
     }
@@ -120,17 +251,16 @@ const t = {
       const title = lang === 'zh' ? (p.title_zh || p.title) : p.title;
       const desc = lang === 'zh' ? (p.desc_zh || p.desc) : p.desc;
       const a = document.createElement('a');
-      a.className = 'cmdk-item'; a.href = href;
+      a.className = 'cmdk-item'; a.href = href; a.setAttribute('role', 'option');
       a.innerHTML = `<span class="ci-ico">📝</span><div class="ci-main"><div class="ci-name">${esc(title)}</div><div class="ci-meta">${esc(desc)}</div></div><span class="ci-badge">${I18N.post}</span>`;
       wire(a); resultsEl.appendChild(a); groupItem(a);
     }
 
     function addPlugin(p) {
-      const title = lang === 'zh' ? (p.desc_zh || p.desc) : p.desc;
       const test = p.test === 'verified' ? (lang === 'zh' ? '已验证' : 'verified') : (lang === 'zh' ? '未验证' : 'unverified');
       const avatar = p.owner ? `<img src="https://github.com/${esc(p.owner)}.png" alt="" loading="lazy" onerror="this.remove()">` : `<span class="ci-ico">🧩</span>`;
       const a = document.createElement('a');
-      a.className = 'cmdk-item'; a.href = localize(`/plugins/${p.slug}/`);
+      a.className = 'cmdk-item'; a.href = localize(`/plugins/${p.slug}/`); a.setAttribute('role', 'option');
       a.innerHTML = `${avatar}<div class="ci-main"><div class="ci-name">${esc(p.name)}</div><div class="ci-meta">★ ${p.stars} · ${test}${p.cat ? ' · ' + esc(p.cat) : ''}</div></div><div class="ci-right"><span class="ci-cmd">${esc(p.cmd)}</span></div>`;
       wire(a); resultsEl.appendChild(a); groupItem(a);
     }
@@ -140,25 +270,40 @@ const t = {
     }
 
     function updateSel() {
-      items.forEach((it, i) => it.classList.toggle('is-sel', i === selIdx));
+      items.forEach((it, i) => {
+        it.classList.toggle('is-sel', i === selIdx);
+        it.setAttribute('aria-selected', i === selIdx ? 'true' : 'false');
+      });
       const sel = items[selIdx];
       if (sel) sel.scrollIntoView({ block: 'nearest' });
     }
 
+    function showEmpty(q) {
+      resultsEl.innerHTML = `<div class="cmdk-empty"><strong>${I18N.empty}${q ? ' “' + esc(q) + '”' : ''}</strong><div class="cmdk-empty-hint">${I18N.emptyHint}</div></div>`;
+    }
+
     function render(q) {
+      const seq = ++renderSeq;
       q = (q || '').trim().toLowerCase();
-      resultsEl.innerHTML = '';
+      resultsEl.innerHTML = `<div class="cmdk-loading">${I18N.loading}</div>`;
       items = [];
       selIdx = 0;
       loadIndex().then((data) => {
-        if (!data) { resultsEl.innerHTML = `<div class="cmdk-empty">${I18N.noIndex}</div>`; return; }
+        if (seq !== renderSeq) return;
+        resultsEl.innerHTML = '';
+        items = [];
+        selIdx = 0;
+        if (!data) {
+          resultsEl.innerHTML = `<div class="cmdk-empty"><strong>${I18N.noIndex}</strong></div>`;
+          return;
+        }
         const pages = q ? data.pages.filter((p) => p.q.includes(q)) : data.pages.slice(0, 8);
         const posts = q ? data.posts.filter((p) => p.q.includes(q)) : data.posts.slice(0, 6);
         const pluginsAll = q ? data.plugins.filter((p) => p.q.includes(q)) : [...data.plugins].sort((a, b) => b.stars - a.stars).slice(0, 10);
         const plugins = pluginsAll.slice(0, 24);
 
         if (!pages.length && !posts.length && !plugins.length) {
-          resultsEl.innerHTML = `<div class="cmdk-empty">${I18N.empty}${q ? ' “' + esc(q) + '”' : ''}</div>`;
+          showEmpty(q);
           return;
         }
         if (pages.length) { addGroup(lang === 'zh' ? '页面' : 'Pages'); pages.forEach(addPage); }
@@ -168,33 +313,100 @@ const t = {
       });
     }
 
+    function focusables() {
+      return [input, ...items].filter((el) => el && !el.hasAttribute('disabled'));
+    }
+
     function open() {
+      lastFocus = document.activeElement;
       modal.hidden = false;
+      trigger.setAttribute('aria-expanded', 'true');
       input.value = '';
       render('');
-      setTimeout(() => input.focus(), 10);
+      requestAnimationFrame(() => input.focus());
       document.body.style.overflow = 'hidden';
     }
     function close() {
       modal.hidden = true;
+      trigger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
+      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+      else trigger.focus();
     }
+
+    const isOpen = () => !modal.hidden;
 
     trigger.addEventListener('click', open);
     input.addEventListener('input', () => { selIdx = 0; render(input.value); });
     input.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowDown') { e.preventDefault(); selIdx = Math.min(selIdx + 1, items.length - 1); updateSel(); }
-      else if (e.key === 'ArrowUp') { e.preventDefault(); selIdx = Math.max(selIdx - 1, 0); updateSel(); }
-      else if (e.key === 'Enter') { e.preventDefault(); const sel = items[selIdx]; if (sel && sel.href) window.location.href = sel.href; }
-      else if (e.key === 'Escape') { e.preventDefault(); close(); }
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (!items.length) return;
+        selIdx = Math.min(selIdx + 1, items.length - 1);
+        updateSel();
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (!items.length) return;
+        selIdx = Math.max(selIdx - 1, 0);
+        updateSel();
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        const sel = items[selIdx];
+        if (sel && sel.href) window.location.href = sel.href;
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        close();
+      } else if (e.key === 'Tab') {
+        const list = focusables();
+        if (list.length < 2) { e.preventDefault(); return; }
+        const first = list[0];
+        const last = list[list.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     });
+
     modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+    modal.addEventListener('keydown', (e) => {
+      if (!isOpen()) return;
+      if (e.key === 'Escape') { e.preventDefault(); close(); }
+      if (e.key === 'Tab') {
+        const list = focusables();
+        if (!list.length) return;
+        const first = list[0];
+        const last = list[list.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && (document.activeElement === last || !modal.contains(document.activeElement))) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    });
 
     document.addEventListener('keydown', (e) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
-        if (!modal.hidden) close(); else open();
+        if (isOpen()) close(); else open();
+        return;
+      }
+      if (e.key === 'Escape' && isOpen()) {
+        e.preventDefault();
+        close();
       }
     });
+
+    // Warm the index so first open feels instant
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => { loadIndex(); }, { timeout: 2500 });
+    } else {
+      setTimeout(() => { loadIndex(); }, 1200);
+    }
   })();
 </script>
