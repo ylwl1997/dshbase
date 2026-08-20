@@ -22863,7 +22863,7 @@
    "name": "dsh-plugin-ima-sync",
    "url": "https://github.com/nan1010082085/dsh-plugin-ima-sync",
    "pkg": "dsh-plugin-ima-sync",
-   "ver": "0.7.3",
+   "ver": "0.7.8",
    "npm": true,
    "test": "verified",
    "desc": "Upload DSH conversation progress to Tencent IMA (daily notes + Work knowledge base).",
@@ -22879,14 +22879,14 @@
    "license": "MIT",
    "slug": "dsh-plugin-ima-sync",
    "platform": "any",
-   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E). npm 0.7.3 (`dsh plugin add dsh-plugin-ima-sync` or `dsh plugin --profile web add dsh-plugin-ima-sync`); dedicated repo has LICENSE + dsh-plugin topic.",
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E) for npm 0.7.8 (`dsh plugin add dsh-plugin-ima-sync` or `dsh plugin --profile web add dsh-plugin-ima-sync`); dedicated repo has LICENSE + dsh-plugin topic.",
    "webonly": false,
-   "testDate": "2026-08-18",
+   "testDate": "2026-08-20",
    "contributors": 2,
    "depCount": 0,
    "depsOfficial": 0,
    "repoOwner": "nan1010082085",
-   "_enriched": "2026-08-20|0.7.3"
+   "_enriched": "2026-08-20|0.7.8"
   },
   {
    "name": "dsh-runtime-nutrition-label",
