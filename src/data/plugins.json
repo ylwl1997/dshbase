@@ -46996,7 +46996,7 @@
    "pkg": "dsh-chat-sync",
    "ver": "0.3.4",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "Sync local Claude Code, Codex CLI, and Cursor Agent chats into DSH sessions.",
    "desc_en": "Sync local Claude Code, Codex CLI, and Cursor Agent chats into DSH sessions.",
    "desc_zh": "将本地 Claude Code、Codex CLI、Cursor Agent 对话同步为 DSH 会话。",
@@ -47015,8 +47015,9 @@
    "depsOfficial": 1,
    "repoOwner": "nan1010082085",
    "_enriched": "2026-08-19|0.3.4",
-   "webonly": true,
-   "note": "web-only（headless 缺 webServer，待 web 运行时验证）"
+   "webonly": false,
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-20"
   },
   {
    "name": "dsh-mcp-sync",
@@ -47024,7 +47025,7 @@
    "pkg": "dsh-mcp-sync",
    "ver": "0.7.0",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "Connect MCP servers, discover tools, and register them into DSH for model invocation.",
    "desc_en": "Connect MCP servers, discover tools, and register them into DSH for model invocation.",
    "desc_zh": "连接MCP服务器，发现并注册工具到DSH，供模型调用。",
@@ -47038,13 +47039,14 @@
    "license": "MIT",
    "slug": "dsh-mcp-sync",
    "platform": "any",
-   "note": "无 LICENSE 许可；web-only（headless 缺 webServer，待 web 运行时验证）",
+   "note": "无 LICENSE 许可；Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
    "contributors": 0,
    "depCount": 2,
    "depsOfficial": 1,
    "repoOwner": "nan1010082085",
    "_enriched": "2026-08-19|0.7.0",
-   "webonly": true
+   "webonly": false,
+   "testDate": "2026-08-20"
   }
  ],
  "Network": [
@@ -53427,7 +53429,7 @@
    "pkg": "@zhuyh-sai7n/dsh-plugin-manager",
    "ver": "1.0.1",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "Manage third-party plugins in DeepSeek Harness Web UI with enable/disable, snapshots, and add.",
    "desc_en": "Manage third-party plugins in DeepSeek Harness Web UI with enable/disable, snapshots, and add.",
    "desc_zh": "在 DeepSeek Harness Web UI 中管理第三方插件，支持启用/禁用、方案和添加。",
@@ -53446,8 +53448,9 @@
    "depsOfficial": 0,
    "repoOwner": "sorry123maker",
    "_enriched": "2026-08-18|1.0.1",
-   "webonly": true,
-   "note": "web-only（headless 缺 webServer，待 web 运行时验证）"
+   "webonly": false,
+   "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
+   "testDate": "2026-08-20"
   }
  ],
  "Content": [

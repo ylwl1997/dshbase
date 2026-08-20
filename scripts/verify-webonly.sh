@@ -80,8 +80,11 @@ web_boot() {
 
 verify_one() {
   local name="$1" src="$2"
-  local prof="v_$(echo "$name" | tr -cd 'a-zA-Z0-9_-')"
-  local logf="/tmp/verify-$name.log"
+  # Sanitize for filesystem paths (@scope/pkg → v_scopepkg / verify-scopepkg.log)
+  local safe
+  safe="$(echo "$name" | tr -cd 'a-zA-Z0-9_-')"
+  local prof="v_${safe}"
+  local logf="/tmp/verify-${safe}.log"
   local status=""
 
   log "== $name  ($src)  profile=$prof =="

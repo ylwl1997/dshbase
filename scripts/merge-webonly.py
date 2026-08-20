@@ -12,6 +12,7 @@
 """
 import json
 import os
+import re
 import sys
 
 DATA = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src", "data", "plugins.json"))
@@ -46,10 +47,22 @@ def main():
             p["webonly"] = False
             if st == "ok":
                 p["test"] = "verified"
-                p["testDate"] = "2026-08-18"
-                note = p.get("note", "")
+                p["testDate"] = __import__("datetime").date.today().isoformat()
+                # Drop stale "待 web 运行时验证" / webonly placeholders; keep LICENSE etc.
+                note = (p.get("note") or "").strip()
+                keep = []
+                for part in re.split(r"[；;\n]+", note):
+                    part = part.strip()
+                    if not part:
+                        continue
+                    low = part.lower()
+                    if "web-only" in low or "webonly" in low or "待 web" in part or "headless" in low:
+                        continue
+                    if "web l3" in low:
+                        continue
+                    keep.append(part)
                 add = "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E)."
-                p["note"] = note + "\n" + add if note else add
+                p["note"] = ("；".join(keep) + "；" + add) if keep else add
                 updated["ok"] += 1
             elif st == "web-only":
                 # 装+载通过，headless 缺 GUI 服务（web/全运行时插件）——不算失败
