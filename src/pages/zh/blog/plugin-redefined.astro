@@ -1,0 +1,48 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
+const philosophyUrl = getRelativeLocaleUrl('zh', '/blog/dsh-plugin-philosophy/');
+---
+<BlogPost title="「一切皆插件」在 DeepSeek Harness 里到底是什么意思 | dshbase 中文" description="Chrome 扩展是给成品软件添砖加瓦；DeepSeek Harness 把会话、沙箱、文件系统也做成可替换模块。这篇是面向安装者的改写解读——以及为什么核心可插拔之后，验证比数 star 更重要。" currentPath="/zh/blog/plugin-redefined/" category="概念">
+  <h1>「一切皆插件」在 DSH 里<strong>到底</strong>是什么意思</h1>
+  <p class="muted small" style="margin-bottom:20px">2026年8月20日 · dshbase · 改写解读</p>
+
+  <p><img src="/assets/blog-wechat/cover-plugin-redefined.png" alt="可插拔的 Harness 模块示意" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0"></p>
+
+  <p>「万物皆插件」套在工具、技能上还好懂；一旦把<strong>会话、沙箱、文件系统</strong>也算进插件，很多人会卡住。DeepSeek Harness 正是在改这个词的边界——这也是为什么只数 GitHub star 的目录不够用。</p>
+  <p class="muted small">本文大幅改写自近期微信公众号里对 DSH 插件理念的讨论（尤其是 APPSO《大起底》一文的问题框架），保留架构论点，去掉招聘软广，并补上我们在真实安装社区插件时看到的后果。</p>
+
+  <h2>先理解 Harness：模型是「入职员工」，不是「整间办公室」</h2>
+  <p>招到一个很强的人，不等于他立刻能干活。还要工位、账号、权限、共享盘，以及同事已经做到哪一步的记录。把「员工」换成「模型」，这整套配套就是 <strong>Harness</strong>：工具、文件、记忆、沙箱、失败恢复，以及「看资料 → 行动 → 观察 → 再决定」的循环。</p>
+  <p>同一模型，换一套 Harness，体感可以完全不同。只比模型卡、不比运行时，会漏掉真正的差距。</p>
+
+  <h2>普通插件：给已经盖好的办公室添一台打印机</h2>
+  <p>传统插件默认「主体软件已经存在」。Chrome 本来就会上网，翻译插件只是加能力。Claude Code / Codex 一类扩展大多也落在这一层：</p>
+  <ul>
+    <li><strong>Tool / MCP</strong>：多一个可调用动作</li>
+    <li><strong>Skill / 指令文件</strong>：按需注入说明</li>
+    <li><strong>Hook</strong>：在工具前后做校验或日志</li>
+    <li><strong>Subagent</strong>：把一部分任务派出去</li>
+  </ul>
+  <p>很有用，但主干通常是封死的：主循环怎么转、上下文怎么拼、会话怎么存、沙箱怎么接。你能添打印机，很难换整套打卡制度。</p>
+
+  <p><img src="/assets/blog-wechat/plugin-office.png" alt="办公室模块化隐喻" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0"></p>
+
+  <h2>DSH 的插件：换的是办公室模块，不只是小配件</h2>
+  <p>DSH 更接近「可替换的办公系统」。打卡从签到表、打卡机，到指纹、人脸、App——核心契约不变：识别人、记时间、记位置。文件系统对 Agent 也一样：上层真正关心的是能不能读/写、路径怎么表示、错误怎么返回，而不是字节落在本地盘还是远程沙箱。</p>
+  <p>所以「一切皆插件」≠「应用商店格子很多」。它是在赌：模型适配、会话日志、Agent Loop、FS、沙箱这些 <strong>harness seam</strong>，都能在稳定接口后面换成不同 Provider。</p>
+  <p><img src="/assets/blog-wechat/plugin-lego.png" alt="乐高式可组合模块" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0"></p>
+
+  <h2>给安装者的 Cordis 一句话</h2>
+  <p>运行中的 <code>dsh</code> 本质是 Cordis 服务树，能力挂在共享 <code>ctx</code> 上。插件用 <code>inject</code> 声明依赖；卸载时应可回收注册。官方日志硬约束是：<em>model-visible means logged</em>——模型看见的内容必须能从只追加会话事件流重建。组合发生在配置层（bundle → profile → home 补丁 → <code>--patch</code>），所以 <code>dsh --profile web --dump-config</code> 很重要：你能看见自己到底启动了什么。</p>
+  <p>Pi 走的是「内核极薄」；DSH 走的是「连地基也拆成砖」。自由度更大，版本错配与供应链风险也更大——这就是产品本身的取舍。</p>
+
+  <h2>落到 dshbase：可插拔之后，验证才是产品</h2>
+  <p>核心可插拔之后，「GitHub 上有仓库」几乎不再是质量信号。一个坏的 Provider 可以改掉整个 profile 的启动行为。我们只在真实安装路径通过后，才在 <a href={directoryUrl}>插件目录</a> 标 <em>已验证</em>（webonly 也会走 Web/CDP），失败分类写在 <a href={auditUrl}>审计页</a>。</p>
+  <p>想看同一争论的「疲劳」一侧（npm vs git、ESM、缺 <code>dsh.bundle</code>），见 <a href={philosophyUrl}>插件哲学</a>。一句话：没有策展的模块化，只是把调试成本甩给你。</p>
+
+  <h2>结论</h2>
+  <p>DSH 有意思的地方，不是「DeepSeek 也做插件商店了」，而是它在问：当模型越来越容易被替换，围绕模型的那套「上岗配套」能不能也模块化？极客会爱这个答案；其他人仍然需要预设、已验证安装，以及一个先回答「能不能跑」而不是「有多少星」的目录。</p>
+</BlogPost>

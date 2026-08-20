@@ -1,0 +1,47 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const modesUrl = getRelativeLocaleUrl('en', '/blog/deepseek-harness-modes/');
+const costUrl = getRelativeLocaleUrl('en', '/blog/deepseek-harness-cost/');
+const desktopUrl = getRelativeLocaleUrl('en', '/blog/dsh-desktop-alternatives/');
+---
+<BlogPost title="A Realistic First Day with DeepSeek Harness | dshbase" description="Install dsh web, pick a workspace permission, try the four modes, watch cache hit rate — and skip the traps that make a hung UI look like deep thinking. A rewritten hands-on guide with links to verified plugins." currentPath="/blog/first-day-with-dsh/" category="Guide">
+  <h1>A realistic <span class="accent">first day</span> with DeepSeek Harness</h1>
+  <p class="muted small" style="margin-bottom:20px">August 20, 2026 · dshbase · rewritten hands-on</p>
+
+  <p><img src="/assets/blog-wechat/cover-first-day.png" alt="Developer desk with local dsh web UI" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0"></p>
+
+  <p>DeepSeek Harness is not Claude Code’s CLI and not a polished desktop shell. It boots a local Web UI. That surprise alone explains half the confused first-hour posts. Here is a condensed day-one path that matches how people actually succeed — plus the traps that waste an afternoon.</p>
+  <p class="muted small">Rewritten from popular WeChat hands-on write-ups (including the “爆肝实测一天” style coverage). We keep the workflow, cut the hype, and point you at verified plugins instead of infinite skin screenshots.</p>
+
+  <h2>Install, then <code>dsh web</code></h2>
+  <p>Let another agent install from the official harness docs if you want, or follow the project README yourself. When it works, the important command is:</p>
+  <pre><code>dsh web</code></pre>
+  <p>Browser opens something like <code>http://127.0.0.1:3080/</code>. Paste a DeepSeek API key, fund the account, pick a <strong>workspace folder</strong> before you chat — DSH expects a working directory the way an IDE expects a project.</p>
+  <p><img src="/assets/blog-wechat/day-ui.png" alt="DeepSeek Harness web UI on first open" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0"></p>
+
+  <h2>Permissions before clever prompts</h2>
+  <ul>
+    <li><strong>Read Only</strong> — inspect without edits</li>
+    <li><strong>Workspace Write</strong> — normal day-to-day; out-of-scope ops should ask</li>
+    <li><strong>Full Access</strong> — guardrails off; only when you know the next action</li>
+  </ul>
+  <p>Then learn the four modes (Standard / PTC / Minimal / Create) at a high level — names scare people more than the differences deserve. Details: <a href={modesUrl}>modes guide</a>.</p>
+
+  <h2>What “everything is a plugin” feels like on day one</h2>
+  <p>Skins and TUI themes are the candy aisle. Underneath, plugins can swap prompts, tools, skills, context policy, and even pieces of how the agent executes. That is power — and also why random GitHub installs brick boots. Browse the <a href={directoryUrl}>directory</a> for verified badges and exact install commands before you collect skins.</p>
+
+  <h2>Cost reality check</h2>
+  <p>Long agent days burn tokens. Community reports of “hundreds of millions of tokens for tea-money” were often priced <em>before</em> cache-input hikes. Cache hit rates in the mid-90%s are common when the session log stays healthy — still read <a href={costUrl}>cost &amp; caching</a> before you assume the old milk-tea bill. DeepSeek can stay cheap relative to GPT-class metered APIs; it is not free.</p>
+
+  <h2>Traps that look like “DeepSeek is thinking”</h2>
+  <ul>
+    <li><strong>Lost tab syndrome</strong> — too many browser tabs. New tab → <code>http://127.0.0.1:3080/</code>; sessions are not gone.</li>
+    <li><strong>Zombie “Deep diving”</strong> — UI timer keeps climbing after you killed the <code>dsh web</code> process. Check the terminal first.</li>
+    <li><strong>Wrong mental model</strong> — if you wanted a native desktop, see <a href={desktopUrl}>desktop alternatives</a>; DSH itself is web-first.</li>
+  </ul>
+
+  <h2>Who this is for</h2>
+  <p>Developers who like visible traces, swappable parts, and open install paths will feel at home. People who want a one-click office copilot will bounce — and that is OK. Use day one to prove the loop on a scratch repo, install one verified plugin that solves a real gap (memory, vision, IM), and only then go shopping in the long tail.</p>
+</BlogPost>

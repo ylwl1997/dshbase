@@ -1,0 +1,38 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const costUrl = getRelativeLocaleUrl('en', '/blog/deepseek-harness-cost/');
+const trajUrl = getRelativeLocaleUrl('en', '/blog/dsh-trajectory-tracing/');
+---
+<BlogPost title="From 30.2% to 96.2%: Why the Harness Beats the Benchmark Card | dshbase" description="Same model, different runtime: ARC-AGI-3 jumped when the agent got a real computer. What that means for DeepSeek V4 Pro pricing noise versus DeepSeek Harness — and how a verified plugin catalog fits the runtime bet." currentPath="/blog/harness-vs-benchmark/" category="Analysis">
+  <h1>From 30.2% to 96.2% — the gap is the <span class="accent">harness</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 20, 2026 · dshbase · rewritten analysis</p>
+
+  <p><img src="/assets/blog-wechat/cover-harness-benchmark.png" alt="Score jump when an agent gains a real runtime" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0"></p>
+
+  <p>August’s DeepSeek news cycle wanted you to memorize price and parameter counts. The more durable signal is sitting next to the model: <strong>DeepSeek Harness</strong> — the open runtime that decides whether those tokens become a daily workflow or a demo.</p>
+  <p class="muted small">Rewritten from WeChat analysis that framed V4 Pro and Harness on the same table (e.g. the “30.2到96.2” thread). Numbers below are cited as reported in that coverage and public write-ups; treat vendor-only benches with the usual skepticism.</p>
+
+  <h2>The model story is real — and incomplete</h2>
+  <p>V4 Pro shipped with long context, dual API shapes (OpenAI / Anthropic-style), tool calling, and aggressive list prices. Cache hits matter even more for agent workloads: you re-read history constantly. That pricing story moves bills. It does not, by itself, move how an agent recovers from a failed tool call or how your team replays a bad session.</p>
+
+  <h2>30.2 → 96.2: weights frozen, environment changed</h2>
+  <p><img src="/assets/blog-wechat/score-arc.png" alt="Benchmark jump illustration from community coverage" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0"></p>
+  <p>The ARC-AGI-3 anecdote that keeps circulating: Opus-class baseline around <strong>30.2%</strong> on ARC Prize’s framing; developer Jeremy Berman’s setup — a Claude Code-like environment, an action channel, a filesystem log — let the model write parsers, search, and simulators across the public tasks and land near <strong>96.2%</strong> (24/25 in one reported pass). Hundreds of programs, tens of thousands of lines — still the <em>same weights</em>.</p>
+  <p>What jumped was not “IQ on a card.” What jumped was <strong>what the model was allowed to do between guesses</strong>: persist state, iterate, instrument the problem. Humans hear “the model got smarter.” Operators should hear “the runtime opened the action space.”</p>
+
+  <h2>Why Harness is the sticky layer</h2>
+  <p>Frontier scores will keep chewing each other (CyberGym, Terminal-Bench, CursorBench, office suites — pick your favorite weekly leaderboard). Prices will compress. A runtime that absorbs your plugins, permissions, project layout, cache policy, and failure replay grows switching cost. You can swap the upstream model; you rarely throw away the way your team already works.</p>
+  <p>DeepSeek Harness leans into that: Cordis seams for tools/policy/storage/context, Trajectory for event-level replay, visible token/cache meters, community plugins that can go deeper than “add an MCP.” UI polish still trails Codex-class shells — early ecosystems often look ugly on purpose.</p>
+
+  <h2>How we use that insight at dshbase</h2>
+  <ul>
+    <li>If you are tasting V4 Pro: check price, API shape, tool calling, and whether it slots into tools you already pay for.</li>
+    <li>If you are building a lasting agent workflow: demand session replay, permission boundaries, cache visibility, and a plugin story you can audit — start with <a href={trajUrl}>trajectory tracing</a> and <a href={costUrl}>cost &amp; caching</a>.</li>
+    <li>If you install community plugins: treat “works on my machine” as the product. Our <a href={directoryUrl}>directory</a> only marks verified after a real install path, because a pluggable runtime without install truth is just a longer README.</li>
+  </ul>
+
+  <h2>Takeaway</h2>
+  <p>Model launches publish a ceiling. The harness decides whether you can push that ceiling into Tuesday afternoon work. Cheap models are plentiful; runtimes that turn models into systems are not. The next round to watch is not only the next third-party bench — it is whether a handful of DSH plugins become load-bearing for ordinary developers.</p>
+</BlogPost>

@@ -1,0 +1,47 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const modesUrl = getRelativeLocaleUrl('zh', '/blog/deepseek-harness-modes/');
+const costUrl = getRelativeLocaleUrl('zh', '/blog/deepseek-harness-cost/');
+const desktopUrl = getRelativeLocaleUrl('zh', '/blog/dsh-desktop-alternatives/');
+---
+<BlogPost title="DeepSeek Harness 真实的第一天 | dshbase 中文" description="装好 dsh web、选对工作区权限、试四种模式、盯缓存命中——并避开「界面还在计时其实进程已死」这类坑。改写自爆肝实测类文章，并指向已验证插件。" currentPath="/zh/blog/first-day-with-dsh/" category="指南">
+  <h1>DeepSeek Harness <span class="accent">真实的第一天</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026年8月20日 · dshbase · 改写上手</p>
+
+  <p><img src="/assets/blog-wechat/cover-first-day.png" alt="本机 dsh Web 界面的桌面场景" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0"></p>
+
+  <p>DeepSeek Harness 不是 Claude Code 那种 CLI，也不是打磨好的桌面壳。它启动的是本地 Web UI。单是这一点，就解释了第一小时里一半的懵圈帖。下面是一条更贴近「真的能跑通」的 Day-1 路径，以及最浪费下午的几个坑。</p>
+  <p class="muted small">改写自微信上流行的上手实测（含「爆肝实测一天」一类文章）。保留工作流，去掉吹嘘，并把「无限换肤截图」换成已验证插件入口。</p>
+
+  <h2>先装好，再 <code>dsh web</code></h2>
+  <p>你可以让别的 Agent 按官方文档装，也可以自己跟 README。跑通之后，关键命令是：</p>
+  <pre><code>dsh web</code></pre>
+  <p>浏览器打开类似 <code>http://127.0.0.1:3080/</code>。填 DeepSeek API Key、账户充值，聊天前先选好<strong>工作目录</strong>——DSH 像 IDE 一样默认你有一个项目根。</p>
+  <p><img src="/assets/blog-wechat/day-ui.png" alt="首次打开的 DeepSeek Harness Web UI" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0"></p>
+
+  <h2>权限比花活提示词更重要</h2>
+  <ul>
+    <li><strong>Read Only</strong>：只看不改</li>
+    <li><strong>Workspace Write</strong>：日常默认；越界操作应先问你</li>
+    <li><strong>Full Access</strong>：护栏拆掉；只有你清楚下一步时再用</li>
+  </ul>
+  <p>然后再看四种模式（标准 / PTC / 极简 / 创造）——名字比差异更吓人。细节见 <a href={modesUrl}>四种模式</a>。</p>
+
+  <h2>Day-1 体感里的「一切皆插件」</h2>
+  <p>皮肤和 TUI 主题是糖果区。底下插件还能换系统提示、工具、Skills、上下文策略，甚至改执行方式。这是能力，也是随便装 GitHub 仓库会把启动搞挂的原因。先去 <a href={directoryUrl}>插件目录</a> 看已验证徽章和精确安装命令，再收藏皮肤。</p>
+
+  <h2>成本的现实校对</h2>
+  <p>长任务会烧 token。社区里「几亿 token 一杯奶茶」的算法，很多是<strong>缓存输入涨价之前</strong>的账。会话健康时缓存命中到 95% 左右并不罕见——但别默认旧账单，先读 <a href={costUrl}>成本与缓存</a>。相对 GPT 类按量 API，DeepSeek 往往仍便宜；它不是免费。</p>
+
+  <h2>看起来像「还在深度思考」的坑</h2>
+  <ul>
+    <li><strong>找不到那个 Tab</strong>：浏览器开太乱。新开标签直接进 <code>http://127.0.0.1:3080/</code>，任务记录还在。</li>
+    <li><strong>僵尸 Deep diving</strong>：你已经杀了 <code>dsh web</code>，页面计时还在涨。先看终端进程。</li>
+    <li><strong>心智模型错了</strong>：如果你要的是原生桌面，看 <a href={desktopUrl}>桌面端替代</a>；DSH 本体是 Web 优先。</li>
+  </ul>
+
+  <h2>适合谁</h2>
+  <p>喜欢可见轨迹、可替换零件、开源安装路径的开发者会觉得对味。想要一键办公副驾的人会劝退——也没关系。用第一天在 scratch 仓库证明闭环，装一个解决真实缺口的已验证插件（记忆 / 视觉 / IM），再去逛长尾。</p>
+</BlogPost>

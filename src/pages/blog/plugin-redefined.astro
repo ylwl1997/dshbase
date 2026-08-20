@@ -1,0 +1,48 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('en', '/audit/');
+const philosophyUrl = getRelativeLocaleUrl('en', '/blog/dsh-plugin-philosophy/');
+---
+<BlogPost title="What “Everything Is a Plugin” Actually Means in DeepSeek Harness | dshbase" description="Chrome extensions add features to a finished product. DeepSeek Harness treats sessions, sandboxes, and filesystems as swappable modules. A rewritten field guide for installers — with why verification matters once the core itself is pluggable." currentPath="/blog/plugin-redefined/" category="Concept">
+  <h1>What “everything is a <span class="accent">plugin</span>” actually means</h1>
+  <p class="muted small" style="margin-bottom:20px">August 20, 2026 · dshbase · rewritten field guide</p>
+
+  <p><img src="/assets/blog-wechat/cover-plugin-redefined.png" alt="Modular harness blocks as interchangeable plugins" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0"></p>
+
+  <p>“Everything is a plugin” sounds easy when you apply it to tools and skills. It gets weird when <strong>sessions, sandboxes, and the filesystem</strong> show up on the same list. That is the point DeepSeek Harness is making — and the reason a plugin directory that only counts GitHub stars is not enough.</p>
+  <p class="muted small">This piece is a substantial rewrite of ideas popularized in Chinese WeChat coverage (notably APPSO’s “大起底” essay on DSH plugins). We keep the architecture argument, drop the marketing copy, and add what we see when we actually install community plugins.</p>
+
+  <h2>Harness first: the model is the hire, not the office</h2>
+  <p>A strong new hire does not start work the moment they walk in. Someone still has to give them a desk, accounts, permissions, shared drives, and the history of what the team already tried. Swap “hire” for “model” and that whole onboarding kit is the <strong>harness</strong>: tools, files, memory, sandbox, recovery, and the loop that turns “look → act → observe → decide” into a workday.</p>
+  <p>Same model, different harness → different product feel. That is why Agent comparisons that only quote model cards miss the real delta.</p>
+
+  <h2>Ordinary plugins: add a printer to a finished office</h2>
+  <p>Classic plugins assume a finished product. Chrome already browses; an ad blocker is additive. Claude Code / Codex-style extensions mostly live in the same zone:</p>
+  <ul>
+    <li><strong>Tool / MCP</strong> — register another callable action</li>
+    <li><strong>Skill / instruction files</strong> — inject on-demand guidance</li>
+    <li><strong>Hooks</strong> — validate or log around tool calls</li>
+    <li><strong>Subagents</strong> — farm out a slice of work</li>
+  </ul>
+  <p>Useful, but the trunk stays sealed: how the main loop turns, how context is assembled, how sessions persist, how the sandbox is wired. You can add a printer; you usually cannot replace the badge system.</p>
+
+  <p><img src="/assets/blog-wechat/plugin-office.png" alt="Office-as-modules metaphor for harness plugins" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0"></p>
+
+  <h2>DSH plugins: replace office modules, not just gadgets</h2>
+  <p>DSH’s claim is closer to <em>swappable office systems</em>. Attendance used to be a fixed machine; now any implementation that can identify a person, stamp a time, and record a location can play the role. Filesystems work the same way for an agent: the consumer cares about read/write/path/error contracts, not whether the bytes live on local disk or a remote sandbox.</p>
+  <p>That is why “everything is a plugin” is not a synonym for “lots of marketplace tiles.” It is a bet that <strong>harness seams</strong> — model adapter, session log, agent loop, FS, sandbox — can be providers behind stable interfaces.</p>
+  <p><img src="/assets/blog-wechat/plugin-lego.png" alt="Composable Lego-like harness modules" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0"></p>
+
+  <h2>Cordis in one paragraph (for installers)</h2>
+  <p>Under the hood, a running <code>dsh</code> is a Cordis service tree on a shared <code>ctx</code>. Plugins <code>inject</code> the services they need; registration is designed to be revocable on unload. Official docs push a hard logging rule: <em>model-visible means logged</em> — anything the model sees must be reconstructible from the append-only session event stream. Composition happens in config layers (bundle → profile → home patch → <code>--patch</code>), which is why <code>dsh --profile web --dump-config</code> matters: you can see what you actually booted.</p>
+  <p>Pi went thin-core (four file/bash tools, everything else as extensions). DSH goes further: even pieces that feel like “the core” are meant to be replaceable. More freedom; more version-skew and supply-chain risk. That trade-off is the product.</p>
+
+  <h2>What this means on dshbase</h2>
+  <p>Once the core is pluggable, “it exists on GitHub” stops being a useful quality signal. A bad provider can change boot behavior for everyone on that profile. We only mark <a href={directoryUrl}>directory</a> entries <em>verified</em> after a real install path — including webonly plugins that need a live Web/CDP check — and we publish the failure classes on the <a href={auditUrl}>audit</a> page.</p>
+  <p>If you want the fatigue side of the same debate (npm vs git-source, ESM breaks, missing <code>dsh.bundle</code>), read our earlier piece on <a href={philosophyUrl}>plugin philosophy</a>. The short version: modularity without curation just moves the debugging onto you.</p>
+
+  <h2>Takeaway</h2>
+  <p>DSH is not interesting because “DeepSeek shipped a plugin store.” It is interesting because it asks whether the <em>onboarding kit around a replaceable model</em> can itself be modular. Power users will love that. Everyone else still needs presets, verified installs, and a directory that answers “does it run?” before “how many stars?”</p>
+</BlogPost>

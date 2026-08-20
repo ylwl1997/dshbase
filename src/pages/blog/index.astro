@@ -3,6 +3,9 @@ import Base from '../../layouts/Base.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const locale = Astro.currentLocale ?? 'en';
 const posts = [
+  { path: '/blog/plugin-redefined/', cat: 'Concept', en: 'What “everything is a plugin” actually means', zh: '「一切皆插件」到底是什么意思', desc_en: 'Sessions, sandboxes, and filesystems as swappable modules — and why verified installs matter.', desc_zh: '会话、沙箱、文件系统也是可替换模块——以及为什么已验证安装很重要。' },
+  { path: '/blog/harness-vs-benchmark/', cat: 'Analysis', en: 'From 30.2% to 96.2%: harness beats the scorecard', zh: '从 30.2% 到 96.2%：差距在 Harness', desc_en: 'Same weights, different runtime. Why V4 Pro pricing noise is not the whole story.', desc_zh: '同一权重、不同运行时。为什么只盯 V4 Pro 价格不够。' },
+  { path: '/blog/first-day-with-dsh/', cat: 'Guide', en: 'A realistic first day with DeepSeek Harness', zh: 'DeepSeek Harness 真实的第一天', desc_en: 'dsh web, permissions, modes, cache — and the zombie Deep-diving trap.', desc_zh: 'dsh web、权限、模式、缓存——以及僵尸 Deep diving 陷阱。' },
   { path: '/blog/vs-cursor/', cat: 'Comparison', en: 'DeepSeek Harness vs Cursor (2026)', zh: 'DeepSeek Harness vs Cursor（2026）', desc_en: 'Updated: both have agents now. Harness + CI vs AI IDE — when to use both.', desc_zh: '更新：两边都有 Agent。开源 harness + CI vs AI IDE，以及怎么一起用。' },
   { path: '/blog/vs-claude-code/', cat: 'Comparison', en: 'DeepSeek Harness vs Claude Code', zh: 'DeepSeek Harness vs Claude Code', desc_en: 'Plugins vs MCP, open source vs closed, pricing, and which to choose.', desc_zh: '插件 vs MCP、开源 vs 闭源、价格与选择。' },
   { path: '/blog/why-deepseek-harness/', cat: 'Concept', en: "Why it's called a Harness", zh: '为什么叫 Harness', desc_en: 'Agent = Model + Harness, the Cordis kernel, and time/spatial composability.', desc_zh: 'Agent = Model + Harness、Cordis 内核与时间/空间可组合性。' },

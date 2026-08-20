@@ -1,0 +1,38 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const costUrl = getRelativeLocaleUrl('zh', '/blog/deepseek-harness-cost/');
+const trajUrl = getRelativeLocaleUrl('zh', '/blog/dsh-trajectory-tracing/');
+---
+<BlogPost title="从 30.2% 到 96.2%：差距在 Harness，不在榜单卡 | dshbase 中文" description="同一模型、不同运行时：ARC-AGI-3 在「给模型一台电脑」之后跳升。这对 DeepSeek V4 Pro 的价格噪音与 DeepSeek Harness 意味着什么——以及已验证插件目录如何押注运行时。" currentPath="/zh/blog/harness-vs-benchmark/" category="分析">
+  <h1>从 30.2% 到 96.2%——差距在 <span class="accent">Harness</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026年8月20日 · dshbase · 改写分析</p>
+
+  <p><img src="/assets/blog-wechat/cover-harness-benchmark.png" alt="运行时带来分数跃迁的示意" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0"></p>
+
+  <p>八月这波 DeepSeek 新闻，最容易被记住的是价格和参数。更耐看的信号其实坐在模型旁边：<strong>DeepSeek Harness</strong>——决定这些 token 会变成日常工作流，还是只变成演示的那层运行时。</p>
+  <p class="muted small">本文改写自把 V4 Pro 与 Harness 放到同一张牌桌上的微信分析（如「30.2到96.2」那类讨论）。文中数字按公开报道口径引用；厂商自有评测请照常打折看。</p>
+
+  <h2>模型故事是真的——但不完整</h2>
+  <p>V4 Pro 带着长上下文、双接口形态、工具调用和抢眼标价上线。对 Agent 工作负载来说，缓存命中更要命：你在不断重读历史。价格故事会改账单；它本身不会改「工具失败怎么恢复」「坏会话怎么回放」。</p>
+
+  <h2>30.2 → 96.2：权重没动，环境变了</h2>
+  <p><img src="/assets/blog-wechat/score-arc.png" alt="社区报道中的评测跃迁示意" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0"></p>
+  <p>反复被引用的 ARC-AGI-3 案例：ARC Prize 口径下 Opus 一类基线大约 <strong>30.2%</strong>；开发者 Jeremy Berman 换上接近 Claude Code 的环境、动作通道和文件系统日志，让模型写解析器、搜索、模拟器，公开关卡上冲到约 <strong>96.2%</strong>（有报道写到单次 24/25）。上百个程序、近万行代码——仍然是<strong>同一套权重</strong>。</p>
+  <p>跳升的不是「卡片上的智商」，而是<strong>模型在两次猜测之间被允许做什么</strong>：落盘、迭代、给问题装仪表。普通人听见「模型变强了」；做系统的人该听见「运行时把动作空间放开了」。</p>
+
+  <h2>为什么 Harness 才是黏性层</h2>
+  <p>前沿分数会继续互咬，价格会继续挤压。一旦运行时吞下你的插件、权限、项目目录、缓存策略和失败回放，迁移成本就会长出来。上游模型可以换；团队已经养成的干活方式很少会整包扔掉。</p>
+  <p>DeepSeek Harness 押的就是这层：工具/策略/存储/上下文的 Cordis 接缝、Trajectory 事件级回放、可见的 token/缓存表、能比「再挂一个 MCP」更深的社区插件。UI 细节仍落后于 Codex 一类壳——早期生态经常是刻意粗糙的。</p>
+
+  <h2>我们在 dshbase 怎么用这个判断</h2>
+  <ul>
+    <li>只是尝鲜 V4 Pro：看价格、接口形态、工具调用，能不能塞进你已有的工具链。</li>
+    <li>要做长期 Agent 工作流：要会话回放、权限边界、缓存可见、可审计的插件故事——从 <a href={trajUrl}>Trajectory 追踪</a> 和 <a href={costUrl}>成本与缓存</a> 开始。</li>
+    <li>装社区插件：把「在我机器上真能跑」当成产品。我们的 <a href={directoryUrl}>目录</a> 只在真实安装路径通过后标已验证——可插拔运行时如果没有安装真相，就只是更长的 README。</li>
+  </ul>
+
+  <h2>结论</h2>
+  <p>模型发布会给你能力上限；Harness 决定你能不能把上限压进周二下午的活。便宜模型很多，能把模型变成系统的运行时不多。下一轮要看的，不只是下一份第三方榜单，而是有没有几个 DSH 插件变成普通开发者离不开的承重墙。</p>
+</BlogPost>
