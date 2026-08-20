@@ -22980,7 +22980,7 @@
    "pkg": "dsh-dir-tree",
    "ver": "0.1.0",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "Floating workspace directory tree for DeepSeek Harness: drag-drop file paths into chat, lazy-load, search, and auto-follow workspace switches.",
    "desc_en": "Floating workspace directory tree for DeepSeek Harness: drag-drop file paths into chat, lazy-load, search, and auto-follow workspace switches.",
    "desc_zh": "DSH 浮窗工作区目录树插件：拖拽文件/文件夹路径到对话框、懒加载展开、搜索过滤，切换工作区/会话自动跟随。",
@@ -22994,6 +22994,9 @@
    "license": "MIT",
    "slug": "dsh-dir-tree",
    "platform": "any",
+   "webonly": false,
+   "testDate": "2026-08-20",
+   "note": "Headless is web-only (waiting for connection). Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
    "repoOwner": "bentong-chain"
   }
  ],
