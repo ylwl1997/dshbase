@@ -90,6 +90,24 @@
   ]
  },
  {
+  "github": "denial123789",
+  "avatar": "https://avatars.githubusercontent.com/u/269935157?v=4",
+  "plugins": [
+   {
+    "name": "@sandbaseai/dsh-plugin-store",
+    "slug": "sandbaseai-dsh-plugin-store",
+    "npm": false,
+    "pkg": ""
+   },
+   {
+    "name": "sandbase-harness",
+    "slug": "sandbase-harness",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "maxwell-feng",
   "avatar": "https://avatars.githubusercontent.com/u/149435110?v=4",
   "plugins": [
@@ -162,18 +180,6 @@
   ]
  },
  {
-  "github": "biubiukam",
-  "avatar": "https://avatars.githubusercontent.com/u/23185852?v=4",
-  "plugins": [
-   {
-    "name": "dsh-runtime-nutrition-label",
-    "slug": "dsh-runtime-nutrition-label",
-    "npm": true,
-    "pkg": "dsh-runtime-nutrition-label"
-   }
-  ]
- },
- {
   "github": "bentong-chain",
   "avatar": "https://avatars.githubusercontent.com/u/143051734?v=4",
   "plugins": [
@@ -182,6 +188,18 @@
     "slug": "dsh-dir-tree",
     "npm": true,
     "pkg": "dsh-dir-tree"
+   }
+  ]
+ },
+ {
+  "github": "biubiukam",
+  "avatar": "https://avatars.githubusercontent.com/u/23185852?v=4",
+  "plugins": [
+   {
+    "name": "dsh-runtime-nutrition-label",
+    "slug": "dsh-runtime-nutrition-label",
+    "npm": true,
+    "pkg": "dsh-runtime-nutrition-label"
    }
   ]
  },
@@ -206,24 +224,6 @@
     "slug": "dsh-plugin-observatory",
     "npm": true,
     "pkg": "dsh-plugin-observatory"
-   }
-  ]
- },
- {
-  "github": "denial123789",
-  "avatar": "https://avatars.githubusercontent.com/u/269935157?v=4",
-  "plugins": [
-   {
-    "name": "sandbase-harness",
-    "slug": "sandbase-harness",
-    "npm": false,
-    "pkg": ""
-   },
-   {
-    "name": "@sandbaseai/dsh-plugin-store",
-    "slug": "sandbaseai-dsh-plugin-store",
-    "npm": false,
-    "pkg": ""
    }
   ]
  },
