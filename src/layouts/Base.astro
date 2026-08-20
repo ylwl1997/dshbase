@@ -7,9 +7,11 @@ interface Props {
   title: string;
   description: string;
   currentPath: string;
+  /** Override robots meta (e.g. noindex on 404). Default: index, follow. */
+  robots?: string;
 }
 
-const { title, description, currentPath } = Astro.props;
+const { title, description, currentPath, robots = 'index, follow, max-image-preview:large' } = Astro.props;
 const locale = Astro.currentLocale ?? 'en';
 const htmlLang = locale === 'en' ? 'en' : 'zh-CN';
 const canonical = getAbsoluteLocaleUrl(locale, currentPath);
@@ -33,7 +35,7 @@ const t = {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{title}</title>
   <meta name="description" content={description}>
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="robots" content={robots}>
   <link rel="canonical" href={canonical}>
   <link rel="alternate" hreflang="en" href={enUrl}>
   <link rel="alternate" hreflang="zh-CN" href={zhUrl}>

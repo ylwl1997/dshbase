@@ -1,0 +1,6 @@
+# Cloudflare Pages — serve real 404.html for unknown paths (NOT SPA soft-404).
+# Soft-404 (200 + homepage) caused GSC “noindex” / “alternate canonical” noise
+# on deleted plugin URLs like /plugins/LiuHe/.
+name = "dshbase"
+compatibility_date = "2024-11-01"
+pages_build_output_dir = "dist"

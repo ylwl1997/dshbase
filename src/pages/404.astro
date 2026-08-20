@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+Astro.response.status = 404;
+
+const locale = Astro.currentLocale ?? 'en';
+const isZh = locale === 'zh';
+const dirUrl = getRelativeLocaleUrl(locale, '/plugins/directory/');
+const homeUrl = getRelativeLocaleUrl(locale, '/');
+const packsUrl = getRelativeLocaleUrl(locale, '/packs/');
+---
+<Base
+  title={isZh ? '页面未找到 (404) | dshbase' : 'Page not found (404) | dshbase'}
+  description={isZh
+    ? '该网址不存在或插件已从目录移除。请从插件目录或场景包继续浏览。'
+    : 'This URL does not exist or the plugin was removed from the directory. Browse the plugin directory or scene packs instead.'}
+  currentPath="/"
+  robots="noindex, follow"
+>
+  <section class="hero wrap">
+    <p class="eyebrow">404</p>
+    <h1>{isZh ? '页面不存在' : 'Page not found'}</h1>
+    <p class="lede">
+      {isZh
+        ? '链接可能已失效，或该插件已从目录下架。请不要收藏已删除的插件详情页——它们现在会返回真正的 404。'
+        : 'The link may be outdated, or the plugin was removed from the catalog. Deleted plugin URLs now return a real 404 (not the homepage).'}
+    </p>
+    <p class="cta-row">
+      <a class="btn" href={dirUrl}>{isZh ? '插件目录' : 'Plugin directory'}</a>
+      <a class="btn btn-ghost" href={packsUrl}>{isZh ? '场景包' : 'Scene packs'}</a>
+      <a class="btn btn-ghost" href={homeUrl}>{isZh ? '首页' : 'Home'}</a>
+    </p>
+  </section>
+</Base>
+
+<style>
+  .cta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+</style>
