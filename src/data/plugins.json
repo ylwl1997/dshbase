@@ -22953,9 +22953,9 @@
    "name": "@sandbaseai/dsh-plugin-store",
    "url": "https://github.com/sandbaseai/dsh-plugin-store",
    "pkg": "",
-   "ver": "",
+   "ver": "0.1.0-preview.5",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Native plugin marketplace for DeepSeek Harness: discover, filter, install, and manage 4,000+ community plugin packages.",
    "desc_en": "Native plugin marketplace for DeepSeek Harness: discover, filter, install, and manage 4,000+ community plugin packages.",
    "desc_zh": "DeepSeek Harness 原生插件市场：Settings 内 Community/Installed 视图、搜索筛选分页，以及受限一键安装。",
@@ -22969,7 +22969,9 @@
    "license": "MIT",
    "slug": "sandbaseai-dsh-plugin-store",
    "platform": "any",
-   "note": "Scoped catalog name to distinguish from wink-run/dsh-plugin-store. Not on npm; author ships preview tarball v0.1.0-preview.5. Author-reported on DSH 0.1.0-rc.8; our verify host is 0.1.0-rc.6.",
+   "webonly": false,
+   "testDate": "2026-08-20",
+   "note": "Scoped catalog name to distinguish from wink-run/dsh-plugin-store. Not on npm; git install resolved @sandbaseai/dsh-plugin-store@0.1.0-preview.5. Headless is web-only (waiting for webServer). Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
    "repoOwner": "sandbaseai"
   }
  ],
