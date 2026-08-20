@@ -1,0 +1,98 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import packsData from '../../data/packs.json';
+import plugins from '../../data/plugins.json';
+
+const auditUrl = getRelativeLocaleUrl('en', '/audit/');
+const dirUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const catalogUrl = getRelativeLocaleUrl('en', '/plugins/dshbase-catalog/');
+
+const bySlug = {};
+Object.values(plugins).flat().forEach((p) => { bySlug[p.slug] = p; });
+
+function resolvePack(pack) {
+  return {
+    ...pack,
+    slots: pack.slots.map((s) => {
+      const p = bySlug[s.slug];
+      const ok = p && p.test === 'verified';
+      return {
+        ...s,
+        plugin: p || null,
+        ok,
+        install: p
+          ? (p.npm && p.pkg ? `dsh plugin add ${p.pkg}` : `dsh plugin add github:${(p.url || '').replace('https://github.com/', '')}`)
+          : '',
+      };
+    }),
+  };
+}
+
+const packs = packsData.packs.map(resolvePack);
+const allOk = packs.every((p) => p.slots.every((s) => s.ok));
+---
+<Base
+  title="Verified Scene Packs for DeepSeek Harness | dshbase"
+  description="Curated DSH plugin packs where every slot is L3-verified on dshbase — not highest stars, not topic counts."
+  currentPath="/packs/"
+>
+  <section class="hero wrap">
+    <p class="eyebrow">Scene packs</p>
+    <h1>Verified-only <span class="accent">scene packs</span></h1>
+    <p class="lede">Each pack fills capability slots with plugins that passed our L1 install + L2 load + L3 runtime tests. We never pick a pending plugin just because it has more stars. See <a href={auditUrl}>how we audit</a>.</p>
+    {!allOk && <p class="lede warn">Some slots need refresh — a slug left verified status. Check the cards marked pending below.</p>}
+  </section>
+
+  <section class="info wrap">
+    {packs.map((pack) => (
+      <article class="pack">
+        <header class="pack-head">
+          <h2>{pack.title_en}</h2>
+          <p>{pack.desc_en}</p>
+          <span class="pack-count">{pack.slots.length} verified slots</span>
+        </header>
+        <ul class="slot-list">
+          {pack.slots.map((s) => (
+            <li class={`slot ${s.ok ? 'ok' : 'bad'}`}>
+              <div class="slot-meta">
+                <span class="slot-label">{s.label_en}</span>
+                {s.ok ? <span class="pill ok">Verified</span> : <span class="pill bad">Missing / pending</span>}
+              </div>
+              {s.plugin ? (
+                <>
+                  <a class="slot-name" href={`/plugins/${s.plugin.slug}/`}>{s.plugin.name}</a>
+                  <pre class="code-block"><code>{s.install}</code></pre>
+                </>
+              ) : (
+                <p class="muted">Slug <code>{s.slug}</code> not found or not verified.</p>
+              )}
+            </li>
+          ))}
+        </ul>
+      </article>
+    ))}
+
+    <p style="margin-top:28px">Prefer browsing everything? Open the <a href={dirUrl}>plugin directory</a>. Want discovery inside DSH? Install <a href={catalogUrl}>dshbase-catalog</a>.</p>
+  </section>
+</Base>
+
+<style>
+  .warn { color: #9a3412; }
+  .pack { border: 1px solid var(--border); border-radius: 14px; padding: 20px 22px; margin: 0 0 20px; background: var(--bg-card, #fff); }
+  .pack-head h2 { margin: 0 0 6px; font-size: 22px; }
+  .pack-head p { margin: 0 0 8px; color: var(--ink-2); }
+  .pack-count { font-size: 12px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .04em; }
+  .slot-list { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 12px; }
+  .slot { border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+  .slot.bad { border-color: #fed7aa; background: #fffbeb; }
+  .slot-meta { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .slot-label { font-size: 12px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .04em; }
+  .slot-name { font-weight: 700; color: var(--ink); text-decoration: none; }
+  .slot-name:hover { color: var(--primary); }
+  .pill { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; }
+  .pill.ok { background: #ecfdf5; color: #047857; }
+  .pill.bad { background: #fff7ed; color: #9a3412; }
+  .code-block { margin: 8px 0 0; font-size: 12.5px; }
+  .muted { color: var(--ink-3); font-size: 13px; }
+</style>

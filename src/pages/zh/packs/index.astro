@@ -1,0 +1,98 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import packsData from '../../../data/packs.json';
+import plugins from '../../../data/plugins.json';
+
+const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
+const dirUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const catalogUrl = getRelativeLocaleUrl('zh', '/plugins/dshbase-catalog/');
+
+const bySlug = {};
+Object.values(plugins).flat().forEach((p) => { bySlug[p.slug] = p; });
+
+function resolvePack(pack) {
+  return {
+    ...pack,
+    slots: pack.slots.map((s) => {
+      const p = bySlug[s.slug];
+      const ok = p && p.test === 'verified';
+      return {
+        ...s,
+        plugin: p || null,
+        ok,
+        install: p
+          ? (p.npm && p.pkg ? `dsh plugin add ${p.pkg}` : `dsh plugin add github:${(p.url || '').replace('https://github.com/', '')}`)
+          : '',
+      };
+    }),
+  };
+}
+
+const packs = packsData.packs.map(resolvePack);
+const allOk = packs.every((p) => p.slots.every((s) => s.ok));
+---
+<Base
+  title="已验证场景包 — DeepSeek Harness | dshbase 中文"
+  description="dshbase 场景包：每个槽位都是 L3 已验证插件，不按最高 Star 凑数。"
+  currentPath="/packs/"
+>
+  <section class="hero wrap">
+    <p class="eyebrow">场景包</p>
+    <h1>仅含<span class="accent">已验证</span>插件的场景包</h1>
+    <p class="lede">每个能力槽位只收通过 L1 安装 + L2 加载 + L3 运行实测的插件。绝不用 pending 条目凑「最高 Star」。详见<a href={auditUrl}>审计方法</a>。</p>
+    {!allOk && <p class="lede warn">部分槽位需要刷新——有 slug 已不再是 verified，见下方标记。</p>}
+  </section>
+
+  <section class="info wrap">
+    {packs.map((pack) => (
+      <article class="pack">
+        <header class="pack-head">
+          <h2>{pack.title_zh}</h2>
+          <p>{pack.desc_zh}</p>
+          <span class="pack-count">{pack.slots.length} 个已验证槽位</span>
+        </header>
+        <ul class="slot-list">
+          {pack.slots.map((s) => (
+            <li class={`slot ${s.ok ? 'ok' : 'bad'}`}>
+              <div class="slot-meta">
+                <span class="slot-label">{s.label_zh}</span>
+                {s.ok ? <span class="pill ok">已验证</span> : <span class="pill bad">缺失 / 待验证</span>}
+              </div>
+              {s.plugin ? (
+                <>
+                  <a class="slot-name" href={`/zh/plugins/${s.plugin.slug}/`}>{s.plugin.name}</a>
+                  <pre class="code-block"><code>{s.install}</code></pre>
+                </>
+              ) : (
+                <p class="muted">Slug <code>{s.slug}</code> 不存在或未验证。</p>
+              )}
+            </li>
+          ))}
+        </ul>
+      </article>
+    ))}
+
+    <p style="margin-top:28px">想浏览全部？打开<a href={dirUrl}>插件目录</a>。想在 DSH 内发现？安装 <a href={catalogUrl}>dshbase-catalog</a>。</p>
+  </section>
+</Base>
+
+<style>
+  .warn { color: #9a3412; }
+  .pack { border: 1px solid var(--border); border-radius: 14px; padding: 20px 22px; margin: 0 0 20px; background: var(--bg-card, #fff); }
+  .pack-head h2 { margin: 0 0 6px; font-size: 22px; }
+  .pack-head p { margin: 0 0 8px; color: var(--ink-2); }
+  .pack-count { font-size: 12px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .04em; }
+  .slot-list { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 12px; }
+  .slot { border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+  .slot.bad { border-color: #fed7aa; background: #fffbeb; }
+  .slot-meta { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .slot-label { font-size: 12px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .04em; }
+  .slot-name { font-weight: 700; color: var(--ink); text-decoration: none; }
+  .slot-name:hover { color: var(--primary); }
+  .pill { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; }
+  .pill.ok { background: #ecfdf5; color: #047857; }
+  .pill.bad { background: #fff7ed; color: #9a3412; }
+  .code-block { margin: 8px 0 0; font-size: 12.5px; }
+  .muted { color: var(--ink-3); font-size: 13px; }
+</style>

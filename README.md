@@ -64,9 +64,18 @@ Scripts in `scripts/` (require `GITHUB_TOKEN`, some also `DEEPSEEK_API_KEY`):
 # verify + ingest one plugin (global dedup by name/repo)
 python scripts/ingest-plugin.py https://github.com/owner/repo --category "Tools & Capabilities"
 
+# Hub catalog as *clues only* → ingest pending (never auto-verified)
+python scripts/import-hub-candidates.py              # dry-run top gaps
+python scripts/import-hub-candidates.py --ingest --limit 20
+
+# export lightweight in-DSH catalog (+ verified-only packs)
+python scripts/gen-catalog.py /path/to/dshbase-catalog/src/catalog.json
+
 # refresh stars from the official topic
 python scripts/sync-topic.py
 ```
+
+In-DSH discovery: install `dsh plugin add dshbase-catalog` — see [docs/dshbase-catalog.md](docs/dshbase-catalog.md). Scene packs (verified-only): `/packs/`.
 
 ## 📄 License
 

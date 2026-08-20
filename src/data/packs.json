@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-20",
+  "rule": "Every slot must reference a plugins.json entry with test=verified. Never pick highest-star pending.",
+  "packs": [
+    {
+      "id": "dev-workbench",
+      "title_en": "Dev workbench",
+      "title_zh": "开发工作台",
+      "desc_en": "Usage visibility, a solid TUI, LSP actions, and Git graph — all L3-verified.",
+      "desc_zh": "用量可见、可靠 TUI、LSP 动作与 Git 图——全部 L3 已验证。",
+      "slots": [
+        { "id": "tokenUsage", "label_en": "Token usage", "label_zh": "Token 用量", "slug": "TokenLedger" },
+        { "id": "tui", "label_en": "CLI / TUI", "label_zh": "CLI / TUI", "slug": "dsh-cc-tui" },
+        { "id": "lsp", "label_en": "LSP actions", "label_zh": "LSP 能力", "slug": "dsh-lsp-actions" },
+        { "id": "git", "label_en": "Git tools", "label_zh": "Git 工具", "slug": "dsh-git-graph" }
+      ]
+    },
+    {
+      "id": "vision",
+      "title_en": "Vision for text-only models",
+      "title_zh": "纯文本模型视觉外挂",
+      "desc_en": "Paste images, OCR, and route vision tools — verified on dsh 0.1.0-rc.6.",
+      "desc_zh": "贴图、OCR、视觉路由——均在 dsh 0.1.0-rc.6 实测通过。",
+      "slots": [
+        { "id": "modlens", "label_en": "Vision bridge", "label_zh": "视觉桥", "slug": "modlens" },
+        { "id": "toolkit", "label_en": "Vision toolkit", "label_zh": "视觉工具箱", "slug": "dsh-vision-toolkit" },
+        { "id": "router", "label_en": "Vision router", "label_zh": "视觉路由", "slug": "dsh-vision-router" }
+      ]
+    },
+    {
+      "id": "memory",
+      "title_en": "Long-term memory",
+      "title_zh": "长期记忆",
+      "desc_en": "Cross-session memory plugins that passed our install tests.",
+      "desc_zh": "跨会话记忆插件——仅收录 L3 已验证条目。",
+      "slots": [
+        { "id": "evolve", "label_en": "Memory evolve", "label_zh": "记忆进化", "slug": "dsh-memory-evolve" },
+        { "id": "mnemon", "label_en": "Mnemon", "label_zh": "Mnemon", "slug": "dsh-mnemon" },
+        { "id": "core", "label_en": "Core memory", "label_zh": "核心记忆", "slug": "dsh-memory" }
+      ]
+    },
+    {
+      "id": "im",
+      "title_en": "IM bridges",
+      "title_zh": "IM 接入",
+      "desc_en": "Reach Feishu, WeChat, Telegram, and DingTalk — verified installs only.",
+      "desc_zh": "飞书、微信、Telegram、钉钉——只收已验证安装。",
+      "slots": [
+        { "id": "feishu", "label_en": "Feishu", "label_zh": "飞书", "slug": "dsh-feishu" },
+        { "id": "wechat", "label_en": "WeChat", "label_zh": "微信", "slug": "dsh-plugin-wechat" },
+        { "id": "telegram", "label_en": "Telegram", "label_zh": "Telegram", "slug": "dsh-telegram-channel" },
+        { "id": "dingtalk", "label_en": "DingTalk", "label_zh": "钉钉", "slug": "dsh-dingtalk" }
+      ]
+    },
+    {
+      "id": "security",
+      "title_en": "Security & audit",
+      "title_zh": "安全与审计",
+      "desc_en": "Local audits and scan packs that we actually ran.",
+      "desc_zh": "本地审计与扫描包——我们真跑过。",
+      "slots": [
+        { "id": "audit", "label_en": "Security audit", "label_zh": "安全审计", "slug": "dsh-security-audit" },
+        { "id": "scan", "label_en": "Security scan", "label_zh": "安全扫描", "slug": "dsh-security-scan" },
+        { "id": "pack", "label_en": "Security skill pack", "label_zh": "安全技能包", "slug": "dsh-skill-pack-security" }
+      ]
+    },
+    {
+      "id": "ui-polish",
+      "title_en": "UI polish",
+      "title_zh": "界面美化",
+      "desc_en": "Sidebar foundation plus catalog discovery inside DSH.",
+      "desc_zh": "侧边栏底座 + 站内目录发现。",
+      "slots": [
+        { "id": "sidebar", "label_en": "Better sidebar", "label_zh": "更好侧边栏", "slug": "DSH-better-sidebar" },
+        { "id": "catalog", "label_en": "In-DSH catalog", "label_zh": "站内目录", "slug": "dshbase-catalog" },
+        { "id": "tui", "label_en": "Featured TUI", "label_zh": "精选 TUI", "slug": "dsh-cc-tui" }
+      ]
+    }
+  ]
+}

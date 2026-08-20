@@ -1,0 +1,71 @@
+# Sync plugins.json → dshbase-catalog (lightweight in-DSH discovery)
+
+name: Sync dshbase-catalog
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/data/plugins.json'
+      - 'src/data/packs.json'
+      - 'scripts/gen-catalog.py'
+      - '.github/workflows/sync-catalog.yml'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate catalog.json
+        run: |
+          mkdir -p dist-catalog
+          python3 scripts/gen-catalog.py dist-catalog/catalog.json
+
+      - name: Upload catalog artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dshbase-catalog-json
+          path: dist-catalog/catalog.json
+
+      - name: Push to dshbase-catalog repo
+        env:
+          CATALOG_REPO_TOKEN: ${{ secrets.CATALOG_REPO_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          # Prefer CATALOG_REPO_TOKEN (PAT with repo scope on ylwl1997/dshbase-catalog).
+          GH_TOKEN="${CATALOG_REPO_TOKEN:-$GITHUB_TOKEN}"
+          if [ -z "$GH_TOKEN" ]; then
+            echo "No token — artifact uploaded only."
+            exit 0
+          fi
+          git clone --depth 1 "https://x-access-token:${GH_TOKEN}@github.com/ylwl1997/dshbase-catalog.git" /tmp/dshbase-catalog || {
+            echo "Clone failed — keep artifact; set CATALOG_REPO_TOKEN secret for auto-push."
+            exit 0
+          }
+          mkdir -p /tmp/dshbase-catalog/src
+          cp dist-catalog/catalog.json /tmp/dshbase-catalog/src/catalog.json
+          # Keep install docs in sync when present in dshbase
+          if [ -f docs/dshbase-catalog.md ]; then
+            cp docs/dshbase-catalog.md /tmp/dshbase-catalog/SYNC.md
+          fi
+          cd /tmp/dshbase-catalog
+          git config user.name "dshbase-bot"
+          git config user.email "bot@dshbase.com"
+          git add src/catalog.json
+          git add -A SYNC.md 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No catalog changes."
+            exit 0
+          fi
+          git commit -m "chore: sync catalog from dshbase $(date -u +%Y-%m-%d)"
+          git push origin HEAD:main

@@ -64,9 +64,18 @@ npm run build     # 输出到 dist/
 # 验证 + 收录一个插件（全局去重）
 python scripts/ingest-plugin.py https://github.com/owner/repo --category "Tools & Capabilities"
 
+# Hub 目录仅作线索 → 写入 pending（绝不自动标 verified）
+python scripts/import-hub-candidates.py
+python scripts/import-hub-candidates.py --ingest --limit 20
+
+# 导出轻量 in-DSH catalog（含仅已验证场景包）
+python scripts/gen-catalog.py /path/to/dshbase-catalog/src/catalog.json
+
 # 从官方 topic 刷新 Star
 python scripts/sync-topic.py
 ```
+
+DSH 内发现：`dsh plugin add dshbase-catalog` — 见 [docs/dshbase-catalog.md](docs/dshbase-catalog.md)。场景包（仅已验证）：`/packs/`。
 
 ## 📄 License
 

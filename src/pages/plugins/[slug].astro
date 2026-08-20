@@ -184,7 +184,7 @@ const jsonLd = {
             <strong>🧩 Let your agent install it (recommended)</strong>
             <p>Install the catalog once, then DeepSeek Harness can find and install any plugin from this site automatically:</p>
             <pre class="code-block"><code>dsh plugin add dshbase-catalog</code></pre>
-            <p class="muted small">Then say <em>"install {p.name} for me"</em> — your agent finds it in the directory and installs it.</p>
+            <p class="muted small">Then say <em>"install {p.name} for me"</em> — your agent finds it in the directory and installs it. Docs: <a href="https://github.com/ylwl1997/dshbase/blob/main/docs/dshbase-catalog.md">dshbase-catalog</a> · <a href="/packs/">verified packs</a>.</p>
           </div>
         )}
         {p.npm && p.pkg ? (
@@ -196,9 +196,19 @@ const jsonLd = {
             <h2 style="margin-top:20px">Package</h2>
             <p>npm: <a href={npmHome} target="_blank" rel="noopener">{p.pkg}</a> · version <strong>{p.ver || '—'}</strong> · tested on dsh <strong>0.1.0-rc.6</strong></p>
             <h2 style="margin-top:20px">Test report</h2>
-            <p>{p.test === 'verified' && 'Verified end-to-end: installed via `dsh plugin add`, activated in the profile, and booted a task successfully.'}
-               {p.test === 'pending' && 'Not yet verified — install and test it yourself, or check back later.'}
+            <p>{p.test === 'verified' && 'Verified end-to-end: L1 install + L2 load + L3 runtime Q&A on dsh 0.1.0-rc.6.'}
+               {p.test === 'pending' && 'Not yet L3-verified — see failure note below if we already ran it.'}
 </p>
+            {p.test === 'pending' && (
+              <div class="honest-note">
+                <strong>Status:</strong> pending
+                {p.testDate ? <> · last test <code>{p.testDate}</code></> : null}
+                {p.webonly ? <> · flagged webonly</> : null}
+                <br />
+                <strong>Note:</strong> {p.note || 'No failure note yet — queued or not yet run.'}
+                {' '}<a href="/audit/#pending">Browse all pending failures →</a>
+              </div>
+            )}
             {p.bareNpm === 'missing-dep' && (
               <p class="honest-note">⚠ A bare <code>npm install {p.pkg}</code> fails to import this package — a dependency is likely declared under <code>devDependencies</code> instead of <code>dependencies</code>, so it only installs cleanly via <code>dsh plugin add</code>.</p>
             )}
@@ -219,9 +229,19 @@ const jsonLd = {
             {p.test !== 'not-on-npm' && (
               <Fragment>
                 <h2 style="margin-top:20px">Test report</h2>
-                <p>{p.test === 'verified' && 'Verified: installed from GitHub, activated in the profile, and booted a task successfully.'}
-                   {p.test === 'pending' && 'Not yet verified — install and test it yourself.'}
+                <p>{p.test === 'verified' && 'Verified: L1 install + L2 load + L3 runtime from GitHub source on dsh 0.1.0-rc.6.'}
+                   {p.test === 'pending' && 'Not yet L3-verified — see failure note below if we already ran it.'}
 </p>
+                {p.test === 'pending' && (
+                  <div class="honest-note">
+                    <strong>Status:</strong> pending
+                    {p.testDate ? <> · last test <code>{p.testDate}</code></> : null}
+                    {p.webonly ? <> · flagged webonly</> : null}
+                    <br />
+                    <strong>Note:</strong> {p.note || 'No failure note yet — queued or not yet run.'}
+                    {' '}<a href="/audit/#pending">Browse all pending failures →</a>
+                  </div>
+                )}
               </Fragment>
             )}
           </Fragment>

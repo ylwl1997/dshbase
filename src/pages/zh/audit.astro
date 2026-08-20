@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import plugins from '../../data/plugins.json';
 import syncDate from '../../data/sync-date.json';
+import { pendingFailRows, FAIL_LABELS_ZH } from '../../lib/audit-fail.js';
 
 const catOrder = Object.keys(plugins);
 const all = catOrder.flatMap((k) => plugins[k]);
@@ -20,6 +21,11 @@ const fmt = (n) => n.toLocaleString('en-US');
 const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
 const pluginsUrl = getRelativeLocaleUrl('zh', '/plugins/');
 
+const failRows = pendingFailRows(plugins);
+const failCounts = {};
+failRows.forEach((r) => { failCounts[r.failClass] = (failCounts[r.failClass] || 0) + 1; });
+const failOrder = ['install-fail', 'load-fail', 'runtime-fail', 'webonly', 'external-deps', 'other', 'untested'];
+
 const stats = [
   { n: fmt(total), label: '插件' },
   { n: fmt(nCats), label: '分类' },
@@ -33,7 +39,7 @@ const report = {
   method: [
     { k: 'L1 · 安装', v: '插件在干净 profile 里，与固定版本的 DSH 运行时一起安装。' },
     { k: 'L2 · 加载', v: 'profile 成功启动并导出配置。' },
-    { k: 'L3 · 运行', v: '载入插件后跑一句 headless 问答；必须干净退出并返回预期答案。' },
+    { k: 'L3 · 运行', v: '载入插件后跑一句 headless 问答；必须干净退出并返回预期答案。仅 GUI 插件走 webonly CDP。' },
   ],
   results: [
     { n: '551', label: '通过', ok: true },
@@ -62,13 +68,13 @@ const report = {
 
 <Base
   title="我们如何审计插件 — dshbase 验证方法 | dshbase 中文"
-  description="dshbase 目录里的每个 DeepSeek Harness 插件都经过来源、生态归属、元数据三重审计，并带明确的已验证/待验证状态。这里是我们的方法。"
+  description="dshbase 的已验证 = L1 安装 + L2 加载 + L3 运行，不是 topic 计数。可按失败类型浏览待验证插件。"
   currentPath="/audit/"
 >
   <section class="hero wrap">
     <p class="eyebrow">插件审计</p>
     <h1>我们如何审计<span class="accent">每一个插件</span></h1>
-    <p class="lede">目录的可信度，取决于它最薄弱的那一条。dshbase 上架的每个插件，发布前都要过三道独立审计，每条都带明确的验证状态——让你始终清楚什么已实测、什么还在待验证。</p>
+    <p class="lede"><strong>已验证</strong>表示在 dsh 0.1.0-rc.6 上跑过 L1 安装 + L2 加载 + L3 运行问答——不是 topic 计数，也不是「清单能解析」。待验证条目若有失败备注，会公开列出。</p>
   </section>
 
   <section class="wrap audit-stats">
@@ -81,44 +87,71 @@ const report = {
   </section>
 
   <section class="info wrap">
-    <p class="as-of">数据截至 {syncDate.updated} · 每次构建时从<a href="https://github.com/ylwl1997/dshbase" rel="noopener">插件数据集</a>实时重算。</p>
+    <p class="as-of">数据截至 {syncDate.updated} · 每次构建从<a href="https://github.com/ylwl1997/dshbase" rel="noopener">插件数据集</a>重算。</p>
+
+    <h2>「已验证」是什么意思</h2>
+    <p>上架回答「该不该出现在这里？」；验证回答「能不能真跑起来？」有的目录把「可安装」也标成已验证。我们这里：</p>
+    <ul>
+      {report.method.map((m) => (
+        <li><strong>{m.k}</strong> — {m.v}</li>
+      ))}
+    </ul>
+    <ul>
+      <li><strong><code>verified</code></strong> — 三关通过（或 GUI 插件的 webonly CDP L3）。</li>
+      <li><strong><code>pending</code></strong> — 已上架但未 L3 通过（或上次失败——见备注）。</li>
+      <li><strong>信任等级</strong>只是辅助；star 只表示热度。</li>
+    </ul>
 
     <h2>上架前的三道审计</h2>
-    <p>我们不是抓个列表就发布。每条在进入<a href={directoryUrl}>目录</a>之前，都要按三条标准核对。</p>
-
+    <p>出现在<a href={directoryUrl}>目录</a>之前，每条都过这三关。</p>
     <div class="grid3">
       <div class="card">
         <h3>1 · 来源审计</h3>
-        <p>每条都必须对应一个真实、可访问的 GitHub 仓库。改名、删除或不可达的仓库会被移除——目录里不留死链。</p>
+        <p>必须对应真实可达的 GitHub 仓库；改名、删除、不可达的条目会下架。</p>
       </div>
       <div class="card">
-        <h3>2 · 生态归属审计</h3>
-        <p>插件必须真正属于 DeepSeek Harness 生态。我们核对 DSH 专属清单（<code>cordis.patch.yml</code>、<code>dsh.bundle</code> 等根级标记）与对 DSH 的明确依赖，而不是只看仓库名或 topic 标签。只借标签、名不符实的仓库会被剔除。</p>
+        <h3>2 · 生态审计</h3>
+        <p>DSH 清单（<code>cordis.patch.yml</code>、<code>dsh.bundle</code> 等）与 DSH 依赖——不只是仓库名或 topic。</p>
       </div>
       <div class="card">
         <h3>3 · 元数据审计</h3>
-        <p>license、star/forks/issues、最近更新时间、语言、archived 状态逐条记录，直接展示在每张插件卡片上。</p>
+        <p>协议、star、fork、issue、更新时间、语言、是否 archived，直接展示在卡片上。</p>
       </div>
     </div>
 
-    <h2>我们如何验证</h2>
-    <p>审计回答「它该不该在这里」，验证回答「它到底能不能跑」。</p>
-    <ul>
-      <li><strong>安装验证（<code>verified</code> / <code>pending</code>）</strong>——最关键的证据。<strong>已验证</strong>指我们在干净 profile 里实测安装并成功启动；<strong>待验证</strong>指按仓库收录、尚未实测。两者绝不混为一谈，每张卡片都明确标注属于哪一种。</li>
-      <li><strong>信任分级（<code>Silver</code> / <code>Bronze</code> / <code>Unrated</code>）</strong>——一个简明的信心信号，是安装验证的补充。分级是起点，不是定论。</li>
-      <li><strong>热度不等于背书</strong>——star、fork、issue 数取自 GitHub，只作热度参考。</li>
-    </ul>
-
-    <h2>全量验证报告 — 2026 年 8 月</h2>
-    <p>2026 年 8 月，我们把所有待验证插件在干净、隔离的 profile 里做了一次完整的三阶段实测。以下是结果。</p>
-    <h3>方法</h3>
-    <ul>
-      {report.method.map((m) => (
-        <li><strong>{m.k}</strong> —— {m.v}</li>
+    <h2 id="pending">待验证与失败浏览</h2>
+    <p>当前 <code>pending</code> {fmt(nPending)} 条。按备注解析出的失败类型筛选（实时数据，不是下方八月批次快照）。</p>
+    <div class="fail-filters" id="fail-filters" role="tablist" aria-label="按失败类型筛选">
+      <button type="button" class="fchip is-active" data-fail="all">全部 <b>{failRows.length}</b></button>
+      {failOrder.filter((k) => failCounts[k]).map((k) => (
+        <button type="button" class="fchip" data-fail={k}>{FAIL_LABELS_ZH[k]} <b>{failCounts[k]}</b></button>
       ))}
-    </ul>
-    <h3>范围</h3>
-    <p>923 个待验证条目 —— 878 个 GitHub 仓库 + 45 个 npm 包。</p>
+    </div>
+    <div class="fail-table-wrap">
+      <table class="fail-table" id="fail-table">
+        <thead>
+          <tr>
+            <th>插件</th>
+            <th>类型</th>
+            <th>最近测试</th>
+            <th>备注</th>
+          </tr>
+        </thead>
+        <tbody>
+          {failRows.map((r) => (
+            <tr data-fail={r.failClass}>
+              <td><a href={`/zh/plugins/${r.slug}/`}>{r.name}</a> <span class="muted small">{r.cat}</span></td>
+              <td><span class="fail-pill">{FAIL_LABELS_ZH[r.failClass] || r.failClass}</span></td>
+              <td>{r.testDate || '—'}</td>
+              <td class="fail-note">{r.note || '尚无失败备注——排队中或尚未跑过。'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <h2>全量验证批次 — 2026 年 8 月</h2>
+    <p>对当时 pending 条目的首轮三关快照。</p>
     <h3>结果</h3>
     <div class="report-results">
       {report.results.map((r) => (
@@ -128,27 +161,26 @@ const report = {
         </div>
       ))}
     </div>
-    <h3>其余为何未通过</h3>
-    <p>每条失败都从其安装日志归类。以下数字按去重后的唯一插件统计。</p>
+    <h3>未通过原因（批次）</h3>
     {report.causes.map((g) => (
       <div class="cause-group">
         <h4>{g.title}（{g.total}）</h4>
         <ul>
           {g.items.map(([n, d]) => (
-            <li><strong>{n}</strong> —— {d}</li>
+            <li><strong>{n}</strong> — {d}</li>
           ))}
         </ul>
       </div>
     ))}
 
-    <h2>我们对可靠性的态度</h2>
+    <h2>我们对可靠性的立场</h2>
     <ul>
-      <li><strong>收录不等于背书。</strong>进入目录只意味着它通过了上述审计、真实存在于 DSH 生态——仅此而已。</li>
-      <li><strong>持续审计。</strong>新插件入库时完整过一遍，已收录条目也按固定节奏复核。失效或已脱离生态的插件会被下架。</li>
-      <li><strong>诚实、可复现。</strong>每个判断都建立在可核查的证据上——清单文件、仓库状态、实测结果——而不是靠猜或批量爬取。</li>
+      <li><strong>上架不等于背书。</strong></li>
+      <li><strong>持续审计</strong>——收录时验证，并定期复测。</li>
+      <li><strong>可复核</strong>——清单、仓库状态与实测结果。</li>
     </ul>
 
-    <p>发现条目有误或插件已失效？<a href="mailto:hello@dshbase.com">告诉我们</a>，或<a href="https://github.com/ylwl1997/dshbase/issues/new?template=plugin-submission.yml" rel="noopener">提交 issue</a>。想亲眼看目录运作，去<a href={pluginsUrl}>插件指南</a>。</p>
+    <p>发现错误条目？<a href="mailto:hello@dshbase.com">告诉我们</a>，或<a href="https://github.com/ylwl1997/dshbase/issues/new?template=plugin-submission.yml" rel="noopener">开 Issue</a>。也可看<a href={pluginsUrl}>插件指南</a>。</p>
   </section>
 </Base>
 
@@ -170,4 +202,32 @@ const report = {
   .rstat span { font-size: 12px; color: var(--ink-2, #5b6472); text-transform: uppercase; letter-spacing: .04em; }
   .cause-group { margin: 18px 0; }
   .cause-group h4 { margin: 0 0 8px; font-size: 15px; color: var(--ink, #1f2733); }
+  .fail-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 14px; }
+  .fchip { font-size: 12.5px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-card, #fff); color: var(--ink-2); cursor: pointer; font-family: inherit; }
+  .fchip b { font-weight: 700; opacity: .6; }
+  .fchip:hover { color: var(--primary); border-color: var(--primary); }
+  .fchip.is-active { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .fchip.is-active b { opacity: .9; }
+  .fail-table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; }
+  .fail-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .fail-table th, .fail-table td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .fail-table th { background: #f8fafc; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-3); }
+  .fail-table tr[hidden] { display: none; }
+  .fail-note { color: var(--ink-2); max-width: 420px; line-height: 1.45; }
+  .fail-pill { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: #fff7ed; color: #9a3412; border: 1px solid #fed7aa; }
+  .muted { color: var(--ink-3); }
+  .small { font-size: 12px; }
 </style>
+
+<script>
+  const chips = document.querySelectorAll('#fail-filters .fchip');
+  const rows = document.querySelectorAll('#fail-table tbody tr');
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      chips.forEach((c) => c.classList.remove('is-active'));
+      chip.classList.add('is-active');
+      const f = chip.dataset.fail;
+      rows.forEach((row) => { row.hidden = f !== 'all' && row.dataset.fail !== f; });
+    });
+  });
+</script>

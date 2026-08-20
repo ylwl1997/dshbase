@@ -183,7 +183,7 @@ const jsonLd = {
             <strong>🧩 让 Agent 自动装（推荐）</strong>
             <p>装一次目录插件，之后本站所有插件都能让 DeepSeek Harness 自动找、自动装：</p>
             <pre class="code-block"><code>dsh plugin add dshbase-catalog</code></pre>
-            <p class="muted small">然后对 agent 说「帮我装 <em>{p.name}</em>」，它会在目录里找到并自动安装。</p>
+            <p class="muted small">然后对 agent 说「帮我装 <em>{p.name}</em>」，它会在目录里找到并自动安装。文档：<a href="https://github.com/ylwl1997/dshbase/blob/main/docs/dshbase-catalog.md">dshbase-catalog</a> · <a href="/zh/packs/">已验证场景包</a>。</p>
           </div>
         )}
         {p.npm && p.pkg ? (
@@ -195,8 +195,18 @@ const jsonLd = {
             <h2 style="margin-top:20px">包信息</h2>
             <p>npm：<a href={npmHome} target="_blank" rel="noopener">{p.pkg}</a> · 版本 <strong>{p.ver || '—'}</strong> · 实测环境 dsh <strong>0.1.0-rc.6</strong></p>
             <h2 style="margin-top:20px">实测报告</h2>
-            <p>{p.test === 'verified' && '端到端验证通过：`dsh plugin add` 安装成功、进入 profile 配置树、启动任务正常。'}
-               {p.test === 'pending' && '尚未验证——请自行安装测试，或稍后回来查看。'}</p>
+            <p>{p.test === 'verified' && '端到端验证通过：dsh 0.1.0-rc.6 上 L1 安装 + L2 加载 + L3 运行问答。'}
+               {p.test === 'pending' && '尚未 L3 验证——若已跑过，见下方失败备注。'}</p>
+            {p.test === 'pending' && (
+              <div class="honest-note">
+                <strong>状态：</strong>pending
+                {p.testDate ? <> · 最近测试 <code>{p.testDate}</code></> : null}
+                {p.webonly ? <> · 标记 webonly</> : null}
+                <br />
+                <strong>备注：</strong>{p.note || '尚无失败备注——排队中或尚未跑过。'}
+                {' '}<a href="/zh/audit/#pending">浏览全部待验证失败 →</a>
+              </div>
+            )}
             {p.bareNpm === 'missing-dep' && (
               <p class="honest-note">⚠ 裸 <code>npm install {p.pkg}</code> 无法导入该包——某个依赖可能被声明在 <code>devDependencies</code> 而非 <code>dependencies</code>，只有经 <code>dsh plugin add</code> 才能干净安装。</p>
             )}
@@ -217,8 +227,18 @@ const jsonLd = {
             {p.test !== 'not-on-npm' && (
               <Fragment>
                 <h2 style="margin-top:20px">实测报告</h2>
-                <p>{p.test === 'verified' && '验证通过：从 GitHub 安装成功、进入配置树、启动任务正常。'}
-                   {p.test === 'pending' && '尚未验证——请自行安装测试。'}</p>
+                <p>{p.test === 'verified' && '验证通过：从 GitHub 源码完成 L1 安装 + L2 加载 + L3 运行（dsh 0.1.0-rc.6）。'}
+                   {p.test === 'pending' && '尚未 L3 验证——若已跑过，见下方失败备注。'}</p>
+                {p.test === 'pending' && (
+                  <div class="honest-note">
+                    <strong>状态：</strong>pending
+                    {p.testDate ? <> · 最近测试 <code>{p.testDate}</code></> : null}
+                    {p.webonly ? <> · 标记 webonly</> : null}
+                    <br />
+                    <strong>备注：</strong>{p.note || '尚无失败备注——排队中或尚未跑过。'}
+                    {' '}<a href="/zh/audit/#pending">浏览全部待验证失败 →</a>
+                  </div>
+                )}
               </Fragment>
             )}
           </Fragment>

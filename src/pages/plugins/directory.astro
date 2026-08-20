@@ -73,7 +73,7 @@ const COLORS = ['#4D6BFE', '#7c8cf8', '#8b5cf6', '#a78bfa', '#6366f1', '#93c5fd'
   </section>
 
   <section class="info wrap">
-    <p class="stats-line">Tested on dsh 0.1.0-rc.6 — every card shows the verified status and exact install command. GitHub-source plugins install with <code>dsh plugin add github:owner/repo</code>. Every entry passes <a href={auditUrl}>three audits</a> before it is listed.</p>
+    <p class="stats-line"><strong>Verified</strong> here means L1 install + L2 load + L3 runtime Q&amp;A on dsh 0.1.0-rc.6 (including webonly CDP when needed) — not a topic count or a parseable-manifest badge. Some other catalogs label “verified” when a plugin is merely installable; we only mark Verified after we ran it. See the <a href={auditUrl}>audit methodology</a> and the transparent pending list.</p>
     <div class="eco">
       <div class="statline">
         <div class="stat"><b>{total.toLocaleString('en-US')}</b><span>plugins</span></div>

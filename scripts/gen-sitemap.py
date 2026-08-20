@@ -32,6 +32,8 @@ STATIC = [
     ('/zh/troubleshooting/', 'monthly', '0.7'),
     ('/audit/', 'monthly', '0.7'),
     ('/zh/audit/', 'monthly', '0.7'),
+    ('/packs/', 'weekly', '0.85'),
+    ('/zh/packs/', 'weekly', '0.85'),
     ('/privacy/', 'yearly', '0.3'),
     ('/zh/privacy/', 'yearly', '0.3'),
     ('/about/', 'yearly', '0.3'),
