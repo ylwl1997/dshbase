@@ -14,24 +14,34 @@ const imBlog = getRelativeLocaleUrl('en', '/blog/dsh-im-integration/');
 const modelBlog = getRelativeLocaleUrl('en', '/blog/dsh-model-setup/');
 const firstDay = getRelativeLocaleUrl('en', '/blog/first-day-with-dsh/');
 
+const CATALOG_CMD = 'dsh plugin add dshbase-catalog';
+
 const bySlug = {};
 Object.values(plugins).flat().forEach((p) => { bySlug[p.slug] = p; });
 
+function installCmd(p) {
+  if (!p) return '';
+  if (p.npm && p.pkg) return `dsh plugin add ${p.pkg}`;
+  const repo = (p.url || '').replace(/^https:\/\/github\.com\//, '').replace(/\.git$/, '');
+  return repo ? `dsh plugin add github:${repo}` : '';
+}
+
 function resolvePack(pack) {
+  const slots = pack.slots.map((s) => {
+    const p = bySlug[s.slug];
+    const ok = p && p.test === 'verified';
+    return {
+      ...s,
+      plugin: p || null,
+      ok,
+      install: installCmd(p),
+    };
+  });
+  const names = slots.map((s) => s.plugin?.name || s.slug).join(', ');
   return {
     ...pack,
-    slots: pack.slots.map((s) => {
-      const p = bySlug[s.slug];
-      const ok = p && p.test === 'verified';
-      return {
-        ...s,
-        plugin: p || null,
-        ok,
-        install: p
-          ? (p.npm && p.pkg ? `dsh plugin add ${p.pkg}` : `dsh plugin add github:${(p.url || '').replace('https://github.com/', '')}`)
-          : '',
-      };
-    }),
+    slots,
+    agentAsk: `Install these verified dshbase plugins for me: ${names}`,
   };
 }
 
@@ -53,137 +63,165 @@ const slotCount = packs.reduce((n, p) => n + p.slots.length, 0);
   <section class="packs-hero">
     <img class="packs-hero-img" src="/packs/hero.webp" width="1600" height="900" alt="Soft daylight workspace atmosphere for DeepSeek Harness verified plugin scene packs on dshbase" decoding="async" />
     <div class="packs-hero-inner wrap">
-      <p class="eyebrow">dshbase · scene packs</p>
-      <h1>Verified <span class="accent">DeepSeek Harness</span> plugin packs</h1>
-      <p class="lede">Pick a role — developer, artist, accountant, student, teacher — and install a curated set of DSH plugins. Every slot passed our L1–L4 tests. We never fill a pack with highest-star <em>pending</em> plugins.</p>
-      <p class="lede-sub">{packs.length} packs · {slotCount} verified slots · see <a href={auditUrl}>how we audit</a> · browse the full <a href={dirUrl}>plugin directory</a></p>
+      <p class="eyebrow">dshbase</p>
+      <h1>Verified <span class="accent">scene packs</span></h1>
+      <p class="lede">Role-shaped DeepSeek Harness plugin sets. Every slot is L1–L4 verified — never highest-star <em>pending</em>.</p>
+      <p class="lede-sub">{packs.length} packs · {slotCount} slots · <a href={auditUrl}>audit</a> · <a href={dirUrl}>directory</a></p>
     </div>
   </section>
 
-  <section class="info wrap packs-intro">
-    <h2>What is a verified scene pack?</h2>
-    <p>
-      A scene pack is a short, role-shaped shopping list for <strong>DeepSeek Harness (DSH)</strong>.
-      Instead of scrolling thousands of listings, you install a small set of plugins that already work together for one job —
-      coding, vision, finance docs, study notes, teaching, writing, or research.
-      If you are new, start from the <a href={installUrl}>install guide</a> or <a href={firstDay}>a realistic first day with DSH</a>, then come back here.
-    </p>
+  <section class="wrap packs-howto" id="howto">
+    <header class="sec-head">
+      <h2>How to install a pack</h2>
+      <p>Two paths — catalog + agent (fastest), or one manual command per plugin.</p>
+    </header>
+    <div class="howto-grid">
+      <div class="howto-card howto-primary">
+        <h3>One-click via <a href={catalogUrl}>dshbase-catalog</a></h3>
+        <ol class="howto-steps">
+          <li>
+            <span>Install the catalog once</span>
+            <div class="cmd-row">
+              <code>{CATALOG_CMD}</code>
+              <button type="button" class="cmd-copy" data-cmd={CATALOG_CMD}>Copy</button>
+            </div>
+          </li>
+          <li>
+            <span>Tell your agent to install the pack</span>
+            <p class="howto-hint">Use each pack’s <strong>Ask agent</strong> button below, or say e.g. “install the developer workbench pack for me”.</p>
+          </li>
+        </ol>
+        <p class="howto-more">Plugin page: <a href={catalogUrl}>dshbase-catalog</a></p>
+      </div>
+      <div class="howto-card">
+        <h3>Manual — one command each</h3>
+        <p>Every slot shows a single <code>dsh plugin add …</code> line (npm pkg, or <code>github:owner/repo</code>). No web/headless profile variants on the card — copy and run.</p>
+        <p class="howto-hint">New to DSH? Start with the <a href={installUrl}>install guide</a> or <a href={firstDay}>first day with DSH</a>.</p>
+      </div>
+    </div>
     <nav class="pack-jump" aria-label="Jump to packs">
-      <p class="jump-label">Jump to a role</p>
-      <ul>
-        {personaPacks.map((p) => (
-          <li><a href={`#${p.id}`}>{p.title_en}</a></li>
-        ))}
-      </ul>
-      <p class="jump-label">By capability</p>
-      <ul>
-        {capabilityPacks.map((p) => (
-          <li><a href={`#${p.id}`}>{p.title_en}</a></li>
-        ))}
-      </ul>
+      <span class="jump-label">Roles</span>
+      {personaPacks.map((p) => (
+        <a href={`#${p.id}`}>{p.title_en}</a>
+      ))}
+      <span class="jump-label">Capability</span>
+      {capabilityPacks.map((p) => (
+        <a href={`#${p.id}`}>{p.title_en}</a>
+      ))}
     </nav>
   </section>
 
   <section class="wrap packs-section">
     <header class="sec-head">
       <h2>Packs by role</h2>
-      <p>Persona-first DeepSeek Harness setups. Copy an install command, or open the plugin page for stars, notes, and badges.</p>
+      <p>Persona-first setups. Ask the agent, or copy each slot’s install command.</p>
     </header>
-    {personaPacks.map((pack) => (
-      <article class="pack-row" id={pack.id}>
-        <div class="pack-lead">
-          {pack.image && (
-            <img class="pack-art" src={pack.image} width="480" height="480" alt={`${pack.title_en} — verified DeepSeek Harness plugin pack visual`} loading="lazy" decoding="async" />
-          )}
-          <h3>{pack.title_en}</h3>
-          <p class="pack-desc">{pack.desc_en}</p>
-          <p class="pack-aud"><span>Who it’s for</span> {pack.audience_en}</p>
-          <span class="pack-count">{pack.slots.length} verified slots</span>
-        </div>
-        <ul class="slot-list">
-          {pack.slots.map((s) => (
-            <li class="slot">
-              <div class="slot-meta">
-                <span class="slot-label">{s.label_en}</span>
-                <span class="pill ok">Verified</span>
+    <div class="pack-grid">
+      {personaPacks.map((pack) => (
+        <article class={`pack-card${pack.image ? '' : ' no-art'}`} id={pack.id}>
+          <div class="pack-top">
+            {pack.image && (
+              <img class="pack-art" src={pack.image} width="480" height="480" alt={`${pack.title_en} — verified DeepSeek Harness plugin pack visual`} loading="lazy" decoding="async" />
+            )}
+            <div class="pack-intro">
+              <h3>{pack.title_en}</h3>
+              <p class="pack-desc">{pack.desc_en}</p>
+              <p class="pack-aud">{pack.audience_en}</p>
+              <div class="pack-actions">
+                <span class="pack-count">{pack.slots.length} verified</span>
+                <button type="button" class="cmd-copy agent-copy" data-cmd={pack.agentAsk}>Ask agent</button>
               </div>
-              <a class="slot-name" href={`/plugins/${s.plugin.slug}/`}>{s.plugin.name}</a>
-              <div class="slot-cmd">
-                <code>{s.install}</code>
-                <button type="button" class="cmd-copy" data-cmd={s.install}>Copy</button>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </article>
-    ))}
+            </div>
+          </div>
+          <ul class="slot-list">
+            {pack.slots.map((s) => (
+              <li class="slot">
+                <div class="slot-head">
+                  <span class="slot-label">{s.label_en}</span>
+                  <a class="slot-name" href={`/plugins/${s.plugin.slug}/`}>{s.plugin.name}</a>
+                </div>
+                <div class="cmd-row">
+                  <code>{s.install}</code>
+                  <button type="button" class="cmd-copy" data-cmd={s.install}>Copy</button>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
   </section>
 
   <section class="wrap packs-section">
     <header class="sec-head">
       <h2>Packs by capability</h2>
-      <p>Cross-role building blocks — vision for text-only models, long-term memory, IM bridges, security, and UI discovery (including <strong>dsh better sidebar</strong> and <strong>dsh-find-plugin</strong>).</p>
+      <p>Vision, memory, IM, security, and UI discovery (including <strong>dsh better sidebar</strong> and <strong>dsh-find-plugin</strong>).</p>
     </header>
-    {capabilityPacks.map((pack) => (
-      <article class="pack-row" id={pack.id}>
-        <div class="pack-lead">
-          {pack.image && (
-            <img class="pack-art" src={pack.image} width="480" height="480" alt={`${pack.title_en} — verified DSH capability pack visual`} loading="lazy" decoding="async" />
-          )}
-          <h3>{pack.title_en}</h3>
-          <p class="pack-desc">{pack.desc_en}</p>
-          <p class="pack-aud"><span>Who it’s for</span> {pack.audience_en}</p>
-          <span class="pack-count">{pack.slots.length} verified slots</span>
-        </div>
-        <ul class="slot-list">
-          {pack.slots.map((s) => (
-            <li class="slot">
-              <div class="slot-meta">
-                <span class="slot-label">{s.label_en}</span>
-                <span class="pill ok">Verified</span>
+    <div class="pack-grid">
+      {capabilityPacks.map((pack) => (
+        <article class={`pack-card${pack.image ? '' : ' no-art'}`} id={pack.id}>
+          <div class="pack-top">
+            {pack.image && (
+              <img class="pack-art" src={pack.image} width="480" height="480" alt={`${pack.title_en} — verified DSH capability pack visual`} loading="lazy" decoding="async" />
+            )}
+            <div class="pack-intro">
+              <h3>{pack.title_en}</h3>
+              <p class="pack-desc">{pack.desc_en}</p>
+              <p class="pack-aud">{pack.audience_en}</p>
+              <div class="pack-actions">
+                <span class="pack-count">{pack.slots.length} verified</span>
+                <button type="button" class="cmd-copy agent-copy" data-cmd={pack.agentAsk}>Ask agent</button>
               </div>
-              <a class="slot-name" href={`/plugins/${s.plugin.slug}/`}>{s.plugin.name}</a>
-              <div class="slot-cmd">
-                <code>{s.install}</code>
-                <button type="button" class="cmd-copy" data-cmd={s.install}>Copy</button>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </article>
-    ))}
+            </div>
+          </div>
+          <ul class="slot-list">
+            {pack.slots.map((s) => (
+              <li class="slot">
+                <div class="slot-head">
+                  <span class="slot-label">{s.label_en}</span>
+                  <a class="slot-name" href={`/plugins/${s.plugin.slug}/`}>{s.plugin.name}</a>
+                </div>
+                <div class="cmd-row">
+                  <code>{s.install}</code>
+                  <button type="button" class="cmd-copy" data-cmd={s.install}>Copy</button>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
   </section>
 
   <section class="info wrap faq packs-faq">
-    <h2>FAQ · scene packs &amp; verified plugins</h2>
+    <h2>FAQ</h2>
     <details>
-      <summary>Why not just install the highest-star DeepSeek Harness plugins?</summary>
-      <p>Stars measure attention, not installability. Our <a href={auditUrl}>plugin audit</a> requires a real profile install (and web CDP when needed). Scene packs only reference <code>test=verified</code> entries from the <a href={dirUrl}>plugin directory</a>.</p>
+      <summary>Why not highest-star plugins?</summary>
+      <p>Stars ≠ installability. Our <a href={auditUrl}>audit</a> requires a real profile install. Packs only use <code>test=verified</code> from the <a href={dirUrl}>directory</a>.</p>
     </details>
     <details>
-      <summary>I’m a developer — which pack should I start with?</summary>
-      <p>Use the <a href="#dev-workbench">Developer workbench</a>. It includes TokenLedger, dsh-cc-tui, LSP, Git graph, <strong>dsh better sidebar</strong>, and <strong>dsh-at-file</strong> — plugins that also show up in search queries for DSH UI tooling.</p>
+      <summary>Developer starting point?</summary>
+      <p><a href="#dev-workbench">Developer workbench</a> — TokenLedger, dsh-cc-tui, LSP, Git graph, <strong>dsh better sidebar</strong>, <strong>dsh-at-file</strong>.</p>
     </details>
     <details>
-      <summary>How do I add vision / dsh vision toolkit?</summary>
-      <p>Install the <a href="#artist-creative">Artist &amp; creative</a> pack or the dedicated <a href="#vision">Vision for text-only models</a> pack. Deep dive: <a href={visionBlog}>Vision: image input &amp; plugins</a>.</p>
+      <summary>Vision / dsh vision toolkit?</summary>
+      <p><a href="#artist-creative">Artist &amp; creative</a> or <a href="#vision">Vision for text-only models</a>. Guide: <a href={visionBlog}>Vision</a>.</p>
     </details>
     <details>
-      <summary>Where do memory and IM packs fit?</summary>
-      <p>See <a href="#memory">Long-term memory</a> and <a href="#im">IM bridges</a>, plus guides for <a href={memoryBlog}>memory plugins</a> and <a href={imBlog}>WeChat / Feishu / Telegram / DingTalk</a>. Model keys: <a href={modelBlog}>model setup</a>.</p>
+      <summary>Memory and IM?</summary>
+      <p><a href="#memory">Long-term memory</a>, <a href="#im">IM bridges</a> · <a href={memoryBlog}>memory</a> · <a href={imBlog}>IM</a> · <a href={modelBlog}>models</a>.</p>
     </details>
     <details>
-      <summary>Can I discover packs from inside DSH?</summary>
-      <p>Yes — install <a href={catalogUrl}>dshbase-catalog</a> or use the <a href="#ui-polish">UI polish &amp; discovery</a> pack which also includes dsh-find-plugin.</p>
+      <summary>Discover packs inside DSH?</summary>
+      <p>Install <a href={catalogUrl}>dshbase-catalog</a>, or the <a href="#ui-polish">UI polish &amp; discovery</a> pack.</p>
     </details>
   </section>
 
-  <section class="info wrap">
-    <h2>Keep exploring</h2>
+  <section class="info wrap packs-foot">
     <p>
-      Prefer browsing everything? Open the <a href={dirUrl}>plugin directory</a>.
-      Want the methodology behind Verified? Read <a href={auditUrl}>how we audit plugins</a>.
-      New to DeepSeek Harness? Start with the <a href={installUrl}>install guide</a>.
+      <a href={dirUrl}>Plugin directory</a> ·
+      <a href={auditUrl}>How we audit</a> ·
+      <a href={installUrl}>Install DSH</a>
     </p>
   </section>
 </Base>
@@ -192,9 +230,9 @@ const slotCount = packs.reduce((n, p) => n + p.slots.length, 0);
   .packs-hero {
     position: relative;
     isolation: isolate;
-    padding: 88px 0 56px;
+    padding: 72px 0 40px;
     overflow: hidden;
-    background: linear-gradient(180deg, #e8eefc 0%, #f6f8fc 55%, #fff 100%);
+    background: linear-gradient(180deg, #eef2f8 0%, #f6f8fc 50%, #fff 100%);
   }
   .packs-hero-img {
     position: absolute;
@@ -202,147 +240,65 @@ const slotCount = packs.reduce((n, p) => n + p.slots.length, 0);
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.28;
+    opacity: 0.22;
     z-index: -1;
   }
-  .packs-hero-inner { text-align: center; }
+  .packs-hero-inner { text-align: center; max-width: 720px; margin: 0 auto; }
   .packs-hero h1 {
-    font-size: clamp(28px, 4.2vw, 42px);
-    margin: 0 0 16px;
+    font-size: clamp(28px, 4vw, 40px);
+    margin: 0 0 12px;
     font-weight: 800;
   }
-  .packs-intro { padding-top: 8px; }
-  .pack-jump {
-    margin-top: 22px;
-    padding-top: 18px;
-    border-top: 1px solid var(--border);
-  }
-  .jump-label {
-    margin: 14px 0 8px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    color: var(--ink-3);
-  }
-  .pack-jump ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 14px;
-  }
-  .pack-jump a {
-    font-size: 14.5px;
-    font-weight: 600;
-    color: var(--ink);
-    border-bottom: 1px solid transparent;
-  }
-  .pack-jump a:hover {
-    color: var(--primary-600);
-    border-bottom-color: var(--primary);
-  }
+  .packs-hero .lede { margin: 0 auto 8px; max-width: 540px; }
+  .lede-sub { margin: 0; font-size: 14px; color: var(--ink-3); }
 
-  .packs-section { padding: 12px 22px 28px; max-width: 980px; margin: 0 auto; }
-  .sec-head { margin: 12px 0 22px; }
-  .sec-head h2 { font-size: 26px; margin: 0 0 8px; }
-  .sec-head p { margin: 0; color: var(--ink-2); max-width: 640px; }
-
-  .pack-row {
+  .packs-howto { padding: 28px 22px 8px; max-width: 980px; margin: 0 auto; }
+  .howto-grid {
     display: grid;
-    grid-template-columns: minmax(200px, 280px) 1fr;
-    gap: 22px 28px;
-    padding: 26px 0;
-    border-top: 1px solid var(--border);
-    scroll-margin-top: 88px;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 14px;
+    margin-bottom: 18px;
   }
-  .pack-row:last-child { border-bottom: 1px solid var(--border); }
-  .pack-art {
-    width: 100%;
-    max-width: 160px;
-    aspect-ratio: 1;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 12px;
-    display: block;
-  }
-  .pack-lead h3 {
-    margin: 0 0 8px;
-    font-size: 22px;
-    font-weight: 800;
-  }
-  .pack-desc { margin: 0 0 10px; color: var(--ink-2); font-size: 15px; line-height: 1.55; }
-  .pack-aud {
-    margin: 0 0 10px;
-    font-size: 13.5px;
-    color: var(--ink-2);
-    line-height: 1.5;
-  }
-  .pack-aud span {
-    display: block;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: .05em;
-    text-transform: uppercase;
-    color: var(--ink-3);
-    margin-bottom: 2px;
-  }
-  .pack-count {
-    font-size: 12px;
-    color: var(--ink-3);
-    text-transform: uppercase;
-    letter-spacing: .04em;
-  }
-
-  .slot-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 10px;
-  }
-  .slot {
+  .howto-card {
     border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 12px 14px;
+    border-radius: 12px;
+    padding: 16px 18px;
     background: #fff;
   }
-  .slot-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 4px;
+  .howto-primary {
+    background: #f8fafc;
+    border-color: var(--border-strong);
   }
-  .slot-label {
-    font-size: 12px;
-    color: var(--ink-3);
-    text-transform: uppercase;
-    letter-spacing: .04em;
-  }
-  .slot-name {
+  .howto-card h3 {
+    margin: 0 0 10px;
+    font-size: 16px;
     font-weight: 700;
+  }
+  .howto-card p { margin: 0 0 8px; font-size: 14px; color: var(--ink-2); line-height: 1.55; }
+  .howto-steps {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 12px;
+  }
+  .howto-steps > li > span {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
     color: var(--ink);
-    text-decoration: none;
-    font-size: 15px;
+    margin-bottom: 6px;
   }
-  .slot-name:hover { color: var(--primary); }
-  .pill {
-    font-size: 11px;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 6px;
-  }
-  .pill.ok { background: #ecfdf5; color: #047857; }
-  .slot-cmd {
-    margin-top: 8px;
+  .howto-hint { font-size: 13px !important; color: var(--ink-3) !important; margin: 6px 0 0 !important; }
+  .howto-more { margin: 12px 0 0 !important; font-size: 13px !important; }
+
+  .cmd-row {
     display: flex;
     align-items: center;
     gap: 8px;
     flex-wrap: wrap;
   }
-  .slot-cmd code {
+  .cmd-row code {
     flex: 1;
     min-width: 0;
     font-size: 12.5px;
@@ -363,17 +319,149 @@ const slotCount = packs.reduce((n, p) => n + p.slots.length, 0);
     padding: 6px 10px;
     border-radius: 6px;
     cursor: pointer;
+    white-space: nowrap;
   }
   .cmd-copy:hover {
     border-color: var(--primary);
     color: var(--primary-600);
   }
-  .packs-faq details { margin-bottom: 8px; }
+  .agent-copy {
+    background: var(--primary-soft);
+    border-color: #c7d2fe;
+    color: var(--primary-600);
+  }
+
+  .pack-jump {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 12px;
+    padding: 14px 0 4px;
+    border-top: 1px solid var(--border);
+  }
+  .jump-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-right: 2px;
+  }
+  .pack-jump a {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .pack-jump a:hover { color: var(--primary-600); }
+
+  .packs-section { padding: 16px 22px 24px; max-width: 980px; margin: 0 auto; }
+  .sec-head { margin: 8px 0 18px; }
+  .sec-head h2 { font-size: 24px; margin: 0 0 6px; }
+  .sec-head p { margin: 0; color: var(--ink-2); max-width: 620px; font-size: 14.5px; }
+
+  .pack-grid {
+    display: grid;
+    gap: 16px;
+  }
+  .pack-card {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: #fff;
+    padding: 18px 18px 14px;
+    scroll-margin-top: 88px;
+  }
+  .pack-top {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    gap: 14px 16px;
+    margin-bottom: 14px;
+    align-items: start;
+  }
+  .pack-card.no-art .pack-top {
+    grid-template-columns: 1fr;
+  }
+  .pack-art {
+    width: 88px;
+    height: 88px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+  }
+  .pack-intro h3 {
+    margin: 0 0 6px;
+    font-size: 20px;
+    font-weight: 800;
+  }
+  .pack-desc {
+    margin: 0 0 6px;
+    color: var(--ink-2);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .pack-aud {
+    margin: 0 0 10px;
+    font-size: 13px;
+    color: var(--ink-3);
+    line-height: 1.45;
+  }
+  .pack-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .pack-count {
+    font-size: 12px;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+
+  .slot-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+  }
+  .slot {
+    padding: 8px 0;
+  }
+  .slot + .slot {
+    border-top: 1px solid var(--bg-soft);
+  }
+  .slot-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 10px;
+    margin-bottom: 6px;
+  }
+  .slot-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  .slot-name {
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .slot-name:hover { color: var(--primary); }
+
+  .packs-faq details { margin-bottom: 6px; }
+  .packs-foot p { margin: 0; font-size: 14px; color: var(--ink-2); }
 
   @media (max-width: 760px) {
-    .packs-hero { padding: 56px 0 36px; }
-    .pack-row { grid-template-columns: 1fr; gap: 14px; }
-    .pack-art { max-width: 120px; }
+    .packs-hero { padding: 48px 0 28px; }
+    .howto-grid { grid-template-columns: 1fr; }
+    .pack-top { grid-template-columns: 72px 1fr; }
+    .pack-art { width: 72px; height: 72px; }
   }
 </style>
 
