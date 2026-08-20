@@ -13814,5 +13814,13 @@
     "use_zh": "打开浮窗工作区目录树，把文件或文件夹路径拖进对话框，搜索过滤，切换工作区/会话时自动跟随，不用离开 web UI。",
     "aud_zh": "想在 DSH web 工作区里看到目录树、点选路径而不是手打的人。",
     "dev_zh": "client inject（layout/runtime/connection）和懒加载列目录是缝——加更丰富的文件操作、git 状态或更紧的工作区同步。"
+  },
+  "@wanghailong0419/dsh-toolkit": {
+    "use": "Install MCP manager and Skill manager with one command so Settings grows MCP and Skill sections without adding each plugin separately.",
+    "aud": "Users who want MCP and Skill management in the DSH Settings UI without hunting two separate plugins.",
+    "dev": "The bundle that pulls in the two managers is the seam — swap included plugins, or tighten how Settings sections are registered.",
+    "use_zh": "一条命令同时装上 MCP 管理与 Skill 管理，设置页自动出现对应分区，不用分别安装两个插件。",
+    "aud_zh": "想在 DSH 设置页里管 MCP 和 Skill、又不想分别找两个插件的人。",
+    "dev_zh": "拉起两个 manager 的 bundle 是缝——可替换包含的插件，或收紧设置页分区的注册方式。"
   }
 }

@@ -300,6 +300,18 @@
   ]
  },
  {
+  "github": "LongSir0419",
+  "avatar": "https://avatars.githubusercontent.com/u/103190940?v=4",
+  "plugins": [
+   {
+    "name": "@wanghailong0419/dsh-toolkit",
+    "slug": "wanghailong0419-dsh-toolkit",
+    "npm": true,
+    "pkg": "@wanghailong0419/dsh-toolkit"
+   }
+  ]
+ },
+ {
   "github": "Miku196",
   "avatar": "https://avatars.githubusercontent.com/u/146407449?v=4",
   "plugins": [
