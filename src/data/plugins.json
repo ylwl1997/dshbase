@@ -54989,9 +54989,9 @@
    "name": "@shaoshi/dshscan",
    "url": "https://github.com/shaoshi20/dshscan",
    "pkg": "@shaoshi/dshscan",
-   "ver": "0.3.3",
+   "ver": "0.4.0",
    "npm": true,
-   "test": "verified",
+   "test": "pending",
    "desc": "Security scanner for DSH plugins: static and semantic passes over plugin source, DSH-specific attack-surface rules, npm audit, batch scanning, and an HTML report with per-finding severity and evidence.",
    "desc_en": "Security scanner for DSH plugins: static and semantic passes over plugin source, DSH-specific attack-surface rules, npm audit, batch scanning, and an HTML report with per-finding severity and evidence.",
    "desc_zh": "DSH 插件安全扫描器：对插件源码做静态与语义双通道检查，内置 DSH 特有攻击面规则，集成 npm audit，支持批量扫描，输出带严重等级与证据的 HTML 报告。",
@@ -55006,14 +55006,13 @@
    "slug": "shaoshi-dshscan",
    "platform": "any",
    "webonly": false,
-   "testDate": "2026-08-20",
-   "note": "Headless L3 PASS on dsh 0.1.0-rc.6 (install + load + Q&A) for pinned npm @shaoshi/dshscan@0.3.3 on 2026-08-20. Profile package.json recorded 0.3.3. Follow-up from issue #41 / PR #60 (submitter catalog bump to 0.3.3).",
+   "note": "Updated to npm @shaoshi/dshscan@0.4.0 from issue #41 / PR #61; re-verification pending (previous 0.3.3 was headless L3 PASS on 2026-08-20).",
    "bareNpm": "other",
    "contributors": 0,
    "depCount": 3,
    "depsOfficial": 1,
    "repoOwner": "shaoshi20",
-   "_enriched": "2026-08-20|0.3.3"
+   "_enriched": "2026-08-20|0.4.0"
   }
  ],
  "Productivity": [
