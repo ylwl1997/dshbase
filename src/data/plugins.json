@@ -312,10 +312,10 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Open-source CMA-compatible agent runtime for any model, with MCP tools, sandboxed sessions, audit, replay, and a local console. Includes a native DeepSeek Harness bundle over stdio MCP.",
    "desc_en": "Open-source CMA-compatible agent runtime for any model, with MCP tools, sandboxed sessions, audit, replay, and a local console. Includes a native DeepSeek Harness bundle over stdio MCP.",
-   "desc_zh": "开源CMA兼容代理运行时，支持任意模型、MCP工具、沙箱会话、审计、重放和本地控制台。",
+   "desc_zh": "通过 stdio MCP 把自托管 SandBase Agent Runtime 接入 DeepSeek Harness，提供列出 Agent、创建/运行会话、读取产物和停止任务等工具。",
    "stars": 626,
    "forks": 59,
    "issues": 1,
@@ -329,12 +329,13 @@
    "slug": "sandbase-harness",
    "platform": "any",
    "webonly": false,
-   "note": "web L3 runtime-fail on dsh 0.1.0-rc.6 (CDP E2E).",
+   "note": "Headless L3 verified on dsh 0.1.0-rc.6 (install + load + Q&A). Requires a running SandBase Runtime (MANAGED_AGENTS_URL). Do not use npm package managed-agents (unrelated 0.0.1 stub); install from GitHub source.",
    "contributors": 3,
    "depCount": 10,
    "depsOfficial": 0,
    "repoOwner": "sandbaseai",
-   "_enriched": "2026-08-20|"
+   "_enriched": "2026-08-20|",
+   "testDate": "2026-08-20"
   },
   {
    "name": "MuseAI",

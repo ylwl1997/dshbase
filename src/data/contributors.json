@@ -198,6 +198,18 @@
   ]
  },
  {
+  "github": "denial123789",
+  "avatar": "https://avatars.githubusercontent.com/u/269935157?v=4",
+  "plugins": [
+   {
+    "name": "sandbase-harness",
+    "slug": "sandbase-harness",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "guiyi-labs",
   "avatar": "https://avatars.githubusercontent.com/u/277616126?v=4",
   "plugins": [
