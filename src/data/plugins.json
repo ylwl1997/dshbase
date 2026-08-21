@@ -334,7 +334,7 @@
    "depCount": 10,
    "depsOfficial": 0,
    "repoOwner": "sandbaseai",
-   "_enriched": "2026-08-20|",
+   "_enriched": "2026-08-20|0.3.7",
    "testDate": "2026-08-20"
   },
   {
@@ -22972,7 +22972,11 @@
    "webonly": false,
    "testDate": "2026-08-20",
    "note": "Scoped catalog name to distinguish from wink-run/dsh-plugin-store. Not on npm; git install resolved @sandbaseai/dsh-plugin-store@0.1.0-preview.5. Headless is web-only (waiting for webServer). Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
-   "repoOwner": "sandbaseai"
+   "repoOwner": "sandbaseai",
+   "contributors": 2,
+   "depCount": 11,
+   "depsOfficial": 10,
+   "_enriched": "2026-08-20|0.1.0-preview.5"
   },
   {
    "name": "dsh-dir-tree",
@@ -22997,7 +23001,11 @@
    "webonly": false,
    "testDate": "2026-08-20",
    "note": "Headless is web-only (waiting for connection). Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
-   "repoOwner": "bentong-chain"
+   "repoOwner": "bentong-chain",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "_enriched": "2026-08-20|0.1.0"
   },
   {
    "name": "api-relay-audit",
@@ -23019,7 +23027,12 @@
    "license": "AGPL-3.0",
    "slug": "api-relay-audit",
    "platform": "any",
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "contributors": 5,
+   "depCount": 6,
+   "depsOfficial": 6,
+   "repoOwner": "toby-bridges",
+   "_enriched": "2026-08-15|"
   },
   {
    "name": "easyeda-agent",
@@ -23041,7 +23054,12 @@
    "license": "NOASSERTION",
    "slug": "easyeda-agent",
    "platform": "any",
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "contributors": 3,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "zhoushoujianwork",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "open-sea-skin",
@@ -23065,7 +23083,12 @@
    "platform": "any",
    "webonly": true,
    "testDate": "2026-08-20",
-   "note": "L4 web CDP verified on dsh 0.1.0-rc.6."
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.6.",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "d-dev0101",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "DeepSeek-Balance-Whale-Widget",
@@ -23089,7 +23112,12 @@
    "platform": "any",
    "note": "L4 web CDP verified on dsh 0.1.0-rc.6.",
    "webonly": true,
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "MeteorNOX",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "dsh-undo-savepoint",
@@ -23113,7 +23141,12 @@
    "platform": "any",
    "webonly": true,
    "testDate": "2026-08-20",
-   "note": "L4 web CDP verified on dsh 0.1.0-rc.6."
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.6.",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "lire1131",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "dsh-wallpaper-engine",
@@ -23137,7 +23170,12 @@
    "platform": "any",
    "note": "L4 web CDP verified on dsh 0.1.0-rc.6.",
    "webonly": true,
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "contributors": 4,
+   "depCount": 5,
+   "depsOfficial": 4,
+   "repoOwner": "elysia395",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "dsh-skill-mcp-panel",
@@ -23159,7 +23197,12 @@
    "license": "MIT",
    "slug": "dsh-skill-mcp-panel",
    "platform": "any",
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "contributors": 3,
+   "depCount": 8,
+   "depsOfficial": 3,
+   "repoOwner": "Fishquito7",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-image-gen",
@@ -23183,7 +23226,12 @@
    "platform": "any",
    "webonly": true,
    "testDate": "2026-08-20",
-   "note": "L4 web CDP verified on dsh 0.1.0-rc.6."
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.6.",
+   "contributors": 0,
+   "depCount": 16,
+   "depsOfficial": 15,
+   "repoOwner": "shanliuling",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "DSH-taskboard",
@@ -23206,7 +23254,12 @@
    "slug": "DSH-taskboard",
    "platform": "any",
    "testDate": "2026-08-20",
-   "note": "验证: runtime-fail"
+   "note": "验证: runtime-fail",
+   "contributors": 0,
+   "depCount": 22,
+   "depsOfficial": 20,
+   "repoOwner": "shengsheng90",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "dsh-crew",
@@ -23228,7 +23281,12 @@
    "license": "MIT",
    "slug": "dsh-crew",
    "platform": "any",
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 0,
+   "repoOwner": "ZSeven-W",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "deepseek-harness-control-center",
@@ -23252,7 +23310,12 @@
    "platform": "any",
    "webonly": true,
    "testDate": "2026-08-20",
-   "note": "L4 web CDP verified on dsh 0.1.0-rc.6."
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.6.",
+   "contributors": 3,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "feibi-mochi",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "dsh-skin-market",
@@ -23274,7 +23337,12 @@
    "license": "MIT",
    "slug": "dsh-skin-market",
    "platform": "any",
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "contributors": 6,
+   "depCount": 5,
+   "depsOfficial": 1,
+   "repoOwner": "kingOfSoySauce",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "dsh-damage-pulse",
@@ -23296,7 +23364,12 @@
    "license": "MIT",
    "slug": "dsh-damage-pulse",
    "platform": "any",
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "contributors": 0,
+   "depCount": 16,
+   "depsOfficial": 14,
+   "repoOwner": "wssfk12138",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "dsh-deepseek-flow",
@@ -23318,7 +23391,12 @@
    "license": "MIT",
    "slug": "dsh-deepseek-flow",
    "platform": "any",
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "contributors": 2,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "kanghelyu",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "dsh-univer-office",
@@ -23341,7 +23419,12 @@
    "slug": "dsh-univer-office",
    "platform": "any",
    "testDate": "2026-08-20",
-   "note": "验证: runtime-fail"
+   "note": "验证: runtime-fail",
+   "contributors": 4,
+   "depCount": 13,
+   "depsOfficial": 7,
+   "repoOwner": "dream-num",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "recruiting-copilot",
@@ -23364,7 +23447,12 @@
    "slug": "recruiting-copilot",
    "platform": "any",
    "note": "无 LICENSE 许可",
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Viy1204",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "ax-feishu-bridge",
@@ -23387,7 +23475,12 @@
    "slug": "ax-feishu-bridge",
    "platform": "any",
    "note": "无 LICENSE 许可",
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "contributors": 3,
+   "depCount": 11,
+   "depsOfficial": 7,
+   "repoOwner": "AX1202",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-plugin-bridge",
@@ -23411,7 +23504,12 @@
    "platform": "any",
    "webonly": true,
    "testDate": "2026-08-20",
-   "note": "L4 web CDP verified on dsh 0.1.0-rc.6."
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.6.",
+   "contributors": 2,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "Totoro-qaq",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "dsh-auto-collapse",
@@ -23433,7 +23531,12 @@
    "license": "MIT",
    "slug": "dsh-auto-collapse",
    "platform": "any",
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "a179-sanae",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "dsh-trace-compare",
@@ -23456,7 +23559,12 @@
    "slug": "dsh-trace-compare",
    "platform": "any",
    "testDate": "2026-08-20",
-   "note": "验证: runtime-fail"
+   "note": "验证: runtime-fail",
+   "contributors": 0,
+   "depCount": 11,
+   "depsOfficial": 9,
+   "repoOwner": "lamost423",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "dsh-plugin-guard",
@@ -23478,7 +23586,12 @@
    "license": "MIT",
    "slug": "dsh-plugin-guard",
    "platform": "any",
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "lxzy-7",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "picturereader",
@@ -23500,7 +23613,12 @@
    "license": "MIT",
    "slug": "picturereader",
    "platform": "any",
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "contributors": 2,
+   "depCount": 6,
+   "depsOfficial": 3,
+   "repoOwner": "jing-hy",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "dsh-ego-browser",
@@ -23523,7 +23641,12 @@
    "slug": "dsh-ego-browser",
    "platform": "any",
    "note": "验证: runtime-fail",
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "contributors": 3,
+   "depCount": 10,
+   "depsOfficial": 8,
+   "repoOwner": "Fisfzy",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "deepseek-harness-model-config",
@@ -23545,7 +23668,12 @@
    "license": "MIT",
    "slug": "deepseek-harness-model-config",
    "platform": "any",
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "MarvekG",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "dsh-whale-musume",
@@ -23567,7 +23695,12 @@
    "license": "MIT",
    "slug": "dsh-whale-musume",
    "platform": "any",
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Sutera-Diffusus",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-pet-remielle",
@@ -23589,7 +23722,12 @@
    "license": "NOASSERTION",
    "slug": "dsh-pet-remielle",
    "platform": "any",
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "contributors": 4,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "Gin-7",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "dsh-client-ui-skin-denia",
@@ -23611,7 +23749,12 @@
    "license": "NOASSERTION",
    "slug": "dsh-client-ui-skin-denia",
    "platform": "any",
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "Ewnscat-ya",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-usage",
@@ -23635,7 +23778,12 @@
    "platform": "any",
    "webonly": true,
    "testDate": "2026-08-20",
-   "note": "L4 web CDP verified on dsh 0.1.0-rc.6."
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.6.",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Aisland-SJL",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "DSH-pipeline-kernel",
@@ -23659,7 +23807,12 @@
    "platform": "any",
    "webonly": true,
    "testDate": "2026-08-20",
-   "note": "验证: web-only；L4 web CDP runtime-fail on dsh 0.1.0-rc.6. Author/plugin fix needed — CDP Q&A did not complete on a clean port; not marked verified."
+   "note": "验证: web-only；L4 web CDP runtime-fail on dsh 0.1.0-rc.6. Author/plugin fix needed — CDP Q&A did not complete on a clean port; not marked verified.",
+   "contributors": 0,
+   "depCount": 11,
+   "depsOfficial": 9,
+   "repoOwner": "not-big-dog",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "rapid-mlx-dsh-provider",
@@ -23681,7 +23834,12 @@
    "license": "Apache-2.0",
    "slug": "rapid-mlx-dsh-provider",
    "platform": "any",
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "contributors": 2,
+   "depCount": 6,
+   "depsOfficial": 6,
+   "repoOwner": "raullenchai",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "dsh-popout-sidebar",
@@ -23705,7 +23863,12 @@
    "platform": "any",
    "webonly": true,
    "testDate": "2026-08-20",
-   "note": "L4 web CDP verified on dsh 0.1.0-rc.6."
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.6.",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "e2mcc",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "@wanghailong0419/dsh-toolkit",
@@ -23728,7 +23891,12 @@
    "slug": "wanghailong0419-dsh-toolkit",
    "platform": "any",
    "testDate": "2026-08-21",
-   "note": "Scoped catalog name to distinguish from omdsh-dev/dsh-toolkit. Headless L3 PASS on dsh 0.1.0-rc.6 (install + load + Q&A) for pinned npm @wanghailong0419/dsh-toolkit@0.1.5 on 2026-08-21. Profile package.json recorded 0.1.5. Follow-up from issues #56/#57 (npm latest 0.1.5; forwards member client apply+inject so Settings sections render; README screenshots cached)."
+   "note": "Scoped catalog name to distinguish from omdsh-dev/dsh-toolkit. Headless L3 PASS on dsh 0.1.0-rc.6 (install + load + Q&A) for pinned npm @wanghailong0419/dsh-toolkit@0.1.5 on 2026-08-21. Profile package.json recorded 0.1.5. Follow-up from issues #56/#57 (npm latest 0.1.5; forwards member client apply+inject so Settings sections render; README screenshots cached).",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 0,
+   "repoOwner": "LongSir0419",
+   "_enriched": "2026-08-21|0.1.5"
   },
   {
    "name": "deepspider",
@@ -23750,7 +23918,12 @@
    "license": "",
    "slug": "deepspider",
    "platform": "any",
-   "note": "无 LICENSE 许可"
+   "note": "无 LICENSE 许可",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 4,
+   "repoOwner": "ma-pony",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "dsh-quant",
@@ -23771,7 +23944,12 @@
    "added": "2026-08-20T18:52:53",
    "license": "MIT",
    "slug": "dsh-quant",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "pengpengyi92",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "dsh-meow-memory",
@@ -23792,7 +23970,12 @@
    "added": "2026-08-20T18:52:57",
    "license": "MIT",
    "slug": "dsh-meow-memory",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Phant0Meow",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "dsh-subagent-monitor",
@@ -23813,7 +23996,12 @@
    "added": "2026-08-20T18:53:01",
    "license": "MIT",
    "slug": "dsh-subagent-monitor",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 9,
+   "depsOfficial": 8,
+   "repoOwner": "Mombrane",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-chinese-traditional-wisdom-skill",
@@ -23835,7 +24023,12 @@
    "license": "",
    "slug": "dsh-chinese-traditional-wisdom-skill",
    "platform": "any",
-   "note": "无 LICENSE 许可"
+   "note": "无 LICENSE 许可",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "dhicoc",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-evolve-modes",
@@ -23856,7 +24049,12 @@
    "added": "2026-08-20T18:53:22",
    "license": "MIT",
    "slug": "dsh-evolve-modes",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 16,
+   "depsOfficial": 14,
+   "repoOwner": "GraySilver",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-codex-ui",
@@ -23877,7 +24075,12 @@
    "added": "2026-08-20T18:53:26",
    "license": "Apache-2.0",
    "slug": "dsh-codex-ui",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 13,
+   "depsOfficial": 10,
+   "repoOwner": "MichengAI",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "agent-team",
@@ -23898,7 +24101,12 @@
    "added": "2026-08-20T18:53:35",
    "license": "MIT",
    "slug": "agent-team",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 26,
+   "depsOfficial": 21,
+   "repoOwner": "limuyang2",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "dsh-oil-creator",
@@ -23919,7 +24127,12 @@
    "added": "2026-08-20T18:55:30",
    "license": "MIT",
    "slug": "dsh-oil-creator",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 16,
+   "depsOfficial": 14,
+   "repoOwner": "oil-oil",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "dsh-video-lens",
@@ -23940,7 +24153,12 @@
    "added": "2026-08-20T18:55:47",
    "license": "MIT",
    "slug": "dsh-video-lens",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "dundunhan",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-skills",
@@ -23961,7 +24179,12 @@
    "added": "2026-08-20T18:55:56",
    "license": "NOASSERTION",
    "slug": "dsh-skills",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "CocoSgt",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "weshop-dsh-plugin",
@@ -23982,7 +24205,12 @@
    "added": "2026-08-20T18:57:02",
    "license": "MIT",
    "slug": "weshop-dsh-plugin",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 1,
+   "repoOwner": "weshopai",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "dsh-reminder",
@@ -24003,7 +24231,12 @@
    "added": "2026-08-20T18:57:06",
    "license": "MIT",
    "slug": "dsh-reminder",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 13,
+   "depsOfficial": 10,
+   "repoOwner": "Aisland-SJL",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-file-mentions",
@@ -24024,7 +24257,12 @@
    "added": "2026-08-20T18:57:11",
    "license": "MIT",
    "slug": "dsh-file-mentions",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "a903067276-rgb",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "dsh-nested-followups",
@@ -24045,7 +24283,12 @@
    "added": "2026-08-20T18:57:15",
    "license": "MIT",
    "slug": "dsh-nested-followups",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 17,
+   "depsOfficial": 15,
+   "repoOwner": "sluminositys",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "dsh-oomol",
@@ -24066,7 +24309,12 @@
    "added": "2026-08-20T18:57:19",
    "license": "MIT",
    "slug": "dsh-oomol",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 14,
+   "depsOfficial": 13,
+   "repoOwner": "oomol-lab",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-with-pencil",
@@ -24087,7 +24335,12 @@
    "added": "2026-08-20T18:57:25",
    "license": "MIT",
    "slug": "dsh-with-pencil",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 4,
+   "repoOwner": "IWAIBAOLI",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "dsh-directorx",
@@ -24108,7 +24361,12 @@
    "added": "2026-08-20T18:57:31",
    "license": "Apache-2.0",
    "slug": "dsh-directorx",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 3,
+   "repoOwner": "LaplaceYoung",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "dsh-kimino-theme",
@@ -24129,7 +24387,12 @@
    "added": "2026-08-20T18:57:35",
    "license": "MIT",
    "slug": "dsh-kimino-theme",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "niiang",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "dsh-web-file-uploader",
@@ -24150,7 +24413,12 @@
    "added": "2026-08-20T18:57:40",
    "license": "MIT",
    "slug": "dsh-web-file-uploader",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Mooling0602",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-ai4scholar",
@@ -24171,7 +24439,12 @@
    "added": "2026-08-20T18:57:44",
    "license": "MIT",
    "slug": "dsh-ai4scholar",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 8,
+   "repoOwner": "literaf",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-answer-pet",
@@ -24192,7 +24465,12 @@
    "added": "2026-08-20T18:57:48",
    "license": "MIT",
    "slug": "dsh-answer-pet",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "Nanki-nn",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-hub-plugin",
@@ -24214,7 +24492,12 @@
    "license": "",
    "slug": "dsh-hub-plugin",
    "platform": "any",
-   "note": "无 LICENSE 许可"
+   "note": "无 LICENSE 许可",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 3,
+   "repoOwner": "sliverp",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-plugin-integration",
@@ -24235,7 +24518,12 @@
    "added": "2026-08-20T18:58:00",
    "license": "MIT",
    "slug": "dsh-plugin-integration",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "MutaLucem",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "custom-first-control-prompt",
@@ -24256,7 +24544,12 @@
    "added": "2026-08-20T18:58:04",
    "license": "MIT",
    "slug": "custom-first-control-prompt",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 5,
+   "repoOwner": "WM-CODER",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "dsh-joi-channel-theme",
@@ -24277,7 +24570,12 @@
    "added": "2026-08-20T18:58:08",
    "license": "MIT",
    "slug": "dsh-joi-channel-theme",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "tpmoonchefryan",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "dsh-tailscale-gateway",
@@ -24298,7 +24596,12 @@
    "added": "2026-08-20T18:58:12",
    "license": "MIT",
    "slug": "dsh-tailscale-gateway",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "TiantianFlow",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "dsh-novel-writer",
@@ -24319,7 +24622,12 @@
    "added": "2026-08-20T18:58:17",
    "license": "MIT",
    "slug": "dsh-novel-writer",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 9,
+   "repoOwner": "akira399",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "toolshrink",
@@ -24340,7 +24648,12 @@
    "added": "2026-08-20T18:58:21",
    "license": "MIT",
    "slug": "toolshrink",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "unclecode",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "dsh-plugin-smooth-stream",
@@ -24361,7 +24674,12 @@
    "added": "2026-08-20T18:58:25",
    "license": "MIT",
    "slug": "dsh-plugin-smooth-stream",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "SpookySandwich",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "dsh-lan-access",
@@ -24382,7 +24700,12 @@
    "added": "2026-08-20T18:58:30",
    "license": "MIT",
    "slug": "dsh-lan-access",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Leon0555",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-session-context-menu",
@@ -24403,7 +24726,12 @@
    "added": "2026-08-20T18:58:35",
    "license": "MIT",
    "slug": "dsh-session-context-menu",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "baihejiangnan",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-mermaid",
@@ -24424,7 +24752,12 @@
    "added": "2026-08-20T18:58:40",
    "license": "MIT",
    "slug": "dsh-mermaid",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "AKS1st",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-plugin-gather",
@@ -24445,7 +24778,12 @@
    "added": "2026-08-20T18:58:44",
    "license": "MIT",
    "slug": "dsh-plugin-gather",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 8,
+   "depsOfficial": 0,
+   "repoOwner": "lilwhich",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-plugin-uw",
@@ -24467,7 +24805,12 @@
    "license": "",
    "slug": "dsh-plugin-uw",
    "platform": "any",
-   "note": "无 LICENSE 许可"
+   "note": "无 LICENSE 许可",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 3,
+   "repoOwner": "lcgash",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "dsh-mmx-bridge",
@@ -24488,7 +24831,12 @@
    "added": "2026-08-20T18:58:53",
    "license": "MIT",
    "slug": "dsh-mmx-bridge",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 4,
+   "depsOfficial": 3,
+   "repoOwner": "welsione",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "dsh-sandbox-escalation-fix",
@@ -24509,7 +24857,12 @@
    "added": "2026-08-20T18:58:58",
    "license": "MIT",
    "slug": "dsh-sandbox-escalation-fix",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 10,
+   "repoOwner": "JUSTMONIKA2022",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "dsh-Kingdom",
@@ -24530,7 +24883,12 @@
    "added": "2026-08-20T18:59:03",
    "license": "BSD-3-Clause",
    "slug": "dsh-Kingdom",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "lusblead",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "dsh-trading",
@@ -24551,7 +24909,12 @@
    "added": "2026-08-20T18:59:07",
    "license": "MIT",
    "slug": "dsh-trading",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "maddogfinance",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "dsh-quota-meter",
@@ -24573,7 +24936,12 @@
    "license": "",
    "slug": "dsh-quota-meter",
    "platform": "any",
-   "note": "无 LICENSE 许可"
+   "note": "无 LICENSE 许可",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "ai-shushu",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "dsh-octo",
@@ -24595,7 +24963,12 @@
    "license": "",
    "slug": "dsh-octo",
    "platform": "any",
-   "note": "无 LICENSE 许可"
+   "note": "无 LICENSE 许可",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 4,
+   "repoOwner": "tokentopo-ai",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "memtrace-public",
@@ -24617,7 +24990,12 @@
    "license": "NOASSERTION",
    "slug": "memtrace-public",
    "platform": "any",
-   "note": "无 bundle 清单（cordis.patch.yml 等）"
+   "note": "无 bundle 清单（cordis.patch.yml 等）",
+   "contributors": 4,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "syncable-dev",
+   "_enriched": "2026-08-17|"
   },
   {
    "name": "AI-Novel-Writer",
@@ -24638,7 +25016,12 @@
    "added": "2026-08-20T19:05:00",
    "license": "GPL-3.0",
    "slug": "AI-Novel-Writer",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 36,
+   "depsOfficial": 0,
+   "repoOwner": "EthanYoQ",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "Abu-Cowork",
@@ -24660,7 +25043,12 @@
    "license": "NOASSERTION",
    "slug": "Abu-Cowork",
    "platform": "any",
-   "note": "无 bundle 清单（cordis.patch.yml 等）"
+   "note": "无 bundle 清单（cordis.patch.yml 等）",
+   "contributors": 2,
+   "depCount": 55,
+   "depsOfficial": 0,
+   "repoOwner": "PM-Shawn",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "flowix",
@@ -24681,7 +25069,12 @@
    "added": "2026-08-20T19:05:31",
    "license": "MIT",
    "slug": "flowix",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 6,
+   "depCount": 50,
+   "depsOfficial": 0,
+   "repoOwner": "text2future",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "claude-paper",
@@ -24703,7 +25096,12 @@
    "license": "MIT",
    "slug": "claude-paper",
    "platform": "any",
-   "note": "无 bundle 清单（cordis.patch.yml 等）"
+   "note": "无 bundle 清单（cordis.patch.yml 等）",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "alaliqing",
+   "_enriched": "2026-08-14|"
   },
   {
    "name": "pilot-harness",
@@ -24724,7 +25122,12 @@
    "added": "2026-08-20T19:05:55",
    "license": "MIT",
    "slug": "pilot-harness",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 35,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "op7418",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "cocode",
@@ -24745,7 +25148,12 @@
    "added": "2026-08-20T19:06:05",
    "license": "MIT",
    "slug": "cocode",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 4,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "cocode-agency",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "SpecFusion",
@@ -24766,7 +25174,12 @@
    "added": "2026-08-20T19:06:09",
    "license": "MIT",
    "slug": "SpecFusion",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "wxkingstar",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "Martty",
@@ -24787,7 +25200,12 @@
    "added": "2026-08-20T19:06:14",
    "license": "MIT",
    "slug": "Martty",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 8,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "openma-ai",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "beautiCode",
@@ -24808,7 +25226,12 @@
    "added": "2026-08-20T19:06:20",
    "license": "MIT",
    "slug": "beautiCode",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "starsstreaming",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "new-litigation-visualization",
@@ -24830,7 +25253,12 @@
    "license": "MIT",
    "slug": "new-litigation-visualization",
    "platform": "any",
-   "note": "无 bundle 清单（cordis.patch.yml 等）"
+   "note": "无 bundle 清单（cordis.patch.yml 等）",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "MiaoQichuan",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "dsh-desktop-hub",
@@ -24852,7 +25280,12 @@
    "license": "MIT",
    "slug": "dsh-desktop-hub",
    "platform": "any",
-   "note": "无 bundle 清单（cordis.patch.yml 等）"
+   "note": "无 bundle 清单（cordis.patch.yml 等）",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 0,
+   "repoOwner": "FlashingChen",
+   "_enriched": "2026-08-20|"
   },
   {
    "name": "dsh-beauty-skins",
@@ -24874,7 +25307,12 @@
    "license": "MIT",
    "slug": "dsh-beauty-skins",
    "platform": "any",
-   "note": "无 bundle 清单（cordis.patch.yml 等）"
+   "note": "无 bundle 清单（cordis.patch.yml 等）",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "XieRW",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "opencues",
@@ -24895,7 +25333,12 @@
    "added": "2026-08-20T19:06:41",
    "license": "Apache-2.0",
    "slug": "opencues",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 7,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "opencues",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-ui-web",
@@ -24916,7 +25359,12 @@
    "added": "2026-08-20T19:06:46",
    "license": "Apache-2.0",
    "slug": "dsh-ui-web",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "CAPTAIN1275",
+   "_enriched": "2026-08-16|"
   },
   {
    "name": "dsh-meme",
@@ -24937,7 +25385,12 @@
    "added": "2026-08-20T19:06:51",
    "license": "MIT",
    "slug": "dsh-meme",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "yyh-001",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-omi-voice",
@@ -24958,7 +25411,12 @@
    "added": "2026-08-20T19:06:55",
    "license": "MIT",
    "slug": "dsh-omi-voice",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "PolinniZhong",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "deepseek-harness-sdr-plugin",
@@ -24979,7 +25437,12 @@
    "added": "2026-08-20T19:06:59",
    "license": "MIT",
    "slug": "deepseek-harness-sdr-plugin",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Xuxchloris",
+   "_enriched": "2026-08-18|"
   },
   {
    "name": "dsh-endfield-ui",
@@ -25001,7 +25464,12 @@
    "license": "",
    "slug": "dsh-endfield-ui",
    "platform": "any",
-   "note": "无 LICENSE 许可"
+   "note": "无 LICENSE 许可",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "rison114514",
+   "_enriched": "2026-08-19|"
   },
   {
    "name": "dsh-voice-ai-girlfriend",
@@ -25023,7 +25491,12 @@
    "license": "NOASSERTION",
    "slug": "dsh-voice-ai-girlfriend",
    "platform": "any",
-   "note": "无 bundle 清单（cordis.patch.yml 等）"
+   "note": "无 bundle 清单（cordis.patch.yml 等）",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "beiyege-01",
+   "_enriched": "2026-08-19|"
   }
  ],
  "AI Models": [
@@ -27632,7 +28105,12 @@
    "platform": "any",
    "needs": "Baidu Qianfan API key (env or .env.qianfan)",
    "testDate": "2026-08-21",
-   "note": "仓库未加 `dsh-plugin` topic。验证: runtime-fail on dsh 0.1.0-rc.6 with github:hyt-ao/dsh-llm-qianfan (pnpm recorded dsh-llm-qianfan 0.1.0; profile package.json is the git source). L1 install OK. Plugin tree failed to load: SyntaxError Unexpected identifier 'watchdog' when importing loader entry llm-qianfan — compiled lib/index.js uses ESM `using watchdog = idleWatchdog(...)` (explicit resource management), which Node v22.23.2 on the verify host cannot parse."
+   "note": "仓库未加 `dsh-plugin` topic。验证: runtime-fail on dsh 0.1.0-rc.6 with github:hyt-ao/dsh-llm-qianfan (pnpm recorded dsh-llm-qianfan 0.1.0; profile package.json is the git source). L1 install OK. Plugin tree failed to load: SyntaxError Unexpected identifier 'watchdog' when importing loader entry llm-qianfan — compiled lib/index.js uses ESM `using watchdog = idleWatchdog(...)` (explicit resource management), which Node v22.23.2 on the verify host cannot parse.",
+   "contributors": 2,
+   "depCount": 10,
+   "depsOfficial": 9,
+   "repoOwner": "hyt-ao",
+   "_enriched": "2026-08-20|"
   }
  ],
  "UI & Skins": [
@@ -44952,7 +45430,12 @@
    "slug": "dsh-personal-center",
    "platform": "any",
    "note": "仓库未加 `dsh-plugin` topic",
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "contributors": 2,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "PolinniZhong",
+   "_enriched": "2026-08-20|"
   }
  ],
  "Automation": [
@@ -51365,7 +51848,12 @@
    "license": "BSD-3-Clause",
    "slug": "moyu-good-dsh-lark-bridge",
    "platform": "any",
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 2,
+   "repoOwner": "moyu-good",
+   "_enriched": "2026-08-20|"
   }
  ],
  "Browser": [
