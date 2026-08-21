@@ -56901,6 +56901,29 @@
    "depCount": 13,
    "depsOfficial": 6,
    "_enriched": "2026-08-21|0.1.2"
+  },
+  {
+   "name": "@chenjie1129/dsh-remotion-video-plugin",
+   "url": "https://github.com/chenjie1129/remotion-video-plugin",
+   "pkg": "",
+   "ver": "0.1.0",
+   "npm": false,
+   "test": "pending",
+   "desc": "Create, preview, and render Remotion videos through a verified DeepSeek Harness skill workflow.",
+   "desc_en": "Create, preview, and render Remotion videos through a verified DeepSeek Harness skill workflow.",
+   "desc_zh": "为 DeepSeek Harness 添加一套可复现的 Remotion 视频创建流程：检查项目、编写由帧驱动的 React 动画、预览效果，并渲染经过验证的视频输出。",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-21",
+   "archived": false,
+   "added": "2026-08-21T15:47:15",
+   "license": "MIT",
+   "slug": "chenjie1129-dsh-remotion-video-plugin",
+   "platform": "any",
+   "needs": "User model credentials to run the remotion-video skill; Remotion dependencies belong in the video project, not this plugin.",
+   "note": "Git-only; in-repo package.json version 0.1.0 (not on npm). Install github:chenjie1129/remotion-video-plugin. Pending independent headless L3 verify."
   }
  ]
 }
