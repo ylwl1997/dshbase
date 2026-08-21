@@ -456,6 +456,18 @@
   ]
  },
  {
+  "github": "sylkmpo",
+  "avatar": "https://avatars.githubusercontent.com/u/163421766?v=4",
+  "plugins": [
+   {
+    "name": "dsh-web-app-launcher",
+    "slug": "dsh-web-app-launcher",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "tluoluo",
   "avatar": "https://avatars.githubusercontent.com/u/266670047?v=4",
   "plugins": [

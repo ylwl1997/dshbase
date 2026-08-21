@@ -45464,6 +45464,33 @@
    "depsOfficial": 2,
    "repoOwner": "PolinniZhong",
    "_enriched": "2026-08-20|"
+  },
+  {
+   "name": "dsh-web-app-launcher",
+   "url": "https://github.com/sylkmpo/dsh-web-app-launcher",
+   "pkg": "",
+   "ver": "0.1.2",
+   "npm": false,
+   "test": "pending",
+   "desc": "Windows plugin that runs dsh web like a desktop app: native Web UI in an Edge/Chrome/Brave/Vivaldi frameless --app window, auto-creates a desktop shortcut, closing the window exits Harness.",
+   "desc_en": "Windows plugin that runs dsh web like a desktop app: native Web UI in an Edge/Chrome/Brave/Vivaldi frameless --app window, auto-creates a desktop shortcut, closing the window exits Harness.",
+   "desc_zh": "让 dsh web 像普通桌面软件一样运行的 Windows 插件——本质是原生 Web（无 Electron、无二次打包、无 fork），首次运行自动创建桌面快捷方式，双击即以 Edge/Chrome/Brave/Vivaldi 的无边框应用窗口打开 Web UI，关闭窗口即退出 Harness。",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-08-20",
+   "archived": false,
+   "added": "2026-08-21T04:32:19",
+   "license": "MIT",
+   "slug": "dsh-web-app-launcher",
+   "platform": "win32",
+   "note": "Git-only; in-repo package.json version 0.1.2 (not on npm). Windows-only (win32). Headless L3 runtime-fail on dsh 0.1.0-rc.8 (2026-08-21): L1 install OK; profile package.json records git source github:sylkmpo/dsh-web-app-launcher; pnpm resolved 0.1.2; dsh.bundle.patch present. Patch warning: entry web-startup not found on headless profile. Q&A failed because desktop-launcher-startup commander rejected extra args (Expected 0 arguments but got 1). Not L4'd: L3 was runtime-fail, not web-only.",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "sylkmpo",
+   "_enriched": "2026-08-20|0.1.2"
   }
  ],
  "Automation": [

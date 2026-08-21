@@ -16,6 +16,7 @@ CURATED = {
     'dsh-win32': 'win32',
     'dsh-windows-ocr': 'win32',
     'dsh-bash-terminal': 'win32',
+    'dsh-web-app-launcher': 'win32',
     'dsh-mac-vision': 'macos',
 }
 
