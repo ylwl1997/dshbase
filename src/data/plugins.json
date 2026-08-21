@@ -56814,6 +56814,29 @@
    "depsOfficial": 0,
    "repoOwner": "mindcarver",
    "_enriched": "2026-08-15|"
+  },
+  {
+   "name": "agentduel-dsh",
+   "url": "https://github.com/linconz/agentduel-dsh",
+   "pkg": "@agentduel/agentduel-dsh",
+   "ver": "0.1.0",
+   "npm": true,
+   "test": "pending",
+   "desc": "Code your agent, watch it fight, tweak and rematch — all inside DeepSeek Harness.",
+   "desc_en": "Code your agent, watch it fight, tweak and rematch — all inside DeepSeek Harness.",
+   "desc_zh": "AgentDuel 是一款代码对战游戏。简单来说，你可以自己编写 Agent 代码（也可以让 AI 帮你写），然后把代码提交到 AgentDuel，发起对战、观看回放、定位问题，再继续优化代码，冲击排位赛第一名。",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-21",
+   "archived": false,
+   "added": "2026-08-21T08:34:49",
+   "license": "Apache-2.0",
+   "slug": "agentduel-dsh",
+   "platform": "any",
+   "needs": "AgentDuel App Key (login at agentduel.app to submit code and battle)",
+   "repoOwner": "linconz"
   }
  ]
 }

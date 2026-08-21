@@ -336,6 +336,18 @@
   ]
  },
  {
+  "github": "linconz",
+  "avatar": "https://avatars.githubusercontent.com/u/2417911?v=4",
+  "plugins": [
+   {
+    "name": "agentduel-dsh",
+    "slug": "agentduel-dsh",
+    "npm": true,
+    "pkg": "@agentduel/agentduel-dsh"
+   }
+  ]
+ },
+ {
   "github": "LongSir0419",
   "avatar": "https://avatars.githubusercontent.com/u/103190940?v=4",
   "plugins": [
