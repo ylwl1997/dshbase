@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const locale = Astro.currentLocale ?? 'en';
 const posts = [
+  { path: '/blog/dsh-rc8/', cat: 'Guide', en: 'DeepSeek Harness 0.1.0-rc.8: vision, subagents & verified packs', zh: 'DeepSeek Harness 0.1.0-rc.8：Vision、Subagent 与已验证包', desc_en: 'Hub: multimodal narrative vs vision API not ready vs packs; Claude Code/Codex subagents.', desc_zh: '枢纽：多模态叙事 vs 视觉 API 未就绪 vs packs；Claude Code/Codex 子代理。' },
   { path: '/blog/plugin-redefined/', cat: 'Concept', en: 'What “everything is a plugin” actually means', zh: '「一切皆插件」到底是什么意思', desc_en: 'Sessions, sandboxes, and filesystems as swappable modules — and why verified installs matter.', desc_zh: '会话、沙箱、文件系统也是可替换模块——以及为什么已验证安装很重要。' },
   { path: '/blog/harness-vs-benchmark/', cat: 'Analysis', en: 'From 30.2% to 96.2%: harness beats the scorecard', zh: '从 30.2% 到 96.2%：差距在 Harness', desc_en: 'Same weights, different runtime. Why V4 Pro pricing noise is not the whole story.', desc_zh: '同一权重、不同运行时。为什么只盯 V4 Pro 价格不够。' },
   { path: '/blog/first-day-with-dsh/', cat: 'Guide', en: 'A realistic first day with DeepSeek Harness', zh: 'DeepSeek Harness 真实的第一天', desc_en: 'dsh web, permissions, modes, cache — and the zombie Deep-diving trap.', desc_zh: 'dsh web、权限、模式、缓存——以及僵尸 Deep diving 陷阱。' },
@@ -29,10 +30,10 @@ const posts = [
   { path: '/blog/dsh-bug-report/', cat: 'Analysis', en: 'Community bug report: 321 discussions', zh: '社区 Bug 报告全景：321 个讨论', desc_en: 'Eight categories of real-world issues.', desc_zh: '归成 8 大类真实问题。' },
   { path: '/blog/dsh-mcp/', cat: 'Guide', en: 'MCP: connecting servers to DSH', zh: 'MCP：接入 MCP Server', desc_en: 'dsh-workspace-mcp and friends.', desc_zh: 'dsh-workspace-mcp 等。' },
   { path: '/blog/dsh-memory-guide/', cat: 'Guide', en: 'Memory plugins: dsh-memory, dsh-mnemon', zh: '记忆插件：dsh-memory / dsh-mnemon', desc_en: 'A complete guide to DSH memory plugins.', desc_zh: 'DSH 记忆插件全景。' },
-  { path: '/blog/dsh-model-setup/', cat: 'Guide', en: 'Model setup: official API, OpenCode Go', zh: '模型接入：官方 API、OpenCode Go', desc_en: 'Three setups + rc.8 vision API status (use packs meanwhile).', desc_zh: '三种接入 + rc.8 视觉 API 现状（过渡期用 packs）。' },
+  { path: '/blog/dsh-model-setup/', cat: 'Guide', en: 'Model setup tutorial: official API, OpenCode Go', zh: '模型接入教程：官方 API、OpenCode Go', desc_en: 'Three setups + rc.8 vision API status (use packs meanwhile).', desc_zh: '三种接入 + rc.8 视觉 API 现状（过渡期用 packs）。' },
   { path: '/blog/dsh-sandbox/', cat: 'Guide', en: 'Sandbox: permissions & security', zh: 'Sandbox：权限与安全', desc_en: 'Permissions, security & tool approval.', desc_zh: '权限预设、工具审批。' },
-  { path: '/blog/dsh-subagent/', cat: 'Guide', en: 'Subagent: Claude Code, Codex & forks', zh: 'Subagent：Claude Code / Codex / fork', desc_en: 'rc.8 subagents: Claude Code/Codex bridges + verified plugins.', desc_zh: 'rc.8 子代理：Claude Code/Codex 桥与已验证插件。' },
-  { path: '/blog/dsh-vision/', cat: 'Guide', en: 'Vision: rc.8 narrative vs verified packs', zh: 'Vision：rc.8 叙事 vs 已验证 packs', desc_en: 'Catalog gap vs modlens / vision toolkit packs.', desc_zh: 'catalog 缺口 vs modlens / vision toolkit 场景包。' },
+  { path: '/blog/dsh-subagent/', cat: 'Guide', en: 'Subagent tutorial: Claude Code, Codex & forks', zh: 'Subagent 教程：Claude Code / Codex / fork', desc_en: 'rc.8 subagents: Claude Code/Codex bridges + verified plugins.', desc_zh: 'rc.8 子代理：Claude Code/Codex 桥与已验证插件。' },
+  { path: '/blog/dsh-vision/', cat: 'Guide', en: 'Vision tutorial: rc.8 narrative vs verified packs', zh: 'Vision 教程：rc.8 叙事 vs 已验证 packs', desc_en: 'Catalog gap vs modlens / vision toolkit packs.', desc_zh: 'catalog 缺口 vs modlens / vision toolkit 场景包。' },
   { path: '/blog/vs-cowork/', cat: 'Comparison', en: 'vs Claude Cowork', zh: 'vs Claude Cowork', desc_en: 'Open-source harness vs closed agent.', desc_zh: '开源框架 vs 闭源 Agent。' },
   { path: '/blog/dsh-desktop-alternatives/', cat: 'Guide', en: 'Is DeepSeek Harness a desktop app? CLI, VSCode, TUI & Electron shells', zh: 'DeepSeek Harness 有桌面端吗？CLI、VSCode、TUI、Electron 替代方案', desc_en: 'DSH has no official desktop client — here are the real alternatives.', desc_zh: 'DSH 没有官方桌面客户端——这里是真正的替代方案。' },
   { path: '/blog/dsh-im-integration/', cat: 'Guide', en: 'IM integrations: WeChat, QQ, Feishu, DingTalk & Telegram', zh: 'IM 接入：微信、QQ、飞书、钉钉、Telegram', desc_en: 'Put DeepSeek Harness inside your chat apps — the full plugin lineup.', desc_zh: '把 DeepSeek Harness 塞进你的聊天软件——社区插件完整阵容。' },
@@ -40,10 +41,10 @@ const posts = [
   { path: '/blog/what-makes-a-good-dsh-plugin/', cat: 'Guide', en: 'What makes a good DeepSeek Harness plugin', zh: '什么才是 DeepSeek Harness 好的插件', desc_en: 'The author checklist: bundle manifest, ESM, version pins, inject — and how to earn Verified.', desc_zh: '作者自查清单：bundle 清单、ESM、版本 pin、inject，以及如何拿到已验证。' },
 ];
 const cats = [...new Set(posts.map((p) => p.cat))];
-const title = locale === 'en' ? 'Blog — DeepSeek Harness Guides & Analysis | dshbase' : '博客 — DeepSeek Harness 指南与分析 | dshbase 中文';
-const desc = locale === 'en' ? 'DeepSeek Harness articles: comparisons, deep dives, and analysis.' : 'DeepSeek Harness 文章：对比、深度解析与分析。';
+const title = locale === 'en' ? 'Blog — DeepSeek Harness Tutorial, Vision, Subagent & vs Claude Code | dshbase' : '博客 — DeepSeek Harness 教程、Vision、Subagent 与对比 | dshbase 中文';
+const desc = locale === 'en' ? 'DeepSeek Harness (DSH) guides: install & tutorial, rc.8 vision, subagent, vs Claude Code, and verified plugin analysis.' : 'DeepSeek Harness 文章：安装与教程、rc.8 vision、subagent、vs Claude Code 与已验证插件分析。';
 const heading = locale === 'en' ? 'DeepSeek Harness articles' : 'DeepSeek Harness 文章';
-const sub = locale === 'en' ? 'Comparisons, deep dives, and analysis.' : '对比、深度解析与分析。';
+const sub = locale === 'en' ? 'Tutorials, rc.8 hub, comparisons, and analysis.' : '教程、rc.8 枢纽、对比与分析。';
 const allLabel = locale === 'en' ? 'All' : '全部';
 ---
 <Base title={title} description={desc} currentPath="/blog/">

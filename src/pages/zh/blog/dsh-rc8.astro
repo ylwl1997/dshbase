@@ -1,0 +1,59 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const installUrl = getRelativeLocaleUrl('zh', '/install/');
+const tutorialUrl = getRelativeLocaleUrl('zh', '/tutorial/');
+const packsUrl = getRelativeLocaleUrl('zh', '/packs/');
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
+const visionUrl = getRelativeLocaleUrl('zh', '/blog/dsh-vision/');
+const subagentUrl = getRelativeLocaleUrl('zh', '/blog/dsh-subagent/');
+const modelSetupUrl = getRelativeLocaleUrl('zh', '/blog/dsh-model-setup/');
+const vsClaudeUrl = getRelativeLocaleUrl('zh', '/blog/vs-claude-code/');
+const firstDayUrl = getRelativeLocaleUrl('zh', '/blog/first-day-with-dsh/');
+---
+<BlogPost title="DeepSeek Harness 0.1.0-rc.8 指南 — Vision、Subagent 与已验证场景包 | dshbase 中文" description="dsh 0.1.0-rc.8 真正落地的内容：多模态叙事 vs 视觉 API 未就绪、Claude Code/Codex 子代理、以及已验证 packs 路径。汇总安装、教程、vision、subagent、packs、目录与审计入口。" currentPath="/blog/dsh-rc8/" category="指南">
+  <h1>DeepSeek Harness <span class="accent">0.1.0-rc.8</span>：信什么、装什么</h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 21 日 · dshbase · Google 头词着陆页</p>
+
+  <p><strong>DeepSeek Harness（DSH）</strong> <code>0.1.0-rc.8</code> 是大家在搜的版本——也是最容易被写成「已经能看图」或「Claude Code 就是子代理」的版本。这篇枢纽把营销叙事、catalog 缺口、以及我们在 dshbase 实测的<strong>已验证</strong>路径拆开，并链到安装 / 教程 / 深度指南。</p>
+
+  <h2>先从这里开始（DSH 安装与教程）</h2>
+  <ul>
+    <li><a href={installUrl}>安装 DeepSeek Harness（DSH 安装）</a> — Windows / macOS / Linux / WSL 一键。</li>
+    <li><a href={tutorialUrl}>DeepSeek Harness 教程</a> — 首次启动、模型、常见报错。</li>
+    <li><a href={firstDayUrl}>DeepSeek Harness 真实的第一天</a> — 权限、模式、缓存陷阱。</li>
+    <li><a href={vsClaudeUrl}>DeepSeek Harness vs Claude Code</a> — 插件 vs MCP、开源、成本。</li>
+  </ul>
+
+  <h2>1. 多模态叙事 ≠ 视觉 API 已就绪</h2>
+  <p>rc.8 卖的是 <em>harness</em> 多模态故事：goal/plan 流程可带图、插件发现更像 Agent Store、纯文本模型可「借眼睛」。这不等于 DeepSeek 官方视觉端点已进入正式 catalog。</p>
+  <p>仓库里能看到 <code>deepseek-v4-flash-vision-exp</code> 一类名字，并注明<strong>端点就绪前不进正式 catalog</strong>。今天不要去配「官方 DeepSeek 视觉」并指望开箱识图。</p>
+  <p><strong>深读：</strong><a href={visionUrl}>DeepSeek Harness Vision（rc.8）</a> · 短版见<a href={modelSetupUrl}>模型接入</a>。</p>
+
+  <h2>2. 今天能用的路径：已验证场景包</h2>
+  <p>我们在干净 profile 上 L1–L4 实测的是插件路径——不是 Hub Star 数：</p>
+  <ul>
+    <li><a href={`${packsUrl}#vision`}>纯文本模型视觉包</a> — modlens、dsh-vision-toolkit、dsh-vision-router。</li>
+    <li><a href={`${packsUrl}#artist-creative`}>艺术家 / 创意视觉包</a> — 桥 + toolkit + 设计/GenUI 槽位。</li>
+    <li><a href={directoryUrl}>插件目录</a> — 已验证条目的安装命令。</li>
+    <li><a href={auditUrl}>审计方法</a> — <code>test=verified</code> 如何定义。</li>
+  </ul>
+
+  <h2>3. Subagent：rc.8 上的 Claude Code / Codex</h2>
+  <p>rc.8 报道常说可以把 <strong>Claude Code</strong>、<strong>Codex</strong> 当子代理 / worker。实操上是预设、fork、消息通道与外部 Agent 桥——不是一条神圣的 <code>spawn_subagent()</code> API。</p>
+  <p>先选形态：harness 内角色预设（如 product-subagents）、从 Claude Code/Codex 派活进 dsh（crew / skill）、或配置/CLI 桥。各自需要独立凭据，并诚实设置工作区权限。</p>
+  <p><strong>深读：</strong><a href={subagentUrl}>DeepSeek Harness Subagent（rc.8）</a>。</p>
+
+  <h2>快速决策树</h2>
+  <ol>
+    <li>要装 DSH → <a href={installUrl}>/zh/install/</a>。</li>
+    <li>今天就要「读这张图」→ <a href={`${packsUrl}#vision`}>vision 场景包</a>（不是官方视觉 API）。</li>
+    <li>要 Claude Code / Codex worker → <a href={subagentUrl}>subagent 指南</a>。</li>
+    <li>要模型 key / Agnes / OpenCode Go → <a href={modelSetupUrl}>模型接入</a>。</li>
+    <li>对比 Claude Code → <a href={vsClaudeUrl}>vs Claude Code</a>。</li>
+  </ol>
+
+  <h2>一句话</h2>
+  <p>rc.8 把多模态与多 Agent <em>故事</em>讲响了。正式视觉 catalog 仍在闸门后。Subagent 是可组合插件，不是单一 spawn API。从已验证 <a href={packsUrl}>场景包</a>、<a href={directoryUrl}>目录</a>与<a href={auditUrl}>审计</a>起步，需要细节再进上方深读页。</p>
+</BlogPost>

@@ -1,0 +1,59 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const installUrl = getRelativeLocaleUrl('en', '/install/');
+const tutorialUrl = getRelativeLocaleUrl('en', '/tutorial/');
+const packsUrl = getRelativeLocaleUrl('en', '/packs/');
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('en', '/audit/');
+const visionUrl = getRelativeLocaleUrl('en', '/blog/dsh-vision/');
+const subagentUrl = getRelativeLocaleUrl('en', '/blog/dsh-subagent/');
+const modelSetupUrl = getRelativeLocaleUrl('en', '/blog/dsh-model-setup/');
+const vsClaudeUrl = getRelativeLocaleUrl('en', '/blog/vs-claude-code/');
+const firstDayUrl = getRelativeLocaleUrl('en', '/blog/first-day-with-dsh/');
+---
+<BlogPost title="DeepSeek Harness 0.1.0-rc.8 Guide — Vision, Subagents &amp; Verified Packs | dshbase" description="What dsh 0.1.0-rc.8 actually ships: multimodal narrative vs vision API not ready, Claude Code/Codex subagents, and the verified packs path. Hub linking install, tutorial, vision, subagent, packs, directory, and audit." currentPath="/blog/dsh-rc8/" category="Guide">
+  <h1>DeepSeek Harness <span class="accent">0.1.0-rc.8</span>: what to believe, what to install</h1>
+  <p class="muted small" style="margin-bottom:20px">August 21, 2026 · dshbase · hub for Google head terms</p>
+
+  <p><strong>DeepSeek Harness (DSH)</strong> <code>0.1.0-rc.8</code> is the release everyone is searching for — and the one most write-ups flatten into “it can see images now” or “Claude Code is a subagent.” This hub separates the marketing story from the catalog gap and points you at the <em>verified</em> path we measure on dshbase.</p>
+
+  <h2>Start here (install &amp; tutorial)</h2>
+  <ul>
+    <li><a href={installUrl}>Install DeepSeek Harness (DSH)</a> — Windows / macOS / Linux / WSL one-liners.</li>
+    <li><a href={tutorialUrl}>DeepSeek Harness tutorial</a> — first launch, models, common errors.</li>
+    <li><a href={firstDayUrl}>A realistic first day with DSH</a> — permissions, modes, cache traps.</li>
+    <li><a href={vsClaudeUrl}>DeepSeek Harness vs Claude Code</a> — plugins vs MCP, open source, cost.</li>
+  </ul>
+
+  <h2>1. Multimodal narrative ≠ vision API ready</h2>
+  <p>rc.8 sells a <em>harness</em> multimodal story: image attachments in goal/plan flows, Agent Store–style discovery, “borrow eyes” for text-only models. That is not the same as DeepSeek’s official vision endpoint being in the formal catalog.</p>
+  <p>Names like <code>deepseek-v4-flash-vision-exp</code> appear with notes that they stay <strong>out of the catalog until the endpoint is ready</strong>. Do not configure “official DeepSeek vision” today and expect it to just work.</p>
+  <p><strong>Deep dive:</strong> <a href={visionUrl}>DeepSeek Harness vision on rc.8</a> · status note on <a href={modelSetupUrl}>model setup</a>.</p>
+
+  <h2>2. The path that works: verified packs</h2>
+  <p>What we L1–L4 test on clean profiles is the plugin path — not Hub star counts:</p>
+  <ul>
+    <li><a href={`${packsUrl}#vision`}>Vision for text-only models</a> — modlens, dsh-vision-toolkit, dsh-vision-router.</li>
+    <li><a href={`${packsUrl}#artist-creative`}>Artist &amp; creative vision</a> — bridge + toolkit + design/GenUI slots.</li>
+    <li><a href={directoryUrl}>Plugin directory</a> — install commands for verified entries.</li>
+    <li><a href={auditUrl}>Audit methodology</a> — how <code>test=verified</code> is defined.</li>
+  </ul>
+
+  <h2>3. Subagents: Claude Code / Codex on rc.8</h2>
+  <p>rc.8 coverage says you can treat <strong>Claude Code</strong> and <strong>Codex</strong> as subagents / workers. In practice that is presets, forks, message channels, and external-agent bridges — not one blessed <code>spawn_subagent()</code> API.</p>
+  <p>Pick a shape: role presets inside dsh (e.g. product-subagents), dispatch from Claude Code/Codex into dsh (crew / skills), or config/CLI bridges. Each needs its own credentials and honest workspace permissions.</p>
+  <p><strong>Deep dive:</strong> <a href={subagentUrl}>DeepSeek Harness subagent on rc.8</a>.</p>
+
+  <h2>Quick decision tree</h2>
+  <ol>
+    <li>Need DSH installed → <a href={installUrl}>/install/</a>.</li>
+    <li>Need “read this image” today → <a href={`${packsUrl}#vision`}>vision pack</a> (not official vision API).</li>
+    <li>Need Claude Code / Codex workers → <a href={subagentUrl}>subagent guide</a>.</li>
+    <li>Need model keys / Agnes / OpenCode Go → <a href={modelSetupUrl}>model setup</a>.</li>
+    <li>Comparing to Claude Code → <a href={vsClaudeUrl}>vs Claude Code</a>.</li>
+  </ol>
+
+  <h2>Bottom line</h2>
+  <p>rc.8 made the multimodal and multi-agent <em>stories</em> loud. The formal vision catalog entry is still gated. Subagents are composable plugins, not a single spawn API. Start from verified <a href={packsUrl}>packs</a>, the <a href={directoryUrl}>directory</a>, and <a href={auditUrl}>audit</a> — then use the deep guides above when you need detail.</p>
+</BlogPost>

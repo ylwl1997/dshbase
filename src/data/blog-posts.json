@@ -1,5 +1,14 @@
 [
  {
+  "path": "/blog/dsh-rc8/",
+  "cat": "Guide",
+  "cat_zh": "指南",
+  "en": "DeepSeek Harness 0.1.0-rc.8: vision, subagents & verified packs",
+  "zh": "DeepSeek Harness 0.1.0-rc.8：Vision、Subagent 与已验证包",
+  "desc_en": "Hub: multimodal narrative vs vision API not ready vs packs; Claude Code/Codex subagents.",
+  "desc_zh": "枢纽：多模态叙事 vs 视觉 API 未就绪 vs packs；Claude Code/Codex 子代理。"
+ },
+ {
   "path": "/blog/vs-claude-code/",
   "cat": "Comparison",
   "cat_zh": "对比",
@@ -192,8 +201,8 @@
   "path": "/blog/dsh-model-setup/",
   "cat": "Guide",
   "cat_zh": "指南",
-  "en": "Model setup: official API, OpenCode Go",
-  "zh": "模型接入：官方 API、OpenCode Go",
+  "en": "Model setup tutorial: official API, OpenCode Go",
+  "zh": "模型接入教程：官方 API、OpenCode Go",
   "desc_en": "Three setups + rc.8 vision API status (use packs meanwhile).",
   "desc_zh": "三种接入 + rc.8 视觉 API 现状（过渡期用 packs）。"
  },
@@ -210,8 +219,8 @@
   "path": "/blog/dsh-subagent/",
   "cat": "Guide",
   "cat_zh": "指南",
-  "en": "Subagent: Claude Code, Codex & forks",
-  "zh": "Subagent：Claude Code / Codex / fork",
+  "en": "Subagent tutorial: Claude Code, Codex & forks",
+  "zh": "Subagent 教程：Claude Code / Codex / fork",
   "desc_en": "rc.8 subagents: Claude Code/Codex bridges + verified plugins.",
   "desc_zh": "rc.8 子代理：Claude Code/Codex 桥与已验证插件。"
  },
@@ -219,8 +228,8 @@
   "path": "/blog/dsh-vision/",
   "cat": "Guide",
   "cat_zh": "指南",
-  "en": "Vision: rc.8 narrative vs verified packs",
-  "zh": "Vision：rc.8 叙事 vs 已验证 packs",
+  "en": "Vision tutorial: rc.8 narrative vs verified packs",
+  "zh": "Vision 教程：rc.8 叙事 vs 已验证 packs",
   "desc_en": "Catalog gap vs modlens / vision toolkit packs.",
   "desc_zh": "catalog 缺口 vs modlens / vision toolkit 场景包。"
  },

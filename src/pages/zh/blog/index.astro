@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const locale = Astro.currentLocale ?? 'zh';
 const posts = [
+  { path: '/blog/dsh-rc8/', cat: '指南', zh: 'DeepSeek Harness 0.1.0-rc.8：Vision、Subagent 与已验证包', desc_zh: '枢纽：多模态叙事 vs 视觉 API 未就绪 vs packs；Claude Code/Codex 子代理。' },
   { path: '/blog/plugin-redefined/', cat: '概念', zh: '「一切皆插件」到底是什么意思', desc_zh: '会话、沙箱、文件系统也是可替换模块——以及为什么已验证安装很重要。' },
   { path: '/blog/harness-vs-benchmark/', cat: '分析', zh: '从 30.2% 到 96.2%：差距在 Harness', desc_zh: '同一权重、不同运行时。为什么只盯 V4 Pro 价格不够。' },
   { path: '/blog/first-day-with-dsh/', cat: '指南', zh: 'DeepSeek Harness 真实的第一天', desc_zh: 'dsh web、权限、模式、缓存——以及僵尸 Deep diving 陷阱。' },
@@ -29,10 +30,10 @@ const posts = [
   { path: '/blog/dsh-bug-report/', cat: '分析', zh: '社区 Bug 报告全景：321 个讨论', desc_zh: '归成 8 大类真实问题。' },
   { path: '/blog/dsh-mcp/', cat: '指南', zh: 'MCP：接入 MCP Server', desc_zh: 'dsh-workspace-mcp 等。' },
   { path: '/blog/dsh-memory-guide/', cat: '指南', zh: '记忆插件：dsh-memory / dsh-mnemon', desc_zh: 'DSH 记忆插件全景。' },
-  { path: '/blog/dsh-model-setup/', cat: '指南', zh: '模型接入：官方 API、OpenCode Go', desc_zh: '三种接入 + rc.8 视觉 API 现状（过渡期用 packs）。' },
+  { path: '/blog/dsh-model-setup/', cat: '指南', zh: '模型接入教程：官方 API、OpenCode Go', desc_zh: '三种接入 + rc.8 视觉 API 现状（过渡期用 packs）。' },
   { path: '/blog/dsh-sandbox/', cat: '指南', zh: 'Sandbox：权限与安全', desc_zh: '权限预设、工具审批。' },
-  { path: '/blog/dsh-subagent/', cat: '指南', zh: 'Subagent：Claude Code / Codex / fork', desc_zh: 'rc.8 子代理：Claude Code/Codex 桥与已验证插件。' },
-  { path: '/blog/dsh-vision/', cat: '指南', zh: 'Vision：rc.8 叙事 vs 已验证 packs', desc_zh: 'catalog 缺口 vs modlens / vision toolkit 场景包。' },
+  { path: '/blog/dsh-subagent/', cat: '指南', zh: 'Subagent 教程：Claude Code / Codex / fork', desc_zh: 'rc.8 子代理：Claude Code/Codex 桥与已验证插件。' },
+  { path: '/blog/dsh-vision/', cat: '指南', zh: 'Vision 教程：rc.8 叙事 vs 已验证 packs', desc_zh: 'catalog 缺口 vs modlens / vision toolkit 场景包。' },
   { path: '/blog/vs-cowork/', cat: '对比', zh: 'vs Claude Cowork', desc_zh: '开源框架 vs 闭源 Agent。' },
   { path: '/blog/dsh-desktop-alternatives/', cat: '指南', zh: 'DeepSeek Harness 有桌面端吗？CLI、VSCode、TUI、Electron 替代方案', desc_zh: 'DSH 没有官方桌面客户端——这里是真正的替代方案。' },
   { path: '/blog/dsh-im-integration/', cat: '指南', zh: 'IM 接入：微信、QQ、飞书、钉钉、Telegram', desc_zh: '把 DeepSeek Harness 塞进你的聊天软件——社区插件完整阵容。' },
@@ -41,11 +42,11 @@ const posts = [
 ];
 const cats = [...new Set(posts.map((p) => p.cat))];
 ---
-<Base title="博客 — DeepSeek Harness 指南与分析 | dshbase 中文" description="DeepSeek Harness 文章：对比、深度解析与分析。" currentPath="/blog/">
+<Base title="博客 — DeepSeek Harness 教程、Vision、Subagent 与对比 | dshbase 中文" description="DeepSeek Harness（DSH）指南：安装与教程、rc.8 vision、subagent、vs Claude Code 与已验证插件分析。" currentPath="/blog/">
   <section class="hero wrap">
     <p class="eyebrow">博客</p>
     <h1>DeepSeek Harness <span class="accent">文章</span></h1>
-    <p class="lede">对比、深度解析与分析。</p>
+    <p class="lede">教程、rc.8 枢纽、对比与分析。</p>
   </section>
   <section class="info wrap">
     <div class="cat-filter" role="tablist" aria-label="按分类筛选">
