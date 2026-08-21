@@ -324,6 +324,18 @@
   ]
  },
  {
+  "github": "LuckVd",
+  "avatar": "https://avatars.githubusercontent.com/u/37114923?v=4",
+  "plugins": [
+   {
+    "name": "@luckvd/dsh-btw",
+    "slug": "luckvd-dsh-btw",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "Miku196",
   "avatar": "https://avatars.githubusercontent.com/u/146407449?v=4",
   "plugins": [
