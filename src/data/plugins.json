@@ -25497,6 +25497,27 @@
    "depsOfficial": 0,
    "repoOwner": "beiyege-01",
    "_enriched": "2026-08-19|"
+  },
+  {
+   "name": "dsh-xray",
+   "url": "https://github.com/alloevil/dsh-xray",
+   "pkg": "dsh-xray",
+   "ver": "0.6.0",
+   "npm": true,
+   "test": "pending",
+   "desc": "X-ray for your DeepSeek Harness — see what's actually loaded, why, and what it costs you.",
+   "desc_en": "X-ray for your DeepSeek Harness — see what's actually loaded, why, and what it costs you.",
+   "desc_zh": "给 Harness 组合树拍 X 光：把 dump-config 的每一行归因到引入它的层（bundle / profile patch / home patch / repository 源），diff 抓出被 dsh 静默跳过的 orphan patch 行和装了没生效的插件，deps 给出服务依赖图与停用级联，cost 估算 prompt sections + tool schemas 的 token 占用；另有 /xray Web 面板和 xray_composition agent 自省工具。静态命令在 dsh 起不来时也能跑；只读设计。",
+   "stars": 2,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-08-21",
+   "archived": false,
+   "added": "2026-08-21T06:47:16",
+   "license": "MIT",
+   "slug": "dsh-xray",
+   "platform": "any"
   }
  ],
  "AI Models": [
