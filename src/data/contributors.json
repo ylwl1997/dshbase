@@ -276,6 +276,18 @@
   ]
  },
  {
+  "github": "hyt-ao",
+  "avatar": "https://avatars.githubusercontent.com/u/42988801?v=4",
+  "plugins": [
+   {
+    "name": "dsh-llm-qianfan",
+    "slug": "dsh-llm-qianfan",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "jinguanghai",
   "avatar": "https://avatars.githubusercontent.com/u/31503310?v=4",
   "plugins": [
