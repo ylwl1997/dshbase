@@ -56201,6 +56201,28 @@
    "webonly": false,
    "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
    "testDate": "2026-08-20"
+  },
+  {
+   "name": "dsh-codex-sync",
+   "url": "https://github.com/Walvez/dsh-codex-sync",
+   "pkg": "dsh-codex-sync",
+   "ver": "0.9.5",
+   "npm": true,
+   "test": "pending",
+   "desc": "One-tap Codex move-in to DSH: auto-import project chats, two-way Skills & MCP sync.",
+   "desc_en": "One-tap Codex move-in to DSH: auto-import project chats, two-way Skills & MCP sync.",
+   "desc_zh": "Codex一键搬家到DSH：Codex项目对话自动导入DSH，Skills、MCP双向同步。",
+   "stars": 3,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-08-21",
+   "archived": false,
+   "added": "2026-08-21T12:17:20",
+   "license": "MIT",
+   "slug": "dsh-codex-sync",
+   "platform": "any",
+   "needs": "Local ~/.codex (Codex CLI config, skills, MCP servers, and session history)"
   }
  ],
  "Content": [

@@ -516,6 +516,18 @@
   ]
  },
  {
+  "github": "Walvez",
+  "avatar": "https://avatars.githubusercontent.com/u/93713668?v=4",
+  "plugins": [
+   {
+    "name": "dsh-codex-sync",
+    "slug": "dsh-codex-sync",
+    "npm": true,
+    "pkg": "dsh-codex-sync"
+   }
+  ]
+ },
+ {
   "github": "weijiafu14",
   "avatar": "https://avatars.githubusercontent.com/u/17469139?v=4",
   "plugins": [
