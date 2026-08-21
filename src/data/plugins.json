@@ -56819,9 +56819,9 @@
    "name": "agentduel-dsh",
    "url": "https://github.com/linconz/agentduel-dsh",
    "pkg": "@agentduel/agentduel-dsh",
-   "ver": "0.1.0",
+   "ver": "0.1.1",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "Code your agent, watch it fight, tweak and rematch — all inside DeepSeek Harness.",
    "desc_en": "Code your agent, watch it fight, tweak and rematch — all inside DeepSeek Harness.",
    "desc_zh": "AgentDuel 是一款代码对战游戏。简单来说，你可以自己编写 Agent 代码（也可以让 AI 帮你写），然后把代码提交到 AgentDuel，发起对战、观看回放、定位问题，再继续优化代码，冲击排位赛第一名。",
@@ -56838,7 +56838,11 @@
    "needs": "AgentDuel App Key (login at agentduel.app to submit code and battle)",
    "repoOwner": "linconz",
    "testDate": "2026-08-21",
-   "note": "Headless L3 runtime-fail on dsh 0.1.0-rc.8 (2026-08-21): L1 install OK; source @agentduel/agentduel-dsh@0.1.0 (npm latest). profile package.json records @agentduel/agentduel-dsh 0.1.0; pnpm resolved 0.1.0; dsh.bundle.patch present so it installed as a profile layer (dsh.profile.bundles includes @agentduel/agentduel-dsh). dump-config OK (tree shows loader entry id=agentduel name=agentduel-dsh). Q&A failed: plugin tree failed to load — Cannot find package 'agentduel-dsh' (cordis.patch.yml insert name is unscoped agentduel-dsh but the installed npm package is @agentduel/agentduel-dsh; no node_modules/agentduel-dsh). Not L4'd: L3 was runtime-fail, not web-only. AgentDuel App Key / battle UI not exercised."
+   "note": "Headless L3 PASS on dsh 0.1.0-rc.8 (2026-08-21): L1 install OK; source @agentduel/agentduel-dsh@0.1.1 (npm latest). profile package.json records @agentduel/agentduel-dsh 0.1.1; pnpm resolved 0.1.1; dsh.bundle.patch present so it installed as a profile layer (dsh.profile.bundles includes @agentduel/agentduel-dsh). dump-config + Q&A OK. cordis.patch.yml insert name is now '@agentduel/agentduel-dsh' (0.1.0 was unscoped agentduel-dsh → runtime-fail). Not L4'd: L3 was ok, not web-only. dsh.client.platform is web; AgentDuel App Key / battle UI not exercised.",
+   "contributors": 0,
+   "depCount": 13,
+   "depsOfficial": 6,
+   "_enriched": "2026-08-21|0.1.1"
   }
  ]
 }
