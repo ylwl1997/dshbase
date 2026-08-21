@@ -1,0 +1,51 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('en', '/audit/');
+const modesUrl = getRelativeLocaleUrl('en', '/blog/deepseek-harness-modes/');
+---
+<BlogPost title="dsh Command Map: A Practical Installer Cheat Sheet | dshbase" description="A practical map of dsh CLI commands: web UI, profiles, modes, plugins, permissions, and subagents. Verify with current docs as rc.x may change." currentPath="/blog/wx-dsh-command-map/" category="Guide">
+  <h1>dsh command map: a practical installer <span class="accent">cheat sheet</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 21, 2026 · dshbase · rewritten field note</p>
+  <p class="muted small">Rewritten from Sogou WeChat “命令大全” style coverage into a short installer map. Not a verbatim reprint — and WeChat lists go stale fast.</p>
+  <p class="muted small"><a href="https://weixin.sogou.com/weixin?type=2&amp;query=DeepSeek+Harness+%E5%91%BD%E4%BB%A4" rel="noopener noreferrer nofollow" target="_blank">Source clue (WeChat via Sogou; not a verbatim reprint)</a></p>
+
+  <h2>Quick start: web UI</h2>
+  <p>Launch with <code>dsh web</code>. The local UI usually opens around <code>http://127.0.0.1:3080/</code>. Pick a workspace folder before you chat.</p>
+
+  <h2>See what you actually booted</h2>
+  <pre><code>dsh --profile web --dump-config
+dsh --profile web --dump-default-config</code></pre>
+  <p>Dumping config is how you answer “which plugins/presets am I really running?” after a messy install.</p>
+
+  <h2>Modes (names only — details elsewhere)</h2>
+  <ul>
+    <li><strong>Standard</strong> — everyday agent loop</li>
+    <li><strong>PTC</strong> — programmatic task control (formerly “Code mode” in EN presets)</li>
+    <li><strong>Minimal</strong> — thin tool surface</li>
+    <li><strong>Create</strong> — can invent tools mid-task; higher supply-chain risk</li>
+  </ul>
+  <p>Full write-up: <a href={modesUrl}>four modes</a>.</p>
+
+  <h2>Installing plugins</h2>
+  <ul>
+    <li>npm package — <code>dsh plugin add &lt;pkg&gt;</code></li>
+    <li>GitHub — <code>dsh plugin add github:owner/repo</code></li>
+    <li>Local path — <code>dsh plugin add ./path</code></li>
+  </ul>
+  <p>Prefer <a href={directoryUrl}>verified directory</a> entries; check <a href={auditUrl}>audit</a> failure classes before collecting skins.</p>
+
+  <h2>Permissions</h2>
+  <ul>
+    <li><strong>Read Only</strong></li>
+    <li><strong>Workspace Write</strong> — normal day-to-day</li>
+    <li><strong>Full Access</strong> — only when you mean it</li>
+  </ul>
+
+  <h2>rc.8 subagent bundles</h2>
+  <p>Claude Code and Codex can be installed as Profile Bundles. Treat them as optional workers inside the same harness — not as a reason to skip verification.</p>
+
+  <h2>Takeaway</h2>
+  <p>Memorize <code>dsh web</code> + dump-config + permission level. Everything else is documentation debt that WeChat screenshots will get wrong within a week.</p>
+</BlogPost>

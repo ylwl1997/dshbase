@@ -1,0 +1,40 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('en', '/audit/');
+const visionUrl = getRelativeLocaleUrl('en', '/blog/dsh-vision/');
+const subUrl = getRelativeLocaleUrl('en', '/blog/dsh-subagent/');
+const rc8Url = getRelativeLocaleUrl('en', '/blog/dsh-rc8/');
+---
+<BlogPost title="DeepSeek Harness rc.8: Multimodal Inputs & Subagent Bundles | dshbase" description="What rc.8 changes for installers: image-capable adapters, Claude Code/Codex bundles, Windows PTY, and why verified packs still matter." currentPath="/blog/wx-rc8-multimodal/" category="Guide">
+  <h1>DeepSeek Harness rc.8: multimodal inputs &amp; subagent <span class="accent">bundles</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 21, 2026 · dshbase · rewritten field note</p>
+  <p class="muted small">Rewritten from Sogou WeChat rc.8 coverage themes plus the public GitHub release notes. Not a verbatim WeChat reprint.</p>
+  <p class="muted small"><a href="https://github.com/deepseek-ai/deepseek-harness/releases/tag/dsh-v0.1.0-rc.8" rel="noopener noreferrer nofollow" target="_blank">Reference / clue (official release; WeChat mirrors via Sogou)</a></p>
+
+  <h2>What installers should notice</h2>
+  <p>rc.8 is the first big public-beta bump after launch week: multimodal inputs, richer subagents, Windows terminal polish, and a pile of gateway/streaming fixes. For a hub view that also tracks catalog gaps, see <a href={rc8Url}>our rc.8 landing</a>.</p>
+
+  <h2>Images in the loop</h2>
+  <p>DeepSeek adapters can enable native image requests. <code>/goal</code> and <code>/plan</code> accept image context; the <code>@</code> menu can pull files and sessions into the task. That does not mean every hosted model path is vision-ready — read <a href={visionUrl}>vision notes</a> and prefer verified packs when the narrative outruns the API.</p>
+
+  <h2>Tool-layer “sight” still exists</h2>
+  <p>If the model is text-only, OCR / pixel-stat style tools can still approximate screenshots. Treat that as evidence assembly, not photo understanding. Community packs such as modlens and dsh-vision-toolkit live in that lane.</p>
+
+  <h2>Claude Code &amp; Codex as bundles</h2>
+  <p>Both can install as Profile Bundles. Codex supports non-interactive permissions and named instances. Details: <a href={subUrl}>subagent guide</a>.</p>
+
+  <h2>Windows PTY</h2>
+  <p>Persistent PowerShell sessions land in the PTY path and are on by default in Minimal — fewer “terminal forgot my env” moments.</p>
+
+  <h2>Fixes worth knowing</h2>
+  <ul>
+    <li>Large or many images less likely to blow the request</li>
+    <li>Streaming cancel keeps usable prefixes for the next turn / fork</li>
+    <li>Custom OpenAI-compatible gateways get fewer format/reasoning gaps</li>
+  </ul>
+
+  <h2>dshbase habit</h2>
+  <p>Upgrade the harness, then verify plugins again. Marketing posts move faster than <a href={directoryUrl}>directory</a> checks — use <a href={auditUrl}>audit</a> before you trust a random vision bridge.</p>
+</BlogPost>

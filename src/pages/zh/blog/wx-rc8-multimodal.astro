@@ -1,0 +1,40 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
+const visionUrl = getRelativeLocaleUrl('zh', '/blog/dsh-vision/');
+const subUrl = getRelativeLocaleUrl('zh', '/blog/dsh-subagent/');
+const rc8Url = getRelativeLocaleUrl('zh', '/blog/dsh-rc8/');
+---
+<BlogPost title="DeepSeek Harness rc.8：多模态输入与子代理捆绑 | dshbase 中文" description="rc.8 对安装者意味着什么：可配图像适配器、Claude Code/Codex 捆绑、Windows PTY，以及为什么已验证包仍然重要。" currentPath="/blog/wx-rc8-multimodal/" category="指南">
+  <h1>DeepSeek Harness rc.8：多模态与子代理捆绑</h1>
+  <p class="muted small" style="margin-bottom:20px">2026年8月21日 · dshbase · 改写解读</p>
+  <p class="muted small">改写自搜狗微信 rc.8 话题线索 + 公开 GitHub Release，非公众号原文搬运。</p>
+  <p class="muted small"><a href="https://github.com/deepseek-ai/deepseek-harness/releases/tag/dsh-v0.1.0-rc.8" rel="noopener noreferrer nofollow" target="_blank">参考/线索（官方 Release；微信镜像可用搜狗检索）</a></p>
+
+  <h2>安装者先看这些</h2>
+  <p>rc.8 是公测后第一波大更新：多模态输入、更完整的子代理、Windows 终端体验，以及一批网关/流式修复。若要总览（含 catalog 缺口），看<a href={rc8Url}>rc.8 枢纽文</a>。</p>
+
+  <h2>把图放进循环</h2>
+  <p>DeepSeek 适配器可启用原生图片请求。<code>/goal</code>、<code>/plan</code> 可带图；<code>@</code> 菜单可引用文件与会话。这不等于每条托管模型路径都已视觉就绪——先读<a href={visionUrl}>Vision 说明</a>，叙事快过 API 时用已验证 packs。</p>
+
+  <h2>工具层「看见」仍然在</h2>
+  <p>纯文本模型仍可通过 OCR / 像素统计等工具拼证据。那是证据组装，不是照片理解。modlens、dsh-vision-toolkit 等社区包走这条路。</p>
+
+  <h2>Claude Code 与 Codex 捆绑</h2>
+  <p>两者都可按 Profile Bundle 安装；Codex 支持非交互权限与多命名实例。详见<a href={subUrl}>子代理指南</a>。</p>
+
+  <h2>Windows PTY</h2>
+  <p>持久 PowerShell 会话进入 PTY，并在极简预设默认开启，少一点「终端忘了环境」。</p>
+
+  <h2>值得知道的修复</h2>
+  <ul>
+    <li>大图 / 多图更不容易直接打挂请求</li>
+    <li>取消流式后，已显示前缀可进入下一轮或分叉</li>
+    <li>自定义 OpenAI 兼容网关少一些格式/推理回传坑</li>
+  </ul>
+
+  <h2>dshbase 习惯</h2>
+  <p>先升 harness，再复验插件。营销文快过<a href={directoryUrl}>目录</a>——随机视觉桥之前先看<a href={auditUrl}>审计</a>。</p>
+</BlogPost>

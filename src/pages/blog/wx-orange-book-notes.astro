@@ -1,0 +1,37 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('en', '/audit/');
+const modesUrl = getRelativeLocaleUrl('en', '/blog/deepseek-harness-modes/');
+const costUrl = getRelativeLocaleUrl('en', '/blog/deepseek-harness-cost/');
+---
+<BlogPost title="Installer Field Notes: An Orange-Book Style Teardown of DeepSeek Harness | dshbase" description="Field notes for installers: dump-config, append-only logs, Create-mode risk, PTC cost myths, and why verified installs beat star counts." currentPath="/blog/wx-orange-book-notes/" category="Analysis">
+  <h1>Installer field notes: an orange-book style <span class="accent">teardown</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 21, 2026 · dshbase · rewritten field note</p>
+  <p class="muted small">Rewritten from Sogou WeChat “全拆解 / 橙皮书” style coverage into installer-facing notes. Not a reprint of any book or WeChat body.</p>
+  <p class="muted small"><a href="https://github.com/alchaincyf/deepseek-harness-orange-book" rel="noopener noreferrer nofollow" target="_blank">Reference / clue (public orange-book repo; related WeChat coverage via Sogou)</a></p>
+
+  <h2>From “it” to “I”</h2>
+  <p>Official docs explain how the harness is built. Field notes ask what happens after <em>you</em> install it: money, disk access, first stuck UI. Both matter; only one matches the panic at 2 a.m.</p>
+
+  <h2>Dump config before you theorize</h2>
+  <pre><code>dsh --profile web --dump-default-config
+dsh --profile web --dump-config</code></pre>
+  <p>Defaults vs effective config is the fastest way to see which plugins and presets actually loaded.</p>
+
+  <h2>Append-only session logs</h2>
+  <p>Across modes, the event stream is meant to be reconstructible. If the model saw it, you should be able to replay it from the log. That is the audit story — not screenshots.</p>
+
+  <h2>Create mode invents tools</h2>
+  <p>Watching an agent add a tool mid-task is exciting. It is also a supply-chain event. Prefer verified plugins from the <a href={directoryUrl}>directory</a> over mystery one-off generators.</p>
+
+  <h2>PTC is not a free lunch</h2>
+  <p>PTC (programmatic task control) is an orchestration mode, not a coupon code. Community write-ups sometimes show fixed overhead going <em>up</em>. Measure tokens and cache yourself — start with our <a href={costUrl}>cost guide</a> and <a href={modesUrl}>modes guide</a>.</p>
+
+  <h2>Listed on npm ≠ installed</h2>
+  <p>Packages can exist on npm outside the default install closure. “I saw it on the registry” is not the same as “my profile loaded it.”</p>
+
+  <h2>Stars vs verification</h2>
+  <p>Popularity is not an install signal. Use <a href={auditUrl}>audit</a> failure classes and verified badges before you expand the attack surface.</p>
+</BlogPost>

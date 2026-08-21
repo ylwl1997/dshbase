@@ -1,0 +1,49 @@
+{
+  "seen": [
+    {
+      "title": "DeepSeek Harness v0.1.0-rc.8：多模态输入与子代理配置",
+      "href": "https://github.com/deepseek-ai/deepseek-harness/releases/tag/dsh-v0.1.0-rc.8",
+      "status": "published",
+      "slug": "wx-rc8-multimodal",
+      "at": "2026-08-21T06:31:04.880691+00:00"
+    },
+    {
+      "title": "安装者手记：DeepSeek Harness 橙皮书式拆解",
+      "href": "https://github.com/alchaincyf/deepseek-harness-orange-book",
+      "status": "published",
+      "slug": "wx-orange-book-notes",
+      "at": "2026-08-21T06:31:04.880691+00:00"
+    },
+    {
+      "title": "dshbase 命令地图：安装者实用指南",
+      "href": "https://weixin.sogou.com/weixin?type=2&query=DeepSeek+Harness+%E5%91%BD%E4%BB%A4",
+      "status": "published",
+      "slug": "wx-dsh-command-map",
+      "at": "2026-08-21T06:31:04.880691+00:00"
+    }
+  ],
+  "published": [
+    {
+      "title": "DeepSeek Harness v0.1.0-rc.8：多模态输入与子代理配置",
+      "href": "https://github.com/deepseek-ai/deepseek-harness/releases/tag/dsh-v0.1.0-rc.8",
+      "slug": "wx-rc8-multimodal",
+      "at": "2026-08-21T06:31:04.880691+00:00",
+      "batch": "manual-first"
+    },
+    {
+      "title": "安装者手记：DeepSeek Harness 橙皮书式拆解",
+      "href": "https://github.com/alchaincyf/deepseek-harness-orange-book",
+      "slug": "wx-orange-book-notes",
+      "at": "2026-08-21T06:31:04.880691+00:00",
+      "batch": "manual-first"
+    },
+    {
+      "title": "dshbase 命令地图：安装者实用指南",
+      "href": "https://weixin.sogou.com/weixin?type=2&query=DeepSeek+Harness+%E5%91%BD%E4%BB%A4",
+      "slug": "wx-dsh-command-map",
+      "at": "2026-08-21T06:31:04.880691+00:00",
+      "batch": "manual-first"
+    }
+  ],
+  "updated_at": "2026-08-21T06:31:04.880691+00:00"
+}

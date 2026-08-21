@@ -1,0 +1,69 @@
+name: Weixin Sogou blog ingest
+
+# 搜狗/微信抓取依赖本机 Cookie 与 bsk，官方 ubuntu-latest 不能稳定跑 publish。
+# 默认 dry-run；真正发文请在 VPS 上跑 scripts/weixin-sogou-ingest.py --publish
+# 文档: docs/weixin-sogou-ingest.md
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "search-only | dry-run | publish (publish needs self-hosted + WEIXIN_INGEST_PUBLISH)"
+        required: true
+        default: "dry-run"
+        type: choice
+        options:
+          - search-only
+          - dry-run
+          - publish
+      limit:
+        description: "Max articles to process"
+        required: true
+        default: "2"
+  schedule:
+    # 周一/周四 10:00 UTC ≈ 北京时间 18:00 — 仅 dry-run 探测脚本是否可启动
+    - cron: "0 10 * * 1,4"
+
+permissions:
+  contents: read
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Syntax check
+        run: python -m py_compile scripts/weixin-sogou-ingest.py
+
+      - name: Decide mode
+        id: mode
+        run: |
+          MODE="${{ github.event.inputs.mode || 'dry-run' }}"
+          LIMIT="${{ github.event.inputs.limit || '2' }}"
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            MODE="dry-run"
+          fi
+          if [ "$MODE" = "publish" ] && [ "${{ secrets.WEIXIN_INGEST_PUBLISH }}" != "1" ]; then
+            echo "publish gated — falling back to dry-run (set secret WEIXIN_INGEST_PUBLISH=1 on a self-hosted runner with bsk)"
+            MODE="dry-run"
+          fi
+          echo "mode=$MODE" >> "$GITHUB_OUTPUT"
+          echo "limit=$LIMIT" >> "$GITHUB_OUTPUT"
+
+      - name: Note about bsk
+        run: |
+          echo "GitHub-hosted runners cannot use bsk / WeChat cookies."
+          echo "This job only validates the script. Run publish on a VPS:"
+          echo "  python scripts/weixin-sogou-ingest.py --publish --limit ${{ steps.mode.outputs.limit }}"
+          echo "See docs/weixin-sogou-ingest.md"
+
+      - name: Dry hint (no network scrape on GHA)
+        if: steps.mode.outputs.mode != 'publish'
+        run: |
+          python scripts/weixin-sogou-ingest.py --help
+          echo "Scheduled/dispatch dry-run on GHA skips live Sogou (no bsk)."

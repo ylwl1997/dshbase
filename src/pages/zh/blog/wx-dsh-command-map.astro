@@ -1,0 +1,51 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
+const modesUrl = getRelativeLocaleUrl('zh', '/blog/deepseek-harness-modes/');
+---
+<BlogPost title="dsh 命令地图：安装者速查 | dshbase 中文" description="dsh 命令实用地图：Web UI、配置导出、模式、插件、权限与 rc.8 子代理。rc.x 会变，以最新文档为准。" currentPath="/blog/wx-dsh-command-map/" category="指南">
+  <h1>dsh 命令地图：安装者速查</h1>
+  <p class="muted small" style="margin-bottom:20px">2026年8月21日 · dshbase · 改写解读</p>
+  <p class="muted small">改写自搜狗微信「命令大全」类线索，做成短地图；非原文搬运。微信截图里的命令列表很容易过期。</p>
+  <p class="muted small"><a href="https://weixin.sogou.com/weixin?type=2&amp;query=DeepSeek+Harness+%E5%91%BD%E4%BB%A4" rel="noopener noreferrer nofollow" target="_blank">参考/线索（微信；非原文搬运）</a></p>
+
+  <h2>先启动 Web UI</h2>
+  <p>用 <code>dsh web</code> 拉起本地界面，常见地址是 <code>http://127.0.0.1:3080/</code>。开聊前先选工作区目录。</p>
+
+  <h2>看清你真正启动了什么</h2>
+  <pre><code>dsh --profile web --dump-config
+dsh --profile web --dump-default-config</code></pre>
+  <p>装乱了之后，靠 dump 才能回答「现在到底加载了哪些插件/预设」。</p>
+
+  <h2>模式（只记名字）</h2>
+  <ul>
+    <li><strong>标准</strong> — 日常循环</li>
+    <li><strong>PTC</strong> — 编程式任务编排（英文预设里旧称 Code mode）</li>
+    <li><strong>极简</strong> — 工具面更薄</li>
+    <li><strong>创造</strong> — 任务中途可能造工具，供应链风险更高</li>
+  </ul>
+  <p>展开阅读：<a href={modesUrl}>四种模式</a>。</p>
+
+  <h2>装插件</h2>
+  <ul>
+    <li>npm 包名 — <code>dsh plugin add &lt;pkg&gt;</code></li>
+    <li>GitHub — <code>dsh plugin add github:owner/repo</code></li>
+    <li>本地路径 — <code>dsh plugin add ./path</code></li>
+  </ul>
+  <p>优先看<a href={directoryUrl}>已验证目录</a>，失败类型见<a href={auditUrl}>审计</a>——别先囤皮肤。</p>
+
+  <h2>权限</h2>
+  <ul>
+    <li><strong>只读</strong></li>
+    <li><strong>工作区写入</strong> — 日常默认</li>
+    <li><strong>完全访问</strong> — 确认下一步再开</li>
+  </ul>
+
+  <h2>rc.8 子代理捆绑</h2>
+  <p>Claude Code / Codex 可作为 Profile Bundle 按需装进同一套 Harness。它们是可选工人，不是跳过验证的理由。</p>
+
+  <h2>一句话</h2>
+  <p>先记住 <code>dsh web</code>、dump-config、权限档。其余命令以官方文档为准——微信截图一周后就会骗你。</p>
+</BlogPost>

@@ -1,0 +1,37 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
+const modesUrl = getRelativeLocaleUrl('zh', '/blog/deepseek-harness-modes/');
+const costUrl = getRelativeLocaleUrl('zh', '/blog/deepseek-harness-cost/');
+---
+<BlogPost title="安装者手记：DeepSeek Harness 橙皮书式拆解 | dshbase 中文" description="安装者视角：dump-config、只追加日志、创造模式风险、PTC 并不自动更省，以及已验证安装为何胜过 star 数。" currentPath="/blog/wx-orange-book-notes/" category="分析">
+  <h1>安装者手记：橙皮书式拆解</h1>
+  <p class="muted small" style="margin-bottom:20px">2026年8月21日 · dshbase · 改写解读</p>
+  <p class="muted small">改写自搜狗微信「全拆解 / 橙皮书」类线索，面向安装者；不是任何书籍或公众号正文的搬运。</p>
+  <p class="muted small"><a href="https://github.com/alchaincyf/deepseek-harness-orange-book" rel="noopener noreferrer nofollow" target="_blank">参考/线索（公开橙皮书仓库；相关微信覆盖可由搜狗检索）</a></p>
+
+  <h2>从「它」到「我」</h2>
+  <p>官方文档讲 harness 怎么造；安装者笔记问的是：装上之后会不会烧钱、会不会动到别的目录、卡在哪一步。两者都需要，后者才对应凌晨两点的慌。</p>
+
+  <h2>先 dump，再讲故事</h2>
+  <pre><code>dsh --profile web --dump-default-config
+dsh --profile web --dump-config</code></pre>
+  <p>默认配置 vs 生效配置，是看清「到底加载了哪些插件/预设」的最快办法。</p>
+
+  <h2>只追加的会话日志</h2>
+  <p>跨模式的事件流应可重建：模型见过的，日志里应能复现。审计靠这个，不靠截图。</p>
+
+  <h2>创造模式会造工具</h2>
+  <p>任务中途多出来一行工具，看着爽，也是供应链事件。优先用<a href={directoryUrl}>已验证目录</a>，少信一次性生成物。</p>
+
+  <h2>PTC 不是自动打折</h2>
+  <p>PTC（编程式任务编排）是模式，不是优惠券。社区实测里固定开销偶尔反而升高。自己量 token / 缓存——可先看<a href={costUrl}>成本</a>与<a href={modesUrl}>模式</a>指南。</p>
+
+  <h2>npm 上有 ≠ 已安装</h2>
+  <p>默认安装闭包之外的包可以存在于 registry。「我在 npm 看见了」不等于「当前 profile 加载了」。</p>
+
+  <h2>Star 数 vs 验证</h2>
+  <p>热度不是安装信号。扩攻击面之前，先看<a href={auditUrl}>审计</a>失败类型与已验证标记。</p>
+</BlogPost>
