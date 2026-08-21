@@ -126,6 +126,24 @@
   ]
  },
  {
+  "github": "PolinniZhong",
+  "avatar": "https://avatars.githubusercontent.com/u/260301152?v=4",
+  "plugins": [
+   {
+    "name": "dsh-personal-center",
+    "slug": "dsh-personal-center",
+    "npm": false,
+    "pkg": ""
+   },
+   {
+    "name": "dsh-session-kb",
+    "slug": "dsh-session-kb",
+    "npm": true,
+    "pkg": "dsh-session-kb"
+   }
+  ]
+ },
+ {
   "github": "QinLuza",
   "avatar": "https://avatars.githubusercontent.com/u/291772113?v=4",
   "plugins": [
@@ -404,18 +422,6 @@
     "slug": "ohoyo-dsh-file-mention",
     "npm": true,
     "pkg": "@ohoyo/dsh-file-mention"
-   }
-  ]
- },
- {
-  "github": "PolinniZhong",
-  "avatar": "https://avatars.githubusercontent.com/u/260301152?v=4",
-  "plugins": [
-   {
-    "name": "dsh-personal-center",
-    "slug": "dsh-personal-center",
-    "npm": false,
-    "pkg": ""
    }
   ]
  },
