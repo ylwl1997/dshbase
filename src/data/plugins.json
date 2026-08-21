@@ -23711,7 +23711,7 @@
    "name": "@wanghailong0419/dsh-toolkit",
    "url": "https://github.com/LongSir0419/dsh-toolkit",
    "pkg": "@wanghailong0419/dsh-toolkit",
-   "ver": "0.1.4",
+   "ver": "0.1.5",
    "npm": true,
    "test": "verified",
    "desc": "DSH toolkit that installs MCP manager and Skill manager in one command; Settings then shows MCP and Skill sections.",
@@ -23728,7 +23728,7 @@
    "slug": "wanghailong0419-dsh-toolkit",
    "platform": "any",
    "testDate": "2026-08-21",
-   "note": "Scoped catalog name to distinguish from omdsh-dev/dsh-toolkit. Headless L3 PASS on dsh 0.1.0-rc.6 (install + load + Q&A) for pinned npm @wanghailong0419/dsh-toolkit@0.1.4 on 2026-08-21. Profile package.json recorded 0.1.4. Follow-up from issues #56/#57 (npm latest 0.1.4; toolkit subpath re-exports for member loaders)."
+   "note": "Scoped catalog name to distinguish from omdsh-dev/dsh-toolkit. Headless L3 PASS on dsh 0.1.0-rc.6 (install + load + Q&A) for pinned npm @wanghailong0419/dsh-toolkit@0.1.5 on 2026-08-21. Profile package.json recorded 0.1.5. Follow-up from issues #56/#57 (npm latest 0.1.5; forwards member client apply+inject so Settings sections render; README screenshots cached)."
   },
   {
    "name": "deepspider",
