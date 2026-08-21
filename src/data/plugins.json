@@ -56836,7 +56836,9 @@
    "slug": "agentduel-dsh",
    "platform": "any",
    "needs": "AgentDuel App Key (login at agentduel.app to submit code and battle)",
-   "repoOwner": "linconz"
+   "repoOwner": "linconz",
+   "testDate": "2026-08-21",
+   "note": "Headless L3 runtime-fail on dsh 0.1.0-rc.8 (2026-08-21): L1 install OK; source @agentduel/agentduel-dsh@0.1.0 (npm latest). profile package.json records @agentduel/agentduel-dsh 0.1.0; pnpm resolved 0.1.0; dsh.bundle.patch present so it installed as a profile layer (dsh.profile.bundles includes @agentduel/agentduel-dsh). dump-config OK (tree shows loader entry id=agentduel name=agentduel-dsh). Q&A failed: plugin tree failed to load — Cannot find package 'agentduel-dsh' (cordis.patch.yml insert name is unscoped agentduel-dsh but the installed npm package is @agentduel/agentduel-dsh; no node_modules/agentduel-dsh). Not L4'd: L3 was runtime-fail, not web-only. AgentDuel App Key / battle UI not exercised."
   }
  ]
 }
