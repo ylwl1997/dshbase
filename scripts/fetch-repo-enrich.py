@@ -168,7 +168,9 @@ def sanitize_html(html, repo=None, branch="main"):
             attr, path = m.group(1), m.group(2)
             if path.startswith(("#", "mailto:", "data:", "http")):
                 return m.group(0)
-            clean = path.lstrip("./")
+            clean = path
+            while clean.startswith("./"):
+                clean = clean[2:]
             if attr == "src":
                 return f'{attr}="{cdn}{clean}"'
             return f'{attr}="{gh_base}{clean}"'

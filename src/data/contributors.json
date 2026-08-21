@@ -246,6 +246,18 @@
   ]
  },
  {
+  "github": "chenjie1129",
+  "avatar": "https://avatars.githubusercontent.com/u/31786685?v=4",
+  "plugins": [
+   {
+    "name": "@chenjie1129/dsh-remotion-video-plugin",
+    "slug": "chenjie1129-dsh-remotion-video-plugin",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "CMSKL",
   "avatar": "https://avatars.githubusercontent.com/u/132124550?v=4",
   "plugins": [
