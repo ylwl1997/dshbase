@@ -324,6 +324,18 @@
   ]
  },
  {
+  "github": "lamost423",
+  "avatar": "https://avatars.githubusercontent.com/u/117018962?v=4",
+  "plugins": [
+   {
+    "name": "dsh-trace-compare",
+    "slug": "dsh-trace-compare",
+    "npm": true,
+    "pkg": "dsh-trace-compare"
+   }
+  ]
+ },
+ {
   "github": "LongSir0419",
   "avatar": "https://avatars.githubusercontent.com/u/103190940?v=4",
   "plugins": [
