@@ -25504,7 +25504,7 @@
    "pkg": "dsh-xray",
    "ver": "0.6.0",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "X-ray for your DeepSeek Harness — see what's actually loaded, why, and what it costs you.",
    "desc_en": "X-ray for your DeepSeek Harness — see what's actually loaded, why, and what it costs you.",
    "desc_zh": "给 Harness 组合树拍 X 光：把 dump-config 的每一行归因到引入它的层（bundle / profile patch / home patch / repository 源），diff 抓出被 dsh 静默跳过的 orphan patch 行和装了没生效的插件，deps 给出服务依赖图与停用级联，cost 估算 prompt sections + tool schemas 的 token 占用；另有 /xray Web 面板和 xray_composition agent 自省工具。静态命令在 dsh 起不来时也能跑；只读设计。",
@@ -25517,7 +25517,14 @@
    "added": "2026-08-21T06:47:16",
    "license": "MIT",
    "slug": "dsh-xray",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-21",
+   "note": "Headless L3 PASS on dsh 0.1.0-rc.8 (2026-08-21): L1 install OK; source dsh-xray@0.6.0 (npm latest). profile package.json records dsh-xray 0.6.0; pnpm resolved dsh-xray 0.6.0; dsh.bundle.patch present so it installed as a profile layer (dsh.profile.bundles includes dsh-xray). dump-config + Q&A OK. Not L4'd: L3 was ok, not web-only. Web /xray panel was not exercised by headless L3.",
+   "contributors": 3,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "alloevil",
+   "_enriched": "2026-08-21|0.6.0"
   }
  ],
  "AI Models": [

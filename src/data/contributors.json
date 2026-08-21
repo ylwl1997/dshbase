@@ -180,6 +180,18 @@
   ]
  },
  {
+  "github": "alloevil",
+  "avatar": "https://avatars.githubusercontent.com/u/12680612?v=4",
+  "plugins": [
+   {
+    "name": "dsh-xray",
+    "slug": "dsh-xray",
+    "npm": true,
+    "pkg": "dsh-xray"
+   }
+  ]
+ },
+ {
   "github": "bentong-chain",
   "avatar": "https://avatars.githubusercontent.com/u/143051734?v=4",
   "plugins": [
