@@ -63,7 +63,7 @@ def main():
                     if "web l3" in low or "l4 web" in low or part.startswith("验证:"):
                         continue
                     keep.append(part)
-                add = "L4 web CDP verified on dsh 0.1.0-rc.6."
+                add = "L4 web CDP verified on dsh 0.1.0-rc.8."
                 p["note"] = ("；".join(keep) + "；" + add) if keep else add
                 # Keep webonly=True so catalog knows this passed via web profile, not headless-only.
                 p["webonly"] = True
@@ -72,14 +72,14 @@ def main():
                 p["test"] = "pending"
                 p["webonly"] = True
                 note = p.get("note", "")
-                add = "L4 still web-only on dsh 0.1.0-rc.6 (unexpected)."
+                add = "L4 still web-only on dsh 0.1.0-rc.8 (unexpected)."
                 p["note"] = (note + "；" + add) if note else add
                 updated["web-only"] = updated.get("web-only", 0) + 1
             else:
                 p["test"] = "pending"
                 p["webonly"] = True
                 note = p.get("note", "")
-                add = f"L4 web CDP {st} on dsh 0.1.0-rc.6."
+                add = f"L4 web CDP {st} on dsh 0.1.0-rc.8."
                 p["note"] = (note + "；" + add) if note else add
                 updated[st] = updated.get(st, 0) + 1
 

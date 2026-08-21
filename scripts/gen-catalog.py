@@ -78,7 +78,7 @@ out = {
     "updated": date.today().isoformat(),
     "count": len(plugins),
     "verified_definition": (
-        "L1 install + L2 load + L3 runtime Q&A on dsh 0.1.0-rc.6 "
+        "L1 install + L2 load + L3 runtime Q&A on dsh 0.1.0-rc.8 "
         "(not topic count / manifest-only installability)"
     ),
     "plugins": plugins,

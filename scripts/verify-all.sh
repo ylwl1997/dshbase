@@ -70,10 +70,10 @@ YAML
   status="unknown"
   log="/tmp/verify-$name.log"
 
-  # 安装（显式 pin dsh-base 到 0.1.0-rc.6，latest 标签是坏的 0.0.1-rc.1）
+  # 安装（显式 pin dsh-base 到 0.1.0-rc.8，latest 标签可能仍指向旧 rc）
   installed=0
   for attempt in 1 2 3; do
-    if timeout 240 dsh plugin --profile "$prof" add "@deepseek-ai/dsh-base@0.1.0-rc.6" "$src" >"$log" 2>&1; then
+    if timeout 240 dsh plugin --profile "$prof" add "@deepseek-ai/dsh-base@0.1.0-rc.8" "$src" >"$log" 2>&1; then
       installed=1
       break
     fi

@@ -70,7 +70,7 @@ rm -rf "$profdir"; mkdir -p "$profdir"
 } > "$profdir/pnpm-workspace.yaml"
 
 # base surface first (web-app, NOT headless — the two are parallel surfaces)
-dsh plugin --profile "$prof" add "@deepseek-ai/dsh-base@0.1.0-rc.6" "@deepseek-ai/dsh-web-app@0.1.0-rc.6" >/tmp/webcheck-base.log 2>&1 || true
+dsh plugin --profile "$prof" add "@deepseek-ai/dsh-base@0.1.0-rc.8" "@deepseek-ai/dsh-web-app@0.1.0-rc.8" >/tmp/webcheck-base.log 2>&1 || true
 while read -r pkg; do
   [ -z "$pkg" ] && continue
   dsh plugin --profile "$prof" add "$pkg" >/dev/null 2>>/tmp/webcheck-base.log || true

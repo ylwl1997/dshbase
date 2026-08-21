@@ -16,7 +16,7 @@
 #   status: ok / load-fail / install-fail / runtime-fail
 #
 # 依赖（服务器已装）:
-#   dsh 0.1.0-rc.6, node, pnpm 11, puppeteer+Chromium (~/webverify/l3.mjs)
+#   dsh 0.1.0-rc.8, node, pnpm 11, puppeteer+Chromium (~/webverify/l3.mjs)
 #   $DSH_OVERRIDES  可指定 overrides yaml 路径（默认仓库 scripts/dsh-overrides.yaml）
 set -uo pipefail
 
@@ -104,8 +104,8 @@ verify_one() {
   local installed="no"
   for attempt in 1 2 3; do
     if timeout 300 dsh plugin --profile "$prof" add \
-        "@deepseek-ai/dsh-base@0.1.0-rc.6" \
-        "@deepseek-ai/dsh-web-app@0.1.0-rc.6" \
+        "@deepseek-ai/dsh-base@0.1.0-rc.8" \
+        "@deepseek-ai/dsh-web-app@0.1.0-rc.8" \
         "$src" > "$logf" 2>&1; then
       installed="yes"
       break

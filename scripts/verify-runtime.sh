@@ -89,7 +89,7 @@ verify_one() {
     cat "$SCRIPT_DIR/dsh-overrides.yaml"
   } > "$profdir/pnpm-workspace.yaml"
   for attempt in 1 2 3; do
-    if timeout 240 dsh plugin --profile "$prof" add "@deepseek-ai/dsh-base@0.1.0-rc.6" "@deepseek-ai/dsh-headless@0.1.0-rc.6" "$src" >"$log" 2>&1; then
+    if timeout 240 dsh plugin --profile "$prof" add "@deepseek-ai/dsh-base@0.1.0-rc.8" "@deepseek-ai/dsh-headless@0.1.0-rc.8" "$src" >"$log" 2>&1; then
       installed=1; break
     fi
     # 解析 pnpm 提示的 allowBuilds key（含 @/:/ 的 key 必须加引号，否则 YAML 解析错）
