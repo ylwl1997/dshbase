@@ -56259,6 +56259,30 @@
    "depsOfficial": 2,
    "repoOwner": "Walvez",
    "_enriched": "2026-08-21|0.9.5"
+  },
+  {
+   "name": "@wannanbigpig/dsh-usage-stats",
+   "url": "https://github.com/wannanbigpig/dsh-usage-stats",
+   "pkg": "@wannanbigpig/dsh-usage-stats",
+   "ver": "0.1.5",
+   "npm": true,
+   "test": "pending",
+   "desc": "Usage and billing sidebar for dsh web: multi-provider balances, token heatmap, daily limits, and balance alerts.",
+   "desc_en": "Usage and billing sidebar for dsh web: multi-provider balances, token heatmap, daily limits, and balance alerts.",
+   "desc_zh": "为 dsh web 补上用量与计费：多供应商余额、Token 热图、每日限额与余额预警",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-08-21",
+   "archived": false,
+   "added": "2026-08-22T00:46:39",
+   "license": "MIT",
+   "slug": "wannanbigpig-dsh-usage-stats",
+   "platform": "any",
+   "testDate": "2026-08-22",
+   "repoOwner": "wannanbigpig",
+   "note": "Headless L3 runtime-fail on dsh 0.1.0-rc.8 (2026-08-22 00:47Z): L1 install OK; source @wannanbigpig/dsh-usage-stats@0.1.5 (npm latest). profile package.json records @wannanbigpig/dsh-usage-stats 0.1.5; pnpm resolved 0.1.5; dsh.bundle present, installed as profile layer (dsh.profile.bundles includes @wannanbigpig/dsh-usage-stats). plugin tree failed to load: Cannot find package 'dsh-usage-stats' — cordis.patch.yml insert name is unscoped `dsh-usage-stats` but installed package is `@wannanbigpig/dsh-usage-stats`. Not L4'd: L3 was runtime-fail, not web-only. Distinct from catalog dsh-usage-stats (Ychris12138)."
   }
  ],
  "Content": [

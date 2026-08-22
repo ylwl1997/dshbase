@@ -546,6 +546,18 @@
   ]
  },
  {
+  "github": "wannanbigpig",
+  "avatar": "https://avatars.githubusercontent.com/u/48752601?v=4",
+  "plugins": [
+   {
+    "name": "@wannanbigpig/dsh-usage-stats",
+    "slug": "wannanbigpig-dsh-usage-stats",
+    "npm": true,
+    "pkg": "@wannanbigpig/dsh-usage-stats"
+   }
+  ]
+ },
+ {
   "github": "weijiafu14",
   "avatar": "https://avatars.githubusercontent.com/u/17469139?v=4",
   "plugins": [
