@@ -56264,7 +56264,7 @@
    "name": "@wannanbigpig/dsh-usage-stats",
    "url": "https://github.com/wannanbigpig/dsh-usage-stats",
    "pkg": "@wannanbigpig/dsh-usage-stats",
-   "ver": "0.1.5",
+   "ver": "0.1.6",
    "npm": true,
    "test": "pending",
    "desc": "Usage and billing sidebar for dsh web: multi-provider balances, token heatmap, daily limits, and balance alerts.",
@@ -56274,7 +56274,7 @@
    "forks": 0,
    "issues": 0,
    "language": "JavaScript",
-   "updated": "2026-08-21",
+   "updated": "2026-08-22",
    "archived": false,
    "added": "2026-08-22T00:46:39",
    "license": "MIT",
@@ -56282,7 +56282,8 @@
    "platform": "any",
    "testDate": "2026-08-22",
    "repoOwner": "wannanbigpig",
-   "note": "Headless L3 runtime-fail on dsh 0.1.0-rc.8 (2026-08-22 00:47Z): L1 install OK; source @wannanbigpig/dsh-usage-stats@0.1.5 (npm latest). profile package.json records @wannanbigpig/dsh-usage-stats 0.1.5; pnpm resolved 0.1.5; dsh.bundle present, installed as profile layer (dsh.profile.bundles includes @wannanbigpig/dsh-usage-stats). plugin tree failed to load: Cannot find package 'dsh-usage-stats' — cordis.patch.yml insert name is unscoped `dsh-usage-stats` but installed package is `@wannanbigpig/dsh-usage-stats`. Not L4'd: L3 was runtime-fail, not web-only. Distinct from catalog dsh-usage-stats (Ychris12138)."
+   "note": "Headless L3 web-only on dsh 0.1.0-rc.8 (2026-08-22 02:02Z): L1 install OK; source @wannanbigpig/dsh-usage-stats@0.1.6 (npm latest, published 01:54Z, git HEAD a0a41c8). profile package.json records @wannanbigpig/dsh-usage-stats 0.1.6; pnpm resolved 0.1.6; dsh.bundle present, installed as profile layer (dsh.profile.bundles includes @wannanbigpig/dsh-usage-stats). Scoped cordis.patch.yml insert name `@wannanbigpig/dsh-usage-stats` fixed the 0.1.5 `Cannot find package 'dsh-usage-stats'` load error. Headless dump/Q&A: waiting for service: webServer → web-only (not runtime-fail). L4 web CDP runtime-fail (2026-08-22 02:03Z): L1+L2 OK with dsh-web-app; web booted on :3080; CDP page title DeepSeek Harness showed Failed to load plugins — client-modules: bundle /plugins/@wannanbigpig/dsh-usage-stats/client.js loaded without registering `@wannanbigpig/dsh-usage-stats` via __ModuleLoader__.load. lib/client.js still window.__ModuleLoader__.load({ id: \"dsh-usage-stats\" }) unscoped. No textarea (plugin load splash). Distinct from catalog dsh-usage-stats (Ychris12138).",
+   "webonly": true
   }
  ],
  "Content": [
