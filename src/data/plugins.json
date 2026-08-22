@@ -28146,6 +28146,29 @@
    "depsOfficial": 9,
    "repoOwner": "hyt-ao",
    "_enriched": "2026-08-20|"
+  },
+  {
+   "name": "dsh-llm-gateway-compat",
+   "url": "https://github.com/snowshadow/dsh-llm-gateway-compat",
+   "pkg": "dsh-llm-gateway-compat",
+   "ver": "0.3.0",
+   "npm": true,
+   "test": "verified",
+   "desc": "Community DSH plugin: OpenAI-compatible gateway adapter and dialect fixes (not an official DeepSeek package)",
+   "desc_en": "Community DSH plugin: OpenAI-compatible gateway adapter and dialect fixes (not an official DeepSeek package)",
+   "desc_zh": "给 OpenAI 兼容网关补上 DSH 官方 adapter 容易踩的方言（空 tool-call id/name、role:developer / max_completion_tokens 400）。",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-21",
+   "archived": false,
+   "added": "2026-08-22T05:01:27",
+   "license": "MIT",
+   "slug": "dsh-llm-gateway-compat",
+   "platform": "any",
+   "testDate": "2026-08-22",
+   "note": "Headless L3 PASS on dsh 0.1.0-rc.8 (2026-08-22): L1 install OK; source dsh-llm-gateway-compat@0.3.0 (npm latest, pinned). profile package.json records dsh-llm-gateway-compat 0.3.0; pnpm resolved 0.3.0; dsh.bundle present (cordis.patch.yml insert id llm-gateway-compat / name dsh-llm-gateway-compat, matches package.json). dump-config + Q&A OK. Not L4'd: L3 was ok, not web-only. Optional Chat Completions providers / gateway API keys not exercised."
   }
  ],
  "UI & Skins": [

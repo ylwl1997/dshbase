@@ -474,6 +474,18 @@
   ]
  },
  {
+  "github": "snowshadow",
+  "avatar": "https://avatars.githubusercontent.com/u/10584843?v=4",
+  "plugins": [
+   {
+    "name": "dsh-llm-gateway-compat",
+    "slug": "dsh-llm-gateway-compat",
+    "npm": true,
+    "pkg": "dsh-llm-gateway-compat"
+   }
+  ]
+ },
+ {
   "github": "sorry123maker",
   "avatar": "https://avatars.githubusercontent.com/u/91934254?v=4",
   "plugins": [
