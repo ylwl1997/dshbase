@@ -6531,7 +6531,7 @@
    "trust": "Silver",
    "slug": "dsh-checkpoint-rewind",
    "platform": "any",
-   "bareNpm": "install-fail",
+   "bareNpm": "other",
    "contributors": 0,
    "depCount": 8,
    "depsOfficial": 7,
@@ -22890,7 +22890,8 @@
    "depCount": 0,
    "depsOfficial": 0,
    "repoOwner": "nan1010082085",
-   "_enriched": "2026-08-20|0.8.1"
+   "_enriched": "2026-08-20|0.8.1",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-runtime-nutrition-label",
@@ -22918,7 +22919,8 @@
    "repoOwner": "biubiukam",
    "_enriched": "2026-08-18|0.1.1",
    "testDate": "2026-08-20",
-   "webonly": false
+   "webonly": false,
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-observatory",
@@ -22947,7 +22949,8 @@
    "depCount": 8,
    "depsOfficial": 6,
    "repoOwner": "CMSKL",
-   "_enriched": "2026-08-19|0.1.0"
+   "_enriched": "2026-08-19|0.1.0",
+   "bareNpm": "other"
   },
   {
    "name": "@sandbaseai/dsh-plugin-store",
@@ -23005,7 +23008,8 @@
    "contributors": 0,
    "depCount": 0,
    "depsOfficial": 0,
-   "_enriched": "2026-08-20|0.1.0"
+   "_enriched": "2026-08-20|0.1.0",
+   "bareNpm": "other"
   },
   {
    "name": "api-relay-audit",
@@ -23564,7 +23568,8 @@
    "depCount": 11,
    "depsOfficial": 9,
    "repoOwner": "lamost423",
-   "_enriched": "2026-08-20|"
+   "_enriched": "2026-08-20|",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-plugin-guard",
@@ -23896,7 +23901,8 @@
    "depCount": 2,
    "depsOfficial": 0,
    "repoOwner": "LongSir0419",
-   "_enriched": "2026-08-21|0.1.6"
+   "_enriched": "2026-08-21|0.1.6",
+   "bareNpm": "other"
   },
   {
    "name": "deepspider",
@@ -25524,7 +25530,8 @@
    "depCount": 2,
    "depsOfficial": 1,
    "repoOwner": "alloevil",
-   "_enriched": "2026-08-21|0.6.0"
+   "_enriched": "2026-08-21|0.6.0",
+   "bareNpm": "other"
   }
  ],
  "AI Models": [
@@ -32094,7 +32101,7 @@
    "trust": "Silver",
    "slug": "dsh-doublecheck",
    "platform": "any",
-   "bareNpm": "install-fail",
+   "bareNpm": "other",
    "contributors": 2,
    "depCount": 11,
    "depsOfficial": 9,
@@ -42604,7 +42611,8 @@
    "depCount": 2,
    "depsOfficial": 2,
    "repoOwner": "PolinniZhong",
-   "_enriched": "2026-08-21|0.1.0"
+   "_enriched": "2026-08-21|0.1.0",
+   "bareNpm": "other"
   }
  ],
  "Desktop": [
@@ -49769,7 +49777,8 @@
    "_enriched": "2026-08-19|0.3.4",
    "webonly": false,
    "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-mcp-sync",
@@ -49798,7 +49807,8 @@
    "repoOwner": "nan1010082085",
    "_enriched": "2026-08-20|0.7.0",
    "webonly": false,
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "bareNpm": "other"
   }
  ],
  "Network": [
@@ -56229,7 +56239,8 @@
    "_enriched": "2026-08-18|1.0.1",
    "webonly": false,
    "note": "Web L3 verified on dsh 0.1.0-rc.6 (CDP browser E2E).",
-   "testDate": "2026-08-20"
+   "testDate": "2026-08-20",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-codex-sync",
@@ -56258,7 +56269,8 @@
    "depCount": 2,
    "depsOfficial": 2,
    "repoOwner": "Walvez",
-   "_enriched": "2026-08-21|0.9.5"
+   "_enriched": "2026-08-21|0.9.5",
+   "bareNpm": "other"
   },
   {
    "name": "@wannanbigpig/dsh-usage-stats",
@@ -56283,7 +56295,8 @@
    "testDate": "2026-08-22",
    "repoOwner": "wannanbigpig",
    "note": "Headless L3 web-only on dsh 0.1.0-rc.8 (2026-08-22 02:02Z): L1 install OK; source @wannanbigpig/dsh-usage-stats@0.1.6 (npm latest, published 01:54Z, git HEAD a0a41c8). profile package.json records @wannanbigpig/dsh-usage-stats 0.1.6; pnpm resolved 0.1.6; dsh.bundle present, installed as profile layer (dsh.profile.bundles includes @wannanbigpig/dsh-usage-stats). Scoped cordis.patch.yml insert name `@wannanbigpig/dsh-usage-stats` fixed the 0.1.5 `Cannot find package 'dsh-usage-stats'` load error. Headless dump/Q&A: waiting for service: webServer → web-only (not runtime-fail). L4 web CDP runtime-fail (2026-08-22 02:03Z): L1+L2 OK with dsh-web-app; web booted on :3080; CDP page title DeepSeek Harness showed Failed to load plugins — client-modules: bundle /plugins/@wannanbigpig/dsh-usage-stats/client.js loaded without registering `@wannanbigpig/dsh-usage-stats` via __ModuleLoader__.load. lib/client.js still window.__ModuleLoader__.load({ id: \"dsh-usage-stats\" }) unscoped. No textarea (plugin load splash). Distinct from catalog dsh-usage-stats (Ychris12138).",
-   "webonly": true
+   "webonly": true,
+   "bareNpm": "other"
   }
  ],
  "Content": [
@@ -56925,7 +56938,8 @@
    "contributors": 0,
    "depCount": 13,
    "depsOfficial": 6,
-   "_enriched": "2026-08-21|0.1.2"
+   "_enriched": "2026-08-21|0.1.2",
+   "bareNpm": "install-fail"
   },
   {
    "name": "@chenjie1129/dsh-remotion-video-plugin",
