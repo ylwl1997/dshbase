@@ -28168,7 +28168,8 @@
    "slug": "dsh-llm-gateway-compat",
    "platform": "any",
    "testDate": "2026-08-22",
-   "note": "Headless L3 PASS on dsh 0.1.0-rc.8 (2026-08-22): L1 install OK; source dsh-llm-gateway-compat@0.3.0 (npm latest, pinned). profile package.json records dsh-llm-gateway-compat 0.3.0; pnpm resolved 0.3.0; dsh.bundle present (cordis.patch.yml insert id llm-gateway-compat / name dsh-llm-gateway-compat, matches package.json). dump-config + Q&A OK. Not L4'd: L3 was ok, not web-only. Optional Chat Completions providers / gateway API keys not exercised."
+   "note": "Headless L3 PASS on dsh 0.1.0-rc.8 (2026-08-22): L1 install OK; source dsh-llm-gateway-compat@0.3.0 (npm latest, pinned). profile package.json records dsh-llm-gateway-compat 0.3.0; pnpm resolved 0.3.0; dsh.bundle present (cordis.patch.yml insert id llm-gateway-compat / name dsh-llm-gateway-compat, matches package.json). dump-config + Q&A OK. Not L4'd: L3 was ok, not web-only. Optional Chat Completions providers / gateway API keys not exercised.",
+   "bareNpm": "other"
   }
  ],
  "UI & Skins": [
@@ -32124,7 +32125,7 @@
    "trust": "Silver",
    "slug": "dsh-doublecheck",
    "platform": "any",
-   "bareNpm": "other",
+   "bareNpm": "install-fail",
    "contributors": 2,
    "depCount": 11,
    "depsOfficial": 9,
