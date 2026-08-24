@@ -108,6 +108,24 @@
   ]
  },
  {
+  "github": "julescules",
+  "avatar": "https://avatars.githubusercontent.com/u/131376318?v=4",
+  "plugins": [
+   {
+    "name": "dsh-galgame-localization-reverse",
+    "slug": "dsh-galgame-localization-reverse",
+    "npm": false,
+    "pkg": ""
+   },
+   {
+    "name": "dsh-windows-workspace-guard",
+    "slug": "dsh-windows-workspace-guard",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "maxwell-feng",
   "avatar": "https://avatars.githubusercontent.com/u/149435110?v=4",
   "plugins": [
