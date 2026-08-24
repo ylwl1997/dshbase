@@ -324,7 +324,7 @@
    {
     "name": "Martty",
     "slug": "Martty",
-    "npm": false,
+    "npm": true,
     "pkg": "martty"
    }
   ]
