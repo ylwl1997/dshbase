@@ -42639,7 +42639,8 @@
    "platform": "any",
    "needsExternal": true,
    "needsExternalDesc": "Managed mode needs local Bun >=1.3.14 as GoodMemory bridge runtime; data defaults to \\/goodmemory/memory.sqlite",
-   "note": "Needs Bun >=1.3.14 managed bridge; L1 install OK on dsh 0.1.0-rc.8 but L2 load failed: managed bridge exited before ready (code=1). Keep pending until bridge + cross-session recall verified."
+   "note": "Needs Bun >=1.3.14 managed bridge; L1 install OK on dsh 0.1.0-rc.8 but L2 load failed: managed bridge exited before ready (code=1). Keep pending until bridge + cross-session recall verified.",
+   "bareNpm": "install-fail"
   }
  ],
  "Desktop": [
@@ -53216,7 +53217,8 @@
    "depsOfficial": 0,
    "repoOwner": "openma-ai",
    "_enriched": "2026-08-22|",
-   "note": "Renamed from deepseek-harness-tui; install: dsh plugin --profile martty add martty@latest. Headless L3 N/A for TUI (ACP patch entries missing in headless profile; unknown argument Reply)."
+   "note": "Renamed from deepseek-harness-tui; install: dsh plugin --profile martty add martty@latest. Headless L3 N/A for TUI (ACP patch entries missing in headless profile; unknown argument Reply).",
+   "bareNpm": "other"
   }
  ],
  "Storage": [
@@ -56377,7 +56379,8 @@
    "slug": "khalilhsu-dsh-ui-query-navigator",
    "platform": "any",
    "note": "Monorepo package under KhalilHsu/dsh-plugins/query-navigator; Headless L3 PASS on dsh 0.1.0-rc.8 (2026-08-24)",
-   "testDate": "2026-08-24"
+   "testDate": "2026-08-24",
+   "bareNpm": "other"
   }
  ],
  "Content": [
