@@ -306,6 +306,30 @@
   ]
  },
  {
+  "github": "hjqcan",
+  "avatar": "https://avatars.githubusercontent.com/u/4464006?v=4",
+  "plugins": [
+   {
+    "name": "dsh-goodmemory",
+    "slug": "dsh-goodmemory",
+    "npm": true,
+    "pkg": "dsh-goodmemory"
+   }
+  ]
+ },
+ {
+  "github": "hrhrng",
+  "avatar": "https://avatars.githubusercontent.com/u/56460657?v=4",
+  "plugins": [
+   {
+    "name": "Martty",
+    "slug": "Martty",
+    "npm": false,
+    "pkg": "martty"
+   }
+  ]
+ },
+ {
   "github": "Hyperionjust",
   "avatar": "https://avatars.githubusercontent.com/u/141640340?v=4",
   "plugins": [
@@ -338,6 +362,18 @@
     "slug": "deepseek-harness-forge-plugins",
     "npm": false,
     "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "KhalilHsu",
+  "avatar": "https://avatars.githubusercontent.com/u/65265303?v=4",
+  "plugins": [
+   {
+    "name": "@khalilhsu/dsh-ui-query-navigator",
+    "slug": "khalilhsu-dsh-ui-query-navigator",
+    "npm": true,
+    "pkg": "@khalilhsu/dsh-ui-query-navigator"
    }
   ]
  },
