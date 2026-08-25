@@ -23955,7 +23955,9 @@
    "depCount": 3,
    "depsOfficial": 3,
    "repoOwner": "pengpengyi92",
-   "_enriched": "2026-08-23|"
+   "_enriched": "2026-08-23|",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-meow-memory",
@@ -23981,7 +23983,9 @@
    "depCount": 0,
    "depsOfficial": 0,
    "repoOwner": "Phant0Meow",
-   "_enriched": "2026-08-24|"
+   "_enriched": "2026-08-24|",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-subagent-monitor",
@@ -24007,7 +24011,9 @@
    "depCount": 9,
    "depsOfficial": 8,
    "repoOwner": "Mombrane",
-   "_enriched": "2026-08-17|"
+   "_enriched": "2026-08-17|",
+   "testDate": "2026-08-25",
+   "note": "验证: install-fail"
   },
   {
    "name": "dsh-chinese-traditional-wisdom-skill",
@@ -24087,7 +24093,9 @@
    "depCount": 13,
    "depsOfficial": 10,
    "repoOwner": "MichengAI",
-   "_enriched": "2026-08-24|"
+   "_enriched": "2026-08-24|",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "agent-team",
@@ -24095,7 +24103,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Multi-agent team collaboration for DeepSeek Harness, with independent models, skills, MCP tools, contexts, and a shared workspace.",
    "desc_en": "Multi-agent team collaboration for DeepSeek Harness, with independent models, skills, MCP tools, contexts, and a shared workspace.",
    "desc_zh": "",
@@ -24113,7 +24121,10 @@
    "depCount": 26,
    "depsOfficial": 21,
    "repoOwner": "limuyang2",
-   "_enriched": "2026-08-20|"
+   "_enriched": "2026-08-20|",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-oil-creator",
@@ -24148,7 +24159,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "",
    "desc_en": "",
    "desc_zh": "",
@@ -24166,7 +24177,8 @@
    "depCount": 2,
    "depsOfficial": 2,
    "repoOwner": "dundunhan",
-   "_enriched": "2026-08-18|"
+   "_enriched": "2026-08-18|",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-skills",
@@ -24174,7 +24186,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "",
    "desc_en": "",
    "desc_zh": "",
@@ -24192,7 +24204,8 @@
    "depCount": 2,
    "depsOfficial": 2,
    "repoOwner": "CocoSgt",
-   "_enriched": "2026-08-14|"
+   "_enriched": "2026-08-14|",
+   "testDate": "2026-08-25"
   },
   {
    "name": "weshop-dsh-plugin",
@@ -24200,7 +24213,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Native WeShop Cordis plugin for DeepSeek Harness. Allow you to use infinite canvas with infinite creative skills.",
    "desc_en": "Native WeShop Cordis plugin for DeepSeek Harness. Allow you to use infinite canvas with infinite creative skills.",
    "desc_zh": "",
@@ -24218,7 +24231,10 @@
    "depCount": 4,
    "depsOfficial": 1,
    "repoOwner": "weshopai",
-   "_enriched": "2026-08-17|"
+   "_enriched": "2026-08-17|",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-reminder",
@@ -24244,7 +24260,9 @@
    "depCount": 13,
    "depsOfficial": 10,
    "repoOwner": "Aisland-SJL",
-   "_enriched": "2026-08-16|"
+   "_enriched": "2026-08-16|",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-file-mentions",
@@ -24252,7 +24270,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Clickable file paths in DSH replies: Codex-style inline open, 📂 reveal in file manager, mentioned-files chip list. DSH web plugin (zero-dependency).",
    "desc_en": "Clickable file paths in DSH replies: Codex-style inline open, 📂 reveal in file manager, mentioned-files chip list. DSH web plugin (zero-dependency).",
    "desc_zh": "",
@@ -24270,7 +24288,10 @@
    "depCount": 3,
    "depsOfficial": 3,
    "repoOwner": "a903067276-rgb",
-   "_enriched": "2026-08-22|"
+   "_enriched": "2026-08-22|",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-nested-followups",
@@ -24278,7 +24299,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Ask a follow-up on any past answer in an isolated branch, keeping your main conversation clean. 针对任意历史回答发起追问，新问题在独立分支中展开，主对话保持干净。A conversation-tree plugin for DeepSeek Harness / DeepSeek Harness 会话树插件。",
    "desc_en": "Ask a follow-up on any past answer in an isolated branch, keeping your main conversation clean. 针对任意历史回答发起追问，新问题在独立分支中展开，主对话保持干净。A conversation-tree plugin for DeepSeek Harness / DeepSeek Harness 会话树插件。",
    "desc_zh": "",
@@ -24296,7 +24317,10 @@
    "depCount": 17,
    "depsOfficial": 15,
    "repoOwner": "sluminositys",
-   "_enriched": "2026-08-24|"
+   "_enriched": "2026-08-24|",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-oomol",
@@ -24304,7 +24328,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "OOMOL Connector for DeepSeek Harness—discover connected apps and execute Actions through progressive MCP discovery without exposing provider credentials.",
    "desc_en": "OOMOL Connector for DeepSeek Harness—discover connected apps and execute Actions through progressive MCP discovery without exposing provider credentials.",
    "desc_zh": "",
@@ -24322,7 +24346,10 @@
    "depCount": 14,
    "depsOfficial": 13,
    "repoOwner": "oomol-lab",
-   "_enriched": "2026-08-20|"
+   "_enriched": "2026-08-20|",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-with-pencil",
@@ -24330,7 +24357,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Official Pencil (pen.dev) canvas inside DeepSeek Harness: conversation-bound workspaces, live agent edits, and 7 MCP design tools — headless engine + browser editor.",
    "desc_en": "Official Pencil (pen.dev) canvas inside DeepSeek Harness: conversation-bound workspaces, live agent edits, and 7 MCP design tools — headless engine + browser editor.",
    "desc_zh": "",
@@ -24348,7 +24375,10 @@
    "depCount": 7,
    "depsOfficial": 4,
    "repoOwner": "IWAIBAOLI",
-   "_enriched": "2026-08-20|"
+   "_enriched": "2026-08-20|",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-directorx",
@@ -24374,7 +24404,9 @@
    "depCount": 10,
    "depsOfficial": 3,
    "repoOwner": "LaplaceYoung",
-   "_enriched": "2026-08-22|"
+   "_enriched": "2026-08-22|",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-kimino-theme",
@@ -24382,7 +24414,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Kimi no Na wa (Your Name) theme for DeepSeek Harness Web GUI",
    "desc_en": "Kimi no Na wa (Your Name) theme for DeepSeek Harness Web GUI",
    "desc_zh": "",
@@ -24400,7 +24432,10 @@
    "depCount": 0,
    "depsOfficial": 0,
    "repoOwner": "niiang",
-   "_enriched": "2026-08-21|"
+   "_enriched": "2026-08-21|",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-web-file-uploader",
@@ -24408,7 +24443,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "A file-upload plugin for the DeepSeek Harness web UI.",
    "desc_en": "A file-upload plugin for the DeepSeek Harness web UI.",
    "desc_zh": "",
@@ -24426,7 +24461,10 @@
    "depCount": 0,
    "depsOfficial": 0,
    "repoOwner": "Mooling0602",
-   "_enriched": "2026-08-20|"
+   "_enriched": "2026-08-20|",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-ai4scholar",
@@ -24434,7 +24472,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "AI4Scholar for DeepSeek Harness (dsh): 38 native academic tools — Semantic Scholar, PubMed, Google Scholar, arXiv, bioRxiv/medRxiv, DOI, full text, auto-cite, figures, unified search. Powered by ai4scholar.net",
    "desc_en": "AI4Scholar for DeepSeek Harness (dsh): 38 native academic tools — Semantic Scholar, PubMed, Google Scholar, arXiv, bioRxiv/medRxiv, DOI, full text, auto-cite, figures, unified search. Powered by ai4scholar.net",
    "desc_zh": "",
@@ -24452,7 +24490,8 @@
    "depCount": 10,
    "depsOfficial": 8,
    "repoOwner": "literaf",
-   "_enriched": "2026-08-18|"
+   "_enriched": "2026-08-18|",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-answer-pet",
@@ -24460,7 +24499,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "",
    "desc_en": "",
    "desc_zh": "",
@@ -24478,7 +24517,10 @@
    "depCount": 1,
    "depsOfficial": 0,
    "repoOwner": "Nanki-nn",
-   "_enriched": "2026-08-16|"
+   "_enriched": "2026-08-16|",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-hub-plugin",
@@ -24513,7 +24555,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness (DSH) 插件整合中心：动态发现、打标分类、重叠/兼容检测、一键启停与失效检测",
    "desc_en": "DeepSeek Harness (DSH) 插件整合中心：动态发现、打标分类、重叠/兼容检测、一键启停与失效检测",
    "desc_zh": "",
@@ -24531,7 +24573,10 @@
    "depCount": 3,
    "depsOfficial": 2,
    "repoOwner": "MutaLucem",
-   "_enriched": "2026-08-16|"
+   "_enriched": "2026-08-16|",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "custom-first-control-prompt",
@@ -24539,7 +24584,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness plugin for insert custom prompt",
    "desc_en": "DeepSeek Harness plugin for insert custom prompt",
    "desc_zh": "",
@@ -24557,7 +24602,8 @@
    "depCount": 13,
    "depsOfficial": 11,
    "repoOwner": "WM-CODER",
-   "_enriched": "2026-08-21|"
+   "_enriched": "2026-08-21|",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-joi-channel-theme",
@@ -24583,7 +24629,9 @@
    "depCount": 3,
    "depsOfficial": 2,
    "repoOwner": "tpmoonchefryan",
-   "_enriched": "2026-08-20|"
+   "_enriched": "2026-08-20|",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-tailscale-gateway",
@@ -24591,7 +24639,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Private Tailscale access for DeepSeek Harness Web: exact user allowlists, loopback-only gateway, and guarded Serve setup",
    "desc_en": "Private Tailscale access for DeepSeek Harness Web: exact user allowlists, loopback-only gateway, and guarded Serve setup",
    "desc_zh": "",
@@ -24609,7 +24657,8 @@
    "depCount": 0,
    "depsOfficial": 0,
    "repoOwner": "TiantianFlow",
-   "_enriched": "2026-08-20|"
+   "_enriched": "2026-08-20|",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-novel-writer",
@@ -24635,7 +24684,9 @@
    "depCount": 10,
    "depsOfficial": 9,
    "repoOwner": "akira399",
-   "_enriched": "2026-08-19|"
+   "_enriched": "2026-08-19|",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "toolshrink",
@@ -24643,7 +24694,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Cut large agent tool output by what it means, not by where it was cut. 13 content-aware reducers + DeepSeek Harness plugin.",
    "desc_en": "Cut large agent tool output by what it means, not by where it was cut. 13 content-aware reducers + DeepSeek Harness plugin.",
    "desc_zh": "",
@@ -24661,7 +24712,8 @@
    "depCount": 1,
    "depsOfficial": 0,
    "repoOwner": "unclecode",
-   "_enriched": "2026-08-19|"
+   "_enriched": "2026-08-19|",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-plugin-smooth-stream",
@@ -24695,7 +24747,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "",
    "desc_en": "",
    "desc_zh": "",
@@ -24713,7 +24765,10 @@
    "depCount": 0,
    "depsOfficial": 0,
    "repoOwner": "Leon0555",
-   "_enriched": "2026-08-24|"
+   "_enriched": "2026-08-24|",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-session-context-menu",
@@ -24721,7 +24776,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "更好的右键：DeepSeek Harness 应用封装端的完整原生风格上下文菜单",
    "desc_en": "更好的右键：DeepSeek Harness 应用封装端的完整原生风格上下文菜单",
    "desc_zh": "",
@@ -24739,7 +24794,8 @@
    "depCount": 2,
    "depsOfficial": 2,
    "repoOwner": "baihejiangnan",
-   "_enriched": "2026-08-18|"
+   "_enriched": "2026-08-18|",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-mermaid",
@@ -24747,7 +24803,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "在 DSH Web 会话中把 Mermaid 代码围栏渲染为 SVG 图表 | Render Mermaid code fences as SVG diagrams in DSH Web messages",
    "desc_en": "在 DSH Web 会话中把 Mermaid 代码围栏渲染为 SVG 图表 | Render Mermaid code fences as SVG diagrams in DSH Web messages",
    "desc_zh": "",
@@ -24765,7 +24821,10 @@
    "depCount": 1,
    "depsOfficial": 0,
    "repoOwner": "AKS1st",
-   "_enriched": "2026-08-18|"
+   "_enriched": "2026-08-18|",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-plugin-gather",
@@ -24791,7 +24850,9 @@
    "depCount": 8,
    "depsOfficial": 0,
    "repoOwner": "lilwhich",
-   "_enriched": "2026-08-18|"
+   "_enriched": "2026-08-18|",
+   "testDate": "2026-08-25",
+   "note": "验证: install-fail"
   },
   {
    "name": "dsh-plugin-uw",
@@ -24852,7 +24913,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Session-aware sandbox escalation compatibility plugin for DeepSeek Harness/DSH第三方模型会话沙箱升级兼容插件",
    "desc_en": "Session-aware sandbox escalation compatibility plugin for DeepSeek Harness/DSH第三方模型会话沙箱升级兼容插件",
    "desc_zh": "",
@@ -24870,7 +24931,8 @@
    "depCount": 10,
    "depsOfficial": 10,
    "repoOwner": "JUSTMONIKA2022",
-   "_enriched": "2026-08-23|"
+   "_enriched": "2026-08-23|",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-Kingdom",
@@ -24896,7 +24958,9 @@
    "depCount": 5,
    "depsOfficial": 5,
    "repoOwner": "lusblead",
-   "_enriched": "2026-08-19|"
+   "_enriched": "2026-08-19|",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-trading",
@@ -24922,7 +24986,9 @@
    "depCount": 0,
    "depsOfficial": 0,
    "repoOwner": "maddogfinance",
-   "_enriched": "2026-08-23|"
+   "_enriched": "2026-08-23|",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-quota-meter",
@@ -25309,7 +25375,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Turn any text field into a two-way LLM channel: it reads what you write and fills what you ask. Flags a slip as you type, answers anything you end with _. Claude Code, OpenCode, Gemini CLI, shell, Chrome, DeepSeek Harness. Model-agnostic, open standard, no chat window.",
    "desc_en": "Turn any text field into a two-way LLM channel: it reads what you write and fills what you ask. Flags a slip as you type, answers anything you end with _. Claude Code, OpenCode, Gemini CLI, shell, Chrome, DeepSeek Harness. Model-agnostic, open standard, no chat window.",
    "desc_zh": "",
@@ -25327,7 +25393,8 @@
    "depCount": 0,
    "depsOfficial": 0,
    "repoOwner": "opencues",
-   "_enriched": "2026-08-25|"
+   "_enriched": "2026-08-25|",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-ui-web",
@@ -25335,7 +25402,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "",
    "desc_en": "",
    "desc_zh": "",
@@ -25353,7 +25420,8 @@
    "depCount": 0,
    "depsOfficial": 0,
    "repoOwner": "CAPTAIN1275",
-   "_enriched": "2026-08-22|"
+   "_enriched": "2026-08-22|",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-meme",
@@ -25417,7 +25485,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness 的 SDR 数字员工插件：九阶段外贸获客 SOP、结构性人工审批、客户去重、持久化知识检索与审计日志，默认 dry-run 安全演示。",
    "desc_en": "DeepSeek Harness 的 SDR 数字员工插件：九阶段外贸获客 SOP、结构性人工审批、客户去重、持久化知识检索与审计日志，默认 dry-run 安全演示。",
    "desc_zh": "",
@@ -25435,7 +25503,8 @@
    "depCount": 0,
    "depsOfficial": 0,
    "repoOwner": "Xuxchloris",
-   "_enriched": "2026-08-18|"
+   "_enriched": "2026-08-18|",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-endfield-ui",
@@ -25652,13 +25721,15 @@
    "platform": "any",
    "desc": "面向 DeepSeek Harness 的交互式 K 线分析插件，支持多市场行情、技术指标、支撑压力位、新闻与基本面分析，并在原生侧栏中直接展示。",
    "desc_zh": "面向 DeepSeek Harness 的交互式 K 线分析插件，支持多市场行情、技术指标、支撑压力位、新闻与基本面分析，并在原生侧栏中直接展示。",
-   "desc_en": "面向 DeepSeek Harness 的交互式 K 线分析插件，支持多市场行情、技术指标、支撑压力位、新闻与基本面分析，并在原生侧栏中直接展示。"
+   "desc_en": "面向 DeepSeek Harness 的交互式 K 线分析插件，支持多市场行情、技术指标、支撑压力位、新闻与基本面分析，并在原生侧栏中直接展示。",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-ui-usage-billing",
    "slug": "dsh-ui-usage-billing",
    "url": "https://github.com/kenz1117/dsh-ui-usage-billing",
-   "test": "pending",
+   "test": "verified",
    "stars": 13,
    "forks": 4,
    "updated": "2026-08-25",
@@ -25666,13 +25737,16 @@
    "platform": "any",
    "desc": "Usage billing dashboard plugin for DeepSeek Harness: sidebar cost metrics, real usage aggregation from session logs, current multi-provider pricing catalog",
    "desc_en": "Usage billing dashboard plugin for DeepSeek Harness: sidebar cost metrics, real usage aggregation from session logs, current multi-provider pricing catalog",
-   "desc_zh": "Usage billing dashboard plugin for DeepSeek Harness: sidebar cost metrics, real usage aggregation from session logs, current multi-provider pricing catalog"
+   "desc_zh": "Usage billing dashboard plugin for DeepSeek Harness: sidebar cost metrics, real usage aggregation from session logs, current multi-provider pricing catalog",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "vision-exp-tile",
    "slug": "vision-exp-tile",
    "url": "https://github.com/Nicholas023/vision-exp-tile",
-   "test": "pending",
+   "test": "verified",
    "stars": 13,
    "forks": 0,
    "updated": "2026-08-24",
@@ -25680,13 +25754,14 @@
    "platform": "any",
    "desc": "DSH 插件：大图切 800×800 无损小块 + 坐标标注 + 分块聚合逻辑，直连 deepseek-v4-flash-vision-exp 识别；仅用纯官方 DSH 功能，零依赖第三方插件，不统计 token/费用。",
    "desc_zh": "DSH 插件：大图切 800×800 无损小块 + 坐标标注 + 分块聚合逻辑，直连 deepseek-v4-flash-vision-exp 识别；仅用纯官方 DSH 功能，零依赖第三方插件，不统计 token/费用。",
-   "desc_en": "DSH 插件：大图切 800×800 无损小块 + 坐标标注 + 分块聚合逻辑，直连 deepseek-v4-flash-vision-exp 识别；仅用纯官方 DSH 功能，零依赖第三方插件，不统计 token/费用。"
+   "desc_en": "DSH 插件：大图切 800×800 无损小块 + 坐标标注 + 分块聚合逻辑，直连 deepseek-v4-flash-vision-exp 识别；仅用纯官方 DSH 功能，零依赖第三方插件，不统计 token/费用。",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-network-settings",
    "slug": "dsh-network-settings",
    "url": "https://github.com/kanneiren/dsh-network-settings",
-   "test": "pending",
+   "test": "verified",
    "stars": 13,
    "forks": 0,
    "updated": "2026-08-22",
@@ -25694,13 +25769,16 @@
    "platform": "any",
    "desc": "DSH网络设置插件 | DeepSeek Harness network diagnostics, proxy detection and repair for Windows/WSL/MacOS",
    "desc_zh": "DSH网络设置插件 | DeepSeek Harness network diagnostics, proxy detection and repair for Windows/WSL/MacOS",
-   "desc_en": "DSH网络设置插件 | DeepSeek Harness network diagnostics, proxy detection and repair for Windows/WSL/MacOS"
+   "desc_en": "DSH网络设置插件 | DeepSeek Harness network diagnostics, proxy detection and repair for Windows/WSL/MacOS",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-tool-hongtou",
    "slug": "dsh-tool-hongtou",
    "url": "https://github.com/ExElectron/dsh-tool-hongtou",
-   "test": "pending",
+   "test": "verified",
    "stars": 12,
    "forks": 2,
    "updated": "2026-08-24",
@@ -25708,13 +25786,14 @@
    "platform": "any",
    "desc": "DeepSeek Harness 红头公文插件：两阶段解耦流水线（LLM 结构化提纲 + 确定性 Word 2003 XML 版式渲染）生成标准红头公文",
    "desc_zh": "DeepSeek Harness 红头公文插件：两阶段解耦流水线（LLM 结构化提纲 + 确定性 Word 2003 XML 版式渲染）生成标准红头公文",
-   "desc_en": "DeepSeek Harness 红头公文插件：两阶段解耦流水线（LLM 结构化提纲 + 确定性 Word 2003 XML 版式渲染）生成标准红头公文"
+   "desc_en": "DeepSeek Harness 红头公文插件：两阶段解耦流水线（LLM 结构化提纲 + 确定性 Word 2003 XML 版式渲染）生成标准红头公文",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-flowglass",
    "slug": "dsh-flowglass",
    "url": "https://github.com/Iwctwbh/dsh-flowglass",
-   "test": "pending",
+   "test": "verified",
    "stars": 12,
    "forks": 0,
    "updated": "2026-08-24",
@@ -25722,13 +25801,14 @@
    "platform": "any",
    "desc": "流镜 Flowglass — DeepSeek Harness session flowgraph，实时可视化消息、工具组、子代理分支与步骤详情。",
    "desc_zh": "流镜 Flowglass — DeepSeek Harness session flowgraph，实时可视化消息、工具组、子代理分支与步骤详情。",
-   "desc_en": "流镜 Flowglass — DeepSeek Harness session flowgraph，实时可视化消息、工具组、子代理分支与步骤详情。"
+   "desc_en": "流镜 Flowglass — DeepSeek Harness session flowgraph，实时可视化消息、工具组、子代理分支与步骤详情。",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-thinking-effort",
    "slug": "dsh-thinking-effort",
    "url": "https://github.com/hytime/dsh-thinking-effort",
-   "test": "pending",
+   "test": "verified",
    "stars": 12,
    "forks": 1,
    "updated": "2026-08-24",
@@ -25736,13 +25816,14 @@
    "platform": "any",
    "desc": "Configurable reasoning levels for hand-declared DSH llm-pi-ai models, with bilingual settings and subagent defaults.",
    "desc_en": "Configurable reasoning levels for hand-declared DSH llm-pi-ai models, with bilingual settings and subagent defaults.",
-   "desc_zh": "Configurable reasoning levels for hand-declared DSH llm-pi-ai models, with bilingual settings and subagent defaults."
+   "desc_zh": "Configurable reasoning levels for hand-declared DSH llm-pi-ai models, with bilingual settings and subagent defaults.",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-qq-bridge",
    "slug": "dsh-qq-bridge",
    "url": "https://github.com/TomoyoNatsume/dsh-qq-bridge",
-   "test": "pending",
+   "test": "verified",
    "stars": 11,
    "forks": 1,
    "updated": "2026-08-25",
@@ -25750,13 +25831,16 @@
    "platform": "any",
    "desc": "deepseek harness插件，连接QQ / DSH plugin for connecting QQ",
    "desc_zh": "deepseek harness插件，连接QQ / DSH plugin for connecting QQ",
-   "desc_en": "deepseek harness插件，连接QQ / DSH plugin for connecting QQ"
+   "desc_en": "deepseek harness插件，连接QQ / DSH plugin for connecting QQ",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-desktop-windowos",
    "slug": "dsh-desktop-windowos",
    "url": "https://github.com/RAFOLIE/dsh-desktop-windowos",
-   "test": "pending",
+   "test": "verified",
    "stars": 11,
    "forks": 2,
    "updated": "2026-08-25",
@@ -25764,24 +25848,26 @@
    "platform": "any",
    "desc": "DeepSeek Harness desktop shell — Tauri v2, tray + native webchat + task-done toasts, single portable exe",
    "desc_en": "DeepSeek Harness desktop shell — Tauri v2, tray + native webchat + task-done toasts, single portable exe",
-   "desc_zh": "DeepSeek Harness desktop shell — Tauri v2, tray + native webchat + task-done toasts, single portable exe"
+   "desc_zh": "DeepSeek Harness desktop shell — Tauri v2, tray + native webchat + task-done toasts, single portable exe",
+   "testDate": "2026-08-25"
   },
   {
    "name": "Gemini-Eyes",
    "slug": "gemini-eyes",
    "url": "https://github.com/ConsoleSun/Gemini-Eyes",
-   "test": "pending",
+   "test": "verified",
    "stars": 11,
    "forks": 1,
    "updated": "2026-08-24",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-25"
   },
   {
    "name": "ramify-dsh",
    "slug": "ramify-dsh",
    "url": "https://github.com/yanglongyun/ramify-dsh",
-   "test": "pending",
+   "test": "verified",
    "stars": 11,
    "forks": 1,
    "updated": "2026-08-17",
@@ -25789,7 +25875,8 @@
    "platform": "any",
    "desc": "Ramify 是 DeepSeek Harness 的创意分支画布插件，用树状工作区生成、对比和迭代多个可交互方案。",
    "desc_zh": "Ramify 是 DeepSeek Harness 的创意分支画布插件，用树状工作区生成、对比和迭代多个可交互方案。",
-   "desc_en": "Ramify 是 DeepSeek Harness 的创意分支画布插件，用树状工作区生成、对比和迭代多个可交互方案。"
+   "desc_en": "Ramify 是 DeepSeek Harness 的创意分支画布插件，用树状工作区生成、对比和迭代多个可交互方案。",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-run2skill",
@@ -25803,7 +25890,9 @@
    "platform": "any",
    "desc": "Automatically turn successful DeepSeek Harness sessions into reusable, reviewable Agent Skills.",
    "desc_en": "Automatically turn successful DeepSeek Harness sessions into reusable, reviewable Agent Skills.",
-   "desc_zh": "Automatically turn successful DeepSeek Harness sessions into reusable, reviewable Agent Skills."
+   "desc_zh": "Automatically turn successful DeepSeek Harness sessions into reusable, reviewable Agent Skills.",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-usage-billing",
@@ -95438,7 +95527,7 @@
    "name": "dsh-agy-link",
    "slug": "dsh-agy-link",
    "url": "https://github.com/amlyczz/dsh-agy-link",
-   "test": "pending",
+   "test": "verified",
    "stars": 15,
    "forks": 1,
    "updated": "2026-08-24",
@@ -95446,13 +95535,14 @@
    "platform": "any",
    "desc": "Google Antigravity (agy CLI) models for DeepSeek Harness — streaming chat, thinking, tool activity, usage, in-GUI Google OAuth login",
    "desc_en": "Google Antigravity (agy CLI) models for DeepSeek Harness — streaming chat, thinking, tool activity, usage, in-GUI Google OAuth login",
-   "desc_zh": "Google Antigravity (agy CLI) models for DeepSeek Harness — streaming chat, thinking, tool activity, usage, in-GUI Google OAuth login"
+   "desc_zh": "Google Antigravity (agy CLI) models for DeepSeek Harness — streaming chat, thinking, tool activity, usage, in-GUI Google OAuth login",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-theme-endfield",
    "slug": "dsh-theme-endfield",
    "url": "https://github.com/ymh0000123/dsh-theme-endfield",
-   "test": "pending",
+   "test": "verified",
    "stars": 15,
    "forks": 0,
    "updated": "2026-08-22",
@@ -95460,13 +95550,14 @@
    "platform": "any",
    "desc": "终末地官网风格的 DSH Web 主题：奶油纸底、墨黑文字、信号黄强调、全直角工业编辑风。",
    "desc_zh": "终末地官网风格的 DSH Web 主题：奶油纸底、墨黑文字、信号黄强调、全直角工业编辑风。",
-   "desc_en": "终末地官网风格的 DSH Web 主题：奶油纸底、墨黑文字、信号黄强调、全直角工业编辑风。"
+   "desc_en": "终末地官网风格的 DSH Web 主题：奶油纸底、墨黑文字、信号黄强调、全直角工业编辑风。",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-bloom-theme",
    "slug": "dsh-bloom-theme",
    "url": "https://github.com/webkubor/dsh-bloom-theme",
-   "test": "pending",
+   "test": "verified",
    "stars": 13,
    "forks": 0,
    "updated": "2026-08-24",
@@ -95474,13 +95565,14 @@
    "platform": "any",
    "desc": "DeepSeek Harness (DSH) 主题插件：Bloom 莫兰迪配色 4 变体，OKLCH 调色，明暗双主题，顶栏一键切换，全部达 WCAG AA",
    "desc_zh": "DeepSeek Harness (DSH) 主题插件：Bloom 莫兰迪配色 4 变体，OKLCH 调色，明暗双主题，顶栏一键切换，全部达 WCAG AA",
-   "desc_en": "DeepSeek Harness (DSH) 主题插件：Bloom 莫兰迪配色 4 变体，OKLCH 调色，明暗双主题，顶栏一键切换，全部达 WCAG AA"
+   "desc_en": "DeepSeek Harness (DSH) 主题插件：Bloom 莫兰迪配色 4 变体，OKLCH 调色，明暗双主题，顶栏一键切换，全部达 WCAG AA",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-raw-html",
    "slug": "dsh-raw-html",
    "url": "https://github.com/plolpl789/dsh-raw-html",
-   "test": "pending",
+   "test": "verified",
    "stars": 13,
    "forks": 1,
    "updated": "2026-08-24",
@@ -95488,13 +95580,16 @@
    "platform": "any",
    "desc": "VCP visual-synesthesia protocol plugin for DeepSeek Harness: render agent HTML output as real UI (cards / KaTeX math / Mermaid diagrams / built-in calligraphy fonts / zero-JS interactions), plug-and-play on any DSH environment",
    "desc_en": "VCP visual-synesthesia protocol plugin for DeepSeek Harness: render agent HTML output as real UI (cards / KaTeX math / Mermaid diagrams / built-in calligraphy fonts / zero-JS interactions), plug-and-play on any DSH environment",
-   "desc_zh": "VCP visual-synesthesia protocol plugin for DeepSeek Harness: render agent HTML output as real UI (cards / KaTeX math / Mermaid diagrams / built-in calligraphy fonts / zero-JS interactions), plug-and-play on any DSH environment"
+   "desc_zh": "VCP visual-synesthesia protocol plugin for DeepSeek Harness: render agent HTML output as real UI (cards / KaTeX math / Mermaid diagrams / built-in calligraphy fonts / zero-JS interactions), plug-and-play on any DSH environment",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-comfyui",
    "slug": "dsh-comfyui",
    "url": "https://github.com/fandc520/dsh-comfyui",
-   "test": "pending",
+   "test": "verified",
    "stars": 12,
    "forks": 0,
    "updated": "2026-08-24",
@@ -95502,13 +95597,14 @@
    "platform": "any",
    "desc": "一个基于DeepSeek-Harness的ComfyUI插件",
    "desc_zh": "一个基于DeepSeek-Harness的ComfyUI插件",
-   "desc_en": "一个基于DeepSeek-Harness的ComfyUI插件"
+   "desc_en": "一个基于DeepSeek-Harness的ComfyUI插件",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-ui-tweaks",
    "slug": "dsh-ui-tweaks",
    "url": "https://github.com/wlj521/dsh-ui-tweaks",
-   "test": "pending",
+   "test": "verified",
    "stars": 12,
    "forks": 0,
    "updated": "2026-08-24",
@@ -95516,13 +95612,14 @@
    "platform": "any",
    "desc": "一切皆插件，可以定义自己喜欢的dsh，开关控制单项功能，字体大小，表格样式，对话框长度，timeline，git等",
    "desc_zh": "一切皆插件，可以定义自己喜欢的dsh，开关控制单项功能，字体大小，表格样式，对话框长度，timeline，git等",
-   "desc_en": "一切皆插件，可以定义自己喜欢的dsh，开关控制单项功能，字体大小，表格样式，对话框长度，timeline，git等"
+   "desc_en": "一切皆插件，可以定义自己喜欢的dsh，开关控制单项功能，字体大小，表格样式，对话框长度，timeline，git等",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-wallpaper_share",
    "slug": "dsh-wallpaper-share",
    "url": "https://github.com/YRN-playmaker/dsh-wallpaper_share",
-   "test": "pending",
+   "test": "verified",
    "stars": 11,
    "forks": 0,
    "updated": "2026-08-24",
@@ -95530,7 +95627,10 @@
    "platform": "any",
    "desc": "一键同步壁纸引擎各类动态场景壁纸的插件，设置应用启动项。A \"wallpaper engine\" synchronization plugin mounted on the deepseek harness can synchronize static wallpapers",
    "desc_zh": "一键同步壁纸引擎各类动态场景壁纸的插件，设置应用启动项。A \"wallpaper engine\" synchronization plugin mounted on the deepseek harness can synchronize static wallpapers",
-   "desc_en": "一键同步壁纸引擎各类动态场景壁纸的插件，设置应用启动项。A \"wallpaper engine\" synchronization plugin mounted on the deepseek harness can synchronize static wallpapers"
+   "desc_en": "一键同步壁纸引擎各类动态场景壁纸的插件，设置应用启动项。A \"wallpaper engine\" synchronization plugin mounted on the deepseek harness can synchronize static wallpapers",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-coding-subscription-oauth",
@@ -95544,7 +95644,9 @@
    "platform": "any",
    "desc": "DeepSeek Harness coding-subscription OAuth: SuperGrok / Grok Build, ChatGPT Plus Codex, Kimi Code, Claude Code. No API-key pasting.",
    "desc_en": "DeepSeek Harness coding-subscription OAuth: SuperGrok / Grok Build, ChatGPT Plus Codex, Kimi Code, Claude Code. No API-key pasting.",
-   "desc_zh": "DeepSeek Harness coding-subscription OAuth: SuperGrok / Grok Build, ChatGPT Plus Codex, Kimi Code, Claude Code. No API-key pasting."
+   "desc_zh": "DeepSeek Harness coding-subscription OAuth: SuperGrok / Grok Build, ChatGPT Plus Codex, Kimi Code, Claude Code. No API-key pasting.",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-mobile-hanui",
@@ -113406,7 +113508,7 @@
    "name": "zhihu-search",
    "slug": "zhihu-search",
    "url": "https://github.com/klarkxy/zhihu-search",
-   "test": "pending",
+   "test": "verified",
    "stars": 15,
    "forks": 0,
    "updated": "2026-08-24",
@@ -113414,13 +113516,14 @@
    "platform": "any",
    "desc": "DeepSeek Harness plugin, Skill, CLI and MCP for Zhihu search, Zhida ask, and official open-platform APIs",
    "desc_en": "DeepSeek Harness plugin, Skill, CLI and MCP for Zhihu search, Zhida ask, and official open-platform APIs",
-   "desc_zh": "DeepSeek Harness plugin, Skill, CLI and MCP for Zhihu search, Zhida ask, and official open-platform APIs"
+   "desc_zh": "DeepSeek Harness plugin, Skill, CLI and MCP for Zhihu search, Zhida ask, and official open-platform APIs",
+   "testDate": "2026-08-25"
   },
   {
    "name": "runtime36",
    "slug": "runtime36",
    "url": "https://github.com/398894496-arch/runtime36",
-   "test": "pending",
+   "test": "verified",
    "stars": 13,
    "forks": 0,
    "updated": "2026-08-24",
@@ -113428,7 +113531,8 @@
    "platform": "any",
    "desc": "Second brain for coding agents. Seal the day, distill into Obsidian, hit that page tomorrow. Cursor, Codex, Claude Code, DeepSeek Harness.",
    "desc_en": "Second brain for coding agents. Seal the day, distill into Obsidian, hit that page tomorrow. Cursor, Codex, Claude Code, DeepSeek Harness.",
-   "desc_zh": "Second brain for coding agents. Seal the day, distill into Obsidian, hit that page tomorrow. Cursor, Codex, Claude Code, DeepSeek Harness."
+   "desc_zh": "Second brain for coding agents. Seal the day, distill into Obsidian, hit that page tomorrow. Cursor, Codex, Claude Code, DeepSeek Harness.",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-client-ui-obsidian-memory",
@@ -113442,7 +113546,9 @@
    "platform": "any",
    "desc": "deepseek harness plugin obsidian memory",
    "desc_en": "deepseek harness plugin obsidian memory",
-   "desc_zh": "deepseek harness plugin obsidian memory"
+   "desc_zh": "deepseek harness plugin obsidian memory",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-skills-market",
@@ -128502,7 +128608,9 @@
    "platform": "any",
    "desc": "🎨 看腻了 DSH 默认皮肤？34 款 opencode 经典配色一键换上——tokyonight、dracula、gruvbox、matrix、rose-pine……即点即换，重启不丢。34 opencode themes for DeepSeek Harness, one click, persisted. More by @FeatherHunter: ⚡ dsh-prompt · 🧠 dsh-mattpocock-skills-deck",
    "desc_zh": "🎨 看腻了 DSH 默认皮肤？34 款 opencode 经典配色一键换上——tokyonight、dracula、gruvbox、matrix、rose-pine……即点即换，重启不丢。34 opencode themes for DeepSeek Harness, one click, persisted. More by @FeatherHunter: ⚡ dsh-prompt · 🧠 dsh-mattpocock-skills-deck",
-   "desc_en": "🎨 看腻了 DSH 默认皮肤？34 款 opencode 经典配色一键换上——tokyonight、dracula、gruvbox、matrix、rose-pine……即点即换，重启不丢。34 opencode themes for DeepSeek Harness, one click, persisted. More by @FeatherHunter: ⚡ dsh-prompt · 🧠 dsh-mattpocock-skills-deck"
+   "desc_en": "🎨 看腻了 DSH 默认皮肤？34 款 opencode 经典配色一键换上——tokyonight、dracula、gruvbox、matrix、rose-pine……即点即换，重启不丢。34 opencode themes for DeepSeek Harness, one click, persisted. More by @FeatherHunter: ⚡ dsh-prompt · 🧠 dsh-mattpocock-skills-deck",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-reference-anything",
@@ -133019,7 +133127,7 @@
    "name": "risk-rule-design",
    "slug": "risk-rule-design",
    "url": "https://github.com/pypcfx-glitch/risk-rule-design",
-   "test": "pending",
+   "test": "verified",
    "stars": 11,
    "forks": 0,
    "updated": "2026-08-20",
@@ -133027,7 +133135,8 @@
    "platform": "any",
    "desc": "Rule mining for data risk control, distilled from the ideas of the \"100-Day Risk Control Expert\" course",
    "desc_en": "Rule mining for data risk control, distilled from the ideas of the \"100-Day Risk Control Expert\" course",
-   "desc_zh": "Rule mining for data risk control, distilled from the ideas of the \"100-Day Risk Control Expert\" course"
+   "desc_zh": "Rule mining for data risk control, distilled from the ideas of the \"100-Day Risk Control Expert\" course",
+   "testDate": "2026-08-25"
   },
   {
    "name": "garmin-connect-plugin-for-dsh",
@@ -134460,7 +134569,7 @@
    "name": "dsh-one-gateway",
    "slug": "dsh-one-gateway",
    "url": "https://github.com/TiantianFlow/dsh-one-gateway",
-   "test": "pending",
+   "test": "verified",
    "stars": 11,
    "forks": 0,
    "updated": "2026-08-21",
@@ -134468,7 +134577,8 @@
    "platform": "any",
    "desc": "Private DSH One Gateway — loopback, identity-first ingress for DeepSeek Harness",
    "desc_en": "Private DSH One Gateway — loopback, identity-first ingress for DeepSeek Harness",
-   "desc_zh": "Private DSH One Gateway — loopback, identity-first ingress for DeepSeek Harness"
+   "desc_zh": "Private DSH One Gateway — loopback, identity-first ingress for DeepSeek Harness",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-auth-gateway",
