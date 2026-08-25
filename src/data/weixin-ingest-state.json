@@ -27,6 +27,13 @@
       "status": "published",
       "slug": "wx-dsh-first-impression",
       "at": "2026-08-25T03:37:04.747676+00:00"
+    },
+    {
+      "title": "DeepSeek Harness 实测：Codex 9 分钟搞定，V4 Pro 20 分钟搞不定",
+      "href": "https://mp.weixin.qq.com/s/gB9FgNZTvNpPG6PtiEDudw",
+      "slug": "wx-dsh-codex-vs-flash-pro",
+      "status": "published",
+      "at": "2026-08-25T05:59:30.425657+00:00"
     }
   ],
   "published": [
@@ -57,7 +64,14 @@
       "slug": "wx-dsh-first-impression",
       "at": "2026-08-25T03:37:04.747676+00:00",
       "batch": "weixin-ai"
+    },
+    {
+      "title": "DeepSeek Harness 实测：Codex 9 分钟搞定，V4 Pro 20 分钟搞不定",
+      "href": "https://mp.weixin.qq.com/s/gB9FgNZTvNpPG6PtiEDudw",
+      "slug": "wx-dsh-codex-vs-flash-pro",
+      "at": "2026-08-25T05:59:30.425657+00:00",
+      "batch": "ai-run"
     }
   ],
-  "updated_at": "2026-08-25T03:37:04.747676+00:00"
+  "updated_at": "2026-08-25T05:59:30.425657+00:00"
 }

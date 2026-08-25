@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+<rect width="960" height="380" fill="#ffffff"/>
+<text x="24" y="34" font-size="19" font-weight="700" fill="#0f172a">Three ways to fix the same real bug</text>
+<text x="24" y="56" font-size="12.5" fill="#64748b">One prompt, three agents. Codex and DeepSeek V4 Flash got the job done; V4 Pro stalled for 20 minutes.</text>
+<rect x="24" y="84" width="912" height="46" rx="8" fill="#f8fafc"/>
+<text x="36" y="112.0" font-size="12.5" font-weight="700" fill="#0f172a"></text>
+<text x="204" y="112.0" font-size="12.5" font-weight="700" fill="#0f172a">耗时</text>
+<text x="342" y="112.0" font-size="12.5" font-weight="700" fill="#0f172a">方案</text>
+<text x="560" y="112.0" font-size="12.5" font-weight="700" fill="#0f172a">效果</text>
+<text x="798" y="112.0" font-size="12.5" font-weight="700" fill="#0f172a">花费</text>
+<text x="926" y="112.0" font-size="12.5" font-weight="700" fill="#0f172a">评价</text>
+<rect x="24" y="130" width="912" height="46" rx="8" fill="#ffffff"/>
+<text x="36" y="158.0" font-size="12" fill="#0f172a" font-weight="700">Codex</text>
+<text x="204" y="158.0" font-size="12" fill="#334155" font-weight="400">≈9 分钟</text>
+<text x="342" y="158.0" font-size="12" fill="#334155" font-weight="400">合并接口，新增详情接口</text>
+<text x="560" y="158.0" font-size="12" fill="#334155" font-weight="400">接口数大减；新接口仍需 ~1.3s</text>
+<text x="798" y="158.0" font-size="12" fill="#334155" font-weight="400">周额度 ~2%</text>
+<text x="926" y="158.0" font-size="12" fill="#334155" font-weight="400">方案最贴预期、完成度最高</text>
+<rect x="24" y="176" width="912" height="46" rx="8" fill="#f1f5f9"/>
+<text x="36" y="204.0" font-size="12" fill="#0f172a" font-weight="700">V4 Flash + dsh</text>
+<text x="204" y="204.0" font-size="12" fill="#334155" font-weight="400">≈20 分钟</text>
+<text x="342" y="204.0" font-size="12" fill="#334155" font-weight="400">不合并，逐个优化现有接口</text>
+<text x="560" y="204.0" font-size="12" fill="#334155" font-weight="400">普遍 ~3s → 800ms 以下</text>
+<text x="798" y="204.0" font-size="12" fill="#334155" font-weight="400">0.82 元</text>
+<text x="926" y="204.0" font-size="12" fill="#334155" font-weight="400">出乎意料地好，性能改善明显</text>
+<rect x="24" y="222" width="912" height="46" rx="8" fill="#ffffff"/>
+<text x="36" y="250.0" font-size="12" fill="#0f172a" font-weight="700">V4 Pro + dsh</text>
+<text x="204" y="250.0" font-size="12" fill="#334155" font-weight="400">≈20 分钟×2轮</text>
+<text x="342" y="250.0" font-size="12" fill="#334155" font-weight="400">提出合并+详情接口，二轮实施</text>
+<text x="560" y="250.0" font-size="12" fill="#334155" font-weight="400">首轮无变化；二轮 20 分无产出</text>
+<text x="798" y="250.0" font-size="12" fill="#334155" font-weight="400">1.33 元</text>
+<text x="926" y="250.0" font-size="12" fill="#334155" font-weight="400">低于预期，比 Flash 更慢更贵</text>
+</svg>
