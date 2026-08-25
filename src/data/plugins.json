@@ -24042,7 +24042,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "让 Agent 的工作方式可组合、可审查、可持续改进，最终实现 Agent Self Evoling。 DeepSeek Harness Web plugin with composable task controls and isolated, human-reviewed self-evolution.",
    "desc_en": "让 Agent 的工作方式可组合、可审查、可持续改进，最终实现 Agent Self Evoling。 DeepSeek Harness Web plugin with composable task controls and isolated, human-reviewed self-evolution.",
    "desc_zh": "",
@@ -24060,7 +24060,8 @@
    "depCount": 16,
    "depsOfficial": 14,
    "repoOwner": "GraySilver",
-   "_enriched": "2026-08-18|"
+   "_enriched": "2026-08-18|",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-codex-ui",
@@ -25173,7 +25174,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "在 DeepSeek Harness / Claude Code / Cursor / Codex / Gemini CLI 里直接搜索 20 个中国开放平台的 65,600+ 篇 API 文档；零配置，支持 Skill 与 DSH 原生插件。",
    "desc_en": "在 DeepSeek Harness / Claude Code / Cursor / Codex / Gemini CLI 里直接搜索 20 个中国开放平台的 65,600+ 篇 API 文档；零配置，支持 Skill 与 DSH 原生插件。",
    "desc_zh": "",
@@ -25191,7 +25192,8 @@
    "depCount": 0,
    "depsOfficial": 0,
    "repoOwner": "wxkingstar",
-   "_enriched": "2026-08-21|"
+   "_enriched": "2026-08-21|",
+   "testDate": "2026-08-25"
   },
   {
    "name": "beautiCode",
@@ -25199,7 +25201,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "面向 AI 编程客户端的动态、可响应环境——视频背景、氛围场景与主题，适用于 DeepSeek Harness 与 Codex Desktop。",
    "desc_en": "面向 AI 编程客户端的动态、可响应环境——视频背景、氛围场景与主题，适用于 DeepSeek Harness 与 Codex Desktop。",
    "desc_zh": "",
@@ -25217,7 +25219,8 @@
    "depCount": 0,
    "depsOfficial": 0,
    "repoOwner": "starsstreaming",
-   "_enriched": "2026-08-24|"
+   "_enriched": "2026-08-24|",
+   "testDate": "2026-08-25"
   },
   {
    "name": "new-litigation-visualization",
@@ -25358,7 +25361,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness 的表情包插件——找得到、发得出、学得会，纯文本斗图、情绪主动发图、像 QQ/微信 一样发图、AI 自动学图、自定义表情包 、多种风格随意切换。",
    "desc_en": "DeepSeek Harness 的表情包插件——找得到、发得出、学得会，纯文本斗图、情绪主动发图、像 QQ/微信 一样发图、AI 自动学图、自定义表情包 、多种风格随意切换。",
    "desc_zh": "",
@@ -25376,7 +25379,10 @@
    "depCount": 1,
    "depsOfficial": 1,
    "repoOwner": "yyh-001",
-   "_enriched": "2026-08-20|"
+   "_enriched": "2026-08-20|",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-omi-voice",
@@ -25384,7 +25390,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness 语音朗读插件：沉浸式听朗读，用豆包 TTS 自然音色读 AI 回复（BYOK · 点读/暂停/继续）",
    "desc_en": "DeepSeek Harness 语音朗读插件：沉浸式听朗读，用豆包 TTS 自然音色读 AI 回复（BYOK · 点读/暂停/继续）",
    "desc_zh": "",
@@ -25402,7 +25408,8 @@
    "depCount": 0,
    "depsOfficial": 0,
    "repoOwner": "PolinniZhong",
-   "_enriched": "2026-08-25|"
+   "_enriched": "2026-08-25|",
+   "testDate": "2026-08-25"
   },
   {
    "name": "deepseek-harness-sdr-plugin",
