@@ -25554,7 +25554,9 @@
    "added": "2026-08-25T07:39:01",
    "license": "MIT",
    "slug": "dsh-ios",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "stent",
@@ -25562,7 +25564,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "External Stent extension for deepseek-harness, providing three implementation packages and a carrier for plugin installation.",
    "desc_en": "External Stent extension for deepseek-harness, providing three implementation packages and a carrier for plugin installation.",
    "desc_zh": "deepseek-harness 的外部 Stent 扩展，提供三个实现包及插件安装载体。",
@@ -25576,7 +25578,8 @@
    "license": "",
    "slug": "stent",
    "platform": "any",
-   "note": "无 LICENSE 许可"
+   "note": "无 LICENSE 许可",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-preset-plus",
@@ -25597,7 +25600,9 @@
    "added": "2026-08-25T07:40:59",
    "license": "MIT",
    "slug": "dsh-preset-plus",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "oh-my-knowledge",
@@ -25618,7 +25623,9 @@
    "added": "2026-08-25T07:41:10",
    "license": "MIT",
    "slug": "oh-my-knowledge",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-25",
+   "note": "验证: load-fail"
   },
   {
    "name": "dsh_kline",
@@ -95315,7 +95322,10 @@
    "added": "2026-08-25T07:39:03",
    "license": "MIT",
    "slug": "dsh-synapse",
-   "platform": "any"
+   "platform": "any",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "验证: web-only；待 L4 web CDP"
   },
   {
    "name": "dsh_theme_terraria",
@@ -95336,7 +95346,10 @@
    "added": "2026-08-25T07:40:07",
    "license": "MIT",
    "slug": "dsh_theme_terraria",
-   "platform": "any"
+   "platform": "any",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "验证: web-only；待 L4 web CDP"
   },
   {
    "name": "dsh-gov-portal",
@@ -95357,7 +95370,10 @@
    "added": "2026-08-25T07:40:14",
    "license": "MIT",
    "slug": "dsh-gov-portal",
-   "platform": "any"
+   "platform": "any",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "验证: web-only；待 L4 web CDP"
   },
   {
    "name": "dsh-client-ui-custom",
@@ -95378,7 +95394,9 @@
    "added": "2026-08-25T07:40:33",
    "license": "MIT",
    "slug": "dsh-client-ui-custom",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-25",
+   "note": "验证: install-fail"
   },
   {
    "name": "dsh-whale-galgame",
@@ -95399,7 +95417,9 @@
    "added": "2026-08-25T07:41:16",
    "license": "NOASSERTION",
    "slug": "dsh-whale-galgame",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-25",
+   "note": "验证: install-fail"
   },
   {
    "name": "dsh-agy-link",
@@ -126190,7 +126210,9 @@
    "added": "2026-08-25T07:38:58",
    "license": "MIT",
    "slug": "Perfect-Web-Clone",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-android",
@@ -126211,7 +126233,9 @@
    "added": "2026-08-25T07:40:38",
    "license": "MIT",
    "slug": "dsh-android",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   }
  ],
  "Network": [
@@ -128400,7 +128424,10 @@
    "added": "2026-08-25T07:39:45",
    "license": "MIT",
    "slug": "dsh-bridge",
-   "platform": "any"
+   "platform": "any",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "验证: web-only；待 L4 web CDP"
   },
   {
    "name": "dsh-web-tools",
@@ -128421,7 +128448,10 @@
    "added": "2026-08-25T07:40:47",
    "license": "MIT",
    "slug": "dsh-web-tools",
-   "platform": "any"
+   "platform": "any",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "验证: web-only；待 L4 web CDP"
   },
   {
    "name": "dsh-tether",
@@ -128442,7 +128472,10 @@
    "added": "2026-08-25T07:41:22",
    "license": "MIT",
    "slug": "dsh-tether",
-   "platform": "any"
+   "platform": "any",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "验证: web-only；待 L4 web CDP"
   },
   {
    "name": "dsh-opencode-palette",
@@ -130120,7 +130153,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Control Tabbit Browser via tabbit-cli for web automation, extraction, QA, and benchmarks.",
    "desc_en": "Control Tabbit Browser via tabbit-cli for web automation, extraction, QA, and benchmarks.",
    "desc_zh": "通过tabbit-cli控制Tabbit浏览器，实现网页自动化、信息提取、QA和基准测试。",
@@ -130134,7 +130167,8 @@
    "license": "",
    "slug": "dsh-tabbit",
    "platform": "any",
-   "note": "无 LICENSE 许可"
+   "note": "无 LICENSE 许可",
+   "testDate": "2026-08-25"
   }
  ],
  "Terminal": [
@@ -132963,7 +132997,10 @@
    "added": "2026-08-25T07:39:15",
    "license": "MIT",
    "slug": "hanai-investment-dsh",
-   "platform": "any"
+   "platform": "any",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "验证: web-only；待 L4 web CDP"
   },
   {
    "name": "risk-rule-design",
@@ -134390,7 +134427,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Read-only security and compliance plugin for DeepSeek Harness with tools for prompt-injection detection, PII redaction, and local audits.",
    "desc_en": "Read-only security and compliance plugin for DeepSeek Harness with tools for prompt-injection detection, PII redaction, and local audits.",
    "desc_zh": "DeepSeek Harness 的只读安全合规插件，提供提示注入检测、PII 脱敏和本地审计工具。",
@@ -134403,7 +134440,8 @@
    "added": "2026-08-25T07:39:52",
    "license": "MIT",
    "slug": "dsh-secure-audit",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-one-gateway",
@@ -137316,7 +137354,10 @@
    "added": "2026-08-25T07:39:20",
    "license": "MIT",
    "slug": "dsh-turn-delete",
-   "platform": "any"
+   "platform": "any",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "验证: web-only；待 L4 web CDP"
   },
   {
    "name": "DSH-EasyRewrite",
@@ -137337,7 +137378,10 @@
    "added": "2026-08-25T07:39:35",
    "license": "MIT",
    "slug": "DSH-EasyRewrite",
-   "platform": "any"
+   "platform": "any",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "验证: web-only；待 L4 web CDP"
   },
   {
    "name": "dsh-recall-unread",
@@ -137345,7 +137389,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "A DSH plugin to recall unread steering messages before the model reads them.",
    "desc_en": "A DSH plugin to recall unread steering messages before the model reads them.",
    "desc_zh": "撤回模型尚未读取的插话消息的 DSH 插件。",
@@ -137358,7 +137402,8 @@
    "added": "2026-08-25T07:39:47",
    "license": "MIT",
    "slug": "dsh-recall-unread",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-config-manager",
@@ -137379,7 +137424,9 @@
    "added": "2026-08-25T07:40:04",
    "license": "MIT",
    "slug": "dsh-config-manager",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "deep-read-summarize",
@@ -137400,7 +137447,9 @@
    "added": "2026-08-25T07:40:25",
    "license": "MIT",
    "slug": "deep-read-summarize",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-webui",
@@ -137422,7 +137471,8 @@
    "license": "",
    "slug": "dsh-webui",
    "platform": "any",
-   "note": "无 LICENSE 许可"
+   "note": "验证: install-fail",
+   "testDate": "2026-08-25"
   }
  ],
  "Content": [
@@ -138115,7 +138165,9 @@
    "added": "2026-08-25T07:39:55",
    "license": "Apache-2.0",
    "slug": "dsh-imagegen",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   }
  ]
 }
