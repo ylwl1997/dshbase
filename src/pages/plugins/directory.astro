@@ -5,6 +5,9 @@ import PluginCard from '../../components/PluginCard.astro';
 import plugins from '../../data/plugins.json';
 import syncDate from '../../data/sync-date.json';
 const auditUrl = getRelativeLocaleUrl('en', '/audit/');
+const installUrl = getRelativeLocaleUrl('en', '/install/');
+const tutorialUrl = getRelativeLocaleUrl('en', '/tutorial/');
+const troubleshootingUrl = getRelativeLocaleUrl('en', '/troubleshooting/');
 const sortByStars = (a, b) => (b.stars ?? 0) - (a.stars ?? 0);
 const catOrder = Object.keys(plugins);
 // sort each category by stars desc
@@ -55,12 +58,17 @@ const ucsPresent = USE_CASES.filter((u) => ucCount[u] > 0).sort((a, b) => ucCoun
 // 15-category color palette
 const COLORS = ['#4D6BFE', '#7c8cf8', '#8b5cf6', '#a78bfa', '#6366f1', '#93c5fd', '#c4b5fd', '#34d399', '#f472b6', '#fbbf24', '#f87171', '#2dd4bf', '#a3e635', '#fb923c', '#38bdf8'];
 ---
-<Base title={`Best DSH Plugins Directory: ${total} Tested Extensions for DeepSeek Harness`} description={`Browse ${total} DeepSeek Harness (dsh) plugins across ${catOrder.length} categories — each with verified install status, license, trust tier, stars, and the exact install command. Find the right extension and install it in one step.`} currentPath="/plugins/directory/">
+<Base title={`DeepSeek Harness Plugins Directory: ${total} Tested Extensions`} description={`Browse ${total} DeepSeek Harness (DSH) plugins across ${catOrder.length} categories — verified install status, license, trust tier, stars, and the exact install command. Find the right extension and install it in one step.`} currentPath="/plugins/directory/">
   <section class="hero wrap">
     <p class="eyebrow">Plugin directory</p>
     <h1>DeepSeek Harness <span class="accent">plugin ecosystem</span></h1>
     <p class="lede">{total.toLocaleString('en-US')} plugins across {catOrder.length} categories. Every card shows the author <strong>avatar</strong>, <strong>trust tier</strong>, <strong>license</strong>, <strong>last updated</strong>, and the exact install command — no clicking through to check. Press <kbd class="kbd">⌘K</kbd> to search, <kbd class="kbd">☆</kbd> to save favorites.</p>
     <p style="margin-top:14px"><a class="btn btn-primary" href="https://github.com/ylwl1997/dshbase/issues/new?template=plugin-submission.yml" target="_blank" rel="noopener">Submit your plugin &rarr;</a> <a class="btn btn-ghost" href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Official community &rarr;</a></p>
+    <nav class="quick-links" aria-label="Quick start" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;font-size:.95rem">
+      <a href={installUrl} style="padding:6px 12px;border:1px solid var(--border);border-radius:8px;text-decoration:none;color:var(--accent)">Install DSH &rarr;</a>
+      <a href={tutorialUrl} style="padding:6px 12px;border:1px solid var(--border);border-radius:8px;text-decoration:none;color:var(--accent)">Read the tutorial &rarr;</a>
+      <a href={troubleshootingUrl} style="padding:6px 12px;border:1px solid var(--border);border-radius:8px;text-decoration:none;color:var(--accent)">Fix common errors &rarr;</a>
+    </nav>
     <div class="agent-box">
       <div class="agent-slides">
         {carousel.map((p) => (
