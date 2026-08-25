@@ -1,11 +1,11 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
 ---
-<BlogPost title="DeepSeek Harness vs America's Agent Tools: 158k Stars in 5 Days, and What It Does to Claude Code, Codex & Cursor | dshbase" description="DeepSeek Harness hit 158k GitHub stars in five days — already past OpenAI's Codex and closing on Claude Code. We break down what a free, open-source, everything-is-a-plugin harness from China does to the pricing, ecosystem, and moat of America's closed agent tools, with 1,777 plugins we actually verified." currentPath="/blog/dsh-vs-american-tools/" category="Analysis">
+<BlogPost title="DeepSeek Harness vs America's Agent Tools: 158k Stars in 5 Days, and What It Does to Claude Code, Codex & Cursor | dshbase" description="DeepSeek Harness hit 158k GitHub stars in five days — already past OpenAI's Codex and closing on Claude Code. We break down what a free, open-source, everything-is-a-plugin harness from China does to the pricing, ecosystem, and moat of America's closed agent tools, with 1,896 plugins we actually verified." currentPath="/blog/dsh-vs-american-tools/" category="Analysis">
   <h1>DeepSeek Harness vs America's agent tools — <span class="accent">the numbers that matter</span></h1>
   <p class="muted small" style="margin-bottom:20px">August 18, 2026 · dshbase</p>
 
-  <p>On August 13, DeepSeek published an open-source agent harness. Five days later it had <strong>~158,000 GitHub stars</strong> — more than OpenAI's Codex (~106k) and within shouting distance of Anthropic's Claude Code (~141k). Nobody in the "AI coding tools" business expected the agent-harness category to produce a rocket this fast. This isn't a review of whether DSH is good. It's a look at what that trajectory does to the <strong>business model of America's closed coding agents</strong> — and what we, as a plugin directory that actually installed 1,777 of these plugins, are seeing from the ground.</p>
+  <p>On August 13, DeepSeek published an open-source agent harness. Five days later it had <strong>~158,000 GitHub stars</strong> — more than OpenAI's Codex (~106k) and within shouting distance of Anthropic's Claude Code (~141k). Nobody in the "AI coding tools" business expected the agent-harness category to produce a rocket this fast. This isn't a review of whether DSH is good. It's a look at what that trajectory does to the <strong>business model of America's closed coding agents</strong> — and what we, as a plugin directory that actually installed 1,896 of these plugins, are seeing from the ground.</p>
 
   <h2>The star data, straight from GitHub</h2>
   <p>We pulled live numbers so this isn't vibes:</p>
@@ -26,13 +26,13 @@ import BlogPost from '../../layouts/BlogPost.astro';
     <li><strong>Plugins are the moat — and they're open.</strong> npm is the distribution layer. Anyone ships one; no app store review, no vendor gate.</li>
     <li><strong>The agent is a file you can version.</strong> Presets and sessions are append-only logs you can rebuild, diff, and share. That's not a feature of the closed apps; it's a category difference.</li>
   </ul>
-  <p>We've been living this for five days at dshbase: <strong>1,777 plugins cataloged, 1,580 verified by actually installing them on dsh 0.1.0-rc.6</strong>, 315 installable from npm with one command. When an open ecosystem produces a directory that big in under a week, the closed apps' curated marketplaces have to answer a harder question than "which one has better autocomplete."</p>
+  <p>We've been living this for five days at dshbase: <strong>1,896 plugins cataloged, 1,649 verified by actually installing them on dsh 0.1.0-rc.6</strong>, 334 installable from npm with one command. When an open ecosystem produces a directory that big in under a week, the closed apps' curated marketplaces have to answer a harder question than "which one has better autocomplete."</p>
 
   <h2>What actually gets pressured</h2>
   <h3>Pricing, and specifically the subscription</h3>
   <p>Claude Code sits behind a Pro/Max subscription; Codex behind OpenAI credits; Cursor at $20–200/month. DSH is free and self-hostable. The pressure isn't that everyone will switch tomorrow — it's that the <strong>reference price for "a coding agent" just dropped to $0</strong>. Enterprise buyers who were already questioning per-seat pricing now have a credible "build it on the harness" alternative to negotiate against.</p>
   <h3>The extension ecosystem, which is the real moat</h3>
-  <p>The closed tools bet on curated Skills/MCP marketplaces. DSH bet on <strong>everything-is-a-plugin over npm</strong>. When the community ships 1,777 plugins and the harness lets you install any of them in one command, the moat moves from "what the vendor curated" to "what the community built" — and that's not something a closed app can match without opening up its own extension model.</p>
+  <p>The closed tools bet on curated Skills/MCP marketplaces. DSH bet on <strong>everything-is-a-plugin over npm</strong>. When the community ships 1,896 plugins and the harness lets you install any of them in one command, the moat moves from "what the vendor curated" to "what the community built" — and that's not something a closed app can match without opening up its own extension model.</p>
   <h3>The cost-race default</h3>
   <p>Across our <a href="/blog/deepseek-harness-cost/">cost analysis</a>, harness choice moves the token bill by up to 7x on the same model. DeepSeek's pricing + DSH's append-only session design means the cheap option isn't a workaround anymore; it's the default. American tools tuned for their own models simply don't capture DeepSeek's cache-friendly economics.</p>
 
@@ -40,7 +40,7 @@ import BlogPost from '../../layouts/BlogPost.astro';
   <p>Let's be honest about the limits:</p>
   <ul>
     <li><strong>Polished UX.</strong> Cursor's editor integration and Copilot's IDE ubiquity are real products. DSH's "everything is a plugin" is powerful and also a lot of assembly.</li>
-    <li><strong>The plugin ecosystem is young.</strong> We verified 1,777 plugins, but the failures are real — installs break, some need a web runtime, quality varies. That's the price of openness.</li>
+    <li><strong>The plugin ecosystem is young.</strong> We verified 1,896 plugins, but the failures are real — installs break, some need a web runtime, quality varies. That's the price of openness.</li>
     <li><strong>Enterprise support.</strong> Closed vendors sell SLAs, compliance, and hand-holding. Open source sells itself. Different buyers.</li>
   </ul>
 
@@ -50,7 +50,7 @@ import BlogPost from '../../layouts/BlogPost.astro';
   <h3>Which of the American tools is most at risk?</h3>
   <p>The one whose moat is <em>just</em> the model or <em>just</em> the subscription. If a tool's differentiation is "we tuned our model well," DSH's model-agnostic harness undercuts it. The safest are the ones with deep editor/IDE integration and enterprise distribution.</p>
   <h3>Does open source actually win here?</h3>
-  <p>Not automatically. The closed apps still have better onboarding and support. What's changed is that "open" now has a credible, fast-moving reference implementation — and a plugin directory with 1,777 verified entries that any buyer can check before choosing a vendor.</p>
+  <p>Not automatically. The closed apps still have better onboarding and support. What's changed is that "open" now has a credible, fast-moving reference implementation — and a plugin directory with 1,896 verified entries that any buyer can check before choosing a vendor.</p>
 
-  <p class="muted small" style="margin-top:30px">Check the verified data yourself: browse all <a href="/plugins/directory/">1,777 plugins</a>, read our <a href="/blog/deepseek-harness-comparison/">12-tool comparison</a>, or dive into <a href="/blog/deepseek-harness-cost/">why harness choice moves cost 7x</a>.</p>
+  <p class="muted small" style="margin-top:30px">Check the verified data yourself: browse all <a href="/plugins/directory/">1,896 plugins</a>, read our <a href="/blog/deepseek-harness-comparison/">12-tool comparison</a>, or dive into <a href="/blog/deepseek-harness-cost/">why harness choice moves cost 7x</a>.</p>
 </BlogPost>
