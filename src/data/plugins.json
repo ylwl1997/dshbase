@@ -36050,7 +36050,7 @@
    "pkg": "dsh-guandan",
    "ver": "0.1.5",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "A DSH web plugin embedding a single-player Guandan card game with AI opponents in the bottom panel.",
    "desc_en": "A DSH web plugin embedding a single-player Guandan card game with AI opponents in the bottom panel.",
    "desc_zh": "DSH 网页插件，在底部面板嵌入单机掼蛋纸牌游戏，含 AI 对手。",
@@ -36063,7 +36063,8 @@
    "added": "2026-08-25T06:40:21",
    "license": "MIT",
    "slug": "dsh-guandan",
-   "platform": "any"
+   "platform": "any",
+   "note": "Web L3 verified on dsh 0.1.0-rc.8 (CDP browser E2E)."
   }
  ],
  "Knowledge": [
