@@ -1,19 +1,48 @@
 ---
-// Adsterra Native Banner — friendly, in-content ad for dshbase.
-// Embed anywhere in page body; container sized freely by the network.
+// Adsterra ads — friendly formats (Native Banner / Banner 300x250 / Social Bar).
+// variant: 'native' | 'banner' | 'social'
+const { variant = 'native' } = Astro.props;
 ---
-<div class="ad-native">
-  <div id="container-eae8558ab8b2da036379d95b10c4478d"></div>
-  <script
-    set:html={'<script async="async" data-cfasync="false" src="https://pl31021760.profitableratecpmnetwork.com/eae8558ab8b2da036379d95b10c4478d/invoke.js"></script>' }
-  ></script>
-</div>
+{
+  variant === 'native' && (
+    <div class="ad-native">
+      <div id="container-eae8558ab8b2da036379d95b10c4478d"></div>
+      <script is:inline async data-cfasync="false" src="https://pl31021760.profitableratecpmnetwork.com/eae8558ab8b2da036379d95b10c4478d/invoke.js"></script>
+    </div>
+  )
+}
+{
+  variant === 'banner' && (
+    <div class="ad-banner">
+      <script is:inline>
+        atOptions = atOptions || [];
+        atOptions.push({
+          'key' : '2a6bcf68847c8cccc35ba5e0ce0dcdd4',
+          'format' : 'iframe',
+          'height' : 250,
+          'width' : 300,
+          'params' : {}
+        });
+      </script>
+      <script is:inline src="https://www.highrevenueformat.com/2a6bcf68847c8cccc35ba5e0ce0dcdd4/invoke.js"></script>
+    </div>
+  )
+}
+{
+  variant === 'social' && (
+    <script is:inline src="https://pl31025398.profitableratecpmnetwork.com/3a/79/b3/3a79b35d5f36aa5eb44226ccad7c8918.js"></script>
+  )
+}
 
 <style>
-  .ad-native {
+  .ad-native, .ad-banner {
     margin: 28px auto;
     max-width: 100%;
     text-align: center;
     min-height: 90px;
+    display: flow-root;
+  }
+  .ad-banner {
+    min-height: 250px;
   }
 </style>
