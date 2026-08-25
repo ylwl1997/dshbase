@@ -1,0 +1,53 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
+---
+<BlogPost title="社区脉搏 · 第 2 期：安装卡死、子代理默认模型与 7000 插件军备竞赛（2026 年 8 月） | dshbase" description="讨论量从 2,638 飙到 4,404。我们用 GitHub GraphQL 拉取 deepseek-ai/deepseek-harness 最新讨论后发现：最痛的信号已经从「会话损坏」转向「npm 安装卡死」集群——加上子代理模型 bug，以及一路数到 7000+ 的插件发现层。" currentPath="/blog/community-pulse-2/" category="脉搏">
+  <h1>社区脉搏 <span class="accent">第 2 期</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 25 日 · dshbase · 关于 DeepSeek Harness 社区的定期报告</p>
+
+  <p>这是 <strong>社区脉搏</strong> 的第二期，我们持续扫描官方 <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" rel="noopener">deepseek-ai/deepseek-harness</a> 讨论区，用真实数据压缩成最关键的信息。距离<a href="/zh/blog/community-pulse-1/">第 1 期</a>才一周多，社区的风向明显变了——关心点从「什么时候有功能」转向「为什么装不上」。这个转变就是本期的主题。</p>
+
+  <h2>快照</h2>
+  <p>仓库现有 <strong>4,404</strong> 篇讨论——第 1 期写的时候是 2,638，一周多涨了约 <strong>+67%</strong>。「零 open issue」仍然成立，一切都在讨论区发生。最近活跃的约 300 篇里，分类分布是 <strong>General 148 · Ideas 55 · Q&amp;A 52 · Show Your Plugins 44 · Announcements 1</strong>。插件依旧是生态的核心，但本月最强烈的信号却出奇地「朴素」：安装 Harness 时会卡死。</p>
+
+  <h2>本期头条：安装直接停住</h2>
+  <p>8 月 18 到 25 日之间，一批讨论描述的形状一模一样——<code>npx @deepseek-ai/dsh</code>（或 <code>npm install</code>）把 CPU 打满然后不再返回：</p>
+  <ul>
+    <li><a href="https://github.com/deepseek-ai/deepseek-harness/discussions/3786" rel="noopener">#3786</a> 声音最响（18 赞）：<em>npx @deepseek-ai/dsh web</em> 陷入 npm 依赖解析死循环——CPU 100%、零网络流量，换镜像也没用。</li>
+    <li><a href="https://github.com/deepseek-ai/deepseek-harness/discussions/4236" rel="noopener">#4236</a> 在新机器上复现：npm 10.9.8 下 <code>npm install @deepseek-ai/dsh</code> 在解析 <em>peer</em> 依赖时进入无限 CPU 循环。</li>
+    <li><a href="https://github.com/deepseek-ai/deepseek-harness/discussions/4379" rel="noopener">#4379</a> 和 <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/982" rel="noopener">#982</a> 是「安装卡住 / 安装失败」的变体；<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/3970" rel="noopener">#3970</a> 直接说这是「过于繁重的依赖解析」，要「好几分钟」。</li>
+    <li><a href="https://github.com/deepseek-ai/deepseek-harness/discussions/4121" rel="noopener">#4121</a> 遇到一个反直觉的首次启动 <code>Need to install the following packages: @deepseek-ai/dsh@0.1.1-rc.2</code> npx 提示。</li>
+  </ul>
+  <p>不管确切根因是 peer 依赖压力、依赖图过大，还是 npx 缓存交互——<em>体感</em>是一致的：本该最容易的第一步「安装」，成了最容易崩的一步。对一个主打「一条命令装任意插件」的开源工具，入口处卡死是最糟的失败形态。正中招的话，讨论里的可用临时方案是显式 pin 发布 tag、先用干净注册表缓存预热；关注 <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/3786" rel="noopener">#3786</a> 等官方修复。</p>
+
+  <h2>功能雷达：模型列表还是快照</h2>
+  <p>本周最强的功能诉求是 <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/3816" rel="noopener">#3816</a>（17 赞）：dsh 从内置的 <code>pi-ai</code> catalog 快照出模型列表，而不是从网关实时拉取——所以 OpenCode Go 刚上线的新模型，得等发版才显示。社区的临时方案是手动声明一个 OpenAI 兼容模型，但诉求很明确：别让用户为了用「已经能用的模型」还要等 catalog 刷新。这正是我们在第 1 期点名的「活的 vs 冰冻」矛盾，这次从插件前线挪到了模型前线。</p>
+  <p>老牌的网络远程诉求依然健在：<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/76" rel="noopener">#76</a>（19 赞）继续在要 <code>--host 0.0.0.0</code> 无头启动。</p>
+
+  <h2>Bug 雷达：子代理默认模型、会话边缘与 sandbox 噪音</h2>
+  <ul>
+    <li><strong>子代理继承了错误的模型。</strong> 一个小而尖锐的集群：<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/455" rel="noopener">#455</a> 和 <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/4311" rel="noopener">#4311</a> 都报告子代理默认取「创建时的」父模型（或一个过期的 base 默认），而不是会话当前正在用的模型——于是在第三方 provider 会话里，每次子代理调用都炸 <em>"no API key"</em>。<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/4304" rel="noopener">#4304</a> 是重试相关的近亲：OpenAI 兼容网关中途断流时返回 <code>finish_reason: network_error</code>，被误判成 <code>PI_AI_ERROR</code> 且不重试。</li>
+    <li><strong>会话边缘问题仍在。</strong> <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/4385" rel="noopener">#4385</a>（8/24）发现 <code>tool/result</code> 事件带空 <code>callId</code> 会抛 <code>SessionPersistenceCorruptionError</code>——第 1 期会话损坏家族的新成员。<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/1550" rel="noopener">#1550</a> 是加载端：冷历史加载会把大型/损坏日志整个物化并阻塞。<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/1886" rel="noopener">#1886</a> 指出 <code>tokenUsage</code> 投影从不折叠 compaction/summary 用量，导致长会话少报花费。</li>
+    <li><strong>Sandbox 升级噪音。</strong> <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/201" rel="noopener">#201</a>（7 赞）是反复出现的 <em>"sandbox escalation to workspace-write is not strictly..."</em> 错误堆进日志——更像噪音而不是损坏，但把用户真正该看的告警淹没了。</li>
+  </ul>
+
+  <h2>成本与性能</h2>
+  <p>账单话题悄悄从「价格」转向「算清楚」。<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/1886" rel="noopener">#1886</a> 是现在的代表——如果 compaction 摘要用量没有折进 token 投影，用户在长会话上看到的数字就是错的，而错误的数字正是预算翻车的地方（这正是《<a href="/zh/blog/deepseek-harness-cost/">为什么 Harness 的选择让成本差 7 倍</a>》讲的那条逻辑）。本地 LLM 这边，<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/3157" rel="noopener">#3157</a> 请求给 <code>llm-pi-ai</code> 一个更大的默认超时，因为本地模型首次预热本来就慢。</p>
+
+  <h2>生态：数字军备竞赛越打越热</h2>
+  <p>这个月由两个数字定调。<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2423" rel="noopener">dsh-hub.cc</a> 现在宣称 <strong>7,000+ 插件</strong>（第 1 期是 5,600+）——八天「涨」25%，更像是抄数重算而非装机爆涨。而一条很能说明问题的讨论 <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/1597" rel="noopener">#1597</a>，是社区在反向发问：<em>「DSH 插件都 1,700+ 了，我怎么能快速找到适合我的那一个？」</em>——这正是我们的<a href={directoryUrl}>已验证插件目录</a>存在的理由。数数越来越容易；<em>「能不能真的跑」</em>永远是唯一有价值的数字。我们还把 <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2687" rel="noopener">#2687</a> 加进了观察清单——一个社区插件市场项目，在插件生态上叠加生命周期管理、安全启停和一键重启。</p>
+  <p>本周最亮眼的新插件是 <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/1457" rel="noopener">dsh-vault</a>，一个加密凭据保险库——<strong>184 条评论</strong>，是眼下讨论区最热的一帖。这个信号值得琢磨：随着越来越多的 Agent 跑在共享机器和 CI 上，社区开始明确地围绕「安全存好秘密」行动，而不只是「能跑代码」。预计 vault / 密钥管理类插件会继续往上爬。</p>
+
+  <h2>接下来关注什么</h2>
+  <ul>
+    <li><strong>安装卡死必须进路线图最顶端。</strong> 一个以「一条命令」为身份的开源 harness，不能入口就烧 CPU。解开 <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/3786" rel="noopener">#3786</a> / <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/4236" rel="noopener">#4236</a>（多半是依赖图或 peer 依赖的瘦身）对拉动的采用，比任何新功能都大。</li>
+    <li><strong>子代理模型继承</strong>——<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/455" rel="noopener">#455</a>/<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/4311" rel="noopener">#4311</a>——是最尖锐的正确性 bug；「默认 provider 能跑、换你的就崩」对第三方模型用户是致命的信任杀手。</li>
+    <li><strong>实时模型列表</strong>（<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/3816" rel="noopener">#3816</a>）和 <strong>精确的会话花费</strong>（<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/1886" rel="noopener">#1886</a>）：两个都是「让数字变真」的修复，随采用增长价值会复利放大。</li>
+    <li><strong>「发现」很快会等于「验证」而不是「数量」。</strong> 当一个索引宣称 7,000+、而用户在 1,700 就已经迷路时，能「活下来」的索引一定是那个告诉你「这插件能不能装能跑」的——这正是 dshbase 的下注方向。见<a href={auditUrl}>我们的审核方法</a>。</li>
+  </ul>
+
+  <p><em>社区脉搏是定期报告。有想让我们追踪的讨论，或想纠正一处？到 <a href="https://github.com/ylwl1997/dshbase" rel="noopener">dshbase 仓库</a>开一个 issue。</em></p>
+</BlogPost>
