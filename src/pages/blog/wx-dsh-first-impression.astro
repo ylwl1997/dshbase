@@ -1,0 +1,37 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="Week One with DeepSeek Harness — Patching MCP Without a Restart, and Using It to Open Up an APK | dshbase" description="A vulnerability researcher's first week with DeepSeek Harness, turned into installer notes: one-command Web UI startup, skills hot-reload, the no-restart MCP trick, and a concrete jadx reverse-engineering workflow." currentPath="/blog/wx-dsh-first-impression/" category="Review">
+  <h1>Week one with DeepSeek Harness: <span class="accent">MCP without the restart</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 25, 2026 · dshbase · a field note — adapted from a WeChat first-week post by security researcher <em>进击的HACK</em> (<a href="https://mp.weixin.qq.com/s?__biz=MzkxNjMwNDUxNg==&amp;mid=2247490409&amp;idx=1&amp;sn=2d4ec6babfe64f045e18838826e8f404" rel="noopener">original</a>)</p>
+
+  <p>Not every DeepSeek Harness write-up has to be a 4,000-word architecture essay. Last week a security researcher who spends his days inside <code>jadx</code> and Android decompilers published a short first-week note (284 characters, it took him two minutes to write) that was refreshingly on-the-ground. He found DSH "feels a lot like Codex," the experience "average," and — this is the part worth keeping — he worked around MCP's rough edges without restarting the harness, and put it to a real job: pulling an APK's package name out of jadx. This is that note, expanded into notes for installers.</p>
+
+  <h2>Getting in takes one command — you supply the key</h2>
+  <p>The fastest honest description of day one is: install Node.js, then run</p>
+  <pre><code>npx @deepseek-ai/dsh web</code></pre>
+  <p>That boots the Web UI at <code>http://127.0.0.1:3080</code>. The harness itself is free and open source; the <a href="/blog/deepseek-harness-cost/">token bill</a> is your own, because you bring your own API key. Several of the first-week threads we've been tracking call out the same first impression: the page logic feels familiar to anyone who's used a chat client — which is both a compliment and a caveat, because the part people actually trip on isn't the chat UI, it's configuration.</p>
+
+  <h2>Skills reload fast — too fast to forget they're there</h2>
+  <p>Skills live in <code>.dsh\skills\</code> under the current project. The workflow that worked: drop a skill folder in, refresh the page, and it's available. There's no compile step and no daemon restart. For a harness that markets "everything is a plugin," having skills be this close to the filesystem is the right idea — the friction train the security-researcher hit next is exactly where the community keeps piling up, and it's not skills.</p>
+
+  <h2>The real friction: MCP, and how to fix it without a restart</h2>
+  <p>His blunt take on MCP: "right now it's not good, it's really not good." The Web UI has no GUI for managing MCP, there's no manual start/stop, connections are intermittent, and the harness sometimes picked up MCP servers from his other tools. That last one is the kind of behavior that makes you nervous about <em>which</em> server actually answered a call — a real problem the moment you point an agent at sensitive tools.</p>
+  <p>The workaround he settled on is genuinely useful for any installer: you don't need to stop and start the harness to change MCP config. Edit <code>mcp.patch.yml</code> in the project root and the change is picked up. A config patch like this, pointing at a local <code>streamable-http</code> MCP server for <code>jadx</code>:</p>
+  <pre><code>insert:
+  - id: mcp-jadx
+    name: '@deepseek-ai/dsh-mcp-client'
+    config:
+      serverName: jadx-mcp-server
+      transport: streamable-http
+      url: http://127.0.0.1:8651/mcp</code></pre>
+  <p>The separate <code>@deepseek-ai/dsh-mcp-client</code> wrapper here matters: it keeps the MCP transport as a swappable layer, which is exactly the <a href="/blog/dsh-mcp/">modular-adapters pattern</a> we'd expect from a Cordis-based harness.</p>
+
+  <h2>The payoff: a real reverse-engineering ask</h2>
+  <p>With the jadx MCP server attached, the researcher's prompt to the agent was concrete: <em>"get the current app's package name from jadx."</em> That's a small thing — a package name is a string, not a vulnerability — but it's the shape of the whole job. Once an agent can reach into a decompiler through MCP, "what does this APK include" becomes a prompt instead of a plugin-and-click workflow, and for vuln hunting that inverts how fast a triage loop can run.</p>
+
+  <h2>Verdict, honestly</h2>
+  <p>His sentence is worth preserving in spirit: <em>"All in all, there's a future here. Mm, a future."</em> For a general-purpose assistant, week one is "average" and Codex-like — familiar, functional, nothing that will surprise a Claude Code user yet. For a <em>niche</em> job with the right MCP servers wired up, it already does something the closed tools make you pay more to assemble. That distinction — a tool that's averagely good broadly, and sharply good in a narrow workflow you configure — is the same divide our <a href="/plugins/directory/">verified directory</a> draws between "extraordinary count" and "this one installs and runs."</p>
+
+  <p><em>Source: personal first-week note published on WeChat by <strong>进击的HACK</strong> (AI赋能漏洞挖掘), August 14, 2026 — <a href="https://mp.weixin.qq.com/s?__biz=MzkxNjMwNDUxNg==&amp;mid=2247490409&amp;idx=1&amp;sn=2d4ec6babfe64f045e18838826e8f404" rel="noopener">read the original</a>. This page is a transformative rewrite for installers, not a reproduction.</em></p>
+</BlogPost>

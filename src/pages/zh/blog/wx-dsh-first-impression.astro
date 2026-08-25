@@ -1,0 +1,37 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness 第一周：不重启改 MCP，并把它用进 jadx 逆向 | dshbase" description="把安全研究员的一周上手手记改写成安装者笔记：一条命令起 Web UI、skills 热刷新、绕过重启的 MCP 配置技巧，以及一个具体的 jadx 逆向工作流。" currentPath="/blog/wx-dsh-first-impression/" category="评测">
+  <h1>DeepSeek Harness 第一周：<span class="accent">不用重启的 MCP</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 25 日 · dshbase · 一篇上手手记——改编自安全研究员<em>进击的HACK</em>的微信公众号一周体验（<a href="https://mp.weixin.qq.com/s?__biz=MzkxNjMwNDUxNg==&amp;mid=2247490409&amp;idx=1&amp;sn=2d4ec6babfe64f045e18838826e8f404" rel="noopener">原文</a>）</p>
+
+  <p>不是每篇 DeepSeek Harness 文章都得是几千字的架构长文。上周一位整天泡在 <code>jadx</code> 和 Android 反编译里的安全研究员，发了一篇很短的第一周手记（284 字，他自己说两分钟写完），反而特别接地气。他觉得 DSH「用起来很像 Codex，体验一般」，但——这才是值得留下的部分——他没重启 harness 就绕过了 MCP 的毛糙，还把它用到了一个真实任务上：从 jadx 里取出 APK 的包名。这篇就是给安装者加料改写后的手记。</p>
+
+  <h2>一条命令进来——key 你自己带</h2>
+  <p>第一天最坦诚的描述是：装好 Node.js，然后运行</p>
+  <pre><code>npx @deepseek-ai/dsh web</code></pre>
+  <p>它会启动 Web UI，默认地址 <code>http://127.0.0.1:3080</code>。harness 本身免费开源；<a href="/zh/blog/deepseek-harness-cost/">token 账单</a>是你自己的，因为要带自己的 API key。我们这个月在跟踪的几条新手讨论里，第一条印象高度一致——页面逻辑对用过聊天客户端的人很熟悉，这既是夸奖也是提醒，因为真正绊人的不是聊天界面，是配置。</p>
+
+  <h2>skills 刷新很及时——及时到容易忘了它存在</h2>
+  <p>skills 放在当前项目下的 <code>.dsh\skills\</code>。可用的流程是：丢一个 skill 文件夹进去，刷新页面就能用。没有编译步骤，也不用重启守护进程。对一个主打「一切皆插件」的 harness，把 skills 放得离文件系统这么近是对的——研究员接下来撞上的那堵墙，也正是社区最拥挤的地方，而且不是 skills。</p>
+
+  <h2>真正的摩擦：MCP，以及怎么不重启修好它</h2>
+  <p>他对 MCP 的评价很敢说：「现在这 mcp 不好用，非常不好用。」Web 页面没有 GUI 管理 MCP，无法手动启停，连接时灵时不灵，harness 有时还会去搜他其他软件的 mcp。最后那条尤其让人警惕——当你把 agent 指向敏感工具时，你最不想的就是搞不清<em>到底哪个 server</em>回了话。</p>
+  <p>他定下的绕过办法对任何安装者都真有用：改 MCP 配置<strong>不用停再启</strong>。改项目根目录的 <code>mcp.patch.yml</code> 就能生效。指向本地 <code>streamable-http</code> 的 jadx MCP server，类似这样的补丁：</p>
+  <pre><code>insert:
+  - id: mcp-jadx
+    name: '@deepseek-ai/dsh-mcp-client'
+    config:
+      serverName: jadx-mcp-server
+      transport: streamable-http
+      url: http://127.0.0.1:8651/mcp</code></pre>
+  <p>这里单独一个 <code>@deepseek-ai/dsh-mcp-client</code> 包装层值得注意：它把 MCP 传输层做成可替换的一层，这正是我们从 <a href="/zh/blog/dsh-mcp/">模块化适配器模式</a>里预期 Cordis 系 harness 该有的样子。</p>
+
+  <h2>回报：一个真实的逆向诉求</h2>
+  <p>挂上 jadx MCP server 后，研究员给 agent 的指令很具体：<em>「通过 mcp 获取当前 jadx 中的 App 的包名」</em>。这是件小事——包名是一串字符串，不是漏洞——但它勾勒出了整件工作的形状。一旦 agent 能通过 MCP 伸进反编译器，「这个 APK 里都有什么」就从「装插件 + 点来点去」变成一个提示词，对挖漏洞来说，这让一轮 triage 的速度整个倒过来了。</p>
+
+  <h2>结论，实话实说</h2>
+  <p>他这句话值得保留其精神：<em>「总的来说，未来可期，嗯，未来可期。」</em>作为通用助手，第一周算「一般」，而且很 Codex 味——熟悉、能用，暂时不会让 Claude Code 用户觉得惊艳。但对一个接对 MCP 的<em>特定</em>工作流，它已经做到了闭源工具要你花更多钱才能拼出来的事。这种「广泛地一般、在配置好的狭窄流程里很尖」的差别，正是我们的<a href="/zh/plugins/directory/">已验证插件目录</a>在「数量惊人」和「这一个装得上、跑得起来」之间划的那道线。</p>
+
+  <p><em>来源：<strong>进击的HACK</strong>（AI赋能漏洞挖掘）2026 年 8 月 14 日发布于微信公众号的一周体验——《<a href="https://mp.weixin.qq.com/s?__biz=MzkxNjMwNDUxNg==&amp;mid=2247490409&amp;idx=1&amp;sn=2d4ec6babfe64f045e18838826e8f404" rel="noopener">阅读原文</a>》。本页是面向安装者的改写，非转载。</em></p>
+</BlogPost>

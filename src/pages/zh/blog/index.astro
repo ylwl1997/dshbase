@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const locale = Astro.currentLocale ?? 'zh';
 const posts = [
+  { path: '/blog/wx-dsh-first-impression/', cat: '评测', zh: 'DeepSeek Harness 第一周：不重启改 MCP 并用它拆 APK', desc_zh: '把安全研究员的一周手记改写成安装者笔记：一条命令起手、skills 热刷新、免重启的 MCP 配置，以及一个 jadx 逆向用例。' },
   { path: '/blog/wx-dsh-command-map/', cat: '指南', zh: "dsh 命令地图：安装者速查", desc_zh: "dsh 命令实用地图：Web UI、配置导出、模式、插件、权限与 rc.8 子代理。rc.x 会变，以最新文档为准。" },
   { path: '/blog/wx-orange-book-notes/', cat: '分析', zh: "安装者手记：DeepSeek Harness 橙皮书式拆解", desc_zh: "安装者视角：dump-config、只追加日志、创造模式风险、PTC 并不自动更省，以及已验证安装为何胜过 star 数。" },
   { path: '/blog/wx-rc8-multimodal/', cat: '指南', zh: "DeepSeek Harness rc.8：多模态输入与子代理捆绑", desc_zh: "rc.8 对安装者意味着什么：可配图像适配器、Claude Code/Codex 捆绑、Windows PTY，以及为什么已验证包仍然重要。" },

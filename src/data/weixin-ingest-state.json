@@ -20,6 +20,13 @@
       "status": "published",
       "slug": "wx-dsh-command-map",
       "at": "2026-08-21T06:31:04.880691+00:00"
+    },
+    {
+      "title": "DeepSeek harness 使用体验",
+      "href": "https://mp.weixin.qq.com/s?__biz=MzkxNjMwNDUxNg==&mid=2247490409&idx=1&sn=2d4ec6babfe64f045e18838826e8f404",
+      "status": "published",
+      "slug": "wx-dsh-first-impression",
+      "at": "2026-08-25T03:37:04.747676+00:00"
     }
   ],
   "published": [
@@ -43,7 +50,14 @@
       "slug": "wx-dsh-command-map",
       "at": "2026-08-21T06:31:04.880691+00:00",
       "batch": "manual-first"
+    },
+    {
+      "title": "DeepSeek harness 使用体验",
+      "href": "https://mp.weixin.qq.com/s?__biz=MzkxNjMwNDUxNg==&mid=2247490409&idx=1&sn=2d4ec6babfe64f045e18838826e8f404",
+      "slug": "wx-dsh-first-impression",
+      "at": "2026-08-25T03:37:04.747676+00:00",
+      "batch": "weixin-ai"
     }
   ],
-  "updated_at": "2026-08-21T06:31:04.880691+00:00"
+  "updated_at": "2026-08-25T03:37:04.747676+00:00"
 }
