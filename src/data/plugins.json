@@ -24120,7 +24120,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "AI-assisted local creator workbench for DeepSeek Harness",
    "desc_en": "AI-assisted local creator workbench for DeepSeek Harness",
    "desc_zh": "",
@@ -24138,7 +24138,8 @@
    "depCount": 16,
    "depsOfficial": 14,
    "repoOwner": "oil-oil",
-   "_enriched": "2026-08-20|"
+   "_enriched": "2026-08-20|",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-video-lens",
@@ -25009,7 +25010,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "本地优先 AI 小说创作工作台，提供 Windows/macOS 桌面版与 DeepSeek Harness 插件开发预览，支持角色、大纲、章节蓝图、审稿修稿和本地模型。",
    "desc_en": "本地优先 AI 小说创作工作台，提供 Windows/macOS 桌面版与 DeepSeek Harness 插件开发预览，支持角色、大纲、章节蓝图、审稿修稿和本地模型。",
    "desc_zh": "",
@@ -25027,7 +25028,8 @@
    "depCount": 36,
    "depsOfficial": 0,
    "repoOwner": "EthanYoQ",
-   "_enriched": "2026-08-23|"
+   "_enriched": "2026-08-23|",
+   "testDate": "2026-08-25"
   },
   {
    "name": "Abu-Cowork",
@@ -25062,7 +25064,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Notes for you, Memory for your agents. / 内置 Deepseek harness Agent / 适用 办公 & 写作 & Coding",
    "desc_en": "Notes for you, Memory for your agents. / 内置 Deepseek harness Agent / 适用 办公 & 写作 & Coding",
    "desc_zh": "",
@@ -25080,7 +25082,8 @@
    "depCount": 50,
    "depsOfficial": 0,
    "repoOwner": "text2future",
-   "_enriched": "2026-08-24|"
+   "_enriched": "2026-08-24|",
+   "testDate": "2026-08-25"
   },
   {
    "name": "claude-paper",
@@ -25133,7 +25136,9 @@
    "depCount": 0,
    "depsOfficial": 0,
    "repoOwner": "op7418",
-   "_enriched": "2026-08-20|"
+   "_enriched": "2026-08-20|",
+   "testDate": "2026-08-25",
+   "note": "验证: install-fail"
   },
   {
    "name": "cocode",
@@ -25141,7 +25146,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Best ready-to-run DeepSeek Harness distribution: DSH desktop GUI, terminal TUI, and harness integration.",
    "desc_en": "Best ready-to-run DeepSeek Harness distribution: DSH desktop GUI, terminal TUI, and harness integration.",
    "desc_zh": "",
@@ -25159,7 +25164,8 @@
    "depCount": 0,
    "depsOfficial": 0,
    "repoOwner": "cocode-agency",
-   "_enriched": "2026-08-25|"
+   "_enriched": "2026-08-25|",
+   "testDate": "2026-08-25"
   },
   {
    "name": "SpecFusion",
