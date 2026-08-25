@@ -372,6 +372,18 @@
   ]
  },
  {
+  "github": "jansen-66",
+  "avatar": "https://avatars.githubusercontent.com/u/271416944?v=4",
+  "plugins": [
+   {
+    "name": "dsh-guandan",
+    "slug": "dsh-guandan",
+    "npm": true,
+    "pkg": "dsh-guandan"
+   }
+  ]
+ },
+ {
   "github": "jinguanghai",
   "avatar": "https://avatars.githubusercontent.com/u/31503310?v=4",
   "plugins": [
