@@ -16,6 +16,9 @@ const uniqueRepos = new Set(all.map((p) => repoOf(p.url)).filter(Boolean)).size;
 const nVerified = all.filter((p) => p.test === 'verified').length;
 const nPending = all.filter((p) => p.test === 'pending').length;
 const nMit = all.filter((p) => (p.license || '') === 'MIT').length;
+const nWebonly = all.filter((p) => !!p.webonly).length;
+const nWebVer = all.filter((p) => !!p.webonly && p.test === 'verified').length;
+const nL3Ver = nVerified - nWebVer;
 
 const fmt = (n) => n.toLocaleString('en-US');
 const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
@@ -31,6 +34,8 @@ const stats = [
   { n: fmt(nCats), label: 'categories' },
   { n: fmt(uniqueRepos), label: 'repositories' },
   { n: fmt(nVerified), label: 'verified' },
+  { n: fmt(nL3Ver), label: 'verified · L3' },
+  { n: fmt(nWebVer), label: 'verified · Web L4' },
   { n: fmt(nPending), label: 'pending' },
   { n: fmt(nMit), label: 'MIT-licensed' },
 ];
@@ -75,7 +80,7 @@ const report = {
   <section class="hero wrap">
     <p class="eyebrow">Plugin audit</p>
     <h1>How we audit <span class="accent">every plugin</span></h1>
-    <p class="lede"><strong>Verified</strong> means L1 install + L2 load + L3 headless on dsh 0.1.0-rc.6; if L3 is web-only, <strong>L4 web CDP is mandatory</strong>. Not a topic count or a parseable-manifest badge.</p>
+    <p class="lede"><strong>Verified</strong> means L1 install + L2 load + L3 headless on dsh 0.1.0-rc.8; if L3 is web-only, <strong>L4 web CDP is mandatory</strong>. Not a topic count or a parseable-manifest badge.</p>
   </section>
 
   <section class="wrap audit-stats">
@@ -85,6 +90,11 @@ const report = {
         <span>{s.label}</span>
       </div>
     ))}
+  </section>
+
+  <section class="wrap audit-stats">
+    <h2 style="margin:8px 0 2px;font-size:16px">Web L4 verification progress</h2>
+    <p class="as-of">Web-only (GUI / browser-dependent) plugins: <strong>{fmt(nWebonly)}</strong> total · verified (passed L4 CDP) <strong>{fmt(nWebVer)}</strong> · awaiting L4 / not passed {fmt(nWebonly - nWebVer)}. A web-only plugin must pass L4 (web CDP) to be verified.</p>
   </section>
 
   <section class="info wrap">

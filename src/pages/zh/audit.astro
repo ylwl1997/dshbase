@@ -16,6 +16,9 @@ const uniqueRepos = new Set(all.map((p) => repoOf(p.url)).filter(Boolean)).size;
 const nVerified = all.filter((p) => p.test === 'verified').length;
 const nPending = all.filter((p) => p.test === 'pending').length;
 const nMit = all.filter((p) => (p.license || '') === 'MIT').length;
+const nWebonly = all.filter((p) => !!p.webonly).length;
+const nWebVer = all.filter((p) => !!p.webonly && p.test === 'verified').length;
+const nL3Ver = nVerified - nWebVer;
 
 const fmt = (n) => n.toLocaleString('en-US');
 const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
@@ -31,6 +34,8 @@ const stats = [
   { n: fmt(nCats), label: '分类' },
   { n: fmt(uniqueRepos), label: '仓库' },
   { n: fmt(nVerified), label: '已验证' },
+  { n: fmt(nL3Ver), label: 'L3 已验证' },
+  { n: fmt(nWebVer), label: 'Web L4 已验证' },
   { n: fmt(nPending), label: '待验证' },
   { n: fmt(nMit), label: 'MIT 协议' },
 ];
@@ -75,7 +80,7 @@ const report = {
   <section class="hero wrap">
     <p class="eyebrow">插件审计</p>
     <h1>我们如何审计<span class="accent">每一个插件</span></h1>
-    <p class="lede"><strong>已验证</strong>表示在 dsh 0.1.0-rc.6 上过了 L1 安装 + L2 加载 + L3 headless；若 L3 为 web-only，则<strong>必须再过 L4 Web CDP</strong>。不是 topic 计数，也不是「清单能解析」。</p>
+    <p class="lede"><strong>已验证</strong>表示在 dsh 0.1.0-rc.8 上过了 L1 安装 + L2 加载 + L3 headless；若 L3 为 web-only，则<strong>必须再过 L4 Web CDP</strong>。不是 topic 计数，也不是「清单能解析」。</p>
   </section>
 
   <section class="wrap audit-stats">
@@ -85,6 +90,11 @@ const report = {
         <span>{s.label}</span>
       </div>
     ))}
+  </section>
+
+  <section class="wrap audit-stats">
+    <h2 style="margin:8px 0 2px;font-size:16px">Web L4 验证进度</h2>
+    <p class="as-of">Web-only（GUI / 依赖浏览器）插件：共 <strong>{fmt(nWebonly)}</strong> 个 · 已验证（过 L4 CDP）<strong>{fmt(nWebVer)}</strong> · 待 L4 / 未过 {fmt(nWebonly - nWebVer)}。web-only 必须过 L4（web CDP）才标已验证。</p>
   </section>
 
   <section class="info wrap">
