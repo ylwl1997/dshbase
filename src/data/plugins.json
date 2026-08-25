@@ -26460,7 +26460,7 @@
    "name": "dsh-ultramath",
    "slug": "dsh-ultramath",
    "url": "https://github.com/Andiii208/dsh-ultramath",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 0,
    "updated": "2026-08-24",
@@ -26468,13 +26468,14 @@
    "platform": "any",
    "desc": "UltraMath 数学建模竞赛多 Agent 求解 DSH 插件: 5 角色预设 + 33 篇模型库 + 论文模板/审稿脚本随包 + 进度可视化",
    "desc_zh": "UltraMath 数学建模竞赛多 Agent 求解 DSH 插件: 5 角色预设 + 33 篇模型库 + 论文模板/审稿脚本随包 + 进度可视化",
-   "desc_en": "UltraMath 数学建模竞赛多 Agent 求解 DSH 插件: 5 角色预设 + 33 篇模型库 + 论文模板/审稿脚本随包 + 进度可视化"
+   "desc_en": "UltraMath 数学建模竞赛多 Agent 求解 DSH 插件: 5 角色预设 + 33 篇模型库 + 论文模板/审稿脚本随包 + 进度可视化",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-bash-rtk",
    "slug": "dsh-bash-rtk",
    "url": "https://github.com/DeepTrial/dsh-bash-rtk",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 0,
    "updated": "2026-08-24",
@@ -26482,7 +26483,8 @@
    "platform": "any",
    "desc": "DeepSeek Harness bash executor plugin that routes eligible commands through rtk (Rust Token Killer) to compress tool output and save tokens.",
    "desc_en": "DeepSeek Harness bash executor plugin that routes eligible commands through rtk (Rust Token Killer) to compress tool output and save tokens.",
-   "desc_zh": "DeepSeek Harness bash executor plugin that routes eligible commands through rtk (Rust Token Killer) to compress tool output and save tokens."
+   "desc_zh": "DeepSeek Harness bash executor plugin that routes eligible commands through rtk (Rust Token Killer) to compress tool output and save tokens.",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-file",
@@ -26496,7 +26498,9 @@
    "platform": "any",
    "desc": "A VS Code-style file manager plugin for DeepSeek Harness Web / DeepSeek Harness 的 VS Code 风格文件管理器插件",
    "desc_zh": "A VS Code-style file manager plugin for DeepSeek Harness Web / DeepSeek Harness 的 VS Code 风格文件管理器插件",
-   "desc_en": "A VS Code-style file manager plugin for DeepSeek Harness Web / DeepSeek Harness 的 VS Code 风格文件管理器插件"
+   "desc_en": "A VS Code-style file manager plugin for DeepSeek Harness Web / DeepSeek Harness 的 VS Code 风格文件管理器插件",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "oss-prompt-optimizer",
@@ -26510,13 +26514,15 @@
    "platform": "any",
    "desc": "用于优化 DeepSeek harness提示词优化器，提升 AI 输出质量",
    "desc_zh": "用于优化 DeepSeek harness提示词优化器，提升 AI 输出质量",
-   "desc_en": "用于优化 DeepSeek harness提示词优化器，提升 AI 输出质量"
+   "desc_en": "用于优化 DeepSeek harness提示词优化器，提升 AI 输出质量",
+   "testDate": "2026-08-25",
+   "note": "验证: install-fail"
   },
   {
    "name": "NoLetMe",
    "slug": "noletme",
    "url": "https://github.com/Yuer6327/NoLetMe",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 1,
    "updated": "2026-08-23",
@@ -26524,24 +26530,26 @@
    "platform": "any",
    "desc": "Deepseek v4 神鬼二象性观测面板",
    "desc_zh": "Deepseek v4 神鬼二象性观测面板",
-   "desc_en": "Deepseek v4 神鬼二象性观测面板"
+   "desc_en": "Deepseek v4 神鬼二象性观测面板",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-multi-folder",
    "slug": "dsh-multi-folder",
    "url": "https://github.com/AngelosZou/dsh-multi-folder",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 0,
    "updated": "2026-08-22",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-llm-verifier",
    "slug": "dsh-llm-verifier",
    "url": "https://github.com/Aa728848/dsh-llm-verifier",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 0,
    "updated": "2026-08-22",
@@ -26549,13 +26557,16 @@
    "platform": "any",
    "desc": "Configurable DSH-native LLM verifier with a Web settings page",
    "desc_en": "Configurable DSH-native LLM verifier with a Web settings page",
-   "desc_zh": "Configurable DSH-native LLM verifier with a Web settings page"
+   "desc_zh": "Configurable DSH-native LLM verifier with a Web settings page",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-serial-console",
    "slug": "dsh-serial-console",
    "url": "https://github.com/InfinitePersistence/dsh-serial-console",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 0,
    "updated": "2026-08-21",
@@ -26563,13 +26574,14 @@
    "platform": "any",
    "desc": "Unofficial DeepSeek Harness plugin for board serial console, logging, and model-visible interaction.",
    "desc_en": "Unofficial DeepSeek Harness plugin for board serial console, logging, and model-visible interaction.",
-   "desc_zh": "Unofficial DeepSeek Harness plugin for board serial console, logging, and model-visible interaction."
+   "desc_zh": "Unofficial DeepSeek Harness plugin for board serial console, logging, and model-visible interaction.",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dshw",
    "slug": "dshw",
    "url": "https://github.com/kermanx/dshw",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 0,
    "updated": "2026-08-21",
@@ -26577,13 +26589,14 @@
    "platform": "any",
    "desc": "PR workflow plugin for DeepSeek Harness",
    "desc_en": "PR workflow plugin for DeepSeek Harness",
-   "desc_zh": "PR workflow plugin for DeepSeek Harness"
+   "desc_zh": "PR workflow plugin for DeepSeek Harness",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-skin-manager",
    "slug": "dsh-skin-manager",
    "url": "https://github.com/xiaoyangcheng84-svg/dsh-skin-manager",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 0,
    "updated": "2026-08-19",
@@ -26591,13 +26604,16 @@
    "platform": "any",
    "desc": "一个可以管理皮肤的dsh插件",
    "desc_zh": "一个可以管理皮肤的dsh插件",
-   "desc_en": "一个可以管理皮肤的dsh插件"
+   "desc_en": "一个可以管理皮肤的dsh插件",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-free-vision",
    "slug": "dsh-free-vision",
    "url": "https://github.com/FuzzySoul/dsh-free-vision",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 1,
    "updated": "2026-08-19",
@@ -26605,13 +26621,14 @@
    "platform": "any",
    "desc": "为DSH（DeepSeek Harness）量身打造的视觉插件，现已支持agent调用图片显示/Vision plugin for DSH(DeepSeek Harness),support Proactive Image Display.",
    "desc_zh": "为DSH（DeepSeek Harness）量身打造的视觉插件，现已支持agent调用图片显示/Vision plugin for DSH(DeepSeek Harness),support Proactive Image Display.",
-   "desc_en": "为DSH（DeepSeek Harness）量身打造的视觉插件，现已支持agent调用图片显示/Vision plugin for DSH(DeepSeek Harness),support Proactive Image Display."
+   "desc_en": "为DSH（DeepSeek Harness）量身打造的视觉插件，现已支持agent调用图片显示/Vision plugin for DSH(DeepSeek Harness),support Proactive Image Display.",
+   "testDate": "2026-08-25"
   },
   {
    "name": "forgeax-dsh-game-plugin",
    "slug": "forgeax-dsh-game-plugin",
    "url": "https://github.com/ForgeaX-Games/forgeax-dsh-game-plugin",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 1,
    "updated": "2026-08-19",
@@ -26619,13 +26636,14 @@
    "platform": "any",
    "desc": "DeepSeek Harness (DSH) bundle plugin for ForgeaX game dev — @forgeax/dsh-game",
    "desc_en": "DeepSeek Harness (DSH) bundle plugin for ForgeaX game dev — @forgeax/dsh-game",
-   "desc_zh": "DeepSeek Harness (DSH) bundle plugin for ForgeaX game dev — @forgeax/dsh-game"
+   "desc_zh": "DeepSeek Harness (DSH) bundle plugin for ForgeaX game dev — @forgeax/dsh-game",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-agent-skills",
    "slug": "dsh-agent-skills",
    "url": "https://github.com/minivv/dsh-agent-skills",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 1,
    "updated": "2026-08-19",
@@ -26633,13 +26651,14 @@
    "platform": "any",
    "desc": "Discover and manage Agent Skills inside DeepSeek Harness",
    "desc_en": "Discover and manage Agent Skills inside DeepSeek Harness",
-   "desc_zh": "Discover and manage Agent Skills inside DeepSeek Harness"
+   "desc_zh": "Discover and manage Agent Skills inside DeepSeek Harness",
+   "testDate": "2026-08-25"
   },
   {
    "name": "DeepSeek-Harness-Pet",
    "slug": "deepseek-harness-pet",
    "url": "https://github.com/minybear/DeepSeek-Harness-Pet",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 0,
    "updated": "2026-08-18",
@@ -26647,13 +26666,14 @@
    "platform": "any",
    "desc": "Codex-style desktop pet plugin for DeepSeek Harness",
    "desc_en": "Codex-style desktop pet plugin for DeepSeek Harness",
-   "desc_zh": "Codex-style desktop pet plugin for DeepSeek Harness"
+   "desc_zh": "Codex-style desktop pet plugin for DeepSeek Harness",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-skill-7d-code-reviewer",
    "slug": "dsh-skill-7d-code-reviewer",
    "url": "https://github.com/7dgroup-ai/dsh-skill-7d-code-reviewer",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 2,
    "updated": "2026-08-17",
@@ -26661,13 +26681,14 @@
    "platform": "any",
    "desc": "这是一个专业级的 DSH（DeepSeek Harness）代码审查技能插件，由 7DGroup 团队开发，专为 AI 辅助代码审查场景设计。基于 TypeScript + Cordis 开发，以组合包（bundle）形式安装，通过 ctx.skills 注册 7d-code-reviewer 技能：五步审查流程、严重/中等/轻微三级问题分级、四维度评分标准，文本摘要与 HTML 报告双输出。零核心改动——安装即启用，移除 bundle 行即卸载。",
    "desc_zh": "这是一个专业级的 DSH（DeepSeek Harness）代码审查技能插件，由 7DGroup 团队开发，专为 AI 辅助代码审查场景设计。基于 TypeScript + Cordis 开发，以组合包（bundle）形式安装，通过 ctx.skills 注册 7d-code-reviewer 技能：五步审查流程、严重/中等/轻微三级问题分级、四维度评分标准，文本摘要与 HTML 报告双输出。零核心改动——安装即启用，移除 bundle 行即卸载。",
-   "desc_en": "这是一个专业级的 DSH（DeepSeek Harness）代码审查技能插件，由 7DGroup 团队开发，专为 AI 辅助代码审查场景设计。基于 TypeScript + Cordis 开发，以组合包（bundle）形式安装，通过 ctx.skills 注册 7d-code-reviewer 技能：五步审查流程、严重/中等/轻微三级问题分级、四维度评分标准，文本摘要与 HTML 报告双输出。零核心改动——安装即启用，移除 bundle 行即卸载。"
+   "desc_en": "这是一个专业级的 DSH（DeepSeek Harness）代码审查技能插件，由 7DGroup 团队开发，专为 AI 辅助代码审查场景设计。基于 TypeScript + Cordis 开发，以组合包（bundle）形式安装，通过 ctx.skills 注册 7d-code-reviewer 技能：五步审查流程、严重/中等/轻微三级问题分级、四维度评分标准，文本摘要与 HTML 报告双输出。零核心改动——安装即启用，移除 bundle 行即卸载。",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-live2d-mygo",
    "slug": "dsh-live2d-mygo",
    "url": "https://github.com/U1s1-king/dsh-live2d-mygo",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 0,
    "updated": "2026-08-17",
@@ -26675,13 +26696,14 @@
    "platform": "any",
    "desc": "MyGO!!!!! Live2D 桌宠插件 for DeepSeek Harness（本地模型同源加载，零外部依赖）",
    "desc_zh": "MyGO!!!!! Live2D 桌宠插件 for DeepSeek Harness（本地模型同源加载，零外部依赖）",
-   "desc_en": "MyGO!!!!! Live2D 桌宠插件 for DeepSeek Harness（本地模型同源加载，零外部依赖）"
+   "desc_en": "MyGO!!!!! Live2D 桌宠插件 for DeepSeek Harness（本地模型同源加载，零外部依赖）",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-island",
    "slug": "dsh-island",
    "url": "https://github.com/cdxiaodong/dsh-island",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 0,
    "updated": "2026-08-17",
@@ -26689,24 +26711,26 @@
    "platform": "any",
    "desc": "把 DeepSeek Harness(DSH) agent 实时状态桥接到 CodeIsland 刘海面板 — sessions/tools/approvals on the Dynamic Island",
    "desc_zh": "把 DeepSeek Harness(DSH) agent 实时状态桥接到 CodeIsland 刘海面板 — sessions/tools/approvals on the Dynamic Island",
-   "desc_en": "把 DeepSeek Harness(DSH) agent 实时状态桥接到 CodeIsland 刘海面板 — sessions/tools/approvals on the Dynamic Island"
+   "desc_en": "把 DeepSeek Harness(DSH) agent 实时状态桥接到 CodeIsland 刘海面板 — sessions/tools/approvals on the Dynamic Island",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-reasoning-slider",
    "slug": "dsh-reasoning-slider",
    "url": "https://github.com/qjcnmd/dsh-reasoning-slider",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 1,
    "updated": "2026-08-16",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-page-preview",
    "slug": "dsh-page-preview",
    "url": "https://github.com/watericetangcw/dsh-page-preview",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 1,
    "updated": "2026-08-16",
@@ -26714,24 +26738,28 @@
    "platform": "any",
    "desc": "A Cordis plugin that enables DeepSeek Harness to proactively preview and display web pages.",
    "desc_en": "A Cordis plugin that enables DeepSeek Harness to proactively preview and display web pages.",
-   "desc_zh": "A Cordis plugin that enables DeepSeek Harness to proactively preview and display web pages."
+   "desc_zh": "A Cordis plugin that enables DeepSeek Harness to proactively preview and display web pages.",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-opencode-go-box",
    "slug": "dsh-opencode-go-box",
    "url": "https://github.com/yascitom/dsh-opencode-go-box",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 2,
    "updated": "2026-08-15",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-mcp-skill-panel",
    "slug": "dsh-mcp-skill-panel",
    "url": "https://github.com/lilyblessing/dsh-mcp-skill-panel",
-   "test": "pending",
+   "test": "verified",
    "stars": 5,
    "forks": 0,
    "updated": "2026-08-24",
@@ -26739,13 +26767,16 @@
    "platform": "any",
    "desc": "MCP 与技能管理面板：设置页展示 MCP 服务器与 Skill 目录，随时启停释放上下文占用。",
    "desc_zh": "MCP 与技能管理面板：设置页展示 MCP 服务器与 Skill 目录，随时启停释放上下文占用。",
-   "desc_en": "MCP 与技能管理面板：设置页展示 MCP 服务器与 Skill 目录，随时启停释放上下文占用。"
+   "desc_en": "MCP 与技能管理面板：设置页展示 MCP 服务器与 Skill 目录，随时启停释放上下文占用。",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-plugin-codex",
    "slug": "dsh-plugin-codex",
    "url": "https://github.com/wss534857356/dsh-plugin-codex",
-   "test": "pending",
+   "test": "verified",
    "stars": 5,
    "forks": 0,
    "updated": "2026-08-24",
@@ -26753,13 +26784,14 @@
    "platform": "any",
    "desc": "Codex App Server model provider for DeepSeek Harness using your local Codex login.",
    "desc_en": "Codex App Server model provider for DeepSeek Harness using your local Codex login.",
-   "desc_zh": "Codex App Server model provider for DeepSeek Harness using your local Codex login."
+   "desc_zh": "Codex App Server model provider for DeepSeek Harness using your local Codex login.",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-ccswitch",
    "slug": "dsh-ccswitch",
    "url": "https://github.com/upJiang/dsh-ccswitch",
-   "test": "pending",
+   "test": "verified",
    "stars": 5,
    "forks": 0,
    "updated": "2026-08-24",
@@ -26767,24 +26799,26 @@
    "platform": "any",
    "desc": "dsh 直接连接 ccswith 的所有可用模型，包括密钥以及 auth 登录",
    "desc_zh": "dsh 直接连接 ccswith 的所有可用模型，包括密钥以及 auth 登录",
-   "desc_en": "dsh 直接连接 ccswith 的所有可用模型，包括密钥以及 auth 登录"
+   "desc_en": "dsh 直接连接 ccswith 的所有可用模型，包括密钥以及 auth 登录",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-turn-fold",
    "slug": "dsh-turn-fold",
    "url": "https://github.com/Winter-And-You-Gone/dsh-turn-fold",
-   "test": "pending",
+   "test": "verified",
    "stars": 5,
    "forks": 0,
    "updated": "2026-08-23",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-virtual-product-team",
    "slug": "dsh-virtual-product-team",
    "url": "https://github.com/songoao25/dsh-virtual-product-team",
-   "test": "pending",
+   "test": "verified",
    "stars": 5,
    "forks": 0,
    "updated": "2026-08-23",
@@ -26792,18 +26826,22 @@
    "platform": "any",
    "desc": "Product Team Mode - a DeepSeek Harness agent preset: user-led conversation with a virtual product team (PM to Engineer to QA to Release) walking you from idea to shipped product",
    "desc_en": "Product Team Mode - a DeepSeek Harness agent preset: user-led conversation with a virtual product team (PM to Engineer to QA to Release) walking you from idea to shipped product",
-   "desc_zh": "Product Team Mode - a DeepSeek Harness agent preset: user-led conversation with a virtual product team (PM to Engineer to QA to Release) walking you from idea to shipped product"
+   "desc_zh": "Product Team Mode - a DeepSeek Harness agent preset: user-led conversation with a virtual product team (PM to Engineer to QA to Release) walking you from idea to shipped product",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-session-management",
    "slug": "dsh-session-management",
    "url": "https://github.com/cokiscarazo-rgb/dsh-session-management",
-   "test": "pending",
+   "test": "verified",
    "stars": 5,
    "forks": 2,
    "updated": "2026-08-23",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "adhdgofly-dsh-ext",
@@ -26817,24 +26855,29 @@
    "platform": "any",
    "desc": "ADHDGoFly POS highlighting plugin for DeepSeek Harness Web: nouns green, verbs red, adjectives/adverbs purple, others gray in rendered Markdown",
    "desc_en": "ADHDGoFly POS highlighting plugin for DeepSeek Harness Web: nouns green, verbs red, adjectives/adverbs purple, others gray in rendered Markdown",
-   "desc_zh": "ADHDGoFly POS highlighting plugin for DeepSeek Harness Web: nouns green, verbs red, adjectives/adverbs purple, others gray in rendered Markdown"
+   "desc_zh": "ADHDGoFly POS highlighting plugin for DeepSeek Harness Web: nouns green, verbs red, adjectives/adverbs purple, others gray in rendered Markdown",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-image-subagent",
    "slug": "dsh-image-subagent",
    "url": "https://github.com/yuqingsh/dsh-image-subagent",
-   "test": "pending",
+   "test": "verified",
    "stars": 5,
    "forks": 0,
    "updated": "2026-08-21",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-ssh-ops",
    "slug": "dsh-ssh-ops",
    "url": "https://github.com/caoyiwei850/dsh-ssh-ops",
-   "test": "pending",
+   "test": "verified",
    "stars": 5,
    "forks": 0,
    "updated": "2026-08-21",
@@ -26842,13 +26885,16 @@
    "platform": "any",
    "desc": "DeepSeek Harness SSH 运维插件：主对话驱动 SSH，带高危命令保护与右侧终端。",
    "desc_zh": "DeepSeek Harness SSH 运维插件：主对话驱动 SSH，带高危命令保护与右侧终端。",
-   "desc_en": "DeepSeek Harness SSH 运维插件：主对话驱动 SSH，带高危命令保护与右侧终端。"
+   "desc_en": "DeepSeek Harness SSH 运维插件：主对话驱动 SSH，带高危命令保护与右侧终端。",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-activity-tracker",
    "slug": "dsh-activity-tracker",
    "url": "https://github.com/Guyao146/dsh-activity-tracker",
-   "test": "pending",
+   "test": "verified",
    "stars": 5,
    "forks": 0,
    "updated": "2026-08-21",
@@ -26856,7 +26902,10 @@
    "platform": "any",
    "desc": "DSH 活动统计：彩色时间线看什么时候在干活/改代码，每日 token 消耗按项目/日期/小时查看。",
    "desc_zh": "DSH 活动统计：彩色时间线看什么时候在干活/改代码，每日 token 消耗按项目/日期/小时查看。",
-   "desc_en": "DSH 活动统计：彩色时间线看什么时候在干活/改代码，每日 token 消耗按项目/日期/小时查看。"
+   "desc_en": "DSH 活动统计：彩色时间线看什么时候在干活/改代码，每日 token 消耗按项目/日期/小时查看。",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-win-gitbash",
@@ -26870,7 +26919,9 @@
    "platform": "any",
    "desc": "Git Bash tool plugin for Windows (replaces pwsh and WSL-only bash)",
    "desc_en": "Git Bash tool plugin for Windows (replaces pwsh and WSL-only bash)",
-   "desc_zh": "Git Bash tool plugin for Windows (replaces pwsh and WSL-only bash)"
+   "desc_zh": "Git Bash tool plugin for Windows (replaces pwsh and WSL-only bash)",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-devices",
@@ -26884,13 +26935,15 @@
    "platform": "any",
    "desc": "Turn your devices into a fleet — dph plugin for decentralized multi-device collaboration: mDNS discovery, key pairing, SSH direct exec. Tools auto-register for dph agents.",
    "desc_en": "Turn your devices into a fleet — dph plugin for decentralized multi-device collaboration: mDNS discovery, key pairing, SSH direct exec. Tools auto-register for dph agents.",
-   "desc_zh": "Turn your devices into a fleet — dph plugin for decentralized multi-device collaboration: mDNS discovery, key pairing, SSH direct exec. Tools auto-register for dph agents."
+   "desc_zh": "Turn your devices into a fleet — dph plugin for decentralized multi-device collaboration: mDNS discovery, key pairing, SSH direct exec. Tools auto-register for dph agents.",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-prompt-optimizer",
    "slug": "dsh-prompt-optimizer",
    "url": "https://github.com/Y1X1n/dsh-prompt-optimizer",
-   "test": "pending",
+   "test": "verified",
    "stars": 5,
    "forks": 0,
    "updated": "2026-08-20",
@@ -26898,13 +26951,14 @@
    "platform": "any",
    "desc": "针对Deepseek Harness开发的提示词优化插件",
    "desc_zh": "针对Deepseek Harness开发的提示词优化插件",
-   "desc_en": "针对Deepseek Harness开发的提示词优化插件"
+   "desc_en": "针对Deepseek Harness开发的提示词优化插件",
+   "testDate": "2026-08-25"
   },
   {
    "name": "Vibe-Mathematics",
    "slug": "vibe-mathematics",
    "url": "https://github.com/ChongCyrus/Vibe-Mathematics",
-   "test": "pending",
+   "test": "verified",
    "stars": 5,
    "forks": 0,
    "updated": "2026-08-19",
@@ -26912,7 +26966,8 @@
    "platform": "any",
    "desc": "Vibe Mathematics —— 多代理数学问题求解与形式化验证框架",
    "desc_zh": "Vibe Mathematics —— 多代理数学问题求解与形式化验证框架",
-   "desc_en": "Vibe Mathematics —— 多代理数学问题求解与形式化验证框架"
+   "desc_en": "Vibe Mathematics —— 多代理数学问题求解与形式化验证框架",
+   "testDate": "2026-08-25"
   },
   {
    "name": "qixi-plugin",
@@ -26926,13 +26981,15 @@
    "platform": "any",
    "desc": "Qixi Festival Easter Egg Plugin: festive skins, bullet comments, and shareable cards.  七夕节彩蛋插件，节日皮肤、弹幕、卡片分享",
    "desc_zh": "Qixi Festival Easter Egg Plugin: festive skins, bullet comments, and shareable cards.  七夕节彩蛋插件，节日皮肤、弹幕、卡片分享",
-   "desc_en": "Qixi Festival Easter Egg Plugin: festive skins, bullet comments, and shareable cards.  七夕节彩蛋插件，节日皮肤、弹幕、卡片分享"
+   "desc_en": "Qixi Festival Easter Egg Plugin: festive skins, bullet comments, and shareable cards.  七夕节彩蛋插件，节日皮肤、弹幕、卡片分享",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-remote-link",
    "slug": "dsh-remote-link",
    "url": "https://github.com/BotonJ/dsh-remote-link",
-   "test": "pending",
+   "test": "verified",
    "stars": 5,
    "forks": 0,
    "updated": "2026-08-19",
@@ -26940,7 +26997,8 @@
    "platform": "any",
    "desc": "Authenticated remote gateway for DeepSeek Harness: QR/HMAC pairing, cookie sessions, mDNS, fork_session tool. Zero-dep plugin.",
    "desc_en": "Authenticated remote gateway for DeepSeek Harness: QR/HMAC pairing, cookie sessions, mDNS, fork_session tool. Zero-dep plugin.",
-   "desc_zh": "Authenticated remote gateway for DeepSeek Harness: QR/HMAC pairing, cookie sessions, mDNS, fork_session tool. Zero-dep plugin."
+   "desc_zh": "Authenticated remote gateway for DeepSeek Harness: QR/HMAC pairing, cookie sessions, mDNS, fork_session tool. Zero-dep plugin.",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-code-review",
@@ -26954,13 +27012,16 @@
    "platform": "any",
    "desc": "Codex-style code review sidebar and safe per-turn undo plugin for DeepSeek Harness",
    "desc_en": "Codex-style code review sidebar and safe per-turn undo plugin for DeepSeek Harness",
-   "desc_zh": "Codex-style code review sidebar and safe per-turn undo plugin for DeepSeek Harness"
+   "desc_zh": "Codex-style code review sidebar and safe per-turn undo plugin for DeepSeek Harness",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-fold-turns",
    "slug": "dsh-fold-turns",
    "url": "https://github.com/leon-zym/dsh-fold-turns",
-   "test": "pending",
+   "test": "verified",
    "stars": 5,
    "forks": 0,
    "updated": "2026-08-18",
@@ -26968,13 +27029,14 @@
    "platform": "any",
    "desc": "Fold completed DeepSeek Harness chat turns without replacing native renderers.",
    "desc_en": "Fold completed DeepSeek Harness chat turns without replacing native renderers.",
-   "desc_zh": "Fold completed DeepSeek Harness chat turns without replacing native renderers."
+   "desc_zh": "Fold completed DeepSeek Harness chat turns without replacing native renderers.",
+   "testDate": "2026-08-25"
   },
   {
    "name": "tencentcloud-agentobs-sdk-dsh",
    "slug": "tencentcloud-agentobs-sdk-dsh",
    "url": "https://github.com/TencentCloud/tencentcloud-agentobs-sdk-dsh",
-   "test": "pending",
+   "test": "verified",
    "stars": 5,
    "forks": 3,
    "updated": "2026-08-18",
@@ -26982,7 +27044,8 @@
    "platform": "any",
    "desc": "tencentcloud-agentobs-sdk-dsh 是一个 DeepSeek Harness (DSH) 可观测插件，直接将 GenAI trace 数据上报到腾讯云日志服务 (CLS)。  它观察 DSH 原生的 session、agent loop、LLM stream 和 tool 生命周期，将其转换为 腾讯云AI Agent可观测规范的 5 层 span 层级模型（entry → agent → step → chat → tool），并通过 tencentcloud-cls-sdk-js 直接上报到 CLS，无需额外部署 OTLP 收集器或 sidecar。",
    "desc_zh": "tencentcloud-agentobs-sdk-dsh 是一个 DeepSeek Harness (DSH) 可观测插件，直接将 GenAI trace 数据上报到腾讯云日志服务 (CLS)。  它观察 DSH 原生的 session、agent loop、LLM stream 和 tool 生命周期，将其转换为 腾讯云AI Agent可观测规范的 5 层 span 层级模型（entry → agent → step → chat → tool），并通过 tencentcloud-cls-sdk-js 直接上报到 CLS，无需额外部署 OTLP 收集器或 sidecar。",
-   "desc_en": "tencentcloud-agentobs-sdk-dsh 是一个 DeepSeek Harness (DSH) 可观测插件，直接将 GenAI trace 数据上报到腾讯云日志服务 (CLS)。  它观察 DSH 原生的 session、agent loop、LLM stream 和 tool 生命周期，将其转换为 腾讯云AI Agent可观测规范的 5 层 span 层级模型（entry → agent → step → chat → tool），并通过 tencentcloud-cls-sdk-js 直接上报到 CLS，无需额外部署 OTLP 收集器或 sidecar。"
+   "desc_en": "tencentcloud-agentobs-sdk-dsh 是一个 DeepSeek Harness (DSH) 可观测插件，直接将 GenAI trace 数据上报到腾讯云日志服务 (CLS)。  它观察 DSH 原生的 session、agent loop、LLM stream 和 tool 生命周期，将其转换为 腾讯云AI Agent可观测规范的 5 层 span 层级模型（entry → agent → step → chat → tool），并通过 tencentcloud-cls-sdk-js 直接上报到 CLS，无需额外部署 OTLP 收集器或 sidecar。",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-withskillhub",
@@ -95900,7 +95963,7 @@
    "name": "dsh-mpkg-wallpaper",
    "slug": "dsh-mpkg-wallpaper",
    "url": "https://github.com/XHR666/dsh-mpkg-wallpaper",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 2,
    "updated": "2026-08-24",
@@ -95908,7 +95971,10 @@
    "platform": "any",
    "desc": "Load Wallpaper Engine .mpkg / Steam Workshop folders as the DeepSeek Harness web background: video & web wallpapers, scene static-frame & layer composite, time-of-day switching, carousel rotation lists, unified frosted blur, theme color. 浏览器内加载壁纸引擎 mpkg/创意工坊目录作为 DSH 网页背景：视频/网页壁纸、场景静态帧与图层合成、多时段切换、轮播列表、统一磨砂虚化、主题颜色。",
    "desc_zh": "Load Wallpaper Engine .mpkg / Steam Workshop folders as the DeepSeek Harness web background: video & web wallpapers, scene static-frame & layer composite, time-of-day switching, carousel rotation lists, unified frosted blur, theme color. 浏览器内加载壁纸引擎 mpkg/创意工坊目录作为 DSH 网页背景：视频/网页壁纸、场景静态帧与图层合成、多时段切换、轮播列表、统一磨砂虚化、主题颜色。",
-   "desc_en": "Load Wallpaper Engine .mpkg / Steam Workshop folders as the DeepSeek Harness web background: video & web wallpapers, scene static-frame & layer composite, time-of-day switching, carousel rotation lists, unified frosted blur, theme color. 浏览器内加载壁纸引擎 mpkg/创意工坊目录作为 DSH 网页背景：视频/网页壁纸、场景静态帧与图层合成、多时段切换、轮播列表、统一磨砂虚化、主题颜色。"
+   "desc_en": "Load Wallpaper Engine .mpkg / Steam Workshop folders as the DeepSeek Harness web background: video & web wallpapers, scene static-frame & layer composite, time-of-day switching, carousel rotation lists, unified frosted blur, theme color. 浏览器内加载壁纸引擎 mpkg/创意工坊目录作为 DSH 网页背景：视频/网页壁纸、场景静态帧与图层合成、多时段切换、轮播列表、统一磨砂虚化、主题颜色。",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-liangxiang",
@@ -95922,7 +95988,9 @@
    "platform": "any",
    "desc": "众香成势，梁子显相。DeepSeek Harness 的 WebUI 插件，欢迎一起打梁。",
    "desc_zh": "众香成势，梁子显相。DeepSeek Harness 的 WebUI 插件，欢迎一起打梁。",
-   "desc_en": "众香成势，梁子显相。DeepSeek Harness 的 WebUI 插件，欢迎一起打梁。"
+   "desc_en": "众香成势，梁子显相。DeepSeek Harness 的 WebUI 插件，欢迎一起打梁。",
+   "testDate": "2026-08-25",
+   "note": "验证: install-fail"
   },
   {
    "name": "dsh-tavily",
@@ -95936,13 +96004,15 @@
    "platform": "any",
    "desc": "Tavily-powered optional search tool for DeepSeek Harness (rc.7 plugin management): multi-key rotation/failover, usage gauge, settings card in Plugins → configuration; the built-in web_search is never replaced. | DSH Tavily 可选高级搜索工具（rc.7 插件管理）：多 Key 轮换/故障转移、用量仪表盘、插件配置页设置卡片；内置 web_search 永不替换。",
    "desc_zh": "Tavily-powered optional search tool for DeepSeek Harness (rc.7 plugin management): multi-key rotation/failover, usage gauge, settings card in Plugins → configuration; the built-in web_search is never replaced. | DSH Tavily 可选高级搜索工具（rc.7 插件管理）：多 Key 轮换/故障转移、用量仪表盘、插件配置页设置卡片；内置 web_search 永不替换。",
-   "desc_en": "Tavily-powered optional search tool for DeepSeek Harness (rc.7 plugin management): multi-key rotation/failover, usage gauge, settings card in Plugins → configuration; the built-in web_search is never replaced. | DSH Tavily 可选高级搜索工具（rc.7 插件管理）：多 Key 轮换/故障转移、用量仪表盘、插件配置页设置卡片；内置 web_search 永不替换。"
+   "desc_en": "Tavily-powered optional search tool for DeepSeek Harness (rc.7 plugin management): multi-key rotation/failover, usage gauge, settings card in Plugins → configuration; the built-in web_search is never replaced. | DSH Tavily 可选高级搜索工具（rc.7 插件管理）：多 Key 轮换/故障转移、用量仪表盘、插件配置页设置卡片；内置 web_search 永不替换。",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-plugin-tavily",
    "slug": "dsh-plugin-tavily",
    "url": "https://github.com/1624318455/dsh-plugin-tavily",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 0,
    "updated": "2026-08-20",
@@ -95950,13 +96020,16 @@
    "platform": "any",
    "desc": "Tavily-backed web search provider plugin for DeepSeek Harness (dsh) — registers a tavily search provider into ctx.web with a settings card in the web GUI",
    "desc_en": "Tavily-backed web search provider plugin for DeepSeek Harness (dsh) — registers a tavily search provider into ctx.web with a settings card in the web GUI",
-   "desc_zh": "Tavily-backed web search provider plugin for DeepSeek Harness (dsh) — registers a tavily search provider into ctx.web with a settings card in the web GUI"
+   "desc_zh": "Tavily-backed web search provider plugin for DeepSeek Harness (dsh) — registers a tavily search provider into ctx.web with a settings card in the web GUI",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-prompt-optimize",
    "slug": "dsh-prompt-optimize",
    "url": "https://github.com/1847123733/dsh-prompt-optimize",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 0,
    "updated": "2026-08-20",
@@ -95964,13 +96037,16 @@
    "platform": "any",
    "desc": "DSH Web plugin: web ui",
    "desc_en": "DSH Web plugin: web ui",
-   "desc_zh": "DSH Web plugin: web ui"
+   "desc_zh": "DSH Web plugin: web ui",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-anchored-monitor",
    "slug": "dsh-anchored-monitor",
    "url": "https://github.com/Aik358/dsh-anchored-monitor",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 0,
    "updated": "2026-08-19",
@@ -95978,13 +96054,16 @@
    "platform": "any",
    "desc": "Real-time chain-of-thought anchoring monitor & intervention plugin for DeepSeek Harness: three-band (spec/mixed/react) fingerprint detection, L1 hint / L2 reset / L3 restart interventions, liquid-glass web overlay + rheostat bar, standalone monitor process with JSONL experiment logs.",
    "desc_en": "Real-time chain-of-thought anchoring monitor & intervention plugin for DeepSeek Harness: three-band (spec/mixed/react) fingerprint detection, L1 hint / L2 reset / L3 restart interventions, liquid-glass web overlay + rheostat bar, standalone monitor process with JSONL experiment logs.",
-   "desc_zh": "Real-time chain-of-thought anchoring monitor & intervention plugin for DeepSeek Harness: three-band (spec/mixed/react) fingerprint detection, L1 hint / L2 reset / L3 restart interventions, liquid-glass web overlay + rheostat bar, standalone monitor process with JSONL experiment logs."
+   "desc_zh": "Real-time chain-of-thought anchoring monitor & intervention plugin for DeepSeek Harness: three-band (spec/mixed/react) fingerprint detection, L1 hint / L2 reset / L3 restart interventions, liquid-glass web overlay + rheostat bar, standalone monitor process with JSONL experiment logs.",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-ocr-local",
    "slug": "dsh-ocr-local",
    "url": "https://github.com/balcoz/dsh-ocr-local",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 0,
    "updated": "2026-08-19",
@@ -95992,13 +96071,14 @@
    "platform": "any",
    "desc": "DeepSeek Harness 本地 OCR 插件：粘贴图片，PP-OCRv5 + ONNX Runtime   识别文字，完全离线，支持 TUI 与 Web | Local OCR plugin for DeepSeek Harness — paste an image, get its text via PP-OCRv5 + ONNX Runtime, fully offline.   Supports TUI and Web.",
    "desc_zh": "DeepSeek Harness 本地 OCR 插件：粘贴图片，PP-OCRv5 + ONNX Runtime   识别文字，完全离线，支持 TUI 与 Web | Local OCR plugin for DeepSeek Harness — paste an image, get its text via PP-OCRv5 + ONNX Runtime, fully offline.   Supports TUI and Web.",
-   "desc_en": "DeepSeek Harness 本地 OCR 插件：粘贴图片，PP-OCRv5 + ONNX Runtime   识别文字，完全离线，支持 TUI 与 Web | Local OCR plugin for DeepSeek Harness — paste an image, get its text via PP-OCRv5 + ONNX Runtime, fully offline.   Supports TUI and Web."
+   "desc_en": "DeepSeek Harness 本地 OCR 插件：粘贴图片，PP-OCRv5 + ONNX Runtime   识别文字，完全离线，支持 TUI 与 Web | Local OCR plugin for DeepSeek Harness — paste an image, get its text via PP-OCRv5 + ONNX Runtime, fully offline.   Supports TUI and Web.",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-custom-background",
    "slug": "dsh-custom-background",
    "url": "https://github.com/StarryHui/dsh-custom-background",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 0,
    "updated": "2026-08-19",
@@ -96006,13 +96086,16 @@
    "platform": "any",
    "desc": "DSH 自定义 WebUI 背景插件",
    "desc_zh": "DSH 自定义 WebUI 背景插件",
-   "desc_en": "DSH 自定义 WebUI 背景插件"
+   "desc_en": "DSH 自定义 WebUI 背景插件",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-worktree-panel",
    "slug": "dsh-worktree-panel",
    "url": "https://github.com/HeathHe/dsh-worktree-panel",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 1,
    "updated": "2026-08-18",
@@ -96020,7 +96103,10 @@
    "platform": "any",
    "desc": "Git worktree management panel for the DSH Web GUI — adds a project → worktree → sessions dimension to the sidebar.",
    "desc_en": "Git worktree management panel for the DSH Web GUI — adds a project → worktree → sessions dimension to the sidebar.",
-   "desc_zh": "Git worktree management panel for the DSH Web GUI — adds a project → worktree → sessions dimension to the sidebar."
+   "desc_zh": "Git worktree management panel for the DSH Web GUI — adds a project → worktree → sessions dimension to the sidebar.",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-acp",
@@ -96034,13 +96120,15 @@
    "platform": "any",
    "desc": "Agent Client Protocol (ACP) server plugin for the DeepSeek Harness (dsh) - drive dsh agents from Zed, any ACP v1 client, or the built-in web UI over stdio / HTTP+SSE, with sessions, jobs, goals, skills and the agent tree on the wire",
    "desc_en": "Agent Client Protocol (ACP) server plugin for the DeepSeek Harness (dsh) - drive dsh agents from Zed, any ACP v1 client, or the built-in web UI over stdio / HTTP+SSE, with sessions, jobs, goals, skills and the agent tree on the wire",
-   "desc_zh": "Agent Client Protocol (ACP) server plugin for the DeepSeek Harness (dsh) - drive dsh agents from Zed, any ACP v1 client, or the built-in web UI over stdio / HTTP+SSE, with sessions, jobs, goals, skills and the agent tree on the wire"
+   "desc_zh": "Agent Client Protocol (ACP) server plugin for the DeepSeek Harness (dsh) - drive dsh agents from Zed, any ACP v1 client, or the built-in web UI over stdio / HTTP+SSE, with sessions, jobs, goals, skills and the agent tree on the wire",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "ikun-theme-skin",
    "slug": "ikun-theme-skin",
    "url": "https://github.com/AKS1st/ikun-theme-skin",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 0,
    "updated": "2026-08-18",
@@ -96048,13 +96136,14 @@
    "platform": "any",
    "desc": "IKUN 主题皮肤 for DeepSeek Harness — ikun 应援主题、全屏壁纸轮播、基尼太美音乐盒、发送自动播「你干嘛~哎哟」",
    "desc_zh": "IKUN 主题皮肤 for DeepSeek Harness — ikun 应援主题、全屏壁纸轮播、基尼太美音乐盒、发送自动播「你干嘛~哎哟」",
-   "desc_en": "IKUN 主题皮肤 for DeepSeek Harness — ikun 应援主题、全屏壁纸轮播、基尼太美音乐盒、发送自动播「你干嘛~哎哟」"
+   "desc_en": "IKUN 主题皮肤 for DeepSeek Harness — ikun 应援主题、全屏壁纸轮播、基尼太美音乐盒、发送自动播「你干嘛~哎哟」",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-agent-team-room",
    "slug": "dsh-agent-team-room",
    "url": "https://github.com/ishuowang/dsh-agent-team-room",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 1,
    "updated": "2026-08-16",
@@ -96062,13 +96151,16 @@
    "platform": "any",
    "desc": "Native DSH rooms for connecting independent Sessions and provider-backed AI members—without bundled roles or scenarios.",
    "desc_en": "Native DSH rooms for connecting independent Sessions and provider-backed AI members—without bundled roles or scenarios.",
-   "desc_zh": "Native DSH rooms for connecting independent Sessions and provider-backed AI members—without bundled roles or scenarios."
+   "desc_zh": "Native DSH rooms for connecting independent Sessions and provider-backed AI members—without bundled roles or scenarios.",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-message-preview",
    "slug": "dsh-message-preview",
    "url": "https://github.com/asukasec/dsh-message-preview",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 0,
    "updated": "2026-08-14",
@@ -96076,7 +96168,8 @@
    "platform": "any",
    "desc": "Right-side user-message navigator for the DeepSeek Harness Web UI.",
    "desc_en": "Right-side user-message navigator for the DeepSeek Harness Web UI.",
-   "desc_zh": "Right-side user-message navigator for the DeepSeek Harness Web UI."
+   "desc_zh": "Right-side user-message navigator for the DeepSeek Harness Web UI.",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-widgets",
@@ -113722,7 +113815,9 @@
    "platform": "any",
    "desc": "DeepSeek Harness (DSH) plugin for self-improving AI agents: continual learning, persistent memory, cross-session knowledge, review-and-refine workflows, and automatic rollback.",
    "desc_en": "DeepSeek Harness (DSH) plugin for self-improving AI agents: continual learning, persistent memory, cross-session knowledge, review-and-refine workflows, and automatic rollback.",
-   "desc_zh": "DeepSeek Harness (DSH) plugin for self-improving AI agents: continual learning, persistent memory, cross-session knowledge, review-and-refine workflows, and automatic rollback."
+   "desc_zh": "DeepSeek Harness (DSH) plugin for self-improving AI agents: continual learning, persistent memory, cross-session knowledge, review-and-refine workflows, and automatic rollback.",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-obsidian",
@@ -113736,13 +113831,15 @@
    "platform": "any",
    "desc": "Connect DeepSeek Harness (dsh) to a local Obsidian vault: search, read, write, move, and trash notes.",
    "desc_en": "Connect DeepSeek Harness (dsh) to a local Obsidian vault: search, read, write, move, and trash notes.",
-   "desc_zh": "Connect DeepSeek Harness (dsh) to a local Obsidian vault: search, read, write, move, and trash notes."
+   "desc_zh": "Connect DeepSeek Harness (dsh) to a local Obsidian vault: search, read, write, move, and trash notes.",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-task-memory",
    "slug": "dsh-task-memory",
    "url": "https://github.com/wangyihao0001-oss/dsh-task-memory",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 0,
    "updated": "2026-08-20",
@@ -113750,13 +113847,14 @@
    "platform": "any",
    "desc": "Task-isolated long-term memory for DeepSeek Harness — remember / recall / search stay inside one task boundary.",
    "desc_en": "Task-isolated long-term memory for DeepSeek Harness — remember / recall / search stay inside one task boundary.",
-   "desc_zh": "Task-isolated long-term memory for DeepSeek Harness — remember / recall / search stay inside one task boundary."
+   "desc_zh": "Task-isolated long-term memory for DeepSeek Harness — remember / recall / search stay inside one task boundary.",
+   "testDate": "2026-08-25"
   },
   {
    "name": "dsh-minimal-vision",
    "slug": "dsh-minimal-vision",
    "url": "https://github.com/Flora233333/dsh-minimal-vision",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 0,
    "updated": "2026-08-18",
@@ -113764,13 +113862,16 @@
    "platform": "any",
    "desc": "DSH 极简模式视觉辅助：保持灰测体验所需的首轮干净上下文，同时通过隐藏上下文和按需 Bash 工作流提供视觉分析 | Vision assistance for DSH minimal mode: preserve the clean first-turn context behind the gray-test DeepSeek experience while adding on-demand visual analysis through a hidden-context Bash workflow.",
    "desc_zh": "DSH 极简模式视觉辅助：保持灰测体验所需的首轮干净上下文，同时通过隐藏上下文和按需 Bash 工作流提供视觉分析 | Vision assistance for DSH minimal mode: preserve the clean first-turn context behind the gray-test DeepSeek experience while adding on-demand visual analysis through a hidden-context Bash workflow.",
-   "desc_en": "DSH 极简模式视觉辅助：保持灰测体验所需的首轮干净上下文，同时通过隐藏上下文和按需 Bash 工作流提供视觉分析 | Vision assistance for DSH minimal mode: preserve the clean first-turn context behind the gray-test DeepSeek experience while adding on-demand visual analysis through a hidden-context Bash workflow."
+   "desc_en": "DSH 极简模式视觉辅助：保持灰测体验所需的首轮干净上下文，同时通过隐藏上下文和按需 Bash 工作流提供视觉分析 | Vision assistance for DSH minimal mode: preserve the clean first-turn context behind the gray-test DeepSeek experience while adding on-demand visual analysis through a hidden-context Bash workflow.",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-sticky-notes",
    "slug": "dsh-sticky-notes",
    "url": "https://github.com/charrywhite/dsh-sticky-notes",
-   "test": "pending",
+   "test": "verified",
    "stars": 6,
    "forks": 1,
    "updated": "2026-08-18",
@@ -113778,7 +113879,10 @@
    "platform": "any",
    "desc": "Sticky notes for DeepSeek Harness: draggable notes with text & image support, 9 skins, and AI-powered read/write. DeepSeek Harness 便签插件:可拖拽,支持文字与图片、9 款皮肤,AI 可读写。",
    "desc_zh": "Sticky notes for DeepSeek Harness: draggable notes with text & image support, 9 skins, and AI-powered read/write. DeepSeek Harness 便签插件:可拖拽,支持文字与图片、9 款皮肤,AI 可读写。",
-   "desc_en": "Sticky notes for DeepSeek Harness: draggable notes with text & image support, 9 skins, and AI-powered read/write. DeepSeek Harness 便签插件:可拖拽,支持文字与图片、9 款皮肤,AI 可读写。"
+   "desc_en": "Sticky notes for DeepSeek Harness: draggable notes with text & image support, 9 skins, and AI-powered read/write. DeepSeek Harness 便签插件:可拖拽,支持文字与图片、9 款皮肤,AI 可读写。",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "L4 web CDP verified on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-memo",
@@ -128762,7 +128866,9 @@
    "platform": "any",
    "desc": "一个DeepSeek Harness的公众号运营插件，DeepSeek Harness community plugin for AI-assisted WeChat article writing, review, image workflows, knowledge bases, and publishing.",
    "desc_zh": "一个DeepSeek Harness的公众号运营插件，DeepSeek Harness community plugin for AI-assisted WeChat article writing, review, image workflows, knowledge bases, and publishing.",
-   "desc_en": "一个DeepSeek Harness的公众号运营插件，DeepSeek Harness community plugin for AI-assisted WeChat article writing, review, image workflows, knowledge bases, and publishing."
+   "desc_en": "一个DeepSeek Harness的公众号运营插件，DeepSeek Harness community plugin for AI-assisted WeChat article writing, review, image workflows, knowledge bases, and publishing.",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-wechat",
@@ -134690,7 +134796,10 @@
    "platform": "any",
    "desc": "为 DeepSeek Harness 增加远程访问能力，并通过密码和 OTP 进行安全加固。 Adds secure remote access to DeepSeek Harness with password auth and TOTP two-factor authentication (2FA).",
    "desc_zh": "为 DeepSeek Harness 增加远程访问能力，并通过密码和 OTP 进行安全加固。 Adds secure remote access to DeepSeek Harness with password auth and TOTP two-factor authentication (2FA).",
-   "desc_en": "为 DeepSeek Harness 增加远程访问能力，并通过密码和 OTP 进行安全加固。 Adds secure remote access to DeepSeek Harness with password auth and TOTP two-factor authentication (2FA)."
+   "desc_en": "为 DeepSeek Harness 增加远程访问能力，并通过密码和 OTP 进行安全加固。 Adds secure remote access to DeepSeek Harness with password auth and TOTP two-factor authentication (2FA).",
+   "webonly": true,
+   "testDate": "2026-08-25",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "sprites-deepseek-plugin",
@@ -134704,7 +134813,9 @@
    "platform": "any",
    "desc": "DeepSeek Harness plugin for persistent, isolated Sprites: remote builds, tests, previews, checkpoints, and long-running services.",
    "desc_en": "DeepSeek Harness plugin for persistent, isolated Sprites: remote builds, tests, previews, checkpoints, and long-running services.",
-   "desc_zh": "DeepSeek Harness plugin for persistent, isolated Sprites: remote builds, tests, previews, checkpoints, and long-running services."
+   "desc_zh": "DeepSeek Harness plugin for persistent, isolated Sprites: remote builds, tests, previews, checkpoints, and long-running services.",
+   "testDate": "2026-08-25",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-sentinel-scanner",
