@@ -1,0 +1,48 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness 从里到外 — 一场三模型实测：Codex 9 分钟、V4 Flash、V4 Pro | dshbase" description="拆解 DeepSeek Harness 的万物皆插件架构（Cordis、Capability Seam、五种事件分发、会话日志），再用同一个 bug 实测三种组合：Codex 9 分钟、V4 Flash 20 分钟、V4 Pro 翻车。" currentPath="/blog/wx-dsh-codex-vs-flash-pro/" category="分析">
+  <h1>DeepSeek Harness 从里到外，<span class="accent">再来一场三模型实测</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 25 日 · dshbase · 给安装者与 Agent 开发者的深度拆解</p>
+
+  <p>Agent 圈有句简洁的公式——<em>Agent = Model + Harness</em>。8 月 13 日 DeepSeek 把 Harness 这半开源了，再配上自家模型，就是一个完整的 Agent 体系。真正有意思的不是绕来绕去的功能列表，而是架构上的赌注。正如项目首页那句大字：<strong>一切皆插件</strong>——模型接入、文件系统、沙箱、会话日志，甚至连驱动 agent 运转的主循环都是插件。</p>
+  <img src="/assets/blog-wechat/wx2-readme.png" alt="DeepSeek Harness GitHub README：everything is a plugin，由 Cordis 驱动，developer preview，一条命令启动" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <h2>系统的形状</h2>
+  <p>跑 dsh 分成两个运行区加一个命令行入口。<strong>Node Host</strong> 装载 agent 核心、能力 Provider、执行策略和本地状态；<strong>Browser</strong> 负责界面，通过 <strong>Web Host</strong>（HTTP、API、转发事件）把操作送进 Node Host。命令行模式不启动 Browser，任务由 Headless runner 直接送入同一套 agent 核心。两个入口共享模型、工具、会话与主循环——替换模型或文件系统 Provider 时，入口一处都不用改。</p>
+  <img src="/assets/blog-wechat/wx2-arch-flow.svg" alt="DeepSeek Harness 架构：Browser 与 CLI 入口汇入同一个 Cordis 插件树 agent 核心" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <p>组合由 <em>Profile</em> 和 <em>Bundle</em> 管理：Bundle 是一组搭好的插件，Profile 决定这次启用哪些，用户还能叠自己的配置。最终交给 <strong>Cordis Loader</strong>，把配置变成一棵正在运行的插件树，按每个插件声明的依赖来挂载。</p>
+
+  <h2>Cordis 怎么托住一切皆插件</h2>
+  <p>Cordis 是底下的依赖与生命周期框架。每个插件声明自己需要哪些服务、提供什么。一个需要文件系统服务的文件工具就<em>等着</em>；服务一登记，Cordis 就调用它的 <code>apply</code>。服务被替换或卸载时，Cordis 先清理依赖它的插件，等新实现就绪再重新激活。每个插件有一个 Fiber 记录其 pending 状态、注册的服务和清理函数——依赖不满足就不运行，也没有插件会留下过期的注册。</p>
+  <p>插件之间两种连接方式：长期能力走<strong>服务</strong>（"我现在依赖哪项能力"），到点才介入的行为走<strong>事件</strong>（"这件事发生时谁想参与"）。主循环虽在执行路径中央，对 Cordis 来说仍是一个普通插件——这正是"主循环也是插件"的真实含义：没有一块永远不能替换的巨大核心，只有一组关系明确的插件。</p>
+  <p>当一个事件可能被多个监听器响应时，Cordis 提供五种事件分发模式：</p>
+  <ul>
+    <li><strong>emit</strong> — 发通知，不等待异步结果（状态变化通知）</li>
+    <li><strong>bail</strong> — 同步逐个询问，拿到有效结果就停（客户端同步决策）</li>
+    <li><strong>waterfall</strong> — 按序传递，允许中途截住（包裹模型请求或工具执行）</li>
+    <li><strong>parallel</strong> — 并发执行并等待全部完成（互不依赖的异步任务）</li>
+    <li><strong>serial</strong> — 异步逐个询问，拿到有效结果就停（按序决策）</li>
+  </ul>
+
+  <h2>Capability Seam，用文件系统说清楚</h2>
+  <p>dsh 把任何可替换能力拆成三个角色：<strong>Service Definition</strong> 规定大家能调用什么；<strong>Provider</strong> 完成实际工作；<strong>Consumer</strong> 把这项能力交给上层。合起来叫 <em>Capability Seam</em>。<code>tool-fs</code> 调用 <code>resolve()</code> 拿到引用，之后只把这个引用传给 <code>readText()</code>/<code>writeText()</code>——引用怎么映射到真实文件（本地 realpath、远程绝对路径、E2B 路径），完全是 Provider 内部的事。换文件系统，<code>tool-fs</code> 仍按同一接口工作，模型看到的仍是 <code>read</code>、<code>edit</code>、<code>write</code>。</p>
+
+  <h2>一条消息对主循环做了什么</h2>
+  <p>用户任务落进 <strong>Inbox</strong>；主循环写下 <code>turn/start</code>，一个 turn 开始。<strong>step</strong> = 一次模型请求 + 它调用的工具；<strong>turn</strong> = 零到多个 step。每个 step 前 <code>agent/pre-step</code> 让插件检查输入——压缩可缩短历史，其他插件可补充、改写或拒绝。到 <code>agent/turn-stopping</code>，有插件可再注入一条消息让模型多走一步；没人要求继续，主循环才写 <code>turn/end</code>。</p>
+  <p>运行中收到的消息按意图分流："先别改配置"这类补充去 <code>next-step</code>（当前 turn 继续）；另发的新问题去 <code>next-turn</code>（排到下一轮）。dsh 不是靠语义判断，而是看发送方怎么送——<code>followup()</code> 进 next-turn，<code>steer()</code> 和 <code>inject()</code> 进 next-step。</p>
+  <p>日志原则很硬，值得重申：<strong>凡是进入模型请求的内容，都必须能从 Session 日志重建。</strong>用户说过什么、模型答过什么、工具返回了什么、用了哪套系统提示和工具定义，全都有记录。日志只追加；压缩生成替代内容而非改写旧记录。空的 assistant 消息（如输出上限）作为事实留在日志，但不进入下一次请求的历史。</p>
+
+  <h2>工具策略：给所有工具一套安全层</h2>
+  <p>价值来自工具，风险也一般来自这里。工具调用落地前，<code>tools/pre-execute</code> 的监听器放行、询问或拒绝；单调守卫只能拒绝或弃权，所以已形成的拒绝不会被更宽松的策略翻回放行。需要审批却没服务、或没通过，注册表都生成拒绝结果。通过后才进工具本身；<code>tools/execute</code> 可统一注入超时、重试和指标；后处理插件检查/整理结果；随后只读的 <code>tools/result</code> 先发通知，<code>agent-loop</code> 再把 <code>tool/result</code> 写进 Session 日志交给模型。Bash、网页搜索和子 agent 各管各的业务，权限、超时和结果记录则不必在每个工具里重写。</p>
+
+  <h2>实测：同一个 bug，三种组合</h2>
+  <p>作者手头有个真实应用和真实痛点：卡片列表页初始化卡顿，因为约 10 个接口每个都压在 3 秒上下。同一个提示词发给三套——<em>"排查为什么会这么慢并修复"</em>。</p>
+  <img src="/assets/blog-wechat/wx2-test-results.svg" alt="Codex、DeepSeek V4 Flash、V4 Pro 修复同一 bug 的对比" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <p><strong>Codex</strong> 约 9 分钟搞定：把多个接口合并成一个详情接口、一次返回所需数据，往返次数大减，周额度消耗约 2%。新接口仍需 ~1.3s——方案最贴合预期、完成度最高，但单接口延迟还有优化空间。</p>
+  <p><strong>V4 Flash + Harness</strong> 约 20 分钟：没合并接口，而是逐个把现有接口优化到 <strong>800ms 以下</strong>，花费 <strong>0.82 元</strong>——方案和预期不同，但性能改善实打实。</p>
+  <p><strong>V4 Pro + Harness</strong> 是意外：两轮、约 20 分钟、<strong>1.33 元</strong>。第一轮提议合并+详情接口，页面却基本没变化；第二轮又跑了 20 分钟，仍无有效产出。最高配的模型反而干得最差——这种结果会让人忍不住去查，自己拿到的发版是不是本来该发的那版。</p>
+
+  <h2>结论</h2>
+  <p>DeepSeek Harness 真正有价值的是它的<strong>可组合运行时</strong>——也许将来 agent 能按任务类型自主挑合适的插件来跑。但也正是这种可组合性让它更难跑稳：要选对插件和配置，要处理它们之间的依赖，出问题还得翻比较杂的日志（好在已有运行轨迹，排查方便）。而且它仍是 <em>developer preview</em>，官方明确提示后续可能有破坏性变更。把它当作一份正在演进的工程样本：对在做 agent 的团队是可读的参考，但不要急着把它当底座搬进生产。</p>
+</BlogPost>

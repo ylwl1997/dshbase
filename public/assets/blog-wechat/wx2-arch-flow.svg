@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+  <rect width="960" height="340" fill="#ffffff"/>
+  <defs>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b6ef5"/><stop offset="1" stop-color="#2456d6"/>
+    </linearGradient>
+  </defs>
+  <text x="24" y="34" font-size="19" font-weight="700" fill="#0f172a">DeepSeek Harness — everything is a plugin</text>
+  <text x="24" y="56" font-size="12.5" fill="#64748b">Two entry points share one agent core; Cordis loader turns config into a live plugin tree.</text>
+
+  <!-- Browser -->
+  <rect x="40" y="84" width="200" height="60" rx="10" fill="#eef2ff" stroke="#3b6ef5"/>
+  <text x="140" y="110" font-size="14" font-weight="700" fill="#1e293b" text-anchor="middle">Browser</text>
+  <text x="140" y="128" font-size="11" fill="#475569" text-anchor="middle">UI + interaction</text>
+
+  <!-- Web Host -->
+  <rect x="40" y="170" width="200" height="60" rx="10" fill="#eef2ff" stroke="#3b6ef5"/>
+  <text x="140" y="196" font-size="14" font-weight="700" fill="#1e293b" text-anchor="middle">Web Host</text>
+  <text x="140" y="214" font-size="11" fill="#475569" text-anchor="middle">HTTP / API / events</text>
+  <line x1="140" y1="144" x2="140" y2="170" stroke="#3b6ef5" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- CLI -->
+  <rect x="40" y="256" width="200" height="60" rx="10" fill="#f0f4ff" stroke="#64748b" stroke-dasharray="5"/>
+  <text x="140" y="282" font-size="14" font-weight="700" fill="#334155" text-anchor="middle">CLI</text>
+  <text x="140" y="300" font-size="11" fill="#64748b" text-anchor="middle">Headless runner (no UI)</text>
+
+  <!-- Agent core -->
+  <rect x="400" y="150" width="260" height="120" rx="12" fill="url(#blue)"/>
+  <text x="530" y="188" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">Agent core</text>
+  <text x="530" y="208" font-size="11.5" fill="#dbeafe" text-anchor="middle">Cordis plugin tree</text>
+  <text x="530" y="226" font-size="11.5" fill="#dbeafe" text-anchor="middle">model / tools / session / loop</text>
+  <text x="530" y="244" font-size="11.5" fill="#dbeafe" text-anchor="middle">Profile + Bundle → Cordis Loader</text>
+
+  <!-- plugins -->
+  <rect x="730" y="170" width="190" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="825" y="190" font-size="12" fill="#334155" text-anchor="middle">plugins: model adapter</text>
+  <rect x="730" y="210" width="190" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="825" y="230" font-size="12" fill="#334155" text-anchor="middle">plugins: fs-fs, sandbox</text>
+  <rect x="730" y="250" width="190" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="825" y="270" font-size="12" fill="#334155" text-anchor="middle">plugins: subagent, plan</text>
+
+  <line x1="660" y1="210" x2="730" y2="210" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="240" y1="200" x2="400" y2="200" stroke="#3b6ef5" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="140" y1="256" x2="140" y2="230" stroke="#64748b" stroke-dasharray="5,4" stroke-width="2" marker-end="url(#arr)"/>
+  <path d="M260 286 H400 V270" fill="none" stroke="#64748b" stroke-dasharray="5,4" stroke-width="2" marker-end="url(#arr)"/>
+
+  <defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 z" fill="#3b6ef5"/></marker></defs>
+</svg>
