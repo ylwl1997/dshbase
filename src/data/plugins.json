@@ -36064,7 +36064,10 @@
    "license": "MIT",
    "slug": "dsh-guandan",
    "platform": "any",
-   "note": "Web L3 verified on dsh 0.1.0-rc.8 (CDP browser E2E)."
+   "note": "Web L3 verified on dsh 0.1.0-rc.8 (CDP browser E2E).",
+   "contributors": 1,
+   "depsOfficial": 0,
+   "repoOwner": "jansen-66"
   }
  ],
  "Knowledge": [
