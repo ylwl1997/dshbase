@@ -23902,7 +23902,7 @@
    "depsOfficial": 0,
    "repoOwner": "LongSir0419",
    "_enriched": "2026-08-21|0.1.6",
-   "bareNpm": "other"
+   "bareNpm": "install-fail"
   },
   {
    "name": "deepspider",
@@ -28204,7 +28204,7 @@
    "trust": "Unrated",
    "slug": "dsh-web-ui",
    "platform": "any",
-   "bareNpm": "other",
+   "bareNpm": "install-fail",
    "contributors": 114,
    "depCount": 19,
    "depsOfficial": 0,
@@ -42667,7 +42667,7 @@
    "needsExternal": true,
    "needsExternalDesc": "Managed mode needs local Bun >=1.3.14 as GoodMemory bridge runtime; data defaults to \\/goodmemory/memory.sqlite",
    "note": "Headless L3 PASS on dsh 0.1.0-rc.8 (2026-08-24): prior L2 load-fail was verify-host missing Bun; with Bun 1.4.0 managed bridge ready. Author README pins DSH 0.1.0-rc.6; verified against host rc.8.",
-   "bareNpm": "ok",
+   "bareNpm": "other",
    "contributors": 0,
    "depCount": 8,
    "depsOfficial": 7,
