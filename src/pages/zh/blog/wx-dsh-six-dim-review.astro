@@ -1,0 +1,32 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="12 万星与六维体检：DeepSeek Harness 深度实测 | dshbase" description="花一天实测 dsh 0.1.0-rc.6：36 个官方包的真实模块化、可逆副作用、单会话 7000 条事件日志、毫无护栏的插件安全模型，综合 6.5/10。" currentPath="/blog/wx-dsh-six-dim-review/" category="评测">
+  <h1>12 万星与六维体检：<span class="accent">一次诚实的深度实测</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 25 日 · dshbase · 深度评测</p>
+
+  <p>上线第三天，仓库已经跑到 <strong>121,767 星</strong>（12,007 fork，MIT 协议）。评测者在真机上花了一整天——macOS、Node 22.19、<strong>dsh 0.1.0-rc.6</strong>——拆安装包看架构、跑性能基准、在隔离环境验证安全漏洞、解压真实会话日志，还把生态里 6 个头部插件逐个查了个底朝天。结论先说：<em>架构开放度与可观测性是真亮点，插件安全模型与生态成熟度是真短板。</em></p>
+  <img src="/assets/blog-wechat/wx-dsh-six-dim-review-score.svg" alt="DeepSeek Harness 评分卡：架构 9、性能 9、可观测性 9、Agent 安全 8、插件安全 3、生态尾部 3，综合 6.5/10" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <h2>架构：模块化是真的</h2>
+  <p><code>dsh</code> 本体 61 个直接依赖，其中 <strong>36 个是 @deepseek-ai 官方包</strong>，每个只做一件事——工具类 12、能力类 9、环境类 7、调度类 8、界面类 2。不用 PowerShell 就不装 <code>dsh-pwsh-*</code>，省体积省攻击面。「一切皆插件」在打包层面兑现了，不只是口号。</p>
+  <p>底层是 Cordis：插件实例是 Fiber 状态机，依赖出现才激活；所有上下文修改通过 <code>ctx.effect()</code> 登记并返回撤销函数，卸载时按逆序整体执行——<strong>插件卸载 = 完整逆转</strong>。这种可逆性让热重载和「Agent 修改自身 Harness」从宣传变成了可成立的设计。</p>
+
+  <h2>性能与可观测性：最被低估的两块</h2>
+  <p>冷启动实测 <strong>约 60ms</strong>；<code>dsh --dump-config</code> 约 0.19 秒（526 行）。真正的隐藏亮点是可观测性：<code>~/.dsh/sessions/*.zstd</code> 的会话日志是 zstd 压缩 JSONL，<strong>单会话约 7000 条事件、13 种类型</strong>——reasoning-chunks 3023、assistant-chunk 1714、tool-call-chunks 987、tool/call 190、tool/result 190，还记录了请求元数据（provider、model、maxTokens）与 100 万 token 的上下文。模型看到了什么、调了哪个工具、token 怎么变，全部可回放。这个颗粒度在 Agent 工具里很少见。</p>
+
+  <h2>安全：两个截然不同的故事</h2>
+  <p><strong>A 轴——Agent 运行时本身：认真。</strong>审批、沙箱、审计、防混淆全部实机验证通过（8/10）。<strong>B 轴——插件代码：没有护栏。</strong>插件在宿主进程里以宿主权限运行；安装/更新/持久化/热重载路径无签名、无完整性校验、无来源确认、无确认门。实测攻击面包括：<code>!!js</code> 配置即 RCE、恶意 bundle 安装即执行、安装后篡改零检查、<code>plugin remove</code> 不删除已持久化后门、热重载约 15 秒生效可投毒、未认证的 loopback RPC 能读完整会话。还有个日常坑：<code>dsh --dump-config</code> 会原样输出明文 API Key/环境变量——截图发出去就是泄露。</p>
+  <p>一句话：运行时自身的安全设计很用心，插件供应链默认「人人都是好人」。<strong>装第三方插件前，默认它可能在看你的数据。</strong>官方的缓解项（pnpm 完整性、0600/0700 权限、.env 保护、特权 RPC 回环绑定）真实存在，但防不了插件本身恶意。</p>
+
+  <h2>生态：头部火热，尾部诡异</h2>
+  <p>评审时点的实时数据：<code>dsh-web-ui-all</code>（周下载 11,175、star 2,964）、<code>dshmarket</code>（周下载 11,862、2 天 20 版）、<code>dsh-better-sidebar</code>（周下载 7,486、star 1,413、README 最全）、<code>dsh-pocket</code>（周下载 4,381，但 <strong>只有 4 个 star、一天 37 版</strong>——这个数字组合很可疑）、<code>dsh-web-plugin-manager</code>（2,788）、<code>dsh-find-plugin</code>（1,198，已停滞）。全家桶安装实测：13 个子包 37MB 依赖树解析成功，接着卡在 <code>cloudflared</code> postinstall 二进制下载上，5 分钟超时——这是你遇到的第一个劝退点。</p>
+
+  <h2>评分卡与诚实结论</h2>
+  <ul>
+    <li>架构理念 <strong>9/10</strong> · 执行性能 <strong>9/10</strong> · 可观测性 <strong>9/10</strong> · Agent 安全设计 <strong>8/10</strong></li>
+    <li>插件安全模型 <strong>3/10</strong> · 生态头部 <strong>7/10</strong> · 生态尾部 <strong>3/10</strong> · 文档与上手 <strong>7/10</strong> · 生产就绪度 <strong>4/10</strong></li>
+    <li><strong>综合：6.5/10。</strong></li>
+  </ul>
+  <p>五个别期待：别把第三方插件当可信组件；别期待稳定 API（3 天 17 版是常态）；商用前逐包确认协议（MIT/Apache-2.0/GPL-2.0 混杂）；别指望安装顺畅（cloudflared 是第一个坑）；别当生产主力（0.1.0-rc 官方已预告破坏性变更）。架构学习与尝鲜，它很适合——这正是 0.1.0-rc 该干的活。</p>
+</BlogPost>

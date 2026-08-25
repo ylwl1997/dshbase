@@ -1,0 +1,32 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="GLM-5.3 接入 DeepSeek Harness 实测：同一份 PRD，两个 Agent | dshbase" description="Datawhale 把 GLM-5.3 接进 DeepSeek Harness，与 GPT-5.6-Sol 同题实测生产级抠图 Web 应用：核心功能打平，工程细节差距明显——登录限流、安全响应头默认自带，还主动补了两个需求之外的功能。" currentPath="/blog/wx-dsh-glm53-test/" category="评测">
+  <h1>GLM-5.3 vs GPT-5.6-Sol：<span class="accent">同一份 PRD，同一个 Harness</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 25 日 · dshbase · 同题实测</p>
+
+  <p>智谱发布 <strong>GLM-5.3</strong> 当天，Datawhale 团队就把它接进了 <strong>DeepSeek Harness</strong>，和 <strong>GPT-5.6-Sol</strong> 跑同一道题。任务不是 demo：一款<em>生产级抠图 Web 应用</em>——账号体系、异常处理、可部署交付、项目文档，九条验收标准从 A1 可运行、A2 账号体系一直到 A9 项目文档，算法效果用 SAD、MSE、Grad 三项指标衡量。</p>
+  <img src="/assets/blog-wechat/wx-dsh-glm53-test-0.png" alt="GLM-5.3 在六个 Agent 基准上的成绩对比（对 GLM-5.2、Kimi K3、Fable 5、GPT-5.6 Sol）" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <h2>先把第三方模型接进 DSH</h2>
+  <p>实测之前先解决最实际的问题：GLM-5.3 作为模型提供方接入 DSH（API 走 bigmodel.cn 的 GLM 编程接口），按团队教程从零搭好约 <strong>15 分钟</strong>。这正是「一切皆插件」的兑现——第三方模型是一次配置变更，而不是一次 fork。</p>
+
+  <h2>实测结果：核心打平，细节分叉</h2>
+  <p><strong>两个 Agent 都完成了 PRD 核心需求。</strong>功能覆盖与算法基线打平——两边都交付了合格的 closed-form 抠图实现。差距出现在工程细节，而且方向出乎意料。社区总结的「AI 味前端特征」：紫蓝渐变、玻璃拟态、发光阴影、hover 弹跳、统一大圆角。GPT-5.6-Sol 版几乎全中（暗色玻璃风）；GLM-5.3 版逐条规避——亮色扁平工具风、单一靛蓝强调色、1px 描边、零投影。</p>
+  <img src="/assets/blog-wechat/wx-dsh-glm53-test-5.png" alt="GLM-5.3 生成的抠图 Web 应用界面：精细算法、快速算法、导出透明 PNG" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <p>服务端安全是 GLM-5.3 领先的地方：<strong>登录限流、安全响应头、会话清理默认就带</strong>——这些通常是评审人要在 GPT 版上线前人工补一遍的项。</p>
+
+  <h2>清单之外：它自己加了两样</h2>
+  <p>GLM-5.3 多做了两个需求里没有的功能：<strong>历史任务重跑</strong>（服务端留存原图和 trimap，调参后点重跑即可重新生成，不用重新上传——调参的人都知道同一张图反复跑才是常态）和<strong>批量评测</strong>（一键跑 9 张示例图，弹窗出 SAD/MSE/Grad 对照表，可导出 CSV）。第二个正是抠图开发日常要手工干的事。</p>
+  <img src="/assets/blog-wechat/wx-dsh-glm53-test-7.png" alt="Agent 部署日志：旧实例已结束，新实例在 8766 端口拉起，4 个 worker，页面验证 HTTP 200" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <h2>诚实的边界</h2>
+  <ul>
+    <li><strong>单任务 ≠ 能力排名。</strong>一次实测得不出通用结论，只能算一个数据点。</li>
+    <li><strong>GLM-5.3 不支持视觉输入</strong>——需要像素级精细调整的前端场景是它的劣势。</li>
+    <li><strong>本地单机环境</strong>——生产环境表现可能不同。</li>
+  </ul>
+
+  <h2>安装者该带走什么</h2>
+  <p>这篇实测最有意思的信号不是「GLM 赢了」，而是：<strong>工程判断正在默认进入模型产出</strong>——限流、安全头、会话清理、用户真正会用的功能——而 DSH 这样的 Harness 让换掉底下的模型变成一次 15 分钟的配置工作。智谱把 GLM-5.3 相对 5.2 的约 50% 提升全部归因于后训练；这次测试给了这句话一个具体的形状：模型不只是写出了更多代码，它知道一份要上线的应用应该长什么样。如果你在评估 Agent 栈，建议在自己的生产级任务上、用同一个 Harness 跑两个模型——Harness 是常量，差异才看得清。</p>
+</BlogPost>

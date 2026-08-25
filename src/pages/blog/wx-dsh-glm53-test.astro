@@ -1,0 +1,32 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="GLM-5.3 on DeepSeek Harness vs GPT-5.6-Sol: same PRD, two agents | dshbase" description="Datawhale ran a production-grade image-matting web app through GLM-5.3 and GPT-5.6-Sol, both plugged into DeepSeek Harness. Core functions tied; the engineering details told the real story." currentPath="/blog/wx-dsh-glm53-test/" category="Review">
+  <h1>GLM-5.3 vs GPT-5.6-Sol, <span class="accent">same PRD, same harness</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 25, 2026 · dshbase · head-to-head test</p>
+
+  <p>The day Zhipu released <strong>GLM-5.3</strong>, the Datawhale team plugged it into <strong>DeepSeek Harness</strong> and ran the same production task through it and through <strong>GPT-5.6-Sol</strong>. The assignment wasn't a demo: a <em>production-grade image-matting web app</em> — accounts, error handling, deployable delivery, project docs — judged against nine acceptance criteria (A1 runnable, A2 account system, … A9 documentation) and three algorithmic metrics (SAD, MSE, Grad).</p>
+  <img src="/assets/blog-wechat/wx-dsh-glm53-test-0.png" alt="GLM-5.3 benchmark chart across six agent benchmarks versus GLM-5.2, Kimi K3, Fable 5 and GPT-5.6 Sol" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <h2>Bringing a non-DeepSeek model into DSH</h2>
+  <p>Before the test, the practical part: GLM-5.3 plugs into DSH as a model provider (API available at bigmodel.cn's GLM coding endpoint); the team's setup tutorial puts a fresh install at "running in about 15 minutes." That's the everything-is-a-plugin payoff — a third-party model becomes a config change, not a fork.</p>
+
+  <h2>What happened: core tied, details diverged</h2>
+  <p><strong>Both agents completed the core PRD.</strong> Feature coverage and algorithm baseline were a draw — both shipped a valid closed-form matting implementation. The separation showed up in engineering detail, and it ran against expectations. A community checklist says AI-built UIs share tells: purple-blue gradients, glassmorphism, glowing shadows, hover bounce, big rounded corners. The GPT-5.6-Sol frontend hit nearly all of them (dark glassy style); the GLM-5.3 build systematically avoided them — light flat tool design, a single indigo accent, 1px borders, zero shadows.</p>
+  <img src="/assets/blog-wechat/wx-dsh-glm53-test-5.png" alt="The image-matting web app UI built by GLM-5.3: precision mode, fast mode, transparent PNG export" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <p>Server-side security was where GLM-5.3 pulled ahead: <strong>login rate limiting, security headers and session cleanup came by default</strong> — items a reviewer would normally flag for a human to add to the GPT version before launch.</p>
+
+  <h2>Beyond the checklist: it added features</h2>
+  <p>GLM-5.3 shipped two things the PRD never asked for: <strong>history re-run</strong> (the server keeps the original image and trimap, so you can tweak parameters and regenerate without re-uploading — the normal workflow for anyone tuning the same image repeatedly) and <strong>batch evaluation</strong> (run 9 sample images in one click, get a SAD/MSE/Grad comparison table, export CSV). That second one is what every matting developer actually does by hand.</p>
+  <img src="/assets/blog-wechat/wx-dsh-glm53-test-7.png" alt="Agent deployment log: old instance stopped, new one started on port 8766 with 4 workers, HTTP 200 verified" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <h2>Honest caveats</h2>
+  <ul>
+    <li><strong>One task ≠ a ranking.</strong> A single workload can't establish a general capability order; treat this as a datapoint.</li>
+    <li><strong>No vision input on GLM-5.3</strong> — pixel-level fine-grained frontend work remains its weakness.</li>
+    <li><strong>Local single-machine environment</strong> — production behavior may differ.</li>
+  </ul>
+
+  <h2>The takeaway for installers</h2>
+  <p>The interesting signal isn't "GLM beat GPT." It's that engineering judgment — rate limiting, security headers, session cleanup, and features users will actually want — is now appearing <em>by default</em> in model output, and that a harness like DSH makes swapping the model underneath a 15-minute configuration exercise. Zhipu attributes roughly 50% of GLM-5.3's claimed gain over GLM-5.2 entirely to post-training; this test is a concrete picture of what that means in practice: the model didn't just write more code, it knew what a shippable application looks like. If you're evaluating agent stacks, run your own production-scoped task through two models in the same harness — the harness is the constant, and the deltas are cleaner to read.</p>
+</BlogPost>

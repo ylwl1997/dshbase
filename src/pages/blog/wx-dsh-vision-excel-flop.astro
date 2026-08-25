@@ -1,0 +1,37 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="Three releases in three days — and the vision model flubs a 4-column Excel sum | dshbase" description="rc.8 → rc.1 → rc.2 in 72 hours: how DeepSeek Harness shipped first-party vision, what the changelogs actually fixed, and a real test where the new vision model read an Excel screenshot and got all four totals wrong." currentPath="/blog/wx-dsh-vision-excel-flop/" category="Review">
+  <h1>Three releases in three days, <span class="accent">and the vision model flubbed a spreadsheet</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 25, 2026 · dshbase · hands-on vision testing</p>
+
+  <p>Between August 19 and 21, DeepSeek Harness shipped three releases: <strong>v0.1.0-rc.8 → v0.1.1-rc.1 → v0.1.1-rc.2</strong>. The through-line is unmistakable: getting the agent to actually <em>see</em> images. Here's what each release did, and what happened when a real user put the new vision model to work on a spreadsheet screenshot.</p>
+
+  <h2>rc.8: pave the road first</h2>
+  <p>rc.8 (Aug 19) built the multimodal plumbing: the model adapter gained configurable <strong>native image requests</strong>, <code>/goal</code> and <code>/plan</code> started accepting mixed image+text input, and the <code>@</code> mention menu could reference files and past sessions. One embarrassment remained: the road was ready but no officially-supported "seeing" car was on it — the default model catalog still held only the text-only <code>DeepSeek-V4-Flash</code> and <code>DeepSeek-V4-Pro</code>.</p>
+
+  <h2>rc.1: a first-party vision model arrives</h2>
+  <p>rc.1 (Aug 21 afternoon) landed the missing piece: <strong>DeepSeek-V4-Flash-Vision-Exp</strong> (input modality text + image) entered the default catalog. Multimodal was no longer "bolt a third-party plugin on as eyes" — it became a first-party adapter capability. Equally important was the safety fallback: the adapter now <strong>validates whether the model declares image support</strong>, returning <code>UNSUPPORTED_CONTENT</code> instead of silently pushing pixels into a text model. The same release fixed an input-box <code>@</code> layout bug and a Bubblewrap sandbox escape (a restricted process could reach out via <code>/proc/&lt;pid&gt;/root</code>).</p>
+  <img src="/assets/blog-wechat/wx-dsh-vision-excel-flop-4.png" alt="DeepSeek Harness v0.1.1-rc.1 release notes: vision model added and sandbox fix" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <h2>rc.2: from "can see" to "sees comfortably"</h2>
+  <p>A few hours later rc.2 shipped one thing that hits a real pain point: the adapter now prefers the <strong>Files API for image uploads and reuses uploaded files</strong> instead of re-uploading the same large image every request, and pre-processing auto-scales and converts images to what the model expects. That directly addresses the "oversized image / accumulated history payload blows the request" failure mode.</p>
+
+  <h2>The test: an Excel screenshot, four totals</h2>
+  <p>With the vision model selected (<code>DeepSeek-V4-Flash-Vision-Exp High</code>), the tester screenshotted a server resource-planning table and asked: <em>"read the image and compute the totals for CPU, memory, system disk and data disk."</em></p>
+  <img src="/assets/blog-wechat/wx-dsh-vision-excel-flop-6.png" alt="Vision test in the DSH web UI: reading an Excel screenshot and summing CPU, memory and disk columns" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <p>The model answered with professional-looking confidence: <strong>18 rows; CPU 213 vCPU; memory 674 GiB; system disk 2810 GiB; data disk 8536 GiB</strong> — even annotating "row 9 has the highest data-disk value" and "empty data-disk rows," the picture of diligence.</p>
+  <img src="/assets/blog-wechat/wx-dsh-vision-excel-flop-7.png" alt="The original server resource table: CPU, memory, system disk and data disk per row" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <p>The original table had <strong>21 rows</strong>. Every total was wrong: CPU 213 vs 230 (−17), memory 674 vs 724 (−50), system disk 2810 vs 3430 (−620), data disk 8536 vs 7936 (+600 — it double-expanded rows like "300+300" and "200+200" during accumulation). It saw the image; it just missed three rows.</p>
+
+  <h2>"Check your work" — three times, still wrong</h2>
+  <p>Told to double-check, the model ran a self-audit with three confirmation questions — "row 9 data disk reads 100+100+500+1536 = 2236, correct?" "row 18 system disk reads 400, correct?" "summing 300+300 / 200+200 capacities, is this the right convention?" — all confirmed, "all three checks passed ✅," same four wrong numbers. Every layer of verification rested on the same flawed read: <strong>the more it re-verified, the more confident the error became.</strong></p>
+
+  <h2>What this tells installers</h2>
+  <ul>
+    <li><strong>"Sees" ≠ "reads precisely."</strong> Structured tables remain high-risk: missed rows, missed columns, merged cells. Natural-scene understanding is improving fast; exact table-boundary reading is not there yet.</li>
+    <li><strong>Confident re-checks can be circular.</strong> Confirmation prompts built on a wrong base just re-ratify the mistake.</li>
+    <li><strong>Use it for input expansion, not accounting.</strong> Error screenshots, UI sketches, simple charts: good. Financial, procurement or resource-summing numbers: cross-check against the raw CSV/Excel file, and treat vision as assisted reading, not an automatic calculator.</li>
+  </ul>
+  <p>The three-release sprint shows how seriously the team is betting on multimodal, and the engineering tempo is real. But the quick verdict stands: the eyes are in, <em>the prescription still needs to be checked.</em></p>
+</BlogPost>

@@ -1,0 +1,32 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="121,767 stars, six axes: an honest health check of DeepSeek Harness | dshbase" description="A one-day real-machine review of dsh 0.1.0-rc.6: 36 official packages, reversible plugin side effects, 7,000-event session logs, plugin security with no guardrails, and a 6.5/10 scorecard." currentPath="/blog/wx-dsh-six-dim-review/" category="Review">
+  <h1>121,767 stars, six axes: <span class="accent">an honest health check</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 25, 2026 · dshbase · deep-dive review</p>
+
+  <p>Day three after launch, the repository sat at <strong>121,767 stars</strong> (12,007 forks, MIT license). One reviewer spent a full day on a real machine — macOS, Node 22.19, <strong>dsh 0.1.0-rc.6</strong> — tearing apart the install package, running performance checks, verifying security findings in an isolated environment, decompressing real session logs, and auditing six of the most-downloaded plugins. The verdict: <em>architecture openness and observability are genuine highlights; the plugin security model and ecosystem maturity are genuine weaknesses.</em></p>
+  <img src="/assets/blog-wechat/wx-dsh-six-dim-review-score.svg" alt="DeepSeek Harness scorecard: architecture 9, performance 9, observability 9, agent security 8, plugin security 3, ecosystem tail 3, overall 6.5/10" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <h2>Architecture: the modularity is real</h2>
+  <p><code>dsh</code> itself has 61 direct dependencies, <strong>36 of them official @deepseek-ai packages</strong>, each doing one thing — 12 tool packages, 9 capability packages, 7 environment packages, 8 scheduling packages, 2 UI packages. Don't need PowerShell? Skip <code>dsh-pwsh-*</code> and save size and attack surface. "Everything is a plugin" is delivered at the packaging level, not just proclaimed.</p>
+  <p>Underneath sits Cordis: plugins are Fiber state machines, activation waits on dependencies, and every context mutation is registered through <code>ctx.effect()</code> with a returned undo function — unload runs disposables in reverse, so <strong>plugin removal is a complete reversal</strong>. That reversibility is what makes hot reload and "the agent modifying its own harness" plausible rather than marketing.</p>
+
+  <h2>Performance and observability: best-in-class bits</h2>
+  <p>Cold start measured <strong>~60 ms</strong>; <code>dsh --dump-config</code> returns in ~0.19 s (526 lines). The sleeper hit is observability: real session logs at <code>~/.dsh/sessions/*.zstd</code> are compressed JSONL with <strong>~7,000 events across 13 types per session</strong> — reasoning chunks (3,023), assistant chunks (1,714), tool-call chunks (987), tool calls/results (190/190) — plus request metadata (provider, model, maxTokens) and the logged 1M-token context. What the model saw, which tool it called, how tokens moved: all replayable. That granularity is rare in agent tooling.</p>
+
+  <h2>Security: two very different stories</h2>
+  <p><strong>Axis A — the agent runtime itself: serious.</strong> Approvals, sandboxing, audit trails and anti-obfuscation all held up in verified tests (8/10). <strong>Axis B — plugin code: no guardrails.</strong> Plugins run inside the host process with host permissions; install/update/persist/hot-reload paths carry no signing, no integrity checks, no source verification, no confirmation gate. Demonstrated attack surface includes <code>!!js</code> config-to-RCE, malicious bundles executing at install time, zero post-install tamper checks, <code>plugin remove</code> leaving persisted backdoors behind, ~15 s hot-reload weaponization via telemetry, and an unauthenticated loopback RPC that can read the full session. One more practical gotcha: <code>dsh --dump-config</code> prints plaintext API keys/env — a screenshot of that output is a credential leak.</p>
+  <p>In short: the runtime's own security model is thoughtful; the plugin supply chain assumes good faith. <strong>Before installing any third-party plugin, assume it may be reading your data.</strong> The official mitigations (pnpm integrity, 0600/0700 permissions, .env protection, privileged-RPC loopback binding) are real but don't stop a malicious plugin.</p>
+
+  <h2>Ecosystem: hot at the head, weird at the tail</h2>
+  <p>Live numbers at review time: <code>dsh-web-ui-all</code> (weekly downloads 11,175, 2,964 stars), <code>dshmarket</code> (11,862 downloads, 20 versions in 2 days), <code>dsh-better-sidebar</code> (7,486 downloads, 1,413 stars, best README), <code>dsh-pocket</code> (4,381 downloads but <strong>4 stars and 37 versions in a day</strong> — a suspicious combination), <code>dsh-web-plugin-manager</code> (2,788), <code>dsh-find-plugin</code> (1,198, stalled). Install test of the flagship bundle: 13 subpackages / 37 MB resolved fine, then hung for 5 minutes on the <code>cloudflared</code> postinstall binary download before timing out — your first real churn point.</p>
+
+  <h2>Scorecard and the honest bottom line</h2>
+  <ul>
+    <li>Architecture concept <strong>9/10</strong> · Execution performance <strong>9/10</strong> · Observability <strong>9/10</strong> · Agent security design <strong>8/10</strong></li>
+    <li>Plugin security model <strong>3/10</strong> · Ecosystem head <strong>7/10</strong> · Ecosystem tail <strong>3/10</strong> · Docs &amp; onboarding <strong>7/10</strong> · Production readiness <strong>4/10</strong></li>
+    <li><strong>Overall: 6.5/10.</strong></li>
+  </ul>
+  <p>Five expectations worth discarding: don't treat third-party plugins as trusted components; don't expect stable APIs (17 versions in 3 days); check licenses per package (MIT/Apache-2.0/GPL-2.0 mix); don't expect frictionless installs (cloudflared is the first snag); and don't put preview software on production or sensitive workloads. Great for architecture study and experimentation — that's exactly what a 0.1.0-rc is for.</p>
+</BlogPost>

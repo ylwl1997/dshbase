@@ -1,0 +1,37 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="三天三版之后：视觉模型刚上车，一张 Excel 截图四列全算错 | dshbase" description="rc.8 → rc.1 → rc.2 三天连发三版，主线就是让 Agent 真正看懂图。本文记录版本演进与安全修复，并用 DeepSeek-V4-Flash-Vision-Exp 实测一张服务器资源表截图——18 行当 21 行读，四项汇总全错。" currentPath="/blog/wx-dsh-vision-excel-flop/" category="评测">
+  <h1>三天三版，<span class="accent">视觉模型却把 Excel 四列全算错</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 25 日 · dshbase · 多模态能力实测与翻车现场</p>
+
+  <p>8 月 19 日到 21 日，DeepSeek Harness 连发三版：<strong>v0.1.0-rc.8 → v0.1.1-rc.1 → v0.1.1-rc.2</strong>。主线非常清晰：让 Agent 真正「看懂」图片。下面先拆版本，再放一场真实实测。</p>
+
+  <h2>rc.8：先把路修好</h2>
+  <p>rc.8（8 月 19 日）打通多模态底层链路：模型适配器支持配置原生图片请求，<code>/goal</code>、<code>/plan</code> 等命令可接收图文输入，<code>@</code> 引用菜单支持引用文件和历史会话。尴尬在于：路修好了，路上没有官方声明「能看图」的车——默认模型目录里只有纯文本的 <code>DeepSeek-V4-Flash</code> 和 <code>DeepSeek-V4-Pro</code>。</p>
+
+  <h2>rc.1：第一方视觉模型进站</h2>
+  <p>rc.1（8 月 21 日下午）补上关键一块：<strong>DeepSeek-V4-Flash-Vision-Exp</strong>（输入模态 text + image）写进默认模型目录。多模态从此不是「外层接个第三方插件当眼睛」，而是 DeepSeek 适配器的第一方能力。更关键的是安全兜底：先校验模型是否声明支持图片，不支持直接返回 <code>UNSUPPORTED_CONTENT</code>，不会悄悄把图塞给纯文本模型硬算。同一版还修了 <code>@</code> 输入布局问题，以及一个 Bubblewrap 沙箱绕过（受限进程可借 <code>/proc/&lt;pid&gt;/root</code> 逃逸）。</p>
+  <img src="/assets/blog-wechat/wx-dsh-vision-excel-flop-4.png" alt="v0.1.1-rc.1 发布说明：新增多模态视觉模型与沙箱修复" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <h2>rc.2：从「能看」到「看得顺」</h2>
+  <p>几小时后 rc.2 只做一件事但正中痛点：适配器优先通过 <strong>Files API 上传图像并复用已上传文件</strong>，不必每次请求重传同一张大图；图像预处理按模型要求自动缩放、转格式。这正好从源头解决 rc.8 里「图片过大 / 历史图片累计载荷过高导致请求失败」的问题。</p>
+
+  <h2>实测：一张 Excel 截图，让它算总量</h2>
+  <p>模型选 <code>DeepSeek-V4-Flash-Vision-Exp High</code>，把一张服务器资源规划表截图丢给它：「读取图片内容，并计算出 CPU、内存、系统盘、数据盘各自需求的总量。」</p>
+  <img src="/assets/blog-wechat/wx-dsh-vision-excel-flop-6.png" alt="DSH Web 界面中的视觉实测：读取 Excel 截图并汇总 CPU、内存、磁盘列" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <p>几秒后它给出了一份非常专业的答案：<strong>18 行；CPU 213 vCPU；内存 674 GiB；系统盘 2810 GiB；数据盘 8536 GiB</strong>，还细心标注「第 9 行数据盘最高」「空数据盘行」，一副认真复核过的样子。</p>
+  <img src="/assets/blog-wechat/wx-dsh-vision-excel-flop-7.png" alt="原表：每行的 CPU、内存、系统盘、数据盘配置" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <p>但原表实际有 <strong>21 行</strong>。四项全错：CPU 213 对 230（少 17）、内存 674 对 724（少 50）、系统盘 2810 对 3430（少 620）、数据盘 8536 对 7936（<strong>多 600</strong>——它把「300+300」「200+200」这类多盘叠加公式展开累加，反而算多了）。它确实「看」到了图，只是漏读了 3 行。</p>
+
+  <h2>让确认三遍，最后还是错的</h2>
+  <p>追问「你确定行数和结果都正确吗？好好检查」后，它立刻自检并弹出 3 个确认项（第 9 行数据盘 100+100+500+1536=2236 对吗、第 18 行系统盘 400 对吗、300+300/200+200 按容量求和是这个口径吗），全部确认后回答「三项验证通过 ✅」，结论依旧是那四个错数。所有复核都建立在同一个错误读取上：<strong>越确认，越自信地错。</strong></p>
+
+  <h2>给安装者的三条提醒</h2>
+  <ul>
+    <li><strong>「看得见」不等于「读得准」。</strong>结构化表格仍是高危区：漏行、漏列、合并单元格错读仍属高概率。自然场景理解进步很快，精确表格边界还不够稳。</li>
+    <li><strong>自信的复核可能是原地打转。</strong>基于错误起点的三层确认，只是把错误再盖章一遍。</li>
+    <li><strong>多模态的价值在扩展输入边界，不在替代核算。</strong>报错截图、UI 草图、简单图表可以放心用；涉及财务、采购、资源统计等对数字敏感的场景，请对照 CSV/Excel 原件人工核对，把它当辅助读取工具，而不是自动核算工具。</li>
+  </ul>
+  <p>三天三版的节奏足以说明团队在多模态上的决心，工程落地速度也真实。但结论一句话：<em>眼睛长好了，视力还需要验光。</em></p>
+</BlogPost>

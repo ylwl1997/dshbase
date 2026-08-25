@@ -34,6 +34,48 @@
       "slug": "wx-dsh-codex-vs-flash-pro",
       "status": "published",
       "at": "2026-08-25T05:59:30.425657+00:00"
+    },
+    {
+      "title": "DeepSeek Harness深度评测：能力、成本与效率三维分析",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787638806&ver=6925&signature=PVnGk0QomMQm*3*MBRofcXBlVjUvlcOmg*MI0PSaGtKqP8bhC28QyeMXDG9c8vKd0umaUuqyEwILSPtWQhlgw4FzjrfStszgv42RBAjbxm9pEpxcEPq14InfPNW-6cZD&new=1",
+      "status": "published",
+      "slug": "wx-dsh-60task-bench",
+      "at": "2026-08-25T06:37:56.327814+00:00"
+    },
+    {
+      "title": "DeepSeek Harness 三天连发三版：视觉模型刚上车，我给了它一张 Excel 截图，结果四列全算错",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787638778&ver=6925&signature=qMf*OtX0JVb6WaQSJj0s56XQb*Rd5-dE7ArQ5k79hcsdgPGoKgKHPHnkpTq4VWYJ*Red6-78rT1hf8l7ARmblLz80nCR35-pGIvwNgvi6CaVxhu5SXEzzaQCbRHJMDkX&new=1",
+      "status": "published",
+      "slug": "wx-dsh-vision-excel-flop",
+      "at": "2026-08-25T06:37:56.327814+00:00"
+    },
+    {
+      "title": "DeepSeek Harness 未授权 RCE 漏洞分析（dsh2shell）",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787638778&ver=6925&signature=XTu6p7JdayYQ3X49yTOcPZumRqKgGrk4ABVoMsdtjj*feA1j8PlSNEXLUFZW7FUuFJX8SeBhefv7xE*853FHnRRnyYzFidc-YZPq6xwA0iEQx-X5boSOMr6hTGr8ll7i&new=1",
+      "status": "published",
+      "slug": "wx-dsh-dsh2shell-rce",
+      "at": "2026-08-25T06:37:56.327814+00:00"
+    },
+    {
+      "title": "DeepSeek Harness完整实测：从Windows安装到V4 Pro模式对比",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787638792&ver=6925&signature=97qrhoejZfEs5i6AiMNpadWFMuZVOcjqHZ8or5GotXCn6kjWMSMpChlt77KJMNYTdALIS*Y3OQDue1nE3zEaktc32TF0IXa5kVvsubB6hNbikEHQeDlggwZl3*CVS0r4&new=1",
+      "status": "published",
+      "slug": "wx-dsh-windows-setup",
+      "at": "2026-08-25T06:37:56.327814+00:00"
+    },
+    {
+      "title": "DeepSeek Harness深度实测：12万星与六维体检",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787638806&ver=6925&signature=r4BaLcnpFX2WAzuYvqYvrXtPIzTZmwqnuS2zFNIol*mMaV9xwMYVHoDPsfr2uAq1fCVyMfcpC5soe0JImq5rWtfDyycsdiHTL1wnBEQd5hvzSvPRRZc4omteP5nPW0xF&new=1",
+      "status": "published",
+      "slug": "wx-dsh-six-dim-review",
+      "at": "2026-08-25T06:37:56.327814+00:00"
+    },
+    {
+      "title": "国产之光！GLM 5.3 + DeepSeek Harness 实测来了",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787638806&ver=6925&signature=IyPaoukKVofz6OY54drcTQ9C7jSbN2C7SuSPjDVxg9YklaBshdL5MhgeddcoIladpLRSKLDQDqbltDbEpHiZfot2hgDd1nJkEGe3N7exh-jPIAvxfHbdDd0a02XVeKDe&new=1",
+      "status": "published",
+      "slug": "wx-dsh-glm53-test",
+      "at": "2026-08-25T06:37:56.327814+00:00"
     }
   ],
   "published": [
@@ -71,7 +113,49 @@
       "slug": "wx-dsh-codex-vs-flash-pro",
       "at": "2026-08-25T05:59:30.425657+00:00",
       "batch": "ai-run"
+    },
+    {
+      "title": "DeepSeek Harness深度评测：能力、成本与效率三维分析",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787638806&ver=6925&signature=PVnGk0QomMQm*3*MBRofcXBlVjUvlcOmg*MI0PSaGtKqP8bhC28QyeMXDG9c8vKd0umaUuqyEwILSPtWQhlgw4FzjrfStszgv42RBAjbxm9pEpxcEPq14InfPNW-6cZD&new=1",
+      "slug": "wx-dsh-60task-bench",
+      "at": "2026-08-25T06:37:56.327814+00:00",
+      "batch": "daily"
+    },
+    {
+      "title": "DeepSeek Harness 三天连发三版：视觉模型刚上车，我给了它一张 Excel 截图，结果四列全算错",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787638778&ver=6925&signature=qMf*OtX0JVb6WaQSJj0s56XQb*Rd5-dE7ArQ5k79hcsdgPGoKgKHPHnkpTq4VWYJ*Red6-78rT1hf8l7ARmblLz80nCR35-pGIvwNgvi6CaVxhu5SXEzzaQCbRHJMDkX&new=1",
+      "slug": "wx-dsh-vision-excel-flop",
+      "at": "2026-08-25T06:37:56.327814+00:00",
+      "batch": "daily"
+    },
+    {
+      "title": "DeepSeek Harness 未授权 RCE 漏洞分析（dsh2shell）",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787638778&ver=6925&signature=XTu6p7JdayYQ3X49yTOcPZumRqKgGrk4ABVoMsdtjj*feA1j8PlSNEXLUFZW7FUuFJX8SeBhefv7xE*853FHnRRnyYzFidc-YZPq6xwA0iEQx-X5boSOMr6hTGr8ll7i&new=1",
+      "slug": "wx-dsh-dsh2shell-rce",
+      "at": "2026-08-25T06:37:56.327814+00:00",
+      "batch": "daily"
+    },
+    {
+      "title": "DeepSeek Harness完整实测：从Windows安装到V4 Pro模式对比",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787638792&ver=6925&signature=97qrhoejZfEs5i6AiMNpadWFMuZVOcjqHZ8or5GotXCn6kjWMSMpChlt77KJMNYTdALIS*Y3OQDue1nE3zEaktc32TF0IXa5kVvsubB6hNbikEHQeDlggwZl3*CVS0r4&new=1",
+      "slug": "wx-dsh-windows-setup",
+      "at": "2026-08-25T06:37:56.327814+00:00",
+      "batch": "daily"
+    },
+    {
+      "title": "DeepSeek Harness深度实测：12万星与六维体检",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787638806&ver=6925&signature=r4BaLcnpFX2WAzuYvqYvrXtPIzTZmwqnuS2zFNIol*mMaV9xwMYVHoDPsfr2uAq1fCVyMfcpC5soe0JImq5rWtfDyycsdiHTL1wnBEQd5hvzSvPRRZc4omteP5nPW0xF&new=1",
+      "slug": "wx-dsh-six-dim-review",
+      "at": "2026-08-25T06:37:56.327814+00:00",
+      "batch": "daily"
+    },
+    {
+      "title": "国产之光！GLM 5.3 + DeepSeek Harness 实测来了",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787638806&ver=6925&signature=IyPaoukKVofz6OY54drcTQ9C7jSbN2C7SuSPjDVxg9YklaBshdL5MhgeddcoIladpLRSKLDQDqbltDbEpHiZfot2hgDd1nJkEGe3N7exh-jPIAvxfHbdDd0a02XVeKDe&new=1",
+      "slug": "wx-dsh-glm53-test",
+      "at": "2026-08-25T06:37:56.327814+00:00",
+      "batch": "daily"
     }
   ],
-  "updated_at": "2026-08-25T05:59:30.425657+00:00"
+  "updated_at": "2026-08-25T06:37:56.327814+00:00"
 }

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+  <rect width="960" height="420" fill="#ffffff"/>
+  <defs>
+    <linearGradient id="good" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3b6ef5"/><stop offset="1" stop-color="#2456d6"/></linearGradient>
+    <linearGradient id="bad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#dc2626"/><stop offset="1" stop-color="#b91c1c"/></linearGradient>
+    <linearGradient id="mid" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d97706"/><stop offset="1" stop-color="#b45309"/></linearGradient>
+  </defs>
+  <text x="24" y="34" font-size="19" font-weight="700" fill="#0f172a">DeepSeek Harness — six-dimension scorecard (overall 6.5/10)</text>
+  <text x="24" y="56" font-size="12.5" fill="#64748b">Real-machine review of dsh 0.1.0-rc.6: architecture and observability shine, plugin security drags it down.</text>
+
+  <!-- score rows -->
+  <g font-size="13">
+    <text x="24" y="100" fill="#334155">Architecture concept</text>
+    <rect x="260" y="86" width="630" height="16" rx="8" fill="#f1f5f9"/>
+    <rect x="260" y="86" width="567" height="16" rx="8" fill="url(#good)"/>
+    <text x="906" y="100" font-weight="700" fill="#0f172a" text-anchor="end">9/10</text>
+
+    <text x="24" y="135" fill="#334155">Execution performance</text>
+    <rect x="260" y="121" width="630" height="16" rx="8" fill="#f1f5f9"/>
+    <rect x="260" y="121" width="567" height="16" rx="8" fill="url(#good)"/>
+    <text x="906" y="135" font-weight="700" fill="#0f172a" text-anchor="end">9/10</text>
+
+    <text x="24" y="170" fill="#334155">Observability (Trajectory)</text>
+    <rect x="260" y="156" width="630" height="16" rx="8" fill="#f1f5f9"/>
+    <rect x="260" y="156" width="567" height="16" rx="8" fill="url(#good)"/>
+    <text x="906" y="170" font-weight="700" fill="#0f172a" text-anchor="end">9/10</text>
+
+    <text x="24" y="205" fill="#334155">Agent security design</text>
+    <rect x="260" y="191" width="630" height="16" rx="8" fill="#f1f5f9"/>
+    <rect x="260" y="191" width="504" height="16" rx="8" fill="url(#good)"/>
+    <text x="906" y="205" font-weight="700" fill="#0f172a" text-anchor="end">8/10</text>
+
+    <text x="24" y="240" fill="#334155">Ecosystem — head</text>
+    <rect x="260" y="226" width="630" height="16" rx="8" fill="#f1f5f9"/>
+    <rect x="260" y="226" width="441" height="16" rx="8" fill="url(#mid)"/>
+    <text x="906" y="240" font-weight="700" fill="#0f172a" text-anchor="end">7/10</text>
+
+    <text x="24" y="275" fill="#334155">Docs &amp; onboarding</text>
+    <rect x="260" y="261" width="630" height="16" rx="8" fill="#f1f5f9"/>
+    <rect x="260" y="261" width="441" height="16" rx="8" fill="url(#mid)"/>
+    <text x="906" y="275" font-weight="700" fill="#0f172a" text-anchor="end">7/10</text>
+
+    <text x="24" y="310" fill="#334155">Production readiness</text>
+    <rect x="260" y="296" width="630" height="16" rx="8" fill="#f1f5f9"/>
+    <rect x="260" y="296" width="252" height="16" rx="8" fill="url(#bad)"/>
+    <text x="906" y="310" font-weight="700" fill="#0f172a" text-anchor="end">4/10</text>
+
+    <text x="24" y="345" fill="#334155">Plugin security model</text>
+    <rect x="260" y="331" width="630" height="16" rx="8" fill="#f1f5f9"/>
+    <rect x="260" y="331" width="189" height="16" rx="8" fill="url(#bad)"/>
+    <text x="906" y="345" font-weight="700" fill="#0f172a" text-anchor="end">3/10</text>
+
+    <text x="24" y="380" fill="#334155">Ecosystem — tail</text>
+    <rect x="260" y="366" width="630" height="16" rx="8" fill="#f1f5f9"/>
+    <rect x="260" y="366" width="189" height="16" rx="8" fill="url(#bad)"/>
+    <text x="906" y="380" font-weight="700" fill="#0f172a" text-anchor="end">3/10</text>
+  </g>
+
+  <text x="24" y="408" font-size="12" fill="#64748b">Data: 2026-08-16 local test (macOS / Node 22.19 / dsh 0.1.0-rc.6) + npm/GitHub live queries.</text>
+</svg>

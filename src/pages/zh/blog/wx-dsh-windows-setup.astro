@@ -1,0 +1,57 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="Windows 上装 DeepSeek Harness，并复现 V4 Pro 的跑分配置 | dshbase" description="Windows 完整安装实操：Node 版本要求、真正能装上的 npm 方式、首个工作区、四种预设怎么选，以及用极简模式对照实验来复现或证伪 V4 Pro 跑分争议。" currentPath="/blog/wx-dsh-windows-setup/" category="指南">
+  <h1>Windows 装 DSH，<span class="accent">顺带复现 V4 Pro 跑分配置</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 25 日 · dshbase · 安装者指南</p>
+
+  <p>这篇文章解决两个问题：<strong>DeepSeek Harness 在 Windows 上到底怎么装</strong>，以及 <strong>大家疯传的「最强模式」跑分怎么复现、怎么证伪</strong>。以下全部来自真实 Windows 机器的实操记录。</p>
+
+  <h2>你要装的是什么东西</h2>
+  <p>DeepSeek Harness（命令名 <code>dsh</code>）是 developer preview 的 Agent 运行时，不是模型，也不是聊天壳。它的赌注是：<strong>一切皆插件</strong>——模型接入、文件工具、Skills、会话、存储、权限、沙箱、任务循环、调度，连 Web 界面都是插件。底层跑在 <em>Cordis</em> 上，内置四种性格完全不同的预设。</p>
+
+  <h2>方案一：让现成的 Agent 来装</h2>
+  <p>如果机器上已有 Codex、Claude Code 之类的 Agent，把这段提示词交给它：</p>
+  <blockquote>请帮我从官方 npm 包安装 DeepSeek Harness。包名是 @deepseek-ai/dsh。请先检查 Node.js 和 npm 环境，只使用官方包。安装当前可用版本后启动 Web UI，并确认 http://127.0.0.1:3080 可以访问。完成后告诉我实际安装版本、启动命令和验证结果。不要读取、回显或保存我的 API Key。</blockquote>
+
+  <h2>方案二：手动安装</h2>
+  <ol>
+    <li><strong>Node.js</strong> — <code>node --version</code> 要满足 <code>^22.19.0 || &gt;=24.0.0</code>（本机实测 v24.13.0）。没有就去 nodejs.org 下 Windows 安装包，保留「加入 PATH」，装完开<em>新</em>终端再验证。</li>
+    <li><strong>全局安装</strong> — 很多教程推荐 <code>npx @deepseek-ai/dsh web</code>，但本机装不上；真正成功的是 <code>npm install -g @deepseek-ai/dsh</code>。装完先单独验证 <code>dsh --version</code>——把「安装失败」和「启动失败」分开排查，省很多事。</li>
+    <li><strong>启动 Web 界面</strong> — 建个新文件夹（如 <code>dsh-first-agent</code>），在里面运行 <code>dsh --profile web</code>，终端会打印 <code>dsh web: http://127.0.0.1:3080</code>。浏览器打开即可。<strong>那个终端窗口不能关</strong>——网页只是界面，服务在终端里。3080 被占就 <code>dsh web --port 8080</code>，或 <code>--port 0</code> 让系统挑空闲端口。</li>
+    <li><strong>配置模型与 API Key</strong> — 首次打开会提示配置；也可在左下角设置页的模型设置里添加提供方、粘贴 Key、选模型、保存。</li>
+  </ol>
+
+  <h2>几个真正重要的第一步</h2>
+  <img src="/assets/blog-wechat/wx-dsh-windows-setup-2.png" alt="DSH Web 界面：新会话、工作区文件树与模型区" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <ul>
+    <li><strong>工作区是文件边界，不是聊天分类。</strong>要主动添加并选中工作区（如 <code>D:\dsh-first-agent</code>）。输入框灰色时，先查工作区。</li>
+    <li><strong>左侧：</strong>工作区文件树 + 会话列表。<strong>中间：</strong>对话、任务过程、输入框——在这里选模型、预设和权限。</li>
+    <li><strong>会话</strong>保存上下文和操作过程：可重命名、搜索、恢复、归档（归档 ≠ 删除）、Fork（从某一轮分出新会话，适合对比两种做法）。对话太长用 <code>/compact</code>。</li>
+  </ul>
+
+  <h2>四种预设怎么选，计划模式不是第五种</h2>
+  <img src="/assets/blog-wechat/wx-dsh-windows-setup-3.jpg" alt="DSH 四种模式：标准、PTC、极简、创造对应的工具环境" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">
+    <tr><td style="border:1px solid var(--border);padding:6px 8px"><strong>标准模式</strong></td><td style="border:1px solid var(--border);padding:6px 8px">完整编码 Agent：文件编辑、Shell、文件/网页检索、Skills、计划、目标、子 Agent、工作流</td><td style="border:1px solid var(--border);padding:6px 8px">日常任务首选，拿不准就选它</td></tr>
+    <tr><td style="border:1px solid var(--border);padding:6px 8px"><strong>PTC 模式</strong></td><td style="border:1px solid var(--border);padding:6px 8px">标准全部能力 + 模型可用 TypeScript 编排多步工具调用（Code Mode SDK）</td><td style="border:1px solid var(--border);padding:6px 8px">步骤多、工具调用密集的任务</td></tr>
+    <tr><td style="border:1px solid var(--border);padding:6px 8px"><strong>极简模式</strong></td><td style="border:1px solid var(--border);padding:6px 8px">只有持久 Bash + str_replace_editor 两个工具</td><td style="border:1px solid var(--border);padding:6px 8px">基准测试、教学、观察模型</td></tr>
+    <tr><td style="border:1px solid var(--border);padding:6px 8px"><strong>创造模式</strong></td><td style="border:1px solid var(--border);padding:6px 8px">标准能力 + 运行时检查、插件实验、预设创作</td><td style="border:1px solid var(--border);padding:6px 8px">扩展开发；信任级别高，别指向重要工作区</td></tr>
+  </table>
+  <p><strong>计划模式不是第五种预设。</strong>预设决定会话有什么工具；<code>/plan</code> 决定 Agent 先调查出方案还是直接动手。第一个正式项目推荐组合：<em>标准模式 + 只读权限 + 计划模式</em>。再说权限：Read Only / Workspace Write / Full Access——Full Access 不是「高级版」，是风险最高的选项；Workspace Write 只限制写入边界，Agent 仍可能读到工作区外，敏感数据要盯它准备读什么、是否请求扩大权限。</p>
+
+  <h2>V4 Pro 跑分争议，到底在争什么</h2>
+  <p>DeepSeek 官方数据很强——V4 Pro 在 DeepSWE 达 <strong>62.7</strong>、CyberGym 达 <strong>83.3</strong>。第三方榜单和用户实测则显示更多方差：推理提前结束、长任务漏项、多次运行波动。两边不一定矛盾，因为代码 Agent 跑分测的不是裸模型：系统提示词、工具列表、上下文管理、终端环境、任务验收都会改变结果。</p>
+  <p>极简模式恰好提供了一个特殊评测环境：一句系统提示词、两个工具、不注入额外运行时上下文。社区测试出现过同一模型同一任务在相近推理设置下，Standard/PTC 约 <strong>91–93 分</strong>、Minimal 约 <strong>96–99 分</strong>的现象。任务集没有公开，不能据此证明极简模式普遍更强——它至少说明 <strong>V4 Pro 的 Agent 能力对首轮提示词和工具架构非常敏感</strong>。这比「V4 Pro 只在极简模式里聪明」的说法准确得多。</p>
+
+  <h2>想复现跑分？按这个来</h2>
+  <ol>
+    <li><strong>准备可验收任务</strong>——已知 Bug、实现函数或「让测试全过」，写清：项目路径、允许修改、禁止修改、测试命令、验收标准、要保留的日志。别用「帮我优化这个项目」。</li>
+    <li><strong>新建 Minimal 会话</strong>——V4 Pro / 极简模式 / 思考强度 Max / 最小权限，不要加载大量 Skills 和额外工具。Windows 注意：极简预设暴露的是持久 <strong>Bash</strong> 而非 PowerShell，Bash 跑不动是环境兼容问题，别算成模型失败。</li>
+    <li><strong>建立对照组</strong>——相同代码初始状态、相同任务：A 组 Standard+High、B 组 Standard+Max、C 组 Minimal+Max。每组至少跑 3 次，且不能让后一组接着用前一组改过的文件。</li>
+    <li><strong>记录硬指标</strong>——自动测试通过率、计划完成率、是否提前宣布完成、总耗时、输入/输出 token、工具调用步数、返工次数。像样的复现报告至少要有 DSH 版本、模型、模式、思考强度、操作系统、任务版本、重复次数和结果——一张成功截图说明不了任何问题。</li>
+  </ol>
+
+  <h2>小字部分</h2>
+  <p>极简模式没有文件/网页检索、Skills、计划和上下文压缩。社区一次实际项目测试里，Minimal 比 Standard 快约 10 分钟，但累计输入 token 反而从约 520 万涨到 590 万；另一次长任务里，即使 Max 规划 + High 执行，V4 Pro 仍把部分未完成项标成了完成。真实项目更稳的组合依然是：<strong>V4 Pro + 标准模式 + High</strong>——复杂任务先用 Max 加计划模式理清方案，再用 High 执行，最后另开一轮只做测试与独立复核。</p>
+</BlogPost>

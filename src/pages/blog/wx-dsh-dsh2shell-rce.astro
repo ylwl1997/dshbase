@@ -1,0 +1,35 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="dsh2shell: the unauthenticated RCE in web-exposed DeepSeek Harness (CVSS 9.8) | dshbase" description="A Host-header trick unlocks DeepSeek Harness's privileged RPC from the public internet: register a fake model provider, switch the session to it, and drive the built-in bash tool. What to fix before you expose dsh web anywhere." currentPath="/blog/wx-dsh-dsh2shell-rce/" category="Analysis">
+  <h1>dsh2shell: unauthenticated RCE in <span class="accent">web-exposed DeepSeek Harness</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 25, 2026 · dshbase · security analysis for installers</p>
+
+  <p>DeepSeek Harness is an agent runtime people routinely run as a <strong>web service</strong> for remote use. Security researcher ChaoMixian published a working unauthenticated RCE against exactly that deployment shape (PoC named <code>dsh2shell</code>, disclosed August 21, no CVE assigned yet) — rated <strong>CVSS 9.8 critical</strong>: network attack vector, low complexity, no privileges, no user interaction. A FOFA sweep found roughly <strong>600+ instances exposed</strong> with the vulnerable pattern.</p>
+  <img src="/assets/blog-wechat/wx-dsh-dsh2shell-rce-chain.svg" alt="Attack chain: spoofed Host localhost header unlocks the privileged RPC, fake LLM provider drives the bash tool" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <h2>Root cause: trusting a header for an access decision</h2>
+  <p>DSH's management RPC endpoints (<code>session.create</code>, <code>provider.add</code>, <code>session.selectModel</code>, <code>permission.defaultPreset</code>, and friends) are supposed to be local-only. The check is the problem: the server decides "is this localhost?" by reading the literal <strong>HTTP <code>Host</code> header</strong> — a value the client fully controls — instead of validating the real network source. Send <code>Host: localhost</code> and the privileged RPC treats you as a local caller.</p>
+
+  <h2>The three-step chain</h2>
+  <ol>
+    <li><strong>Register a malicious provider.</strong> Point DSH at an attacker-controlled "Fake LLM" server (an OpenAI-compatible endpoint that returns scripted responses).</li>
+    <li><strong>Switch the session model.</strong> Select that fake provider as the active model — no auth needed at any point.</li>
+    <li><strong>Drive the built-in bash tool.</strong> The fake LLM's chat-completions reply contains a tool-call instruction, so the agent dutifully executes an arbitrary shell command and returns the output. From there: full host takeover.</li>
+  </ol>
+  <p>No API key, no login, no user interaction — the entire chain runs over unauthenticated HTTP.</p>
+
+  <h2>Why it hurts: keys everywhere</h2>
+  <p>In the researcher's controlled tests, exposed environments commonly carried <code>.env</code> and <code>.credentials.yaml</code> files with live credentials: DeepSeek, Kimi (Moonshot), MiniMax, Qwen, OpenAI, GLM, Tavily, plus aggregator keys (StepFun / OpenRouter). Practical impact is quota theft at your expense and the instance as a pivot point for lateral movement. Agent runtimes read your files and run your shell — a compromised one is a compromised machine, full stop.</p>
+
+  <h2>Fixes, in order of bluntness</h2>
+  <ul>
+    <li><strong>Stop exposing dsh on the public internet.</strong> Run it on loopback/VPN, or behind an authenticated reverse proxy. Agent web UIs do not belong on port 80 of a server with a public IP.</li>
+    <li><strong>Never trust the client Host header at the proxy.</strong> Force it: Nginx <code>proxy_set_header Host</code> to a fixed value, so even a spoofed request can't reach the loopback branch.</li>
+    <li><strong>Authenticate the RPC surface.</strong> Token or basic auth in front of the management endpoints, even inside the boundary.</li>
+    <li><strong>Update.</strong> Track the official repository for the fix and apply it; meanwhile treat any exposed instance as compromised and rotate everything it could see.</li>
+  </ul>
+
+  <h2>The lesson for early-stage agent tooling</h2>
+  <p>This vulnerability class — loopback checks implemented as header comparisons — is a classic 2010s mistake showing up in new software. The practical takeaways for anyone running developer-preview agent frameworks: <strong>a "localhost-only" flag is a convenience feature, not a security boundary</strong>; audit what a client can spoof before trusting any source check; and treat the host that runs your agent's bash tool like a production credential store, because that's exactly what it is. Preview software moves fast — security review is the one stage that shouldn't.</p>
+</BlogPost>

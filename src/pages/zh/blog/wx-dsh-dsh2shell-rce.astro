@@ -1,0 +1,35 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="dsh2shell：Web 暴露的 DeepSeek Harness 未授权 RCE（CVSS 9.8）| dshbase" description="一个伪造的 Host 头就能从公网解锁 DeepSeek Harness 的特权 RPC：注册恶意模型提供端、切换会话模型、驱动内置 bash 工具执行任意命令。上线 dsh web 之前先修这几处。" currentPath="/blog/wx-dsh-dsh2shell-rce/" category="分析">
+  <h1>dsh2shell：Web 暴露的 DSH <span class="accent">未授权 RCE 分析</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 25 日 · dshbase · 给安装者的安全分析</p>
+
+  <p>DeepSeek Harness 是常被部署成 <strong>Web 服务</strong>供远程调用的 Agent 运行时。安全研究员 ChaoMixian 针对这种部署形态公开了可用的未授权 RCE PoC（<code>dsh2shell</code>，8 月 21 日公开，暂未分配 CVE），评级 <strong>CVSS 9.8 严重</strong>：攻击向量网络、攻击复杂度低、无需权限、无需用户交互。FOFA 测绘显示存在此形态的暴露实例 <strong>600+ 台</strong>。</p>
+  <img src="/assets/blog-wechat/wx-dsh-dsh2shell-rce-chain.svg" alt="攻击链：伪造 Host: localhost 解锁特权 RPC，注册恶意 Fake LLM 提供端，驱动内置 bash 工具" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <h2>漏洞根因：把访问控制交给了请求头</h2>
+  <p>DSH 的管理 RPC（<code>session.create</code>、<code>provider.add</code>、<code>session.selectModel</code>、<code>permission.defaultPreset</code> 等）本应仅限本机访问。问题出在判定方式：服务端通过 HTTP <strong><code>Host</code> 头的字面值</strong>判断来源是否为回环地址，而不是校验真实网络层来源——而 Host 头完全由客户端控制。伪造 <code>Host: localhost</code>，特权 RPC 就把你当成本机调用者。</p>
+
+  <h2>三步攻击链</h2>
+  <ol>
+    <li><strong>注册恶意 Provider。</strong>向 DSH 添加指向攻击者「Fake LLM」服务器的模型提供端（一个返回脚本化响应的 OpenAI 兼容端点）。</li>
+    <li><strong>切换会话模型。</strong>把当前模型切到该恶意提供端——全程无需任何认证。</li>
+    <li><strong>驱动内置 bash 工具。</strong>Fake LLM 在 chat/completions 响应里返回工具调用指令，Agent 便忠实执行任意 shell 命令并回传结果。由此获得主机完全控制权。</li>
+  </ol>
+  <p>无需 API Key、无需登录、无需用户交互——整条链跑在未认证的 HTTP 之上。</p>
+
+  <h2>为什么严重：凭据遍地</h2>
+  <p>在研究人员的受控测试中，暴露环境中普遍存在携带真实凭据的 <code>.env</code> 与 <code>.credentials.yaml</code>：DeepSeek、Kimi（Moonshot）、MiniMax、通义千问、OpenAI、GLM、Tavily，以及 StepFun / OpenRouter 等聚合平台 Key。现实危害是盗用你的全部模型额度，以及以受害主机为跳板横向渗透。Agent 运行时能读你的文件、跑你的 shell——它被拿下，就是整台机器被拿下。</p>
+
+  <h2>修复建议（按粗暴程度排序）</h2>
+  <ul>
+    <li><strong>别把 dsh 暴露到公网。</strong>回环/VPN 内使用，或放到带认证的反向代理后面。Agent 的 Web 界面不该出现在公网 IP 的服务端口上。</li>
+    <li><strong>代理层强制覆写 Host。</strong>Nginx <code>proxy_set_header Host</code> 固定值，让伪造的请求头根本到不了回环校验分支。</li>
+    <li><strong>给 RPC 加认证。</strong>即便在内网边界内，管理接口也建议启用 Token / Basic Auth。</li>
+    <li><strong>跟进升级。</strong>关注官方仓库的补丁并尽快更新；同时把所有已暴露过的实例视为失陷，轮换它可能接触到的全部凭据。</li>
+  </ul>
+
+  <h2>给早期 Agent 工具的教训</h2>
+  <p>「用 Host 头实现回环校验」是十年前就踩过的坑，现在出现在了新软件里。对跑 developer preview Agent 框架的人来说，要点很直接：<strong>「仅本机」开关是便利功能，不是安全边界</strong>；任何来源判断都要先想清楚客户端能不能伪造；并且，跑 Agent bash 工具的主机，要像生产凭据库一样对待——因为它本来就是。</p>
+</BlogPost>

@@ -1,0 +1,37 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness 60 项任务评测：能力、成本、耗时三维拆解 | dshbase" description="上海人工智能实验室司南评测体系用 60 项真实环境长程智能体任务测了 DeepSeek V4 Pro + DeepSeek Harness：能力中上、成本砍半、耗时偏长，以及哪些模型组合才能真正被 Harness 放大。" currentPath="/blog/wx-dsh-60task-bench/" category="分析">
+  <h1>DeepSeek Harness 基准评测：<span class="accent">60 个真实任务，三个维度</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 25 日 · dshbase · 给安装者的量化评估</p>
+
+  <p>多数 Agent 评测止步于「能跑」或「跑不起来」。要看清一套工具，得有数字。上海人工智能实验室的<strong>司南评测体系</strong>发布了一份这样的报告：在 <em>WildClawBench</em> 上用 <strong>60 项真实环境长程智能体任务</strong>，从 <strong>Score（任务完成能力）、Cost（调用成本）、Time（执行耗时）</strong> 三个维度评估 DeepSeek Harness，任务覆盖生产力流程、代码智能、社交交互、搜索检索、创意合成与安全对齐，中英文、含多模态。</p>
+
+  <h2>一句话结论：中上能力、低成本、较高耗时</h2>
+  <p>DeepSeek V4 Pro + DeepSeek Harness 综合得分 <strong>45.0</strong>，落在 <strong>GPT-5.4 + DSH（53.8）</strong> 与 <strong>GLM 5 / Qwen3.5 397B + DSH（39.2）</strong> 之间，在 7 个价格相对稳定的 DSH 配置里排第 3。报告的定性很精准：<em>「中上能力、低成本、较高耗时」</em>。</p>
+  <img src="/assets/blog-wechat/wx-dsh-60task-bench-0.png" alt="智能体任务综合性能对照表：各配置的单任务得分、成本与耗时" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <p>GPT-5.6 Sol 与 Claude Fable 5（OpenClaw 载体）仅作高分上限参照——两者单任务平均成本约为该组合的 <strong>9.5 倍与 14.6 倍</strong>，不在同价格口径内比较。</p>
+
+  <h2>同模型换 Harness：成本直接腰斩</h2>
+  <p>最有信息量的对比是控制模型不变。与同模型 <strong>OpenClaw</strong> 相比，DeepSeek Harness 给 V4 Pro 带来小幅提分，同时 <strong>成本下降约 50%</strong>，耗时仅增加约 4.2%。折算整组 60 项任务：模型调用总成本约 <strong>6 美元对 12 美元</strong>，顺序执行总耗时约 630 分钟对 605 分钟；单位成本得分从约 218 分/美元提升到约 <strong>450 分/美元（+106%）</strong>。</p>
+  <img src="/assets/blog-wechat/wx-dsh-60task-bench-3.png" alt="不同模型在 DeepSeek Harness 与 OpenClaw 下的得分对比" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <h2>跨模型适配：Harness 不是对谁都免费加成</h2>
+  <p>横向比较不同模型搭载 DSH 后的变化，效果并不一致，这正是报告的可贵之处：</p>
+  <ul>
+    <li><strong>GPT-5.4 + DSH</strong>——全场最佳：53.8 分（五种 Harness 组合中排第 2，仅次于 Codex），<strong>成本最低 0.30 美元/任务（−9.1%）</strong>，平均耗时 3.98 分钟最快。</li>
+    <li><strong>Qwen3.5 397B + DSH</strong>——得分、成本、耗时三项同时改善，协同效应明显。</li>
+    <li><strong>DeepSeek V4 Pro + DSH</strong>——小幅提分 + 显著降本，适合成本敏感、可异步/批量的任务。</li>
+    <li><strong>Grok 4.20 Beta + DSH</strong>——得分增幅最大，但耗时接近翻倍、成本更高。</li>
+    <li><strong>GLM 5 与 MiniMax M2.7 + DSH</strong>——暂无明确综合优势；GLM 5 单任务平均耗时 10.60 分钟，最慢。</li>
+  </ul>
+  <p>模型响应延迟、工具调用策略、失败重试、上下文压缩和任务终止判断都会影响耗时——这些机制目前还无法跨模型平滑迁移。</p>
+
+  <h2>安装者该带走什么</h2>
+  <ul>
+    <li><strong>预算敏感、能接受排队？</strong> V4 Pro + DSH 是目前测得性价比最高的组合，适合成本敏感、允许异步或批量执行的智能体任务。</li>
+    <li><strong>交互时延敏感？</strong> 别只盯 V4 Pro——数据显示 GPT-5.4 + DSH 平均 3.98 分钟且成本更低。选 Harness 有时比选模型更管用。</li>
+    <li><strong>预期方差：</strong> 同一 Harness 对部分模型是放大器，对另一些等于没装。任务规划、提示模板、工具协议仍需按模型特点调优。</li>
+  </ul>
+  <p>报告给出的优化方向也很直白：缩短工具调用链、减少无效循环、改进上下文压缩与任务终止策略。对一款上线两周的 developer preview 来说，45.0 分加上不到 0.1 美元/任务的成本曲线，已经是不错的起点——而「每美元得分」这个指标，值得每个版本发布后都重跑一遍。</p>
+</BlogPost>

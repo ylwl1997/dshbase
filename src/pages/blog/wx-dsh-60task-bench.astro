@@ -1,0 +1,37 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness benchmarked: 60 real tasks, scored three ways (Score / Cost / Time) | dshbase" description="A Shanghai AI Lab teardown of DeepSeek V4 Pro + DeepSeek Harness on 60 real-environment agent tasks: mid-tier capability, half the cost of OpenClaw, slower execution — and which model combinations the harness actually amplifies." currentPath="/blog/wx-dsh-60task-bench/" category="Analysis">
+  <h1>DeepSeek Harness benchmarked: <span class="accent">60 real tasks, three axes</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 25, 2026 · dshbase · quantitative evaluation for installers</p>
+
+  <p>Most agent reviews end at "it worked" or "it didn't." A proper evaluation needs numbers, and the <strong>Shanghai AI Laboratory's Sinan (司南) evaluation system</strong> published exactly that: a run of <strong>60 long-horizon agent tasks in real environments</strong>, scored on three axes — <strong>Score</strong> (task completion ability), <strong>Cost</strong> (calling cost), and <strong>Time</strong> (execution duration). The setup runs on <em>WildClawBench</em>, covering productivity workflows, code intelligence, social interaction, search & retrieval, creative synthesis, and safety alignment, in both Chinese and English, with multimodal tasks included.</p>
+
+  <h2>The headline: "mid-tier ability, low cost, slow execution"</h2>
+  <p>DeepSeek V4 Pro + DeepSeek Harness scored <strong>45.0</strong> overall. That places it between <strong>GPT-5.4 + DSH (53.8)</strong> and <strong>GLM 5 / Qwen3.5 397B + DSH (39.2)</strong> — rank 3 of the seven price-stable DSH configurations compared. The one-line verdict from the report: <em>"中上能力、低成本、较高耗时"</em> — mid-to-upper capability, outstandingly low cost, noticeably longer runtime.</p>
+  <img src="/assets/blog-wechat/wx-dsh-60task-bench-0.png" alt="Agent-task benchmark comparison table: score, cost and time per task across harness configurations" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <p>Reference lanes exist only to show the ceiling: GPT-5.6 Sol and Claude Fable 5 (via OpenClaw) cost roughly <strong>9.5× and 14.6× more per task</strong> respectively, so they are deliberately not treated as same-price comparisons.</p>
+
+  <h2>Same model, different harness: DSH halves the bill</h2>
+  <p>The sharpest finding comes from holding the model constant. Compared with <strong>OpenClaw on the same V4 Pro</strong>, DeepSeek Harness delivered a small score gain while <strong>cutting cost by ~50%</strong>, at the price of ~4.2% extra time. Scaled to the full 60-task suite: total model-calling cost lands around <strong>US$6 versus ~US$12</strong>, sequential runtime ~630 minutes versus ~605. The efficiency ratio — points per dollar — roughly <strong>doubles from ~218 to ~450</strong> (+106%).</p>
+  <img src="/assets/blog-wechat/wx-dsh-60task-bench-3.png" alt="Per-model score comparison between DeepSeek Harness and OpenClaw configurations" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <h2>Model dependence: the harness isn't a free upgrade for everyone</h2>
+  <p>Cross-model adaptation is uneven, and that's the honest part of this report:</p>
+  <ul>
+    <li><strong>GPT-5.4 + DSH</strong> — the standout: 53.8 score (rank 2, below Codex), <strong>lowest cost at $0.30/task (−9.1%)</strong>, and the fastest average at 3.98 min/task.</li>
+    <li><strong>Qwen3.5 397B + DSH</strong> — all three metrics improved versus OpenClaw: rare and genuine synergy.</li>
+    <li><strong>DeepSeek V4 Pro + DSH</strong> — small score gain, big cost cut, slower runtime; best fit for cost-sensitive, batch-friendly work.</li>
+    <li><strong>Grok 4.20 Beta + DSH</strong> — the biggest score jump, but at nearly double the time and higher cost.</li>
+    <li><strong>GLM 5 and MiniMax M2.7 + DSH</strong> — no clear advantage over OpenClaw yet; GLM 5 hits 10.60 min/task, the slowest.</li>
+  </ul>
+  <p>Latency, tool-calling strategy, failure retries, context compression and task-termination judgment all feed Time — and none of them transfer cleanly across models yet.</p>
+
+  <h2>What an installer should take away</h2>
+  <ul>
+    <li><strong>Cost-sensitive pipeline?</strong> V4 Pro + DSH is currently the most efficient price/performance combination measured. Batch or asynchronous workloads fit its ~10.5 min average task time.</li>
+    <li><strong>Interactive or latency-bound?</strong> Don't anchor on V4 Pro alone — the benchmark shows GPT-5.4 + DSH around 3.98 min with lower cost. Harness choice matters as much as model choice.</li>
+    <li><strong>Expect variance:</strong> the same harness amplifies some models and does nothing for others. "Everything is a plugin" also means the task planner, prompt template and tool protocol still need per-model tuning.</li>
+  </ul>
+  <p>The report's own roadmap: shorten tool-call chains, cut ineffective loops, improve context compression and task-termination policies. For a developer-preview runtime already in week two, a measured 45.0 with sub-$0.1-per-task economics is a respectable baseline — and the points-per-dollar curve is the metric to re-run after each release.</p>
+</BlogPost>

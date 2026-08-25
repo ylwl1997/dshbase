@@ -1,0 +1,57 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="Installing DeepSeek Harness on Windows, and reproducing the V4 Pro benchmark setup | dshbase" description="A complete Windows walkthrough: Node requirements, the npm install that actually works, first workspace, the four presets, and how to reproduce — or verify — the V4 Pro benchmark controversy with a Minimal-mode control experiment." currentPath="/blog/wx-dsh-windows-setup/" category="Guide">
+  <h1>Installing DSH on Windows, <span class="accent">and reproducing the V4 Pro benchmark setup</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 25, 2026 · dshbase · installer guide</p>
+
+  <p>This guide answers two questions: <strong>how do you actually install DeepSeek Harness on Windows,</strong> and <strong>how do you reproduce — or verify — the "best mode" everyone is benchmarking?</strong> Everything below follows a real Windows machine walkthrough.</p>
+
+  <h2>What (and how much) you're installing</h2>
+  <p>DeepSeek Harness (command: <code>dsh</code>) is a developer-preview agent runtime, not a model and not a chat wrapper. Its bet: <strong>everything is a plugin</strong> — model adapters, file tools, skills, sessions, storage, permissions, sandbox, the task loop, scheduling, even the web UI. The core runs on <em>Cordis</em>, and four built-in presets give you four very different working personalities.</p>
+
+  <h2>Option 1: let an existing agent install it</h2>
+  <p>If you already run Codex, Claude Code or similar, hand it this prompt:</p>
+  <blockquote>Install DeepSeek Harness from the official npm package (@deepseek-ai/dsh). Check the Node.js and npm environment first and use only the official package. Install the current version, start the web UI, and confirm http://127.0.0.1:3080 is reachable. Then report the installed version, the start command and verification result. Do not read, echo or save my API key.</blockquote>
+
+  <h2>Option 2: manual install</h2>
+  <ol>
+    <li><strong>Node.js</strong> — <code>node --version</code> must satisfy <code>^22.19.0 || &gt;=24.0.0</code> (the tested machine used v24.13.0). Download from nodejs.org if missing; keep "Add to PATH" checked, then open a <em>new</em> terminal.</li>
+    <li><strong>Global install</strong> — many tutorials suggest <code>npx @deepseek-ai/dsh web</code>, but on this machine that refused to install. The reliable path was <code>npm install -g @deepseek-ai/dsh</code>. Then verify separately: <code>dsh --version</code>. Separating "install failed" from "start failed" saves a lot of confusion.</li>
+    <li><strong>Start the web UI</strong> — in a fresh folder (say <code>dsh-first-agent</code>), run <code>dsh --profile web</code>. You'll see <code>dsh web: http://127.0.0.1:3080</code>. Open it in a browser. <strong>Keep that terminal open</strong> — the web page is just the interface; the service lives in the terminal. Port taken? <code>dsh web --port 8080</code>, or <code>--port 0</code> to auto-pick.</li>
+    <li><strong>Model + API key</strong> — first launch prompts for an API key (DeepSeek open platform), or configure it under Settings → models: add provider, paste key, pick model, save.</li>
+  </ol>
+
+  <h2>First steps that actually matter</h2>
+  <img src="/assets/blog-wechat/wx-dsh-windows-setup-2.png" alt="DeepSeek Harness web UI: new session, workspace tree and model area" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <ul>
+    <li><strong>The workspace is a file boundary, not a chat category.</strong> Add and select a workspace (e.g. <code>D:\dsh-first-agent</code>). If the input box is greyed out, check the workspace first.</li>
+    <li><strong>Left panel:</strong> workspace file tree + session list. <strong>Middle:</strong> chat, task process, input box — where you pick model, preset and permission.</li>
+    <li><strong>Sessions</strong> keep context and operation history: rename, search, resume, archive (archive ≠ delete), and Fork for comparing two approaches. Long thread? <code>/compact</code>.</li>
+  </ul>
+
+  <h2>The four presets — and what plan mode is not</h2>
+  <img src="/assets/blog-wechat/wx-dsh-windows-setup-3.jpg" alt="The four DSH modes: Standard, PTC, Minimal and Create with their tool environments" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <table style="width:100%;border-collapse:collapse;font-size:13.5px;margin:12px 0">
+    <tr><td style="border:1px solid var(--border);padding:6px 8px"><strong>Standard</strong></td><td style="border:1px solid var(--border);padding:6px 8px">Full coding agent: file edit, shell, file/web search, skills, plan, goals, subagents, workflows</td><td style="border:1px solid var(--border);padding:6px 8px">Default for daily work — pick it first</td></tr>
+    <tr><td style="border:1px solid var(--border);padding:6px 8px"><strong>PTC</strong></td><td style="border:1px solid var(--border);padding:6px 8px">Everything in Standard, plus the model can orchestrate multi-step tool calls as TypeScript via the Code Mode SDK</td><td style="border:1px solid var(--border);padding:6px 8px">Tool-call-dense, repetitive flows</td></tr>
+    <tr><td style="border:1px solid var(--border);padding:6px 8px"><strong>Minimal</strong></td><td style="border:1px solid var(--border);padding:6px 8px">Only persistent Bash + str_replace_editor</td><td style="border:1px solid var(--border);padding:6px 8px">Benchmarks, teaching, model observation</td></tr>
+    <tr><td style="border:1px solid var(--border);padding:6px 8px"><strong>Create</strong></td><td style="border:1px solid var(--border);padding:6px 8px">Standard + runtime inspection, plugin experiments, preset authoring</td><td style="border:1px solid var(--border);padding:6px 8px">Extension dev — high trust level, keep it away from important workspaces</td></tr>
+  </table>
+  <p><strong>Plan mode is not a fifth preset.</strong> Presets decide what tools a session has; <code>/plan</code> decides whether the agent investigates and proposes before executing. For your first real project: <em>Standard + Read Only + plan mode</em>. And about permissions: Read Only / Workspace Write / Full Access — Full Access isn't a "pro tier," it's the highest-risk option. Workspace Write bounds writes, but the agent can still read beyond it; check what it wants to read and whether it asks to escalate.</p>
+
+  <h2>The V4 Pro benchmark controversy, decoded</h2>
+  <p>DeepSeek's published numbers are strong — V4 Pro at <strong>DeepSWE 62.7</strong> and <strong>CyberGym 83.3</strong>. Third-party boards and user reports show more variance: early-exit reasoning, missed steps in long tasks, run-to-run wobble. Both can be true at once, because a coding-agent score is not the model alone: system prompt, tool list, context management, terminal environment and acceptance checks all change the result.</p>
+  <p>Minimal mode is a special evaluation environment: a one-line system prompt, exactly two tools, no injected runtime context. Community tests have shown the same model/task going from roughly <strong>91–93 (Standard/PTC) to 96–99 (Minimal)</strong> with similar reasoning settings. The task sets aren't public, so this doesn't prove Minimal is generally stronger — it proves <strong>V4 Pro's agent capability is sensitive to first-turn prompt and tool architecture</strong>. That's a more accurate framing than "it's only smart in Minimal mode."</p>
+
+  <h2>Reproducing the benchmark setup, honestly</h2>
+  <ol>
+    <li><strong>Pick a verifiable task</strong> — a known bug, a function to implement, or "make the tests pass," with explicit: project path, allowed/forbidden files, test command, pass criteria, logs to keep. No "optimize my project."</li>
+    <li><strong>Fresh Minimal session</strong> — V4 Pro / Minimal / thinking Max / minimal permissions, no extra skills or project lore loaded. Windows note: Minimal exposes persistent <strong>Bash</strong>, not PowerShell — a broken Bash is an environment problem, don't score it as model failure.</li>
+    <li><strong>Build a control group</strong> — same code state, same task: A) Standard+High, B) Standard+Max, C) Minimal+Max. Run each at least 3 times on identical initial files; don't let the next run inherit edits from the previous.</li>
+    <li><strong>Record real metrics</strong> — auto-test pass rate, plan-completion rate, premature "done" claims, wall time, input/output tokens, tool-call steps, rework count. A reproduction report should state DSH version, model, preset, thinking level, OS, task version, repeat count and results — one screenshot proves nothing.</li>
+  </ol>
+
+  <h2>The fine print</h2>
+  <p>Minimal has no file/web retrieval, no skills, no planning and no context compression. In one community project test it was ~10 minutes faster but burned more input tokens (≈5.2M → 5.9M); in another long task, V4 Pro still marked unfinished items as done even with Max planning + High execution. For real projects the steady combo remains: <strong>V4 Pro + Standard + High</strong> — use Max + plan mode to shape the approach, High to execute, then a separate round for testing and independent review.</p>
+</BlogPost>
