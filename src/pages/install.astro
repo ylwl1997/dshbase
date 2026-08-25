@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import AdBanner from '../components/AdBanner.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const tutorialUrl = getRelativeLocaleUrl('en', '/tutorial/');
 const pluginsUrl = getRelativeLocaleUrl('en', '/plugins/');
@@ -83,5 +84,6 @@ dsh web</code></pre>
       <li>Add your DeepSeek API key under <strong>Settings → Models</strong>.</li>
       <li>Build your own plugins with the <a href={pluginsUrl}>plugin guide</a>, or browse the full <a href="/plugins/directory/">tested plugin directory</a>.</li>
     </ol>
+    <AdBanner />
   </section>
 </Base>

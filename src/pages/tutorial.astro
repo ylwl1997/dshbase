@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import AdBanner from '../components/AdBanner.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const installUrl = getRelativeLocaleUrl('en', '/install/');
 const pluginsUrl = getRelativeLocaleUrl('en', '/plugins/');
@@ -84,5 +85,6 @@ python examples/jsonrpc-agent/minimal.py \
     <p>The minimal example gives the model just two tools (bash + file editor) — Bash timeout 300s, edit limit 16,000 chars.</p>
 
     <p style="margin-top:20px"><a class="btn btn-ghost" href={pluginsUrl}>Build a plugin &rarr;</a> <a class="btn btn-ghost" href="/plugins/directory/">Browse the plugin directory &rarr;</a></p>
+    <AdBanner />
   </section>
 </Base>

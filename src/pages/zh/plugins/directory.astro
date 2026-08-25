@@ -5,6 +5,9 @@ import PluginCard from '../../../components/PluginCard.astro';
 import plugins from '../../../data/plugins.json';
 import syncDate from '../../../data/sync-date.json';
 const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
+const installUrl = getRelativeLocaleUrl('zh', '/install/');
+const tutorialUrl = getRelativeLocaleUrl('zh', '/tutorial/');
+const troubleshootingUrl = getRelativeLocaleUrl('zh', '/troubleshooting/');
 const catLabels = {
   'Developer': '开发',
   'AI Models': 'AI 模型',
@@ -84,6 +87,11 @@ const COLORS = ['#4D6BFE', '#7c8cf8', '#8b5cf6', '#a78bfa', '#6366f1', '#93c5fd'
     <h1>DeepSeek Harness <span class="accent">插件生态</span></h1>
     <p class="lede">{total.toLocaleString('en-US')} 个插件、{catOrder.length} 大类。每张卡片标注作者<strong>头像</strong>、<strong>信任等级</strong>、<strong>协议</strong>、<strong>更新时间</strong>和安装命令，不用点进仓库再确认。按 <kbd class="kbd">⌘K</kbd> 全文搜索，点 <kbd class="kbd">☆</kbd> 收藏。</p>
     <p style="margin-top:14px"><a class="btn btn-primary" href="https://github.com/ylwl1997/dshbase/issues/new?template=plugin-submission.yml" target="_blank" rel="noopener">提交你的插件 &rarr;</a> <a class="btn btn-ghost" href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">官方社区 &rarr;</a></p>
+    <nav class="quick-links" aria-label="快速开始" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;font-size:.95rem">
+      <a href={installUrl} style="padding:6px 12px;border:1px solid var(--border);border-radius:8px;text-decoration:none;color:var(--accent)">安装 DSH &rarr;</a>
+      <a href={tutorialUrl} style="padding:6px 12px;border:1px solid var(--border);border-radius:8px;text-decoration:none;color:var(--accent)">阅读教程 &rarr;</a>
+      <a href={troubleshootingUrl} style="padding:6px 12px;border:1px solid var(--border);border-radius:8px;text-decoration:none;color:var(--accent)">解决常见报错 &rarr;</a>
+    </nav>
     <div class="agent-box">
       <div class="agent-slides">
         {carousel.map((p) => (

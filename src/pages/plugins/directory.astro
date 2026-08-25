@@ -2,6 +2,7 @@
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import Base from '../../layouts/Base.astro';
 import PluginCard from '../../components/PluginCard.astro';
+import AdBanner from '../../components/AdBanner.astro';
 import plugins from '../../data/plugins.json';
 import syncDate from '../../data/sync-date.json';
 const auditUrl = getRelativeLocaleUrl('en', '/audit/');
@@ -210,6 +211,7 @@ const COLORS = ['#4D6BFE', '#7c8cf8', '#8b5cf6', '#a78bfa', '#6366f1', '#93c5fd'
       <p><a href="/plugins/" class="btn btn-ghost btn-sm">查看完整教程 &rarr;</a></p>
     </div>
   </div>
+    <AdBanner />
 </Base>
 
 <style>
