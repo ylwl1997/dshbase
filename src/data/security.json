@@ -8,7 +8,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:07:01+00:00"
+  "scannedAt": "2026-08-26T06:03:36+00:00"
  },
  "modlens": {
   "risk": "high",
@@ -23,25 +23,25 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:07:04+00:00"
+  "scannedAt": "2026-08-26T06:03:39+00:00"
  },
  "dsh-web-ui": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:06:50+00:00"
+  "scannedAt": "2026-08-26T06:03:27+00:00"
  },
  "DSH-better-sidebar": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:07:18+00:00"
+  "scannedAt": "2026-08-26T06:03:51+00:00"
  },
  "awesome-dsh-plugins": {
   "risk": "low",
   "findings": [],
   "files": 24,
-  "scannedAt": "2026-08-24T06:07:40+00:00"
+  "scannedAt": "2026-08-26T06:04:11+00:00"
  },
  "OpenViking": {
   "risk": "high",
@@ -56,25 +56,25 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:06:32+00:00"
+  "scannedAt": "2026-08-26T06:03:10+00:00"
  },
  "colleague-skill": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:06:36+00:00"
+  "scannedAt": "2026-08-26T06:03:14+00:00"
  },
  "voyager": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:06:41+00:00"
+  "scannedAt": "2026-08-26T06:03:17+00:00"
  },
  "deepseek-harness-desktop": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:11:23+00:00"
+  "scannedAt": "2026-08-26T06:07:50+00:00"
  },
  "iPolloWork": {
   "risk": "medium",
@@ -85,7 +85,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:06:54+00:00"
+  "scannedAt": "2026-08-26T06:03:30+00:00"
  },
  "petdex": {
   "risk": "high",
@@ -96,7 +96,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:06:57+00:00"
+  "scannedAt": "2026-08-26T06:03:33+00:00"
  },
  "EchoBird": {
   "risk": "high",
@@ -107,13 +107,13 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:07:09+00:00"
+  "scannedAt": "2026-08-26T06:03:43+00:00"
  },
  "Vibe-Skills": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:07:14+00:00"
+  "scannedAt": "2026-08-26T06:03:47+00:00"
  },
  "dsh-TUI": {
   "risk": "high",
@@ -128,7 +128,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:07:22+00:00"
+  "scannedAt": "2026-08-26T06:03:54+00:00"
  },
  "dsh-cc-tui": {
   "risk": "high",
@@ -143,7 +143,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:07:33+00:00"
+  "scannedAt": "2026-08-26T06:04:05+00:00"
  },
  "brooks-lint": {
   "risk": "high",
@@ -154,13 +154,13 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:07:36+00:00"
+  "scannedAt": "2026-08-26T06:04:08+00:00"
  },
  "dsh-deep-whale": {
   "risk": "low",
   "findings": [],
   "files": 21,
-  "scannedAt": "2026-08-24T06:07:29+00:00"
+  "scannedAt": "2026-08-26T06:04:01+00:00"
  },
  "deeptide": {
   "risk": "high",
@@ -171,7 +171,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:07:50+00:00"
+  "scannedAt": "2026-08-26T06:04:21+00:00"
  },
  "Aegis": {
   "risk": "high",
@@ -186,25 +186,25 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:07:43+00:00"
+  "scannedAt": "2026-08-26T06:04:14+00:00"
  },
  "agent-vision-toolkit": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:07:47+00:00"
+  "scannedAt": "2026-08-26T06:04:17+00:00"
  },
  "wesight": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:08:11+00:00"
+  "scannedAt": "2026-08-26T06:04:38+00:00"
  },
  "agent-qa": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:07:59+00:00"
+  "scannedAt": "2026-08-26T06:04:41+00:00"
  },
  "dsh-market": {
   "risk": "high",
@@ -219,7 +219,7 @@
    }
   ],
   "files": 22,
-  "scannedAt": "2026-08-24T06:07:26+00:00"
+  "scannedAt": "2026-08-26T06:03:57+00:00"
  },
  "awesome-deepseek-harness": {
   "risk": "high",
@@ -230,46 +230,42 @@
    }
   ],
   "files": 6,
-  "scannedAt": "2026-08-24T06:08:12+00:00"
+  "scannedAt": "2026-08-26T06:04:34+00:00"
  },
  "sandbase-harness": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:08:34+00:00"
+  "scannedAt": "2026-08-26T06:05:04+00:00"
  },
  "MuseAI": {
   "risk": "low",
   "findings": [],
   "files": 24,
-  "scannedAt": "2026-08-24T06:08:41+00:00"
+  "scannedAt": "2026-08-26T06:05:07+00:00"
  },
  "dsh-vision-toolkit": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:08:19+00:00"
+  "scannedAt": "2026-08-26T06:04:50+00:00"
  },
  "graph-memory": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:08:49+00:00"
+  "scannedAt": "2026-08-26T06:05:18+00:00"
  },
  "Deepseek-Harness-EAC": {
-  "risk": "high",
+  "risk": "medium",
   "findings": [
    {
     "cat": "permissions",
     "sev": "medium"
-   },
-   {
-    "cat": "dangerous-cmd",
-    "sev": "high"
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:09:04+00:00"
+  "scannedAt": "2026-08-26T06:05:34+00:00"
  },
  "dsh-vision-router": {
   "risk": "medium",
@@ -280,19 +276,19 @@
    }
   ],
   "files": 24,
-  "scannedAt": "2026-08-24T06:08:03+00:00"
+  "scannedAt": "2026-08-26T06:04:32+00:00"
  },
  "dsh-ads": {
   "risk": "low",
   "findings": [],
   "files": 23,
-  "scannedAt": "2026-08-24T06:08:53+00:00"
+  "scannedAt": "2026-08-26T06:05:21+00:00"
  },
  "mnemon": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:09:00+00:00"
+  "scannedAt": "2026-08-26T06:05:30+00:00"
  },
  "dsh-agent-teams": {
   "risk": "high",
@@ -303,25 +299,25 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:08:06+00:00"
+  "scannedAt": "2026-08-26T06:04:28+00:00"
  },
  "treg": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:08:45+00:00"
+  "scannedAt": "2026-08-26T06:05:11+00:00"
  },
  "superdesign-skill": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:09:16+00:00"
+  "scannedAt": "2026-08-26T06:05:52+00:00"
  },
  "MisakaNet": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:09:30+00:00"
+  "scannedAt": "2026-08-26T06:05:58+00:00"
  },
  "dsh-handbook": {
   "risk": "medium",
@@ -332,7 +328,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:08:30+00:00"
+  "scannedAt": "2026-08-26T06:04:58+00:00"
  },
  "dsh_desktop": {
   "risk": "high",
@@ -343,19 +339,19 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:09:48+00:00"
+  "scannedAt": "2026-08-26T06:06:15+00:00"
  },
  "harmony-next.skills": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:10:00+00:00"
+  "scannedAt": "2026-08-26T06:06:23+00:00"
  },
  "dsh-at-file": {
   "risk": "low",
   "findings": [],
   "files": 23,
-  "scannedAt": "2026-08-24T06:09:19+00:00"
+  "scannedAt": "2026-08-26T06:05:55+00:00"
  },
  "deepseek-harness-desktop-app": {
   "risk": "medium",
@@ -366,13 +362,13 @@
    }
   ],
   "files": 24,
-  "scannedAt": "2026-08-24T06:08:38+00:00"
+  "scannedAt": "2026-08-26T06:05:14+00:00"
  },
  "oh-dsh": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:10:29+00:00"
+  "scannedAt": "2026-08-26T06:06:42+00:00"
  },
  "tencentmeeting-cli": {
   "risk": "high",
@@ -383,7 +379,7 @@
    }
   ],
   "files": 17,
-  "scannedAt": "2026-08-24T06:10:58+00:00"
+  "scannedAt": "2026-08-26T06:07:29+00:00"
  },
  "dsh-browser": {
   "risk": "high",
@@ -394,13 +390,13 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:09:34+00:00"
+  "scannedAt": "2026-08-26T06:05:45+00:00"
  },
  "whale-girl": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:10:17+00:00"
+  "scannedAt": "2026-08-26T06:06:39+00:00"
  },
  "dsh-tianshu-tui": {
   "risk": "high",
@@ -411,49 +407,54 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:10:52+00:00"
+  "scannedAt": "2026-08-26T06:07:22+00:00"
  },
  "awesome-dsh-plugin": {
-  "risk": "low",
-  "findings": [],
-  "files": 21,
-  "scannedAt": "2026-08-24T06:10:25+00:00"
+  "risk": "high",
+  "findings": [
+   {
+    "cat": "dangerous-cmd",
+    "sev": "high"
+   }
+  ],
+  "files": 19,
+  "scannedAt": "2026-08-26T06:06:49+00:00"
  },
  "deepseek-harness-studio": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:09:07+00:00"
+  "scannedAt": "2026-08-26T06:05:27+00:00"
  },
  "DSH-Transparent-UI-Plugin": {
   "risk": "low",
   "findings": [],
   "files": 24,
-  "scannedAt": "2026-08-24T06:09:44+00:00"
+  "scannedAt": "2026-08-26T06:06:04+00:00"
  },
  "oh-dsh-desktop": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:11:45+00:00"
+  "scannedAt": "2026-08-26T06:08:15+00:00"
  },
  "dsh-visualize": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:11:09+00:00"
+  "scannedAt": "2026-08-26T06:07:39+00:00"
  },
  "engramory": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:11:34+00:00"
+  "scannedAt": "2026-08-26T06:08:07+00:00"
  },
  "dsh-genui": {
   "risk": "low",
   "findings": [],
   "files": 22,
-  "scannedAt": "2026-08-24T06:10:09+00:00"
+  "scannedAt": "2026-08-26T06:06:26+00:00"
  },
  "notes": {
   "risk": "high",
@@ -464,7 +465,7 @@
    }
   ],
   "files": 24,
-  "scannedAt": "2026-08-24T06:12:05+00:00"
+  "scannedAt": "2026-08-26T06:08:37+00:00"
  },
  "anime-find": {
   "risk": "high",
@@ -475,25 +476,25 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:11:58+00:00"
+  "scannedAt": "2026-08-26T06:08:23+00:00"
  },
  "dsh-find-plugins": {
   "risk": "low",
   "findings": [],
   "files": 5,
-  "scannedAt": "2026-08-24T06:11:38+00:00"
+  "scannedAt": "2026-08-26T06:08:12+00:00"
  },
  "dsh-memory-evolve": {
   "risk": "low",
   "findings": [],
   "files": 22,
-  "scannedAt": "2026-08-24T06:10:48+00:00"
+  "scannedAt": "2026-08-26T06:07:18+00:00"
  },
  "dsh-launcher": {
   "risk": "low",
   "findings": [],
   "files": 24,
-  "scannedAt": "2026-08-24T06:11:27+00:00"
+  "scannedAt": "2026-08-26T06:08:04+00:00"
  },
  "A-share-Ai": {
   "risk": "low",
@@ -520,7 +521,7 @@
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:11:05+00:00"
+  "scannedAt": "2026-08-26T06:07:32+00:00"
  },
  "dsh-context": {
   "risk": "medium",
@@ -531,7 +532,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:07:56+00:00"
+  "scannedAt": "2026-08-26T06:04:24+00:00"
  },
  "modsearch": {
   "risk": "high",
@@ -546,7 +547,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:10:45+00:00"
+  "scannedAt": "2026-08-26T06:06:45+00:00"
  },
  "dsh-openpencil": {
   "risk": "high",
@@ -577,8 +578,8 @@
  "Awesome-DeepSeek-Harness-Plugins": {
   "risk": "low",
   "findings": [],
-  "files": 1,
-  "scannedAt": "2026-08-24T06:10:14+00:00"
+  "files": 0,
+  "scannedAt": "2026-08-26T06:06:31+00:00"
  },
  "humanizer-ru": {
   "risk": "low",
@@ -606,7 +607,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:12:14+00:00"
+  "scannedAt": "2026-08-26T06:08:27+00:00"
  },
  "argo": {
   "risk": "high",
@@ -670,7 +671,7 @@
   "risk": "low",
   "findings": [],
   "files": 2,
-  "scannedAt": "2026-08-24T06:07:51+00:00"
+  "scannedAt": "2026-08-26T06:04:25+00:00"
  },
  "gal-view": {
   "risk": "low",
@@ -693,13 +694,13 @@
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:10:55+00:00"
+  "scannedAt": "2026-08-26T06:06:55+00:00"
  },
  "dsh-dafeiyu": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:10:42+00:00"
+  "scannedAt": "2026-08-26T06:07:06+00:00"
  },
  "sealos-skills": {
   "risk": "low",
@@ -711,7 +712,7 @@
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:09:40+00:00"
+  "scannedAt": "2026-08-26T06:05:37+00:00"
  },
  "dsh-annotation": {
   "risk": "low",
@@ -720,10 +721,15 @@
   "scannedAt": "2026-08-19T06:06:55+00:00"
  },
  "dsh-pet": {
-  "risk": "low",
-  "findings": [],
+  "risk": "medium",
+  "findings": [
+   {
+    "cat": "permissions",
+    "sev": "medium"
+   }
+  ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:09:37+00:00"
+  "scannedAt": "2026-08-26T06:06:01+00:00"
  },
  "awesome-DSH-plugin": {
   "risk": "low",
@@ -795,7 +801,7 @@
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:11:15+00:00"
+  "scannedAt": "2026-08-26T06:07:35+00:00"
  },
  "dsh_workflow": {
   "risk": "low",
@@ -807,7 +813,7 @@
   "risk": "low",
   "findings": [],
   "files": 14,
-  "scannedAt": "2026-08-24T06:11:11+00:00"
+  "scannedAt": "2026-08-26T06:07:24+00:00"
  },
  "dsh-undo-plugin": {
   "risk": "medium",
@@ -824,7 +830,7 @@
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:11:36+00:00"
+  "scannedAt": "2026-08-26T06:07:46+00:00"
  },
  "dsh-vision": {
   "risk": "low",
@@ -857,18 +863,13 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:08:57+00:00"
+  "scannedAt": "2026-08-26T06:05:01+00:00"
  },
  "Minke": {
-  "risk": "high",
-  "findings": [
-   {
-    "cat": "dangerous-cmd",
-    "sev": "high"
-   }
-  ],
+  "risk": "low",
+  "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:09:27+00:00"
+  "scannedAt": "2026-08-26T06:05:24+00:00"
  },
  "dsh-reasoning-effort": {
   "risk": "low",
@@ -880,19 +881,19 @@
   "risk": "low",
   "findings": [],
   "files": 24,
-  "scannedAt": "2026-08-24T06:11:30+00:00"
+  "scannedAt": "2026-08-26T06:08:01+00:00"
  },
  "dsh-plugin-subscriptions": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:10:33+00:00"
+  "scannedAt": "2026-08-26T06:06:52+00:00"
  },
  "TokenLedger": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:12:19+00:00"
+  "scannedAt": "2026-08-26T06:08:30+00:00"
  },
  "dsh-agent-team-gui": {
   "risk": "low",
@@ -904,19 +905,19 @@
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:08:22+00:00"
+  "scannedAt": "2026-08-26T06:04:54+00:00"
  },
  "memtrace-public": {
   "risk": "low",
   "findings": [],
   "files": 23,
-  "scannedAt": "2026-08-24T06:09:12+00:00"
+  "scannedAt": "2026-08-26T06:05:41+00:00"
  },
  "AI-Novel-Writer": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:09:24+00:00"
+  "scannedAt": "2026-08-26T06:05:49+00:00"
  },
  "Abu-Cowork": {
   "risk": "high",
@@ -927,13 +928,13 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:09:57+00:00"
+  "scannedAt": "2026-08-26T06:06:20+00:00"
  },
  "flowix": {
   "risk": "low",
   "findings": [],
   "files": 24,
-  "scannedAt": "2026-08-24T06:09:52+00:00"
+  "scannedAt": "2026-08-26T06:06:08+00:00"
  },
  "claude-paper": {
   "risk": "medium",
@@ -944,7 +945,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:10:05+00:00"
+  "scannedAt": "2026-08-26T06:06:30+00:00"
  },
  "easyeda-agent": {
   "risk": "high",
@@ -955,19 +956,19 @@
    }
   ],
   "files": 23,
-  "scannedAt": "2026-08-24T06:10:13+00:00"
+  "scannedAt": "2026-08-26T06:06:36+00:00"
  },
  "pilot-harness": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:10:37+00:00"
+  "scannedAt": "2026-08-26T06:07:02+00:00"
  },
  "dsh-im": {
   "risk": "low",
   "findings": [],
   "files": 21,
-  "scannedAt": "2026-08-24T06:08:27+00:00"
+  "scannedAt": "2026-08-26T06:04:47+00:00"
  },
  "DeepSeek-Balance-Whale-Widget": {
   "risk": "medium",
@@ -978,7 +979,7 @@
    }
   ],
   "files": 6,
-  "scannedAt": "2026-08-24T06:08:24+00:00"
+  "scannedAt": "2026-08-26T06:04:29+00:00"
  },
  "open-sea-skin": {
   "risk": "high",
@@ -989,13 +990,13 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:11:19+00:00"
+  "scannedAt": "2026-08-26T06:07:54+00:00"
  },
  "dsh-pentest": {
   "risk": "low",
   "findings": [],
   "files": 22,
-  "scannedAt": "2026-08-24T06:11:01+00:00"
+  "scannedAt": "2026-08-26T06:06:59+00:00"
  },
  "pi2dsh": {
   "risk": "high",
@@ -1006,13 +1007,13 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-08-24T06:12:01+00:00"
+  "scannedAt": "2026-08-26T06:08:19+00:00"
  },
  "clarify-intent-and-establish-shared-understanding": {
   "risk": "low",
   "findings": [],
   "files": 3,
-  "scannedAt": "2026-08-24T06:11:20+00:00"
+  "scannedAt": "2026-08-26T06:07:47+00:00"
  },
  "dsh-wallpaper-engine": {
   "risk": "high",
@@ -1026,14 +1027,14 @@
     "sev": "high"
    }
   ],
-  "files": 22,
-  "scannedAt": "2026-08-24T06:11:41+00:00"
+  "files": 24,
+  "scannedAt": "2026-08-26T06:07:57+00:00"
  },
  "dshcode": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:10:21+00:00"
+  "scannedAt": "2026-08-26T06:06:12+00:00"
  },
  "dsh-data-agent": {
   "risk": "high",
@@ -1044,12 +1045,36 @@
    }
   ],
   "files": 24,
-  "scannedAt": "2026-08-24T06:11:50+00:00"
+  "scannedAt": "2026-08-26T06:08:11+00:00"
  },
  "dsh-image-gen": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-08-24T06:11:54+00:00"
+  "scannedAt": "2026-08-26T06:07:43+00:00"
+ },
+ "Perfect-Web-Clone": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-26T06:07:11+00:00"
+ },
+ "dsh-ios": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-26T06:07:15+00:00"
+ },
+ "dsh-synapse": {
+  "risk": "low",
+  "findings": [],
+  "files": 19,
+  "scannedAt": "2026-08-26T06:07:26+00:00"
+ },
+ "cocode": {
+  "risk": "low",
+  "findings": [],
+  "files": 25,
+  "scannedAt": "2026-08-26T06:08:33+00:00"
  }
 }
