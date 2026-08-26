@@ -45829,7 +45829,9 @@
    "platform": "any",
    "desc": "Single-package durable task board plugin for DeepSeek Harness",
    "desc_en": "Single-package durable task board plugin for DeepSeek Harness",
-   "desc_zh": "Single-package durable task board plugin for DeepSeek Harness"
+   "desc_zh": "Single-package durable task board plugin for DeepSeek Harness",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-hero-custom",
@@ -45840,7 +45842,10 @@
    "forks": 0,
    "updated": "2026-08-18",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-quick-launch",
@@ -45854,7 +45859,10 @@
    "platform": "any",
    "desc": "DSH 桌面快捷方式插件：一键创建/更新/删除 DeepSeek Harness 桌面快捷方式，图标可自定义上传切换（蓝白金鲸鱼悬浮按钮，可拖动）",
    "desc_zh": "DSH 桌面快捷方式插件：一键创建/更新/删除 DeepSeek Harness 桌面快捷方式，图标可自定义上传切换（蓝白金鲸鱼悬浮按钮，可拖动）",
-   "desc_en": "DSH 桌面快捷方式插件：一键创建/更新/删除 DeepSeek Harness 桌面快捷方式，图标可自定义上传切换（蓝白金鲸鱼悬浮按钮，可拖动）"
+   "desc_en": "DSH 桌面快捷方式插件：一键创建/更新/删除 DeepSeek Harness 桌面快捷方式，图标可自定义上传切换（蓝白金鲸鱼悬浮按钮，可拖动）",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-zhipu-coding-plan",
@@ -45868,7 +45876,10 @@
    "platform": "any",
    "desc": "GLM Coding Plan quota & usage as a conversation view tab (额度) for DeepSeek Harness web — 5h/weekly token windows, monthly MCP tool quota, model & tool usage",
    "desc_zh": "GLM Coding Plan quota & usage as a conversation view tab (额度) for DeepSeek Harness web — 5h/weekly token windows, monthly MCP tool quota, model & tool usage",
-   "desc_en": "GLM Coding Plan quota & usage as a conversation view tab (额度) for DeepSeek Harness web — 5h/weekly token windows, monthly MCP tool quota, model & tool usage"
+   "desc_en": "GLM Coding Plan quota & usage as a conversation view tab (额度) for DeepSeek Harness web — 5h/weekly token windows, monthly MCP tool quota, model & tool usage",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-hover-approve",
@@ -45882,7 +45893,9 @@
    "platform": "any",
    "desc": "DSH Web 侧边栏锚定气泡：等待授权/提问/计划确认/目标阻断的会话，在左侧会话行旁一键处理，无需点进会话",
    "desc_zh": "DSH Web 侧边栏锚定气泡：等待授权/提问/计划确认/目标阻断的会话，在左侧会话行旁一键处理，无需点进会话",
-   "desc_en": "DSH Web 侧边栏锚定气泡：等待授权/提问/计划确认/目标阻断的会话，在左侧会话行旁一键处理，无需点进会话"
+   "desc_en": "DSH Web 侧边栏锚定气泡：等待授权/提问/计划确认/目标阻断的会话，在左侧会话行旁一键处理，无需点进会话",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "obsidian-workbench",
@@ -45896,7 +45909,9 @@
    "platform": "any",
    "desc": "Obsidian-style workbench plugin for DeepSeek Harness",
    "desc_en": "Obsidian-style workbench plugin for DeepSeek Harness",
-   "desc_zh": "Obsidian-style workbench plugin for DeepSeek Harness"
+   "desc_zh": "Obsidian-style workbench plugin for DeepSeek Harness",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "OctoOps",
@@ -45910,7 +45925,9 @@
    "platform": "any",
    "desc": "OctoOps: Unified SSH/Telnet & JumpServer Bastion Orchestrator for DeepSeek Harness (DSH)",
    "desc_en": "OctoOps: Unified SSH/Telnet & JumpServer Bastion Orchestrator for DeepSeek Harness (DSH)",
-   "desc_zh": "OctoOps: Unified SSH/Telnet & JumpServer Bastion Orchestrator for DeepSeek Harness (DSH)"
+   "desc_zh": "OctoOps: Unified SSH/Telnet & JumpServer Bastion Orchestrator for DeepSeek Harness (DSH)",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-yogacara",
@@ -45924,7 +45941,10 @@
    "platform": "any",
    "desc": "A Yogācāra (唯识) self-model plugin for DeepSeek Harness: eight consciousnesses, the 51 mental factors, a perfumed seed store, and a measurable self — written back into the agent's own prompt.",
    "desc_zh": "A Yogācāra (唯识) self-model plugin for DeepSeek Harness: eight consciousnesses, the 51 mental factors, a perfumed seed store, and a measurable self — written back into the agent's own prompt.",
-   "desc_en": "A Yogācāra (唯识) self-model plugin for DeepSeek Harness: eight consciousnesses, the 51 mental factors, a perfumed seed store, and a measurable self — written back into the agent's own prompt."
+   "desc_en": "A Yogācāra (唯识) self-model plugin for DeepSeek Harness: eight consciousnesses, the 51 mental factors, a perfumed seed store, and a measurable self — written back into the agent's own prompt.",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-smart-profile",
@@ -45938,7 +45958,9 @@
    "platform": "any",
    "desc": "Intelligent project detection and capability recommendations for DeepSeek Harness.  Visibility: Public",
    "desc_en": "Intelligent project detection and capability recommendations for DeepSeek Harness.  Visibility: Public",
-   "desc_zh": "Intelligent project detection and capability recommendations for DeepSeek Harness.  Visibility: Public"
+   "desc_zh": "Intelligent project detection and capability recommendations for DeepSeek Harness.  Visibility: Public",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-tunnel-qr-plugin",
@@ -45952,7 +45974,10 @@
    "platform": "any",
    "desc": "DSH 免费公网隧道插件：一次性安全密钥二维码自动登录，支持定时刷新与 macOS、Linux、Windows。",
    "desc_zh": "DSH 免费公网隧道插件：一次性安全密钥二维码自动登录，支持定时刷新与 macOS、Linux、Windows。",
-   "desc_en": "DSH 免费公网隧道插件：一次性安全密钥二维码自动登录，支持定时刷新与 macOS、Linux、Windows。"
+   "desc_en": "DSH 免费公网隧道插件：一次性安全密钥二维码自动登录，支持定时刷新与 macOS、Linux、Windows。",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-plugin-mission-control",
@@ -45963,7 +45988,9 @@
    "forks": 0,
    "updated": "2026-08-18",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-feishu-notify",
@@ -45977,7 +46004,9 @@
    "platform": "any",
    "desc": "为dsh新增飞书的卡片通知：会话结束/需要等待输入",
    "desc_zh": "为dsh新增飞书的卡片通知：会话结束/需要等待输入",
-   "desc_en": "为dsh新增飞书的卡片通知：会话结束/需要等待输入"
+   "desc_en": "为dsh新增飞书的卡片通知：会话结束/需要等待输入",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-mcp-server-manager",
@@ -45991,7 +46020,9 @@
    "platform": "any",
    "desc": "DeepSeek Harness 的 MCP 服务器可视化管理插件，支持配置、校验及一键导入 Claude Code 与 Codex 配置。",
    "desc_zh": "DeepSeek Harness 的 MCP 服务器可视化管理插件，支持配置、校验及一键导入 Claude Code 与 Codex 配置。",
-   "desc_en": "DeepSeek Harness 的 MCP 服务器可视化管理插件，支持配置、校验及一键导入 Claude Code 与 Codex 配置。"
+   "desc_en": "DeepSeek Harness 的 MCP 服务器可视化管理插件，支持配置、校验及一键导入 Claude Code 与 Codex 配置。",
+   "testDate": "2026-08-26",
+   "note": "验证: network-fail"
   },
   {
    "name": "dsh-side-monitor",
@@ -46005,7 +46036,9 @@
    "platform": "any",
    "desc": "DSH 系统监控侧边插件：概览/进程/Docker 只读监控",
    "desc_zh": "DSH 系统监控侧边插件：概览/进程/Docker 只读监控",
-   "desc_en": "DSH 系统监控侧边插件：概览/进程/Docker 只读监控"
+   "desc_en": "DSH 系统监控侧边插件：概览/进程/Docker 只读监控",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-plugin-surgery",
@@ -46016,7 +46049,9 @@
    "forks": 0,
    "updated": "2026-08-18",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-26",
+   "note": "验证: network-fail"
   },
   {
    "name": "deepseek-web-import",
@@ -46030,7 +46065,10 @@
    "platform": "any",
    "desc": "DeepSeek Web 对话导入",
    "desc_zh": "DeepSeek Web 对话导入",
-   "desc_en": "DeepSeek Web 对话导入"
+   "desc_en": "DeepSeek Web 对话导入",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-opencode-go-meter",
@@ -46041,7 +46079,10 @@
    "forks": 0,
    "updated": "2026-08-18",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-admin-gateway",
@@ -46055,7 +46096,9 @@
    "platform": "any",
    "desc": "dsh-admin-gateway DeepSeek Harness (dsh) 管理员验证网关插件。 只需一个绑定在 Cloudflare 的域名",
    "desc_zh": "dsh-admin-gateway DeepSeek Harness (dsh) 管理员验证网关插件。 只需一个绑定在 Cloudflare 的域名",
-   "desc_en": "dsh-admin-gateway DeepSeek Harness (dsh) 管理员验证网关插件。 只需一个绑定在 Cloudflare 的域名"
+   "desc_en": "dsh-admin-gateway DeepSeek Harness (dsh) 管理员验证网关插件。 只需一个绑定在 Cloudflare 的域名",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-sound-notify",
@@ -46069,7 +46112,10 @@
    "platform": "any",
    "desc": "用于DSH的对话框任务音效，以及个性化聊天背景||Dialog box sound effects for DSH, as well as personalized chat backgrounds.",
    "desc_zh": "用于DSH的对话框任务音效，以及个性化聊天背景||Dialog box sound effects for DSH, as well as personalized chat backgrounds.",
-   "desc_en": "用于DSH的对话框任务音效，以及个性化聊天背景||Dialog box sound effects for DSH, as well as personalized chat backgrounds."
+   "desc_en": "用于DSH的对话框任务音效，以及个性化聊天背景||Dialog box sound effects for DSH, as well as personalized chat backgrounds.",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-optimizer",
@@ -46083,7 +46129,9 @@
    "platform": "any",
    "desc": "DSH 优化插件：会话体检/归档/清理 + history 分页补丁（流式 chunk 不再拖慢会话切换）",
    "desc_zh": "DSH 优化插件：会话体检/归档/清理 + history 分页补丁（流式 chunk 不再拖慢会话切换）",
-   "desc_en": "DSH 优化插件：会话体检/归档/清理 + history 分页补丁（流式 chunk 不再拖慢会话切换）"
+   "desc_en": "DSH 优化插件：会话体检/归档/清理 + history 分页补丁（流式 chunk 不再拖慢会话切换）",
+   "testDate": "2026-08-26",
+   "note": "验证: install-fail"
   },
   {
    "name": "dsh-better-api",
@@ -46097,7 +46145,9 @@
    "platform": "any",
    "desc": "dsh-better-api：为自定义模型添加 [推理强度] 编辑能力",
    "desc_zh": "dsh-better-api：为自定义模型添加 [推理强度] 编辑能力",
-   "desc_en": "dsh-better-api：为自定义模型添加 [推理强度] 编辑能力"
+   "desc_en": "dsh-better-api：为自定义模型添加 [推理强度] 编辑能力",
+   "testDate": "2026-08-26",
+   "note": "验证: install-fail"
   },
   {
    "name": "dsh-session-cost-plus",
@@ -46108,7 +46158,10 @@
    "forks": 0,
    "updated": "2026-08-18",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-action-outbox",
@@ -46122,7 +46175,9 @@
    "platform": "any",
    "desc": "Batch Review Inbox for DeepSeek Harness — stage, inspect, edit, approve, and commit exact tool side effects safely.",
    "desc_en": "Batch Review Inbox for DeepSeek Harness — stage, inspect, edit, approve, and commit exact tool side effects safely.",
-   "desc_zh": "Batch Review Inbox for DeepSeek Harness — stage, inspect, edit, approve, and commit exact tool side effects safely."
+   "desc_zh": "Batch Review Inbox for DeepSeek Harness — stage, inspect, edit, approve, and commit exact tool side effects safely.",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-auto-fold-turn",
@@ -46133,7 +46188,9 @@
    "forks": 0,
    "updated": "2026-08-18",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "knotline",
@@ -46147,7 +46204,10 @@
    "platform": "any",
    "desc": "把 Agent 从对话框搬到一张图上——连线即执行 / Orchestrate AI agents by drawing lines",
    "desc_zh": "把 Agent 从对话框搬到一张图上——连线即执行 / Orchestrate AI agents by drawing lines",
-   "desc_en": "把 Agent 从对话框搬到一张图上——连线即执行 / Orchestrate AI agents by drawing lines"
+   "desc_en": "把 Agent 从对话框搬到一张图上——连线即执行 / Orchestrate AI agents by drawing lines",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-wolfram",
@@ -46161,7 +46221,9 @@
    "platform": "any",
    "desc": "Call Wolfram Mathematica from DeepSeek Harness",
    "desc_en": "Call Wolfram Mathematica from DeepSeek Harness",
-   "desc_zh": "Call Wolfram Mathematica from DeepSeek Harness"
+   "desc_zh": "Call Wolfram Mathematica from DeepSeek Harness",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-llm-finish-reason-tolerance",
@@ -46175,7 +46237,9 @@
    "platform": "any",
    "desc": "A DeepSeek Harness host plugin that makes the agent tolerate OpenAI-compatible providers whose streaming responses end without a finish_reason. The canonical case is the Snowflake Cortex REST API gateway.",
    "desc_en": "A DeepSeek Harness host plugin that makes the agent tolerate OpenAI-compatible providers whose streaming responses end without a finish_reason. The canonical case is the Snowflake Cortex REST API gateway.",
-   "desc_zh": "A DeepSeek Harness host plugin that makes the agent tolerate OpenAI-compatible providers whose streaming responses end without a finish_reason. The canonical case is the Snowflake Cortex REST API gateway."
+   "desc_zh": "A DeepSeek Harness host plugin that makes the agent tolerate OpenAI-compatible providers whose streaming responses end without a finish_reason. The canonical case is the Snowflake Cortex REST API gateway.",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "agent-loop-workflow",
@@ -46189,7 +46253,9 @@
    "platform": "any",
    "desc": "A project-agnostic multi-agent collaboration protocol for the DeepSeek Harness: loop guards that stop runaway agent loops, a six-field handoff format, risk-tiered review routing, and a fixed verify→commit→push→review→close sequence. One skill instead of the same rules copy-pasted into every agent's instructions.",
    "desc_en": "A project-agnostic multi-agent collaboration protocol for the DeepSeek Harness: loop guards that stop runaway agent loops, a six-field handoff format, risk-tiered review routing, and a fixed verify→commit→push→review→close sequence. One skill instead of the same rules copy-pasted into every agent's instructions.",
-   "desc_zh": "A project-agnostic multi-agent collaboration protocol for the DeepSeek Harness: loop guards that stop runaway agent loops, a six-field handoff format, risk-tiered review routing, and a fixed verify→commit→push→review→close sequence. One skill instead of the same rules copy-pasted into every agent's instructions."
+   "desc_zh": "A project-agnostic multi-agent collaboration protocol for the DeepSeek Harness: loop guards that stop runaway agent loops, a six-field handoff format, risk-tiered review routing, and a fixed verify→commit→push→review→close sequence. One skill instead of the same rules copy-pasted into every agent's instructions.",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-plugin-dedupe",
@@ -46200,7 +46266,9 @@
    "forks": 0,
    "updated": "2026-08-18",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-system-monitor",
@@ -46214,7 +46282,10 @@
    "platform": "any",
    "desc": "DeepSeek Harness System Monitor",
    "desc_en": "DeepSeek Harness System Monitor",
-   "desc_zh": "DeepSeek Harness System Monitor"
+   "desc_zh": "DeepSeek Harness System Monitor",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-desktop-win32",
@@ -46228,7 +46299,9 @@
    "platform": "any",
    "desc": "超轻量dsh(DeepSeek Harness)插件，安装创建启动器，双击默认打开浏览器跳转，并附带可爱小鲸鱼图标，超小无依赖",
    "desc_zh": "超轻量dsh(DeepSeek Harness)插件，安装创建启动器，双击默认打开浏览器跳转，并附带可爱小鲸鱼图标，超小无依赖",
-   "desc_en": "超轻量dsh(DeepSeek Harness)插件，安装创建启动器，双击默认打开浏览器跳转，并附带可爱小鲸鱼图标，超小无依赖"
+   "desc_en": "超轻量dsh(DeepSeek Harness)插件，安装创建启动器，双击默认打开浏览器跳转，并附带可爱小鲸鱼图标，超小无依赖",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-a2a-agent",
@@ -46242,7 +46315,9 @@
    "platform": "any",
    "desc": "Expose a DeepSeek Harness agent over the Agent2Agent (A2A) protocol: agent card, JSON-RPC, LLM replies.",
    "desc_en": "Expose a DeepSeek Harness agent over the Agent2Agent (A2A) protocol: agent card, JSON-RPC, LLM replies.",
-   "desc_zh": "Expose a DeepSeek Harness agent over the Agent2Agent (A2A) protocol: agent card, JSON-RPC, LLM replies."
+   "desc_zh": "Expose a DeepSeek Harness agent over the Agent2Agent (A2A) protocol: agent card, JSON-RPC, LLM replies.",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "Genshin-odette-skin-dsh",
@@ -46253,7 +46328,9 @@
    "forks": 0,
    "updated": "2026-08-18",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-26",
+   "note": "验证: install-fail"
   },
   {
    "name": "dsh-trajectory-teacher",
@@ -46267,7 +46344,9 @@
    "platform": "any",
    "desc": "/trajectory-teacher: DSH plugin that turns an agent's execution trajectory into a structured post-mortem report (decisions / pitfalls / reusable patterns)",
    "desc_en": "/trajectory-teacher: DSH plugin that turns an agent's execution trajectory into a structured post-mortem report (decisions / pitfalls / reusable patterns)",
-   "desc_zh": "/trajectory-teacher: DSH plugin that turns an agent's execution trajectory into a structured post-mortem report (decisions / pitfalls / reusable patterns)"
+   "desc_zh": "/trajectory-teacher: DSH plugin that turns an agent's execution trajectory into a structured post-mortem report (decisions / pitfalls / reusable patterns)",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "everyconnect",
@@ -46281,7 +46360,9 @@
    "platform": "any",
    "desc": "DSH插件，用于将dsh连接至微信、qq等软件，通过微claw插件、qq机器人等方式实现",
    "desc_zh": "DSH插件，用于将dsh连接至微信、qq等软件，通过微claw插件、qq机器人等方式实现",
-   "desc_en": "DSH插件，用于将dsh连接至微信、qq等软件，通过微claw插件、qq机器人等方式实现"
+   "desc_en": "DSH插件，用于将dsh连接至微信、qq等软件，通过微claw插件、qq机器人等方式实现",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-task-panel",
@@ -46292,7 +46373,10 @@
    "forks": 0,
    "updated": "2026-08-18",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-cache-cost-monitor",
@@ -46306,7 +46390,9 @@
    "platform": "any",
    "desc": "让 DeepSeek 的每一分钱都花在刀刃上 —— 前缀缓存命中率、费用与健康度，一眼看穿。（已按规范要求严格配置文件，不会出现异常阻止启动） DeepSeek Harness 插件，the monster of cache-cost，用于监控前缀缓存命中率、统计 Token 消耗与估算 API 运行成本。 DSH plugin for DeepSeek API prefix cache hit-rate monitoring, token usage statistics and cost estimation.",
    "desc_zh": "让 DeepSeek 的每一分钱都花在刀刃上 —— 前缀缓存命中率、费用与健康度，一眼看穿。（已按规范要求严格配置文件，不会出现异常阻止启动） DeepSeek Harness 插件，the monster of cache-cost，用于监控前缀缓存命中率、统计 Token 消耗与估算 API 运行成本。 DSH plugin for DeepSeek API prefix cache hit-rate monitoring, token usage statistics and cost estimation.",
-   "desc_en": "让 DeepSeek 的每一分钱都花在刀刃上 —— 前缀缓存命中率、费用与健康度，一眼看穿。（已按规范要求严格配置文件，不会出现异常阻止启动） DeepSeek Harness 插件，the monster of cache-cost，用于监控前缀缓存命中率、统计 Token 消耗与估算 API 运行成本。 DSH plugin for DeepSeek API prefix cache hit-rate monitoring, token usage statistics and cost estimation."
+   "desc_en": "让 DeepSeek 的每一分钱都花在刀刃上 —— 前缀缓存命中率、费用与健康度，一眼看穿。（已按规范要求严格配置文件，不会出现异常阻止启动） DeepSeek Harness 插件，the monster of cache-cost，用于监控前缀缓存命中率、统计 Token 消耗与估算 API 运行成本。 DSH plugin for DeepSeek API prefix cache hit-rate monitoring, token usage statistics and cost estimation.",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-image-mmx",
@@ -46320,7 +46406,9 @@
    "platform": "any",
    "desc": "给 DSH 文本模型装眼睛：图片自动调用 mmx（MiniMax VLM）识别，识别结果注入模型上下文",
    "desc_zh": "给 DSH 文本模型装眼睛：图片自动调用 mmx（MiniMax VLM）识别，识别结果注入模型上下文",
-   "desc_en": "给 DSH 文本模型装眼睛：图片自动调用 mmx（MiniMax VLM）识别，识别结果注入模型上下文"
+   "desc_en": "给 DSH 文本模型装眼睛：图片自动调用 mmx（MiniMax VLM）识别，识别结果注入模型上下文",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "review-quote-sh",
@@ -46331,7 +46419,10 @@
    "forks": 0,
    "updated": "2026-08-17",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-session-plus",
@@ -46345,7 +46436,10 @@
    "platform": "any",
    "desc": "把社区里零散的会话能力收成一套：归档目录、恢复原位、删除、编辑重发。补官方缺口，走公开 slot，不打核心补丁。A session pack for DeepSeek Harness: archive directory, restore, delete, edit-and-resend. One place for features that usually live in separate plugins.",
    "desc_zh": "把社区里零散的会话能力收成一套：归档目录、恢复原位、删除、编辑重发。补官方缺口，走公开 slot，不打核心补丁。A session pack for DeepSeek Harness: archive directory, restore, delete, edit-and-resend. One place for features that usually live in separate plugins.",
-   "desc_en": "把社区里零散的会话能力收成一套：归档目录、恢复原位、删除、编辑重发。补官方缺口，走公开 slot，不打核心补丁。A session pack for DeepSeek Harness: archive directory, restore, delete, edit-and-resend. One place for features that usually live in separate plugins."
+   "desc_en": "把社区里零散的会话能力收成一套：归档目录、恢复原位、删除、编辑重发。补官方缺口，走公开 slot，不打核心补丁。A session pack for DeepSeek Harness: archive directory, restore, delete, edit-and-resend. One place for features that usually live in separate plugins.",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-stage-gate",
@@ -46356,7 +46450,9 @@
    "forks": 0,
    "updated": "2026-08-17",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-worktrees",
@@ -46370,7 +46466,10 @@
    "platform": "any",
    "desc": "Manage Git worktrees inside DSH: scan workspace repositories, create worktrees, add them as DSH workspaces, open folders, remove worktrees, and prune stale records.",
    "desc_en": "Manage Git worktrees inside DSH: scan workspace repositories, create worktrees, add them as DSH workspaces, open folders, remove worktrees, and prune stale records.",
-   "desc_zh": "Manage Git worktrees inside DSH: scan workspace repositories, create worktrees, add them as DSH workspaces, open folders, remove worktrees, and prune stale records."
+   "desc_zh": "Manage Git worktrees inside DSH: scan workspace repositories, create worktrees, add them as DSH workspaces, open folders, remove worktrees, and prune stale records.",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-plugin-ai-bridge",
@@ -46381,7 +46480,9 @@
    "forks": 0,
    "updated": "2026-08-17",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-skill-eval",
@@ -46395,7 +46496,9 @@
    "platform": "any",
    "desc": "DSH 插件：用 LLM judge 评测技能 description 的触发准确率（欠触发/过触发）",
    "desc_zh": "DSH 插件：用 LLM judge 评测技能 description 的触发准确率（欠触发/过触发）",
-   "desc_en": "DSH 插件：用 LLM judge 评测技能 description 的触发准确率（欠触发/过触发）"
+   "desc_en": "DSH 插件：用 LLM judge 评测技能 description 的触发准确率（欠触发/过触发）",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-remote-picker",
@@ -46409,7 +46512,9 @@
    "platform": "any",
    "desc": "Remote-access directory-picker fix for DeepSeek Harness: force the in-browser browse interaction when serving remote browsers (tailscale serve / cloudflared / --trusted-host)",
    "desc_en": "Remote-access directory-picker fix for DeepSeek Harness: force the in-browser browse interaction when serving remote browsers (tailscale serve / cloudflared / --trusted-host)",
-   "desc_zh": "Remote-access directory-picker fix for DeepSeek Harness: force the in-browser browse interaction when serving remote browsers (tailscale serve / cloudflared / --trusted-host)"
+   "desc_zh": "Remote-access directory-picker fix for DeepSeek Harness: force the in-browser browse interaction when serving remote browsers (tailscale serve / cloudflared / --trusted-host)",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-taskify",
@@ -46423,7 +46528,9 @@
    "platform": "any",
    "desc": "A Task Compiler for DeepSeek Harness — from rough ideas to agent-ready tasks.",
    "desc_en": "A Task Compiler for DeepSeek Harness — from rough ideas to agent-ready tasks.",
-   "desc_zh": "A Task Compiler for DeepSeek Harness — from rough ideas to agent-ready tasks."
+   "desc_zh": "A Task Compiler for DeepSeek Harness — from rough ideas to agent-ready tasks.",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-remote-host",
@@ -46437,7 +46544,10 @@
    "platform": "any",
    "desc": "Installable DeepSeek Harness plugin: pair an Android phone to a DSH Host over LAN",
    "desc_en": "Installable DeepSeek Harness plugin: pair an Android phone to a DSH Host over LAN",
-   "desc_zh": "Installable DeepSeek Harness plugin: pair an Android phone to a DSH Host over LAN"
+   "desc_zh": "Installable DeepSeek Harness plugin: pair an Android phone to a DSH Host over LAN",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-qweather",
@@ -46451,7 +46561,9 @@
    "platform": "any",
    "desc": "一个基于和风天气的DSH天气预报接口，提供侧边栏widget、对话skill，让你的LLM更快的给出天气预报",
    "desc_zh": "一个基于和风天气的DSH天气预报接口，提供侧边栏widget、对话skill，让你的LLM更快的给出天气预报",
-   "desc_en": "一个基于和风天气的DSH天气预报接口，提供侧边栏widget、对话skill，让你的LLM更快的给出天气预报"
+   "desc_en": "一个基于和风天气的DSH天气预报接口，提供侧边栏widget、对话skill，让你的LLM更快的给出天气预报",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "deepseek-peak-valley-router",
@@ -46465,7 +46577,9 @@
    "platform": "any",
    "desc": "DeepSeek Harness 峰谷定价自动模型路由插件:高峰自动用 deepseek-v4-flash 省钱,空闲自动用 deepseek-v4-pro 提质量,用户显式选择始终优先",
    "desc_zh": "DeepSeek Harness 峰谷定价自动模型路由插件:高峰自动用 deepseek-v4-flash 省钱,空闲自动用 deepseek-v4-pro 提质量,用户显式选择始终优先",
-   "desc_en": "DeepSeek Harness 峰谷定价自动模型路由插件:高峰自动用 deepseek-v4-flash 省钱,空闲自动用 deepseek-v4-pro 提质量,用户显式选择始终优先"
+   "desc_en": "DeepSeek Harness 峰谷定价自动模型路由插件:高峰自动用 deepseek-v4-flash 省钱,空闲自动用 deepseek-v4-pro 提质量,用户显式选择始终优先",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-decision-map",
@@ -46479,7 +46593,9 @@
    "platform": "any",
    "desc": "dsh-decision-map",
    "desc_en": "dsh-decision-map",
-   "desc_zh": "dsh-decision-map"
+   "desc_zh": "dsh-decision-map",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-trajectory-replay",
@@ -46493,7 +46609,9 @@
    "platform": "any",
    "desc": "一个deepseek-harness插件，用来做agent轨迹回放。欢迎试用给出反馈",
    "desc_zh": "一个deepseek-harness插件，用来做agent轨迹回放。欢迎试用给出反馈",
-   "desc_en": "一个deepseek-harness插件，用来做agent轨迹回放。欢迎试用给出反馈"
+   "desc_en": "一个deepseek-harness插件，用来做agent轨迹回放。欢迎试用给出反馈",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-image-skin",
@@ -46507,7 +46625,10 @@
    "platform": "any",
    "desc": "DSH 图片皮肤插件：导入 PNG/JPG/WebP 自动生成主题配色，可选 Q 版宠物（程序化/AI 生图）",
    "desc_zh": "DSH 图片皮肤插件：导入 PNG/JPG/WebP 自动生成主题配色，可选 Q 版宠物（程序化/AI 生图）",
-   "desc_en": "DSH 图片皮肤插件：导入 PNG/JPG/WebP 自动生成主题配色，可选 Q 版宠物（程序化/AI 生图）"
+   "desc_en": "DSH 图片皮肤插件：导入 PNG/JPG/WebP 自动生成主题配色，可选 Q 版宠物（程序化/AI 生图）",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "DSH-Timeline-Navigator",
@@ -46521,7 +46642,9 @@
    "platform": "any",
    "desc": "A turn-based conversation timeline for DeepSeek Harness with bookmarks, history loading, keyboard controls, and mobile support.",
    "desc_en": "A turn-based conversation timeline for DeepSeek Harness with bookmarks, history loading, keyboard controls, and mobile support.",
-   "desc_zh": "A turn-based conversation timeline for DeepSeek Harness with bookmarks, history loading, keyboard controls, and mobile support."
+   "desc_zh": "A turn-based conversation timeline for DeepSeek Harness with bookmarks, history loading, keyboard controls, and mobile support.",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-usage-insights",
@@ -46535,7 +46658,9 @@
    "platform": "any",
    "desc": "dsh的本地用量面板，统计 Token、请求、Agent 活动、工具调用和性能",
    "desc_zh": "dsh的本地用量面板，统计 Token、请求、Agent 活动、工具调用和性能",
-   "desc_en": "dsh的本地用量面板，统计 Token、请求、Agent 活动、工具调用和性能"
+   "desc_en": "dsh的本地用量面板，统计 Token、请求、Agent 活动、工具调用和性能",
+   "testDate": "2026-08-26",
+   "note": "验证: install-fail"
   },
   {
    "name": "dsh-viper-recap",
@@ -46549,7 +46674,9 @@
    "platform": "any",
    "desc": "dsh-viper-recap is a Plugin.",
    "desc_en": "dsh-viper-recap is a Plugin.",
-   "desc_zh": "dsh-viper-recap is a Plugin."
+   "desc_zh": "dsh-viper-recap is a Plugin.",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-eye-vision",
@@ -46560,7 +46687,9 @@
    "forks": 0,
    "updated": "2026-08-17",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-cross-collaboration",
@@ -46574,7 +46703,9 @@
    "platform": "any",
    "desc": "dsh跨设备agent协作插件",
    "desc_zh": "dsh跨设备agent协作插件",
-   "desc_en": "dsh跨设备agent协作插件"
+   "desc_en": "dsh跨设备agent协作插件",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-skill-creator",
@@ -46588,7 +46719,9 @@
    "platform": "any",
    "desc": "DSH skill: 技能创作器，按 agentskills.io 规范编写 SKILL.md，改编自 Anthropic skill-creator (Apache-2.0)",
    "desc_zh": "DSH skill: 技能创作器，按 agentskills.io 规范编写 SKILL.md，改编自 Anthropic skill-creator (Apache-2.0)",
-   "desc_en": "DSH skill: 技能创作器，按 agentskills.io 规范编写 SKILL.md，改编自 Anthropic skill-creator (Apache-2.0)"
+   "desc_en": "DSH skill: 技能创作器，按 agentskills.io 规范编写 SKILL.md，改编自 Anthropic skill-creator (Apache-2.0)",
+   "testDate": "2026-08-26",
+   "note": "验证: network-fail"
   },
   {
    "name": "dsh-fetch-models-unselect-all",
@@ -46602,7 +46735,9 @@
    "platform": "any",
    "desc": "Deselect-all button for the DSH Settings > Models 'fetch available models' dialog (client-only plugin)",
    "desc_en": "Deselect-all button for the DSH Settings > Models 'fetch available models' dialog (client-only plugin)",
-   "desc_zh": "Deselect-all button for the DSH Settings > Models 'fetch available models' dialog (client-only plugin)"
+   "desc_zh": "Deselect-all button for the DSH Settings > Models 'fetch available models' dialog (client-only plugin)",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "claude2dsh",
@@ -46613,7 +46748,9 @@
    "forks": 0,
    "updated": "2026-08-17",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-plugin-guardian",
