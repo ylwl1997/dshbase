@@ -72,6 +72,8 @@ verify_one() {
   local name="$1" src="$2"
   local prof="v_$(echo "$name" | tr -cd 'a-zA-Z0-9_-')"
   local profdir="$PROFILE_ROOT/$prof"
+  # 无论成功/失败/超时退出，都清理该验证 profile，防止 ~/.dsh/profiles 被 node_modules 堆满
+  trap 'rm -rf "$profdir" 2>/dev/null' RETURN
   rm -rf "$profdir"; mkdir -p "$profdir"
   local log="/tmp/verify-$prof.log"   # sanitize (scoped pkg @a/b has /)
   local status="unknown"
@@ -172,6 +174,8 @@ PYEOF
 
   printf '%s\t%s\n' "$name" "$status"
   echo "[$name] $status" >&2
+  # 清理验证期 profile，避免 ~/.dsh/profiles 被 node_modules 堆满 (见 verify-runtime.sh)
+  rm -rf "$profdir" 2>/dev/null
 }
 export -f verify_one
 

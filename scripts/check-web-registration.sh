@@ -101,3 +101,5 @@ else:
 PYEOF
 
 echo "full log: $LOG" >&2
+# 清理 web 检查临时 profile，避免 ~/.dsh/profiles 堆积
+rm -rf "$profdir" 2>/dev/null
