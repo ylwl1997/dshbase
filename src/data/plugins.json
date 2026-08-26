@@ -40725,7 +40725,9 @@
    "depCount": 9,
    "depsOfficial": 5,
    "repoOwner": "Moses14159",
-   "_enriched": "2026-08-23|None"
+   "_enriched": "2026-08-23|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-sound-lab",
@@ -40744,7 +40746,10 @@
    "depCount": 2,
    "depsOfficial": 1,
    "repoOwner": "miiaowuwu",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-uni-editor",
@@ -40763,7 +40768,10 @@
    "depCount": 13,
    "depsOfficial": 9,
    "repoOwner": "creativedswork",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-voice-ai-girlfriend-plugin",
@@ -40779,7 +40787,9 @@
    "depCount": 1,
    "depsOfficial": 0,
    "repoOwner": "beiyege-01",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-holdem",
@@ -40798,7 +40808,10 @@
    "depCount": 0,
    "depsOfficial": 0,
    "repoOwner": "BubblePtr",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "chicheng-peak",
@@ -40817,7 +40830,10 @@
    "depCount": 1,
    "depsOfficial": 1,
    "repoOwner": "534119219",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-workspace-groups",
@@ -40836,7 +40852,10 @@
    "depCount": 11,
    "depsOfficial": 8,
    "repoOwner": "z-col",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "chicheng-quickinput",
@@ -40855,7 +40874,10 @@
    "depCount": 1,
    "depsOfficial": 1,
    "repoOwner": "534119219",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "DeepSeek_Harness_Files_Panel",
@@ -40874,7 +40896,10 @@
    "depCount": 0,
    "depsOfficial": 0,
    "repoOwner": "iskshadow195563",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-mission",
@@ -40893,7 +40918,9 @@
    "depCount": 11,
    "depsOfficial": 10,
    "repoOwner": "qiaoy01",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-zai-coding-models",
@@ -40912,7 +40939,9 @@
    "depCount": 0,
    "depsOfficial": 0,
    "repoOwner": "auuduu",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-llm-ollama",
@@ -40931,7 +40960,9 @@
    "depCount": 22,
    "depsOfficial": 19,
    "repoOwner": "NOirBRight",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-session-search-toggle",
@@ -40950,7 +40981,10 @@
    "depCount": 5,
    "depsOfficial": 4,
    "repoOwner": "drscrewdriver",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-seatbelt-sandbox",
@@ -40969,7 +41003,9 @@
    "depCount": 2,
    "depsOfficial": 2,
    "repoOwner": "drscrewdriver",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-timer",
@@ -40988,7 +41024,9 @@
    "depCount": 4,
    "depsOfficial": 2,
    "repoOwner": "life1996cou",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-agents-plugins",
@@ -41007,7 +41045,9 @@
    "depCount": 26,
    "depsOfficial": 17,
    "repoOwner": "openma-ai",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: install-fail"
   },
   {
    "name": "dsh-set-workspace",
@@ -41026,7 +41066,10 @@
    "depCount": 2,
    "depsOfficial": 2,
    "repoOwner": "tsingshitao-nuke",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-verifier-gate",
@@ -41045,7 +41088,9 @@
    "depCount": 9,
    "depsOfficial": 7,
    "repoOwner": "DevRico003",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-dungeon-party",
@@ -41064,7 +41109,9 @@
    "depCount": 15,
    "depsOfficial": 13,
    "repoOwner": "DamonBao",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-bigmodel-catalog",
@@ -41083,7 +41130,9 @@
    "depCount": 8,
    "depsOfficial": 7,
    "repoOwner": "OpenSaozi",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: install-fail"
   },
   {
    "name": "dsh-update-copilot",
@@ -41102,7 +41151,9 @@
    "depCount": 2,
    "depsOfficial": 2,
    "repoOwner": "hezhongtang",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-error-lens",
@@ -41121,7 +41172,9 @@
    "depCount": 12,
    "depsOfficial": 10,
    "repoOwner": "Wanbinyu",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-provider-probe",
@@ -41140,7 +41193,9 @@
    "depCount": 12,
    "depsOfficial": 10,
    "repoOwner": "Wanbinyu",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-tidewatch",
@@ -41156,7 +41211,9 @@
    "depCount": 1,
    "depsOfficial": 0,
    "repoOwner": "KhalilYamber",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-chat-width-customizer",
@@ -41172,7 +41229,9 @@
    "depCount": 2,
    "depsOfficial": 1,
    "repoOwner": "magicOF2",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-my-go",
@@ -41191,7 +41250,9 @@
    "depCount": 12,
    "depsOfficial": 11,
    "repoOwner": "daizihan233",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-akn-plugin",
@@ -41207,7 +41268,9 @@
    "depCount": 8,
    "depsOfficial": 3,
    "repoOwner": "symmetryseeker",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-cursor-acp",
@@ -41226,7 +41289,9 @@
    "depCount": 8,
    "depsOfficial": 7,
    "repoOwner": "loeanxi",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-search-router",
@@ -41245,7 +41310,9 @@
    "depCount": 1,
    "depsOfficial": 1,
    "repoOwner": "XGrin",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-cc-studio",
@@ -41264,7 +41331,10 @@
    "depCount": 1,
    "depsOfficial": 1,
    "repoOwner": "xia-sc",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-wakatime",
@@ -41283,7 +41353,9 @@
    "depCount": 3,
    "depsOfficial": 3,
    "repoOwner": "dingyi222666",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-flat-teams",
@@ -41302,7 +41374,9 @@
    "depCount": 11,
    "depsOfficial": 10,
    "repoOwner": "whateverboy2333",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-tool-visual-primitives",
@@ -41321,7 +41395,9 @@
    "depCount": 1,
    "depsOfficial": 0,
    "repoOwner": "InkshadeWoods",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "deepseek-harness-hub",
@@ -41340,7 +41416,9 @@
    "depCount": 11,
    "depsOfficial": 6,
    "repoOwner": "MarecGents",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: install-fail"
   },
   {
    "name": "dsh-autonomy",
@@ -41359,7 +41437,9 @@
    "depCount": 14,
    "depsOfficial": 12,
    "repoOwner": "JinkaiLiu",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-fetch-third-party",
@@ -41378,7 +41458,9 @@
    "depCount": 8,
    "depsOfficial": 7,
    "repoOwner": "tallahandsome-ux",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-llm-guardian",
@@ -41397,7 +41479,10 @@
    "depCount": 5,
    "depsOfficial": 5,
    "repoOwner": "ice-kele",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-subagent-codebuddy",
@@ -41416,7 +41501,9 @@
    "depCount": 5,
    "depsOfficial": 5,
    "repoOwner": "flg1217",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-autoresearch",
@@ -41432,7 +41519,9 @@
    "depCount": 12,
    "depsOfficial": 12,
    "repoOwner": "EveGoodEvening",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-hot-reload",
@@ -41451,7 +41540,9 @@
    "depCount": 1,
    "depsOfficial": 0,
    "repoOwner": "stuarthu",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-session-archive",
@@ -41470,7 +41561,10 @@
    "depCount": 8,
    "depsOfficial": 6,
    "repoOwner": "kiligzzz",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-deepseek-usage-monitor",
@@ -41489,7 +41583,10 @@
    "depCount": 1,
    "depsOfficial": 1,
    "repoOwner": "KamChiHei",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-chat-anchors",
@@ -41508,7 +41605,9 @@
    "depCount": 1,
    "depsOfficial": 0,
    "repoOwner": "Cheerwhy",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-jiey-browser",
@@ -41527,7 +41626,9 @@
    "depCount": 3,
    "depsOfficial": 2,
    "repoOwner": "jiewaigongxing",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-settings-sections",
@@ -41546,7 +41647,9 @@
    "depCount": 1,
    "depsOfficial": 1,
    "repoOwner": "ovo669",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-effort-switcher",
@@ -41565,7 +41668,9 @@
    "depCount": 0,
    "depsOfficial": 0,
    "repoOwner": "lemonorangeapple",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-survival-mode",
@@ -41584,7 +41689,9 @@
    "depCount": 0,
    "depsOfficial": 0,
    "repoOwner": "Socialist-Sister",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-plugin-table-zoom",
@@ -41603,7 +41710,9 @@
    "depCount": 1,
    "depsOfficial": 1,
    "repoOwner": "Pasumao",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-image-vision-bridge",
@@ -41622,7 +41731,9 @@
    "depCount": 2,
    "depsOfficial": 2,
    "repoOwner": "Icestab",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-file-resource",
@@ -41641,7 +41752,10 @@
    "depCount": 2,
    "depsOfficial": 0,
    "repoOwner": "liznee",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-fresh-start",
@@ -41660,7 +41774,10 @@
    "depCount": 4,
    "depsOfficial": 4,
    "repoOwner": "orangeofcarl0-sys",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-speech-input",
@@ -41679,7 +41796,9 @@
    "depCount": 0,
    "depsOfficial": 0,
    "repoOwner": "liznee",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pentester",
@@ -41695,7 +41814,9 @@
    "depCount": 9,
    "depsOfficial": 4,
    "repoOwner": "fb0sh",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-standalone-chat",
@@ -41711,7 +41832,10 @@
    "depCount": 3,
    "depsOfficial": 2,
    "repoOwner": "ZoeHao2026",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-voice-webspeech",
@@ -41727,7 +41851,9 @@
    "depCount": 12,
    "depsOfficial": 7,
    "repoOwner": "anweat",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-generation-image",
@@ -41746,7 +41872,9 @@
    "depCount": 13,
    "depsOfficial": 13,
    "repoOwner": "sfyyy",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-fail-soft",
@@ -41762,7 +41890,9 @@
    "depCount": 2,
    "depsOfficial": 2,
    "repoOwner": "lanbaolu",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-moments-aieo",
@@ -41781,7 +41911,9 @@
    "depCount": 3,
    "depsOfficial": 3,
    "repoOwner": "Kenerlee",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-workspace-hub",
@@ -41797,7 +41929,10 @@
    "depCount": 1,
    "depsOfficial": 0,
    "repoOwner": "Jadramcool",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "webonly": true,
+   "testDate": "2026-08-26",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-catgirl-plugin",
@@ -41816,7 +41951,9 @@
    "depCount": 1,
    "depsOfficial": 1,
    "repoOwner": "Freakz2z",
-   "_enriched": "2026-08-22|None"
+   "_enriched": "2026-08-22|None",
+   "testDate": "2026-08-26",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-cli-bridge",
