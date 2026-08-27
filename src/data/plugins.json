@@ -114660,7 +114660,7 @@
    "license": "MIT",
    "slug": "dsh-essentials-bundle",
    "platform": "any",
-   "note": "L1 安装通过但 L2 加载失败：cordis.patch.yml insert 了 loader 条目 name=dsh-toolbox，但 profile 无 dsh-toolbox 包（exports 名为 dsh-essentials-bundle，无此依赖）。需作者修正 bundle 条目后重验。",
+   "note": "L2 已修复并复核通过：cordis.patch.yml name 现为 dsh-essentials-bundle，L1 安装+L2 加载(web-only 注入类)均 PASS，客户端路由已注册。L4 web CDP 端到端因验证机环境回归暂无法通过——Web only 插件(含干净 dsh-base+dsh-web-app 基线)均报 'window.__ModuleLoader__ bootstrap facade is missing'，dsh CLI 为 0.1.1-rc.2。非插件缺陷，待验证机 L4 恢复后重验确认。",
    "contributors": 3,
    "depCount": 0,
    "depsOfficial": 0,
