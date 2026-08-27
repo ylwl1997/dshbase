@@ -1,0 +1,55 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="Build a DeepSeek Harness tool plugin from scratch | dshbase" description="A practical walkthrough of packaging a complete dsh plugin: the package skeleton, a defineTool, the capability seam for calling the LLM, registration, and a behavioural test." currentPath="/blog/wx-dsh-build-plugin/" category="Guide">
+  <h1>Your first plugin, end to end: <span class="accent">a translation tool for DeepSeek Harness</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 27, 2026 · dshbase · hands-on guide</p>
+
+  <img src="/assets/blog-wechat/wx-dsh-build-plugin.png" alt="Diagram of a dsh tool plugin package: packages/translation/tool-translate with src (index.ts entry, invariant.ts), tests, package.json and tsconfig, plus the registration flow into the Cordis bundle" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <p>If "everything is a plugin" has stayed abstract, this closes the loop: we build a complete <strong>dsh plugin package</strong> from scratch — a translation tool that lets the agent translate text into a target language. Along the way we cover the package skeleton, <code>defineTool</code>, calling the LLM through the capability seam, registration/lifecycle, and a behavioural test. The steps below mirror the official cookbook (<code>adding-a-package.md</code>, <code>adding-a-tool.md</code>).</p>
+
+  <h2>1. The package skeleton</h2>
+  <p>A tool lives in its own package inside the mono-repo. The essentials of <code>package.json</code>:</p>
+  <pre style="overflow-x:auto"><code>&#123;
+  "name": "@deepseek-ai/dsh-tool-translate",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": &#123; ".": "./src/index.ts", "./invariant": "./src/invariant.ts", "./package.json": "./package.json" &#125;,
+  "peerDependencies": &#123; "@deepseek-ai/cordis": "workspace:*" &#125;
+&#125;</code></pre>
+  <p>Three things to internalise: <code>private: true</code> means the package stays in the repo rather than being published to npm; <code>type: module</code> makes it ESM-only; and <code>@deepseek-ai/cordis</code> is both a peer and a dev dependency. The tool package depends on <em>service definitions</em> (<code>dsh-tools</code>, <code>dsh-llm</code>) rather than on any concrete provider — that indirection is what keeps tools provider-agnostic.</p>
+
+  <h2>2. Implement the plugin</h2>
+  <pre style="overflow-x:auto"><code>import type &#123; Context &#125; from '@deepseek-ai/cordis'
+import &#123; defineTool &#125; from '@deepseek-ai/dsh-tools'
+
+export const name = 'tool-translate'
+export const inject = ['tools', 'llm'] as const
+
+export function apply(ctx: Context) &#123;
+  ctx.tools.register(defineTool(&#123;
+    name: 'translate',
+    description: 'Translate text to a specified language.',
+    parameters: &#123;
+      text: &#123; type: 'string', description: 'The text to translate', required: true &#125;,
+      targetLanguage: &#123; type: 'string', description: 'Target language', required: true &#125;
+    &#125;
+    // the tool implementation calls the llm through ctx.llm (capability seam)
+  &#125;))
+&#125;</code></pre>
+  <p>The pattern is three exports: <code>name</code>, <code>inject</code>, and <code>apply(ctx)</code>. The <code>inject</code> list is the declaration of intent — the runtime guarantees the <code>tools</code> and <code>llm</code> service definitions are available before <code>apply</code> runs, and that's the <em>capability seam</em>: your tool requests capabilities and gets the interfaces, without ever importing a specific model provider.</p>
+
+  <h2>3. Registration and the capability seam</h2>
+  <p>Because the tool declares only service <em>definitions</em>, it stays portable — the same tool can call DeepSeek's adapter or another provider simply by swapping which service implementation is loaded. <code>apply()</code> registers the tool with the tools service at load time; lifecycle (load/unload) is managed by Cordis, so pulling the plugin cleanly unmounts its registrations rather than leaving dangling state.</p>
+
+  <h2>4. Test it</h2>
+  <p>Two companion pieces make it robust. A behavioural test (<code>translate.spec.ts</code>) asserts what the tool does with representative inputs, matching the "行为测试" expectation in the diagram above. A runtime-invariant module (<code>invariant.ts</code>, exported under <code>./invariant</code>) holds the assertions that must hold while the plugin runs — the invariant, not just the happy path, is what keeps a heavily-composed system from decaying.</p>
+
+  <h2>5. Wire it into the system</h2>
+  <p>Finally the package is registered in the monorepo: add its path to the aggregate <code>tsconfig</code> references, add one line to the <code>cordis.patch.yml</code> bundle so the runtime knows to load it, and add the dependency in the aggregate <code>package.json</code>.</p>
+
+  <h2>The takeaway for installers</h2>
+  <p>A tool plugin is a small, repeatable shape: a package skeleton, a <code>defineTool</code>, a declared <code>inject</code> list, a test, and a registration line or two. Once you've seen one, ship new tools by copying the shape — and because tools depend on service definitions instead of providers, the same plugin runs unchanged no matter which model you slot in. That's the "everything is a plugin" promise made concrete: your own capability is just another module the harness can load, inspect and cleanly unload.</p>
+</BlogPost>

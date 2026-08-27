@@ -3,6 +3,10 @@ import Base from '../../../layouts/Base.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const locale = Astro.currentLocale ?? 'zh';
 const posts = [
+  { path: '/blog/wx-dsh-agent-team/', cat: '分析', zh: 'Agent Team 页签：一间玻璃房，而不是黑盒', desc_zh: 'DSH 的 Agent Team 乍看像腾讯马维斯，骨子里却相反：透明、可审计的多智能体协作，每一步都看得见。' },
+  { path: '/blog/wx-dsh-raid-test/', cat: '评测', zh: '66 分钟、几块钱，跑完一场 RAID 重组', desc_zh: '安装、四种模式，再跑一次真实取证 RAID 重组：66 分钟 / 200-400 万 token / 3-6 元，还附带「轨迹 → Skill」闭环。' },
+  { path: '/blog/wx-dsh-polarized-reviews/', cat: '分析', zh: '为什么 DeepSeek Harness 的评价两极分化', desc_zh: '分歧不在国内外，而在「想要成品」和「想拥有 Harness」之间——同一台发动机，装进不同的车。' },
+  { path: '/blog/wx-dsh-build-plugin/', cat: '指南', zh: '从零构建一个 DeepSeek Harness 工具插件', desc_zh: '手把手打包一个完整 dsh 插件：包骨架、defineTool、通过能力接缝调用 LLM、注册与生命周期、行为测试。' },
   { path: '/blog/wx-dsh-dsh2shell-rce/', cat: '分析', zh: 'dsh2shell：Web 暴露的 DSH 未授权 RCE 分析', desc_zh: '伪造一个 Host: localhost 头就能从公网解锁 DSH 的特权 RPC：注册恶意提供端、切换模型、驱动 bash 工具。CVSS 9.8，以及上线前要修什么。' },
   { path: '/blog/wx-dsh-60task-bench/', cat: '分析', zh: 'DeepSeek Harness 60 项任务评测：能力、成本、耗时三维拆解', desc_zh: '司南评测体系用 60 项真实任务测了 V4 Pro + Harness：能力中上、成本砍半、耗时偏长，以及哪些模型组合才能真正被 Harness 放大。' },
   { path: '/blog/wx-dsh-vision-excel-flop/', cat: '评测', zh: '三天三版：视觉模型刚上车，Excel 四列全算错', desc_zh: 'rc.8 → rc.1 → rc.2 三天连发三版；用 Vision-Exp 实测服务器资源表截图，21 行读成 18 行，四项汇总全错，确认三遍还是错。' },

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1b3e"/>
+      <stop offset="1" stop-color="#101d42"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b6ef5"/>
+      <stop offset="1" stop-color="#5b8cff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="40" y="40" width="1120" height="550" rx="18" fill="none" stroke="#22315e" stroke-width="2"/>
+
+  <!-- title -->
+  <text x="600" y="110" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="700" fill="#ffffff">DeepSeek Harness — 上手实测</text>
+  <text x="600" y="155" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#9fb0d8">66 分钟 · 3 块钱 · 跑完一场 RAID 重组</text>
+
+  <!-- boxes -->
+  <!-- model -->
+  <rect x="120" y="230" width="230" height="120" rx="14" fill="#152456" stroke="#3b6ef5" stroke-width="2"/>
+  <circle cx="235" cy="268" r="22" fill="url(#accent)"/>
+  <text x="235" y="275" text-anchor="middle" font-family="Arial" font-size="20" font-weight="700" fill="#fff">M</text>
+  <text x="235" y="308" text-anchor="middle" font-family="Segoe UI, Arial" font-size="17" font-weight="600" fill="#ffffff">deepseek-v4-flash</text>
+  <text x="235" y="332" text-anchor="middle" font-family="Segoe UI, Arial" font-size="13" fill="#8fa1ca">模型负责思考</text>
+
+  <!-- harness -->
+  <rect x="485" y="230" width="230" height="120" rx="14" fill="#152456" stroke="#5b8cff" stroke-width="2"/>
+  <circle cx="600" cy="268" r="22" fill="#2f5bd0"/>
+  <text x="600" y="275" text-anchor="middle" font-family="Arial" font-size="20" font-weight="700" fill="#fff">H</text>
+  <text x="600" y="308" text-anchor="middle" font-family="Segoe UI, Arial" font-size="17" font-weight="600" fill="#ffffff">Harness</text>
+  <text x="600" y="332" text-anchor="middle" font-family="Segoe UI, Arial" font-size="13" fill="#8fa1ca">一切皆插件 · 四种模式</text>
+
+  <!-- task -->
+  <rect x="850" y="230" width="230" height="120" rx="14" fill="#152456" stroke="#3b6ef5" stroke-width="2"/>
+  <circle cx="965" cy="268" r="22" fill="url(#accent)"/>
+  <text x="965" y="275" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#fff">RAID</text>
+  <text x="965" y="308" text-anchor="middle" font-family="Segoe UI, Arial" font-size="17" font-weight="600" fill="#ffffff">检材重组</text>
+  <text x="965" y="332" text-anchor="middle" font-family="Segoe UI, Arial" font-size="13" fill="#8fa1ca">真实取证任务</text>
+
+  <line x1="350" y1="290" x2="483" y2="290" stroke="#3b6ef5" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="715" y1="290" x2="848" y2="290" stroke="#5b8cff" stroke-width="3" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#5b8cff"/>
+    </marker>
+  </defs>
+
+  <!-- result pills -->
+  <rect x="200" y="420" width="170" height="70" rx="12" fill="#152456" stroke="#2b3d6f" stroke-width="2"/>
+  <text x="285" y="450" text-anchor="middle" font-family="Segoe UI, Arial" font-size="26" font-weight="700" fill="#5b8cff">66 分钟</text>
+  <text x="285" y="475" text-anchor="middle" font-family="Segoe UI, Arial" font-size="13" fill="#8fa1ca">总耗时</text>
+
+  <rect x="420" y="420" width="190" height="70" rx="12" fill="#152456" stroke="#2b3d6f" stroke-width="2"/>
+  <text x="515" y="450" text-anchor="middle" font-family="Segoe UI, Arial" font-size="26" font-weight="700" fill="#5b8cff">3–6 元</text>
+  <text x="515" y="475" text-anchor="middle" font-family="Segoe UI, Arial" font-size="13" fill="#8fa1ca">实际花费</text>
+
+  <rect x="660" y="420" width="190" height="70" rx="12" fill="#152456" stroke="#2b3d6f" stroke-width="2"/>
+  <text x="755" y="450" text-anchor="middle" font-family="Segoe UI, Arial" font-size="24" font-weight="700" fill="#5b8cff">200–400万</text>
+  <text x="755" y="475" text-anchor="middle" font-family="Segoe UI, Arial" font-size="13" fill="#8fa1ca">token</text>
+
+  <rect x="900" y="420" width="170" height="70" rx="12" fill="#152456" stroke="#2b3d6f" stroke-width="2"/>
+  <text x="985" y="450" text-anchor="middle" font-family="Segoe UI, Arial" font-size="26" font-weight="700" fill="#5b8cff">99%</text>
+  <text x="985" y="475" text-anchor="middle" font-family="Segoe UI, Arial" font-size="13" fill="#8fa1ca">缓存命中</text>
+
+  <text x="600" y="545" text-anchor="middle" font-family="Segoe UI, Arial" font-size="15" fill="#6f82ad">Model + Harness = Agent · Trajectory 全程透明 · 轨迹可一键沉淀成 Skill</text>
+</svg>

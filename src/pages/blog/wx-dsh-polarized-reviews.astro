@@ -1,0 +1,25 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="Why DeepSeek Harness gets such polarized reviews | dshbase" description="Domestic reviewers call Harness slow and token-hungry; overseas developers are rebuilding it. The split isn't really China vs abroad—it's users who want a finished product vs developers who want to own the harness." currentPath="/blog/wx-dsh-polarized-reviews/" category="Analysis">
+  <h1>Same engine, see it as different cars: <span class="accent">why Harness reviews are so split</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 25, 2026 · dshbase · reception analysis</p>
+
+  <img src="/assets/blog-wechat/wx-dsh-polarized-reviews.jpg" alt="An infographic of 'the same engine installed into different cars': the DeepSeek model as a shared engine powering Claude Code, Codex, Pi and DeepSeek Harness, each built differently around it" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <p>Over the first week, reception of <strong>DeepSeek Harness</strong> fractured in a telling way. Domestic reviews tend to say it's slow, burns tokens, and isn't intuitive. Overseas developers, meanwhile, have been tearing into the architecture — modifying plugins, swapping out the Agent Loop, building on it. Before a feature got fixed, the mood already shifted. Why?</p>
+
+  <h2>The two yardsticks disagree on purpose</h2>
+  <p>An ordinary user asks one question: <em>can I finish today's work with this?</em> — code faster, understand better, don't flake out. On that scale, a developer-preview harness genuinely doesn't dominate, and nobody pretends otherwise. A developer asks a second question the user never does: <em>how far down can I actually change this?</em> The moment you start pulling at the layers, the frame flips — models, skills, sessions, sandboxes, storage, scheduling, the UI, even the Agent Loop are replaceable and recomposable. The user sees "why isn't this as smooth as Codex yet"; the developer sees "I can rebuild even this part."</p>
+  <p>So the real split isn't between east and west. It's between people who want a trained employee that shows up and works, and people who want a company base where they hire, equip and define their own process. Both are correct — one is judging the finished product, the other is studying how the product is made.</p>
+
+  <h2>What a harness actually is</h2>
+  <p>We habitually credit the model with everything, but a model is just a very smart brain. It doesn't inherently know where your project lives, and it has no natural access to a terminal, browser, database, memory or file permissions. The layer that wires those to the model and decides when it looks at what, calls what, and retries on failure is the <strong>harness</strong>. The formula is direct: <strong>Agent = Model + Harness</strong>. The same smart employee performs very differently depending on the company's processes — and the same DeepSeek model behaves very differently inside different harnesses, because tools, context and the task loop differ.</p>
+
+  <h2>The radical part: even the "core" is built to be replaced</h2>
+  <p>Open-sourcing isn't itself surprising. What stands out is the depth. With <strong>everything-is-a-plugin</strong>, the model adapter, the tool registry, the session log and the Agent Loop — things most products treat as untouchable infrastructure — are configurable, replaceable components. There is no privileged core you must keep. Underneath, a kernel called <strong>Cordis</strong> handles mounting, unmounting and dependency resolution so agent capabilities compose like building blocks instead of falling apart when you pull one.</p>
+  <p>Paired with that is traceability. Each run can be followed end to end: system prompts, context injection, tool calls and subagent scheduling all land in an <em>append-only session log</em>, and the Trajectory view shows the exact step where things veered off. The agent stops being a black box you can only stare at.</p>
+
+  <h2>Why the overseas mood shifted</h2>
+  <p>The reviews that moved the needle are the mixed, believable ones: yes, it's slow and token-hungry and the docs are rough, but it squeezes DeepSeek's performance fully and cache-hit rates reach ~99%; some like the UI and the code-composing mode while admitting subagent support is still rough. Contradictory-sounding, but that's what genuine usage looks like. What changed wasn't one fixed feature — it was the framing settling in: DeepSeek may be competing less for the coding-agent crown than for the <em>definition of what an agent is</em>. Judge it as a finished tool today and you'll be underwhelmed; judge it as a foundation for building your own agent stack and you're likely judging too early.</p>
+</BlogPost>

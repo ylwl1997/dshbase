@@ -1,0 +1,25 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="为什么 DeepSeek Harness 的评价两极分化 | dshbase" description="国内有人说它慢、费 Token、不直观；海外开发者却在拆架构、改插件、换 Agent Loop。分歧其实不在国内外，而在「想要成品的人」和「想拥有 Harness 的人」之间。" currentPath="/blog/wx-dsh-polarized-reviews/" category="分析">
+  <h1>同一台发动机装进不同的车：<span class="accent">Harness 评价为什么如此撕裂</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 25 日 · dshbase · 反响分析</p>
+
+  <img src="/assets/blog-wechat/wx-dsh-polarized-reviews.jpg" alt="信息图「同一台发动机，装进不同的车」：DeepSeek 模型作为共享发动机，分别驱动 Claude Code、Codex、Pi 和 DeepSeek Harness，每台车围绕它被造得不同" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <p>过去一周，<strong>DeepSeek Harness</strong> 的反响出现了一种很有信息量的撕裂。国内不少评价说它慢、费 Token、不直观；海外开发者却在扒架构、改插件、换 Agent Loop。而且风向还没等到哪个功能修好就已经变了。为什么？</p>
+
+  <h2>两把尺子，量的是两件事</h2>
+  <p>普通用户只问一个问题：<em>今天这活能不能用它干完？</em>——改代码快不快、理解准不准、会不会抽风。在这把尺子上，一个 developer preview 的 Harness 确实不占优，也没人假装它占优。开发者会多问一个用户从来不问的问题：<em>这东西到底能被我改到哪一层？</em>一旦开始往下拆，视角就完全不同了——模型、Skills、Session、沙箱、存储、调度、UI，甚至 Agent Loop，都能被替换和重组。用户看到的是「怎么还没 Codex 顺手」，开发者看到的是「连这部分我也能改」。</p>
+  <p>所以真正的分歧不在国内外，而在两种人之间：一种需要一个培训好、打开就能上班的员工；另一种想要一套能自己招人、配工具、定流程的公司底座。两边都没看错，只是一个在评价成品，另一个在研究成品是怎么造出来的。</p>
+
+  <h2>Harness 到底是什么</h2>
+  <p>我们太容易把一切能力都记在模型头上。可模型只是一个很聪明的脑子——它不会凭空知道你的项目在哪，也没有天生自带的终端、浏览器、数据库、记忆和文件权限。把这些接到模型身上、并规定它什么时候看什么、调用什么、失败怎么重试的那层东西，就是 <strong>Harness</strong>。公式很直接：<strong>Agent = Model + Harness</strong>。同一个聪明员工，进了流程清晰的公司很快出结果，换了天天开会的公司也能干稀碎——同一个 DeepSeek 模型放在不同的 Harness 里，因为工具、上下文、任务循环不同，速度、稳定性和成本自然也不同。</p>
+
+  <h2>真正狠的不是开源，而是「核心」也能换</h2>
+  <p>开源本身并不让人意外，让人意外的是深度。沿着 <strong>一切皆插件</strong>，模型适配器、工具注册表、会话日志、Agent Loop——这些通常被视为不可动的核心——都成了可通过配置替换的组件，没有必须保留的「特权核心」。底层用一个叫 <strong>Cordis</strong> 的内核负责挂载、卸载和依赖解析，让 Agent 能力像积木一样组合，而不是拔掉一块塌一片。</p>
+  <p>与之配套的是可追踪。每次运行都能追到底：系统提示词、上下文注入、工具调用、子代理调度全都写进<em>只追加的会话日志</em>，Trajectory 视图能看清具体是哪一步跑偏了。Agent 不再是只能干瞪眼的黑盒。</p>
+
+  <h2>海外为什么开始改口</h2>
+  <p>真正改变风向的，是那些「矛盾但可信」的评价：确实慢、费 Token、文档粗糙，可它把 DeepSeek 的性能榨得很充分，缓存命中能到 99% 左右；有人喜欢它的 UI 和写代码组合工具的模式，同时承认子代理还糙。听上去自相矛盾，但这才像是真实使用会得出的结论。改变的从来不是某个修好的功能，而是框架本身逐渐定居下来：DeepSeek 抢的也许不是 Coding Agent 的王座，而是<strong>「Agent 的定义权」</strong>。把它当完成的成品来用，今天确实会失望；把它当搭建自己 Agent 栈的地基来看，可能又看早了——现在下判断都不太对。</p>
+</BlogPost>

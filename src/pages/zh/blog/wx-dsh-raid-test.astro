@@ -1,0 +1,35 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness 上手实测：66 分钟、几块钱，跑完一场 RAID 重组 | dshbase" description="一次完整真实任务的实测：安装、四种模式、取证检材的 RAID 重组、成本与轨迹复盘——66 分钟 / 200–400 万 token / 花费 3–6 元。" currentPath="/blog/wx-dsh-raid-test/" category="评测">
+  <h1>完整跑一个真活：<span class="accent">66 分钟外加几块钱，完成 RAID 重组</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 25 日 · dshbase · 上手实测</p>
+
+  <img src="/assets/blog-wechat/wx-dsh-raid-hero.svg" alt="DeepSeek Harness 上手实测主图：deepseek-v4-flash 模型加 Harness 完成 RAID 重组，66 分钟、200-400 万 token、3–6 元、99% 缓存命中" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <p>8 月 13 日，DeepSeek 开源了首款 Agent 框架 <strong>DeepSeek Harness</strong>（v0.1 开发者预览版，MIT 协议）。它的定位一句话就能说清：<strong>Model + Harness = Agent</strong>——模型负责思考，Harness 负责执行。这篇笔记不谈概念，直接拿一个真实任务跑一遍，用数据说话。</p>
+
+  <h2>安装与启动</h2>
+  <p>安装没什么仪式感：直接装官方 npm 包，本地用 <code>npx</code> 拉起 Web 界面即可——不用搭数据库、不用配服务端，开箱即用。开始前需要到 DeepSeek 开放平台拿一个 API key，按 token 量计费。省钱的关键是缓存：同一段输入会复用缓存，这决定了后面重复分析能有多便宜。</p>
+  <img src="/assets/blog-wechat/wx-dsh-raid-install.jpg" alt="提示一款助手工具从官方 npm 包安装 DeepSeek Harness，模型选择为 deepseek-v4-flash" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <h2>四种模式</h2>
+  <p>针对不同场景，Harness 提供四种模式，各自默认加载不同的插件集：</p>
+  <ul>
+    <li><strong>标准模式</strong>——工具组合最全，适合日常开发与通用任务。</li>
+    <li><strong>PTC 模式</strong>（程序化工具调用）——模型用一段代码组合多轮工具调用，适合调用链很长的复杂任务，是省 Token 大户。</li>
+    <li><strong>极简模式</strong>——只留一个 shell 工具和一个文件编辑工具，适合最小环境下的模型基准测试和路径明确的小任务。</li>
+    <li><strong>创造模式</strong>——能检查当前运行时、在内存里实验 Cordis 插件并据此组合出新的模式，属于给 Agent 改装自己的高级玩法。</li>
+  </ul>
+  <p>实用建议：又长又要省钱的任务优先选 <strong>PTC</strong>；过程中多留意右上角的缓存命中率，命中越高越便宜。</p>
+
+  <h2>实测任务：取证检材的 RAID 重组</h2>
+  <p>用标准模式选中一个取证检材所在的文件夹，下达 RAID 重组任务。状态栏会实时显示推理轮数、单步耗时、输入输出 token——整个思考过程完全透明，这是它和普通对话最不一样的地方。同一个检材反复分析、同类题目反复跑时，命中的缓存几乎不再计费，这是长任务里最容易被忽略的省钱点。</p>
+  <p>跑完的数据：<code>deepseek-v4-flash</code> 模型，<strong>总耗时约 66 分钟，约 200–400 万 token，花费约 3–6 元</strong>。一次完整的 RAID 重组分析，几块钱解决。两点要如实说：这个 token 量级对应深度推理加长链工具调用，是 Agent 任务的正常水准；另外 8 月 17 日调价后，同样的任务预计会到 10–20 元——便宜窗口就是那几天。</p>
+
+  <h2>真正值钱的是轨迹</h2>
+  <p>每一步——系统提示、工具调用、推理过程——都会落进一条可回放的轨迹。<strong>Trajectory</strong> 既可以回放复盘、分叉重试，也能一键沉淀成 <strong>Skill</strong>，让一次跑通的过程变成可复用的标准作业。对以后要反复做同类分析的人来说，这才是低调的杀手锏：存的不是结果，是整套干活流程。</p>
+
+  <h2>安装者该带走什么</h2>
+  <p>这是一个真实任务的数据点，不是通用基准。它说明的是：对取证/计算这类不简单的任务，Harness 已经能当日常工具随手用，成本低到可以随便跑；而透明的状态栏和「轨迹 → Skill」的闭环，才是它区别于聊天机器人最有价值的地方。建议你用自己的代表性任务在标准或 PTC 模式下跑一遍，盯着 token 计数器，然后把轨迹复用起来。</p>
+</BlogPost>

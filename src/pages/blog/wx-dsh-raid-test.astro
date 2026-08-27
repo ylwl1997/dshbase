@@ -1,0 +1,35 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness in a real task: 66 minutes, ~¥3, one RAID reassembly | dshbase" description="A hands-on write-up of running a complete RAID reassembly through DeepSeek Harness—install, the four modes, a real forensic workload, cost, and trajectory replay." currentPath="/blog/wx-dsh-raid-test/" category="Review">
+  <h1>A real job, end to end: <span class="accent">66 minutes and a few yuan for a RAID reassembly</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 25, 2026 · dshbase · hands-on test</p>
+
+  <img src="/assets/blog-wechat/wx-dsh-raid-hero.svg" alt="DeepSeek Harness hands-on test hero: deepseek-v4-flash model plus the harness completes a RAID reassembly in 66 minutes, 200-400万 token, ¥3-6, 99% cache hit" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <p>On <strong>August 13</strong> DeepSeek open-sourced its first agent framework, <strong>DeepSeek Harness</strong> (v0.1 developer preview, MIT). The formula is one line: <strong>Model + Harness = Agent</strong> — the model thinks, the harness actually executes. This note skips the concepts and runs one real workload through it, with numbers.</p>
+
+  <h2>Install and first run</h2>
+  <p>Installation is unremarkable: pull the official npm package and launch the web UI locally with <code>npx</code> — no database, no server to configure, out of the box. You need an API key from the DeepSeek open platform to start, billed per token. Cache hits are the money lever here: re-using the same input segments hits cache and cuts cost, which is exactly why repeated analyses get cheap.</p>
+  <img src="/assets/blog-wechat/wx-dsh-raid-install.jpg" alt="Prompting an assistant tool to install DeepSeek Harness from the official npm package, model set to deepseek-v4-flash" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <h2>The four modes</h2>
+  <p>Different tasks load different default plugin sets:</p>
+  <ul>
+    <li><strong>Standard</strong> — the full tool combination. Best for everyday dev and general tasks; the most feature-complete.</li>
+    <li><strong>PTC</strong> (Programmatic Tool Calling) — the model composes multiple tool calls as a single block of code. Best for long call chains; a real token-saver.</li>
+    <li><strong>Minimal</strong> — just one shell tool and one file editor. For minimal-environment model benchmarks and well-defined small jobs.</li>
+    <li><strong>Create</strong> — inspect the running runtime, experiment with Cordis plugins in memory, and compose new presets. For advanced, high-trust tinkering.</li>
+  </ul>
+  <p>Practical rule: for long, cost-sensitive tasks prefer <strong>PTC</strong>, and keep an eye on the cache-hit rate in the corner — the higher it is, the cheaper it gets.</p>
+
+  <h2>The job: RAID reassembly of a forensic image</h2>
+  <p>Using Standard mode on a forensic evidence folder, the agent was pointed at a <strong>RAID reassembly</strong> task. The status bar streams inference rounds, per-step timing, and input/output tokens in real time — the whole reasoning process is transparent, which is the most visible difference from an ordinary chatbot. When the same evidence gets re-analysed or similar questions repeat, cache hits make those runs nearly free.</p>
+  <p>The outcome on <code>deepseek-v4-flash</code>: <strong>about 66 minutes total, roughly 2–4 million tokens, and around ¥3–6 spent</strong>. A complete RAID-reassembly analysis for pocket change. Two caveats worth flagging: that token volume is normal for deep reasoning plus long tool chains, and after the <strong>August 17</strong> price adjustment the same job is expected to land around ¥10–20 — so the cheap window was exactly that.</p>
+
+  <h2>Trajectory: the part that matters later</h2>
+  <p>Every step — system prompt, tool call, reasoning — lands in a replayable trace. That <strong>Trajectory</strong> can be replayed for review, branched, or folded straight into a <strong>Skill</strong> so a successful run becomes a reusable standard operating procedure instead of a one-off. For anyone who will redo the same kind of analysis, that's the quiet killer feature: the working procedure, not just the result.</p>
+
+  <h2>The takeaway for installers</h2>
+  <p>This is a single real workload, not a general benchmark. What it demonstrates is that the harness is comfortably usable for a non-trivial forensic/computation task at a cost that makes it a daily tool — while the transparent status and the trajectory-to-skill loop are where the unlike-chatbot value actually lives. Run your own representative task in Standard or PTC mode, watch the token counter, and reuse the trace.</p>
+</BlogPost>

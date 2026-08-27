@@ -1,0 +1,23 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness Agent Team: you are the project manager | dshbase" description="DSH's Agent Team looks like Tencent Marvis at a glance, but the philosophy is the opposite: transparent, auditable multi-agent collaboration where every member, tool and message is visible." currentPath="/blog/wx-dsh-agent-team/" category="Analysis">
+  <h1>The Agent Team tab: <span class="accent">a glass room, not a black box</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 25, 2026 · dshbase · feature deep-dive</p>
+
+  <img src="/assets/blog-wechat/wx-dsh-agent-team.png" alt="A DeepSeek Harness session showing the 'Agent Team' tab with a virtual office of AI agents (14-person dev team, 15 subtasks) and a session-log button" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <p>If you've used <strong>DeepSeek Harness</strong> recently you may have noticed a second tab sitting next to your main session window. It's the <strong>Agent Team</strong> view, and at first glance it looks like Tencent's <strong>Marvis</strong> — an AI butler bundled with an operating system. Marvis ships six fixed "employees" (file manager, system operator, cross-device coordinator) and works as a black box: you ask, it silently splits the job, dispatches people, and hands you the result. Convenient, but you can't see a thing that happens inside.</p>
+
+  <h2>Two products, opposite philosophies</h2>
+  <p>Place Marvis and the Harness Team side by side and the resemblance fades fast. Marvis is a <em>turnkey furnished apartment</em> — low effort, but you don't control the finish. The Harness Team hands you the land and lets you build the house: more work, but you know where every piece of rebar is.</p>
+  <p>Instead of a fixed roster, you are the <strong>project manager</strong>. Your main session is the team lead, and you "recruit" members — a coder, a researcher, a reviewer — on demand. Each member runs its own independent session and memory and can carry its own toolset. The genuinely useful part is the collaboration model: members don't have to funnel everything through the lead. They can message each other directly through an internal mailbox, e.g. <em>"I just found this API doc — update the code against it."</em></p>
+
+  <h2>The whole process is transparent</h2>
+  <p>The killer property is visibility. That team tab works like a glass room: who is working on what, how far along each subtask is, and where something is stuck are all readable in real time, next to the running session log. If the "engineer" agent calls a wrong interface, you see the exact step where it went off — instead of staring at a black box and hoping.</p>
+  <img src="/assets/blog-wechat/wx-dsh-agent-team.png" alt="Agent Team glass-room view: member avatars at desks, subtask count, and session-log access" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <p>That trade-off is worth being explicit about. For a two-second tidy-up of your desktop, a black box wins — Marvis is genuinely better at convenience. For a real project (scrape data, write analysis code, generate charts, produce a report) where you want to know what each piece did and catch errors as they happen, the transparent team structure earns its keep: assign the researcher to gather, the engineer to code, the reviewer to check the report, and watch the board.</p>
+
+  <h2>The takeaway for installers</h2>
+  <p>If you expect Harness to behave like a polished assistant you can't inspect, you'll be disappointed and possibly annoyed. If what you actually want is an auditable, steerable team of agents whose every move is on the record, the Agent Team view is a genuinely different take on multi-agent collaboration — one built around <em>transparency and control</em> rather than black-box convenience. Decide which you're shopping for before you judge it.</p>
+</BlogPost>

@@ -1,0 +1,55 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="从零构建一个 DeepSeek Harness 工具插件 | dshbase" description="手把手打包一个完整的 dsh 插件：包骨架、defineTool、通过能力接缝调用 LLM、注册与生命周期、行为测试——做一个人人都能照抄的翻译工具插件。" currentPath="/blog/wx-dsh-build-plugin/" category="指南">
+  <h1>你的第一个插件，端到端：<span class="accent">DeepSeek Harness 翻译工具</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 27 日 · dshbase · 动手指南</p>
+
+  <img src="/assets/blog-wechat/wx-dsh-build-plugin.png" alt="dsh 工具插件包结构图：packages/translation/tool-translate，含 src（index.ts 入口、invariant.ts）、tests、package.json、tsconfig，以及把它注册进 Cordis bundle 的流程" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <p>如果「一切皆插件」对你还停留在抽象层面，这篇把它落地：我们从零构建一个完整的 <strong>dsh 插件包</strong>——一个翻译工具，让 Agent 能把文本翻译成目标语言。一路覆盖包骨架、<code>defineTool</code>、通过能力接缝调用 LLM、注册与生命周期、行为测试。步骤与官方 cookbook（<code>adding-a-package.md</code>、<code>adding-a-tool.md</code>）一致。</p>
+
+  <h2>第一步：包骨架</h2>
+  <p>工具生活在 monorepo 里自己的包中。<code>package.json</code> 的要点：</p>
+  <pre style="overflow-x:auto"><code>&#123;
+  "name": "@deepseek-ai/dsh-tool-translate",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": &#123; ".": "./src/index.ts", "./invariant": "./src/invariant.ts", "./package.json": "./package.json" &#125;,
+  "peerDependencies": &#123; "@deepseek-ai/cordis": "workspace:*" &#125;
+&#125;</code></pre>
+  <p>三件事先记牢：<code>private: true</code> 表示这个包留在仓库里、不发布到 npm；<code>type: module</code> 让它只能走 ESM；而 <code>@deepseek-ai/cordis</code> 既是 peer 也是 dev 依赖。工具包依赖的是<em>服务定义</em>（<code>dsh-tools</code>、<code>dsh-llm</code>），而不是某个具体的 Provider——这层间接性，正是工具不与具体模型厂商绑死的关键。</p>
+
+  <h2>第二步：实现插件</h2>
+  <pre style="overflow-x:auto"><code>import type &#123; Context &#125; from '@deepseek-ai/cordis'
+import &#123; defineTool &#125; from '@deepseek-ai/dsh-tools'
+
+export const name = 'tool-translate'
+export const inject = ['tools', 'llm'] as const
+
+export function apply(ctx: Context) &#123;
+  ctx.tools.register(defineTool(&#123;
+    name: 'translate',
+    description: 'Translate text to a specified language.',
+    parameters: &#123;
+      text: &#123; type: 'string', description: 'The text to translate', required: true &#125;,
+      targetLanguage: &#123; type: 'string', description: 'Target language', required: true &#125;
+    &#125;
+    // 工具实现里通过 ctx.llm 调用语言模型（能力接缝）
+  &#125;))
+&#125;</code></pre>
+  <p>插件入口是三个导出：<code>name</code>、<code>inject</code>、<code>apply(ctx)</code>。<code>inject</code> 列表就是一句「我要什么」——运行时保证在 <code>apply</code> 执行前，<code>tools</code> 和 <code>llm</code> 服务定义都已经就绪。这就是<em>能力接缝</em>：你的工具只声明需要什么能力、拿到对应的接口，从不 import 某个具体的模型 Provider。</p>
+
+  <h2>第三步：注册与能力接缝</h2>
+  <p>因为工具只声明服务<em>定义</em>，它天然可移植——同一个工具，只要换掉被加载的服务实现，就能从 DeepSeek 的适配器切到另一个提供方。<code>apply()</code> 在加载时把工具注册进 tools 服务；加载/卸载的生命周期由 Cordis 托管，所以摘下插件时它的注册会被干净地清理掉，而不是留下一堆悬空状态。</p>
+
+  <h2>第四步：写测试</h2>
+  <p>补两块让它更稳：一个<strong>行为测试</strong>（<code>translate.spec.ts</code>），用代表性输入断言工具的行为，对应上面示意图里的「行为测试」；一个<strong>运行时不变式</strong>模块（<code>invariant.ts</code>，经 <code>./invariant</code> 导出），保存插件运行期间必须始终成立的那些断言——在一个高度组合的系统里，靠「不变式」而不是「乐观路径」兜底，才不容易整片塌掉。</p>
+
+  <h2>第五步：接进系统</h2>
+  <p>最后把它注册进 monorepo：在聚合 <code>tsconfig</code> 的 references 里加上它的路径，在 <code>cordis.patch.yml</code> bundle 里加一行让运行时知道要加载它，并在聚合 <code>package.json</code> 里加上依赖。</p>
+
+  <h2>安装者该带走什么</h2>
+  <p>一个工具插件其实是个很小的、可重复的形状：包骨架 + <code>defineTool</code> + 声明的 <code>inject</code> + 测试 + 一两行注册。看懂一个，之后发新工具照抄这个形状即可；又因为工具依赖的是服务定义而非厂商，换什么模型进来，同一个插件都能原样跑。「一切皆插件」至此变成可操作的现实：你自己的能力，就是 Harness 能加载、能检查、能干净卸载的又一个模块。</p>
+</BlogPost>

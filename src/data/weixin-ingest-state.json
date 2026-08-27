@@ -1,6 +1,34 @@
 {
   "seen": [
     {
+      "title": "DeepSeek Harness 实现解析系列教程第 11 章：实战——从零构建一个完整插件",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787793774&ver=6929&signature=IeNekbqiL4D053c1x4D0e8a-KiS9NFhH2muhWK2rQSq3yPMP2Xx1O78ifBMYWPxFJ4-iEufgLIF*dt1EDijG-LsYVQHBMTLRhBmQ1vZ6Rl608zXAnDScxnfc07kZjuXl&new=1",
+      "status": "published",
+      "slug": "wx-dsh-build-plugin",
+      "at": "2026-08-27T01:36:43.000000+00:00"
+    },
+    {
+      "title": "DeepSeek Harness，为什么国内海外的评价两极分化？",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787793765&ver=6929&signature=pCb*CrN-16-R6oNlck1q-eSPt9RrQUHmiDTT1RizcORYbF3muR-AcVPtzrODlZeZXa1p1C28IWm8kKIYJcAp4Dz79AlqL6TEdhxzXV3pPe918QYLrbLP7SVRaSSS768R&new=1",
+      "status": "published",
+      "slug": "wx-dsh-polarized-reviews",
+      "at": "2026-08-27T01:36:43.000000+00:00"
+    },
+    {
+      "title": "DeepSeek Harness上手实测",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787793770&ver=6929&signature=--UG96bITnl1xTIdKiNhC5mOLfvbZ3Vfzn6s3WDav0hAOF-H6zGREbAPm9B5HTv65hcRaSBpfuW69yeY28i5j6zIEOi5PIUpYnSrvS0ekPPKRRW6fdTlwWVHZpHZQuvL&new=1",
+      "status": "published",
+      "slug": "wx-dsh-raid-test",
+      "at": "2026-08-27T01:36:43.000000+00:00"
+    },
+    {
+      "title": "DeepSeek Harness Team有点意思，腾讯“马维斯”的翻版？",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787793756&ver=6929&signature=VXRCZLsFoczHrelv2lXD*vkmZGIjCguLav233pWqn7H9iXPd9wgVSnwj8MFqwoGIuElqFugak0UImi-2CSATi95yVSznGokJRAdC-Vmzt-gnN6TNKuprysYCDFUAq16M&new=1",
+      "status": "published",
+      "slug": "wx-dsh-agent-team",
+      "at": "2026-08-27T01:36:43.000000+00:00"
+    },
+    {
       "title": "DeepSeek Harness v0.1.0-rc.8：多模态输入与子代理配置",
       "href": "https://github.com/deepseek-ai/deepseek-harness/releases/tag/dsh-v0.1.0-rc.8",
       "status": "published",
@@ -80,6 +108,34 @@
   ],
   "published": [
     {
+      "title": "DeepSeek Harness 实现解析系列教程第 11 章：实战——从零构建一个完整插件",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787793774&ver=6929&signature=IeNekbqiL4D053c1x4D0e8a-KiS9NFhH2muhWK2rQSq3yPMP2Xx1O78ifBMYWPxFJ4-iEufgLIF*dt1EDijG-LsYVQHBMTLRhBmQ1vZ6Rl608zXAnDScxnfc07kZjuXl&new=1",
+      "slug": "wx-dsh-build-plugin",
+      "at": "2026-08-27T01:36:43.000000+00:00",
+      "batch": "daily"
+    },
+    {
+      "title": "DeepSeek Harness，为什么国内海外的评价两极分化？",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787793765&ver=6929&signature=pCb*CrN-16-R6oNlck1q-eSPt9RrQUHmiDTT1RizcORYbF3muR-AcVPtzrODlZeZXa1p1C28IWm8kKIYJcAp4Dz79AlqL6TEdhxzXV3pPe918QYLrbLP7SVRaSSS768R&new=1",
+      "slug": "wx-dsh-polarized-reviews",
+      "at": "2026-08-27T01:36:43.000000+00:00",
+      "batch": "daily"
+    },
+    {
+      "title": "DeepSeek Harness上手实测",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787793770&ver=6929&signature=--UG96bITnl1xTIdKiNhC5mOLfvbZ3Vfzn6s3WDav0hAOF-H6zGREbAPm9B5HTv65hcRaSBpfuW69yeY28i5j6zIEOi5PIUpYnSrvS0ekPPKRRW6fdTlwWVHZpHZQuvL&new=1",
+      "slug": "wx-dsh-raid-test",
+      "at": "2026-08-27T01:36:43.000000+00:00",
+      "batch": "daily"
+    },
+    {
+      "title": "DeepSeek Harness Team有点意思，腾讯“马维斯”的翻版？",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787793756&ver=6929&signature=VXRCZLsFoczHrelv2lXD*vkmZGIjCguLav233pWqn7H9iXPd9wgVSnwj8MFqwoGIuElqFugak0UImi-2CSATi95yVSznGokJRAdC-Vmzt-gnN6TNKuprysYCDFUAq16M&new=1",
+      "slug": "wx-dsh-agent-team",
+      "at": "2026-08-27T01:36:43.000000+00:00",
+      "batch": "daily"
+    },
+    {
       "title": "DeepSeek Harness v0.1.0-rc.8：多模态输入与子代理配置",
       "href": "https://github.com/deepseek-ai/deepseek-harness/releases/tag/dsh-v0.1.0-rc.8",
       "slug": "wx-rc8-multimodal",
@@ -157,5 +213,5 @@
       "batch": "daily"
     }
   ],
-  "updated_at": "2026-08-25T06:37:56.327814+00:00"
+  "updated_at": "2026-08-27T01:36:43.000000+00:00"
 }
