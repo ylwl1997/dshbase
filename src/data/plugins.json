@@ -56964,7 +56964,9 @@
    "platform": "any",
    "desc": "Model Filter Plugin for DeepSeek Harness (DSH)",
    "desc_en": "Model Filter Plugin for DeepSeek Harness (DSH)",
-   "desc_zh": "Model Filter Plugin for DeepSeek Harness (DSH)"
+   "desc_zh": "Model Filter Plugin for DeepSeek Harness (DSH)",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-request-manager",
@@ -56978,7 +56980,10 @@
    "platform": "any",
    "desc": "管理Deepseek Harness的LLM API请求策略的实用插件。/ Practical plugin for managing LLM API request sending policies for DeepSeek Harness.",
    "desc_zh": "管理Deepseek Harness的LLM API请求策略的实用插件。/ Practical plugin for managing LLM API request sending policies for DeepSeek Harness.",
-   "desc_en": "管理Deepseek Harness的LLM API请求策略的实用插件。/ Practical plugin for managing LLM API request sending policies for DeepSeek Harness."
+   "desc_en": "管理Deepseek Harness的LLM API请求策略的实用插件。/ Practical plugin for managing LLM API request sending policies for DeepSeek Harness.",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "smooth-cursor",
@@ -56989,7 +56994,9 @@
    "forks": 0,
    "updated": "2026-08-21",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "jolly-dsh-vision",
@@ -57003,7 +57010,9 @@
    "platform": "any",
    "desc": "ModLens 风格的 DeepSeek Harness 视觉桥接插件：deepseek-v4-pro 当大脑、deepseek-v4-flash-vision-exp 当眼睛，提供 vision 工具与 (ds vision) 视觉孪生模型，让纯文本模型也能看图、直接贴图。",
    "desc_zh": "ModLens 风格的 DeepSeek Harness 视觉桥接插件：deepseek-v4-pro 当大脑、deepseek-v4-flash-vision-exp 当眼睛，提供 vision 工具与 (ds vision) 视觉孪生模型，让纯文本模型也能看图、直接贴图。",
-   "desc_en": "ModLens 风格的 DeepSeek Harness 视觉桥接插件：deepseek-v4-pro 当大脑、deepseek-v4-flash-vision-exp 当眼睛，提供 vision 工具与 (ds vision) 视觉孪生模型，让纯文本模型也能看图、直接贴图。"
+   "desc_en": "ModLens 风格的 DeepSeek Harness 视觉桥接插件：deepseek-v4-pro 当大脑、deepseek-v4-flash-vision-exp 当眼睛，提供 vision 工具与 (ds vision) 视觉孪生模型，让纯文本模型也能看图、直接贴图。",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-user-agent",
@@ -57017,7 +57026,9 @@
    "platform": "any",
    "desc": "Rewrites the User-Agent sent by every outgoing HTTP request (LLM API calls and other global-fetch traffic) to a value of your choice, configured live from a dedicated UA 设置 (User-Agent) tab in the Web settings. 为 dsh 发出的所有出站 HTTP 请求（LLM API 调用等走全局 fetch 的流量）改写 User-Agent，并可在 Web 设置的 UA 设置 选项卡中实时配置。",
    "desc_zh": "Rewrites the User-Agent sent by every outgoing HTTP request (LLM API calls and other global-fetch traffic) to a value of your choice, configured live from a dedicated UA 设置 (User-Agent) tab in the Web settings. 为 dsh 发出的所有出站 HTTP 请求（LLM API 调用等走全局 fetch 的流量）改写 User-Agent，并可在 Web 设置的 UA 设置 选项卡中实时配置。",
-   "desc_en": "Rewrites the User-Agent sent by every outgoing HTTP request (LLM API calls and other global-fetch traffic) to a value of your choice, configured live from a dedicated UA 设置 (User-Agent) tab in the Web settings. 为 dsh 发出的所有出站 HTTP 请求（LLM API 调用等走全局 fetch 的流量）改写 User-Agent，并可在 Web 设置的 UA 设置 选项卡中实时配置。"
+   "desc_en": "Rewrites the User-Agent sent by every outgoing HTTP request (LLM API calls and other global-fetch traffic) to a value of your choice, configured live from a dedicated UA 设置 (User-Agent) tab in the Web settings. 为 dsh 发出的所有出站 HTTP 请求（LLM API 调用等走全局 fetch 的流量）改写 User-Agent，并可在 Web 设置的 UA 设置 选项卡中实时配置。",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-jumpbar",
@@ -57028,7 +57039,9 @@
    "forks": 0,
    "updated": "2026-08-21",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-solo-agent",
@@ -57042,7 +57055,9 @@
    "platform": "any",
    "desc": "DSH 插件：向用户 agent-presets 注入 `solo` preset,优化上下文占用和模型调度。",
    "desc_zh": "DSH 插件：向用户 agent-presets 注入 `solo` preset,优化上下文占用和模型调度。",
-   "desc_en": "DSH 插件：向用户 agent-presets 注入 `solo` preset,优化上下文占用和模型调度。"
+   "desc_en": "DSH 插件：向用户 agent-presets 注入 `solo` preset,优化上下文占用和模型调度。",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pouch",
@@ -57056,7 +57071,9 @@
    "platform": "any",
    "desc": "A pouch of practical plugins for DeepSeek Harness · DSH 实用小插件工具箱",
    "desc_zh": "A pouch of practical plugins for DeepSeek Harness · DSH 实用小插件工具箱",
-   "desc_en": "A pouch of practical plugins for DeepSeek Harness · DSH 实用小插件工具箱"
+   "desc_en": "A pouch of practical plugins for DeepSeek Harness · DSH 实用小插件工具箱",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-ringcentral",
@@ -57070,7 +57087,9 @@
    "platform": "any",
    "desc": "Plugin for integrating RingCentral with DeepSeek Harness (dsh)",
    "desc_en": "Plugin for integrating RingCentral with DeepSeek Harness (dsh)",
-   "desc_zh": "Plugin for integrating RingCentral with DeepSeek Harness (dsh)"
+   "desc_zh": "Plugin for integrating RingCentral with DeepSeek Harness (dsh)",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-muse-total-tps",
@@ -57084,7 +57103,9 @@
    "platform": "any",
    "desc": "DSH Web 插件：Muse Spark 使用包含 TTFT 的总生成时间计算 TPS",
    "desc_zh": "DSH Web 插件：Muse Spark 使用包含 TTFT 的总生成时间计算 TPS",
-   "desc_en": "DSH Web 插件：Muse Spark 使用包含 TTFT 的总生成时间计算 TPS"
+   "desc_en": "DSH Web 插件：Muse Spark 使用包含 TTFT 的总生成时间计算 TPS",
+   "testDate": "2026-08-27",
+   "note": "验证: network-fail"
   },
   {
    "name": "dsh-minimal-rules",
@@ -57098,7 +57119,9 @@
    "platform": "any",
    "desc": "DeepSeek Harness 极简模式规则注入插件",
    "desc_zh": "DeepSeek Harness 极简模式规则注入插件",
-   "desc_en": "DeepSeek Harness 极简模式规则注入插件"
+   "desc_en": "DeepSeek Harness 极简模式规则注入插件",
+   "testDate": "2026-08-27",
+   "note": "验证: network-fail"
   },
   {
    "name": "dsh-subscription-usage",
@@ -57112,7 +57135,10 @@
    "platform": "any",
    "desc": "DeepSeek Harness 订阅用量查询插件",
    "desc_zh": "DeepSeek Harness 订阅用量查询插件",
-   "desc_en": "DeepSeek Harness 订阅用量查询插件"
+   "desc_en": "DeepSeek Harness 订阅用量查询插件",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-subagent-model-override",
@@ -57126,7 +57152,9 @@
    "platform": "any",
    "desc": "DeepSeek Harness 子代理模型策略覆盖插件",
    "desc_zh": "DeepSeek Harness 子代理模型策略覆盖插件",
-   "desc_en": "DeepSeek Harness 子代理模型策略覆盖插件"
+   "desc_en": "DeepSeek Harness 子代理模型策略覆盖插件",
+   "testDate": "2026-08-27",
+   "note": "验证: network-fail"
   },
   {
    "name": "dsh-response-notification",
@@ -57140,7 +57168,9 @@
    "platform": "any",
    "desc": "DeepSeek Harness Web 浏览器后台最终响应完成通知",
    "desc_zh": "DeepSeek Harness Web 浏览器后台最终响应完成通知",
-   "desc_en": "DeepSeek Harness Web 浏览器后台最终响应完成通知"
+   "desc_en": "DeepSeek Harness Web 浏览器后台最终响应完成通知",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-openrouter-provider-badge",
@@ -57151,7 +57181,9 @@
    "forks": 0,
    "updated": "2026-08-21",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-skin-Tlipoca",
@@ -57162,7 +57194,9 @@
    "forks": 0,
    "updated": "2026-08-21",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-wx-desktop",
@@ -57176,7 +57210,9 @@
    "platform": "any",
    "desc": "deepseek harness 桌面端插件",
    "desc_zh": "deepseek harness 桌面端插件",
-   "desc_en": "deepseek harness 桌面端插件"
+   "desc_en": "deepseek harness 桌面端插件",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-balance-local",
@@ -57190,7 +57226,10 @@
    "platform": "any",
    "desc": "DeepSeek API balance plugin for DeepSeek Harness (dsh): Settings-page panel + composer badge. Key stays on the Host; browser gets sanitized balance only.",
    "desc_en": "DeepSeek API balance plugin for DeepSeek Harness (dsh): Settings-page panel + composer badge. Key stays on the Host; browser gets sanitized balance only.",
-   "desc_zh": "DeepSeek API balance plugin for DeepSeek Harness (dsh): Settings-page panel + composer badge. Key stays on the Host; browser gets sanitized balance only."
+   "desc_zh": "DeepSeek API balance plugin for DeepSeek Harness (dsh): Settings-page panel + composer badge. Key stays on the Host; browser gets sanitized balance only.",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-balance-whale",
@@ -57204,7 +57243,10 @@
    "platform": "any",
    "desc": "🐳 Floating DeepSeek API balance widget for DeepSeek Harness (dsh) with a whale-girl icon. Key stays on the Host; browser gets sanitized balance only.",
    "desc_en": "🐳 Floating DeepSeek API balance widget for DeepSeek Harness (dsh) with a whale-girl icon. Key stays on the Host; browser gets sanitized balance only.",
-   "desc_zh": "🐳 Floating DeepSeek API balance widget for DeepSeek Harness (dsh) with a whale-girl icon. Key stays on the Host; browser gets sanitized balance only."
+   "desc_zh": "🐳 Floating DeepSeek API balance widget for DeepSeek Harness (dsh) with a whale-girl icon. Key stays on the Host; browser gets sanitized balance only.",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-web-pass",
@@ -57218,7 +57260,10 @@
    "platform": "any",
    "desc": "DSH Web 密码门禁 – Cookie 认证 + 首次强制设密 + 登录失败锁定60s + 内置访问日志查看器。零依赖，原生集成设置页。",
    "desc_zh": "DSH Web 密码门禁 – Cookie 认证 + 首次强制设密 + 登录失败锁定60s + 内置访问日志查看器。零依赖，原生集成设置页。",
-   "desc_en": "DSH Web 密码门禁 – Cookie 认证 + 首次强制设密 + 登录失败锁定60s + 内置访问日志查看器。零依赖，原生集成设置页。"
+   "desc_en": "DSH Web 密码门禁 – Cookie 认证 + 首次强制设密 + 登录失败锁定60s + 内置访问日志查看器。零依赖，原生集成设置页。",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-composer-alcove",
@@ -57232,7 +57277,9 @@
    "platform": "any",
    "desc": "DSH composer: scroll to an iPhone home-indicator pill; corner arcs dock the real composer into the left/right gutter / 下滑收到 Home 条，左右弧线把原输入框停到两侧留白。",
    "desc_zh": "DSH composer: scroll to an iPhone home-indicator pill; corner arcs dock the real composer into the left/right gutter / 下滑收到 Home 条，左右弧线把原输入框停到两侧留白。",
-   "desc_en": "DSH composer: scroll to an iPhone home-indicator pill; corner arcs dock the real composer into the left/right gutter / 下滑收到 Home 条，左右弧线把原输入框停到两侧留白。"
+   "desc_en": "DSH composer: scroll to an iPhone home-indicator pill; corner arcs dock the real composer into the left/right gutter / 下滑收到 Home 条，左右弧线把原输入框停到两侧留白。",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-bundle-dedup-guard",
@@ -57246,7 +57293,9 @@
    "platform": "any",
    "desc": "DSH plugin guard: catches duplicate loader entry ids on every plugin load - prevents the \"duplicate loader entry id\" boot crash",
    "desc_en": "DSH plugin guard: catches duplicate loader entry ids on every plugin load - prevents the \"duplicate loader entry id\" boot crash",
-   "desc_zh": "DSH plugin guard: catches duplicate loader entry ids on every plugin load - prevents the \"duplicate loader entry id\" boot crash"
+   "desc_zh": "DSH plugin guard: catches duplicate loader entry ids on every plugin load - prevents the \"duplicate loader entry id\" boot crash",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-deepseek-peak-valley",
@@ -57260,7 +57309,9 @@
    "platform": "any",
    "desc": "DeepSeek 分时段计费小组件 · DSH client 插件（platform=web）：按北京时间自动判定高峰/空闲时段，10 款风格侧边栏小组件 + 设置页",
    "desc_zh": "DeepSeek 分时段计费小组件 · DSH client 插件（platform=web）：按北京时间自动判定高峰/空闲时段，10 款风格侧边栏小组件 + 设置页",
-   "desc_en": "DeepSeek 分时段计费小组件 · DSH client 插件（platform=web）：按北京时间自动判定高峰/空闲时段，10 款风格侧边栏小组件 + 设置页"
+   "desc_en": "DeepSeek 分时段计费小组件 · DSH client 插件（platform=web）：按北京时间自动判定高峰/空闲时段，10 款风格侧边栏小组件 + 设置页",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-official-vision",
@@ -57274,7 +57325,9 @@
    "platform": "any",
    "desc": "Direct official DeepSeek vision API bridge for DeepSeek Harness: deepseek-v4-flash-vision-exp provider route. 直连 DeepSeek 官方视觉 API 的 DSH 插件",
    "desc_zh": "Direct official DeepSeek vision API bridge for DeepSeek Harness: deepseek-v4-flash-vision-exp provider route. 直连 DeepSeek 官方视觉 API 的 DSH 插件",
-   "desc_en": "Direct official DeepSeek vision API bridge for DeepSeek Harness: deepseek-v4-flash-vision-exp provider route. 直连 DeepSeek 官方视觉 API 的 DSH 插件"
+   "desc_en": "Direct official DeepSeek vision API bridge for DeepSeek Harness: deepseek-v4-flash-vision-exp provider route. 直连 DeepSeek 官方视觉 API 的 DSH 插件",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-picture-fit",
@@ -57288,7 +57341,9 @@
    "platform": "any",
    "desc": "DSH plugin + Agent Skill: auto-fit oversized images with sharp before attachment admission",
    "desc_en": "DSH plugin + Agent Skill: auto-fit oversized images with sharp before attachment admission",
-   "desc_zh": "DSH plugin + Agent Skill: auto-fit oversized images with sharp before attachment admission"
+   "desc_zh": "DSH plugin + Agent Skill: auto-fit oversized images with sharp before attachment admission",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-file-drop-eac",
@@ -57302,7 +57357,9 @@
    "platform": "any",
    "desc": "拖入文件/文件夹到对话 - Deepseek Harness EAC 内置替代插件（替代已弃用的 dsh-file-drop，见 issue #141）",
    "desc_zh": "拖入文件/文件夹到对话 - Deepseek Harness EAC 内置替代插件（替代已弃用的 dsh-file-drop，见 issue #141）",
-   "desc_en": "拖入文件/文件夹到对话 - Deepseek Harness EAC 内置替代插件（替代已弃用的 dsh-file-drop，见 issue #141）"
+   "desc_en": "拖入文件/文件夹到对话 - Deepseek Harness EAC 内置替代插件（替代已弃用的 dsh-file-drop，见 issue #141）",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-fingerprint-show",
@@ -57316,7 +57373,10 @@
    "platform": "any",
    "desc": "dsh-fingerprint-show — DSH plugin: show the DeepSeek fingerprint in the sidebar",
    "desc_en": "dsh-fingerprint-show — DSH plugin: show the DeepSeek fingerprint in the sidebar",
-   "desc_zh": "dsh-fingerprint-show — DSH plugin: show the DeepSeek fingerprint in the sidebar"
+   "desc_zh": "dsh-fingerprint-show — DSH plugin: show the DeepSeek fingerprint in the sidebar",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-anchor-rail",
@@ -57330,7 +57390,10 @@
    "platform": "any",
    "desc": "DSH Web 会话锚点导轨插件：左侧导轨展示当前模型表面全部用户问题，悬浮显示全部锚点名称（与导轨对齐），点击快速跳转。Session anchor rail for DeepSeek Harness Web.",
    "desc_zh": "DSH Web 会话锚点导轨插件：左侧导轨展示当前模型表面全部用户问题，悬浮显示全部锚点名称（与导轨对齐），点击快速跳转。Session anchor rail for DeepSeek Harness Web.",
-   "desc_en": "DSH Web 会话锚点导轨插件：左侧导轨展示当前模型表面全部用户问题，悬浮显示全部锚点名称（与导轨对齐），点击快速跳转。Session anchor rail for DeepSeek Harness Web."
+   "desc_en": "DSH Web 会话锚点导轨插件：左侧导轨展示当前模型表面全部用户问题，悬浮显示全部锚点名称（与导轨对齐），点击快速跳转。Session anchor rail for DeepSeek Harness Web.",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-better-retry",
@@ -57344,7 +57407,9 @@
    "platform": "any",
    "desc": "DSH (DeepSeek Harness) Cordis plugin: retry ANY model-request failure with durable backoff; retry budget adjustable in Settings → General via slider (0–64, default 8). 无论报什么错都重试模型请求，设置滑块可调 0–64 次，默认 8。",
    "desc_zh": "DSH (DeepSeek Harness) Cordis plugin: retry ANY model-request failure with durable backoff; retry budget adjustable in Settings → General via slider (0–64, default 8). 无论报什么错都重试模型请求，设置滑块可调 0–64 次，默认 8。",
-   "desc_en": "DSH (DeepSeek Harness) Cordis plugin: retry ANY model-request failure with durable backoff; retry budget adjustable in Settings → General via slider (0–64, default 8). 无论报什么错都重试模型请求，设置滑块可调 0–64 次，默认 8。"
+   "desc_en": "DSH (DeepSeek Harness) Cordis plugin: retry ANY model-request failure with durable backoff; retry budget adjustable in Settings → General via slider (0–64, default 8). 无论报什么错都重试模型请求，设置滑块可调 0–64 次，默认 8。",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-lb2kg",
@@ -57358,7 +57423,9 @@
    "platform": "any",
    "desc": "磅转千克",
    "desc_zh": "磅转千克",
-   "desc_en": "磅转千克"
+   "desc_en": "磅转千克",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-london-city",
@@ -57372,7 +57439,9 @@
    "platform": "any",
    "desc": "伦敦市",
    "desc_zh": "伦敦市",
-   "desc_en": "伦敦市"
+   "desc_en": "伦敦市",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-potassium",
@@ -57386,7 +57455,9 @@
    "platform": "any",
    "desc": "钾元素",
    "desc_zh": "钾元素",
-   "desc_en": "钾元素"
+   "desc_en": "钾元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-peak-reminder",
@@ -57400,7 +57471,10 @@
    "platform": "any",
    "desc": "峰谷提示器：DeepSeek Harness 高峰时段提醒插件（模式指示灯 / 高峰前提醒 / 余额卡片）",
    "desc_zh": "峰谷提示器：DeepSeek Harness 高峰时段提醒插件（模式指示灯 / 高峰前提醒 / 余额卡片）",
-   "desc_en": "峰谷提示器：DeepSeek Harness 高峰时段提醒插件（模式指示灯 / 高峰前提醒 / 余额卡片）"
+   "desc_en": "峰谷提示器：DeepSeek Harness 高峰时段提醒插件（模式指示灯 / 高峰前提醒 / 余额卡片）",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-geometric-mean",
@@ -57414,7 +57488,9 @@
    "platform": "any",
    "desc": "几何平均数",
    "desc_zh": "几何平均数",
-   "desc_en": "几何平均数"
+   "desc_en": "几何平均数",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-portugal",
@@ -57428,7 +57504,9 @@
    "platform": "any",
    "desc": "葡萄牙国家",
    "desc_zh": "葡萄牙国家",
-   "desc_en": "葡萄牙国家"
+   "desc_en": "葡萄牙国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-geography-terms",
@@ -57442,7 +57520,9 @@
    "platform": "any",
    "desc": "地理术语",
    "desc_zh": "地理术语",
-   "desc_en": "地理术语"
+   "desc_en": "地理术语",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-geography-rivers",
@@ -57456,7 +57536,9 @@
    "platform": "any",
    "desc": "世界大河",
    "desc_zh": "世界大河",
-   "desc_en": "世界大河"
+   "desc_en": "世界大河",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-polonium",
@@ -57470,7 +57552,9 @@
    "platform": "any",
    "desc": "钋元素",
    "desc_zh": "钋元素",
-   "desc_en": "钋元素"
+   "desc_en": "钋元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-loan-prepay",
@@ -57484,7 +57568,9 @@
    "platform": "any",
    "desc": "提前还贷计算器",
    "desc_zh": "提前还贷计算器",
-   "desc_en": "提前还贷计算器"
+   "desc_en": "提前还贷计算器",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-israel",
@@ -57498,7 +57584,9 @@
    "platform": "any",
    "desc": "以色列国家",
    "desc_zh": "以色列国家",
-   "desc_en": "以色列国家"
+   "desc_en": "以色列国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-id-renew",
@@ -57512,7 +57600,9 @@
    "platform": "any",
    "desc": "身份证换证",
    "desc_zh": "身份证换证",
-   "desc_en": "身份证换证"
+   "desc_en": "身份证换证",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-geography-oceans",
@@ -57526,7 +57616,9 @@
    "platform": "any",
    "desc": "五大洋",
    "desc_zh": "五大洋",
-   "desc_en": "五大洋"
+   "desc_en": "五大洋",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-poland",
@@ -57540,7 +57632,9 @@
    "platform": "any",
    "desc": "波兰国家",
    "desc_zh": "波兰国家",
-   "desc_en": "波兰国家"
+   "desc_en": "波兰国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-self-memory",
@@ -57554,7 +57648,9 @@
    "platform": "any",
    "desc": "DSH 自记忆插件（v0.3）把会话中遇到的问题、多种解决方法、脚本文件路径与模型调用全过程结构化记录下来；新会话中，「先查记录 → 有就试 → 成功标命中/失败记根因 → 无则自研 → 最后回写」的闭环自动发生，并支持外部导入解决方法。零运行时依赖、纯本地、离线可用。",
    "desc_zh": "DSH 自记忆插件（v0.3）把会话中遇到的问题、多种解决方法、脚本文件路径与模型调用全过程结构化记录下来；新会话中，「先查记录 → 有就试 → 成功标命中/失败记根因 → 无则自研 → 最后回写」的闭环自动发生，并支持外部导入解决方法。零运行时依赖、纯本地、离线可用。",
-   "desc_en": "DSH 自记忆插件（v0.3）把会话中遇到的问题、多种解决方法、脚本文件路径与模型调用全过程结构化记录下来；新会话中，「先查记录 → 有就试 → 成功标命中/失败记根因 → 无则自研 → 最后回写」的闭环自动发生，并支持外部导入解决方法。零运行时依赖、纯本地、离线可用。"
+   "desc_en": "DSH 自记忆插件（v0.3）把会话中遇到的问题、多种解决方法、脚本文件路径与模型调用全过程结构化记录下来；新会话中，「先查记录 → 有就试 → 成功标命中/失败记根因 → 无则自研 → 最后回写」的闭环自动发生，并支持外部导入解决方法。零运行时依赖、纯本地、离线可用。",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-heat-control",
@@ -57568,7 +57664,9 @@
    "platform": "any",
    "desc": "火候控制",
    "desc_zh": "火候控制",
-   "desc_en": "火候控制"
+   "desc_en": "火候控制",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-geography-mountains",
@@ -57582,7 +57680,9 @@
    "platform": "any",
    "desc": "世界高峰",
    "desc_zh": "世界高峰",
-   "desc_en": "世界高峰"
+   "desc_en": "世界高峰",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-poisson-pmf",
@@ -57596,7 +57696,9 @@
    "platform": "any",
    "desc": "泊松分布",
    "desc_zh": "泊松分布",
-   "desc_en": "泊松分布"
+   "desc_en": "泊松分布",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-livermorium",
@@ -57610,7 +57712,9 @@
    "platform": "any",
    "desc": "鉝元素",
    "desc_zh": "鉝元素",
-   "desc_en": "鉝元素"
+   "desc_en": "鉝元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-is-square",
@@ -57624,7 +57728,9 @@
    "platform": "any",
    "desc": "平方数判断",
    "desc_zh": "平方数判断",
-   "desc_en": "平方数判断"
+   "desc_en": "平方数判断",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-hair-dryer",
@@ -57638,7 +57744,9 @@
    "platform": "any",
    "desc": "吹风机选择",
    "desc_zh": "吹风机选择",
-   "desc_en": "吹风机选择"
+   "desc_en": "吹风机选择",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-plutonium",
@@ -57652,7 +57760,9 @@
    "platform": "any",
    "desc": "钚元素",
    "desc_zh": "钚元素",
-   "desc_en": "钚元素"
+   "desc_en": "钚元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pluto",
@@ -57666,7 +57776,9 @@
    "platform": "any",
    "desc": "冥王星",
    "desc_zh": "冥王星",
-   "desc_en": "冥王星"
+   "desc_en": "冥王星",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-lithuania",
@@ -57680,7 +57792,9 @@
    "platform": "any",
    "desc": "立陶宛国家",
    "desc_zh": "立陶宛国家",
-   "desc_en": "立陶宛国家"
+   "desc_en": "立陶宛国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-l2gal",
@@ -57694,7 +57808,9 @@
    "platform": "any",
    "desc": "升转加仑",
    "desc_zh": "升转加仑",
-   "desc_en": "升转加仑"
+   "desc_en": "升转加仑",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-platinum",
@@ -57708,7 +57824,9 @@
    "platform": "any",
    "desc": "铂元素",
    "desc_zh": "铂元素",
-   "desc_en": "铂元素"
+   "desc_en": "铂元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-gallium",
@@ -57722,7 +57840,9 @@
    "platform": "any",
    "desc": "镓元素",
    "desc_zh": "镓元素",
-   "desc_en": "镓元素"
+   "desc_en": "镓元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-kyrgyzstan",
@@ -57736,7 +57856,9 @@
    "platform": "any",
    "desc": "吉尔吉斯斯坦国家",
    "desc_zh": "吉尔吉斯斯坦国家",
-   "desc_en": "吉尔吉斯斯坦国家"
+   "desc_en": "吉尔吉斯斯坦国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-literature-terms",
@@ -57750,7 +57872,9 @@
    "platform": "any",
    "desc": "文学术语",
    "desc_zh": "文学术语",
-   "desc_en": "文学术语"
+   "desc_en": "文学术语",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-highlight-LETME",
@@ -57764,7 +57888,9 @@
    "platform": "any",
    "desc": "自动标红思考过程中的let_me",
    "desc_zh": "自动标红思考过程中的let_me",
-   "desc_en": "自动标红思考过程中的let_me"
+   "desc_en": "自动标红思考过程中的let_me",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-gal2l",
