@@ -65122,7 +65122,9 @@
    "platform": "any",
    "desc": "年货采购",
    "desc_zh": "年货采购",
-   "desc_en": "年货采购"
+   "desc_en": "年货采购",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pet-sitting",
@@ -65136,7 +65138,9 @@
    "platform": "any",
    "desc": "宠物寄养",
    "desc_zh": "宠物寄养",
-   "desc_en": "宠物寄养"
+   "desc_en": "宠物寄养",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-vet-visit",
@@ -65150,7 +65154,9 @@
    "platform": "any",
    "desc": "体检频率",
    "desc_zh": "体检频率",
-   "desc_en": "体检频率"
+   "desc_en": "体检频率",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-debt-plan",
@@ -65164,7 +65170,9 @@
    "platform": "any",
    "desc": "债务管理",
    "desc_zh": "债务管理",
-   "desc_en": "债务管理"
+   "desc_en": "债务管理",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-ear-clean",
@@ -65178,7 +65186,9 @@
    "platform": "any",
    "desc": "耳朵清洁",
    "desc_zh": "耳朵清洁",
-   "desc_en": "耳朵清洁"
+   "desc_en": "耳朵清洁",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-tough-stain",
@@ -65192,7 +65202,9 @@
    "platform": "any",
    "desc": "顽固污渍",
    "desc_zh": "顽固污渍",
-   "desc_en": "顽固污渍"
+   "desc_en": "顽固污渍",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-ankle-sprain",
@@ -65206,7 +65218,9 @@
    "platform": "any",
    "desc": "崴脚处理",
    "desc_zh": "崴脚处理",
-   "desc_en": "崴脚处理"
+   "desc_en": "崴脚处理",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-dehumid-pick",
@@ -65220,7 +65234,9 @@
    "platform": "any",
    "desc": "除湿机选择",
    "desc_zh": "除湿机选择",
-   "desc_en": "除湿机选择"
+   "desc_en": "除湿机选择",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-fridge-buy",
@@ -65234,7 +65250,9 @@
    "platform": "any",
    "desc": "冰箱选购",
    "desc_zh": "冰箱选购",
-   "desc_en": "冰箱选购"
+   "desc_en": "冰箱选购",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-soft-style",
@@ -65248,7 +65266,9 @@
    "platform": "any",
    "desc": "软装风格",
    "desc_zh": "软装风格",
-   "desc_en": "软装风格"
+   "desc_en": "软装风格",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-bike-fit",
@@ -65262,7 +65282,9 @@
    "platform": "any",
    "desc": "车座调整",
    "desc_zh": "车座调整",
-   "desc_en": "车座调整"
+   "desc_en": "车座调整",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-edit-photo",
@@ -65276,7 +65298,9 @@
    "platform": "any",
    "desc": "照片后期",
    "desc_zh": "照片后期",
-   "desc_en": "照片后期"
+   "desc_en": "照片后期",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-route-plan",
@@ -65290,7 +65314,9 @@
    "platform": "any",
    "desc": "路线规划",
    "desc_zh": "路线规划",
-   "desc_en": "路线规划"
+   "desc_en": "路线规划",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-homework",
@@ -65304,7 +65330,9 @@
    "platform": "any",
    "desc": "作业辅导",
    "desc_zh": "作业辅导",
-   "desc_en": "作业辅导"
+   "desc_en": "作业辅导",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-clean-tools",
@@ -65318,7 +65346,9 @@
    "platform": "any",
    "desc": "清洁工具",
    "desc_zh": "清洁工具",
-   "desc_en": "清洁工具"
+   "desc_en": "清洁工具",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-choke-aid",
@@ -65332,7 +65362,9 @@
    "platform": "any",
    "desc": "气道梗阻",
    "desc_zh": "气道梗阻",
-   "desc_en": "气道梗阻"
+   "desc_en": "气道梗阻",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-bp-check",
@@ -65346,7 +65378,9 @@
    "platform": "any",
    "desc": "血压判断",
    "desc_zh": "血压判断",
-   "desc_en": "血压判断"
+   "desc_en": "血压判断",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-formalin",
@@ -65360,7 +65394,9 @@
    "platform": "any",
    "desc": "甲醛治理",
    "desc_zh": "甲醛治理",
-   "desc_en": "甲醛治理"
+   "desc_en": "甲醛治理",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-insur-plan",
@@ -65374,7 +65410,9 @@
    "platform": "any",
    "desc": "家庭保险配置",
    "desc_zh": "家庭保险配置",
-   "desc_en": "家庭保险配置"
+   "desc_en": "家庭保险配置",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-table-setup",
@@ -65388,7 +65426,9 @@
    "platform": "any",
    "desc": "桌面布置",
    "desc_zh": "桌面布置",
-   "desc_en": "桌面布置"
+   "desc_en": "桌面布置",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-microwave2",
@@ -65402,7 +65442,9 @@
    "platform": "any",
    "desc": "微波炉进阶",
    "desc_zh": "微波炉进阶",
-   "desc_en": "微波炉进阶"
+   "desc_en": "微波炉进阶",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-voice-input-cn",
@@ -65416,7 +65458,9 @@
    "platform": "any",
    "desc": "Voice input plugin for DeepSeek Harness web (China-ready): Alibaba Cloud DashScope ASR via local bridge",
    "desc_en": "Voice input plugin for DeepSeek Harness web (China-ready): Alibaba Cloud DashScope ASR via local bridge",
-   "desc_zh": "Voice input plugin for DeepSeek Harness web (China-ready): Alibaba Cloud DashScope ASR via local bridge"
+   "desc_zh": "Voice input plugin for DeepSeek Harness web (China-ready): Alibaba Cloud DashScope ASR via local bridge",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-canada",
@@ -65430,7 +65474,9 @@
    "platform": "any",
    "desc": "加拿大国家",
    "desc_zh": "加拿大国家",
-   "desc_en": "加拿大国家"
+   "desc_en": "加拿大国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-new-year-menu",
@@ -65444,7 +65490,9 @@
    "platform": "any",
    "desc": "年夜饭菜单",
    "desc_zh": "年夜饭菜单",
-   "desc_en": "年夜饭菜单"
+   "desc_en": "年夜饭菜单",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pet-transport",
@@ -65458,7 +65506,9 @@
    "platform": "any",
    "desc": "宠物托运",
    "desc_zh": "宠物托运",
-   "desc_en": "宠物托运"
+   "desc_en": "宠物托运",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-vaccine",
@@ -65472,7 +65522,9 @@
    "platform": "any",
    "desc": "疫苗管理",
    "desc_zh": "疫苗管理",
-   "desc_en": "疫苗管理"
+   "desc_en": "疫苗管理",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-emergency-fund",
@@ -65486,7 +65538,9 @@
    "platform": "any",
    "desc": "应急金规划",
    "desc_zh": "应急金规划",
-   "desc_en": "应急金规划"
+   "desc_en": "应急金规划",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-cleaner-use",
@@ -65500,7 +65554,9 @@
    "platform": "any",
    "desc": "清洁剂使用",
    "desc_zh": "清洁剂使用",
-   "desc_en": "清洁剂使用"
+   "desc_en": "清洁剂使用",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-furniture-care",
@@ -65514,7 +65570,9 @@
    "platform": "any",
    "desc": "家具防潮",
    "desc_zh": "家具防潮",
-   "desc_en": "家具防潮"
+   "desc_en": "家具防潮",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-upcycle",
@@ -65528,7 +65586,9 @@
    "platform": "any",
    "desc": "旧物改造",
    "desc_zh": "旧物改造",
-   "desc_en": "旧物改造"
+   "desc_en": "旧物改造",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-bike-gear",
@@ -65542,7 +65602,9 @@
    "platform": "any",
    "desc": "骑行装备",
    "desc_zh": "骑行装备",
-   "desc_en": "骑行装备"
+   "desc_en": "骑行装备",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-phone-photo",
@@ -65556,7 +65618,9 @@
    "platform": "any",
    "desc": "手机摄影",
    "desc_zh": "手机摄影",
-   "desc_en": "手机摄影"
+   "desc_en": "手机摄影",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-habit-build",
@@ -65570,7 +65634,9 @@
    "platform": "any",
    "desc": "习惯培养",
    "desc_zh": "习惯培养",
-   "desc_en": "习惯培养"
+   "desc_en": "习惯培养",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-hike-gear",
@@ -65584,7 +65650,9 @@
    "platform": "any",
    "desc": "徒步装备",
    "desc_zh": "徒步装备",
-   "desc_en": "徒步装备"
+   "desc_en": "徒步装备",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-knife-skill",
@@ -65598,7 +65666,9 @@
    "platform": "any",
    "desc": "切配刀工",
    "desc_zh": "切配刀工",
-   "desc_en": "切配刀工"
+   "desc_en": "切配刀工",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-detergent",
@@ -65612,7 +65682,9 @@
    "platform": "any",
    "desc": "洗涤剂用量",
    "desc_zh": "洗涤剂用量",
-   "desc_en": "洗涤剂用量"
+   "desc_en": "洗涤剂用量",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-burn-aid",
@@ -65626,7 +65698,9 @@
    "platform": "any",
    "desc": "烫伤急救",
    "desc_zh": "烫伤急救",
-   "desc_en": "烫伤急救"
+   "desc_en": "烫伤急救",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-nail-issue",
@@ -65640,7 +65714,9 @@
    "platform": "any",
    "desc": "问题甲处理",
    "desc_zh": "问题甲处理",
-   "desc_en": "问题甲处理"
+   "desc_en": "问题甲处理",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-air-purifier",
@@ -65654,7 +65730,9 @@
    "platform": "any",
    "desc": "空气净化器选购",
    "desc_zh": "空气净化器选购",
-   "desc_en": "空气净化器选购"
+   "desc_en": "空气净化器选购",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-serving-order",
@@ -65668,7 +65746,9 @@
    "platform": "any",
    "desc": "上菜顺序",
    "desc_zh": "上菜顺序",
-   "desc_en": "上菜顺序"
+   "desc_en": "上菜顺序",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-rice-cooker",
@@ -65682,7 +65762,9 @@
    "platform": "any",
    "desc": "电饭煲",
    "desc_zh": "电饭煲",
-   "desc_en": "电饭煲"
+   "desc_en": "电饭煲",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-muscle-diet",
@@ -65696,7 +65778,9 @@
    "platform": "any",
    "desc": "增肌饮食",
    "desc_zh": "增肌饮食",
-   "desc_en": "增肌饮食"
+   "desc_en": "增肌饮食",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-cameroon",
@@ -65710,7 +65794,9 @@
    "platform": "any",
    "desc": "喀麦隆国家",
    "desc_zh": "喀麦隆国家",
-   "desc_en": "喀麦隆国家"
+   "desc_en": "喀麦隆国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-host-drink",
@@ -65724,7 +65810,9 @@
    "platform": "any",
    "desc": "待客饮品",
    "desc_zh": "待客饮品",
-   "desc_en": "待客饮品"
+   "desc_en": "待客饮品",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pet-trip",
@@ -65738,7 +65826,9 @@
    "platform": "any",
    "desc": "宠物出行准备",
    "desc_zh": "宠物出行准备",
-   "desc_en": "宠物出行准备"
+   "desc_en": "宠物出行准备",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-budget-split",
@@ -65752,7 +65842,9 @@
    "platform": "any",
    "desc": "预算分配",
    "desc_zh": "预算分配",
-   "desc_en": "预算分配"
+   "desc_en": "预算分配",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pet-brush",
@@ -65766,7 +65858,9 @@
    "platform": "any",
    "desc": "梳毛护理",
    "desc_zh": "梳毛护理",
-   "desc_en": "梳毛护理"
+   "desc_en": "梳毛护理",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-zone-clean",
@@ -65780,7 +65874,9 @@
    "platform": "any",
    "desc": "分区清洁",
    "desc_zh": "分区清洁",
-   "desc_en": "分区清洁"
+   "desc_en": "分区清洁",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-cloth-mold",
@@ -65794,7 +65890,9 @@
    "platform": "any",
    "desc": "衣物防霉",
    "desc_zh": "衣物防霉",
-   "desc_en": "衣物防霉"
+   "desc_en": "衣物防霉",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-emotion-guide",
@@ -65808,7 +65906,9 @@
    "platform": "any",
    "desc": "情绪引导",
    "desc_zh": "情绪引导",
-   "desc_en": "情绪引导"
+   "desc_en": "情绪引导",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-hair-issue",
@@ -65822,7 +65922,9 @@
    "platform": "any",
    "desc": "问题发质",
    "desc_zh": "问题发质",
-   "desc_en": "问题发质"
+   "desc_en": "问题发质",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-clay-craft",
@@ -65836,7 +65938,9 @@
    "platform": "any",
    "desc": "黏土手工",
    "desc_zh": "黏土手工",
-   "desc_en": "黏土手工"
+   "desc_en": "黏土手工",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-office-comm",
@@ -65850,7 +65954,9 @@
    "platform": "any",
    "desc": "职场沟通",
    "desc_zh": "职场沟通",
-   "desc_en": "职场沟通"
+   "desc_en": "职场沟通",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-quick-recipes",
@@ -65864,7 +65970,9 @@
    "platform": "any",
    "desc": "家常菜谱",
    "desc_zh": "家常菜谱",
-   "desc_en": "家常菜谱"
+   "desc_en": "家常菜谱",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-brush-pick",
@@ -65878,7 +65986,9 @@
    "platform": "any",
    "desc": "化妆刷具",
    "desc_zh": "化妆刷具",
-   "desc_en": "化妆刷具"
+   "desc_en": "化妆刷具",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-grocery-list",
@@ -65892,7 +66002,9 @@
    "platform": "any",
    "desc": "食材采购",
    "desc_zh": "食材采购",
-   "desc_en": "食材采购"
+   "desc_en": "食材采购",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-laundry-sort",
@@ -65906,7 +66018,9 @@
    "platform": "any",
    "desc": "衣物分类",
    "desc_zh": "衣物分类",
-   "desc_en": "衣物分类"
+   "desc_en": "衣物分类",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-air-fryer",
@@ -65920,7 +66034,9 @@
    "platform": "any",
    "desc": "空气炸锅",
    "desc_zh": "空气炸锅",
-   "desc_en": "空气炸锅"
+   "desc_en": "空气炸锅",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-polish-pick",
@@ -65934,7 +66050,9 @@
    "platform": "any",
    "desc": "甲油选择",
    "desc_zh": "甲油选择",
-   "desc_en": "甲油选择"
+   "desc_en": "甲油选择",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-lift-form",
