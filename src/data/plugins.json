@@ -60706,7 +60706,10 @@
    "platform": "any",
    "desc": "DSH 配置备份插件：侧边栏一键导出/导入 ~/.dsh 配置（设置/profile/SSH/预设/皮肤/看板），支持敏感字段脱敏与恢复前安全快照",
    "desc_zh": "DSH 配置备份插件：侧边栏一键导出/导入 ~/.dsh 配置（设置/profile/SSH/预设/皮肤/看板），支持敏感字段脱敏与恢复前安全快照",
-   "desc_en": "DSH 配置备份插件：侧边栏一键导出/导入 ~/.dsh 配置（设置/profile/SSH/预设/皮肤/看板），支持敏感字段脱敏与恢复前安全快照"
+   "desc_en": "DSH 配置备份插件：侧边栏一键导出/导入 ~/.dsh 配置（设置/profile/SSH/预设/皮肤/看板），支持敏感字段脱敏与恢复前安全快照",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-withSsh",
@@ -60720,7 +60723,10 @@
    "platform": "any",
    "desc": "ai使用ssh链接服务器指令可视化，可直观查看结构日志，可以人机协同，人工输入命令或者ai输入但是ai输入具有中文解释。可以更加直观并留痕。",
    "desc_zh": "ai使用ssh链接服务器指令可视化，可直观查看结构日志，可以人机协同，人工输入命令或者ai输入但是ai输入具有中文解释。可以更加直观并留痕。",
-   "desc_en": "ai使用ssh链接服务器指令可视化，可直观查看结构日志，可以人机协同，人工输入命令或者ai输入但是ai输入具有中文解释。可以更加直观并留痕。"
+   "desc_en": "ai使用ssh链接服务器指令可视化，可直观查看结构日志，可以人机协同，人工输入命令或者ai输入但是ai输入具有中文解释。可以更加直观并留痕。",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-plugin-autoevo",
@@ -60734,7 +60740,9 @@
    "platform": "any",
    "desc": "发现、探索、审查、升级。DSH，进化永不停歇！",
    "desc_zh": "发现、探索、审查、升级。DSH，进化永不停歇！",
-   "desc_en": "发现、探索、审查、升级。DSH，进化永不停歇！"
+   "desc_en": "发现、探索、审查、升级。DSH，进化永不停歇！",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-host-update",
@@ -60748,7 +60756,9 @@
    "platform": "any",
    "desc": "DSH宿主本体自动更新插件 —— 侧边栏独立入口，检测 @deepseek-ai/dsh 更新、一键静默更新并重启，并对当前 profile 的插件做兼容性诊断",
    "desc_zh": "DSH宿主本体自动更新插件 —— 侧边栏独立入口，检测 @deepseek-ai/dsh 更新、一键静默更新并重启，并对当前 profile 的插件做兼容性诊断",
-   "desc_en": "DSH宿主本体自动更新插件 —— 侧边栏独立入口，检测 @deepseek-ai/dsh 更新、一键静默更新并重启，并对当前 profile 的插件做兼容性诊断"
+   "desc_en": "DSH宿主本体自动更新插件 —— 侧边栏独立入口，检测 @deepseek-ai/dsh 更新、一键静默更新并重启，并对当前 profile 的插件做兼容性诊断",
+   "testDate": "2026-08-27",
+   "note": "验证: network-fail"
   },
   {
    "name": "dsh-cost-saver",
@@ -60759,7 +60769,9 @@
    "forks": 0,
    "updated": "2026-08-21",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-27",
+   "note": "验证: network-fail"
   },
   {
    "name": "dsh-sdd-generator",
@@ -60770,7 +60782,9 @@
    "forks": 0,
    "updated": "2026-08-21",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsDragPasteALL",
@@ -60781,7 +60795,10 @@
    "forks": 0,
    "updated": "2026-08-21",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-session-dustbin",
@@ -60795,7 +60812,10 @@
    "platform": "any",
    "desc": "DSH 会话管理插件归档/活跃会话、查看归档对话内容、删除会话。",
    "desc_zh": "DSH 会话管理插件归档/活跃会话、查看归档对话内容、删除会话。",
-   "desc_en": "DSH 会话管理插件归档/活跃会话、查看归档对话内容、删除会话。"
+   "desc_en": "DSH 会话管理插件归档/活跃会话、查看归档对话内容、删除会话。",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "agent-jit",
@@ -60809,7 +60829,9 @@
    "platform": "any",
    "desc": "DeepSeek Harness (dsh) 插件：把 LLM agent loop 中确定性的执行路径编译成 DSL 程序并直接执行，显著降低 token、往返轮次与上下文暴露。A DeepSeek Harness plugin that compiles deterministic agent paths into DSL programs.",
    "desc_zh": "DeepSeek Harness (dsh) 插件：把 LLM agent loop 中确定性的执行路径编译成 DSL 程序并直接执行，显著降低 token、往返轮次与上下文暴露。A DeepSeek Harness plugin that compiles deterministic agent paths into DSL programs.",
-   "desc_en": "DeepSeek Harness (dsh) 插件：把 LLM agent loop 中确定性的执行路径编译成 DSL 程序并直接执行，显著降低 token、往返轮次与上下文暴露。A DeepSeek Harness plugin that compiles deterministic agent paths into DSL programs."
+   "desc_en": "DeepSeek Harness (dsh) 插件：把 LLM agent loop 中确定性的执行路径编译成 DSL 程序并直接执行，显著降低 token、往返轮次与上下文暴露。A DeepSeek Harness plugin that compiles deterministic agent paths into DSL programs.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-multiuser",
@@ -60823,7 +60845,9 @@
    "platform": "any",
    "desc": "dsh-multiuser",
    "desc_en": "dsh-multiuser",
-   "desc_zh": "dsh-multiuser"
+   "desc_zh": "dsh-multiuser",
+   "testDate": "2026-08-27",
+   "note": "验证: network-fail"
   },
   {
    "name": "dsh-config-origin-proof",
@@ -60837,7 +60861,9 @@
    "platform": "any",
    "desc": "Content-addressed DSH configuration origin and shadowing evidence",
    "desc_en": "Content-addressed DSH configuration origin and shadowing evidence",
-   "desc_zh": "Content-addressed DSH configuration origin and shadowing evidence"
+   "desc_zh": "Content-addressed DSH configuration origin and shadowing evidence",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-ai-teacher",
@@ -60851,7 +60877,9 @@
    "platform": "any",
    "desc": "ai老师帮助你吃透一本pdf",
    "desc_zh": "ai老师帮助你吃透一本pdf",
-   "desc_en": "ai老师帮助你吃透一本pdf"
+   "desc_en": "ai老师帮助你吃透一本pdf",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh_design",
@@ -60865,7 +60893,9 @@
    "platform": "any",
    "desc": "Clickable HTML prototype canvas for DeepSeek Harness.",
    "desc_en": "Clickable HTML prototype canvas for DeepSeek Harness.",
-   "desc_zh": "Clickable HTML prototype canvas for DeepSeek Harness."
+   "desc_zh": "Clickable HTML prototype canvas for DeepSeek Harness.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-code-workbench",
@@ -60879,7 +60909,10 @@
    "platform": "any",
    "desc": "DSH code workbench plugin: upload code -> AI modify/optimize/review -> download modified code + diff view + review report. Zero external dependencies.",
    "desc_en": "DSH code workbench plugin: upload code -> AI modify/optimize/review -> download modified code + diff view + review report. Zero external dependencies.",
-   "desc_zh": "DSH code workbench plugin: upload code -> AI modify/optimize/review -> download modified code + diff view + review report. Zero external dependencies."
+   "desc_zh": "DSH code workbench plugin: upload code -> AI modify/optimize/review -> download modified code + diff view + review report. Zero external dependencies.",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-ai-brief",
@@ -60890,7 +60923,9 @@
    "forks": 0,
    "updated": "2026-08-21",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-sidebar-balance",
@@ -60904,7 +60939,10 @@
    "platform": "any",
    "desc": "极简原生风 DSH 余额插件:侧边栏常驻 DeepSeek 余额 + OpenCode Go 套餐消耗圆环,磨砂玻璃悬浮卡,一键重启。Minimalist native-adaptive DeepSeek Harness balance widget.",
    "desc_zh": "极简原生风 DSH 余额插件:侧边栏常驻 DeepSeek 余额 + OpenCode Go 套餐消耗圆环,磨砂玻璃悬浮卡,一键重启。Minimalist native-adaptive DeepSeek Harness balance widget.",
-   "desc_en": "极简原生风 DSH 余额插件:侧边栏常驻 DeepSeek 余额 + OpenCode Go 套餐消耗圆环,磨砂玻璃悬浮卡,一键重启。Minimalist native-adaptive DeepSeek Harness balance widget."
+   "desc_en": "极简原生风 DSH 余额插件:侧边栏常驻 DeepSeek 余额 + OpenCode Go 套餐消耗圆环,磨砂玻璃悬浮卡,一键重启。Minimalist native-adaptive DeepSeek Harness balance widget.",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-aseprite",
@@ -60918,7 +60956,9 @@
    "platform": "any",
    "desc": "Unofficial Aseprite-compatible pixel editor and sprite animation plugin for DeepSeek Harness.",
    "desc_en": "Unofficial Aseprite-compatible pixel editor and sprite animation plugin for DeepSeek Harness.",
-   "desc_zh": "Unofficial Aseprite-compatible pixel editor and sprite animation plugin for DeepSeek Harness."
+   "desc_zh": "Unofficial Aseprite-compatible pixel editor and sprite animation plugin for DeepSeek Harness.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-debug-mode",
@@ -60932,7 +60972,9 @@
    "platform": "any",
    "desc": "Runtime-first Debug Mode plugin for DeepSeek Harness",
    "desc_en": "Runtime-first Debug Mode plugin for DeepSeek Harness",
-   "desc_zh": "Runtime-first Debug Mode plugin for DeepSeek Harness"
+   "desc_zh": "Runtime-first Debug Mode plugin for DeepSeek Harness",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "meow-vision",
@@ -60946,7 +60988,10 @@
    "platform": "any",
    "desc": "meow-vision 是 DeepSeek Harness 的一款视觉插件，解决纯文本模型无视觉。另一方面vue页面开发视觉验证不闭环的问题。",
    "desc_zh": "meow-vision 是 DeepSeek Harness 的一款视觉插件，解决纯文本模型无视觉。另一方面vue页面开发视觉验证不闭环的问题。",
-   "desc_en": "meow-vision 是 DeepSeek Harness 的一款视觉插件，解决纯文本模型无视觉。另一方面vue页面开发视觉验证不闭环的问题。"
+   "desc_en": "meow-vision 是 DeepSeek Harness 的一款视觉插件，解决纯文本模型无视觉。另一方面vue页面开发视觉验证不闭环的问题。",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "api-monitor",
@@ -60960,7 +61005,9 @@
    "platform": "any",
    "desc": "DSH 插件：常驻 API 用量监控 —— DeepSeek/SiliconFlow/OpenCode Go/火山引擎 余额与配额、会话树 token 与花费（侧边栏入口 + 浮动窗）",
    "desc_zh": "DSH 插件：常驻 API 用量监控 —— DeepSeek/SiliconFlow/OpenCode Go/火山引擎 余额与配额、会话树 token 与花费（侧边栏入口 + 浮动窗）",
-   "desc_en": "DSH 插件：常驻 API 用量监控 —— DeepSeek/SiliconFlow/OpenCode Go/火山引擎 余额与配额、会话树 token 与花费（侧边栏入口 + 浮动窗）"
+   "desc_en": "DSH 插件：常驻 API 用量监控 —— DeepSeek/SiliconFlow/OpenCode Go/火山引擎 余额与配额、会话树 token 与花费（侧边栏入口 + 浮动窗）",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "deepseek-harness-plugs-manage",
@@ -60974,7 +61021,10 @@
    "platform": "any",
    "desc": "Deepseek Harness 插件管理工具，方便搜索安装官方插件库",
    "desc_zh": "Deepseek Harness 插件管理工具，方便搜索安装官方插件库",
-   "desc_en": "Deepseek Harness 插件管理工具，方便搜索安装官方插件库"
+   "desc_en": "Deepseek Harness 插件管理工具，方便搜索安装官方插件库",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-workloads",
@@ -60988,7 +61038,10 @@
    "platform": "any",
    "desc": "Durable workspace-owned Workloads and Runtime Center for DeepSeek Harness",
    "desc_en": "Durable workspace-owned Workloads and Runtime Center for DeepSeek Harness",
-   "desc_zh": "Durable workspace-owned Workloads and Runtime Center for DeepSeek Harness"
+   "desc_zh": "Durable workspace-owned Workloads and Runtime Center for DeepSeek Harness",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-compact-after-task",
@@ -61002,7 +61055,9 @@
    "platform": "any",
    "desc": "设置dsh自动压缩阈值插件",
    "desc_zh": "设置dsh自动压缩阈值插件",
-   "desc_en": "设置dsh自动压缩阈值插件"
+   "desc_en": "设置dsh自动压缩阈值插件",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-agent-preset-switcher",
@@ -61016,7 +61071,9 @@
    "platform": "any",
    "desc": "Hot-switch agent presets (working modes) inside a running DSH session, instead of choosing a preset only when a session is created.",
    "desc_en": "Hot-switch agent presets (working modes) inside a running DSH session, instead of choosing a preset only when a session is created.",
-   "desc_zh": "Hot-switch agent presets (working modes) inside a running DSH session, instead of choosing a preset only when a session is created."
+   "desc_zh": "Hot-switch agent presets (working modes) inside a running DSH session, instead of choosing a preset only when a session is created.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-plugin-remote-access",
@@ -61030,7 +61087,10 @@
    "platform": "any",
    "desc": "dsh远程访问插件，支持局域网和公网隧道连接",
    "desc_zh": "dsh远程访问插件，支持局域网和公网隧道连接",
-   "desc_en": "dsh远程访问插件，支持局域网和公网隧道连接"
+   "desc_en": "dsh远程访问插件，支持局域网和公网隧道连接",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-plugin-glm-vision",
@@ -61044,7 +61104,9 @@
    "platform": "any",
    "desc": "GLM Vision plugin for DSH: image translation for non-multimodal models via GLM-4V-Flash",
    "desc_en": "GLM Vision plugin for DSH: image translation for non-multimodal models via GLM-4V-Flash",
-   "desc_zh": "GLM Vision plugin for DSH: image translation for non-multimodal models via GLM-4V-Flash"
+   "desc_zh": "GLM Vision plugin for DSH: image translation for non-multimodal models via GLM-4V-Flash",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-dog-food",
@@ -61058,7 +61120,9 @@
    "platform": "any",
    "desc": "狗粮喂食量",
    "desc_zh": "狗粮喂食量",
-   "desc_en": "狗粮喂食量"
+   "desc_en": "狗粮喂食量",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-dog-age",
@@ -61072,7 +61136,9 @@
    "platform": "any",
    "desc": "狗龄换算",
    "desc_zh": "狗龄换算",
-   "desc_en": "狗龄换算"
+   "desc_en": "狗龄换算",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-djibouti",
@@ -61086,7 +61152,9 @@
    "platform": "any",
    "desc": "吉布提国",
    "desc_zh": "吉布提国",
-   "desc_en": "吉布提国"
+   "desc_en": "吉布提国",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-burn-first-aid",
@@ -61100,7 +61168,9 @@
    "platform": "any",
    "desc": "烫伤急救",
    "desc_zh": "烫伤急救",
-   "desc_en": "烫伤急救"
+   "desc_en": "烫伤急救",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-digital-root",
@@ -61114,7 +61184,9 @@
    "platform": "any",
    "desc": "数字根",
    "desc_zh": "数字根",
-   "desc_en": "数字根"
+   "desc_en": "数字根",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-dev-paradigms",
@@ -61128,7 +61200,9 @@
    "platform": "any",
    "desc": "编程范式",
    "desc_zh": "编程范式",
-   "desc_en": "编程范式"
+   "desc_en": "编程范式",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-dev-http-tools",
@@ -61142,7 +61216,9 @@
    "platform": "any",
    "desc": "Web 技术",
    "desc_zh": "Web 技术",
-   "desc_en": "Web 技术"
+   "desc_en": "Web 技术",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-dev-frameworks",
@@ -61156,7 +61232,9 @@
    "platform": "any",
    "desc": "编程框架",
    "desc_zh": "编程框架",
-   "desc_en": "编程框架"
+   "desc_en": "编程框架",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-dev-databases",
@@ -61170,7 +61248,9 @@
    "platform": "any",
    "desc": "数据库",
    "desc_zh": "数据库",
-   "desc_en": "数据库"
+   "desc_en": "数据库",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-dev-cloud",
@@ -61184,7 +61264,9 @@
    "platform": "any",
    "desc": "云服务",
    "desc_zh": "云服务",
-   "desc_en": "云服务"
+   "desc_en": "云服务",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-brush-pet",
@@ -61198,7 +61280,9 @@
    "platform": "any",
    "desc": "梳毛频率",
    "desc_zh": "梳毛频率",
-   "desc_en": "梳毛频率"
+   "desc_en": "梳毛频率",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-archscope",
@@ -61212,7 +61296,9 @@
    "platform": "any",
    "desc": "Evidence-driven system architecture reconnaissance for DeepSeek Harness.",
    "desc_en": "Evidence-driven system architecture reconnaissance for DeepSeek Harness.",
-   "desc_zh": "Evidence-driven system architecture reconnaissance for DeepSeek Harness."
+   "desc_zh": "Evidence-driven system architecture reconnaissance for DeepSeek Harness.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-bp-manage",
@@ -61226,7 +61312,9 @@
    "platform": "any",
    "desc": "血压管理",
    "desc_zh": "血压管理",
-   "desc_en": "血压管理"
+   "desc_en": "血压管理",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-deposit-interest",
@@ -61240,7 +61328,9 @@
    "platform": "any",
    "desc": "存款利息计算器",
    "desc_zh": "存款利息计算器",
-   "desc_en": "存款利息计算器"
+   "desc_en": "存款利息计算器",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-denmark",
@@ -61254,7 +61344,9 @@
    "platform": "any",
    "desc": "丹麦国家",
    "desc_zh": "丹麦国家",
-   "desc_en": "丹麦国家"
+   "desc_en": "丹麦国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-delhi-city",
@@ -61268,7 +61360,9 @@
    "platform": "any",
    "desc": "德里市",
    "desc_zh": "德里市",
-   "desc_en": "德里市"
+   "desc_en": "德里市",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-bone-check",
@@ -61282,7 +61376,9 @@
    "platform": "any",
    "desc": "骨密度筛查",
    "desc_zh": "骨密度筛查",
-   "desc_en": "骨密度筛查"
+   "desc_en": "骨密度筛查",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-book-plan",
@@ -61296,7 +61392,9 @@
    "platform": "any",
    "desc": "阅读计划",
    "desc_zh": "阅读计划",
-   "desc_en": "阅读计划"
+   "desc_en": "阅读计划",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-hybrid-coder",
@@ -61307,7 +61405,9 @@
    "forks": 0,
    "updated": "2026-08-21",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-book-pick",
@@ -61321,7 +61421,9 @@
    "platform": "any",
    "desc": "选书方法",
    "desc_zh": "选书方法",
-   "desc_en": "选书方法"
+   "desc_en": "选书方法",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-brew-method",
@@ -61335,7 +61437,9 @@
    "platform": "any",
    "desc": "冲煮器具",
    "desc_zh": "冲煮器具",
-   "desc_en": "冲煮器具"
+   "desc_en": "冲煮器具",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-data-structures",
@@ -61349,7 +61453,9 @@
    "platform": "any",
    "desc": "数据结构",
    "desc_zh": "数据结构",
-   "desc_en": "数据结构"
+   "desc_en": "数据结构",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-darmstadtium",
@@ -61363,7 +61469,9 @@
    "platform": "any",
    "desc": "𫟼元素",
    "desc_zh": "𫟼元素",
-   "desc_en": "𫟼元素"
+   "desc_en": "𫟼元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-czechia",
@@ -61377,7 +61485,9 @@
    "platform": "any",
    "desc": "捷克国家",
    "desc_zh": "捷克国家",
-   "desc_en": "捷克国家"
+   "desc_en": "捷克国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-blender-pick",
@@ -61391,7 +61501,9 @@
    "platform": "any",
    "desc": "料理机选择",
    "desc_zh": "料理机选择",
-   "desc_en": "料理机选择"
+   "desc_en": "料理机选择",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-cyprus",
@@ -61405,7 +61517,9 @@
    "platform": "any",
    "desc": "塞浦路斯国家",
    "desc_zh": "塞浦路斯国家",
-   "desc_en": "塞浦路斯国家"
+   "desc_en": "塞浦路斯国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-curtain-calc",
@@ -61419,7 +61533,9 @@
    "platform": "any",
    "desc": "窗帘用量计算",
    "desc_zh": "窗帘用量计算",
-   "desc_en": "窗帘用量计算"
+   "desc_en": "窗帘用量计算",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-curium",
@@ -61433,7 +61549,9 @@
    "platform": "any",
    "desc": "锔元素",
    "desc_zh": "锔元素",
-   "desc_en": "锔元素"
+   "desc_en": "锔元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-body-care",
@@ -61447,7 +61565,9 @@
    "platform": "any",
    "desc": "身体护理",
    "desc_zh": "身体护理",
-   "desc_en": "身体护理"
+   "desc_en": "身体护理",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-cup2ml",
@@ -61461,7 +61581,9 @@
    "platform": "any",
    "desc": "杯转毫升",
    "desc_zh": "杯转毫升",
-   "desc_en": "杯转毫升"
+   "desc_en": "杯转毫升",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-bath-reno",
@@ -61475,7 +61597,9 @@
    "platform": "any",
    "desc": "卫生间改造",
    "desc_zh": "卫生间改造",
-   "desc_en": "卫生间改造"
+   "desc_en": "卫生间改造",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-culture-videogames",
@@ -61489,7 +61613,9 @@
    "platform": "any",
    "desc": "电子游戏类型",
    "desc_zh": "电子游戏类型",
-   "desc_en": "电子游戏类型"
+   "desc_en": "电子游戏类型",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-culture-sports-events",
@@ -61503,7 +61629,9 @@
    "platform": "any",
    "desc": "体育赛事",
    "desc_zh": "体育赛事",
-   "desc_en": "体育赛事"
+   "desc_en": "体育赛事",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-culture-movies",
