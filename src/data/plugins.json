@@ -59783,7 +59783,9 @@
    "platform": "any",
    "desc": "希腊国家",
    "desc_zh": "希腊国家",
-   "desc_en": "希腊国家"
+   "desc_en": "希腊国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-backstory",
@@ -59797,7 +59799,9 @@
    "platform": "any",
    "desc": "Ask any line of code its backstory: what it does, and why it's here — grounded in git history (dsh plugin)",
    "desc_en": "Ask any line of code its backstory: what it does, and why it's here — grounded in git history (dsh plugin)",
-   "desc_zh": "Ask any line of code its backstory: what it does, and why it's here — grounded in git history (dsh plugin)"
+   "desc_zh": "Ask any line of code its backstory: what it does, and why it's here — grounded in git history (dsh plugin)",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-paste-path",
@@ -59811,7 +59815,9 @@
    "platform": "any",
    "desc": "DeepSeek Harness plugin: paste Finder file paths into the composer with Ctrl+V",
    "desc_en": "DeepSeek Harness plugin: paste Finder file paths into the composer with Ctrl+V",
-   "desc_zh": "DeepSeek Harness plugin: paste Finder file paths into the composer with Ctrl+V"
+   "desc_zh": "DeepSeek Harness plugin: paste Finder file paths into the composer with Ctrl+V",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-tool-imagegen",
@@ -59825,7 +59831,10 @@
    "platform": "any",
    "desc": "DSH Desktop 对话内联生图插件** — 模型在对话中自动调用 `generate_image` 工具，图片直接内联显示在对话框里，无需外部面板、无需手动切换。",
    "desc_zh": "DSH Desktop 对话内联生图插件** — 模型在对话中自动调用 `generate_image` 工具，图片直接内联显示在对话框里，无需外部面板、无需手动切换。",
-   "desc_en": "DSH Desktop 对话内联生图插件** — 模型在对话中自动调用 `generate_image` 工具，图片直接内联显示在对话框里，无需外部面板、无需手动切换。"
+   "desc_en": "DSH Desktop 对话内联生图插件** — 模型在对话中自动调用 `generate_image` 工具，图片直接内联显示在对话框里，无需外部面板、无需手动切换。",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-runbook-ops",
@@ -59839,7 +59848,9 @@
    "platform": "any",
    "desc": "DeepSeek Harness 社区 Runbook 插件：用 YAML 管理开发、测   试、发布和运维 SOP，并将流程暴露为可校验、可审计的 Harness   工具。",
    "desc_zh": "DeepSeek Harness 社区 Runbook 插件：用 YAML 管理开发、测   试、发布和运维 SOP，并将流程暴露为可校验、可审计的 Harness   工具。",
-   "desc_en": "DeepSeek Harness 社区 Runbook 插件：用 YAML 管理开发、测   试、发布和运维 SOP，并将流程暴露为可校验、可审计的 Harness   工具。"
+   "desc_en": "DeepSeek Harness 社区 Runbook 插件：用 YAML 管理开发、测   试、发布和运维 SOP，并将流程暴露为可校验、可审计的 Harness   工具。",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-lagos-city",
@@ -59853,7 +59864,9 @@
    "platform": "any",
    "desc": "拉各斯市",
    "desc_zh": "拉各斯市",
-   "desc_en": "拉各斯市"
+   "desc_en": "拉各斯市",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-gold",
@@ -59867,7 +59880,9 @@
    "platform": "any",
    "desc": "金元素",
    "desc_zh": "金元素",
-   "desc_en": "金元素"
+   "desc_en": "金元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-heat-index",
@@ -59881,7 +59896,9 @@
    "platform": "any",
    "desc": "热指数",
    "desc_zh": "热指数",
-   "desc_en": "热指数"
+   "desc_en": "热指数",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pakistan",
@@ -59895,7 +59912,9 @@
    "platform": "any",
    "desc": "巴基斯坦国家",
    "desc_zh": "巴基斯坦国家",
-   "desc_en": "巴基斯坦国家"
+   "desc_en": "巴基斯坦国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-iran",
@@ -59909,7 +59928,9 @@
    "platform": "any",
    "desc": "伊朗国家",
    "desc_zh": "伊朗国家",
-   "desc_en": "伊朗国家"
+   "desc_en": "伊朗国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-future-brain-upload",
@@ -59923,7 +59944,9 @@
    "platform": "any",
    "desc": "意识上传",
    "desc_zh": "意识上传",
-   "desc_en": "意识上传"
+   "desc_en": "意识上传",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-grenada",
@@ -59937,7 +59960,9 @@
    "platform": "any",
    "desc": "格林纳达国",
    "desc_zh": "格林纳达国",
-   "desc_en": "格林纳达国"
+   "desc_en": "格林纳达国",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-homework-help",
@@ -59951,7 +59976,9 @@
    "platform": "any",
    "desc": "作业辅导",
    "desc_zh": "作业辅导",
-   "desc_en": "作业辅导"
+   "desc_en": "作业辅导",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-hamming-weight",
@@ -59965,7 +59992,9 @@
    "platform": "any",
    "desc": "汉明重量",
    "desc_zh": "汉明重量",
-   "desc_en": "汉明重量"
+   "desc_en": "汉明重量",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-guatemala",
@@ -59979,7 +60008,9 @@
    "platform": "any",
    "desc": "危地马拉国家",
    "desc_zh": "危地马拉国家",
-   "desc_en": "危地马拉国家"
+   "desc_en": "危地马拉国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-bull-bear",
@@ -59993,7 +60024,9 @@
    "platform": "any",
    "desc": "Real-time stock market pet for DeepSeek Harness: the faster price rises the higher the bull raises its head, the faster it falls the deeper the bear lowers its head. Free Sina quotes. / 牛熊行情宠物插件。",
    "desc_zh": "Real-time stock market pet for DeepSeek Harness: the faster price rises the higher the bull raises its head, the faster it falls the deeper the bear lowers its head. Free Sina quotes. / 牛熊行情宠物插件。",
-   "desc_en": "Real-time stock market pet for DeepSeek Harness: the faster price rises the higher the bull raises its head, the faster it falls the deeper the bear lowers its head. Free Sina quotes. / 牛熊行情宠物插件。"
+   "desc_en": "Real-time stock market pet for DeepSeek Harness: the faster price rises the higher the bull raises its head, the faster it falls the deeper the bear lowers its head. Free Sina quotes. / 牛熊行情宠物插件。",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-simple-background",
@@ -60007,7 +60040,9 @@
    "platform": "any",
    "desc": "用于dsh web设置背景图，简单的设置背景图片的功能",
    "desc_zh": "用于dsh web设置背景图，简单的设置背景图片的功能",
-   "desc_en": "用于dsh web设置背景图，简单的设置背景图片的功能"
+   "desc_en": "用于dsh web设置背景图，简单的设置背景图片的功能",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-provider-qoder",
@@ -60021,7 +60056,9 @@
    "platform": "any",
    "desc": "Qoder CN adapter plugin for DeepSeek Harness",
    "desc_en": "Qoder CN adapter plugin for DeepSeek Harness",
-   "desc_zh": "Qoder CN adapter plugin for DeepSeek Harness"
+   "desc_zh": "Qoder CN adapter plugin for DeepSeek Harness",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-safe-updater",
@@ -60035,7 +60072,9 @@
    "platform": "any",
    "desc": "Guarded automatic updates for DeepSeek Harness with isolated profile smoke tests and rollback.",
    "desc_en": "Guarded automatic updates for DeepSeek Harness with isolated profile smoke tests and rollback.",
-   "desc_zh": "Guarded automatic updates for DeepSeek Harness with isolated profile smoke tests and rollback."
+   "desc_zh": "Guarded automatic updates for DeepSeek Harness with isolated profile smoke tests and rollback.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-scratchpad",
@@ -60046,7 +60085,9 @@
    "forks": 0,
    "updated": "2026-08-21",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "deepseek-harness-openai-codex",
@@ -60057,7 +60098,9 @@
    "forks": 0,
    "updated": "2026-08-21",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-control-plane",
@@ -60068,7 +60111,9 @@
    "forks": 0,
    "updated": "2026-08-21",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-serverchan-notify",
@@ -60082,7 +60127,9 @@
    "platform": "any",
    "desc": "Archived: moved to nickhelion/dsh-plugins",
    "desc_en": "Archived: moved to nickhelion/dsh-plugins",
-   "desc_zh": "Archived: moved to nickhelion/dsh-plugins"
+   "desc_zh": "Archived: moved to nickhelion/dsh-plugins",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-sctrk",
@@ -60093,7 +60140,9 @@
    "forks": 0,
    "updated": "2026-08-21",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-plugin-petdex-market",
@@ -60107,7 +60156,9 @@
    "platform": "any",
    "desc": "DSH plugin: petdex.dev companion-pet market with a native macOS desktop pet renderer",
    "desc_en": "DSH plugin: petdex.dev companion-pet market with a native macOS desktop pet renderer",
-   "desc_zh": "DSH plugin: petdex.dev companion-pet market with a native macOS desktop pet renderer"
+   "desc_zh": "DSH plugin: petdex.dev companion-pet market with a native macOS desktop pet renderer",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-plugin-notifications",
@@ -60121,7 +60172,9 @@
    "platform": "any",
    "desc": "DSH (DeepSeek Harness) bundle plugin: a Settings → General card that pops a system notification (and optional Web Audio chime) when a conversation turn completes.",
    "desc_en": "DSH (DeepSeek Harness) bundle plugin: a Settings → General card that pops a system notification (and optional Web Audio chime) when a conversation turn completes.",
-   "desc_zh": "DSH (DeepSeek Harness) bundle plugin: a Settings → General card that pops a system notification (and optional Web Audio chime) when a conversation turn completes."
+   "desc_zh": "DSH (DeepSeek Harness) bundle plugin: a Settings → General card that pops a system notification (and optional Web Audio chime) when a conversation turn completes.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-engineering-suite",
@@ -60135,7 +60188,9 @@
    "platform": "any",
    "desc": "One install for SpecFlow, GitFlow, Guardian, and Code Intel on DeepSeek Harness.",
    "desc_en": "One install for SpecFlow, GitFlow, Guardian, and Code Intel on DeepSeek Harness.",
-   "desc_zh": "One install for SpecFlow, GitFlow, Guardian, and Code Intel on DeepSeek Harness."
+   "desc_zh": "One install for SpecFlow, GitFlow, Guardian, and Code Intel on DeepSeek Harness.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-idea",
@@ -60149,7 +60204,9 @@
    "platform": "any",
    "desc": "dsh-idea 是一个面向外部机会、市场变化和真实需求发现的 DeepSeek Harness 插件包。 dsh-idea is a DeepSeek Harness bundle for evidence-backed external opportunity discovery and product discovery.",
    "desc_zh": "dsh-idea 是一个面向外部机会、市场变化和真实需求发现的 DeepSeek Harness 插件包。 dsh-idea is a DeepSeek Harness bundle for evidence-backed external opportunity discovery and product discovery.",
-   "desc_en": "dsh-idea 是一个面向外部机会、市场变化和真实需求发现的 DeepSeek Harness 插件包。 dsh-idea is a DeepSeek Harness bundle for evidence-backed external opportunity discovery and product discovery."
+   "desc_en": "dsh-idea 是一个面向外部机会、市场变化和真实需求发现的 DeepSeek Harness 插件包。 dsh-idea is a DeepSeek Harness bundle for evidence-backed external opportunity discovery and product discovery.",
+   "testDate": "2026-08-27",
+   "note": "验证: install-fail"
   },
   {
    "name": "dsh-sales",
@@ -60163,7 +60220,9 @@
    "platform": "any",
    "desc": "dsh-sales 是一个 DeepSeek Harness 插件，负责把已经确认的客户机会推进到可成交、可复盘、可预测和可扩张的销售运营层。 dsh-sales is a DeepSeek Harness plugin for the commercial operating layer between qualified demand and repeatable revenue.",
    "desc_zh": "dsh-sales 是一个 DeepSeek Harness 插件，负责把已经确认的客户机会推进到可成交、可复盘、可预测和可扩张的销售运营层。 dsh-sales is a DeepSeek Harness plugin for the commercial operating layer between qualified demand and repeatable revenue.",
-   "desc_en": "dsh-sales 是一个 DeepSeek Harness 插件，负责把已经确认的客户机会推进到可成交、可复盘、可预测和可扩张的销售运营层。 dsh-sales is a DeepSeek Harness plugin for the commercial operating layer between qualified demand and repeatable revenue."
+   "desc_en": "dsh-sales 是一个 DeepSeek Harness 插件，负责把已经确认的客户机会推进到可成交、可复盘、可预测和可扩张的销售运营层。 dsh-sales is a DeepSeek Harness plugin for the commercial operating layer between qualified demand and repeatable revenue.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-business",
@@ -60177,7 +60236,9 @@
    "platform": "any",
    "desc": "商业策略与商业化插件，覆盖商业模式、定价与渠道价盘、盈利能力、电梯 Pitch 和商业计划。 Evidence-backed business strategy and commercialization tools for business models, pricing architecture, channel economics, profitability, elevator pitches and business plans.",
    "desc_zh": "商业策略与商业化插件，覆盖商业模式、定价与渠道价盘、盈利能力、电梯 Pitch 和商业计划。 Evidence-backed business strategy and commercialization tools for business models, pricing architecture, channel economics, profitability, elevator pitches and business plans.",
-   "desc_en": "商业策略与商业化插件，覆盖商业模式、定价与渠道价盘、盈利能力、电梯 Pitch 和商业计划。 Evidence-backed business strategy and commercialization tools for business models, pricing architecture, channel economics, profitability, elevator pitches and business plans."
+   "desc_en": "商业策略与商业化插件，覆盖商业模式、定价与渠道价盘、盈利能力、电梯 Pitch 和商业计划。 Evidence-backed business strategy and commercialization tools for business models, pricing architecture, channel economics, profitability, elevator pitches and business plans.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-superpowers-zh",
@@ -60191,7 +60252,9 @@
    "platform": "any",
    "desc": "Core Superpowers-zh engineering skills for DeepSeek Harness",
    "desc_en": "Core Superpowers-zh engineering skills for DeepSeek Harness",
-   "desc_zh": "Core Superpowers-zh engineering skills for DeepSeek Harness"
+   "desc_zh": "Core Superpowers-zh engineering skills for DeepSeek Harness",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-Webroad",
@@ -60205,7 +60268,9 @@
    "platform": "any",
    "desc": "DSH Web 的免费远程访问（Tailscale Funnel）：不买域名、手机免装 App，打开网址 + 密码就是 DSH。给家里人和普通人的那条路。",
    "desc_zh": "DSH Web 的免费远程访问（Tailscale Funnel）：不买域名、手机免装 App，打开网址 + 密码就是 DSH。给家里人和普通人的那条路。",
-   "desc_en": "DSH Web 的免费远程访问（Tailscale Funnel）：不买域名、手机免装 App，打开网址 + 密码就是 DSH。给家里人和普通人的那条路。"
+   "desc_en": "DSH Web 的免费远程访问（Tailscale Funnel）：不买域名、手机免装 App，打开网址 + 密码就是 DSH。给家里人和普通人的那条路。",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-model-accordion",
@@ -60216,7 +60281,9 @@
    "forks": 0,
    "updated": "2026-08-21",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "plane-dsh-plugin",
@@ -60230,7 +60297,9 @@
    "platform": "any",
    "desc": "Plane-powered project management for DeepSeek Harness (DSH).",
    "desc_en": "Plane-powered project management for DeepSeek Harness (DSH).",
-   "desc_zh": "Plane-powered project management for DeepSeek Harness (DSH)."
+   "desc_zh": "Plane-powered project management for DeepSeek Harness (DSH).",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-toolcall-compat",
@@ -60244,7 +60313,9 @@
    "platform": "any",
    "desc": "修复在DSH中使用自定义提供方模型时会遇到的toolcall json schema被错误解析后不断产生错误toolcall的问题，同时提供长时间等待toolcall跳过的功能。",
    "desc_zh": "修复在DSH中使用自定义提供方模型时会遇到的toolcall json schema被错误解析后不断产生错误toolcall的问题，同时提供长时间等待toolcall跳过的功能。",
-   "desc_en": "修复在DSH中使用自定义提供方模型时会遇到的toolcall json schema被错误解析后不断产生错误toolcall的问题，同时提供长时间等待toolcall跳过的功能。"
+   "desc_en": "修复在DSH中使用自定义提供方模型时会遇到的toolcall json schema被错误解析后不断产生错误toolcall的问题，同时提供长时间等待toolcall跳过的功能。",
+   "testDate": "2026-08-27",
+   "note": "验证: install-fail"
   },
   {
    "name": "dsh-musage",
@@ -60258,7 +60329,9 @@
    "platform": "any",
    "desc": "DSH 端的 AI 套餐余额监控插件, 跟当前模型自动切换.目前支持 5 provider (minimax / deepseek / kimi / openrouter / zhipu).｜DSH (DeepSeek Harness) plugin to monitor AI coding-plan usage. Follows active model; 5 providers (minimax, deepseek, kimi, openrouter, zhipu).",
    "desc_zh": "DSH 端的 AI 套餐余额监控插件, 跟当前模型自动切换.目前支持 5 provider (minimax / deepseek / kimi / openrouter / zhipu).｜DSH (DeepSeek Harness) plugin to monitor AI coding-plan usage. Follows active model; 5 providers (minimax, deepseek, kimi, openrouter, zhipu).",
-   "desc_en": "DSH 端的 AI 套餐余额监控插件, 跟当前模型自动切换.目前支持 5 provider (minimax / deepseek / kimi / openrouter / zhipu).｜DSH (DeepSeek Harness) plugin to monitor AI coding-plan usage. Follows active model; 5 providers (minimax, deepseek, kimi, openrouter, zhipu)."
+   "desc_en": "DSH 端的 AI 套餐余额监控插件, 跟当前模型自动切换.目前支持 5 provider (minimax / deepseek / kimi / openrouter / zhipu).｜DSH (DeepSeek Harness) plugin to monitor AI coding-plan usage. Follows active model; 5 providers (minimax, deepseek, kimi, openrouter, zhipu).",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-macos-skin",
@@ -60269,7 +60342,10 @@
    "forks": 0,
    "updated": "2026-08-21",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-file-picker",
@@ -60280,7 +60356,10 @@
    "forks": 0,
    "updated": "2026-08-21",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "bga-dsh-workbench",
@@ -60294,7 +60373,9 @@
    "platform": "any",
    "desc": "DeepSeek Harness Workbench",
    "desc_en": "DeepSeek Harness Workbench",
-   "desc_zh": "DeepSeek Harness Workbench"
+   "desc_zh": "DeepSeek Harness Workbench",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-checkpoints",
@@ -60308,7 +60389,9 @@
    "platform": "any",
    "desc": "DSH conversation checkpoints: locate / rewind / edit user instructions with file snapshots and per-file undo. DSH conversation checkpoint plugin",
    "desc_en": "DSH conversation checkpoints: locate / rewind / edit user instructions with file snapshots and per-file undo. DSH conversation checkpoint plugin",
-   "desc_zh": "DSH conversation checkpoints: locate / rewind / edit user instructions with file snapshots and per-file undo. DSH conversation checkpoint plugin"
+   "desc_zh": "DSH conversation checkpoints: locate / rewind / edit user instructions with file snapshots and per-file undo. DSH conversation checkpoint plugin",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-worktree-flow",
@@ -60322,7 +60405,9 @@
    "platform": "any",
    "desc": "DSH (DeepSeek Harness) plugin: multi-repo feature workspaces — one directory per feature, one git worktree per component repo, all on a shared feature branch, auto-registered as a DSH workspace.",
    "desc_en": "DSH (DeepSeek Harness) plugin: multi-repo feature workspaces — one directory per feature, one git worktree per component repo, all on a shared feature branch, auto-registered as a DSH workspace.",
-   "desc_zh": "DSH (DeepSeek Harness) plugin: multi-repo feature workspaces — one directory per feature, one git worktree per component repo, all on a shared feature branch, auto-registered as a DSH workspace."
+   "desc_zh": "DSH (DeepSeek Harness) plugin: multi-repo feature workspaces — one directory per feature, one git worktree per component repo, all on a shared feature branch, auto-registered as a DSH workspace.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-ask",
@@ -60336,7 +60421,9 @@
    "platform": "any",
    "desc": "面向 DeepSeek Harness 的终端直接问答模式：支持持久会话、流式输出，以及可选的 Fish、Bash、Zsh 和实验性 PowerShell   集成。",
    "desc_zh": "面向 DeepSeek Harness 的终端直接问答模式：支持持久会话、流式输出，以及可选的 Fish、Bash、Zsh 和实验性 PowerShell   集成。",
-   "desc_en": "面向 DeepSeek Harness 的终端直接问答模式：支持持久会话、流式输出，以及可选的 Fish、Bash、Zsh 和实验性 PowerShell   集成。"
+   "desc_en": "面向 DeepSeek Harness 的终端直接问答模式：支持持久会话、流式输出，以及可选的 Fish、Bash、Zsh 和实验性 PowerShell   集成。",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-balance-guard",
@@ -60347,7 +60434,9 @@
    "forks": 0,
    "updated": "2026-08-21",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-27",
+   "note": "验证: load-fail"
   },
   {
    "name": "dsh-rw",
@@ -60358,7 +60447,10 @@
    "forks": 0,
    "updated": "2026-08-21",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-loader-settlement-proof",
@@ -60372,7 +60464,9 @@
    "platform": "any",
    "desc": "Content-addressed proof for recorded DSH Loader activation, injection closure, and tool schema settlement.",
    "desc_en": "Content-addressed proof for recorded DSH Loader activation, injection closure, and tool schema settlement.",
-   "desc_zh": "Content-addressed proof for recorded DSH Loader activation, injection closure, and tool schema settlement."
+   "desc_zh": "Content-addressed proof for recorded DSH Loader activation, injection closure, and tool schema settlement.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-glm-vision",
@@ -60386,7 +60480,9 @@
    "platform": "any",
    "desc": "在dsh中接入智谱 GLM 视觉模型，让 DeepSeek 等文本模型通过 glm_vision 工具看图。",
    "desc_zh": "在dsh中接入智谱 GLM 视觉模型，让 DeepSeek 等文本模型通过 glm_vision 工具看图。",
-   "desc_en": "在dsh中接入智谱 GLM 视觉模型，让 DeepSeek 等文本模型通过 glm_vision 工具看图。"
+   "desc_en": "在dsh中接入智谱 GLM 视觉模型，让 DeepSeek 等文本模型通过 glm_vision 工具看图。",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dknowc-dsh",
@@ -60400,7 +60496,9 @@
    "platform": "any",
    "desc": "深知可信办公全家桶 dsh 插件包：深知可信咨询 / 深知可信搜索 / 深知公文写作（skill + MCP 转接）",
    "desc_zh": "深知可信办公全家桶 dsh 插件包：深知可信咨询 / 深知可信搜索 / 深知公文写作（skill + MCP 转接）",
-   "desc_en": "深知可信办公全家桶 dsh 插件包：深知可信咨询 / 深知可信搜索 / 深知公文写作（skill + MCP 转接）"
+   "desc_en": "深知可信办公全家桶 dsh 插件包：深知可信咨询 / 深知可信搜索 / 深知公文写作（skill + MCP 转接）",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-custom-subagents",
@@ -60414,7 +60512,9 @@
    "platform": "any",
    "desc": "一个dsh的子agent控制插件",
    "desc_zh": "一个dsh的子agent控制插件",
-   "desc_en": "一个dsh的子agent控制插件"
+   "desc_en": "一个dsh的子agent控制插件",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-remote-runtime",
@@ -60428,7 +60528,9 @@
    "platform": "any",
    "desc": "Managed, isolated DeepSeek Harness runtimes over OpenSSH with a native Web control surface.",
    "desc_en": "Managed, isolated DeepSeek Harness runtimes over OpenSSH with a native Web control surface.",
-   "desc_zh": "Managed, isolated DeepSeek Harness runtimes over OpenSSH with a native Web control surface."
+   "desc_zh": "Managed, isolated DeepSeek Harness runtimes over OpenSSH with a native Web control surface.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-dev-crew",
@@ -60442,7 +60544,9 @@
    "platform": "any",
    "desc": "按职责把工作分派给绑定了不同模型的子代理的 DeepSeek Harness 插件",
    "desc_zh": "按职责把工作分派给绑定了不同模型的子代理的 DeepSeek Harness 插件",
-   "desc_en": "按职责把工作分派给绑定了不同模型的子代理的 DeepSeek Harness 插件"
+   "desc_en": "按职责把工作分派给绑定了不同模型的子代理的 DeepSeek Harness 插件",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-stock-watcher",
@@ -60456,7 +60560,10 @@
    "platform": "any",
    "desc": "DeepSeek Harness Web 股票实时行情悬浮插件：实时报价、K线、7日/30日走势、技术面看多看空预测。",
    "desc_zh": "DeepSeek Harness Web 股票实时行情悬浮插件：实时报价、K线、7日/30日走势、技术面看多看空预测。",
-   "desc_en": "DeepSeek Harness Web 股票实时行情悬浮插件：实时报价、K线、7日/30日走势、技术面看多看空预测。"
+   "desc_en": "DeepSeek Harness Web 股票实时行情悬浮插件：实时报价、K线、7日/30日走势、技术面看多看空预测。",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "snowmountain-market",
@@ -60470,7 +60577,9 @@
    "platform": "any",
    "desc": "Credential-safe Wind AIFin MCP and Alice integration for DeepSeek Harness.",
    "desc_en": "Credential-safe Wind AIFin MCP and Alice integration for DeepSeek Harness.",
-   "desc_zh": "Credential-safe Wind AIFin MCP and Alice integration for DeepSeek Harness."
+   "desc_zh": "Credential-safe Wind AIFin MCP and Alice integration for DeepSeek Harness.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-chat-zone",
@@ -60484,7 +60593,9 @@
    "platform": "any",
    "desc": "DSH Web 插件「对话区」。安装：dsh plugin --profile web add github:lasdrder0705/dsh-chat-zone",
    "desc_zh": "DSH Web 插件「对话区」。安装：dsh plugin --profile web add github:lasdrder0705/dsh-chat-zone",
-   "desc_en": "DSH Web 插件「对话区」。安装：dsh plugin --profile web add github:lasdrder0705/dsh-chat-zone"
+   "desc_en": "DSH Web 插件「对话区」。安装：dsh plugin --profile web add github:lasdrder0705/dsh-chat-zone",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "wavespeed-dsh-skill",
@@ -60498,7 +60609,9 @@
    "platform": "any",
    "desc": "WaveSpeed skill for DeepSeek Harness (dsh) — generate and edit AI image, video, audio & 3D via the wavespeed CLI",
    "desc_en": "WaveSpeed skill for DeepSeek Harness (dsh) — generate and edit AI image, video, audio & 3D via the wavespeed CLI",
-   "desc_zh": "WaveSpeed skill for DeepSeek Harness (dsh) — generate and edit AI image, video, audio & 3D via the wavespeed CLI"
+   "desc_zh": "WaveSpeed skill for DeepSeek Harness (dsh) — generate and edit AI image, video, audio & 3D via the wavespeed CLI",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-seelog",
@@ -60512,7 +60625,10 @@
    "platform": "any",
    "desc": "还在为繁杂的log而苦恼吗？直接拓扑展示，清晰理顺所有，多智能体也不怕。",
    "desc_zh": "还在为繁杂的log而苦恼吗？直接拓扑展示，清晰理顺所有，多智能体也不怕。",
-   "desc_en": "还在为繁杂的log而苦恼吗？直接拓扑展示，清晰理顺所有，多智能体也不怕。"
+   "desc_en": "还在为繁杂的log而苦恼吗？直接拓扑展示，清晰理顺所有，多智能体也不怕。",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-llm-sampling",
@@ -60526,7 +60642,9 @@
    "platform": "any",
    "desc": "Exact-model sampling policy bundle for DeepSeek Harness",
    "desc_en": "Exact-model sampling policy bundle for DeepSeek Harness",
-   "desc_zh": "Exact-model sampling policy bundle for DeepSeek Harness"
+   "desc_zh": "Exact-model sampling policy bundle for DeepSeek Harness",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "agnes-media",
@@ -60540,7 +60658,9 @@
    "platform": "any",
    "desc": "Registers generate_image and generate_video tools for Agnes AI media models in DeepSeek Harness.",
    "desc_en": "Registers generate_image and generate_video tools for Agnes AI media models in DeepSeek Harness.",
-   "desc_zh": "Registers generate_image and generate_video tools for Agnes AI media models in DeepSeek Harness."
+   "desc_zh": "Registers generate_image and generate_video tools for Agnes AI media models in DeepSeek Harness.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-schema-migration-proof",
@@ -60554,7 +60674,9 @@
    "platform": "any",
    "desc": "Content-addressed DSH evidence for schema migration idempotence, rollback, invariants, and explicit loss disclosure.",
    "desc_en": "Content-addressed DSH evidence for schema migration idempotence, rollback, invariants, and explicit loss disclosure.",
-   "desc_zh": "Content-addressed DSH evidence for schema migration idempotence, rollback, invariants, and explicit loss disclosure."
+   "desc_zh": "Content-addressed DSH evidence for schema migration idempotence, rollback, invariants, and explicit loss disclosure.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-waimai-discount",
@@ -60568,7 +60690,9 @@
    "platform": "any",
    "desc": "DeepSeek Harness (DSH) plugin: 外卖优惠助手 — official, commission-free takeout/delivery coupon channel finder for Meituan, Ele.me, JD Delivery & Taobao Shanguo",
    "desc_zh": "DeepSeek Harness (DSH) plugin: 外卖优惠助手 — official, commission-free takeout/delivery coupon channel finder for Meituan, Ele.me, JD Delivery & Taobao Shanguo",
-   "desc_en": "DeepSeek Harness (DSH) plugin: 外卖优惠助手 — official, commission-free takeout/delivery coupon channel finder for Meituan, Ele.me, JD Delivery & Taobao Shanguo"
+   "desc_en": "DeepSeek Harness (DSH) plugin: 外卖优惠助手 — official, commission-free takeout/delivery coupon channel finder for Meituan, Ele.me, JD Delivery & Taobao Shanguo",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-config-export",
