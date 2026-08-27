@@ -126,6 +126,24 @@
   ]
  },
  {
+  "github": "mantonlove",
+  "avatar": "https://avatars.githubusercontent.com/u/257443160?v=4",
+  "plugins": [
+   {
+    "name": "dsh-client-ui-prism",
+    "slug": "dsh-client-ui-prism",
+    "npm": false,
+    "pkg": ""
+   },
+   {
+    "name": "dsh-conversation-landmarks",
+    "slug": "dsh-conversation-landmarks",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "maxwell-feng",
   "avatar": "https://avatars.githubusercontent.com/u/149435110?v=4",
   "plugins": [
@@ -480,6 +498,18 @@
   ]
  },
  {
+  "github": "lussey820",
+  "avatar": "https://avatars.githubusercontent.com/u/251263419?v=4",
+  "plugins": [
+   {
+    "name": "dsh-essentials-bundle",
+    "slug": "dsh-essentials-bundle",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "Miku196",
   "avatar": "https://avatars.githubusercontent.com/u/146407449?v=4",
   "plugins": [
@@ -624,6 +654,18 @@
   ]
  },
  {
+  "github": "void2anything",
+  "avatar": "https://avatars.githubusercontent.com/u/6897567?v=4",
+  "plugins": [
+   {
+    "name": "dsh-qingagent",
+    "slug": "dsh-qingagent",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "Walvez",
   "avatar": "https://avatars.githubusercontent.com/u/93713668?v=4",
   "plugins": [
@@ -666,6 +708,18 @@
    {
     "name": "dsh-equip-engine",
     "slug": "dsh-equip-engine",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "xtd1145",
+  "avatar": "https://avatars.githubusercontent.com/u/220214673?v=4",
+  "plugins": [
+   {
+    "name": "dsh-full-access-switch",
+    "slug": "dsh-full-access-switch",
     "npm": false,
     "pkg": ""
    }
