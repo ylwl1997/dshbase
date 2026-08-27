@@ -61645,7 +61645,9 @@
    "platform": "any",
    "desc": "电影类型",
    "desc_zh": "电影类型",
-   "desc_en": "电影类型"
+   "desc_en": "电影类型",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-culture-festivals",
@@ -61659,7 +61661,9 @@
    "platform": "any",
    "desc": "世界节日",
    "desc_zh": "世界节日",
-   "desc_en": "世界节日"
+   "desc_en": "世界节日",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-culture-boardgames",
@@ -61673,7 +61677,9 @@
    "platform": "any",
    "desc": "桌游",
    "desc_zh": "桌游",
-   "desc_en": "桌游"
+   "desc_en": "桌游",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-blackhead",
@@ -61687,7 +61693,9 @@
    "platform": "any",
    "desc": "黑头清理",
    "desc_zh": "黑头清理",
-   "desc_en": "黑头清理"
+   "desc_en": "黑头清理",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-cuba",
@@ -61701,7 +61709,9 @@
    "platform": "any",
    "desc": "古巴国家",
    "desc_zh": "古巴国家",
-   "desc_en": "古巴国家"
+   "desc_en": "古巴国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-plugin-modality-fallback",
@@ -61712,7 +61722,9 @@
    "forks": 0,
    "updated": "2026-08-20",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-chat-fold",
@@ -61726,7 +61738,9 @@
    "platform": "any",
    "desc": "Per-turn execution folding for stock DeepSeek Harness Chat",
    "desc_en": "Per-turn execution folding for stock DeepSeek Harness Chat",
-   "desc_zh": "Per-turn execution folding for stock DeepSeek Harness Chat"
+   "desc_zh": "Per-turn execution folding for stock DeepSeek Harness Chat",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-model-retry",
@@ -61740,7 +61754,9 @@
    "platform": "any",
    "desc": "DeepSeek Harness plugin for configuring the global model-request retry budget",
    "desc_en": "DeepSeek Harness plugin for configuring the global model-request retry budget",
-   "desc_zh": "DeepSeek Harness plugin for configuring the global model-request retry budget"
+   "desc_zh": "DeepSeek Harness plugin for configuring the global model-request retry budget",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-croatia",
@@ -61754,7 +61770,9 @@
    "platform": "any",
    "desc": "克罗地亚国家",
    "desc_zh": "克罗地亚国家",
-   "desc_en": "克罗地亚国家"
+   "desc_en": "克罗地亚国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-credit-card-installment",
@@ -61768,7 +61786,9 @@
    "platform": "any",
    "desc": "信用卡分期计算器",
    "desc_zh": "信用卡分期计算器",
-   "desc_en": "信用卡分期计算器"
+   "desc_en": "信用卡分期计算器",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-covariance",
@@ -61782,7 +61802,9 @@
    "platform": "any",
    "desc": "协方差",
    "desc_zh": "协方差",
-   "desc_en": "协方差"
+   "desc_en": "协方差",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-costa-rica",
@@ -61796,7 +61818,9 @@
    "platform": "any",
    "desc": "哥斯达黎加国家",
    "desc_zh": "哥斯达黎加国家",
-   "desc_en": "哥斯达黎加国家"
+   "desc_en": "哥斯达黎加国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-correlation",
@@ -61810,7 +61834,9 @@
    "platform": "any",
    "desc": "相关系数",
    "desc_zh": "相关系数",
-   "desc_en": "相关系数"
+   "desc_en": "相关系数",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-bento",
@@ -61824,7 +61850,9 @@
    "platform": "any",
    "desc": "便当搭配",
    "desc_zh": "便当搭配",
-   "desc_en": "便当搭配"
+   "desc_en": "便当搭配",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-copper",
@@ -61838,7 +61866,9 @@
    "platform": "any",
    "desc": "铜元素",
    "desc_zh": "铜元素",
-   "desc_en": "铜元素"
+   "desc_en": "铜元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-copernicium",
@@ -61852,7 +61882,9 @@
    "platform": "any",
    "desc": "鎶元素",
    "desc_zh": "鎶元素",
-   "desc_en": "鎶元素"
+   "desc_en": "鎶元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-bedtime",
@@ -61866,7 +61898,9 @@
    "platform": "any",
    "desc": "睡前仪式",
    "desc_zh": "睡前仪式",
-   "desc_en": "睡前仪式"
+   "desc_en": "睡前仪式",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-big-purchase",
@@ -61880,7 +61914,9 @@
    "platform": "any",
    "desc": "大额消费决策",
    "desc_zh": "大额消费决策",
-   "desc_en": "大额消费决策"
+   "desc_en": "大额消费决策",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-beer-pick",
@@ -61894,7 +61930,9 @@
    "platform": "any",
    "desc": "啤酒选择",
    "desc_zh": "啤酒选择",
-   "desc_en": "啤酒选择"
+   "desc_en": "啤酒选择",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-congo-dr",
@@ -61908,7 +61946,9 @@
    "platform": "any",
    "desc": "刚果民主共和国国家",
    "desc_zh": "刚果民主共和国国家",
-   "desc_en": "刚果民主共和国国家"
+   "desc_en": "刚果民主共和国国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-best-time",
@@ -61922,7 +61962,9 @@
    "platform": "any",
    "desc": "最佳发布时间",
    "desc_zh": "最佳发布时间",
-   "desc_en": "最佳发布时间"
+   "desc_en": "最佳发布时间",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-bean-choice",
@@ -61936,7 +61978,9 @@
    "platform": "any",
    "desc": "选豆建议",
    "desc_zh": "选豆建议",
-   "desc_en": "选豆建议"
+   "desc_en": "选豆建议",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-combination",
@@ -61950,7 +61994,9 @@
    "platform": "any",
    "desc": "组合数",
    "desc_zh": "组合数",
-   "desc_en": "组合数"
+   "desc_en": "组合数",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-basic-training",
@@ -61964,7 +62010,9 @@
    "platform": "any",
    "desc": "基础训练",
    "desc_zh": "基础训练",
-   "desc_en": "基础训练"
+   "desc_en": "基础训练",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-plugin-ui-toggle",
@@ -61978,7 +62026,9 @@
    "platform": "any",
    "desc": "deepseek-harness的插件，可以在web页面直接开关插件，轻量方便",
    "desc_zh": "deepseek-harness的插件，可以在web页面直接开关插件，轻量方便",
-   "desc_en": "deepseek-harness的插件，可以在web页面直接开关插件，轻量方便"
+   "desc_en": "deepseek-harness的插件，可以在web页面直接开关插件，轻量方便",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-colombia",
@@ -61992,7 +62042,9 @@
    "platform": "any",
    "desc": "哥伦比亚国家",
    "desc_zh": "哥伦比亚国家",
-   "desc_en": "哥伦比亚国家"
+   "desc_en": "哥伦比亚国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-barking-fix",
@@ -62006,7 +62058,9 @@
    "platform": "any",
    "desc": "吠叫纠正",
    "desc_zh": "吠叫纠正",
-   "desc_en": "吠叫纠正"
+   "desc_en": "吠叫纠正",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-cobalt",
@@ -62020,7 +62074,9 @@
    "platform": "any",
    "desc": "钴元素",
    "desc_zh": "钴元素",
-   "desc_en": "钴元素"
+   "desc_en": "钴元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-climate-terms",
@@ -62034,7 +62090,9 @@
    "platform": "any",
    "desc": "气候术语",
    "desc_zh": "气候术语",
-   "desc_en": "气候术语"
+   "desc_en": "气候术语",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-circuit-plan",
@@ -62048,7 +62106,9 @@
    "platform": "any",
    "desc": "电路回路规划",
    "desc_zh": "电路回路规划",
-   "desc_en": "电路回路规划"
+   "desc_en": "电路回路规划",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-baijiu-pick",
@@ -62062,7 +62122,9 @@
    "platform": "any",
    "desc": "白酒选择",
    "desc_zh": "白酒选择",
-   "desc_en": "白酒选择"
+   "desc_en": "白酒选择",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-chromium",
@@ -62076,7 +62138,9 @@
    "platform": "any",
    "desc": "铬元素",
    "desc_zh": "铬元素",
-   "desc_en": "铬元素"
+   "desc_en": "铬元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-chlorine",
@@ -62090,7 +62154,9 @@
    "platform": "any",
    "desc": "氯元素",
    "desc_zh": "氯元素",
-   "desc_en": "氯元素"
+   "desc_en": "氯元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-china",
@@ -62104,7 +62170,9 @@
    "platform": "any",
    "desc": "中国国家",
    "desc_zh": "中国国家",
-   "desc_en": "中国国家"
+   "desc_en": "中国国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-chile",
@@ -62118,7 +62186,9 @@
    "platform": "any",
    "desc": "智利国家",
    "desc_zh": "智利国家",
-   "desc_en": "智利国家"
+   "desc_en": "智利国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-back-care",
@@ -62132,7 +62202,9 @@
    "platform": "any",
    "desc": "腰背护理",
    "desc_zh": "腰背护理",
-   "desc_en": "腰背护理"
+   "desc_en": "腰背护理",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-chicago-city",
@@ -62146,7 +62218,9 @@
    "platform": "any",
    "desc": "芝加哥市",
    "desc_zh": "芝加哥市",
-   "desc_en": "芝加哥市"
+   "desc_en": "芝加哥市",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-chengdu-city",
@@ -62160,7 +62234,9 @@
    "platform": "any",
    "desc": "成都市",
    "desc_zh": "成都市",
-   "desc_en": "成都市"
+   "desc_en": "成都市",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-baby-fever",
@@ -62174,7 +62250,9 @@
    "platform": "any",
    "desc": "宝宝发烧",
    "desc_zh": "宝宝发烧",
-   "desc_en": "宝宝发烧"
+   "desc_en": "宝宝发烧",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-chemistry-terms",
@@ -62188,7 +62266,9 @@
    "platform": "any",
    "desc": "化学术语",
    "desc_zh": "化学术语",
-   "desc_en": "化学术语"
+   "desc_en": "化学术语",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-cerium",
@@ -62202,7 +62282,9 @@
    "platform": "any",
    "desc": "铈元素",
    "desc_zh": "铈元素",
-   "desc_en": "铈元素"
+   "desc_en": "铈元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-antibiotic",
@@ -62216,7 +62298,9 @@
    "platform": "any",
    "desc": "抗生素使用",
    "desc_zh": "抗生素使用",
-   "desc_en": "抗生素使用"
+   "desc_en": "抗生素使用",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-cat-food",
@@ -62230,7 +62314,9 @@
    "platform": "any",
    "desc": "猫粮喂食量",
    "desc_zh": "猫粮喂食量",
-   "desc_en": "猫粮喂食量"
+   "desc_en": "猫粮喂食量",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-cat-age",
@@ -62244,7 +62330,9 @@
    "platform": "any",
    "desc": "猫龄换算",
    "desc_zh": "猫龄换算",
-   "desc_en": "猫龄换算"
+   "desc_en": "猫龄换算",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-anti-slip",
@@ -62258,7 +62346,9 @@
    "platform": "any",
    "desc": "防滑措施",
    "desc_zh": "防滑措施",
-   "desc_en": "防滑措施"
+   "desc_en": "防滑措施",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-diy-safe",
@@ -62272,7 +62362,9 @@
    "platform": "any",
    "desc": "DIY安全",
    "desc_zh": "DIY安全",
-   "desc_en": "DIY安全"
+   "desc_en": "DIY安全",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-amb-light",
@@ -62286,7 +62378,9 @@
    "platform": "any",
    "desc": "氛围照明",
    "desc_zh": "氛围照明",
-   "desc_en": "氛围照明"
+   "desc_en": "氛围照明",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-asset-split",
@@ -62300,7 +62394,9 @@
    "platform": "any",
    "desc": "资产配置",
    "desc_zh": "资产配置",
-   "desc_en": "资产配置"
+   "desc_en": "资产配置",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-clean-plan2",
@@ -62314,7 +62410,9 @@
    "platform": "any",
    "desc": "清洁计划",
    "desc_zh": "清洁计划",
-   "desc_en": "清洁计划"
+   "desc_en": "清洁计划",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-hidden-storage",
@@ -62328,7 +62426,9 @@
    "platform": "any",
    "desc": "隐形收纳",
    "desc_zh": "隐形收纳",
-   "desc_en": "隐形收纳"
+   "desc_en": "隐形收纳",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pet-teeth",
@@ -62342,7 +62442,9 @@
    "platform": "any",
    "desc": "口腔健康",
    "desc_zh": "口腔健康",
-   "desc_en": "口腔健康"
+   "desc_en": "口腔健康",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-wall-fix",
@@ -62356,7 +62458,9 @@
    "platform": "any",
    "desc": "墙面修补",
    "desc_zh": "墙面修补",
-   "desc_en": "墙面修补"
+   "desc_en": "墙面修补",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-wash-machine",
@@ -62370,7 +62474,9 @@
    "platform": "any",
    "desc": "洗地机",
    "desc_zh": "洗地机",
-   "desc_en": "洗地机"
+   "desc_en": "洗地机",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-wall-art",
@@ -62384,7 +62490,9 @@
    "platform": "any",
    "desc": "挂画摆放",
    "desc_zh": "挂画摆放",
-   "desc_en": "挂画摆放"
+   "desc_en": "挂画摆放",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-reading-light",
@@ -62398,7 +62506,9 @@
    "platform": "any",
    "desc": "阅读灯光",
    "desc_zh": "阅读灯光",
-   "desc_en": "阅读灯光"
+   "desc_en": "阅读灯光",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-new-home-check",
@@ -62412,7 +62522,9 @@
    "platform": "any",
    "desc": "新家验收",
    "desc_zh": "新家验收",
-   "desc_en": "新家验收"
+   "desc_en": "新家验收",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-purifier",
@@ -62426,7 +62538,9 @@
    "platform": "any",
    "desc": "净水器选购",
    "desc_zh": "净水器选购",
-   "desc_en": "净水器选购"
+   "desc_en": "净水器选购",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-lab-check",
@@ -62440,7 +62554,9 @@
    "platform": "any",
    "desc": "体检指标",
    "desc_zh": "体检指标",
-   "desc_en": "体检指标"
+   "desc_en": "体检指标",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-senior-pet",
@@ -62454,7 +62570,9 @@
    "platform": "any",
    "desc": "老年宠物",
    "desc_zh": "老年宠物",
-   "desc_en": "老年宠物"
+   "desc_en": "老年宠物",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-furniture-fix",
