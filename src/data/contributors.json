@@ -312,8 +312,8 @@
    {
     "name": "dsh-siyuan",
     "slug": "dsh-siyuan",
-    "npm": false,
-    "pkg": ""
+    "npm": true,
+    "pkg": "dsh-siyuan"
    }
   ]
  },
@@ -540,6 +540,18 @@
    {
     "name": "@moyu-good/dsh-lark-bridge",
     "slug": "moyu-good-dsh-lark-bridge",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "mycodesite",
+  "avatar": "https://avatars.githubusercontent.com/u/20833769?v=4",
+  "plugins": [
+   {
+    "name": "rulebase",
+    "slug": "rulebase",
     "npm": false,
     "pkg": ""
    }
