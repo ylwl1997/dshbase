@@ -146492,7 +146492,7 @@
    "license": "MIT",
    "slug": "dsh-full-access-switch",
    "platform": "any",
-   "note": "验证: install-fail",
+   "note": "L1 pass on dsh 0.1.1-rc.2: v0.1.1 removed nonexistent cordis dep, pnpm install ok. L2/L3 retest pending: verification LLM credentials unavailable (DeepSeek key 401, TOKEN_PLAN_API_KEY not configured).",
    "contributors": 0,
    "depCount": 1,
    "depsOfficial": 0,
