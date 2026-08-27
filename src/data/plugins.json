@@ -58847,7 +58847,9 @@
    "platform": "any",
    "desc": "Render Mermaid diagrams in the DeepSeek Harness web chat — repeatable zoom, fullscreen viewer, beautify defaults.",
    "desc_en": "Render Mermaid diagrams in the DeepSeek Harness web chat — repeatable zoom, fullscreen viewer, beautify defaults.",
-   "desc_zh": "Render Mermaid diagrams in the DeepSeek Harness web chat — repeatable zoom, fullscreen viewer, beautify defaults."
+   "desc_zh": "Render Mermaid diagrams in the DeepSeek Harness web chat — repeatable zoom, fullscreen viewer, beautify defaults.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "llm-as-a-Verifier-dsh",
@@ -58861,7 +58863,9 @@
    "platform": "any",
    "desc": "LLM-as-a-Verifier (arXiv:2607.05391) as a dsh plugin — Best-of-N conversation mode: give DeepSeek V4 Flash test-time scaling. Bo5 self-verification hits 88% on Terminal-Bench 2.1, beating some frontier models at a fraction of the cost. Fine-grained logprob-expectation scoring, PPT tournament, zero-config.",
    "desc_en": "LLM-as-a-Verifier (arXiv:2607.05391) as a dsh plugin — Best-of-N conversation mode: give DeepSeek V4 Flash test-time scaling. Bo5 self-verification hits 88% on Terminal-Bench 2.1, beating some frontier models at a fraction of the cost. Fine-grained logprob-expectation scoring, PPT tournament, zero-config.",
-   "desc_zh": "LLM-as-a-Verifier (arXiv:2607.05391) as a dsh plugin — Best-of-N conversation mode: give DeepSeek V4 Flash test-time scaling. Bo5 self-verification hits 88% on Terminal-Bench 2.1, beating some frontier models at a fraction of the cost. Fine-grained logprob-expectation scoring, PPT tournament, zero-config."
+   "desc_zh": "LLM-as-a-Verifier (arXiv:2607.05391) as a dsh plugin — Best-of-N conversation mode: give DeepSeek V4 Flash test-time scaling. Bo5 self-verification hits 88% on Terminal-Bench 2.1, beating some frontier models at a fraction of the cost. Fine-grained logprob-expectation scoring, PPT tournament, zero-config.",
+   "testDate": "2026-08-27",
+   "note": "验证: install-fail"
   },
   {
    "name": "dsh-providers-extension",
@@ -58875,7 +58879,9 @@
    "platform": "any",
    "desc": "Provider accounts, live model catalogs, and model selection for DeepSeek Harness.",
    "desc_en": "Provider accounts, live model catalogs, and model selection for DeepSeek Harness.",
-   "desc_zh": "Provider accounts, live model catalogs, and model selection for DeepSeek Harness."
+   "desc_zh": "Provider accounts, live model catalogs, and model selection for DeepSeek Harness.",
+   "testDate": "2026-08-27",
+   "note": "验证: network-fail"
   },
   {
    "name": "dsh-subagent-vision",
@@ -58886,7 +58892,9 @@
    "forks": 0,
    "updated": "2026-08-21",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-tool-test-runner",
@@ -58897,7 +58905,9 @@
    "forks": 0,
    "updated": "2026-08-21",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-high-speed-rail",
@@ -58911,7 +58921,9 @@
    "platform": "any",
    "desc": "高铁指南",
    "desc_zh": "高铁指南",
-   "desc_en": "高铁指南"
+   "desc_en": "高铁指南",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-is-power-of-two",
@@ -58925,7 +58937,9 @@
    "platform": "any",
    "desc": "2 的幂判断",
    "desc_zh": "2 的幂判断",
-   "desc_en": "2 的幂判断"
+   "desc_en": "2 的幂判断",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-guangzhou-city",
@@ -58939,7 +58953,9 @@
    "platform": "any",
    "desc": "广州市",
    "desc_zh": "广州市",
-   "desc_en": "广州市"
+   "desc_en": "广州市",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-hafnium",
@@ -58953,7 +58969,9 @@
    "platform": "any",
    "desc": "铪元素",
    "desc_zh": "铪元素",
-   "desc_en": "铪元素"
+   "desc_en": "铪元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-parking-cost",
@@ -58967,7 +58985,9 @@
    "platform": "any",
    "desc": "停车费计算",
    "desc_zh": "停车费计算",
-   "desc_en": "停车费计算"
+   "desc_en": "停车费计算",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-future-interstellar",
@@ -58981,7 +59001,9 @@
    "platform": "any",
    "desc": "星际旅行",
    "desc_zh": "星际旅行",
-   "desc_en": "星际旅行"
+   "desc_en": "星际旅行",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-lawrencium",
@@ -58995,7 +59017,9 @@
    "platform": "any",
    "desc": "铹元素",
    "desc_zh": "铹元素",
-   "desc_en": "铹元素"
+   "desc_en": "铹元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-inhg2hpa",
@@ -59009,7 +59033,9 @@
    "platform": "any",
    "desc": "英寸汞柱转百帕",
    "desc_zh": "英寸汞柱转百帕",
-   "desc_en": "英寸汞柱转百帕"
+   "desc_en": "英寸汞柱转百帕",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-paris-city",
@@ -59023,7 +59049,9 @@
    "platform": "any",
    "desc": "巴黎市",
    "desc_zh": "巴黎市",
-   "desc_en": "巴黎市"
+   "desc_en": "巴黎市",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-ghana",
@@ -59037,7 +59065,9 @@
    "platform": "any",
    "desc": "加纳国家",
    "desc_zh": "加纳国家",
-   "desc_en": "加纳国家"
+   "desc_en": "加纳国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-kazakhstan",
@@ -59051,7 +59081,9 @@
    "platform": "any",
    "desc": "哈萨克斯坦国家",
    "desc_zh": "哈萨克斯坦国家",
-   "desc_en": "哈萨克斯坦国家"
+   "desc_en": "哈萨克斯坦国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-iceland",
@@ -59065,7 +59097,9 @@
    "platform": "any",
    "desc": "冰岛国家",
    "desc_zh": "冰岛国家",
-   "desc_en": "冰岛国家"
+   "desc_en": "冰岛国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-law-terms",
@@ -59079,7 +59113,9 @@
    "platform": "any",
    "desc": "法律术语",
    "desc_zh": "法律术语",
-   "desc_en": "法律术语"
+   "desc_en": "法律术语",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-is-perfect",
@@ -59093,7 +59129,9 @@
    "platform": "any",
    "desc": "完全数判断",
    "desc_zh": "完全数判断",
-   "desc_en": "完全数判断"
+   "desc_en": "完全数判断",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-future-gene-editing",
@@ -59107,7 +59145,9 @@
    "platform": "any",
    "desc": "基因编辑未来",
    "desc_zh": "基因编辑未来",
-   "desc_en": "基因编辑未来"
+   "desc_en": "基因编辑未来",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-web-scroll-flow",
@@ -59121,7 +59161,9 @@
    "platform": "any",
    "desc": "DSH Web 对话滚动动效插件：自动跟随滚动动画、边缘橡皮筋回弹、流式逐字打字机",
    "desc_zh": "DSH Web 对话滚动动效插件：自动跟随滚动动画、边缘橡皮筋回弹、流式逐字打字机",
-   "desc_en": "DSH Web 对话滚动动效插件：自动跟随滚动动画、边缘橡皮筋回弹、流式逐字打字机"
+   "desc_en": "DSH Web 对话滚动动效插件：自动跟随滚动动画、边缘橡皮筋回弹、流式逐字打字机",
+   "testDate": "2026-08-27",
+   "note": "验证: load-fail"
   },
   {
    "name": "dsh-voice-input-space",
@@ -59135,7 +59177,9 @@
    "platform": "any",
    "desc": "Voice input for DeepSeek Harness: hold Space to speak, release to insert. Zero dependencies, Web Speech API. / 语音输入：长按空格说话，松开上屏，零依赖。",
    "desc_zh": "Voice input for DeepSeek Harness: hold Space to speak, release to insert. Zero dependencies, Web Speech API. / 语音输入：长按空格说话，松开上屏，零依赖。",
-   "desc_en": "Voice input for DeepSeek Harness: hold Space to speak, release to insert. Zero dependencies, Web Speech API. / 语音输入：长按空格说话，松开上屏，零依赖。"
+   "desc_en": "Voice input for DeepSeek Harness: hold Space to speak, release to insert. Zero dependencies, Web Speech API. / 语音输入：长按空格说话，松开上屏，零依赖。",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-human-food",
@@ -59149,7 +59193,9 @@
    "platform": "any",
    "desc": "人类食物喂食",
    "desc_zh": "人类食物喂食",
-   "desc_en": "人类食物喂食"
+   "desc_en": "人类食物喂食",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-indium",
@@ -59163,7 +59209,9 @@
    "platform": "any",
    "desc": "铟元素",
    "desc_zh": "铟元素",
-   "desc_en": "铟元素"
+   "desc_en": "铟元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-habit-anchor",
@@ -59177,7 +59225,9 @@
    "platform": "any",
    "desc": "习惯叠加",
    "desc_zh": "习惯叠加",
-   "desc_en": "习惯叠加"
+   "desc_en": "习惯叠加",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-paraguay",
@@ -59191,7 +59241,9 @@
    "platform": "any",
    "desc": "巴拉圭国家",
    "desc_zh": "巴拉圭国家",
-   "desc_en": "巴拉圭国家"
+   "desc_en": "巴拉圭国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-future-emotional-ai",
@@ -59205,7 +59257,9 @@
    "platform": "any",
    "desc": "情感 AI",
    "desc_zh": "情感 AI",
-   "desc_en": "情感 AI"
+   "desc_en": "情感 AI",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-india",
@@ -59219,7 +59273,9 @@
    "platform": "any",
    "desc": "印度国家",
    "desc_zh": "印度国家",
-   "desc_en": "印度国家"
+   "desc_en": "印度国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-latvia",
@@ -59233,7 +59289,9 @@
    "platform": "any",
    "desc": "拉脱维亚国家",
    "desc_zh": "拉脱维亚国家",
-   "desc_en": "拉脱维亚国家"
+   "desc_en": "拉脱维亚国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-germany",
@@ -59247,7 +59305,9 @@
    "platform": "any",
    "desc": "德国国家",
    "desc_zh": "德国国家",
-   "desc_en": "德国国家"
+   "desc_en": "德国国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-ha2acre",
@@ -59261,7 +59321,9 @@
    "platform": "any",
    "desc": "公顷转英亩",
    "desc_zh": "公顷转英亩",
-   "desc_en": "公顷转英亩"
+   "desc_en": "公顷转英亩",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-papua-guinea",
@@ -59275,7 +59337,9 @@
    "platform": "any",
    "desc": "巴布亚新几内亚国家",
    "desc_zh": "巴布亚新几内亚国家",
-   "desc_en": "巴布亚新几内亚国家"
+   "desc_en": "巴布亚新几内亚国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-session-navigator",
@@ -59289,7 +59353,9 @@
    "platform": "any",
    "desc": "Session navigator & turn minimap for DeepSeek Harness: proportional rail, hover preview card, turn stepper.",
    "desc_en": "Session navigator & turn minimap for DeepSeek Harness: proportional rail, hover preview card, turn stepper.",
-   "desc_zh": "Session navigator & turn minimap for DeepSeek Harness: proportional rail, hover preview card, turn stepper."
+   "desc_zh": "Session navigator & turn minimap for DeepSeek Harness: proportional rail, hover preview card, turn stepper.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-ai-ui-studio",
@@ -59300,7 +59366,10 @@
    "forks": 0,
    "updated": "2026-08-21",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-highway-drive",
@@ -59314,7 +59383,9 @@
    "platform": "any",
    "desc": "高速驾驶",
    "desc_zh": "高速驾驶",
-   "desc_en": "高速驾驶"
+   "desc_en": "高速驾驶",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-guyana",
@@ -59328,7 +59399,9 @@
    "platform": "any",
    "desc": "圭亚那国家",
    "desc_zh": "圭亚那国家",
-   "desc_en": "圭亚那国家"
+   "desc_en": "圭亚那国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-future-embodied-ai",
@@ -59342,7 +59415,9 @@
    "platform": "any",
    "desc": "具身智能",
    "desc_zh": "具身智能",
-   "desc_en": "具身智能"
+   "desc_en": "具身智能",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-hungary",
@@ -59356,7 +59431,9 @@
    "platform": "any",
    "desc": "匈牙利国家",
    "desc_zh": "匈牙利国家",
-   "desc_en": "匈牙利国家"
+   "desc_en": "匈牙利国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-germanium",
@@ -59370,7 +59447,9 @@
    "platform": "any",
    "desc": "锗元素",
    "desc_zh": "锗元素",
-   "desc_en": "锗元素"
+   "desc_en": "锗元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-iron",
@@ -59384,7 +59463,9 @@
    "platform": "any",
    "desc": "铁元素",
    "desc_zh": "铁元素",
-   "desc_en": "铁元素"
+   "desc_en": "铁元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-hongkong-city",
@@ -59398,7 +59479,9 @@
    "platform": "any",
    "desc": "香港市",
    "desc_zh": "香港市",
-   "desc_en": "香港市"
+   "desc_en": "香港市",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-history-terms",
@@ -59412,7 +59495,9 @@
    "platform": "any",
    "desc": "历史术语",
    "desc_zh": "历史术语",
-   "desc_en": "历史术语"
+   "desc_en": "历史术语",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-jupiter",
@@ -59426,7 +59511,9 @@
    "platform": "any",
    "desc": "木星",
    "desc_zh": "木星",
-   "desc_en": "木星"
+   "desc_en": "木星",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-golden-hour",
@@ -59440,7 +59527,9 @@
    "platform": "any",
    "desc": "黄金时刻",
    "desc_zh": "黄金时刻",
-   "desc_en": "黄金时刻"
+   "desc_en": "黄金时刻",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-hassium",
@@ -59454,7 +59543,9 @@
    "platform": "any",
    "desc": "𬭶元素",
    "desc_zh": "𬭶元素",
-   "desc_en": "𬭶元素"
+   "desc_en": "𬭶元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-laos",
@@ -59468,7 +59559,9 @@
    "platform": "any",
    "desc": "老挝国家",
    "desc_zh": "老挝国家",
-   "desc_en": "老挝国家"
+   "desc_en": "老挝国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-hardware-buddy",
@@ -59482,7 +59575,9 @@
    "platform": "any",
    "desc": "DeepSeek Harness host plugin: mirror agent state to a StickS3 pet over USB CDC, physical A/B approval, cheerleader voice (dsh-plugin)",
    "desc_en": "DeepSeek Harness host plugin: mirror agent state to a StickS3 pet over USB CDC, physical A/B approval, cheerleader voice (dsh-plugin)",
-   "desc_zh": "DeepSeek Harness host plugin: mirror agent state to a StickS3 pet over USB CDC, physical A/B approval, cheerleader voice (dsh-plugin)"
+   "desc_zh": "DeepSeek Harness host plugin: mirror agent state to a StickS3 pet over USB CDC, physical A/B approval, cheerleader voice (dsh-plugin)",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-future-digital-human",
@@ -59496,7 +59591,9 @@
    "platform": "any",
    "desc": "数字人",
    "desc_zh": "数字人",
-   "desc_en": "数字人"
+   "desc_en": "数字人",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-panama",
@@ -59510,7 +59607,9 @@
    "platform": "any",
    "desc": "巴拿马国家",
    "desc_zh": "巴拿马国家",
-   "desc_en": "巴拿马国家"
+   "desc_en": "巴拿马国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-georgia",
@@ -59524,7 +59623,9 @@
    "platform": "any",
    "desc": "格鲁吉亚国家",
    "desc_zh": "格鲁吉亚国家",
-   "desc_en": "格鲁吉亚国家"
+   "desc_en": "格鲁吉亚国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-iridium",
@@ -59538,7 +59639,9 @@
    "platform": "any",
    "desc": "铱元素",
    "desc_zh": "铱元素",
-   "desc_en": "铱元素"
+   "desc_en": "铱元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-humidity-comfort",
@@ -59552,7 +59655,9 @@
    "platform": "any",
    "desc": "湿度舒适度",
    "desc_zh": "湿度舒适度",
-   "desc_en": "湿度舒适度"
+   "desc_en": "湿度舒适度",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-lanthanum",
@@ -59566,7 +59671,9 @@
    "platform": "any",
    "desc": "镧元素",
    "desc_zh": "镧元素",
-   "desc_en": "镧元素"
+   "desc_en": "镧元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-hong-kong",
@@ -59580,7 +59687,9 @@
    "platform": "any",
    "desc": "香港国家",
    "desc_zh": "香港国家",
-   "desc_en": "香港国家"
+   "desc_en": "香港国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-future-climate-engineering",
@@ -59594,7 +59703,9 @@
    "platform": "any",
    "desc": "气候工程",
    "desc_zh": "气候工程",
-   "desc_en": "气候工程"
+   "desc_en": "气候工程",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-hike-safety",
@@ -59608,7 +59719,9 @@
    "platform": "any",
    "desc": "徒步安全",
    "desc_zh": "徒步安全",
-   "desc_en": "徒步安全"
+   "desc_en": "徒步安全",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-palladium",
@@ -59622,7 +59735,9 @@
    "platform": "any",
    "desc": "钯元素",
    "desc_zh": "钯元素",
-   "desc_en": "钯元素"
+   "desc_en": "钯元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-ireland",
@@ -59636,7 +59751,9 @@
    "platform": "any",
    "desc": "爱尔兰国家",
    "desc_zh": "爱尔兰国家",
-   "desc_en": "爱尔兰国家"
+   "desc_en": "爱尔兰国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-in2cm",
@@ -59650,7 +59767,9 @@
    "platform": "any",
    "desc": "英寸转厘米",
    "desc_zh": "英寸转厘米",
-   "desc_en": "英寸转厘米"
+   "desc_en": "英寸转厘米",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-greece",
