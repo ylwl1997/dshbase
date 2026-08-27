@@ -23895,8 +23895,8 @@
    "license": "MIT",
    "slug": "wanghailong0419-dsh-toolkit",
    "platform": "any",
-   "testDate": "2026-08-21",
-   "note": "Scoped catalog name to distinguish from omdsh-dev/dsh-toolkit. Headless L3 PASS on dsh 0.1.0-rc.6, re-confirmed on dsh 0.1.0-rc.8 (install + load + Q&A) for pinned npm @wanghailong0419/dsh-toolkit@0.1.6 on 2026-08-21. Profile package.json recorded 0.1.6. Follow-up from issues #56/#57 (npm latest 0.1.6; docs/badge bump on 0.1.5 loader+client inject; README screenshots cached).",
+   "testDate": "2026-08-27",
+   "note": "Scoped catalog name to distinguish from omdsh-dev/dsh-toolkit. Headless L3 PASS on dsh 0.1.0-rc.6 and re-confirmed on rc.8 for pinned 0.1.6 (2026-08-21). 2026-08-27 re-check of npm latest 0.1.10: L1 install ok on rc.8; headless L3 not completed — verifier hit DEEPSEEK QUOTA Insufficient Balance (all batched L3 runs that day blocked). Keep test=verified strictly for 0.1.6; 0.1.10 pending re-test.",
    "contributors": 0,
    "depCount": 2,
    "depsOfficial": 0,
@@ -39784,6 +39784,9 @@
    "name": "dsh-qingagent",
    "slug": "dsh-qingagent",
    "url": "https://github.com/void2anything/dsh-qingagent",
+   "npm": true,
+   "pkg": "dsh-qingagent",
+   "ver": "0.1.47",
    "test": "pending",
    "stars": 1,
    "forks": 0,
@@ -39799,8 +39802,8 @@
    "repoOwner": "void2anything",
    "_enriched": "2026-08-23|None",
    "webonly": true,
-   "testDate": "2026-08-26",
-   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
+   "testDate": "2026-08-27",
+   "note": "已发布到 npm (latest 0.1.47)。2026-08-27 复测: L1 安装成功 + L2 模块加载成功(dsh 0.1.0-rc.8)；web-only → 需 L4 web CDP，但本轮验证机 DeepSeek API 余额耗尽(QUOTA Insufficient Balance，当日批量 L3 全部受阻)，L4 端到端未完成 → 如实保持 pending，非插件缺陷。"
   },
   {
    "name": "dsh-workbench-layout",

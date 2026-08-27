@@ -660,8 +660,8 @@
    {
     "name": "dsh-qingagent",
     "slug": "dsh-qingagent",
-    "npm": false,
-    "pkg": ""
+    "npm": true,
+    "pkg": "dsh-qingagent"
    }
   ]
  },
