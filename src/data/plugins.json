@@ -57904,7 +57904,9 @@
    "platform": "any",
    "desc": "加仑转升",
    "desc_zh": "加仑转升",
-   "desc_en": "加仑转升"
+   "desc_en": "加仑转升",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-kwh2mj",
@@ -57918,7 +57920,9 @@
    "platform": "any",
    "desc": "千瓦时转兆焦",
    "desc_zh": "千瓦时转兆焦",
-   "desc_en": "千瓦时转兆焦"
+   "desc_en": "千瓦时转兆焦",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-instruct-manager",
@@ -57932,7 +57936,10 @@
    "platform": "any",
    "desc": "DSH 插件：在设置面板管理全局与项目级 Agent 指令，支持多工作区 tab 切换与 system prompt 自动注入。",
    "desc_zh": "DSH 插件：在设置面板管理全局与项目级 Agent 指令，支持多工作区 tab 切换与 system prompt 自动注入。",
-   "desc_en": "DSH 插件：在设置面板管理全局与项目级 Agent 指令，支持多工作区 tab 切换与 system prompt 自动注入。"
+   "desc_en": "DSH 插件：在设置面板管理全局与项目级 Agent 指令，支持多工作区 tab 切换与 system prompt 自动注入。",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-gadolinium",
@@ -57946,7 +57953,9 @@
    "platform": "any",
    "desc": "钆元素",
    "desc_zh": "钆元素",
-   "desc_en": "钆元素"
+   "desc_en": "钆元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-kuwait",
@@ -57960,7 +57969,9 @@
    "platform": "any",
    "desc": "科威特国家",
    "desc_zh": "科威特国家",
-   "desc_en": "科威特国家"
+   "desc_en": "科威特国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-physics-formulas",
@@ -57974,7 +57985,9 @@
    "platform": "any",
    "desc": "物理公式",
    "desc_zh": "物理公式",
-   "desc_en": "物理公式"
+   "desc_en": "物理公式",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-lighting-calc",
@@ -57988,7 +58001,9 @@
    "platform": "any",
    "desc": "照明功率计算",
    "desc_zh": "照明功率计算",
-   "desc_en": "照明功率计算"
+   "desc_en": "照明功率计算",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-gabon",
@@ -58002,7 +58017,9 @@
    "platform": "any",
    "desc": "加蓬国",
    "desc_zh": "加蓬国",
-   "desc_en": "加蓬国"
+   "desc_en": "加蓬国",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-krypton",
@@ -58016,7 +58033,9 @@
    "platform": "any",
    "desc": "氪元素",
    "desc_zh": "氪元素",
-   "desc_en": "氪元素"
+   "desc_en": "氪元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-iraq",
@@ -58030,7 +58049,9 @@
    "platform": "any",
    "desc": "伊拉克国家",
    "desc_zh": "伊拉克国家",
-   "desc_en": "伊拉克国家"
+   "desc_en": "伊拉克国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-phosphorus",
@@ -58044,7 +58065,9 @@
    "platform": "any",
    "desc": "磷元素",
    "desc_zh": "磷元素",
-   "desc_en": "磷元素"
+   "desc_en": "磷元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-heating-safe",
@@ -58058,7 +58081,9 @@
    "platform": "any",
    "desc": "取暖安全",
    "desc_zh": "取暖安全",
-   "desc_en": "取暖安全"
+   "desc_en": "取暖安全",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-kph2mph",
@@ -58072,7 +58097,9 @@
    "platform": "any",
    "desc": "公里/时转英里/时",
    "desc_zh": "公里/时转英里/时",
-   "desc_en": "公里/时转英里/时"
+   "desc_en": "公里/时转英里/时",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-license-period",
@@ -58086,7 +58113,9 @@
    "platform": "any",
    "desc": "驾驶证换证",
    "desc_zh": "驾驶证换证",
-   "desc_en": "驾驶证换证"
+   "desc_en": "驾驶证换证",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-restart-resume",
@@ -58100,7 +58129,10 @@
    "platform": "any",
    "desc": "面向 DeepSeek Harness 的安全自重启与同会话续接插件。",
    "desc_zh": "面向 DeepSeek Harness 的安全自重启与同会话续接插件。",
-   "desc_en": "面向 DeepSeek Harness 的安全自重启与同会话续接插件。"
+   "desc_en": "面向 DeepSeek Harness 的安全自重启与同会话续接插件。",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-insurance-claim",
@@ -58114,7 +58146,9 @@
    "platform": "any",
    "desc": "车险理赔决策",
    "desc_zh": "车险理赔决策",
-   "desc_en": "车险理赔决策"
+   "desc_en": "车险理赔决策",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-haiti",
@@ -58128,7 +58162,9 @@
    "platform": "any",
    "desc": "海地国家",
    "desc_zh": "海地国家",
-   "desc_en": "海地国家"
+   "desc_en": "海地国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-future-synthetic-food",
@@ -58142,7 +58178,9 @@
    "platform": "any",
    "desc": "合成食品",
    "desc_zh": "合成食品",
-   "desc_en": "合成食品"
+   "desc_en": "合成食品",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-kpa2psi",
@@ -58156,7 +58194,9 @@
    "platform": "any",
    "desc": "千帕转 PSI",
    "desc_zh": "千帕转 PSI",
-   "desc_en": "千帕转 PSI"
+   "desc_en": "千帕转 PSI",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-philosophy-terms",
@@ -58170,7 +58210,9 @@
    "platform": "any",
    "desc": "哲学术语",
    "desc_zh": "哲学术语",
-   "desc_en": "哲学术语"
+   "desc_en": "哲学术语",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-future-superconducting",
@@ -58184,7 +58226,9 @@
    "platform": "any",
    "desc": "超导技术",
    "desc_zh": "超导技术",
-   "desc_en": "超导技术"
+   "desc_en": "超导技术",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-knot2kph",
@@ -58198,7 +58242,9 @@
    "platform": "any",
    "desc": "节转公里/时",
    "desc_zh": "节转公里/时",
-   "desc_en": "节转公里/时"
+   "desc_en": "节转公里/时",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-philippines",
@@ -58212,7 +58258,9 @@
    "platform": "any",
    "desc": "菲律宾国家",
    "desc_zh": "菲律宾国家",
-   "desc_en": "菲律宾国家"
+   "desc_en": "菲律宾国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-libya",
@@ -58226,7 +58274,9 @@
    "platform": "any",
    "desc": "利比亚国家",
    "desc_zh": "利比亚国家",
-   "desc_en": "利比亚国家"
+   "desc_en": "利比亚国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-iodine",
@@ -58240,7 +58290,9 @@
    "platform": "any",
    "desc": "碘元素",
    "desc_zh": "碘元素",
-   "desc_en": "碘元素"
+   "desc_en": "碘元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-heat-check",
@@ -58254,7 +58306,9 @@
    "platform": "any",
    "desc": "中暑预警",
    "desc_zh": "中暑预警",
-   "desc_en": "中暑预警"
+   "desc_en": "中暑预警",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-future-space-tourism",
@@ -58268,7 +58322,9 @@
    "platform": "any",
    "desc": "太空旅游",
    "desc_zh": "太空旅游",
-   "desc_en": "太空旅游"
+   "desc_en": "太空旅游",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-jordan",
@@ -58282,7 +58338,9 @@
    "platform": "any",
    "desc": "约旦国家",
    "desc_zh": "约旦国家",
-   "desc_en": "约旦国家"
+   "desc_en": "约旦国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-peru",
@@ -58296,7 +58354,9 @@
    "platform": "any",
    "desc": "秘鲁国家",
    "desc_zh": "秘鲁国家",
-   "desc_en": "秘鲁国家"
+   "desc_en": "秘鲁国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-kn2km",
@@ -58310,7 +58370,9 @@
    "platform": "any",
    "desc": "海里/时转公里/时",
    "desc_zh": "海里/时转公里/时",
-   "desc_en": "海里/时转公里/时"
+   "desc_en": "海里/时转公里/时",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-future-space-mining",
@@ -58324,7 +58386,9 @@
    "platform": "any",
    "desc": "太空采矿",
    "desc_zh": "太空采矿",
-   "desc_en": "太空采矿"
+   "desc_en": "太空采矿",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-japan",
@@ -58338,7 +58402,9 @@
    "platform": "any",
    "desc": "日本国家",
    "desc_zh": "日本国家",
-   "desc_en": "日本国家"
+   "desc_en": "日本国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-km2mi",
@@ -58352,7 +58418,9 @@
    "platform": "any",
    "desc": "公里转英里",
    "desc_zh": "公里转英里",
-   "desc_en": "公里转英里"
+   "desc_en": "公里转英里",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-permutation",
@@ -58366,7 +58434,9 @@
    "platform": "any",
    "desc": "排列数",
    "desc_zh": "排列数",
-   "desc_en": "排列数"
+   "desc_en": "排列数",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-lesotho",
@@ -58380,7 +58450,9 @@
    "platform": "any",
    "desc": "莱索托国",
    "desc_zh": "莱索托国",
-   "desc_en": "莱索托国"
+   "desc_en": "莱索托国",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-interview-prep",
@@ -58394,7 +58466,9 @@
    "platform": "any",
    "desc": "面试准备",
    "desc_zh": "面试准备",
-   "desc_en": "面试准备"
+   "desc_en": "面试准备",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-future-space-colonization",
@@ -58408,7 +58482,9 @@
    "platform": "any",
    "desc": "太空殖民",
    "desc_zh": "太空殖民",
-   "desc_en": "太空殖民"
+   "desc_en": "太空殖民",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-jamaica",
@@ -58422,7 +58498,9 @@
    "platform": "any",
    "desc": "牙买加国家",
    "desc_zh": "牙买加国家",
-   "desc_en": "牙买加国家"
+   "desc_en": "牙买加国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-kiribati",
@@ -58436,7 +58514,9 @@
    "platform": "any",
    "desc": "基里巴斯国",
    "desc_zh": "基里巴斯国",
-   "desc_en": "基里巴斯国"
+   "desc_en": "基里巴斯国",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-percentile",
@@ -58450,7 +58530,9 @@
    "platform": "any",
    "desc": "百分位数",
    "desc_zh": "百分位数",
-   "desc_en": "百分位数"
+   "desc_en": "百分位数",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-indonesia",
@@ -58464,7 +58546,9 @@
    "platform": "any",
    "desc": "印度尼西亚国家",
    "desc_zh": "印度尼西亚国家",
-   "desc_en": "印度尼西亚国家"
+   "desc_en": "印度尼西亚国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-future-solid-state-battery",
@@ -58478,7 +58562,9 @@
    "platform": "any",
    "desc": "固态电池",
    "desc_zh": "固态电池",
-   "desc_en": "固态电池"
+   "desc_en": "固态电池",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-ivory-coast",
@@ -58492,7 +58578,9 @@
    "platform": "any",
    "desc": "科特迪瓦国家",
    "desc_zh": "科特迪瓦国家",
-   "desc_en": "科特迪瓦国家"
+   "desc_en": "科特迪瓦国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-lebanon",
@@ -58506,7 +58594,9 @@
    "platform": "any",
    "desc": "黎巴嫩国家",
    "desc_zh": "黎巴嫩国家",
-   "desc_en": "黎巴嫩国家"
+   "desc_en": "黎巴嫩国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-honduras",
@@ -58520,7 +58610,9 @@
    "platform": "any",
    "desc": "洪都拉斯国家",
    "desc_zh": "洪都拉斯国家",
-   "desc_en": "洪都拉斯国家"
+   "desc_en": "洪都拉斯国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-hp2kw",
@@ -58534,7 +58626,9 @@
    "platform": "any",
    "desc": "马力转千瓦",
    "desc_zh": "马力转千瓦",
-   "desc_en": "马力转千瓦"
+   "desc_en": "马力转千瓦",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-future-robot-pet",
@@ -58548,7 +58642,9 @@
    "platform": "any",
    "desc": "机器宠物",
    "desc_zh": "机器宠物",
-   "desc_en": "机器宠物"
+   "desc_en": "机器宠物",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-italy",
@@ -58562,7 +58658,9 @@
    "platform": "any",
    "desc": "意大利国家",
    "desc_zh": "意大利国家",
-   "desc_en": "意大利国家"
+   "desc_en": "意大利国家",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "accurlex-dsh-legal",
@@ -58576,7 +58674,9 @@
    "platform": "any",
    "desc": "DeepSeek Harness plugin for accurLex Open Platform legal tools",
    "desc_en": "DeepSeek Harness plugin for accurLex Open Platform legal tools",
-   "desc_zh": "DeepSeek Harness plugin for accurLex Open Platform legal tools"
+   "desc_zh": "DeepSeek Harness plugin for accurLex Open Platform legal tools",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-subagent-registry",
@@ -58587,7 +58687,9 @@
    "forks": 0,
    "updated": "2026-08-21",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-plugin-global-prompt",
@@ -58601,7 +58703,9 @@
    "platform": "any",
    "desc": "DSH plugin: a global-prompt textarea in Settings > General, injected into every conversation system prompt",
    "desc_en": "DSH plugin: a global-prompt textarea in Settings > General, injected into every conversation system prompt",
-   "desc_zh": "DSH plugin: a global-prompt textarea in Settings > General, injected into every conversation system prompt"
+   "desc_zh": "DSH plugin: a global-prompt textarea in Settings > General, injected into every conversation system prompt",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-future-quantum-computing",
@@ -58615,7 +58719,9 @@
    "platform": "any",
    "desc": "量子计算",
    "desc_zh": "量子计算",
-   "desc_en": "量子计算"
+   "desc_en": "量子计算",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-payroll-net",
@@ -58629,7 +58735,9 @@
    "platform": "any",
    "desc": "税后工资计算器",
    "desc_zh": "税后工资计算器",
-   "desc_en": "税后工资计算器"
+   "desc_en": "税后工资计算器",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-istanbul-city",
@@ -58643,7 +58751,9 @@
    "platform": "any",
    "desc": "伊斯坦布尔市",
    "desc_zh": "伊斯坦布尔市",
-   "desc_en": "伊斯坦布尔市"
+   "desc_en": "伊斯坦布尔市",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-kg2lb",
@@ -58657,7 +58767,9 @@
    "platform": "any",
    "desc": "千克转磅",
    "desc_zh": "千克转磅",
-   "desc_en": "千克转磅"
+   "desc_en": "千克转磅",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-holmium",
@@ -58671,7 +58783,9 @@
    "platform": "any",
    "desc": "钬元素",
    "desc_zh": "钬元素",
-   "desc_en": "钬元素"
+   "desc_en": "钬元素",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-thinkmeter",
@@ -58685,7 +58799,9 @@
    "platform": "any",
    "desc": "DeepSeek Harness（DSH）客户端插件：将聊天视图中流式的 Think 思考预览替换为 实时 Token 数量显示。",
    "desc_zh": "DeepSeek Harness（DSH）客户端插件：将聊天视图中流式的 Think 思考预览替换为 实时 Token 数量显示。",
-   "desc_en": "DeepSeek Harness（DSH）客户端插件：将聊天视图中流式的 Think 思考预览替换为 实时 Token 数量显示。"
+   "desc_en": "DeepSeek Harness（DSH）客户端插件：将聊天视图中流式的 Think 思考预览替换为 实时 Token 数量显示。",
+   "testDate": "2026-08-27",
+   "note": "验证: install-fail"
   },
   {
    "name": "dsh-future-metaverse",
@@ -58699,7 +58815,9 @@
    "platform": "any",
    "desc": "元宇宙",
    "desc_zh": "元宇宙",
-   "desc_en": "元宇宙"
+   "desc_en": "元宇宙",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-hair-care",
@@ -58713,7 +58831,9 @@
    "platform": "any",
    "desc": "护发建议",
    "desc_zh": "护发建议",
-   "desc_en": "护发建议"
+   "desc_en": "护发建议",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-mermaid-renderer",
