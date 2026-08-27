@@ -306,6 +306,18 @@
   ]
  },
  {
+  "github": "coolgech",
+  "avatar": "https://avatars.githubusercontent.com/u/21195396?v=4",
+  "plugins": [
+   {
+    "name": "dsh-siyuan",
+    "slug": "dsh-siyuan",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "functy23",
   "avatar": "https://avatars.githubusercontent.com/u/232149530?v=4",
   "plugins": [

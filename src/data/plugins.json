@@ -128168,6 +128168,28 @@
    "desc": "DSH client plugin: a floating glass task console on the back of the page — live background jobs, subagents, session overview and workspace for the current session, with mouse-draggable cards.",
    "desc_en": "DSH client plugin: a floating glass task console on the back of the page — live background jobs, subagents, session overview and workspace for the current session, with mouse-draggable cards.",
    "desc_zh": "DSH client plugin: a floating glass task console on the back of the page — live background jobs, subagents, session overview and workspace for the current session, with mouse-draggable cards."
+  },
+  {
+   "name": "dsh-siyuan",
+   "url": "https://github.com/coolgech/dsh-siyuan",
+   "pkg": "dsh-siyuan",
+   "ver": "0.2.0",
+   "npm": true,
+   "test": "pending",
+   "desc": "DSH plugin for SiYuan Note: 30+ tools over the kernel HTTP API for notebooks, docs, blocks, search, backlinks, assets, daily notes, and templates.",
+   "desc_en": "DSH plugin for SiYuan Note: 30+ tools over the kernel HTTP API for notebooks, docs, blocks, search, backlinks, assets, daily notes, and templates.",
+   "desc_zh": "DeepSeek Harness 思源笔记插件：通过内核 HTTP API 提供 30+ 工具，覆盖笔记本/文档/块管理、全文搜索、反向链接、资源与每日笔记等。",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-08-27",
+   "archived": false,
+   "added": "2026-08-27T21:17:01",
+   "license": "MIT",
+   "slug": "dsh-siyuan",
+   "platform": "any",
+   "note": "L1/L2 PASS（npm dsh-siyuan@0.2.0，dsh 0.1.0-rc.6）：安装与 dump-config 加载正常。完整工具链需本机/局域网运行思源笔记并开启内核 HTTP API（默认 http://127.0.0.1:6806）+ API Token；issue #87 表单填「开箱即用」与 README 不符，目录按 needs-external 处理。L3 headless 问答待验证机补跑。"
   }
  ],
  "Desktop": [
