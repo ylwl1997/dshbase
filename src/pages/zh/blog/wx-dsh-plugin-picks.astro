@@ -1,0 +1,35 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="十个真正值得装的 DeepSeek Harness 插件 | dshbase" description="社区仓库几天内爆炸式增长，但大多是噪声。一份实测筛过的 DSH 插件清单——桌面壳、TUI、市场、侧栏、@文件、上下文仪表、识图、浏览器、多代理、皮肤，每个都附注意事项。" currentPath="/blog/wx-dsh-plugin-picks/" category="评测">
+  <h1>值得装的不是十个星标，<span class="accent">而是这十个</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 27 日 · dshbase · 插件精选</p>
+
+  <img src="/assets/blog-wechat/wx-dsh-p10-hero.png" alt="社区流行的十个 DeepSeek Harness 插件信息图：桌面壳、TUI、市场、侧栏、@文件、上下文、识图工具箱、浏览器、多代理与皮肤包" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <p><strong>DeepSeek Harness</strong> 官方默认的体验刻意做得很素。这是「万物皆插件」设计的必然结果，但也意味着 <code>npm i</code> 之后的第一小时容易觉得索然无味。麻烦在于：上线没几天，社区就冒出了几千个仓库——不少是改个简介蹭热度的老项目，还有一批压根跑不通。</p>
+  <p>所以这份清单反着来：不按星标排，只收录真的有人跑通过的，并且每一项都附带诚实的适用说明——因为紧随假星标之后的第二个坑，就是一口气全装上。</p>
+
+  <h2>1 · DSH Desktop —— 连 Node 环境都省了</h2>
+  <p>社区做的 Electron 壳（<code>anywhere-labs/deepseek-harness-desktop</code>），把整个 Harness 打进安装包，macOS（Apple Silicon）和 Windows x64 直接下。填 API Key、选一个练习用工作区、给「只读当前文件夹」权限，能列出目录就算跑通。但要记住：这是个人项目，不是官方客户端。星标再高也不等于安全审计——确认它能卸干净之前，别急着当主力。</p>
+  <img src="/assets/blog-wechat/wx-dsh-p10-desktop-ui.png" alt="DeepSeek Harness Desktop：社区 Electron 版，显示会话列表、code 工作区与标准模式输入框" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <h2>2 · dsh-TUI —— 终端原住民的选择</h2>
+  <p>如果你整天泡在终端里，或者走 SSH 远程开发，<code>dsh-TUI</code> 底层沿用官方的 Agent/工具/权限体系，只换操作手感。社区反馈较稳的组合是 <code>@deepseek-ai/dsh@0.1.0-rc.6</code> 配 <code>dsh-tui@0.7.1</code>——建议把版本钉死，Node 用 24、pnpm 10 以上。跑起来第一件事：<code>/doctor</code> 做体检。</p>
+  <img src="/assets/blog-wechat/wx-dsh-p10-tui-term.png" alt="全屏终端 TUI 跑 DeepSeek Harness：像素鲸鱼头、模型状态行与对话流" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <h2>3–5 · 市场、侧栏、@文件 —— 日常三件套</h2>
+  <p><strong>dsh-market</strong> 在 Settings 里加出一个插件市场页，发现和安装一步到位。它降低的是安装成本，不是安全风险——点安装之前照旧回 GitHub 核对源码。下面这张就是它的实际样子。</p>
+  <img src="/assets/blog-wechat/wx-dsh-p10-market-page.png" alt="Settings 内的插件市场页：Discover/Themes/Installed 标签，列着 dsh-web-ui、modlens、dsh-TUI 与 better-sidebar 等" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <p><strong>better-sidebar</strong> 把左栏改成 IDE 的样子：文件树、终端、Git 状态、子代理一屏看全。注意它的安装脚本会改本机配置文件——先读一眼脚本内容；TUI 用户可以跳过。<strong>dsh-at-file</strong> 让你在输入框敲 <code>@</code> 按路径引用工作区文件，而不是把整份文档糊进提示词。</p>
+  <img src="/assets/blog-wechat/wx-dsh-p10-atfile.png" alt="在输入框敲 @ 后弹出工作区文件夹选择器" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <h2>6–8 · 上下文仪表、识图、浏览器 —— 补真实的短板</h2>
+  <p><strong>dsh-context</strong> 能看到每轮请求里历史记录、工具定义、上下文文件各占多少 token——账单悄悄涨的时候特别有用。但它只统计、不瘦身。<strong>dsh-vision-toolkit</strong> 补的是默认最大的缺口：官方默认文本模型没有视觉能力，第一天贴截图就会报错。它需要另外配一家视觉模型的 Key；而且 OCR 结果只能当线索，不能当证据。<strong>dsh-browser</strong> 会接管你正在运行的 Chrome，连登录态一起用——好用，也正因如此危险。首测务必用小号，装完要重启 web 服务，npm 上那个不带 scope 的同名包装错了。</p>
+
+  <h2>9–10 · 多代理与皮肤 —— 有真实需求再碰</h2>
+  <p><strong>dsh-agent-teams</strong> 把随手的子代理派发固化成团队工作流（审查、并行调研、三步交付）。多代理跑起来 token 和权限弹窗都会成倍涨，偶尔用用的人不值得装。皮肤类（<code>dsh-deep-whale</code>、玻璃拟态主题）纯属观感——商用前查一下图片许可证，二次元素材包常常限制商用。</p>
+
+  <h2>怎么选才不会把配置搞乱</h2>
+  <p>前端只选一个（Desktop、TUI 或网页），三套叠着折腾必然乱配置。确定长期用之后，再加市场 + 侧栏 + @文件这一档；识图、浏览器接管、编排、皮肤，遇到真实任务再补。下周社区还会冒出两千个新仓库，你的注意力不该跟着星标跑。</p>
+</BlogPost>

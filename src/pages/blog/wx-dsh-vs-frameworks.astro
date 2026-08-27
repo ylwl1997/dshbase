@@ -1,0 +1,24 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="DSH vs LangChain vs AutoGPT: runtime, not framework | dshbase" description="A conceptual map for people who already know LangChain or AutoGPT and now meet DeepSeek Harness: where the agent loop, memory, tools and sandbox live in each, and why plugin composition changes the extension story." currentPath="/blog/wx-dsh-vs-frameworks/" category="Analysis">
+  <h1>You know LangChain. <span class="accent">Harness is a different category.</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 27, 2026 · dshbase · concept guide</p>
+
+  <img src="/assets/blog-wechat/wx-dsh-fg-agent-loop.jpg" alt="Generic AI agent architecture: LLM brain observing, thinking and acting through a planning loop with tools and memory" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <p>If your mental model of agents comes from LangChain or the AutoGPT wave, DeepSeek Harness is easiest to grasp by contrast — it belongs to a different category. A framework answers <em>how do I call a model?</em> A runtime answers <em>how does an agent keep working for weeks without falling apart?</em> DSH is built as the second thing.</p>
+
+  <h2>The shared foundation: the agent loop</h2>
+  <p>All three systems stand on the same primitive: observe the environment, think with an LLM, act through tools, observe again until the task closes. Writing code follows the same shape — analyze requirements, create files, run tests, read failures, patch, re-test. What separates products is everything wrapped around that loop.</p>
+  <p>AutoGPT popularized the bare loop and ran into the classic wall: unstable runs, hard to extend, harder to debug. Its lesson was not "loops are bad" but "a naked loop is not a product."</p>
+
+  <h2>Framework versus runtime</h2>
+  <img src="/assets/blog-wechat/wx-dsh-fg-agent-arch.jpg" alt="Agent architecture diagram: the agent loop containing language model, tools and memory, with tool categories and memory types expanded on the right" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <p>In LangChain the pieces are components you assemble in code: chains call models, memory is a component you wire in, tools are external add-ons, traces are limited. In DSH the same concerns are runtime-level: model access is a model plugin (swap providers by config), tools ship as tool plugins, sessions record user goals, task history and results into replayable trajectories, and memory is systemic rather than hand-wired.</p>
+  <p>The interface difference matters more than any feature list. Extending LangChain means writing code against its abstractions; extending Harness means composing plugins — sometimes installing them. That is also why the two attract different complaints: framework users debug type errors, runtime users audit what a third-party plugin touched.</p>
+
+  <h2>What is genuinely new in DSH</h2>
+  <p>Three things have no LangChain equivalent at the same layer. First, trajectory recording as a first-class citizen: every system prompt, model input, tool result and state change lands in one append-only stream you can replay, fork and resume. Second, four operating modes switchable per session — Standard (full agent), Code/PTC (the model writes a program that calls several tools at once, saving tokens and latency), Minimal (shell plus editor for honest benchmarking) and Creator (agent-making-agent). Third, a sandbox seam so generated code meets the real system through a container rather than directly.</p>
+  <p>None of this makes DSH better than LangChain at LangChain's job. If you are embedding AI features into an app you control, a framework remains the right-size tool. The choice flips when the deliverable becomes a long-lived working agent itself — one that must be observed, re-routed and audited mid-flight. Then you want a runtime, and today's most-watched open-source one carries DeepSeek's name.</p>
+</BlogPost>

@@ -1,0 +1,27 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness 不是新模型，而是可回放的工作台 | dshbase" description="DSH 的正确定位：可插拔的 Agent 运行时，最稀缺的能力是可重放的轨迹。它现在适合谁装、谁该再等等，以及它给团队工具选型新增了哪些问题。" currentPath="/blog/wx-dsh-workbench-take/" category="分析">
+  <h1>不是又一个模型——<span class="accent">是一张能回放的工作台</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 27 日 · dshbase · 定位分析</p>
+
+  <img src="/assets/blog-wechat/wx-dsh-wb-model-harness.png" alt="示意图：模型 + Harness = Agent——模型负责推理，Harness 提供文件、工具、权限、记忆与工作流" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <p>初次接触 <strong>DeepSeek Harness</strong> 最常见的误区，是拿它跟聊天机器人或新模型比。它两者都不是。经得起实际使用检验的理解是：模型是发动机，Harness 是整车其余部分——文件、工具、权限、记忆、工作流都挂在车架上。发动机随便换；DeepSeek 真正交付的是底盘。</p>
+
+  <h2>被低估的能力：一切都在账本上</h2>
+  <p>演示谁都会跑，真实工作会立刻冒出另一个问题——<em>它刚才到底做了什么？</em>DSH 把运行期透明放在核心位置：系统提示、推理、工具调用与结果、子代理调度、上下文注入，全部写入只追加的会话日志。Trajectory 视图把这条事件流渲染出来，每次调用都能展开细看。</p>
+  <img src="/assets/blog-wechat/wx-dsh-wb-trajectory-ui.png" alt="DSH 轨迹视图：左侧按轮次排列事件流，右侧展开一次工具调用的命令、结果、schema 与耗时" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <p>把它当 Agent 的行车记录仪就好懂了。答案不对劲时不用盯最后一句，可以往回查：它读了哪份材料、调了哪个工具、在哪次上下文注入之后开始跑偏。长任务能沿轨迹分叉或恢复，不必推倒重来。一张图概括六类事件：</p>
+  <img src="/assets/blog-wechat/wx-dsh-wb-trajectory-events.png" alt="信息图：一条轨迹记录提示、推理、工具、结果、子代理、上下文六类事件，支持分叉与重放" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <p>对个人这是调试手段；对团队这是一段可复核的工作过程。当 Agent 开始改代码、碰公司资料、一跑几个小时，过程透明永远比一次「看起来很聪明」的回答值钱。</p>
+
+  <h2>四种模式，四种活</h2>
+  <img src="/assets/blog-wechat/wx-dsh-wb-model-settings.png" alt="设置-模型页：各提供方在此填入 API 密钥，路由改动无需重启服务" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <p>Standard 是完整编码 Agent（文件、Shell、检索、Skills、计划、子代理）；Code 模式让模型写一段 TypeScript 程序来组合多次工具调用，省去逐轮往返；Minimal 只留 Shell 和编辑器——是裸测模型能力的诚实方式；Creator 用于检查运行时、做自定义预设。凭据集中在「设置 → 模型」，逐家填 Key，改完即时生效不用重启。</p>
+
+  <h2>这周该装的是谁，该等的又是谁</h2>
+  <p>现在值得花时间的：评估 Agent 运行时的开发者、要搭内部 Agent 的团队、工具链玩家。上手确实快——装 Node.js 后 <code>npx @deepseek-ai/dsh web</code>，Web UI 开在 <code>127.0.0.1:3080</code>。暂缓的：只想开箱就有成品文案/幻灯片/画图工具的人。非技术同事更可能先「间接」见到 DSH——作为技术同事拼装部门专用 Agent 时用的底座。</p>
+  <p>两条边界要说在前面。「本地优先」不等于自动安全：接外部模型、网页工具或插件后，数据就会按设计离开本机。自由度的另一面同样成立——插件面越大，配置、维护和安全的责任越落在安装者头上。官方仓库至今标着 developer preview，破坏性变更是明示的，rc 版本请按 rc 的待遇对待。</p>
+  <p>更长远的变化发生在采购清单上：先别问模型多聪明，先问它能不能接这些工具、权限能否逐步批准、过程有没有轨迹、数据默认放哪、失败任务能不能续跑。这些问题进入采购表的那天起，Agent 的竞争就不再只是刷榜。</p>
+</BlogPost>

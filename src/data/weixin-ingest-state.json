@@ -1,6 +1,34 @@
 {
   "seen": [
     {
+      "title": "DeepSeek Harness必装的10个插件",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787802237&ver=6929&signature=S*0ugAJbS-Tz8DnLZ1eAJJZ6SELgfKy60eBlzcpy8SZTvz3V7eSBFBQ1YnLwQQC*eLb-sc2O96y6oaA3VQepUNNHugjocPqhzQ4003jnvliZmZdHLwGwuj1AXsADlD*t&new=1",
+      "status": "published",
+      "slug": "wx-dsh-plugin-picks",
+      "at": "2026-08-27T04:10:00.000000+00:00"
+    },
+    {
+      "title": "DeepSeek Harness 到底是什么？它不是新模型，而是 AI Agent 的“工作台”",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787802237&ver=6929&signature=X7yYvz09WtxoA1S*ZadTAubhecjfYlr01mO-imV5tzI8yXDmFe52xymldIk8frWy4zXUiFLSDe2csV3FIjUvEXWunQGzNRzS8X1glGG0D60F22kt65iudCwRDZzgmspN&new=1",
+      "status": "published",
+      "slug": "wx-dsh-workbench-take",
+      "at": "2026-08-27T04:10:00.000000+00:00"
+    },
+    {
+      "title": "详解 DeepSeek Harness",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787802237&ver=6929&signature=XJnajhil0gKHyzGrt2KIWjhXAYvdlPS89PDklXfjfiyfBm*H*rdCYoumkj9qUi4-XSxZhE370HquqtHtQTJUzEc3-eo*7W7byCjMuRScQAckGRvTxjBE4V4qwyd*3TVv&new=1",
+      "status": "published",
+      "slug": "wx-dsh-vs-frameworks",
+      "at": "2026-08-27T04:10:00.000000+00:00"
+    },
+    {
+      "title": "DeepSeek Harness 从零到精装",
+      "href": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS03g8H18tE08JPEuRwN5AMOxVBTs0PUnAVqXa8Fplpd9fO_0H9cYJ6ZKkzfLQo1DcizlSarMVo72l815SB8CFQXBh28sIDdaju_MU9S8StAhVnr2hCvfJ5H5oLdkElxLXp-Nkr9Ab60Huqu_L08FFqygnlNeoRjMg-OB7EABXnZsqrxm7359qZB0vbR6vfw-Gu7ckHTzKtvXjIcc9jLgPtjYl_Q5RRZQjg..&type=2&query=DeepSeek%20Harness",
+      "status": "seen",
+      "slug": "",
+      "at": "2026-08-27T04:10:00.000000+00:00"
+    },
+    {
       "title": "DeepSeek Harness 实现解析系列教程第 11 章：实战——从零构建一个完整插件",
       "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787793774&ver=6929&signature=IeNekbqiL4D053c1x4D0e8a-KiS9NFhH2muhWK2rQSq3yPMP2Xx1O78ifBMYWPxFJ4-iEufgLIF*dt1EDijG-LsYVQHBMTLRhBmQ1vZ6Rl608zXAnDScxnfc07kZjuXl&new=1",
       "status": "published",
@@ -107,6 +135,27 @@
     }
   ],
   "published": [
+    {
+      "title": "DeepSeek Harness必装的10个插件",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787802237&ver=6929&signature=S*0ugAJbS-Tz8DnLZ1eAJJZ6SELgfKy60eBlzcpy8SZTvz3V7eSBFBQ1YnLwQQC*eLb-sc2O96y6oaA3VQepUNNHugjocPqhzQ4003jnvliZmZdHLwGwuj1AXsADlD*t&new=1",
+      "slug": "wx-dsh-plugin-picks",
+      "at": "2026-08-27T04:10:00.000000+00:00",
+      "batch": "daily"
+    },
+    {
+      "title": "DeepSeek Harness 到底是什么？它不是新模型，而是 AI Agent 的“工作台”",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787802237&ver=6929&signature=X7yYvz09WtxoA1S*ZadTAubhecjfYlr01mO-imV5tzI8yXDmFe52xymldIk8frWy4zXUiFLSDe2csV3FIjUvEXWunQGzNRzS8X1glGG0D60F22kt65iudCwRDZzgmspN&new=1",
+      "slug": "wx-dsh-workbench-take",
+      "at": "2026-08-27T04:10:00.000000+00:00",
+      "batch": "daily"
+    },
+    {
+      "title": "详解 DeepSeek Harness",
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787802237&ver=6929&signature=XJnajhil0gKHyzGrt2KIWjhXAYvdlPS89PDklXfjfiyfBm*H*rdCYoumkj9qUi4-XSxZhE370HquqtHtQTJUzEc3-eo*7W7byCjMuRScQAckGRvTxjBE4V4qwyd*3TVv&new=1",
+      "slug": "wx-dsh-vs-frameworks",
+      "at": "2026-08-27T04:10:00.000000+00:00",
+      "batch": "daily"
+    },
     {
       "title": "DeepSeek Harness 实现解析系列教程第 11 章：实战——从零构建一个完整插件",
       "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1787793774&ver=6929&signature=IeNekbqiL4D053c1x4D0e8a-KiS9NFhH2muhWK2rQSq3yPMP2Xx1O78ifBMYWPxFJ4-iEufgLIF*dt1EDijG-LsYVQHBMTLRhBmQ1vZ6Rl608zXAnDScxnfc07kZjuXl&new=1",

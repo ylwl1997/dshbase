@@ -1,0 +1,27 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness is a workbench, not a model | dshbase" description="What DSH actually is: a pluggable agent runtime where the scarce feature is a replayable trajectory. Where it fits today, who should install it now, and which questions it adds to any team's tooling checklist." currentPath="/blog/wx-dsh-workbench-take/" category="Analysis">
+  <h1>Not another model — <span class="accent">a workbench you can rewind</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 27, 2026 · dshbase · positioning analysis</p>
+
+  <img src="/assets/blog-wechat/wx-dsh-wb-model-harness.png" alt="Diagram: model plus Harness equals Agent - the model reasons while the Harness supplies files, tools, permissions, memory and workflow" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <p>The most common first-contact mistake with <strong>DeepSeek Harness</strong> is comparing it to a chatbot or a new frontier model. It is neither. The mental model that survives contact with the product: the model is the engine, the Harness is the rest of the car — files, tools, permissions, memory, workflow — bolted around it. Swap engines freely; the chassis is what DeepSeek actually shipped.</p>
+
+  <h2>The underrated feature: everything goes on the record</h2>
+  <p>Demos are easy; real work surfaces a different question — <em>what exactly did it just do?</em> DSH puts run-time transparency at the core. System prompt, reasoning, tool calls and results, sub-agent dispatch, context injection: all of it lands in an append-only session log. The Trajectory view renders that event stream with per-call drill-down.</p>
+  <img src="/assets/blog-wechat/wx-dsh-wb-trajectory-ui.png" alt="The DSH trajectory view: a turn-by-turn event stream on the left, with one tool call expanded on the right showing command, result, schema and timing" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <p>Treat it as a dashcam for agents. When an answer looks wrong you do not stare at the last sentence — you walk back to which document it read, which tool it called, after which context injection it went sideways. Long tasks can fork or resume along the recorded trail instead of restarting from zero. One infographic sums up the six event categories nicely:</p>
+  <img src="/assets/blog-wechat/wx-dsh-wb-trajectory-events.png" alt="Infographic: one trajectory records six kinds of events - prompt, reasoning, tool, result, sub-agent, context - and supports branching and replay" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <p>For individuals this is debugging; for teams it is an auditable work process. Once agents start editing code and touching company data for hours at a stretch, process transparency beats a lucky clever answer every time.</p>
+
+  <h2>Four modes, four jobs</h2>
+  <img src="/assets/blog-wechat/wx-dsh-wb-model-settings.png" alt="Settings - models page where each provider key is entered; routing updates without a restart" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <p>Standard is the full coding agent (files, shell, retrieval, skills, planning, sub-agents). Code mode has the model write a TypeScript program that composes tool calls instead of round-tripping each one. Minimal strips down to shell plus editor — the honest way to benchmark raw models. Creator inspects the runtime and builds custom presets. Credentials live in Settings → Models, and per-provider keys take effect without restarting the service.</p>
+
+  <h2>Who should install it this week — and who should not</h2>
+  <p>Worth your time now: developers evaluating agent runtimes, teams building internal agents, tooling obsessives. Quick start is genuinely quick — Node.js, then <code>npx @deepseek-ai/dsh web</code>, Web UI on <code>127.0.0.1:3080</code>. Not worth it yet: anyone who just wants finished writing/slides/image tools out of the box. More likely, non-engineers will first meet DSH indirectly, as the base their technical colleagues used to assemble a department-specific agent.</p>
+  <p>Two boundaries deserve emphasis. Local-first does not mean automatic safety: connect external models, web tools or plugins and data leaves the machine by design. And freedom scales both ways — more plugin surface means more configuration, maintenance and security responsibility lands on the installer. The official repo still says developer preview, breaking changes are promised, so treat rc versions accordingly.</p>
+  <p>The lasting shift may be in procurement checklists: before asking how smart the model is, ask which tools it can attach, whether permissions approve stepwise, whether the process is traceable, where data rests, and whether a failed task can resume. When those questions reach the buying table, agent competition stops being a leaderboard sport.</p>
+</BlogPost>

@@ -1,0 +1,35 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="Ten DeepSeek Harness plugins actually worth installing | dshbase" description="The community repo count exploded within days, but most of it is noise. A field-tested shortlist of ten DSH plugins — desktop shell, TUI, market, sidebar, @-file, context meter, vision, browser, teams, skins — with the caveats for each." currentPath="/blog/wx-dsh-plugin-picks/" category="Review">
+  <h1>Ten plugins worth your time: <span class="accent">a shortlist, not a star chase</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 27, 2026 · dshbase · plugin round-up</p>
+
+  <img src="/assets/blog-wechat/wx-dsh-p10-hero.png" alt="Infographic listing ten popular DeepSeek Harness community plugins: desktop shell, TUI, market, sidebar, at-file, context, vision toolkit, browser, agent teams and a skin pack" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <p>The stock <strong>DeepSeek Harness</strong> experience is deliberately bare. That is by design — everything is a plugin — but it means the first hour after `npm i` can feel underwhelming. The catch: within days of launch the community spawned thousands of repos, many of them old projects that reworded their README to ride the wave, and plenty that simply do not run.</p>
+  <p>This list is the opposite of a star-count ranking. Every entry below is something people have actually got working, each with an honest note about who needs it — because the second trap after fake stars is installing everything at once.</p>
+
+  <h2>1 · DSH Desktop — skip the Node setup entirely</h2>
+  <p>A community-built Electron wrapper (<code>anywhere-labs/deepseek-harness-desktop</code>) that packs the whole Harness into an installer for macOS (Apple Silicon) and Windows x64. Fill in your API key, point it at a scratch workspace, grant read-only on that folder, and if it can list your directory you are done. One warning matters: this is a personal project, not an official client. High stars are not a security audit — confirm you can fully uninstall it before making it your daily driver.</p>
+  <img src="/assets/blog-wechat/wx-dsh-p10-desktop-ui.png" alt="DeepSeek Harness Desktop: a community Electron build showing sessions, a code workspace and the standard-mode prompt box" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <h2>2 · dsh-TUI — for terminal natives</h2>
+  <p>If you live in the terminal or develop over SSH, <code>dsh-TUI</code> keeps the official agent/tool/permission engine underneath and swaps only the interface. The combination people report as stable is <code>@deepseek-ai/dsh@0.1.0-rc.6</code> with <code>dsh-tui@0.7.1</code> — pin both. Node 24 and pnpm 10+ are recommended. First thing after launch: run <code>/doctor</code>.</p>
+  <img src="/assets/blog-wechat/wx-dsh-p10-tui-term.png" alt="A full-screen terminal UI running DeepSeek Harness with a pixel-whale header, model line and chat transcript" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <h2>3–5 · Market, sidebar, @-file — the daily trio</h2>
+  <p><strong>dsh-market</strong> adds a plugin browser into Settings so discovery is one click away. It lowers installation friction, not risk — still read the repo before you hit install. The screenshot below shows what it looks like in practice.</p>
+  <img src="/assets/blog-wechat/wx-dsh-p10-market-page.png" alt="The DSH plugin market page inside Settings: discover/themes/installed tabs with entries like dsh-web-ui, modlens, dsh-TUI and better-sidebar" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <p><strong>better-sidebar</strong> turns the left panel into something IDE-shaped: file tree, terminal, git status and subagents on one screen. Note its installer runs a script that edits local config — skim the script first; TUI users can skip it. <strong>dsh-at-file</strong> lets you type <code>@</code> to reference workspace files by path instead of pasting entire documents into the prompt.</p>
+  <img src="/assets/blog-wechat/wx-dsh-p10-atfile.png" alt="Typing @ in the prompt opens a file picker over the workspace folders" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <h2>6–8 · Context meter, vision, browser — fix real gaps</h2>
+  <p><strong>dsh-context</strong> shows how many tokens history, tool definitions and context files consume per request — illuminating when bills creep up. It only measures; it does not slim anything for you. <strong>dsh-vision-toolkit</strong> patches the biggest default gap: the default text models cannot see images, so the first screenshot you paste errors out. It requires a separate key from a vision-capable provider, and OCR output should be treated as a lead, never as evidence. <strong>dsh-browser</strong> drives your running Chrome with your logins attached — powerful and exactly as dangerous as that sounds. Test with a throwaway account, restart the web service after installing, and do not confuse it with the unscoped npm package of the same name.</p>
+
+  <h2>9–10 · Teams and skins — only on real demand</h2>
+  <p><strong>dsh-agent-teams</b> hardens ad-hoc subagent dispatch into fixed workflows (review, parallel research, three-step delivery). Multi-agent runs multiply both token spend and approval pop-ups, so casual users should pass. Skins (<code>dsh-deep-whale</code>, glass-morphism themes) are cosmetic — just check image licenses before any commercial use, since anime-styled asset packs often restrict it.</p>
+
+  <h2>How to choose without wrecking your setup</h2>
+  <p>Pick one front-end (Desktop, TUI, or web) and stick with it — stacking all three scrambles your config. Add the market plus sidebar plus @-file once you are committed; add vision, browser control, orchestration and skins only when a concrete task demands them. The community will produce two thousand more repos next week; your attention should not chase them.</p>
+</BlogPost>

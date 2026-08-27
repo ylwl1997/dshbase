@@ -1,0 +1,24 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="DSH、LangChain、AutoGPT：运行时而非框架 | dshbase" description="给已经用过 LangChain 或 AutoGPT 的人一张概念地图：三者中 Agent 循环、记忆、工具与沙箱各在哪一层，为什么插件组合改变了扩展方式。" currentPath="/blog/wx-dsh-vs-frameworks/" category="指南">
+  <h1>你熟悉 LangChain，<span class="accent">但 Harness 是另一类东西</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 8 月 27 日 · dshbase · 概念辨析</p>
+
+  <img src="/assets/blog-wechat/wx-dsh-fg-agent-loop.jpg" alt="通用 AI Agent 架构：LLM 大脑经规划循环观察-思考-行动，配合工具与记忆" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
+  <p>如果你对 Agent 的理解来自 LangChain 或 AutoGPT 那一波，对照着看 DeepSeek Harness 最省力——它们不是同一类东西。框架回答的是「我怎么调用模型」，运行时回答的是「一个 Agent 怎么连续几周干活而不散架」。DSH 造的是后者。</p>
+
+  <h2>共同的地基：Agent 循环</h2>
+  <p>三个系统都站在同一个原语上：观察环境→LLM 思考→用工具行动→再观察，直到任务闭环。写代码同理——分析需求、建文件、跑测试、读报错、修补、回归。产品之间的差距，全在包住这个循环的那一圈东西。</p>
+  <p>AutoGPT 把裸循环做成了爆款，也撞上了经典的墙：跑不稳、难扩展、更难调试。它的遗产不是说「循环不行」，而是「裸循环不构成产品」。</p>
+
+  <h2>框架 vs 运行时</h2>
+  <img src="/assets/blog-wechat/wx-dsh-fg-agent-arch.jpg" alt="Agent 架构图：Agent 循环包含语言模型、工具与记忆，右侧展开工具类别与记忆类型" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+  <p>在 LangChain 里，这些都是你在代码里拼装的组件：链调用模型、记忆要自己接、工具是外挂、轨迹能力有限。在 DSH 里，同样这些问题被抬到运行时层：接模型是模型插件（改配置即可换提供方）、工具以工具插件交付、会话把用户目标/历史任务/执行结果记入可重放的轨迹、记忆是系统级而非手工接线。</p>
+  <p>接口差异比任何功能清单都重要。扩展 LangChain 要对着它的抽象写代码；扩展 Harness 是组合插件——有时只是装插件。这也解释了两类用户各自的抱怨：框架用户调试类型错误，运行时用户审计第三方插件到底动了什么。</p>
+
+  <h2>DSH 真正新的三件事</h2>
+  <p>第一，轨迹记录是一等公民：每条系统提示、模型输入、工具结果和状态变化都进同一条只追加的事件流，可重放、可分叉、可恢复。第二，四种运行模式按会话切换——Standard 完整 Agent、Code（PTC，模型写一段程序一次组合多个工具，省 token 也省延迟）、Minimal 只留 Shell 加编辑器用于诚实地测模型、Creator 用 Agent 造 Agent。第三，沙箱接缝：生成的代码经过容器而非直连真实系统。</p>
+  <p>这些并不意味着 DSH 比 LangChain 更适合 LangChain 的活。如果你是往自己控制的应用里嵌 AI 功能，框架仍是合适尺寸的工具。而当交付物本身变成一个需要长期存活的 Agent——要能观察、能改道、能中途审计——你要的就是运行时。当下最受关注的开源运行时之一，恰好姓 DeepSeek。</p>
+</BlogPost>
