@@ -123504,7 +123504,9 @@
    "platform": "any",
    "desc": "会话级全维总结 — 项目·进度·建议·错误，一个命令全清 | Session-level summary for project/progress/suggestion/error",
    "desc_zh": "会话级全维总结 — 项目·进度·建议·错误，一个命令全清 | Session-level summary for project/progress/suggestion/error",
-   "desc_en": "会话级全维总结 — 项目·进度·建议·错误，一个命令全清 | Session-level summary for project/progress/suggestion/error"
+   "desc_en": "会话级全维总结 — 项目·进度·建议·错误，一个命令全清 | Session-level summary for project/progress/suggestion/error",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "learn-skill",
@@ -123518,7 +123520,9 @@
    "platform": "any",
    "desc": "学习+链接 → 全自动采集·AI总结·亮点·术语·评分·图谱·深度OCR·入库 | One link → AI analysis+highlights+glossary+rating+knowledge graph → KB import (v3.5)",
    "desc_zh": "学习+链接 → 全自动采集·AI总结·亮点·术语·评分·图谱·深度OCR·入库 | One link → AI analysis+highlights+glossary+rating+knowledge graph → KB import (v3.5)",
-   "desc_en": "学习+链接 → 全自动采集·AI总结·亮点·术语·评分·图谱·深度OCR·入库 | One link → AI analysis+highlights+glossary+rating+knowledge graph → KB import (v3.5)"
+   "desc_en": "学习+链接 → 全自动采集·AI总结·亮点·术语·评分·图谱·深度OCR·入库 | One link → AI analysis+highlights+glossary+rating+knowledge graph → KB import (v3.5)",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-quant-data-mcp",
@@ -123532,7 +123536,9 @@
    "platform": "any",
    "desc": "Zero-dependency MCP stdio server template + ready-to-use A-share data tools for DeepSeek Harness (dsh). No API key, all env-var paths, standard NDJSON protocol.",
    "desc_en": "Zero-dependency MCP stdio server template + ready-to-use A-share data tools for DeepSeek Harness (dsh). No API key, all env-var paths, standard NDJSON protocol.",
-   "desc_zh": "Zero-dependency MCP stdio server template + ready-to-use A-share data tools for DeepSeek Harness (dsh). No API key, all env-var paths, standard NDJSON protocol."
+   "desc_zh": "Zero-dependency MCP stdio server template + ready-to-use A-share data tools for DeepSeek Harness (dsh). No API key, all env-var paths, standard NDJSON protocol.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-skill-manage",
@@ -123546,7 +123552,9 @@
    "platform": "any",
    "desc": "DSH plugin: agent-managed procedural memory — a skill_manage tool that lets the agent write, patch, disable and delete its own skills at runtime (user + project scope), with hot-reload and layered delete guards.",
    "desc_en": "DSH plugin: agent-managed procedural memory — a skill_manage tool that lets the agent write, patch, disable and delete its own skills at runtime (user + project scope), with hot-reload and layered delete guards.",
-   "desc_zh": "DSH plugin: agent-managed procedural memory — a skill_manage tool that lets the agent write, patch, disable and delete its own skills at runtime (user + project scope), with hot-reload and layered delete guards."
+   "desc_zh": "DSH plugin: agent-managed procedural memory — a skill_manage tool that lets the agent write, patch, disable and delete its own skills at runtime (user + project scope), with hot-reload and layered delete guards.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-memory-connect",
@@ -123560,7 +123568,9 @@
    "platform": "any",
    "desc": "Cross-session memory plugin for DSH — auto-extraction, semantic recall, scheduled maintenance, LLM-powered consolidation",
    "desc_en": "Cross-session memory plugin for DSH — auto-extraction, semantic recall, scheduled maintenance, LLM-powered consolidation",
-   "desc_zh": "Cross-session memory plugin for DSH — auto-extraction, semantic recall, scheduled maintenance, LLM-powered consolidation"
+   "desc_zh": "Cross-session memory plugin for DSH — auto-extraction, semantic recall, scheduled maintenance, LLM-powered consolidation",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-web-search-toggle",
@@ -123574,7 +123584,10 @@
    "platform": "any",
    "desc": "DSH plugin: a per-session \"Web Search\" toggle that forces the agent to search the web before answering.",
    "desc_en": "DSH plugin: a per-session \"Web Search\" toggle that forces the agent to search the web before answering.",
-   "desc_zh": "DSH plugin: a per-session \"Web Search\" toggle that forces the agent to search the web before answering."
+   "desc_zh": "DSH plugin: a per-session \"Web Search\" toggle that forces the agent to search the web before answering.",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-web-search-ext",
@@ -123588,7 +123601,9 @@
    "platform": "any",
    "desc": "Multi-backend web_search provider for DeepSeek Harness (DSH): Exa + Firecrawl with automatic failover, key-free capable",
    "desc_en": "Multi-backend web_search provider for DeepSeek Harness (DSH): Exa + Firecrawl with automatic failover, key-free capable",
-   "desc_zh": "Multi-backend web_search provider for DeepSeek Harness (DSH): Exa + Firecrawl with automatic failover, key-free capable"
+   "desc_zh": "Multi-backend web_search provider for DeepSeek Harness (DSH): Exa + Firecrawl with automatic failover, key-free capable",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-wiki-bridge",
@@ -123602,7 +123617,9 @@
    "platform": "any",
    "desc": "WikiBridge：DSH × Obsidian 知识库桥接插件（约束工具 + 自动词典检索 + 零补丁配置）",
    "desc_zh": "WikiBridge：DSH × Obsidian 知识库桥接插件（约束工具 + 自动词典检索 + 零补丁配置）",
-   "desc_en": "WikiBridge：DSH × Obsidian 知识库桥接插件（约束工具 + 自动词典检索 + 零补丁配置）"
+   "desc_en": "WikiBridge：DSH × Obsidian 知识库桥接插件（约束工具 + 自动词典检索 + 零补丁配置）",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-model-memory",
@@ -123616,7 +123633,10 @@
    "platform": "any",
    "desc": "🧠 DSH 自定义模型思考等级管理与偏好持久记忆插件 | Custom model reasoning effort management & cross-session memory for DeepSeek Harness",
    "desc_zh": "🧠 DSH 自定义模型思考等级管理与偏好持久记忆插件 | Custom model reasoning effort management & cross-session memory for DeepSeek Harness",
-   "desc_en": "🧠 DSH 自定义模型思考等级管理与偏好持久记忆插件 | Custom model reasoning effort management & cross-session memory for DeepSeek Harness"
+   "desc_en": "🧠 DSH 自定义模型思考等级管理与偏好持久记忆插件 | Custom model reasoning effort management & cross-session memory for DeepSeek Harness",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-plugin-context-manager",
@@ -123630,7 +123650,9 @@
    "platform": "any",
    "desc": "DeepSeek Harness context manager: auto-records every turn, injects priority-sorted memory + pinned cross-session notes into each request, and folds real conversation history to save tokens. Persistent, restart-safe, MIT.",
    "desc_en": "DeepSeek Harness context manager: auto-records every turn, injects priority-sorted memory + pinned cross-session notes into each request, and folds real conversation history to save tokens. Persistent, restart-safe, MIT.",
-   "desc_zh": "DeepSeek Harness context manager: auto-records every turn, injects priority-sorted memory + pinned cross-session notes into each request, and folds real conversation history to save tokens. Persistent, restart-safe, MIT."
+   "desc_zh": "DeepSeek Harness context manager: auto-records every turn, injects priority-sorted memory + pinned cross-session notes into each request, and folds real conversation history to save tokens. Persistent, restart-safe, MIT.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-plugin-dev-kb",
@@ -123644,7 +123666,9 @@
    "platform": "any",
    "desc": "DeepSeek Harness (dsh) 插件开发知识库：官方文档完整镜像 + 主题导航与检索。Plugin development knowledge base for dsh.",
    "desc_zh": "DeepSeek Harness (dsh) 插件开发知识库：官方文档完整镜像 + 主题导航与检索。Plugin development knowledge base for dsh.",
-   "desc_en": "DeepSeek Harness (dsh) 插件开发知识库：官方文档完整镜像 + 主题导航与检索。Plugin development knowledge base for dsh."
+   "desc_en": "DeepSeek Harness (dsh) 插件开发知识库：官方文档完整镜像 + 主题导航与检索。Plugin development knowledge base for dsh.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-brave-search",
@@ -123658,7 +123682,9 @@
    "platform": "any",
    "desc": "DeepSeek Harness bundle providing Brave Search API access and a unified brave_search tool",
    "desc_en": "DeepSeek Harness bundle providing Brave Search API access and a unified brave_search tool",
-   "desc_zh": "DeepSeek Harness bundle providing Brave Search API access and a unified brave_search tool"
+   "desc_zh": "DeepSeek Harness bundle providing Brave Search API access and a unified brave_search tool",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-agent-context",
@@ -123672,7 +123698,9 @@
    "platform": "any",
    "desc": "DSH plugin: dsh-agent-context",
    "desc_en": "DSH plugin: dsh-agent-context",
-   "desc_zh": "DSH plugin: dsh-agent-context"
+   "desc_zh": "DSH plugin: dsh-agent-context",
+   "testDate": "2026-08-27",
+   "note": "验证: load-fail"
   },
   {
    "name": "dsh-compact",
@@ -123686,7 +123714,9 @@
    "platform": "any",
    "desc": "DeepSeek Harness 上下文自动压缩、手动压缩与溢出恢复插件",
    "desc_zh": "DeepSeek Harness 上下文自动压缩、手动压缩与溢出恢复插件",
-   "desc_en": "DeepSeek Harness 上下文自动压缩、手动压缩与溢出恢复插件"
+   "desc_en": "DeepSeek Harness 上下文自动压缩、手动压缩与溢出恢复插件",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-tool-squeeze",
@@ -123700,7 +123730,9 @@
    "platform": "any",
    "desc": "Evidence-preserving tool output compression for DeepSeek Harness — deterministic, local-first, and benchmarked.",
    "desc_en": "Evidence-preserving tool output compression for DeepSeek Harness — deterministic, local-first, and benchmarked.",
-   "desc_zh": "Evidence-preserving tool output compression for DeepSeek Harness — deterministic, local-first, and benchmarked."
+   "desc_zh": "Evidence-preserving tool output compression for DeepSeek Harness — deterministic, local-first, and benchmarked.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-session-s3",
@@ -123714,7 +123746,9 @@
    "platform": "any",
    "desc": "Community DSH plugin: S3-backed SessionPersistence (wal3-Lite). Immutable JSONL fragments + CAS manifest.",
    "desc_en": "Community DSH plugin: S3-backed SessionPersistence (wal3-Lite). Immutable JSONL fragments + CAS manifest.",
-   "desc_zh": "Community DSH plugin: S3-backed SessionPersistence (wal3-Lite). Immutable JSONL fragments + CAS manifest."
+   "desc_zh": "Community DSH plugin: S3-backed SessionPersistence (wal3-Lite). Immutable JSONL fragments + CAS manifest.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dshgirl-starter",
@@ -123728,7 +123762,9 @@
    "platform": "any",
    "desc": "An integrated starter plugin for newly installed DeepSeek Harness (DSH). Combines whale-girl persona injection, desktop pet, balance widget, notes, reminders, shared long-term memory, and low-token memory tools.",
    "desc_en": "An integrated starter plugin for newly installed DeepSeek Harness (DSH). Combines whale-girl persona injection, desktop pet, balance widget, notes, reminders, shared long-term memory, and low-token memory tools.",
-   "desc_zh": "An integrated starter plugin for newly installed DeepSeek Harness (DSH). Combines whale-girl persona injection, desktop pet, balance widget, notes, reminders, shared long-term memory, and low-token memory tools."
+   "desc_zh": "An integrated starter plugin for newly installed DeepSeek Harness (DSH). Combines whale-girl persona injection, desktop pet, balance widget, notes, reminders, shared long-term memory, and low-token memory tools.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-packer",
@@ -123742,7 +123778,9 @@
    "platform": "any",
    "desc": "配置打包器 for DeepSeek Harness: pack your agent config (skills/sessions/profiles/settings/memory) into zip for migration or sharing, with privacy scanning, diff restore, pack management",
    "desc_zh": "配置打包器 for DeepSeek Harness: pack your agent config (skills/sessions/profiles/settings/memory) into zip for migration or sharing, with privacy scanning, diff restore, pack management",
-   "desc_en": "配置打包器 for DeepSeek Harness: pack your agent config (skills/sessions/profiles/settings/memory) into zip for migration or sharing, with privacy scanning, diff restore, pack management"
+   "desc_en": "配置打包器 for DeepSeek Harness: pack your agent config (skills/sessions/profiles/settings/memory) into zip for migration or sharing, with privacy scanning, diff restore, pack management",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-web-search-local",
@@ -123756,7 +123794,9 @@
    "platform": "any",
    "desc": "Keyless multi-engine web search + fetch providers for the DeepSeek Harness (dsh) web seam — works with any model backend",
    "desc_en": "Keyless multi-engine web search + fetch providers for the DeepSeek Harness (dsh) web seam — works with any model backend",
-   "desc_zh": "Keyless multi-engine web search + fetch providers for the DeepSeek Harness (dsh) web seam — works with any model backend"
+   "desc_zh": "Keyless multi-engine web search + fetch providers for the DeepSeek Harness (dsh) web seam — works with any model backend",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "deepseek-harness-relay-mcp",
@@ -123770,7 +123810,10 @@
    "platform": "any",
    "desc": "Delegate long-running work to DeepSeek Harness from any MCP agent—and monitor it to completion.",
    "desc_en": "Delegate long-running work to DeepSeek Harness from any MCP agent—and monitor it to completion.",
-   "desc_zh": "Delegate long-running work to DeepSeek Harness from any MCP agent—and monitor it to completion."
+   "desc_zh": "Delegate long-running work to DeepSeek Harness from any MCP agent—and monitor it to completion.",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-open-deep-research",
@@ -123784,7 +123827,9 @@
    "platform": "any",
    "desc": "A configurable Deep Research agent and TypeScript framework for DeepSeek Harness, with web search, optional page and PDF reading, and cited reports.",
    "desc_en": "A configurable Deep Research agent and TypeScript framework for DeepSeek Harness, with web search, optional page and PDF reading, and cited reports.",
-   "desc_zh": "A configurable Deep Research agent and TypeScript framework for DeepSeek Harness, with web search, optional page and PDF reading, and cited reports."
+   "desc_zh": "A configurable Deep Research agent and TypeScript framework for DeepSeek Harness, with web search, optional page and PDF reading, and cited reports.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "silverhand-dsh-pet",
@@ -123798,7 +123843,10 @@
    "platform": "any",
    "desc": "Silverhand desktop pet for DeepSeek Harness — drag to move, reacts to agent state.",
    "desc_en": "Silverhand desktop pet for DeepSeek Harness — drag to move, reacts to agent state.",
-   "desc_zh": "Silverhand desktop pet for DeepSeek Harness — drag to move, reacts to agent state."
+   "desc_zh": "Silverhand desktop pet for DeepSeek Harness — drag to move, reacts to agent state.",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-operating-context",
@@ -123812,7 +123860,9 @@
    "platform": "any",
    "desc": "DeepSeek Harness settings page: cap every configured model to a working context window, clamped to what it can actually hold.",
    "desc_en": "DeepSeek Harness settings page: cap every configured model to a working context window, clamped to what it can actually hold.",
-   "desc_zh": "DeepSeek Harness settings page: cap every configured model to a working context window, clamped to what it can actually hold."
+   "desc_zh": "DeepSeek Harness settings page: cap every configured model to a working context window, clamped to what it can actually hold.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-song-memory",
@@ -123826,7 +123876,9 @@
    "platform": "any",
    "desc": "A native-feeling, cross-tool memory plugin for DeepSeek Harness.",
    "desc_en": "A native-feeling, cross-tool memory plugin for DeepSeek Harness.",
-   "desc_zh": "A native-feeling, cross-tool memory plugin for DeepSeek Harness."
+   "desc_zh": "A native-feeling, cross-tool memory plugin for DeepSeek Harness.",
+   "testDate": "2026-08-27",
+   "note": "验证: network-fail"
   },
   {
    "name": "evo",
@@ -123840,7 +123892,9 @@
    "platform": "any",
    "desc": "agent memory plugin based on CLP",
    "desc_en": "agent memory plugin based on CLP",
-   "desc_zh": "agent memory plugin based on CLP"
+   "desc_zh": "agent memory plugin based on CLP",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-codex-web-search-mcp",
@@ -123854,7 +123908,9 @@
    "platform": "any",
    "desc": "dsh plugin: register codex-web-search-mcp (model-independent OpenAI Codex / Grok web search & deep research MCP server) as a native dsh MCP tool set (mcp__codex-web-search__*).",
    "desc_en": "dsh plugin: register codex-web-search-mcp (model-independent OpenAI Codex / Grok web search & deep research MCP server) as a native dsh MCP tool set (mcp__codex-web-search__*).",
-   "desc_zh": "dsh plugin: register codex-web-search-mcp (model-independent OpenAI Codex / Grok web search & deep research MCP server) as a native dsh MCP tool set (mcp__codex-web-search__*)."
+   "desc_zh": "dsh plugin: register codex-web-search-mcp (model-independent OpenAI Codex / Grok web search & deep research MCP server) as a native dsh MCP tool set (mcp__codex-web-search__*).",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-discovery",
@@ -123868,7 +123924,9 @@
    "platform": "any",
    "desc": "DSH plugin discovery browser - browse & search community plugins on GitHub (read-only, no one-click installs)",
    "desc_en": "DSH plugin discovery browser - browse & search community plugins on GitHub (read-only, no one-click installs)",
-   "desc_zh": "DSH plugin discovery browser - browse & search community plugins on GitHub (read-only, no one-click installs)"
+   "desc_zh": "DSH plugin discovery browser - browse & search community plugins on GitHub (read-only, no one-click installs)",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-econ-tools",
@@ -123882,7 +123940,9 @@
    "platform": "any",
    "desc": "Econometrics Research Assistant — A DSH plugin with 6 tools for econometrics analysis",
    "desc_en": "Econometrics Research Assistant — A DSH plugin with 6 tools for econometrics analysis",
-   "desc_zh": "Econometrics Research Assistant — A DSH plugin with 6 tools for econometrics analysis"
+   "desc_zh": "Econometrics Research Assistant — A DSH plugin with 6 tools for econometrics analysis",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-at-mention",
@@ -123896,7 +123956,9 @@
    "platform": "any",
    "desc": "@-mention context references for DeepSeek Harness: workspace file search and cross-session references from the web composer.",
    "desc_en": "@-mention context references for DeepSeek Harness: workspace file search and cross-session references from the web composer.",
-   "desc_zh": "@-mention context references for DeepSeek Harness: workspace file search and cross-session references from the web composer."
+   "desc_zh": "@-mention context references for DeepSeek Harness: workspace file search and cross-session references from the web composer.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-doc-compiled-skills",
@@ -123910,7 +123972,9 @@
    "platform": "any",
    "desc": "DSH skill: 文档预编译成可执行技能（提取→分类→按需揭示、预编译 vs RAG、动作/选择/护栏结构化）（受 MicrosoftDocs/Agent-Skills 启发）",
    "desc_zh": "DSH skill: 文档预编译成可执行技能（提取→分类→按需揭示、预编译 vs RAG、动作/选择/护栏结构化）（受 MicrosoftDocs/Agent-Skills 启发）",
-   "desc_en": "DSH skill: 文档预编译成可执行技能（提取→分类→按需揭示、预编译 vs RAG、动作/选择/护栏结构化）（受 MicrosoftDocs/Agent-Skills 启发）"
+   "desc_en": "DSH skill: 文档预编译成可执行技能（提取→分类→按需揭示、预编译 vs RAG、动作/选择/护栏结构化）（受 MicrosoftDocs/Agent-Skills 启发）",
+   "testDate": "2026-08-27",
+   "note": "验证: network-fail"
   },
   {
    "name": "dsh-mascot",
@@ -123924,7 +123988,10 @@
    "platform": "any",
    "desc": "Draggable animated floating companion plugin for DeepSeek Harness (dsh web)",
    "desc_en": "Draggable animated floating companion plugin for DeepSeek Harness (dsh web)",
-   "desc_zh": "Draggable animated floating companion plugin for DeepSeek Harness (dsh web)"
+   "desc_zh": "Draggable animated floating companion plugin for DeepSeek Harness (dsh web)",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-simple-wiki-memory",
@@ -123938,7 +124005,9 @@
    "platform": "any",
    "desc": "DSH的简化版llm-wiki记忆插件，纯md文档。A lightweight long-term memory framework for DeepSeek harness, simplified LLM-Wiki. No RAG, no vector DB, no LLM calls at runtime. Just Markdown + git.",
    "desc_zh": "DSH的简化版llm-wiki记忆插件，纯md文档。A lightweight long-term memory framework for DeepSeek harness, simplified LLM-Wiki. No RAG, no vector DB, no LLM calls at runtime. Just Markdown + git.",
-   "desc_en": "DSH的简化版llm-wiki记忆插件，纯md文档。A lightweight long-term memory framework for DeepSeek harness, simplified LLM-Wiki. No RAG, no vector DB, no LLM calls at runtime. Just Markdown + git."
+   "desc_en": "DSH的简化版llm-wiki记忆插件，纯md文档。A lightweight long-term memory framework for DeepSeek harness, simplified LLM-Wiki. No RAG, no vector DB, no LLM calls at runtime. Just Markdown + git.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-butler-memory",
@@ -123952,7 +124021,9 @@
    "platform": "any",
    "desc": "A dsh plugin that uses the butler memory mcp server to achieve better and organized memory for dsh. Long term and short term memories seperated.",
    "desc_en": "A dsh plugin that uses the butler memory mcp server to achieve better and organized memory for dsh. Long term and short term memories seperated.",
-   "desc_zh": "A dsh plugin that uses the butler memory mcp server to achieve better and organized memory for dsh. Long term and short term memories seperated."
+   "desc_zh": "A dsh plugin that uses the butler memory mcp server to achieve better and organized memory for dsh. Long term and short term memories seperated.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-arc-context",
@@ -123963,7 +124034,9 @@
    "forks": 0,
    "updated": "2026-08-20",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-project-context",
@@ -123977,7 +124050,9 @@
    "platform": "any",
    "desc": "Turns each DSH workspace folder into a project: auto-injects a compact project-workspace convention into every new session, with a per-session Project toggle in the composer. dsh-plugin",
    "desc_en": "Turns each DSH workspace folder into a project: auto-injects a compact project-workspace convention into every new session, with a per-session Project toggle in the composer. dsh-plugin",
-   "desc_zh": "Turns each DSH workspace folder into a project: auto-injects a compact project-workspace convention into every new session, with a per-session Project toggle in the composer. dsh-plugin"
+   "desc_zh": "Turns each DSH workspace folder into a project: auto-injects a compact project-workspace convention into every new session, with a per-session Project toggle in the composer. dsh-plugin",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-memory-pyramid",
@@ -123991,7 +124066,9 @@
    "platform": "any",
    "desc": "Timeline memory for DeepSeek Harness (dsh): append-only fact log + agent-maintained summary pyramid, fixed reading budget at any scale. 给 dsh 补上带时间轴的无限记忆",
    "desc_zh": "Timeline memory for DeepSeek Harness (dsh): append-only fact log + agent-maintained summary pyramid, fixed reading budget at any scale. 给 dsh 补上带时间轴的无限记忆",
-   "desc_en": "Timeline memory for DeepSeek Harness (dsh): append-only fact log + agent-maintained summary pyramid, fixed reading budget at any scale. 给 dsh 补上带时间轴的无限记忆"
+   "desc_en": "Timeline memory for DeepSeek Harness (dsh): append-only fact log + agent-maintained summary pyramid, fixed reading budget at any scale. 给 dsh 补上带时间轴的无限记忆",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-token-diet",
@@ -124005,7 +124082,9 @@
    "platform": "any",
    "desc": "DSH token-saving toolkit: proactively slim large text/JSON/CSV before they enter context (diet_text / diet_json / diet_csv / diet_estimate). Zero-dependency pure functions.",
    "desc_en": "DSH token-saving toolkit: proactively slim large text/JSON/CSV before they enter context (diet_text / diet_json / diet_csv / diet_estimate). Zero-dependency pure functions.",
-   "desc_zh": "DSH token-saving toolkit: proactively slim large text/JSON/CSV before they enter context (diet_text / diet_json / diet_csv / diet_estimate). Zero-dependency pure functions."
+   "desc_zh": "DSH token-saving toolkit: proactively slim large text/JSON/CSV before they enter context (diet_text / diet_json / diet_csv / diet_estimate). Zero-dependency pure functions.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-github-search",
@@ -124019,7 +124098,9 @@
    "platform": "any",
    "desc": "GitHub console plugin for the DeepSeek Harness web sidebar — search, judge, clone, Star/Fork in one panel",
    "desc_en": "GitHub console plugin for the DeepSeek Harness web sidebar — search, judge, clone, Star/Fork in one panel",
-   "desc_zh": "GitHub console plugin for the DeepSeek Harness web sidebar — search, judge, clone, Star/Fork in one panel"
+   "desc_zh": "GitHub console plugin for the DeepSeek Harness web sidebar — search, judge, clone, Star/Fork in one panel",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "TabNexus-DSH",
@@ -124033,7 +124114,9 @@
    "platform": "any",
    "desc": "TabNexus for DSH：零 Chrome 依赖的浏览器任务上下文插件（dsh-plugin 生态）。任务文档、AI 整理、全局工作区，装完即用。",
    "desc_zh": "TabNexus for DSH：零 Chrome 依赖的浏览器任务上下文插件（dsh-plugin 生态）。任务文档、AI 整理、全局工作区，装完即用。",
-   "desc_en": "TabNexus for DSH：零 Chrome 依赖的浏览器任务上下文插件（dsh-plugin 生态）。任务文档、AI 整理、全局工作区，装完即用。"
+   "desc_en": "TabNexus for DSH：零 Chrome 依赖的浏览器任务上下文插件（dsh-plugin 生态）。任务文档、AI 整理、全局工作区，装完即用。",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-code-memory",
@@ -124044,7 +124127,9 @@
    "forks": 0,
    "updated": "2026-08-18",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-session-recovery",
@@ -124058,7 +124143,9 @@
    "platform": "any",
    "desc": "从原始磁盘恢复被删除/损坏的 dsh 会话记录与记忆库——DeepSeek Harness 实战验证的恢复工具集。Recover deleted or corrupted dsh session logs (session.jsonl.zstd) and memory (memory.db) from the raw disk — battle-tested recovery toolkit for DeepSeek Harness.",
    "desc_zh": "从原始磁盘恢复被删除/损坏的 dsh 会话记录与记忆库——DeepSeek Harness 实战验证的恢复工具集。Recover deleted or corrupted dsh session logs (session.jsonl.zstd) and memory (memory.db) from the raw disk — battle-tested recovery toolkit for DeepSeek Harness.",
-   "desc_en": "从原始磁盘恢复被删除/损坏的 dsh 会话记录与记忆库——DeepSeek Harness 实战验证的恢复工具集。Recover deleted or corrupted dsh session logs (session.jsonl.zstd) and memory (memory.db) from the raw disk — battle-tested recovery toolkit for DeepSeek Harness."
+   "desc_en": "从原始磁盘恢复被删除/损坏的 dsh 会话记录与记忆库——DeepSeek Harness 实战验证的恢复工具集。Recover deleted or corrupted dsh session logs (session.jsonl.zstd) and memory (memory.db) from the raw disk — battle-tested recovery toolkit for DeepSeek Harness.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-plugin-sidebar-manager",
@@ -124072,7 +124159,9 @@
    "platform": "any",
    "desc": "Installable DSH Web sidebar plugin manager with search, categories, and runtime toggles",
    "desc_en": "Installable DSH Web sidebar plugin manager with search, categories, and runtime toggles",
-   "desc_zh": "Installable DSH Web sidebar plugin manager with search, categories, and runtime toggles"
+   "desc_zh": "Installable DSH Web sidebar plugin manager with search, categories, and runtime toggles",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-ragflow",
@@ -124086,7 +124175,10 @@
    "platform": "any",
    "desc": "RAGFlow knowledge-base retrieval plugin for the DeepSeek Harness.",
    "desc_en": "RAGFlow knowledge-base retrieval plugin for the DeepSeek Harness.",
-   "desc_zh": "RAGFlow knowledge-base retrieval plugin for the DeepSeek Harness."
+   "desc_zh": "RAGFlow knowledge-base retrieval plugin for the DeepSeek Harness.",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-env-profile",
@@ -124100,7 +124192,10 @@
    "platform": "any",
    "desc": "DSH 全局经验插件：自动探测环境 + 跨会话档案 + 低开销注入，减少重复探测、加快会话、降低 token。",
    "desc_zh": "DSH 全局经验插件：自动探测环境 + 跨会话档案 + 低开销注入，减少重复探测、加快会话、降低 token。",
-   "desc_en": "DSH 全局经验插件：自动探测环境 + 跨会话档案 + 低开销注入，减少重复探测、加快会话、降低 token。"
+   "desc_en": "DSH 全局经验插件：自动探测环境 + 跨会话档案 + 低开销注入，减少重复探测、加快会话、降低 token。",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-memflow",
@@ -124114,7 +124209,9 @@
    "platform": "any",
    "desc": "DeepSeek Harness 记忆框架插件。MEMFLOW 记忆流模式：会话会结束，记忆不会——感知先行、边做边记、无缝续接。分布式记忆架构：每个项目都有自己的记忆，子任务自定义记忆上下文，项目 skill 自迭代——一个插件让你的所有工作流实现类Hermes效果。",
    "desc_zh": "DeepSeek Harness 记忆框架插件。MEMFLOW 记忆流模式：会话会结束，记忆不会——感知先行、边做边记、无缝续接。分布式记忆架构：每个项目都有自己的记忆，子任务自定义记忆上下文，项目 skill 自迭代——一个插件让你的所有工作流实现类Hermes效果。",
-   "desc_en": "DeepSeek Harness 记忆框架插件。MEMFLOW 记忆流模式：会话会结束，记忆不会——感知先行、边做边记、无缝续接。分布式记忆架构：每个项目都有自己的记忆，子任务自定义记忆上下文，项目 skill 自迭代——一个插件让你的所有工作流实现类Hermes效果。"
+   "desc_en": "DeepSeek Harness 记忆框架插件。MEMFLOW 记忆流模式：会话会结束，记忆不会——感知先行、边做边记、无缝续接。分布式记忆架构：每个项目都有自己的记忆，子任务自定义记忆上下文，项目 skill 自迭代——一个插件让你的所有工作流实现类Hermes效果。",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-plugin-sodamem",
@@ -124128,7 +124225,9 @@
    "platform": "any",
    "desc": "Native DeepSeek Harness (dsh) plugin for SodaMem — auto-injects evidence-grounded memory into every turn and ingests each closed turn.",
    "desc_en": "Native DeepSeek Harness (dsh) plugin for SodaMem — auto-injects evidence-grounded memory into every turn and ingests each closed turn.",
-   "desc_zh": "Native DeepSeek Harness (dsh) plugin for SodaMem — auto-injects evidence-grounded memory into every turn and ingests each closed turn."
+   "desc_zh": "Native DeepSeek Harness (dsh) plugin for SodaMem — auto-injects evidence-grounded memory into every turn and ingests each closed turn.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-literature",
@@ -124142,7 +124241,9 @@
    "platform": "any",
    "desc": "Out-of-tree DSH bundle for scientific literature search and tracking, with a 文献跟踪助理 agent preset.",
    "desc_zh": "Out-of-tree DSH bundle for scientific literature search and tracking, with a 文献跟踪助理 agent preset.",
-   "desc_en": "Out-of-tree DSH bundle for scientific literature search and tracking, with a 文献跟踪助理 agent preset."
+   "desc_en": "Out-of-tree DSH bundle for scientific literature search and tracking, with a 文献跟踪助理 agent preset.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "tmcra-plugin-deepseek-harness",
@@ -124156,7 +124257,9 @@
    "platform": "any",
    "desc": "TMCRA Integration — lifecycle memory for DeepSeek Harness.",
    "desc_en": "TMCRA Integration — lifecycle memory for DeepSeek Harness.",
-   "desc_zh": "TMCRA Integration — lifecycle memory for DeepSeek Harness."
+   "desc_zh": "TMCRA Integration — lifecycle memory for DeepSeek Harness.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-minimal-mode-compaction",
@@ -124170,7 +124273,9 @@
    "platform": "any",
    "desc": "为 DeepSeek Harness 极简模式增加自动上下文压缩、/compact、/context 和模型主动压缩，解决极简模式长任务无法持续工作的问题。",
    "desc_zh": "为 DeepSeek Harness 极简模式增加自动上下文压缩、/compact、/context 和模型主动压缩，解决极简模式长任务无法持续工作的问题。",
-   "desc_en": "为 DeepSeek Harness 极简模式增加自动上下文压缩、/compact、/context 和模型主动压缩，解决极简模式长任务无法持续工作的问题。"
+   "desc_en": "为 DeepSeek Harness 极简模式增加自动上下文压缩、/compact、/context 和模型主动压缩，解决极简模式长任务无法持续工作的问题。",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "flowctx-dsh",
@@ -124184,7 +124289,9 @@
    "platform": "any",
    "desc": "A context engine for DeepSeek Harness — reversible, token-budgeted compression of the live context window.",
    "desc_en": "A context engine for DeepSeek Harness — reversible, token-budgeted compression of the live context window.",
-   "desc_zh": "A context engine for DeepSeek Harness — reversible, token-budgeted compression of the live context window."
+   "desc_zh": "A context engine for DeepSeek Harness — reversible, token-budgeted compression of the live context window.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-dcp",
@@ -124198,7 +124305,9 @@
    "platform": "any",
    "desc": "DeepSeek Harness 动态上下文管理插件（Dynamic Context Pruning for dsh），对标 opencode-dcp",
    "desc_zh": "DeepSeek Harness 动态上下文管理插件（Dynamic Context Pruning for dsh），对标 opencode-dcp",
-   "desc_en": "DeepSeek Harness 动态上下文管理插件（Dynamic Context Pruning for dsh），对标 opencode-dcp"
+   "desc_en": "DeepSeek Harness 动态上下文管理插件（Dynamic Context Pruning for dsh），对标 opencode-dcp",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-web-search-codex",
@@ -124212,7 +124321,10 @@
    "platform": "any",
    "desc": "为 DeepSeek Harness 提供 Codex Web Search 能力。",
    "desc_zh": "为 DeepSeek Harness 提供 Codex Web Search 能力。",
-   "desc_en": "为 DeepSeek Harness 提供 Codex Web Search 能力。"
+   "desc_en": "为 DeepSeek Harness 提供 Codex Web Search 能力。",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-plugin-agents-memory",
@@ -124226,7 +124338,10 @@
    "platform": "any",
    "desc": "Edit global AGENTS.md memory directly in DeepSeek Harness Web settings",
    "desc_en": "Edit global AGENTS.md memory directly in DeepSeek Harness Web settings",
-   "desc_zh": "Edit global AGENTS.md memory directly in DeepSeek Harness Web settings"
+   "desc_zh": "Edit global AGENTS.md memory directly in DeepSeek Harness Web settings",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-memory-porter",
@@ -124240,7 +124355,10 @@
    "platform": "any",
    "desc": "📦 记忆搬家：把 Claude / ChatGPT 的历史记忆搬进 DeepSeek Harness —— 逐字证据由代码回原文核对，你逐条批准，全程本地 | Move your Claude & ChatGPT memory into DSH, with machine-verified verbatim evidence",
    "desc_zh": "📦 记忆搬家：把 Claude / ChatGPT 的历史记忆搬进 DeepSeek Harness —— 逐字证据由代码回原文核对，你逐条批准，全程本地 | Move your Claude & ChatGPT memory into DSH, with machine-verified verbatim evidence",
-   "desc_en": "📦 记忆搬家：把 Claude / ChatGPT 的历史记忆搬进 DeepSeek Harness —— 逐字证据由代码回原文核对，你逐条批准，全程本地 | Move your Claude & ChatGPT memory into DSH, with machine-verified verbatim evidence"
+   "desc_en": "📦 记忆搬家：把 Claude / ChatGPT 的历史记忆搬进 DeepSeek Harness —— 逐字证据由代码回原文核对，你逐条批准，全程本地 | Move your Claude & ChatGPT memory into DSH, with machine-verified verbatim evidence",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-tavily-web-search",
@@ -124254,7 +124372,9 @@
    "platform": "any",
    "desc": "Tavily-backed web search provider plugin (bundle) for DeepSeek Harness (dsh)",
    "desc_en": "Tavily-backed web search provider plugin (bundle) for DeepSeek Harness (dsh)",
-   "desc_zh": "Tavily-backed web search provider plugin (bundle) for DeepSeek Harness (dsh)"
+   "desc_zh": "Tavily-backed web search provider plugin (bundle) for DeepSeek Harness (dsh)",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-project-knowledge-review",
@@ -124268,7 +124388,9 @@
    "platform": "any",
    "desc": "中文 DSH 知识复习插件：有证据才回答、资料缺失提醒补充学习视频。",
    "desc_zh": "中文 DSH 知识复习插件：有证据才回答、资料缺失提醒补充学习视频。",
-   "desc_en": "中文 DSH 知识复习插件：有证据才回答、资料缺失提醒补充学习视频。"
+   "desc_en": "中文 DSH 知识复习插件：有证据才回答、资料缺失提醒补充学习视频。",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-humanized-deepseek-maid",
@@ -124282,7 +124404,10 @@
    "platform": "any",
    "desc": "Humanized whale-girl maid persona plugin for DeepSeek Harness: immersive roleplay, speaking modes, and ALTM-inspired layered memory.",
    "desc_en": "Humanized whale-girl maid persona plugin for DeepSeek Harness: immersive roleplay, speaking modes, and ALTM-inspired layered memory.",
-   "desc_zh": "Humanized whale-girl maid persona plugin for DeepSeek Harness: immersive roleplay, speaking modes, and ALTM-inspired layered memory."
+   "desc_zh": "Humanized whale-girl maid persona plugin for DeepSeek Harness: immersive roleplay, speaking modes, and ALTM-inspired layered memory.",
+   "webonly": true,
+   "testDate": "2026-08-27",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-semantic-memory",
@@ -124296,7 +124421,9 @@
    "platform": "any",
    "desc": "为deepseek-harness添加向量化跨会话记忆插件",
    "desc_zh": "为deepseek-harness添加向量化跨会话记忆插件",
-   "desc_en": "为deepseek-harness添加向量化跨会话记忆插件"
+   "desc_en": "为deepseek-harness添加向量化跨会话记忆插件",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-scope",
@@ -124310,7 +124437,9 @@
    "platform": "any",
    "desc": "Context visibility + GitHub-style usage heatmap for DeepSeek Harness (dsh) — Codex-style /context lens + 53-week contribution graph",
    "desc_en": "Context visibility + GitHub-style usage heatmap for DeepSeek Harness (dsh) — Codex-style /context lens + 53-week contribution graph",
-   "desc_zh": "Context visibility + GitHub-style usage heatmap for DeepSeek Harness (dsh) — Codex-style /context lens + 53-week contribution graph"
+   "desc_zh": "Context visibility + GitHub-style usage heatmap for DeepSeek Harness (dsh) — Codex-style /context lens + 53-week contribution graph",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-plugin-focus",
@@ -124324,7 +124453,9 @@
    "platform": "any",
    "desc": "Focus board for DeepSeek Harness agents: durable, model-maintained notes in the session workspace — pins objective, constraints and decisions across compaction and sessions; auto context injection, archive on clear, session projection, experimental web panel",
    "desc_en": "Focus board for DeepSeek Harness agents: durable, model-maintained notes in the session workspace — pins objective, constraints and decisions across compaction and sessions; auto context injection, archive on clear, session projection, experimental web panel",
-   "desc_zh": "Focus board for DeepSeek Harness agents: durable, model-maintained notes in the session workspace — pins objective, constraints and decisions across compaction and sessions; auto context injection, archive on clear, session projection, experimental web panel"
+   "desc_zh": "Focus board for DeepSeek Harness agents: durable, model-maintained notes in the session workspace — pins objective, constraints and decisions across compaction and sessions; auto context injection, archive on clear, session projection, experimental web panel",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "imemory",
