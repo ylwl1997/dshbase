@@ -64181,7 +64181,9 @@
    "platform": "any",
    "desc": "家具维修",
    "desc_zh": "家具维修",
-   "desc_en": "家具维修"
+   "desc_en": "家具维修",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-hike-safe",
@@ -64195,7 +64197,9 @@
    "platform": "any",
    "desc": "徒步安全",
    "desc_zh": "徒步安全",
-   "desc_en": "徒步安全"
+   "desc_en": "徒步安全",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-claim",
@@ -64209,7 +64213,9 @@
    "platform": "any",
    "desc": "理赔流程",
    "desc_zh": "理赔流程",
-   "desc_en": "理赔流程"
+   "desc_en": "理赔流程",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-espanol",
@@ -64220,7 +64226,9 @@
    "forks": 0,
    "updated": "2026-08-20",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-balcony-make",
@@ -64234,7 +64242,9 @@
    "platform": "any",
    "desc": "阳台改造",
    "desc_zh": "阳台改造",
-   "desc_en": "阳台改造"
+   "desc_en": "阳台改造",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-steam-mop",
@@ -64248,7 +64258,9 @@
    "platform": "any",
    "desc": "蒸汽拖把",
    "desc_zh": "蒸汽拖把",
-   "desc_en": "蒸汽拖把"
+   "desc_en": "蒸汽拖把",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-rug-pick",
@@ -64262,7 +64274,9 @@
    "platform": "any",
    "desc": "地毯选择",
    "desc_zh": "地毯选择",
-   "desc_en": "地毯选择"
+   "desc_en": "地毯选择",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-poison-aid",
@@ -64276,7 +64290,9 @@
    "platform": "any",
    "desc": "中毒急救",
    "desc_zh": "中毒急救",
-   "desc_en": "中毒急救"
+   "desc_en": "中毒急救",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-bulb-buy",
@@ -64290,7 +64306,9 @@
    "platform": "any",
    "desc": "灯泡选购",
    "desc_zh": "灯泡选购",
-   "desc_en": "灯泡选购"
+   "desc_en": "灯泡选购",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-family-gather",
@@ -64304,7 +64322,9 @@
    "platform": "any",
    "desc": "家庭聚会",
    "desc_zh": "家庭聚会",
-   "desc_en": "家庭聚会"
+   "desc_en": "家庭聚会",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-bike-care",
@@ -64318,7 +64338,9 @@
    "platform": "any",
    "desc": "自行车保养",
    "desc_zh": "自行车保养",
-   "desc_en": "自行车保养"
+   "desc_en": "自行车保养",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-move-day",
@@ -64332,7 +64354,9 @@
    "platform": "any",
    "desc": "搬家当日",
    "desc_zh": "搬家当日",
-   "desc_en": "搬家当日"
+   "desc_en": "搬家当日",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-water-heater",
@@ -64346,7 +64370,9 @@
    "platform": "any",
    "desc": "热水器选购",
    "desc_zh": "热水器选购",
-   "desc_en": "热水器选购"
+   "desc_en": "热水器选购",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-fatigue",
@@ -64360,7 +64386,9 @@
    "platform": "any",
    "desc": "疲劳自测",
    "desc_zh": "疲劳自测",
-   "desc_en": "疲劳自测"
+   "desc_en": "疲劳自测",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pet-diet",
@@ -64374,7 +64402,9 @@
    "platform": "any",
    "desc": "减肥计划",
    "desc_zh": "减肥计划",
-   "desc_en": "减肥计划"
+   "desc_en": "减肥计划",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-small-fix",
@@ -64388,7 +64418,9 @@
    "platform": "any",
    "desc": "水电小修",
    "desc_zh": "水电小修",
-   "desc_en": "水电小修"
+   "desc_en": "水电小修",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-altitude-sick",
@@ -64402,7 +64434,9 @@
    "platform": "any",
    "desc": "高反预防",
    "desc_zh": "高反预防",
-   "desc_en": "高反预防"
+   "desc_en": "高反预防",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-insur-pick",
@@ -64416,7 +64450,9 @@
    "platform": "any",
    "desc": "险种选择",
    "desc_zh": "险种选择",
-   "desc_en": "险种选择"
+   "desc_en": "险种选择",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-vertical-org",
@@ -64430,7 +64466,9 @@
    "platform": "any",
    "desc": "垂直收纳",
    "desc_zh": "垂直收纳",
-   "desc_en": "垂直收纳"
+   "desc_en": "垂直收纳",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-task-chime",
@@ -64444,7 +64482,9 @@
    "platform": "any",
    "desc": "DSH dynamic Cordis plugin: play a real Windows system sound when an agent task finishes — custom sound, 4 intensity levels, auto escalation for long tasks, temporary mute.",
    "desc_en": "DSH dynamic Cordis plugin: play a real Windows system sound when an agent task finishes — custom sound, 4 intensity levels, auto escalation for long tasks, temporary mute.",
-   "desc_zh": "DSH dynamic Cordis plugin: play a real Windows system sound when an agent task finishes — custom sound, 4 intensity levels, auto escalation for long tasks, temporary mute."
+   "desc_zh": "DSH dynamic Cordis plugin: play a real Windows system sound when an agent task finishes — custom sound, 4 intensity levels, auto escalation for long tasks, temporary mute.",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-robot-setup",
@@ -64458,7 +64498,9 @@
    "platform": "any",
    "desc": "扫地机器人",
    "desc_zh": "扫地机器人",
-   "desc_en": "扫地机器人"
+   "desc_en": "扫地机器人",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-curtain-pick",
@@ -64472,7 +64514,9 @@
    "platform": "any",
    "desc": "窗帘选择",
    "desc_zh": "窗帘选择",
-   "desc_en": "窗帘选择"
+   "desc_en": "窗帘选择",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-bike-safe",
@@ -64486,7 +64530,9 @@
    "platform": "any",
    "desc": "骑行安全",
    "desc_zh": "骑行安全",
-   "desc_en": "骑行安全"
+   "desc_en": "骑行安全",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-mover-pick",
@@ -64500,7 +64546,9 @@
    "platform": "any",
    "desc": "搬家公司",
    "desc_zh": "搬家公司",
-   "desc_en": "搬家公司"
+   "desc_en": "搬家公司",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-air-plant",
@@ -64514,7 +64562,9 @@
    "platform": "any",
    "desc": "室内绿植",
    "desc_zh": "室内绿植",
-   "desc_en": "室内绿植"
+   "desc_en": "室内绿植",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-no-main-light",
@@ -64528,7 +64578,9 @@
    "platform": "any",
    "desc": "无主灯方案",
    "desc_zh": "无主灯方案",
-   "desc_en": "无主灯方案"
+   "desc_en": "无主灯方案",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-red-packet",
@@ -64542,7 +64594,9 @@
    "platform": "any",
    "desc": "红包礼仪",
    "desc_zh": "红包礼仪",
-   "desc_en": "红包礼仪"
+   "desc_en": "红包礼仪",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pet-pack",
@@ -64556,7 +64610,9 @@
    "platform": "any",
    "desc": "宠物旅行清单",
    "desc_zh": "宠物旅行清单",
-   "desc_en": "宠物旅行清单"
+   "desc_en": "宠物旅行清单",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-bone-aid",
@@ -64570,7 +64626,9 @@
    "platform": "any",
    "desc": "骨折扭伤",
    "desc_zh": "骨折扭伤",
-   "desc_en": "骨折扭伤"
+   "desc_en": "骨折扭伤",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-kitchen-exhaust",
@@ -64584,7 +64642,9 @@
    "platform": "any",
    "desc": "烟灶选购",
    "desc_zh": "烟灶选购",
-   "desc_en": "烟灶选购"
+   "desc_en": "烟灶选购",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-multi-furniture",
@@ -64598,7 +64658,9 @@
    "platform": "any",
    "desc": "多功能家具",
    "desc_zh": "多功能家具",
-   "desc_en": "多功能家具"
+   "desc_en": "多功能家具",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pet-nutri",
@@ -64612,7 +64674,9 @@
    "platform": "any",
    "desc": "营养补充",
    "desc_zh": "营养补充",
-   "desc_en": "营养补充"
+   "desc_en": "营养补充",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-dry-clothes",
@@ -64626,7 +64690,9 @@
    "platform": "any",
    "desc": "晾晒方法",
    "desc_zh": "晾晒方法",
-   "desc_en": "晾晒方法"
+   "desc_en": "晾晒方法",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pressure-cooker",
@@ -64640,7 +64706,9 @@
    "platform": "any",
    "desc": "压力锅",
    "desc_zh": "压力锅",
-   "desc_en": "压力锅"
+   "desc_en": "压力锅",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-clean-freq",
@@ -64654,7 +64722,9 @@
    "platform": "any",
    "desc": "清洁频率",
    "desc_zh": "清洁频率",
-   "desc_en": "清洁频率"
+   "desc_en": "清洁频率",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pack-skill",
@@ -64668,7 +64738,9 @@
    "platform": "any",
    "desc": "打包技巧",
    "desc_zh": "打包技巧",
-   "desc_en": "打包技巧"
+   "desc_en": "打包技巧",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-sleep-score",
@@ -64682,7 +64754,9 @@
    "platform": "any",
    "desc": "睡眠评估",
    "desc_zh": "睡眠评估",
-   "desc_en": "睡眠评估"
+   "desc_en": "睡眠评估",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-room-light",
@@ -64696,7 +64770,9 @@
    "platform": "any",
    "desc": "房间色温",
    "desc_zh": "房间色温",
-   "desc_en": "房间色温"
+   "desc_en": "房间色温",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-premium-budget",
@@ -64710,7 +64786,9 @@
    "platform": "any",
    "desc": "保费预算",
    "desc_zh": "保费预算",
-   "desc_en": "保费预算"
+   "desc_en": "保费预算",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-big-clean",
@@ -64724,7 +64802,9 @@
    "platform": "any",
    "desc": "年前大扫除",
    "desc_zh": "年前大扫除",
-   "desc_en": "年前大扫除"
+   "desc_en": "年前大扫除",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-vacuum-buy",
@@ -64738,7 +64818,9 @@
    "platform": "any",
    "desc": "吸尘器选购",
    "desc_zh": "吸尘器选购",
-   "desc_en": "吸尘器选购"
+   "desc_en": "吸尘器选购",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pet-alone",
@@ -64752,7 +64834,9 @@
    "platform": "any",
    "desc": "留守安排",
    "desc_zh": "留守安排",
-   "desc_en": "留守安排"
+   "desc_en": "留守安排",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pet-first-aid",
@@ -64766,7 +64850,9 @@
    "platform": "any",
    "desc": "宠物急救药品",
    "desc_zh": "宠物急救药品",
-   "desc_en": "宠物急救药品"
+   "desc_en": "宠物急救药品",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-asset-alloc",
@@ -64780,7 +64866,9 @@
    "platform": "any",
    "desc": "资产配置",
    "desc_zh": "资产配置",
-   "desc_en": "资产配置"
+   "desc_en": "资产配置",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-washer-buy",
@@ -64794,7 +64882,9 @@
    "platform": "any",
    "desc": "洗衣机选购",
    "desc_zh": "洗衣机选购",
-   "desc_en": "洗衣机选购"
+   "desc_en": "洗衣机选购",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-soft-color",
@@ -64808,7 +64898,9 @@
    "platform": "any",
    "desc": "色彩搭配",
    "desc_zh": "色彩搭配",
-   "desc_en": "色彩搭配"
+   "desc_en": "色彩搭配",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-ride-train",
@@ -64822,7 +64914,9 @@
    "platform": "any",
    "desc": "骑行训练",
    "desc_zh": "骑行训练",
-   "desc_en": "骑行训练"
+   "desc_en": "骑行训练",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-hike-train",
@@ -64836,7 +64930,9 @@
    "platform": "any",
    "desc": "登山训练",
    "desc_zh": "登山训练",
-   "desc_en": "登山训练"
+   "desc_en": "登山训练",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pet-food-amt",
@@ -64850,7 +64946,9 @@
    "platform": "any",
    "desc": "每日食量",
    "desc_zh": "每日食量",
-   "desc_en": "每日食量"
+   "desc_en": "每日食量",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-space-plan2",
@@ -64864,7 +64962,9 @@
    "platform": "any",
    "desc": "空间规划",
    "desc_zh": "空间规划",
-   "desc_en": "空间规划"
+   "desc_en": "空间规划",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-laundry-room",
@@ -64878,7 +64978,9 @@
    "platform": "any",
    "desc": "洗衣房规划",
    "desc_zh": "洗衣房规划",
-   "desc_en": "洗衣房规划"
+   "desc_en": "洗衣房规划",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-cpr",
@@ -64892,7 +64994,9 @@
    "platform": "any",
    "desc": "心肺复苏",
    "desc_zh": "心肺复苏",
-   "desc_en": "心肺复苏"
+   "desc_en": "心肺复苏",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-heart-zone",
@@ -64906,7 +65010,9 @@
    "platform": "any",
    "desc": "心率区间",
    "desc_zh": "心率区间",
-   "desc_en": "心率区间"
+   "desc_en": "心率区间",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-ventilate",
@@ -64920,7 +65026,9 @@
    "platform": "any",
    "desc": "通风换气",
    "desc_zh": "通风换气",
-   "desc_en": "通风换气"
+   "desc_en": "通风换气",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-cover-calc",
@@ -64934,7 +65042,9 @@
    "platform": "any",
    "desc": "保额计算",
    "desc_zh": "保额计算",
-   "desc_en": "保额计算"
+   "desc_en": "保额计算",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-move-plan",
@@ -64948,7 +65058,9 @@
    "platform": "any",
    "desc": "搬家计划",
    "desc_zh": "搬家计划",
-   "desc_en": "搬家计划"
+   "desc_en": "搬家计划",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-tool-kit",
@@ -64962,7 +65074,9 @@
    "platform": "any",
    "desc": "家庭工具清单",
    "desc_zh": "家庭工具清单",
-   "desc_en": "家庭工具清单"
+   "desc_en": "家庭工具清单",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-host-guide",
@@ -64976,7 +65090,9 @@
    "platform": "any",
    "desc": "待客礼仪",
    "desc_zh": "待客礼仪",
-   "desc_en": "待客礼仪"
+   "desc_en": "待客礼仪",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-blender",
@@ -64990,7 +65106,9 @@
    "platform": "any",
    "desc": "破壁机",
    "desc_zh": "破壁机",
-   "desc_en": "破壁机"
+   "desc_en": "破壁机",
+   "testDate": "2026-08-27",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-new-year-shop",
