@@ -6531,7 +6531,7 @@
    "trust": "Silver",
    "slug": "dsh-checkpoint-rewind",
    "platform": "any",
-   "bareNpm": "other",
+   "bareNpm": "install-fail",
    "contributors": 2,
    "depCount": 8,
    "depsOfficial": 7,
@@ -39803,7 +39803,8 @@
    "_enriched": "2026-08-23|0.1.47",
    "webonly": true,
    "testDate": "2026-08-27",
-   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8.",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-workbench-layout",
@@ -108318,7 +108319,8 @@
    "note": "验证: ok (0.1.0-rc.8)",
    "contributors": 1,
    "depsOfficial": 0,
-   "repoOwner": "jansen-66"
+   "repoOwner": "jansen-66",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-synapse",
@@ -133653,7 +133655,8 @@
    "slug": "dsh-siyuan",
    "platform": "any",
    "note": "验证: runtime-fail",
-   "testDate": "2026-08-27"
+   "testDate": "2026-08-27",
+   "bareNpm": "other"
   },
   {
    "name": "rulebase",
@@ -136651,7 +136654,7 @@
    "trust": "Unrated",
    "slug": "dsh-agent-teams",
    "platform": "any",
-   "bareNpm": "other",
+   "bareNpm": "install-fail",
    "contributors": 6,
    "depCount": 16,
    "depsOfficial": 15,
