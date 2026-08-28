@@ -282,6 +282,18 @@
   ]
  },
  {
+  "github": "charrywhite",
+  "avatar": "https://avatars.githubusercontent.com/u/35485042?v=4",
+  "plugins": [
+   {
+    "name": "dsh-sticky-notes",
+    "slug": "dsh-sticky-notes",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "chenjie1129",
   "avatar": "https://avatars.githubusercontent.com/u/31786685?v=4",
   "plugins": [
