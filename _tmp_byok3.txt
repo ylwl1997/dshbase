@@ -1,0 +1,39 @@
+--- ModelAllowlistByok 2542430 ---
+erRestriction, ModelAllowlistParameterGrant, ModelAllowlistModelEntry, ModelAllowlistProviderEntry, ModelAllowlistByokEntry, ModelAllowlistByok, ModelAllowlist, ModelAllowlist_DefaultBehavior, ModelAllowlist_FirstPartyModelDefault, LlmGatewayTeamCredentialStatus, TeamLlmGatewayCredentialStatus, GetTeamLlmGatewayCredentialStatusRequest, GetTeamLlmGatewayCredentialStatusResponse, SetTeamLlmGatewayCr
+--- ModelAllowlistByok 2542455 ---
+listParameterGrant, ModelAllowlistModelEntry, ModelAllowlistProviderEntry, ModelAllowlistByokEntry, ModelAllowlistByok, ModelAllowlist, ModelAllowlist_DefaultBehavior, ModelAllowlist_FirstPartyModelDefault, LlmGatewayTeamCredentialStatus, TeamLlmGatewayCredentialStatus, GetTeamLlmGatewayCredentialStatusRequest, GetTeamLlmGatewayCredentialStatusResponse, SetTeamLlmGatewayCredentialRequest, SetTeamL
+--- ModelAllowlistByok 3436764 ---
+ame: "models", kind: "map", K: 9, V: { kind: "message", T: ModelAllowlistModelEntry } }
+    ]);
+    ModelAllowlistByokEntry = class _ModelAllowlistByokEntry extends Message {
+      constructor(data) {
+        super();
+        this.enabled = false;
+        this.models = [];
+        proto3.util.initPartial(data, this);
+      }
+      static fromBinary(bytes, options2) {
+        return new _ModelAllow
+--- ModelAllowlistByok 3436797 ---
+ V: { kind: "message", T: ModelAllowlistModelEntry } }
+    ]);
+    ModelAllowlistByokEntry = class _ModelAllowlistByokEntry extends Message {
+      constructor(data) {
+        super();
+        this.enabled = false;
+        this.models = [];
+        proto3.util.initPartial(data, this);
+      }
+      static fromBinary(bytes, options2) {
+        return new _ModelAllowlistByokEntry().fromBinary(bytes,
+--- ModelAllowlistByok 3437054 ---
+til.initPartial(data, this);
+      }
+      static fromBinary(bytes, options2) {
+        return new _ModelAllowlistByokEntry().fromBinary(bytes, options2);
+      }
+      static fromJson(jsonValue, options2) {
+        return new _ModelAllowlistByokEntry().fromJson(jsonValue, options2);
+      }
+      static fromJsonString(jsonString, options2) {
+        return new _ModelAllowlistByokEntry().fromJsonS

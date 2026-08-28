@@ -1,0 +1,65 @@
+../api/glink_api.c:1108:23: 警告：‘SMARTNC_STACK_BASE’ defined but not used [-Wunused-const-variable=]
+ static const uint16_t SMARTNC_STACK_BASE[4] = {
+                       ^~~~~~~~~~~~~~~~~~
+============================================================
+ SmartNC1 -> SmartNT1 短报验证
+ 设备: /dev/xdma0_user
+ FIFO: 厂家默认 0xC8 (WR=SmartNC1, RD=SmartNT1)
+============================================================
+[驱动] 设备[0] 打开成功 path=/dev/xdma0_user fd=3
+  TX: A0 A1 A2 A3 A4 A5 A6 A7 A8 A9 AA AB AC AD AE AF (16B)
+
+======== A. 软件用法 / 配置 ========
+[复位] K72 (FPGA+JLK+FIFO) 完成
+  [PASS] K72Reset
+[SEL after-FifoReset] 0xCA  F1_WR=2 F1_RD=2 F2_WR=0 F2_RD=3
+  [INFO] FifoReset 后 SEL=0xCA (非上电默认), 将显式写 0xC8
+  [PASS] SmartFifoSetNcShort(1)
+[SEL after-SetNcShort] 0xC8  F1_WR=0 F1_RD=2 F2_WR=0 F2_RD=3  (F1 NC1/NT1, 短报 NC→NT 目标)
+  [PASS] SetNcShort 后 SEL==0xC8
+  [PASS] F1_WR==0 (SmartNC1)
+  [PASS] F1_RD==2 (SmartNT1)
+  [PASS] NODE_ID==0x8003
+  [PASS] CHEN==0x0003 (A/B)
+  [PASS] WORK==SmartNC1|SmartNT1 (0x0110)
+  [PASS] SmartNcInit(1)
+  [PASS] SNC CONFIG bit10 短报 (0x0400)
+  [PASS] SNC TIMEOUT==0x8000
+  [PASS] SmartNtInit(1)
+  [PASS] SNT CONFIG==0x4000 (短报无配对)
+[SEL after-SmartInit] 0xC8  F1_WR=0 F1_RD=2 F2_WR=0 F2_RD=3  (F1 NC1/NT1, 短报 NC→NT 目标)
+  [PASS] Init 后 SEL 仍为 0xC8
+  等待 A/B LINK...
+  [PASS] A/B LINK 同时 UP
+  [ready] MODE=0110 NODE=8003 CHEN=0003 SNC=0400 SNT=4000 ST=0000 fail=0 SEL=C8 RD1=2 RC1=2 FC61=0000 LKA=1 LKB=1 PSTAT=00010001
+
+======== B. 发送路径 (API 用法) ========
+  期望帧 (11 字): 0001 1010 0003 A1A0 A3A2 A5A4 A7A6 A9A8 ABAA ADAC AFAE
+  word2=0x0003 → type=0(0=SmartNT1) nt_id=0x003
+  [PASS] Send 前 SetNcShort
+[SEL SendEx-pre] 0xC8  F1_WR=0 F1_RD=2 F2_WR=0 F2_RD=3  (F1 NC1/NT1, 短报 NC→NT 目标)
+[SEL SendEx-post-WD] 0xC8  F1_WR=0 F1_RD=2 F2_WR=0 F2_RD=3  (F1 NC1/NT1, 短报 NC→NT 目标)
+[SEL SendEx-post-TRIG] 0xC8  F1_WR=0 F1_RD=2 F2_WR=0 F2_RD=3  (F1 NC1/NT1, 短报 NC→NT 目标)
+  [PASS] SmartNcShortMsgSendEx 返回 0
+[SEL post-TRIG] 0xC8  F1_WR=0 F1_RD=2 F2_WR=0 F2_RD=3  (F1 NC1/NT1, 短报 NC→NT 目标)
+  [PASS] TRIG 后 SEL 仍为 0xC8
+  [PASS] TRIG 后 F1_RD 仍为 SmartNT1
+  SmartNC STATUS=0x0010 fail_cnt=1 busy=0
+  [post-send] MODE=0110 NODE=8003 CHEN=0003 SNC=0400 SNT=4000 ST=0010 fail=1 SEL=C8 RD1=2 RC1=2 FC61=0000 LKA=1 LKB=1 PSTAT=00010101
+  RD_FIFO1 2 -> 2  RC_FIFO1 2 -> 2
+
+======== C. 接收 / 环回功能 ========
+  [PASS] WaitRdFifo 前 SEL=0xC8
+  [INFO] RD/FC 在超时内未变化
+[SEL before-recv] 0xC8  F1_WR=0 F1_RD=2 F2_WR=0 F2_RD=3  (F1 NC1/NT1, 短报 NC→NT 目标)
+  RD_FIFO1 2 -> 2  fail_cnt=1 FC61=0x0000
+  [FUNC FAIL] RD_FIFO 未增加, 跳过 ShortMsgRecv
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804
+
+============================================================
+ 结论
+------------------------------------------------------------
+  软件用法: PASS  (SEL=0xC8, 寄存器/帧 type=SmartNT1, API 路径正确)
+  环回功能: FAIL  (用法已对齐, 问题在 FPGA/芯片/链路侧)
+============================================================
+EXIT:True

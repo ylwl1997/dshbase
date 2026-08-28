@@ -1,0 +1,403 @@
+[驱动] 设备[0] 打开成功 path=/dev/xdma0_user fd=3
+
+######## 【GLink AB回环统一测试】共 24 项 ########
+范围: Ctrl全功能 + Smart短/长 + Smart->CtrlNT + NM/IO/Rate
+跳过: 中继(需C/D); 双卡对发; SmartNC2~4 多路
+
+
+========== [01/24] Ctrl: L0/L1 EMIF ==========
+
+=== T01 基础层: 设备/BRIDGE/EMIF/片选 ===
+  FPGA CLK_FREQ_SEL = 0x00000005
+  JLK NODE_ID = 0x8003
+  JLK MEM(0x102) = 0x55AA
+  [通过] L0/L1 通路正常
+
+>>>> [通过] Ctrl: L0/L1 EMIF
+
+========== [02/24] Ctrl: 硬件信息 ==========
+
+=== T02 硬件信息/版本/能力 ===
+  FPGA version/ctrl = 0x00000000
+  JLK NODE_ID       = 0x8003
+  PRODUCT_ID        = 0x00A9
+  VERSION           = 0x0200
+  channels=2 ports=2
+  CH_A=0x0007 CH_B=0x0007
+  rate_sel          = 5
+  [通过]
+
+>>>> [通过] Ctrl: 硬件信息
+
+========== [03/24] Ctrl: GPIO本地 ==========
+
+=== T03 GPIO 本地寄存器 (方向/输出/回读) ===
+  dir=0xFFFF out=0xA5A5 readback=0xD835
+  out=0x5A5A readback=0xD835
+  [通过] GPIO 寄存器可访问 (回读=0xD835)
+
+>>>> [通过] Ctrl: GPIO本地
+
+========== [04/24] Ctrl: A/B LINK ==========
+
+=== T04 链路层: A/B LINK + 运行状态 ===
+  [bringup] K72Reset + JlkConfig(NC+NT,0x8003)...
+[复位] K72 (FPGA+JLK+FIFO) 完成
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804
+  [bringup] 等待 A/B LINK UP (30s)...
+  [bringup] A/B LINK UP  (A=0x0007 B=0x0007)
+  CH_A_STATUS = 0x0007
+  CH_B_STATUS = 0x0007
+  A_RUN       = 0x0000
+  B_RUN       = 0x0000
+  INT_STATUS  = 0x0000
+  WORK_MODE   = 0x0003
+  CHANNEL_EN  = 0x00C3
+  TIMESTAMP   = 0x0005
+  [通过]
+
+>>>> [通过] Ctrl: A/B LINK
+
+========== [05/24] Ctrl: NC->NT基础32字 ==========
+
+=== T05 CtrlNC->CtrlNT 基础自环 (32字) ===
+  [bringup] K72Reset + JlkConfig(NC+NT,0x8003)...
+[复位] K72 (FPGA+JLK+FIFO) 完成
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804
+  [bringup] 等待 A/B LINK UP (30s)...
+  [bringup] A/B LINK UP  (A=0x0007 B=0x0007)
+  发送: 0001 0002 0003 0004 0005 0006 0007 0008 ...(32字)
+  NT块: NC_ID=0x03 TR=0 SA=1 bytes=64 addr=0x6000
+  接收: 0001 0002 0003 0004 0005 0006 0007 0008 ...(32字)
+  [通过] 32字自环一致
+
+>>>> [通过] Ctrl: NC->NT基础32字
+
+========== [06/24] Ctrl: 多子地址 ==========
+
+=== T06 多子地址 SA=1/2/3 ===
+  [bringup] K72Reset + JlkConfig(NC+NT,0x8003)...
+[复位] K72 (FPGA+JLK+FIFO) 完成
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804
+  [bringup] 等待 A/B LINK UP (30s)...
+  [bringup] A/B LINK UP  (A=0x0007 B=0x0007)
+  -- SA=1 --
+  NT块: NC_ID=0x03 TR=0 SA=1 bytes=32 addr=0x6000
+  SA=1 [通过]
+  -- SA=2 --
+  NT块: NC_ID=0x03 TR=0 SA=2 bytes=32 addr=0x6100
+  SA=2 [通过]
+  -- SA=3 --
+  NT块: NC_ID=0x03 TR=0 SA=3 bytes=32 addr=0x6200
+  SA=3 [通过]
+
+>>>> [通过] Ctrl: 多子地址
+
+========== [07/24] Ctrl: 变长载荷 ==========
+
+=== T07 变长载荷 (1/8/32/64/128 字) ===
+  [bringup] K72Reset + JlkConfig(NC+NT,0x8003)...
+[复位] K72 (FPGA+JLK+FIFO) 完成
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804
+  [bringup] 等待 A/B LINK UP (30s)...
+  [bringup] A/B LINK UP  (A=0x0007 B=0x0007)
+  -- 1 字 --
+  NT块: NC_ID=0x03 TR=0 SA=1 bytes=2 addr=0x6000
+  1字 [通过]
+  -- 8 字 --
+  NT块: NC_ID=0x03 TR=0 SA=1 bytes=16 addr=0x6000
+  8字 [通过]
+  -- 32 字 --
+  NT块: NC_ID=0x03 TR=0 SA=1 bytes=64 addr=0x6000
+  32字 [通过]
+  -- 64 字 --
+  NT块: NC_ID=0x03 TR=0 SA=1 bytes=128 addr=0x6000
+  64字 [通过]
+  -- 128 字 --
+  NT块: NC_ID=0x03 TR=0 SA=1 bytes=256 addr=0x6000
+  128字 [通过]
+
+>>>> [通过] Ctrl: 变长载荷
+
+========== [08/24] Ctrl: NT拉取TR=1 ==========
+
+=== T08 CtrlNT->CtrlNC 拉取 (TR=1) ===
+  [bringup] K72Reset + JlkConfig(NC+NT,0x8003)...
+[复位] K72 (FPGA+JLK+FIFO) 完成
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804
+  [bringup] 等待 A/B LINK UP (30s)...
+  [bringup] A/B LINK UP  (A=0x0007 B=0x0007)
+  NT预置: 8001 8002 8003 8004 8005 8006 8007 8008 ...(32字)
+  TR1头: 0000 0000 0200 0402 
+  NC读回: 8001 8002 8003 8004 8005 8006 8007 8008 ...(32字)
+  [通过] TR=1 拉取一致
+
+>>>> [通过] Ctrl: NT拉取TR=1
+
+========== [09/24] Ctrl: 重发 ==========
+
+=== T09 ctrlNC1 重发配置 + 自环 ===
+  [bringup] K72Reset + JlkConfig(NC+NT,0x8003)...
+[复位] K72 (FPGA+JLK+FIFO) 完成
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804
+  [bringup] 等待 A/B LINK UP (30s)...
+  [bringup] A/B LINK UP  (A=0x0007 B=0x0007)
+  REG(0x18) retry = 0x0540
+  NT块: NC_ID=0x03 TR=0 SA=1 bytes=64 addr=0x6000
+  [通过] 重发使能下自环成功
+
+>>>> [通过] Ctrl: 重发
+
+========== [10/24] Ctrl: 帧记录 ==========
+
+=== T10 帧记录 (发送后读记录表) ===
+  [bringup] K72Reset + JlkConfig(NC+NT,0x8003)...
+[复位] K72 (FPGA+JLK+FIFO) 完成
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804
+  [bringup] 等待 A/B LINK UP (30s)...
+  [bringup] A/B LINK UP  (A=0x0007 B=0x0007)
+  NT块: NC_ID=0x03 TR=0 SA=1 bytes=32 addr=0x6000
+  record[0]: B3C2 FFFF 4944 4944 2FAE 01AE AFAE 0011
+  record[1]: D69B 88B5 B65B 7737 5298 A564 D3B5 E36D
+  record[2]: BEAE 0BBF 400E 4976 AA6A AAD5 2787 D069
+  record[3]: 2273 8337 8854 CDFF 041C F573 E511 51EA
+  record[4]: 7D53 FB8B 0C4D BD3D 5301 624E 48CC F3DB
+  record[5]: FC2B EBB5 FC56 D396 A711 1DAE 58C8 FF3E
+  record[6]: E073 8AE7 794E 35F9 809B 4F44 79A4 8AA2
+  record[7]: 3A2E 7EC3 D842 3A61 BADC 5D8C 9076 75EF
+  [通过] 读到 8 条非空帧记录
+
+>>>> [通过] Ctrl: 帧记录
+
+========== [11/24] Ctrl: 忙表 ==========
+
+=== T11 CtrlNT 忙表配置 + SA通信 ===
+  [bringup] K72Reset + JlkConfig(NC+NT,0x8003)...
+[复位] K72 (FPGA+JLK+FIFO) 完成
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804
+  [bringup] 等待 A/B LINK UP (30s)...
+  [bringup] A/B LINK UP  (A=0x0007 B=0x0007)
+  NT块: NC_ID=0x03 TR=0 SA=2 bytes=32 addr=0x6000
+  [通过] 忙表配置后 SA=2 通信正常
+
+>>>> [通过] Ctrl: 忙表
+
+========== [12/24] Ctrl: 时间戳 ==========
+
+=== T12 时间戳配置寄存器 ===
+  [bringup] K72Reset + JlkConfig(NC+NT,0x8003)...
+[复位] K72 (FPGA+JLK+FIFO) 完成
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804
+  [bringup] 等待 A/B LINK UP (30s)...
+  [bringup] A/B LINK UP  (A=0x0007 B=0x0007)
+  TIMESTAMP = 0x0005 (期望 0x0005)
+  [通过]
+
+>>>> [通过] Ctrl: 时间戳
+
+========== [13/24] Ctrl: 压力20轮 ==========
+
+=== T13 压力自环 (20 轮 x 32字) ===
+  [bringup] K72Reset + JlkConfig(NC+NT,0x8003)...
+[复位] K72 (FPGA+JLK+FIFO) 完成
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804
+  [bringup] 等待 A/B LINK UP (30s)...
+  [bringup] A/B LINK UP  (A=0x0007 B=0x0007)
+  ... 已完成 5/20
+  ... 已完成 10/20
+  ... 已完成 15/20
+  ... 已完成 20/20
+  [通过] 20 轮全部成功
+
+>>>> [通过] Ctrl: 压力20轮
+
+========== [14/24] Ctrl: LINK监控 ==========
+
+=== T14 LINK 状态监控 (10s) ===
+  [bringup] K72Reset + JlkConfig(NC+NT,0x8003)...
+[复位] K72 (FPGA+JLK+FIFO) 完成
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804
+  [bringup] 等待 A/B LINK UP (30s)...
+  [bringup] A/B LINK UP  (A=0x0007 B=0x0007)
+  时间    A通道          B通道
+  -----   ------------   ------------
+    0s    UP  (0x0007)    UP  (0x0007)
+    2s    UP  (0x0007)    UP  (0x0007)
+    4s    UP  (0x0007)    UP  (0x0007)
+    6s    UP  (0x0007)    UP  (0x0007)
+    8s    UP  (0x0007)    UP  (0x0007)
+   10s    UP  (0x0007)    UP  (0x0007)
+  [通过]
+
+>>>> [通过] Ctrl: LINK监控
+
+========== [15/24] Ctrl: 双向 ==========
+
+=== T15 双向通信 (NC->NT 然后 NT->NC) ===
+  [bringup] K72Reset + JlkConfig(NC+NT,0x8003)...
+[复位] K72 (FPGA+JLK+FIFO) 完成
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804
+  [bringup] 等待 A/B LINK UP (30s)...
+  [bringup] A/B LINK UP  (A=0x0007 B=0x0007)
+  [1] NC->NT ...
+  NT块: NC_ID=0x03 TR=0 SA=1 bytes=64 addr=0x6000
+  [2] NT->NC 拉取 ...
+  TR1头: 0000 0000 0200 0402 
+  [通过] 双向均一致
+
+>>>> [通过] Ctrl: 双向
+
+========== [16/24] Ctrl: 寄存器dump ==========
+
+=== T16 寄存器诊断 dump ===
+  [bringup] K72Reset + JlkConfig(NC+NT,0x8003)...
+[复位] K72 (FPGA+JLK+FIFO) 完成
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804
+  [bringup] 等待 A/B LINK UP (30s)...
+  [bringup] A/B LINK UP  (A=0x0007 B=0x0007)
+  -- JLK1263 --
+  JLK1263 寄存器:
+    REG(0x00) = 0x8003  节点ID
+    REG(0x01) = 0x0000  
+    REG(0x02) = 0x0003  工作模式
+    REG(0x03) = 0x00C3  通道使能
+    REG(0x04) = 0x0002  
+    REG(0x05) = 0x0804  
+    REG(0x06) = 0x0000  
+    REG(0x07) = 0x0005  时间戳
+    REG(0x08) = 0x4631  产品ID(只读)
+    REG(0x09) = 0x0200  版本(只读)
+    REG(0x0A) = 0x0007  A通道状态
+    REG(0x0B) = 0x0007  B通道状态
+    REG(0x0C) = 0x0000  C通道状态
+    REG(0x0D) = 0x0000  D通道状态
+    REG(0x0E) = 0x0000  
+    REG(0x0F) = 0x0000  
+  -- FPGA --
+  FPGA 状态:
+    STATUS(0x0004) = 0x00010001
+    DEBUG (0xF000) = 0x00000000
+    CLK_FREQ(0x4008) = 0x5 (SerDes速率选择)
+    A通道: UP  B通道: UP
+  DEBUG=0x00000000
+  [通过]
+
+>>>> [通过] Ctrl: 寄存器dump
+
+========== [17/24] Smart: 寄存器配置 ==========
+
+=== Smart 配置演示 (标准模式 + 寄存器读回) ===
+  预定短报测试数据: 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F (16字节)
+[复位] K72 (FPGA+JLK+FIFO) 完成
+  WORK_MODE = 0x0110 (期望含 SmartNC1|SmartNT1)
+  SmartNC1 TIMEOUT=0x03E8 CONFIG=0x0C4C STATUS=0x0000
+  SmartNT1 CONFIG=0x4003
+  SP(MEM 0x0108)=0x3000
+  [通过] Smart 寄存器已按短报模式配置 (尚未发数)
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804
+
+>>>> [通过] Smart: 寄存器配置
+
+========== [18/24] Smart: 短报NC->NT ==========
+
+=== SmartNC1 -> SmartNT1 短报文自环 (AB) ===
+路径: FPGA WD_FIFO -> SMARTNC_TRIG/FIFO_WR -> SerDes A/B -> SmartNT
+  TX 测试数据: A0 A1 A2 A3 A4 A5 A6 A7 A8 A9 AA AB AC AD AE AF (16字节)
+[复位] K72 (FPGA+JLK+FIFO) 完成
+  等待 LINK...
+  LINK A=1 B=1  WORK=0x0110
+  [1] ShortMsgSendEx -> NT_ID=0x03 type=SmartNT1(000) SEL=CA SNT=4000 RD0=2
+  SmartNC STATUS=0x0010 fail_cnt=1 SP=0x3000 FC61=0x0000
+  [2] WaitRecv / ShortMsgRecv...
+  RD_FIFO1 2 -> 2  SEL=CA
+  [失败] RD计数未变=无真实SmartNT接收; fail_cnt=1 (手册表54/6.5.8已对齐仍失败)
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804
+
+>>>> [失败] Smart: 短报NC->NT
+
+========== [19/24] Smart: 短报NC->CtrlNT ==========
+
+=== SmartNC1 -> CtrlNT 短报 (表54 type=100) ===
+  TX: B0 B1 B2 B3 B4 B5 B6 B7 B8 B9 BA BB BC BD BE BF (16字节)
+[复位] K72 (FPGA+JLK+FIFO) 完成
+  MODE=0x0012 LINK A/B OK
+  STATUS=0x0010 fail=1 RD 2->2 STAT4=0x00010101
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804
+  [失败] Smart->CtrlNT 无有效闭环 (fail或RD不变)
+
+>>>> [失败] Smart: 短报NC->CtrlNT
+
+========== [20/24] Smart: 长报冒烟 ==========
+
+=== SmartNC1 长报冒烟 (手册6.5长报) ===
+[复位] K72 (FPGA+JLK+FIFO) 完成
+  SNC=0x0000 SNT=0x0003 (期望长报 bit10/14=0)
+  STATUS=0x8000 fail=0 STAT4=0x00010001
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804
+  [通过] 长报发送流程无 fail_cnt (载荷闭环另验)
+
+>>>> [通过] Smart: 长报冒烟
+
+========== [21/24] NM: 监听演示 ==========
+
+=== 监听 NM 演示 ===
+步骤: 读当前模式 -> (可选)切 GC=2 -> NmInit -> 读记录区 -> 恢复标准
+  当前 GC_MODE=1 (1=标准 2=监听 3=IO 4=中继+IO)
+  [A] 标准模式下置 Monitor 位 (bit13)...
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804
+  WORK_MODE=0x2003
+  [B] 切到监听大模式 GC=2 并 NmInit...
+  GC 读回=2  PID=0x48FD
+  NM_STATUS=0x0000
+  NmReadRecord: 64 字节, timestamp=0x00000000
+  记录区头: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 (16字节)
+  [C] 恢复 GC=1 标准 + CtrlNC/NT...
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804
+  恢复后 LINK A=1 B=1
+  [通过] NM 流程演示完成
+
+>>>> [通过] NM: 监听演示
+
+========== [22/24] IO: 寄存器+恢复 ==========
+
+=== 独立: IO/PWM 寄存器配置 ===
+  说明: 完整 IO 业务需 GC_MODE=IO(3); 此处写 MEM 映射寄存器
+  IoModeInit/PWM/Level 已调用
+  IO_REG_CHIP_ID 读回=0x0003
+  OUTPUT_LEVEL 读回=0x00FF
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804
+  已恢复标准模式
+  [通过] IO 寄存器可访问 (引脚复用下电平需示波器确认)
+  [bringup] K72Reset + JlkConfig(NC+NT,0x8003)...
+[复位] K72 (FPGA+JLK+FIFO) 完成
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804
+  [bringup] 等待 A/B LINK UP (30s)...
+  [bringup] A/B LINK UP  (A=0x0007 B=0x0007)
+  IO 后 Ctrl bringup 仍 OK
+
+>>>> [通过] IO: 寄存器+恢复
+
+========== [23/24] Rate: 速率查询 ==========
+
+=== 速率查询 ===
+  说明: 只读 FPGA SerDes 时钟选择 (0x4008), 不修改配置
+  编码: 0=625M  1=1G  2=5G  5=2.5G(默认)
+  [card0 / xdma0] GlinkGetRate=5 (2.5Gbps)  FPGA[0x4008]=0x5 (2.5Gbps)
+  (未发现 /dev/xdma1_user, 单卡模式)
+
+  结论: 单卡速率 = 2.5Gbps (code=5)
+  [通过] API 与 FPGA 读回一致
+
+>>>> [通过] Rate: 速率查询
+
+========== [24/24] Repeater: AB不适用 ==========
+
+=== 中继 Repeater (AB回环) ===
+  手册: 中继使用 CH_C/CH_D; 当前 AB 电口自环无 C/D 对端
+  [跳过] 需双卡光纤或 C/D 环回后再测 RepeaterInit/状态
+
+>>>> [跳过] Repeater: AB不适用
+
+========================================
+  汇总: 通过=21  失败=2  跳过=1
+========================================

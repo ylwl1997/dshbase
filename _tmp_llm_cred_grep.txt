@@ -1,0 +1,65 @@
+
+=== resolveSandRequestedModel @ 22810175 ===
+resolveSandRequestedModel(inputs) {
+  const { sessionOptions, envModelOverride, storedDefaultModel } = inputs;
+  const effectiveDefaultModel = inputs.experimentModelOverride ?? storedDefaultModel;
+  const effectiveDefaultModelId = envModelOverride ?? effectiveDefaultModel?.modelId ?? SAND_DEFAULT_MODEL_ID;
+  const subagentModelId = sessionOptions?.modelId;
+  const storedComputerUseModel = sandComputerUseModelSchema.safeParse(
+    inputs.storedComputerUseModel
+  );
+  const storedBrowserUseModel = sandBrowserUseModelSchema.safeParse(inputs.storedBrowserUseModel);
+  if (sessionOptions?.isSummarizationSession === true && subagentModelId != null) {
+    return createSandSubagentRequestedModel(subagentModelId);
+  }
+  if (sessionOptions?.isComputer
+
+=== SAND_DEFAULT_MODEL_ID @ 7149731 ===
+SAND_DEFAULT_MODEL_ID, SAND_DEFAULT_MODEL_SELECTION;
+var init_agent_model = __esm({
+  "src/shared/agents/agent-model.ts"() {
+    "use strict";
+    SAND_DEFAULT_MODEL_ID = "grok-4.5";
+    SAND_DEFAULT_MODEL_SELECTION = {
+      modelId: SAND_DEFAULT_MODEL_ID,
+      maxMode: true,
+      parameters: [
+        { id: "effort", value: "high" },
+        { id: "fast", value: "true" }
+      ]
+    };
+  }
+});
+
+// src/shared/agents/sand-agent-model.ts
+function resolveComputerUseModelSelection({
+  storedModel,
+  overrideModel
+}) {
+  return overrideModel ?? storedModel;
+}
+var SAND_SUMMARIZATION_MODEL_ID, SAND_COMPUTER_USE_SUBAGENT_MODEL_ID, sandAgentModelParameterSchema, sandModelSelectionSchema, sandAgentDefaultModelSchema, sandComputerUseModelSchema, sa
+
+=== createCursorSandInference @ 22812552 ===
+createCursorSandInference(options2) {
+  let labelingClient;
+  const geminiVideoAttachedMediaUrlProvider = createSandAttachedMediaUrlProvider({
+    getAccessToken: options2.getAccessToken,
+    getTeamId: options2.getTeamId,
+    getMachineId: options2.getMachineId
+  });
+  const getLabelingClient = () => {
+    labelingClient ??= createSandLabelingClient({
+      getAccessToken: options2.getAccessToken,
+      getTeamId: options2.getTeamId,
+      getMachineId: options2.getMachineId
+    });
+    return labelingClient;
+  };
+  return {
+    resolvePrivacyMode: () => resolveSandRunPrivacyMode({
+      getAccessToken: options2.getAccessToken,
+      getTeamId: options2.getTeamId,
+      getMachineId: options2.getMachineId
+    }),
+    getGeminiVideoAttached

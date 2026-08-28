@@ -1,0 +1,120 @@
+../api/glink_api.c:1108:23: 警告：‘SMARTNC_STACK_BASE’ defined but not used [-Wunused-const-variable=]
+ static const uint16_t SMARTNC_STACK_BASE[4] = {
+                       ^~~~~~~~~~~~~~~~~~
+[驱动] 设备[0] 打开成功 path=/dev/xdma0_user fd=3
+============================================================
+ Smart busy-hang 诊断 (STATUS bit15=交换组忙 / bit14=单次交换忙)
+============================================================
+
+######## C1 SNC=0440 stack+short, frame 1002 ########
+[复位] K72 (FPGA+JLK+FIFO) 完成
+  init SNC=0x0440 NODE=0001 CHEN=00C3 TO=3000 SNT=4003 WORK=0110
+  pre-send           ST=0000 fail=0 b14=0 b15=0 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  TX words: 0001 1002 0001 5555 (N=4)
+  t=   0ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t= 250ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t= 500ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t= 750ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=1000ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=1250ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=1500ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=1750ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=2000ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=2250ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=2500ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=2750ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=3000ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=3250ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=3500ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=3750ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=4000ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=4250ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=4500ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=4750ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=5000ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  end                ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+
+######## C2 SNC=0400 short-only, frame 1002 ########
+[复位] K72 (FPGA+JLK+FIFO) 完成
+  init SNC=0x0400 NODE=0001 CHEN=00C3 TO=3000 SNT=4003 WORK=0110
+  pre-send           ST=0000 fail=0 b14=0 b15=0 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  TX words: 0001 1002 0001 5555 (N=4)
+  t=   0ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t= 250ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t= 500ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t= 750ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=1000ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=1250ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=1500ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=1750ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=2000ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=2250ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=2500ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=2750ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=3000ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=3250ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=3500ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=3750ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=4000ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=4250ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=4500ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=4750ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=5000ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  end                ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+
+######## C3 SNC=0440, frame 1000(512) starved ########
+[复位] K72 (FPGA+JLK+FIFO) 完成
+  init SNC=0x0440 NODE=0001 CHEN=00C3 TO=3000 SNT=4003 WORK=0110
+  pre-send           ST=0000 fail=0 b14=0 b15=0 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  TX words: 0001 1000 0001 5555 (N=4)
+  t=   0ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t= 250ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t= 500ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t= 750ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=1000ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=1250ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=1500ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=1750ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=2000ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=2250ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=2500ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=2750ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=3000ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=3250ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=3500ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=3750ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=4000ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=4250ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=4500ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=4750ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=5000ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  end                ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+
+######## C4 SNC=0400 TO=0x0100 frame 1002 ########
+[复位] K72 (FPGA+JLK+FIFO) 完成
+  init SNC=0x0400 NODE=0001 CHEN=00C3 TO=3000 SNT=4003 WORK=0110
+  pre-send           ST=0000 fail=0 b14=0 b15=0 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  TX words: 0001 1002 0001 5555 (N=4)
+  t=   0ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t= 250ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t= 500ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t= 750ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=1000ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=1250ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=1500ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=1750ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=2000ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=2250ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=2500ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=2750ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=3000ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=3250ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=3500ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=3750ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=4000ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=4250ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=4500ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=4750ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  t=5000ms           ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+  end                ST=8000 fail=0 b14=0 b15=1 blkAB=0 ovf=0 sus=0 WD1=2 RD1=2 RC1=2 SEL=C8 PSTAT=00010001 DBG=00000000
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804

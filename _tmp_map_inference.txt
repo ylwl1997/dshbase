@@ -1,0 +1,300 @@
+=== createCursorSandInference @ 22812552 ===
+xt", content: script.sendMessage }
+          }
+        ]
+      };
+    }),
+    getModelId: () => modelId
+  };
+}
+function createCursorSandInference(options2) {
+  let labelingClient;
+  const geminiVideoAttachedMediaUrlProvider = createSandAttachedMediaUrlProvider({
+    getAccessToken: options2.getAccessToken,
+    getTeamId: options2.getTeamId,
+    getMachineId: options2.getMachineId
+  });
+  const getLabelingClient = () => {
+    labelingClient ??= createSandLabelingClient({
+      getAccessToken: options2.getAccessToken,
+      getTeamId: options2.getTeamId,
+      getMachineId: options2.getMachineId
+    });
+    return labelingClient;
+  };
+  return {
+    resolvePrivacyMode: () => resolveSandRunPrivacyMode({
+      getAccessToken: options2.getAccessToken,
+      getTeamId: options2.getTeamId,
+      getMachineId: options2.getMachineId
+    }),
+    getGeminiVideoAttachedMediaUrlProvider: () => options2.isGeminiVideoDeveloperApiEnabled?.() === true ? geminiVideoAttachedMediaUrlProvider : void 0,
+    createSession(onReq
+
+=== createSession( @ 22813433 ===
+vider: () => options2.isGeminiVideoDeveloperApiEnabled?.() === true ? geminiVideoAttachedMediaUrlProvider : void 0,
+    createSession(onRequestId, sessionOptions) {
+      const mockResponse = process.env.SAND_AGENT_MOCK_RESPONSE;
+      if (mockResponse != null) {
+        const modelId = sessionOptions?.modelId ?? "sand-mock";
+        const script = parseSandMockScript(mockResponse);
+        if (script != null) return createScriptedMockSession(script, modelId);
+        return {
+          getExecutor: () => createMockPromptExecutor(() => ({
+            response: mockResponse,
+            chunkSize: 8
+          })),
+          getModelId: () => modelId
+        };
+      }
+      const modelExperimentState = options2.getModelExperimentState?.();
+      const experimentModelOverride = selectSandExperimentTurnModel({
+        state: modelExperimentState,
+        requestSource: sessionOptions?.requestSource,
+        readConfiguredDefaultModel: () => options2.getConfiguredDefaultModel?.(),
+        readConfiguredAutoma
+
+=== resolveSandRequestedModel @ 22810175 ===
+lExperimentModel(state, requestSource, configuredModel);
+}
+
+// src/host/extensions/inference/cursor-session.ts
+function resolveSandRequestedModel(inputs) {
+  const { sessionOptions, envModelOverride, storedDefaultModel } = inputs;
+  const effectiveDefaultModel = inputs.experimentModelOverride ?? storedDefaultModel;
+  const effectiveDefaultModelId = envModelOverride ?? effectiveDefaultModel?.modelId ?? SAND_DEFAULT_MODEL_ID;
+  const subagentModelId = sessionOptions?.modelId;
+  const storedComputerUseModel = sandComputerUseModelSchema.safeParse(
+    inputs.storedComputerUseModel
+  );
+  const storedBrowserUseModel = sandBrowserUseModelSchema.safeParse(inputs.storedBrowserUseModel);
+  if (sessionOptions?.isSummarizationSession === true && subagentModelId != null) {
+    return createSandSubagentRequestedModel(subagentModelId);
+  }
+  if (sessionOptions?.isComputerUseSubagent === true) {
+    return storedComputerUseModel.success ? createSandRequestedModelFromSelection(storedComputerUseModel.data) : createSandCom
+
+=== createCursorInferencePromptSession @ 22804962 ===
+nixMs: response.expiresAtUnixMs,
+        refreshAfterUnixMs: response.refreshAfterUnixMs
+      };
+    }
+  };
+}
+function createCursorInferencePromptSession(options2) {
+  const client = createSandCursorBackendClient(InferenceService, options2);
+  return createProtoSessionProvider(
+    client,
+    options2.requestedModel,
+    void 0,
+    options2.inferenceReason
+  ).getSession(imageResizingMiddleware);
+}
+
+// src/host/extensions/inference/cursor-session.ts
+init_requested_model_pb();
+init_sand_agent_model();
+init_cursor_inference();
+
+// src/host/extensions/inference/sand-labeling.ts
+init_errors();
+init_cursor_inference();
+var SAND_AGENT_MODE = "sand-agent";
+function createSandLabelingClient(options2) {
+  const client = createSandCursorBackendClient(InferenceService, options2);
+  return {
+    recordFollowupClassification: (request3) => client.recordAgentFollowupClassification(request3),
+    recordPostTurnLabeling: (request3) => client.recordAgentPostTurnLabeling(request3)
+  };
+}
+var lastRequestIdByConversation 
+
+=== SAND_INFERENCE_PROVIDER @ -1 ===
+=== createXaiPromptSession @ -1 ===
+=== openai-compatible @ -1 ===
+=== chat/completions @ -1 ===
+=== baseURL @ -1 ===
+=== baseUrl @ 289219 ===
+= class _AzureState extends Message {
+      constructor(data) {
+        super();
+        this.apiKey = "";
+        this.baseUrl = "";
+        this.deployment = "";
+        this.useAzure = false;
+        proto3.util.initPartial(data, this);
+      }
+      static fromBinary(bytes, options2) {
+        return new _AzureState().fromBinary(bytes, options2);
+      }
+      static fromJson(jsonValue, options2) {
+        return new _AzureState().fromJson(jsonValue, options2);
+      }
+      static fromJsonString(jsonString, options2) {
+        return new _AzureState().fromJsonString(jsonString, options2);
+      }
+      static equals(a, b2) {
+        return proto3.util.equals(_AzureState, a, b2);
+      }
+    };
+    AzureState.runtime = proto3;
+    AzureState.typeName = "aiserver.v1.AzureState";
+    AzureState.fields = proto3.util.newFieldList(() => [
+      {
+        no: 1,
+        name: "api_key",
+        kind: "scalar",
+        T: 9
+        /* ScalarType.STRING */
+      },
+      {
+        no: 2,
+        name: "base_u
+
+=== RequestedModel @ 372362 ===
+ckages/proto/dist/generated/agent/v1/requested_model_pb.js
+var ApiKeyCredentials, AzureCredentials, BedrockCredentials, RequestedModel, RequestedModel_ModelParameterValue;
+var init_requested_model_pb = __esm({
+  "../packages/proto/dist/generated/agent/v1/requested_model_pb.js"() {
+    "use strict";
+    init_esm();
+    ApiKeyCredentials = class _ApiKeyCredentials extends Message {
+      constructor(data) {
+        super();
+        this.apiKey = "";
+        proto3.util.initPartial(data, this);
+      }
+      static fromBinary(bytes, options2) {
+        return new _ApiKeyCredentials().fromBinary(bytes, options2);
+      }
+      static fromJson(jsonValue, options2) {
+        return new _ApiKeyCredentials().fromJson(jsonValue, options2);
+      }
+      static fromJsonString(jsonString, options2) {
+        return new _ApiKeyCredentials().fromJsonString(jsonString, options2);
+      }
+      static equals(a, b2) {
+        return proto3.util.equals(_ApiKeyCredentials, a, b2);
+      }
+    };
+    ApiKeyCredentials.runti
+
+=== client_llm_gateway_credential @ 1598939 ===
+,
+      { no: 29, name: "system_prompt_spec", kind: "message", T: SystemPromptSpec, opt: true },
+      { no: 30, name: "client_llm_gateway_credential", kind: "message", T: ClientLlmGatewayCredential, opt: true },
+      { no: 31, name: "client_supports_preview_card", kind: "scalar", T: 8, opt: true },
+      { no: 32, name: "started_as_new_project", kind: "scalar", T: 8, opt: true }
+    ]);
+    TextDeltaUpdate = class _TextDeltaUpdate extends Message {
+      constructor(data) {
+        super();
+        this.text = "";
+        this.isServerNotice = false;
+        proto3.util.initPartial(data, this);
+      }
+      static fromBinary(bytes, options2) {
+        return new _TextDeltaUpdate().fromBinary(bytes, options2);
+      }
+      static fromJson(jsonValue, options2) {
+        return new _TextDeltaUpdate().fromJson(jsonValue, options2);
+      }
+      static fromJsonString(jsonString, options2) {
+        return new _TextDeltaUpdate().fromJsonString(jsonString, options2);
+      }
+      static equals(a, b2) {
+   
+
+after createCursorSandInference: createCursorInferencePromptSession @ 22814793 delta=2241
+createCursorInferencePromptSession({
+        getAccessToken: options2.getAccessToken,
+        getTeamId: options2.getTeamId,
+        getMachineId: options2.getMachineId,
+        requestedModel,
+        inferenceReason: options2.isGeminiVideoDeveloperApiEnabled?.() === true ? sessionOptions?.inferenceReason : void 0,
+        onRequestId,
+        ...sessionOptions?.lineage != null ? { lineage: sessionOptions.lineage } : {}
+      });
+      const skipLabeling = sessionOptions?.skipLabeling === true || sessionOptions?.isSummarizationSession === true || sessionOptions?.isComputerUseSubagent === true;
+      if (skipLabeling) {
+        return session;
+      }
+      return wrapPromptSessionWithSandFollowupLabeling(
+        session,
+        getLabelingClient(),
+        requestedModel.modelId
+      );
+    },
+    recordPostTurnLabeling(args) {
+      recordSandPostTurnLabeling(getLabelingClient(), {
+        conversationId: args.conversationId,
+        requestId: args.requestId,
+        modelName: args.modelName,
+        messages: args.messages
+      });
+    }
+  };
+}
+
+// src/host/extensions/inference/inference-service.ts
+function createHostInference(options2) {
+  const { auth: auth2, experiments
+---
+after createCursorSandInference: resolveSandRequestedModel( @ 22814433 delta=1881
+resolveSandRequestedModel({
+        sessionOptions,
+        envModelOverride: process.env.SAND_AGENT_MODEL,
+        storedDefaultModel: options2.getDefaultModel?.(),
+        storedComputerUseModel: options2.getComputerUseModel?.(),
+        storedBrowserUseModel: options2.getBrowserUseModel?.(),
+        experimentModelOverride
+      });
+      const session = createCursorInferencePromptSession({
+        getAccessToken: options2.getAccessToken,
+        getTeamId: options2.getTeamId,
+        getMachineId: options2.getMachineId,
+        requestedModel,
+        inferenceReason: options2.isGeminiVideoDeveloperApiEnabled?.() === true ? sessionOptions?.inferenceReason : void 0,
+        onRequestId,
+        ...sessionOptions?.lineage != null ? { lineage: sessionOptions.lineage } : {}
+      });
+      const skipLabeling = sessionOptions?.skipLabeling === true || sessionOptions?.isSummarizationSession === true || sessionOptions?.isComputerUseSubagent === true;
+      if (skipLabeling) {
+        return session;
+      }
+      return wrapPromptSessionWithSandFollowupLabeling(
+        session,
+        getLabelingClient(),
+        requestedModel.modelId
+      );
+    },
+    recordPostTurnLabeling(args
+---
+after createCursorSandInference: createSession( @ 22813433 delta=881
+createSession(onRequestId, sessionOptions) {
+      const mockResponse = process.env.SAND_AGENT_MOCK_RESPONSE;
+      if (mockResponse != null) {
+        const modelId = sessionOptions?.modelId ?? "sand-mock";
+        const script = parseSandMockScript(mockResponse);
+        if (script != null) return createScriptedMockSession(script, modelId);
+        return {
+          getExecutor: () => createMockPromptExecutor(() => ({
+            response: mockResponse,
+            chunkSize: 8
+          })),
+          getModelId: () => modelId
+        };
+      }
+      const modelExperimentState = options2.getModelExperimentState?.();
+      const experimentModelOverride = selectSandExperimentTurnModel({
+        state: modelExperimentState,
+        requestSource: sessionOptions?.requestSource,
+        readConfiguredDefaultModel: () => options2.getConfiguredDefaultModel?.(),
+        readConfiguredAutomationsModel: () => options2.getConfiguredAutomationsModel?.()
+      });
+      const requestedModel = resolveSandRequestedModel({
+        sessionOptions,
+        envModelOverride: process.env.SAND_AGENT_MODEL,
+        storedDefaultModel: options2.getDefaultModel?.(),
+        storedComputerUseModel: op
+---

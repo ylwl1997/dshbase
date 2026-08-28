@@ -1,0 +1,23 @@
+health before: {"ok":true,"pid":99239,"isBusy":false,"busyOnlyAwaitingApproval":false,"activeAgentId":"acdb77da-34a3-4188-9135-9780e8ed1721","startedAt":1787836418411,"lastBusyAtMs":1787881835593}
+hop log lines before: 6
+=== sendPrompt ===
+sendPrompt status 200
+{"accepted":true}
+idle after 7 s {"ok": true, "pid": 99239, "isBusy": false, "busyOnlyAwaitingApproval": false, "activeAgentId": "a67d15ec-b377-46ba-b6f3-182a0982f683", "startedAt": 1787836418411, "lastBusyAtMs": 1787882357708}
+
+=== hop log new lines ===
+
+=== transcript tail ===
+{"role":"assistant","message":{"content":[{"type":"text","text":"GSC 结果已经发给用户，待办也清完了。"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"[t28u]\nReply with exactly one line: QWEN_ROUTE_TEST_OK. Do not use tools."}]}}
+{"role":"assistant","message":{"content":[{"type":"tool_use","name":"send_message","input":{"text":{"content":"QWEN_ROUTE_TEST_OK"}}}]}}
+{"role":"tool","message":{"content":[{"type":"tool_result","name":"send_message","result":{"success":{"timestamp":"1787882355710","messageId":"t28s0"}}}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"QWEN_ROUTE_TEST_OK"}]}}
+
+=== qwen/routed hits ===
+{"role":"user","message":{"content":[{"type":"text","text":"[t28u]\nReply with exactly one line: QWEN_ROUTE_TEST_OK. Do not use tools."}]}}
+{"role":"assistant","message":{"content":[{"type":"tool_use","name":"send_message","input":{"text":{"content":"QWEN_ROUTE_TEST_OK"}}}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"QWEN_ROUTE_TEST_OK"}]}}
+
+=== persistence ===
+crontab @reboot start-token-plan-hop.sh installed

@@ -1,0 +1,552 @@
+hw29 bytes 268663
+hw20 bytes 245303
+prod bytes 163623
+
+######## hw29 key snippets ########
+---27---
+                 新增器件的封装形式和外形尺寸。新增专用引脚
+                 描述、复用引脚描述。新增 EMIF，FIFO，高速接
+V1.2   2023.02   口，可编程时序接口，时钟接口的等长和阻抗控            王威
+                 制要求。勘误差分晶振电路的设计。新增典型应
+                 用描述。
+
+---33---
+                 新增单端时钟的使用方法。                     邹家轩
+V1.3   2023.03   新增功耗预计方法，给出了标准模式，IO 模式下 邹家轩、
+                 不同电源的电流预计方法。            何威
+                 新增陶封与塑封的不同焊球类型，焊盘设计建议。 王威
+V1.4   2023.04
+
+---54---
+                 新增 IO 模式下的可编程时序接口功能描述
+                 新增标准模式，监听模式，IO 模式下的中继功能
+V1.9   2023.09                           邹家轩
+                 描述并给出硬件连接示意图
+                 勘误 IO 模式的功耗计算公式
+
+---229---
+1) 高可靠性。通信节点采用双冗余通信链路。
+2) 低功耗。典型功耗值为 2W（标准模式，2.5Gbps 总线传输速率，常温）。
+3) 高易用性。底层硬件自动完成冗余发送及去冗余接收操作，无需用户干预，可有效
+    减小软件开销。
+4) 高扩展性。支持交换式、环形及混合拓扑结构。
+
+---250---
+      JLK1263 型电路可提供 EMIF 异步读写接口和 FIFO 同步读写接口，并支持无处理器
+干预的脉冲宽度调制（PWM）输出。JLK1263 主要工作模式有标准模式、IO 模式及 NM
+模式。
+
+
+
+---377---
+
+3.2.1 标准模式概述
+
+      JLK1263 中同时有 2 个 CtrlNC，1 个 CtrlNT，4 个 SmartNC 和 4 个 SmartNT 存在。
+如图 6 所示，在标准通信模式下，JLK1263 对外提供 EMIF 接口和 2 路全双工 FIFO 接
+
+---379---
+
+      JLK1263 中同时有 2 个 CtrlNC，1 个 CtrlNT，4 个 SmartNC 和 4 个 SmartNT 存在。
+如图 6 所示，在标准通信模式下，JLK1263 对外提供 EMIF 接口和 2 路全双工 FIFO 接
+口，其中 SmartNC1、SmartNC2、SmartNT1、SmartNT2 共用 FIFO1 接口。SmartNC3、
+SmartNC4、SmartNT3、SmartNT4 共用 FIFO2 接口。
+
+---409---
+                               SmartNC   FC编解码
+               FIFO1   复用选择
+                                第1路              SerdesB
+                               SmartNT
+    FIFO访问
+
+---422---
+                               SmartNC
+               FIFO2   复用选择
+                                第3路
+                               SmartNT       标准模式
+                                第4路
+
+---424---
+                                第3路
+                               SmartNT       标准模式
+                                第4路
+                               SmartNT
+
+
+---433---
+   基本连接的情况如图 7 所示，图中的输入信号需按照图示进行配置，输出信号可
+悬空或作为调试探点。标准模式下在使用 FIFO 接口进行数据流传输时需要使用
+I_SSC_CLK，考虑到 PCB 的走线，建议 I_SSC_CLK 的时钟最大不超过 200MHz。
+
+
+
+---434---
+悬空或作为调试探点。标准模式下在使用 FIFO 接口进行数据流传输时需要使用
+I_SSC_CLK，考虑到 PCB 的走线，建议 I_SSC_CLK 的时钟最大不超过 200MHz。
+
+
+
+
+---461---
+                                                          TXNC        道；仅供中继器
+    建议125MHz时钟      I_SSC_CLK
+                                     时                    RXPC        使用；电容靠近
+             0101   CLK_SEL[3:0]     钟                                 接收管脚端
+                                     部                    RXNC
+
+---474---
+          001       MODE[2:0]
+  1：标准模式；                                         FC0-1_REVERSE   0
+                                     配
+  0：突发访问模式；         FIFO_RD_M                     FC1-0_RECERSE   0
+                                     置
+
+---511---
+1) 提供 FIFO 接口，用于电路与外部应用逻辑之间的数据交互；
+2) 支持长报文传输模式和短报文传输模式，在长报文传输模式下，SmartNC 仅支持对
+  同 样 工 作 在 长 报 文 模 式 下 的 SmartNT 发 起 传 输 ， 传 输 是 单 方 向 的 ， 即
+
+
+
+---519---
+  SmartNC→SmartNT；单次传输支持的最大数据量 4GB。
+3) SmartNC 工作在短报文传输模式下时，SmartNC 支持对 CtrlNT 以及工作在短报文
+  传输模式下的 SmartNT 发起传输，支持双向传输，即 SmartNC→
+  CtrlNT、SmartNT，和 CtrlNT、SmartNT→SmartNC；单次传输支持的最大数据量
+  512B；
+
+---523---
+  512B；
+4) 支持故障诊断及自动重传；在长报文传输模式下，SmartNC 支持无限次重传直至传
+  输成功或者被应用逻辑强行中止；在短报文传输模式下，SmartNC 支持 1 次、2
+  次重传或禁止重传。
+5) 当大数据流 NC 传输需要异常终止时，用户应通过 i_smartnc_trans_trig 发出正脉冲
+
+---524---
+4) 支持故障诊断及自动重传；在长报文传输模式下，SmartNC 支持无限次重传直至传
+  输成功或者被应用逻辑强行中止；在短报文传输模式下，SmartNC 支持 1 次、2
+  次重传或禁止重传。
+5) 当大数据流 NC 传输需要异常终止时，用户应通过 i_smartnc_trans_trig 发出正脉冲
+  来实现，用户再次通过 i_smartnc_trans_trig 发起下一次传输时，应和上一次终止传
+
+---538---
+1) 提供 FIFO 接口，用于电路与外部应用逻辑之间的数据交互；
+2) 支持长报文传输模式和短报文传输模式，在长报文传输模式下，SmartNT 仅对同样
+  工作在长报文模式下的 SmartNC 发起的传输命令进行响应，传输是单方向的，即
+  SmartNC→SmartNT；单次传输支持的最大数据量为 4GB。
+3) SmartNT 工作在短报文传输模式下时，SmartNT 支持对 CtrlNC、SmartNC 工作在
+
+---539---
+2) 支持长报文传输模式和短报文传输模式，在长报文传输模式下，SmartNT 仅对同样
+  工作在长报文模式下的 SmartNC 发起的传输命令进行响应，传输是单方向的，即
+  SmartNC→SmartNT；单次传输支持的最大数据量为 4GB。
+3) SmartNT 工作在短报文传输模式下时，SmartNT 支持对 CtrlNC、SmartNC 工作在
+  短报文传输模式下的 SmartNC 发起的传输命令进行响应，支持双向传输，即
+
+
+######## hw20 key snippets ########
+---38---
+                               寸；
+                     5.5~5.6   新增专用引脚描述，复用管脚描            王威
+                               述；
+                      9~14     新增 EMIF,FIFO,高速接口,智能接     王威
+                               口，时钟接口的等长和阻抗控制
+
+---263---
+
+  典型功耗(标准模式) …………………………………………2.5W@2.5Gbps
+
+  输入参考时钟频率(CKREFN、CKREFP)……25MHz-250MHz、频偏≤100ppm
+
+
+---267---
+
+  输入随路时钟频率(I_SSC_CLK) ……… 10MHz~100MHz、占空 45%~55%
+
+
+
+
+---796---
+FIFO_RDATA 总线输                                   500Mbps
+出到 I_SSC_CLK 时钟    Tcoof_is                                3   7     ns
+正沿                               见图 7            2.5Gbps
+
+
+
+---829---
+SMARTN_EMPTY 输                                  500Mbps
+出到 I_SSC_CLK 时钟   Tcose_is                                3   7    ns
+正沿                                              2.5Gbps
+
+                                                500Mbps
+
+---851---
+FIFO_RDATA 总线输                                  500Mbps
+出到 I_SSC_CLK 时钟   Tcoof_is                                3   7    ns
+正沿的延迟                                           2.5Gbps
+
+FIFO_RDATA 总线偏                                  500Mbps
+
+---876---
+O_SSC_CLK 上升沿到
+I_SSC_CLK 上升沿的    Tcois_os                         2.5Gbps            3.5   ns
+延迟
+                                                   5Gbps
+
+
+---899---
+SMARTN_EMPTY 输                                     500Mbps
+出到 I_SSC_CLK 上升   Tcose_is                                       3    7     ns
+沿延迟时间                                              2.5Gbps
+
+SMARTN_REQ 输出                                      500Mbps
+
+---903---
+SMARTN_REQ 输出                                      500Mbps
+到 I_SSC_CLK 上升沿   Tcosr_is                                       3    7     ns
+延迟时间                                               2.5Gbps
+
+FIFO_RDATA 总线输                                     500Mbps
+
+---1191---
+                                               _B_MUX
+                                                                                                                                                                                         O_NM_DAT
+                 I_FIFO_W                                                                                                                                                       I_OSC_FR          O_NM_FRM
+                          I_TEST_M               
+---1192---
+                                                                                                                                                                                         O_NM_DAT
+                 I_FIFO_W                                                                                                                                                       I_OSC_FR          O_NM_FRM
+                          I_TEST_M                       O_SYS_CL                                      
+---1198---
+                                                                                                                                                                                           X[31]
+                                                            O_NM_DAT                                                                                                                              O_NM_DAT O_NM_DAT
+      I_FIFO_W I_FIFO_W
+                        I_TEST_M O_RESET_ O_READY_ O_PLL_LO A_OUTPUT   
+---1205---
+                                                              B_MUX                                                                                                                                 X[29]    X[31]
+                                                                                                                                                                                O_NM_DAT O_NM_DAT
+      I_FIFO_W I_FIFO_W I_FIFO_W                                                               
+---1212---
+                                                                                                                                                                                  X[30]    X[28]
+                                                                                                                                                                       O_NM_DAT            O_NM_DAT
+      I_FIFO_R I_FIFO_W I_FIFO_W              I_FIFO_W                                                         
+---1229---
+      1_MUX[1]   1_MUX[0]   _MUX[15]          _MUX[13]                                                                                                                                          A
+                                                                                                                                                                                                                      O_NM_DAT
+      I_FIFO_W I_FIFO_R I_FIFO_W I_FIFO_W
+                                         
+---1236---
+                                                                                                                                                                                                                        X[1]
+                                                                                                                                                                                                             O_NM_DAT O_NM_DAT
+      I_FIFO_W I_FIFO_W I_FIFO_W
+                       
+---1243---
+                                                                                                                                                                                                               X[0]     X[3]
+                                                                                                                                                                                                    O_NM_DAT O_NM_DAT
+      I_FIFO_W I_FIFO_W I_FIFO_W I_FIFO_W                        
+---1250---
+                                                                                                                                                                                                      X[4]     X[7]
+                                                                                                                                                                                             O_NM_DAT O_NM_DAT O_NM_DAT O_NM_DAT
+      I_FIFO_W I_FIFO_W I_FIFO_W
+                              
+---1257---
+                                                                                                                                                                                               X[6]     X[2]     X[5]     X[10]
+                                                                                                                                                                                                      O_NM_DAT O_NM_DAT O_NM_DAT
+      I_FIFO_W I_FIFO_W          I_FIFO_W          
+---1264---
+                                                                                                                                                                                                        X[9]     X[8]     X[13]
+                                                                                                                                                                                             O_NM_DAT O_NM_DAT O_NM_DAT
+      I_FIFO_W          I_FIFO_W
+               O_SSC_CL    
+
+######## prod key snippets ########
+---89---
+     （1）高可靠性。通信节点采用双冗余通信链路。
+     （2）低功耗。典型功耗值为 2W（标准模式，2.5Gbps 总线传输速率，常温）。
+     （3）高易用性。底层硬件自动完成冗余发送及去冗余接收操作，无需用户干预，可有效
+减小软件开销。
+     （4）高扩展性。支持交换式、环形及混合拓扑结构。
+
+---289---
+                                                     _MUX
+                                                                                                                                                                                                     O_NM_DATA
+                  I_FIFO_WD                                                                                                                                                                I_OSC_FRE           O_NM_FRM_
+                  
+---290---
+                                                                                                                                                                                                     O_NM_DATA
+                  I_FIFO_WD                                                                                                                                                                I_OSC_FRE           O_NM_FRM_
+                            I_TEST_MB                                       
+---296---
+                                                                                                                                                                                                         1]
+                                                                  O_NM_DATA                                                                                                                                    O_NM_DATA O_NM_DATA
+      I_FIFO_WD I_FIFO_WD
+                          I_TEST_MO O_RESET
+---303---
+                                                                      UX                                                                                                                                           9]        1]
+                                                                                                                                                                                           O_NM_DATA O_NM_DATA
+      I_FIFO_WD I_FIFO_WD I_FIFO_WD                                  
+---310---
+                                                                                                                                                                                               0]        8]
+                                                                                                                                                                                 O_NM_DATA               O_NM_DATA
+      I_FIFO_RD I_FIFO_WD I_FIFO_WD              I_FIFO_WD
+                          
+---327---
+        MUX[1]      MUX[0]      UX[15]              UX[13]
+                                                                                                                                                                                                                                         O_NM_DATA
+      I_FIFO_WR           I_FIFO_WD I_FIFO_WD
+                I_FIFO_RD                                                                                                                               
+---334---
+                                                                                                                                                                                                                                             ]
+                                                                                                                                                                                                                               O_NM_DATA O_NM_DATA
+      I_FIFO_WD I_
+---341---
+                                                                                                                                                                                                                                   ]         ]
+                                                                                                                                                                                                                     O_NM_DATA O_NM_DATA
+      I_FIFO_WD I_FIFO_WD I_
+---348---
+                                                                                                                                                                                                                         ]         ]
+                                                                                                                                                                                                         O_NM_DATA   O_NM_DATA O_NM_DATA O_NM_DATA
+      I_FIFO_WD I_FIFO_WD I_
+---355---
+                                                                                                                                                                                                             ]           ]         ]         0]
+                                                                                                                                                                                                                     O_NM_DATA O_NM_DATA O_NM_DATA
+      I_FIFO_WD I
+---358---
+                                                                                                                                                                                             LIGHT_TX_               _OUTPUT_C _OUTPUT_C _OUTPUT_C
+ M    ATA_CH2_M ATA_CH2_M I_SSC_CLK ATA_CH2_M        VSS        VDDIO       VSSD       VDD      VSS       VDD       VSS        VDD        VSS       VDD      VSSD     VDDIO        VSSD                    VSSD
+                                                 
+---362---
+                                                                                                                                                                                                                         ]         ]         3]
+                                                                                                                                                                                                         O_NM_DATA   O_NM_DATA O_NM_DATA
+      I_FIFO_WD           I
+---369---
+                                                                                                                                                                                                             1]          2]        6]
+                                                                                                                                                                                             O_NM_DATA               O_NM_DATA O_NM_DATA
+      I_FIFO_WD           I_FIFO_WR I
+---376---
+                                                                                                                                                                                                 2]                      8]        9]
+                                                                                                                                                                                                                     O_NM_DATA O_NM_DATA O_NM_DATA
+      I_FIFO_WR           I
+---383---
+                                                                                                                                                                                                                         1]        4]        5]
+                                                                                                                                                                                             O_NM_DATA               O_NM_DATA O_NM_DATA
+                I_FIFO_RD
+ 
+---390---
+                                                                                                                                                                                                 6]                      0]        7]
+                                                                                                                                                                                                         O_NM_DATA   O_NM_DATA O_NM_DATA
+      I_EXCH_GR
+                I_CLK
+---478---
+
+B18   I_OSC_FREQ_FLOAT_SEL     B19   O_NM_DATA_OUTPUT_CH_A_MUX[31]   B20   O_NM_FRM_ONGO_CH_A_MUX
+
+B21   O_CLK_RAW                B22   VSSD                            C1    I_FIFO_WDATA_CH1_MUX[6]
+
+
+---513---
+
+C20   O_NM_DATA_OUTPUT_CH_A_MUX[29]   C21   O_NM_DATA_OUTPUT_CH_B_MUX[31]   C22   I_SERDES_SRST_EN
+
+D1    I_FIFO_WDATA_CH1_MUX[2]         D2    I_FIFO_WDATA_CH1_MUX[3]         D3    I_FIFO_WDATA_CH1_MUX[7]
+
+
+---527---
+
+D19   O_NM_DATA_OUTPUT_CH_A_MUX[28]   D20   I_RESET_TIMES_SEL[1]            D21   I_RESET_TIMES_SEL[0]
+
+D22   O_RX_OUT_CLK_CH_C               E1    I_FIFO_RD_SEL_CH1_MUX[0]        E2    I_FIFO_WDATA_CH1_MUX[9]
+
+
+
+######## SW 5.2.3 WORK_MODE ########
+         工作模式配置寄存器
+
+
+          功能配置寄存器
+
+
+      时间戳配置寄存器（可选）
+
+           是否选用中断
+                     Y
+
+N      中断配置寄存器（可选）
+
+
+       中断配置寄存器（可选）
+
+
+    第1/2路控制流NC配置寄存器1、2
+
+
+        控制流nc堆栈指针配置
+
+
+        控制流nc交换次数配置
+
+
+       控制流nc传输超时配置表
+
+
+    初始化交换堆栈指针、交换个数等
+
+
+         交换描述堆栈配置
+
+     交换块控制字、代发数据配置
+
+                启动
+
+    图 13 控制流 NC 快速配置流程图
+
+
+
+
+           第 280 页
+           CtrlNT配置开始
+
+
+       复位与控制寄存器软复位
+
+
+           功能配置寄存器
+
+
+      时间戳配置寄存器（可选）
+
+
+           是否选用中断
+                     Y
+N      中断配置寄存器（可选）
+
+       中断配置寄存器（可选）
+
+           CtrlNT堆栈指针
+
+        CtrlNT堆栈数据初始化
+
+           16路CtrlNT配置
+
+       16路CtrlNT使能配置存储器
+
+     子地址数据存储地址查找表设置
+
+        CtrlNT配置寄存器1、2
+
+      子地址控制字、数据块配置
+
+          终端ID配置寄存器
+
+         工作模式配置寄存器
+    图 14 控制流 NT 快速配置流程图
+
+
+######## 图19 / 同时使用 SmartNC+SmartNT ########
+1312:                        图 19 IO 模式下芯片功能组成
+                       图 19 IO 模式下芯片功能组成
+   在 IO 模式下，芯片主要用作 IO 接口控制，可实现 IO 输出、IO 回读及智能
+接口功能，支持冗余/非冗余控制架构、安全模式、白名单等模式，原理框图如
+图 19 所示，使用第 1 路 SmartNC 和第 1 路 SmartNT 与总线中的设备进行通信。
+通过向 SmartNT1 发送特殊的数据指令，实现芯片 IO 模式下的工作模式配置和
+状态查询；根据配置，芯片通过 SmartNC1 主动向其他设备发送数据。
+
+4.1.4 中继器+IO 模式
+
+ 工作模式
+ 选择、
+ 时钟、                                                         SerdesA
+ 复位、                        第1路
+  配置                       SmartNC
+                                                FC编解码        SerdesB
+                            第1路
+  I/O         IO控制         SmartNT
+
+                                                             SerdesC
+                           中继器                  FC编解码
+
+                                                             SerdesD
+
+
+                 图 20 中继器+IO 模式下芯片功能组成
+
+1315: 图 19 所示，使用第 1 路 SmartNC 和第 1 路 SmartNT 与总线中的设备进行通信。
+图 19 所示，使用第 1 路 SmartNC 和第 1 路 SmartNT 与总线中的设备进行通信。
+通过向 SmartNT1 发送特殊的数据指令，实现芯片 IO 模式下的工作模式配置和
+状态查询；根据配置，芯片通过 SmartNC1 主动向其他设备发送数据。
+
+4.1.4 中继器+IO 模式
+
+ 工作模式
+ 选择、
+ 时钟、                                                         SerdesA
+ 复位、                        第1路
+  配置                       SmartNC
+                                                FC编解码        SerdesB
+                            第1路
+  I/O         IO控制         SmartNT
+
+                                                             SerdesC
+                           中继器                  FC编解码
+
+                                                             SerdesD
+
+
+                 图 20 中继器+IO 模式下芯片功能组成
+
+
+                              第 280 页
+
+
+######## 工程使用说明 Smart coverage ########
+mentions Smart? False
+mentions Ctrl? True
+focus excerpt MODE line:
+| 0x02 | WORK_MODE | 工作模式 (ctrlNC1/ctrlNT等) |
+schematic SMARTNC1_TRIG count 2 or 2
+schematic SMARTNC1_IDLE count 0 or 0
+schematic SMARTNC1_EMPTY count 2 or 2
+schematic SMARTNT1_ACK count 2 or 2
+schematic SMARTNT1_REQ count 2 or 2
+schematic I_SSC_CLK count 4 or 3
+schematic FIFO1_WR count 0 or 0
+schematic FIFO1_RD count 38 or 38
+schematic SMARTNC1 count 11 or 10
+schematic SMARTNT1 count 9 or 8
+unique JLK_SMART* nets: 36
+  JLK_SMARTNC1_AFULL_NMA_D28_PW
+  JLK_SMARTNC1_EMPTY_NMA_D24_PW
+  JLK_SMARTNC1_ERR_NMA_D18_PW
+  JLK_SMARTNC1_IDEL_NMA_D16_PW
+  JLK_SMARTNC1_TRIG_NC3_ID8
+  JLK_SMARTNC2_AFULL_NMA_D29_PW
+  JLK_SMARTNC2_EMPTY_NMA_D25_PW
+  JLK_SMARTNC2_ERR_NMA_D19_PW
+  JLK_SMARTNC2_IDEL_NMA_D17_PW
+  JLK_SMARTNC2_TRIG_NC3_ID9
+  JLK_SMARTNC3_EMPTY_NMB_D24_PW
+  JLK_SMARTNC3_ERR_NMB_D18_PW
+  JLK_SMARTNC3_IDEL_NMB_D16_PW
+  JLK_SMARTNC3_TRIG_NC3_ID10
+  JLK_SMARTNC4_EMPTY_NMB_D25_PW
+  JLK_SMARTNC4_ERR_NMB_D19_PW
+  JLK_SMARTNC4_IDEL_NMB_D17_PW
+  JLK_SMARTNC4_TRIG_NC3_ID11
+  JLK_SMARTNT1_ACK_SAMP_SIG17
+  JLK_SMARTNT1_EMPTY_NMA_D26_PW
+  JLK_SMARTNT1_ERR_NMA_D22_PW
+  JLK_SMARTNT1_REQ_NMA_D20_PW
+  JLK_SMARTNT2_ACK_EXT_5MS
+  JLK_SMARTNT2_EMPTY_NMA_D27_PW
+  JLK_SMARTNT2_ERR_NMA_D23_PW
+  JLK_SMARTNT2_REQ_NMA_D21_PW
+  JLK_SMARTNT3_ACK_SAMP_SIG22
+  JLK_SMARTNT3_AFULL_NMB_D28_PW
+  JLK_SMARTNT3_EMPTY_NMB_D26_PW
+  JLK_SMARTNT3_ERR_NMB_D22_PW
+  JLK_SMARTNT3_REQ_NMB_D20_PW
+  JLK_SMARTNT4_ACK_SAMP_SIG23
+  JLK_SMARTNT4_AFULL_NMB_D29_PW
+  JLK_SMARTNT4_EMPTY_NMB_D27_PW
+  JLK_SMARTNT4_ERR_NMB_D23_PW
+  JLK_SMARTNT4_REQ_NMB_D21_PW

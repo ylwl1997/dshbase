@@ -1,0 +1,35 @@
+test_glink_api.c:1066:18: 警告：‘opt_nm_regs’ defined but not used [-Wunused-function]
+ static test_rc_t opt_nm_regs(void)
+                  ^~~~~~~~~~~
+test_glink_api.c:769:18: 警告：‘test_smart_reg_config’ defined but not used [-Wunused-function]
+ static test_rc_t test_smart_reg_config(void)
+                  ^~~~~~~~~~~~~~~~~~~~~
+../api/glink_api.c:1108:23: 警告：‘SMARTNC_STACK_BASE’ defined but not used [-Wunused-const-variable=]
+ static const uint16_t SMARTNC_STACK_BASE[4] = {
+                       ^~~~~~~~~~~~~~~~~~
+[驱动] 设备[0] 打开成功 path=/dev/xdma0_user fd=3
+
+=== SmartNC1 -> SmartNT1 短报文自环 (AB) ===
+路径: FPGA WD_FIFO -> SMARTNC_TRIG/FIFO_WR -> SerDes A/B -> SmartNT
+  TX 测试数据: A0 A1 A2 A3 A4 A5 A6 A7 A8 A9 AA AB AC AD AE AF (16字节)
+[复位] K72 (FPGA+JLK+FIFO) 完成
+[SEL after-FpgaFifoReset+SetNcShort] 0xC8  F1_WR=0 F1_RD=2 F2_WR=0 F2_RD=3  (F1 NC1/NT1, 短报 NC→NT 目标)
+  等待 LINK...
+  LINK A=1 B=1  WORK=0x0110
+[SEL after-SmartNtInit] 0xC8  F1_WR=0 F1_RD=2 F2_WR=0 F2_RD=3  (F1 NC1/NT1, 短报 NC→NT 目标)
+  [1] ShortMsgSendEx -> NT_ID=0x03 type=SmartNT1(000) RD0=2
+[SEL SendEx-pre] 0xC8  F1_WR=0 F1_RD=2 F2_WR=0 F2_RD=3  (F1 NC1/NT1, 短报 NC→NT 目标)
+[SEL SendEx-post-WD] 0xC8  F1_WR=0 F1_RD=2 F2_WR=0 F2_RD=3  (F1 NC1/NT1, 短报 NC→NT 目标)
+[SEL SendEx-post-TRIG] 0xC8  F1_WR=0 F1_RD=2 F2_WR=0 F2_RD=3  (F1 NC1/NT1, 短报 NC→NT 目标)
+  SmartNC STATUS=0x0010 fail_cnt=1 SP=0x3000 FC61=0x0000
+  [2] WaitRecv / ShortMsgRecv...
+  RD_FIFO1 2 -> 2
+[SEL after-wait] 0xC8  F1_WR=0 F1_RD=2 F2_WR=0 F2_RD=3  (F1 NC1/NT1, 短报 NC→NT 目标)
+  [失败] RD计数未变=无真实SmartNT接收; fail_cnt=1 (手册表54/6.5.8已对齐仍失败)
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804
+
+>>>> [失败] Smart短报
+
+========================================
+  汇总: 通过=0  失败=1  跳过=0
+========================================

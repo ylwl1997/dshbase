@@ -1,0 +1,69 @@
+../api/glink_api.c:1108:23: 警告：‘SMARTNC_STACK_BASE’ defined but not used [-Wunused-const-variable=]
+ static const uint16_t SMARTNC_STACK_BASE[4] = {
+                       ^~~~~~~~~~~~~~~~~~
+============================================================
+ SmartNC1 -> SmartNT1  (对齐厂家 init_1263 / test_1263)
+ 设备: /dev/xdma0_user
+ NODE=0001 CHEN=00C3 TO=3000 SNC=0440 SNT=4003 WORK=0110 SEL=C8
+============================================================
+[驱动] 设备[0] 打开成功 path=/dev/xdma0_user fd=3
+  TX: 55 55 (2B)
+
+======== A. 厂家 init_1263 对齐配置 ========
+[复位] K72 (FPGA+JLK+FIFO) 完成
+  [PASS] K72Reset
+[SEL after-FifoReset] 0xC8  F1_WR=0 F1_RD=2 F2_WR=0 F2_RD=3  (F1 NC1/NT1, 短报 NC→NT 目标)
+  [PASS] SmartFifoSetNcShort(1) → 0xC8
+[SEL after-SetNcShort] 0xC8  F1_WR=0 F1_RD=2 F2_WR=0 F2_RD=3  (F1 NC1/NT1, 短报 NC→NT 目标)
+  [PASS] SEL==0xC8 WR=NC1 RD=NT1
+  [PASS] SmartNcInit(1) short+stack
+  [PASS] SmartNtInit(1)
+  [PASS] NODE_ID==0x0001
+  [PASS] CHEN==0x00C3
+  [PASS] TIMEOUT==0x3000
+  [PASS] TIMESTAMP==0x0005
+  [PASS] SNC==0x0440
+  [PASS] SNT==0x4003
+  [PASS] WORK==0x0110
+[SEL after-vendor-init] 0xC8  F1_WR=0 F1_RD=2 F2_WR=0 F2_RD=3  (F1 NC1/NT1, 短报 NC→NT 目标)
+  [PASS] Init 后 SEL 仍为 0xC8
+  等待 A/B LINK...
+  [PASS] A/B LINK 同时 UP
+  [ready] MODE=0110 NODE=0001 CHEN=00C3 SNC=0440 SNT=4003 TO=3000 TS=0005 ST=0000 fail=0 SEL=C8 RD1=2 RC1=2 FC61=0000 LKA=1 LKB=1 PSTAT=00010001
+
+======== B1. 厂家精确帧发送 ========
+  [PASS] Send 前 SetNcShort
+  对齐帧 (4 字): 0001 1002 0001 5555
+  CFG2=0x1002 → 1路NT, len=2B (厂家原 0x1000=512 会导致一直 busy)
+[SEL post-TRIG-vendor-frame] 0xC8  F1_WR=0 F1_RD=2 F2_WR=0 F2_RD=3  (F1 NC1/NT1, 短报 NC→NT 目标)
+  WaitDone ret=-1
+  STATUS=0x8000 fail_cnt=0 busy15=1 SEL=0xC8
+  [post-vendor-frame] MODE=0110 NODE=0001 CHEN=00C3 SNC=0440 SNT=4003 TO=3000 TS=0005 ST=8000 fail=0 SEL=C8 RD1=2 RC1=2 FC61=0000 LKA=1 LKB=1 PSTAT=00010001
+  RD_FIFO1 2 -> 2  RC_FIFO1 2 -> 2
+  [PASS] TRIG 后 SEL 仍为 0xC8
+  [INFO] 仍 busy, 清挂起后续发 API 帧
+
+======== B2. API SendEx (len=2, ID=1) ========
+  [PASS] API SetNcShort
+[SEL SendEx-pre] 0xC8  F1_WR=0 F1_RD=2 F2_WR=0 F2_RD=3  (F1 NC1/NT1, 短报 NC→NT 目标)
+[SEL SendEx-post-WD] 0xC8  F1_WR=0 F1_RD=2 F2_WR=0 F2_RD=3  (F1 NC1/NT1, 短报 NC→NT 目标)
+[SEL SendEx-post-TRIG] 0xC8  F1_WR=0 F1_RD=2 F2_WR=0 F2_RD=3  (F1 NC1/NT1, 短报 NC→NT 目标)
+  [PASS] SmartNcShortMsgSendEx
+  API STATUS=0x8000 fail_cnt=0
+  [post-api-frame] MODE=0110 NODE=0001 CHEN=00C3 SNC=0440 SNT=4003 TO=3000 TS=0005 ST=8000 fail=0 SEL=C8 RD1=2 RC1=2 FC61=0000 LKA=1 LKB=1 PSTAT=00010001
+
+======== C. 接收 / 环回 ========
+  [PASS] WaitRdFifo 前 SEL=0xC8
+  [INFO] RD/FC 超时未变化
+[SEL before-recv] 0xC8  F1_WR=0 F1_RD=2 F2_WR=0 F2_RD=3  (F1 NC1/NT1, 短报 NC→NT 目标)
+  RD_FIFO1 2 -> 2  fail_cnt=0 FC61=0x0000
+  [FUNC FAIL] 无 SmartNT 接收数据
+[配置] JLK1263 ID=0x8003, mode=0x0003, int_mask=0x0804
+
+============================================================
+ 结论
+------------------------------------------------------------
+  软件用法(厂家init对齐): PASS
+  环回功能:               FAIL
+============================================================
+EXIT:True

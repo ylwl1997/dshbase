@@ -1,0 +1,334 @@
+      MEM            I
+                          器访问
+       RD            I    EMIF 接口读访问类型：0，写访问；1，读访问
+     ————————
+     READY          O     EMIF 接口当前访问是否结束信号，低有效
+
+     EA[17:0]        I    EMIF 接口地址信号
+     ED[15:0]       I/O   EMIF 接口数据信号
+FIFO 接口信号
+                          FIFO1 读复用选择：
+FIFO1_RD_SEL[1:0]    I    “00”，SmartNC1；“01”，SmartNC2；“10”，SmartNT1；
+                          “11”，SmartNT2；
+                          FIFO 标准访问模式下，FIFO1 读信号；FIFO 突发访问
+    FIFO1_RD         I
+                          模式下，FIFO1 读使能信号
+FIFO1_RDATA[15:0]   O     FIFO1 读数据线
+                          FIFO1 写入复用选择：
+FIFO1_WR_SEL[1:0]    I    “00”，SmartNC1；“01”，SmartNC2；“10”，SmartNT1；
+                          “11”，SmartNT2；
+    FIFO1_WR         I    FIFO1 写信号
+FIFO1_WDATA[15:0]    I    FIFO1 写入数据线
+                          FIFO2 读复用选择
+FIFO2_RD_SEL[1:0]    I    “00”，SmartNC3；“01”，SmartNC4；“10”，SmartNT3；
+                          “11”，SmartNT4；
+                          FIFO 标准访问模式下，FIFO2 读信号；FIFO 突发访问
+    FIFO2_RD         I
+                          模式下，FIFO2 读使能信号
+                          FIFO2 写复用选择：
+FIFO2_WR_SEL[1:0]    I    “00”，SmartNC3；“01”，SmartNC4；“10”，SmartNT3；
+                          “11”，SmartNT4；
+    FIFO2_WR         I    FIFO2 写信号
+FIFO2_WDATA[15:0]    I    FIFO2 写入数据线
+FIFO2_RDATA[15:0]   O     FIFO2 读数据线
+CtrlNC 交换组外部触发控制
+   EXT_TRIG1         I    外部触发 CtrlNC1 交换组，上升沿有效
+
+                                  第 55 页
+    信号名称         方向                     描述
+   EXT_TRIG2     I    外部触发 CtrlNC2 交换组，上升沿有效
+SmartNC 接口信号
+SAMRTNC1_TRIG    I    SmartNC1 交换传输触发信号
+SAMRTNC2_TRIG    I    SmartNC2 交换传输触发信号
+SAMRTNC3_TRIG    I    SmartNC3 交换传输触发信号
+SAMRTNC4_TRIG    I    SmartNC4 交换传输触发信号
+SMARTNC1_IDLE    O    SmartNC1 传输空闲信号
+SMARTNC2_IDLE    O    SmartNC2 传输空闲信号
+SMARTNC3_IDLE    O    SmartNC3 传输空闲信号
+SMARTNC4_IDLE    O    SmartNC4 传输空闲信号
+ SMARTNC1_ERR    O    SmartNC1 传输错误标志
+ SMARTNC2_ERR    O    SmartNC2 传输错误标志
+ SMARTNC3_ERR    O    SmartNC3 传输错误标志
+ SMARTNC4_ERR    O    SmartNC4 传输错误标志
+SMARTNC1_EMPTY   O    SmartNC1 接收 FIFO 空标志
+SMARTNC2_EMPTY   O    SmartNC2 接收 FIFO 空标志
+SMARTNC3_EMPTY   O    SmartNC3 接收 FIFO 空标志
+SMARTNC4_EMPTY   O    SmartNC4 接收 FIFO 空标志
+SMARTNC1_AFULL   O    SmartNC1 发送 FIFO 快满信号
+SMARTNC2_AFULL   O    SmartNC2 发送 FIFO 快满信号
+SMARTNC3_AFULL   O    SmartNC3 发送 FIFO 快满信号
+SMARTNC4_AFULL   O    SmartNC4 发送 FIFO 快满信号
+SmartNT 接口信号
+ SMARTNT1_ACK    I    SmartNT1 访问应答信号
+ SMARTNT2_ACK    I    SmartNT2 访问应答信号
+ SMARTNT3_ACK    I    SmartNT3 访问应答信号
+ SMARTNT4_ACK    I    SmartNT4 访问应答信号
+ SMARTNT1_REQ    O    SmartNT1 访问请求信号
+ SMARTNT2_REQ    O    SmartNT2 访问请求信号
+ SMARTNT3_REQ    O    SmartNT3 访问请求信号
+ SMARTNT4_REQ    O    SmartNT4 访问请求信号
+ SMARTNT1_ERR    O    SmartNT1 传输错误标志
+ SMARTNT2_ERR    O    SmartNT2 传输错误标志
+ SMARTNT3_ERR    O    SmartNT3 传输错误标志
+ SMARTNT4_ERR    O    SmartNT4 传输错误标志
+SMARTNT1_EMPTY   O    SmartNT1 接收 FIFO 空标志
+SMARTNT2_EMPTY   O    SmartNT2 接收 FIFO 空标志
+SMARTNT3_EMPTY   O    SmartNT3 接收 FIFO 空标志
+SMARTNT4_EMPTY   O    SmartNT4 接收 FIFO 空标志
+普通 IO 口
+                             第 56 页
+     信号名称               方向                             描述
+
+----
+
+                     图 4 CtrlNC/CtrlNT 复用连接示意图
+
+
+6.3. 数据流 NC 长报文概述
+
+  在长报文传输模式下，SmartNC 仅支持对同样工作在长报文模式
+
+下的 SmartNT 发起传输，传输是单方向的，即 SmartNC-〉SmartNT；
+
+单次传输支持的数据量范围为 1B~4GB。在 SmartNC 长报文工作模式
+
+下，因传输为单方向的 SmartNC-〉SmartNT，所以 FIFO 读功能的管脚
+
+可以不参与配置，但建议连接 FIFO 读功能引脚，方便后续调试及升
+
+级功能使用；同理，当使用 SmartNC1/SmartNC2/SmartNC3/SmartNC4
+                              第 60 页
+时，需要对图 5 中 SmartNC 状态部分管脚与 FIFO1/FIFO2 功能管脚
+
+进行相应的配置使用。
+  EMIF接口访问选择信号     /SELECT
+  EMIF接口访问选通脉冲信号   /STRBD                                 I_SSC_CLK       所有FIFO操作的同
+  EMIF接口存储器访问类型
+                                                                          步时钟（必须）
+  0：寄存器；           MEM
+
+
+
+
+                                    EMIF
+  1：存储器；
+
+  EMIF接口访问类型                        部                                     FIFO读操作同步时
+  0: 写访问；          RD               分                                     钟（可选，也可通
+  1：读访问；                                                 O_SSC_CLK
+                                                                          过I_SSC_CLK来约
+  EMIF接口当前访问结束信号   /READY                                                 束）
+      EMIF接口地址信号   EA[17:0]
+      EMIF接口数据信号   ED[15:0]
+
+
+  SmartNC1交换传输
+                   SMARTNC1_TRIG
+  触发信号
+                                                                          FIFO1写复用选择：
+  SmartNC1传输空闲     SMARTNC1_IDLE                                          00: SmartNC1；
+                                    SmartNC
+
+
+
+
+  输出信号                                                FIFO1_WR_SEL[1:0]   01:SmartNC2；
+                                               FIFO
+
+
+
+
+                                                                          10:SmartNT1；
+  SmartNC1传输错误                                 写                          11:SmartNT2；
+                   SMARTNC1_ERR                功
+  输出标志                              状
+                                    态          能
+  SmartNC1接收FIFO                                             FIFO1_WR     FIFO1使能写信号
+                   SMARTNC1_EMPTY
+  空输出标志
+                                                      FIFO1_WDATA[15:0]   FIFO1写数据线
+  SmartNC1发送FIFO
+                   SMARTNC1_AFULL
+  快满输出信号
+
+                     图 5 SmartNC 长报文复用管脚示意图
+
+
+6.4. 数据流 NT 长报文概述
+
+  在长报文传输模式下，在长报文传输模式下，SmartNT 与配对的
+
+SmartNC 进行一对一单向传输，即只响应一个 SmartNC 发起的传输；
+
+  如图 6 所示，在 SmartNT 长报文工作模式下，因传输为单方向的
+
+SmartNC-〉SmartNT，所以 FIFO 写功能的管脚可以不参与配置，但建
+
+议连接 FIFO 写功能引脚，方便后续调试及升级功能使用；同理，当分
+
+别使用 SmartNT1/SmartNT2/SmartNT3/SmartNT4 时，需要对图 6 中
+
+SmartNT 状态部分管脚与 FIFO1/FIFO2 功能管脚进行相应的配置使用。
+
+
+                                              第 61 页
+  EMIF接口访问选择信号     /SELECT
+  EMIF接口访问选通脉冲信号   /STRBD
+  EMIF接口存储器访问类型
+                                                                         FIFO1读复用选择：
+                                                                         00:SmartNC1；
+
+
+
+
+                                             FIFO
+  0：寄存器；           MEM
+
+
+
+
+                                  EMIF
+  1：存储器；                                             FIFO1_RD_SEL[1:0]   01:SmartNC2；
+                                             读                           10:SmartNT1；
+  EMIF接口访问类型                        部        功
+  0: 写访问；          RD               分                                    11:SmartNT2；
+  1：读访问；
+                                             能
+
+  EMIF接口当前访问结束信号   /READY                                    FIFO1_RD    FIFO1使能读信号
+      EMIF接口地址信号   EA[17:0]
+                                                    FIFO1_RDATA[15:0]    FIFO1读数据线
+      EMIF接口数据信号   ED[15:0]
+
+
+----
+1) SmartNC 短报文模式：
+
+  SmartNC 工作在短报文传输模式下时，SmartNC 支持对 CtrlNT/工
+
+作在短报文传输模式下的 SmartNT 发起传输，支持双向传输，即
+
+SmartNC-〉CtrlNT/SmartNT，和 CtrlNT/SmartNT-〉SmartNC；单次传输
+
+支持的数据量范围为 1~512B；
+
+  如图 7 所示为使用 SmartNC1 时的复用管脚示意图，其中 EMIF 部
+
+分为给芯片 JLK1263 进行配置管脚，SmartNC 状态部分为传输过程中
+
+的输入输出信号状态管脚，FIFO 读功能/写功能为数据传输时使用的
+                                            第 62 页
+配置管脚和数据传输管脚；当使用 SmartNC2/SmartNC3/SmartNC4 时，
+
+图 7 中的 SmartNC 状态部分的管脚需加入相应通道的状态管脚；当
+
+使用 SmartNC1/SmartNC2 功能时，FIFO 读功能/写功能部分使用 FIFO1
+
+相关管脚；当使用 SmartNC3/SmartNC4 功能时，FIFO 读功能/写功能
+
+部分使用 FIFO2 相关管脚。
+  EMIF接口访问选择信号     /SELECT
+  EMIF接口访问选通脉冲信号   /STRBD                                                  所有FIFO操作的同
+                                                         I_SSC_CLK
+  EMIF接口存储器访问类型                                                            步时钟（必须）
+  0：寄存器；           MEM              EMIF
+  1：存储器；
+                                                                           FIFO1读复用选择：
+  EMIF接口访问类型                        部                                      00:SmartNC1；
+  0: 写访问；          RD               分                  FIFO1_RD_SEL[1:0]   01:SmartNC2；
+  1：读访问；
+                                               FIFO
+
+                                                                           10:SmartNT1；
+  EMIF接口当前访问结束信号   /READY                      读                           11:SmartNT2；
+      EMIF接口地址信号   EA[17:0]                    功
+                                               能               FIFO1_RD    FIFO1使能读信号
+      EMIF接口数据信号   ED[15:0]
+                                                      FIFO1_RDATA[15:0]    FIFO1读数据线
+  SmartNC1交换传输
+                   SMARTNC1_TRIG
+  触发信号
+                                                                           FIFO1写复用选择：
+  SmartNC1传输空闲     SMARTNC1_IDLE                                           00:SmartNC1；
+                                    SmartNC
+
+
+
+
+  输出信号                                                FIFO1_WR_SEL[1:0]    01:SmartNC2；
+                                               FIFO
+
+
+
+
+                                                                           10:SmartNT1；
+  SmartNC1传输错误                                 写                           11:SmartNT2；
+                   SMARTNC1_ERR                功
+  输出标志                              状
+                                    态          能
+  SmartNC1接收FIFO                                              FIFO1_WR     FIFO1使能写信号
+                   SMARTNC1_EMPTY
+  空输出标志
+                                                      FIFO1_WDATA[15:0]    FIFO1写数据线
+  SmartNC1发送FIFO
+                   SMARTNC1_AFULL
+  快满输出信号
+
+                     图 7 SmartNC 短报文复用管脚示意图
+
+
+6.6. 数据流 NT 短报文概述
+
+  SmartNT 工作在短报文传输模式下时，SmartNT 支持对 CtrlNC/工
+
+作在短报文传输模式下的 SmartNC 发起的传输命令进行响应，支持双
+
+向传输，即 CtrlNC/ SmartNC-〉SmartNT，
+                              和 SmartNT-〉CtrlNC/ SmartNC；
+
+单次传输支持的数据量范围为 1B~512B；
+
+
+                                              第 63 页
+  EMIF接口访问选择信号     /SELECT
+  EMIF接口访问选通脉冲信号   /STRBD
+                                                        I_SSC_CLK        所有FIFO操作的同
+  EMIF接口存储器访问类型                                                          步时钟（必须）
+  0：寄存器；           MEM
+
+
+
+
+                                  EMIF
+  1：存储器；
+
+  EMIF接口访问类型                        部                                    FIFO1读复用选择：
+  0: 写访问；          RD               分                                    00:SmartNC1；
+  1：读访问；
+                                                     FIFO1_RD_SEL[1:0]   01:SmartNC2；
+  EMIF接口当前访问结束信号   /READY                                                10:SmartNT1；
+
+
+
+
+                                             FIFO
+      EMIF接口地址信号   EA[17:0]                                              11:SmartNT2；
+                                             读
+      EMIF接口数据信号   ED[15:0]                  功               FIFO1_RD    FIFO1使能读信号
+                                             能
+                                                    FIFO1_RDATA[15:0]    FIFO1读数据线
+
+  SmartNT1访问应答                                                           FIFO1写复用选择：
+                   SMARTNT1_ACK                                          00:SmartNC1；
+  输出信号
+                                  SmartNT
+                                                    FIFO1_WR_SEL[1:0]    01:SmartNC2；
+
+
+                                             FIFO
+  SmartNT1访问请求                                                           10:SmartNT1；
+                   SMARTNT1_REQ              写
+  输出信号                                                                   11:SmartNT2；
+                                    状        功
+                                    态        能
+  SmartNT1传输错误

@@ -1,0 +1,459 @@
+=== DOC TREE ===
+    6206  工程使用说明.md
+ 3136512  [非密]CSLK1265W详细规范.pdf
+   18942  glinkfpga寄存器说明.docx
+  570841  FTXP-H2-SR12xx_V3.06.pdf
+  346556  FSF171130-C_CXP连接器 12600101F002_REV.X2(1).pdf
+ 4464815  CXP-MSA.pdf
+    8504  api_demo_analysis.md
+ 6469109  7-JLK1263C JLK1263N型GLink高速光纤总线节点电路软件设计指南V1.6（公开）.pdf
+ 3039229  6-JLK1263C JLK1263N型GLink高速光纤总线节点电路硬件设计指南V2.0（公开）.pdf
+ 1796462  3-JLK1263N型GLink高速光纤总线节点电路普通军用产品说明书_A2.pdf
+    7688  DEMO/CtrlNC-NT-demo.zip
+  596057  DEMO/Glink-k72/Glink-k72/GLINK_K72原理图.pdf
+15538560  DEMO/Glink-k72/Glink-k72/Glink_K72_260609A.brd
+ 7146110  DEMO/Glink-k72/Glink-k72/datasheet/【非密_V2.9发布】JLK1263型GLink高速光纤总线节点电路硬件设计指南_V2.9_1.pdf
+ 3136512  DEMO/Glink-k72/Glink-k72/datasheet/[非密]CSLK1265W详细规范.pdf
+  346556  DEMO/Glink-k72/Glink-k72/datasheet/FSF171130-C_CXP连接器 12600101F002_REV.X2(1).pdf
+  835388  DEMO/Glink-k72/Glink-k72/datasheet/C108020_DC-DC电源模块_LTM4644EY#PBF_规格书_WJ213576.PDF
+ 1796462  DEMO/Glink-k72/Glink-k72/datasheet/3-JLK1263N型GLink高速光纤总线节点电路普通军用产品说明书_A2.pdf
+
+======== 工程使用说明.md lines 200 ========
+--- L109 ---
+  | 0x00 | NODE_ID | 节点ID (bit15=使能) |
+>>| 0x02 | WORK_MODE | 工作模式 (ctrlNC1/ctrlNT等) |
+  | 0x03 | CHANNEL_EN | A/B通道使能 |
+hits 1
+
+======== glinkfpga寄存器说明.docx lines 182 ========
+--- L62 ---
+  Bit[8-15] 指示 RC FIFO 中的数据源类型；
+>>Bit[16-23] 指示 SmartNC/NT 的错误标志。写：写 1 可清除 Bit[0-7] 的完成标志和 Bit[16-23] 的错误标志。
+  0x0008
+hits 1
+
+======== api_demo_analysis.md lines 295 ========
+--- L97 ---
+  | `K72Reset()` | 复位整个 K72 板 (FPGA+JLK+FIFO) |
+>>| `JlkConfig(node_id, role)` | 配置 JLK1263 (节点ID/通道/工作模式) |
+  | `MemorySpaceInit()` | 初始化 MEM 0x000-0x0FF 为 0xFFFF |
+hits 1
+
+======== DEMO/Glink-k72/Glink-k72/GLINK_K72原理图.pdf lines 3513 ========
+--- L136 ---
+                                                                                       IO_L16P_T2_CSI_B_14     V27                                                
+>>                                                                                 IO_L16N_T2_A15_D31_14             JLK_SMARTNC2_AFULL_NMA_D29_PW M29           9
+                                                                                                               V29                                                
+--- L451 ---
+         AC23                                            Y20                                       AA29                                       Y25                 
+>>       AD20   VCCO_12                 IO_0_12          Y23                                       AB26   VCCO_13            IO_0_13          Y26    JLK_SMARTNT3_
+                VCCO_12            IO_L1P_T0_12                 ModSelL                                   VCCO_13       IO_L1P_T0_13                 JLK_SMARTNT1_
+--- L452 ---
+         AD20   VCCO_12                 IO_0_12          Y23                                       AB26   VCCO_13            IO_0_13          Y26    JLK_SMARTNT3_
+>>              VCCO_12            IO_L1P_T0_12                 ModSelL                                   VCCO_13       IO_L1P_T0_13                 JLK_SMARTNT1_
+         AF24                                            Y24                                       AD30                                       AA26                
+--- L454 ---
+         AF24                                            Y24                                       AD30                                       AA26                
+>>              VCCO_12            IO_L1N_T0_12                 ResetL 11                                 VCCO_13       IO_L1N_T0_13                 JLK_SMARTNC2_
+         AG21                                            Y21                                       AE27                                       W27                 
+--- L456 ---
+         AG21                                            Y21                                       AE27                                       W27                 
+>>              VCCO_12            IO_L2P_T0_12                 SCL 11                                    VCCO_13       IO_L2P_T0_13                 JLK_SMARTNT1_
+         AK22                                            AA21                                      AH28                                       W28                 
+--- L458 ---
+         AK22                                            AA21                                      AH28                                       W28                 
+>>              VCCO_12            IO_L2N_T0_12                 SDA 11                                    VCCO_13       IO_L2N_T0_13                 JLK_FIFO1_RD1
+          Y22                                            AB22                                      AJ25                                       Y28                 
+--- L460 ---
+          Y22                                            AB22                                      AJ25                                       Y28                 
+>>              VCCO_12       IO_L3P_T0_DQS_12                  ModPrsL 11                                VCCO_13 IO_L3P_T0_DQS_13                   JLK_SMARTNC2_
+                                                         AB23                                                                                 AA28                
+--- L462 ---
+                                                         AB23                                                                                 AA28                
+>>                            IO_L3N_T0_DQS_12                  IntL                                               IO_L3N_T0_DQS_13                  JLK_FIFO1_RD1
+                                                         AA22                                                                                 W29                 
+--- L464 ---
+                                                         AA22                                                                                 W29                 
+>>                                 IO_L4P_T0_12                 LPmode                                                  IO_L4P_T0_13                 JLK_FIFO1_RD1
+                                                         AA23                                                                                 Y29                 
+--- L466 ---
+                                                         AA23                                                                                 Y29                 
+>>                                 IO_L4N_T0_12          AC20                                                           IO_L4N_T0_13          AA27   JLK_SMARTNC1_
+                                   IO_L5P_T0_12          AC21                                                           IO_L5P_T0_13          AB28   JLK_SMARTNT1_
+--- L467 ---
+                                   IO_L4N_T0_12          AC20                                                           IO_L4N_T0_13          AA27   JLK_SMARTNC1_
+>>                                 IO_L5P_T0_12          AC21                                                           IO_L5P_T0_13          AB28   JLK_SMARTNT1_
+                                   IO_L5N_T0_12          AA20                                                           IO_L5N_T0_13          AA25   JLK_FIFO1_RD9
+--- L468 ---
+                                   IO_L5P_T0_12          AC21                                                           IO_L5P_T0_13          AB28   JLK_SMARTNT1_
+>>                                 IO_L5N_T0_12          AA20                                                           IO_L5N_T0_13          AA25   JLK_FIFO1_RD9
+                                   IO_L6P_T0_12          AB20                                                           IO_L6P_T0_13          AB25   JLK_SMARTNT3_
+--- L469 ---
+                                   IO_L5N_T0_12          AA20                                                           IO_L5N_T0_13          AA25   JLK_FIFO1_RD9
+>>                                 IO_L6P_T0_12          AB20                                                           IO_L6P_T0_13          AB25   JLK_SMARTNT3_
+                             IO_L6N_T0_VREF_12           AB24                                                     IO_L6N_T0_VREF_13           AC29   JLK_SMARTNC4_
+--- L470 ---
+                                   IO_L6P_T0_12          AB20                                                           IO_L6P_T0_13          AB25   JLK_SMARTNT3_
+>>                           IO_L6N_T0_VREF_12           AB24                                                     IO_L6N_T0_VREF_13           AC29   JLK_SMARTNC4_
+                                   IO_L7P_T1_12          AC25                                                           IO_L7P_T1_13          AC30   JLK_FIFO1_RD7
+--- L474 ---
+                                                         AC22                                                                                 Y30                 
+>>                                 IO_L8P_T1_12          AD22                                                           IO_L8P_T1_13          AA30   JLK_SMARTNC1_
+                                   IO_L8N_T1_12          AC24                                                           IO_L8N_T1_13          AD29   JLK_FIFO1_RD8
+--- L484 ---
+                          IO_L12P_T1_MRCC_12             AE24                                                  IO_L12P_T1_MRCC_13             AC27   JLK_FIFO1_RD1
+>>                        IO_L12N_T1_MRCC_12                    JLK_I_TEST_MBIST       8                       IO_L12N_T1_MRCC_13                    JLK_FIFO1_RD1
+                                                         AF22                                                                                 AG29                
+--- L501 ---
+                                  IO_L18N_T2_12          AF20                                                          IO_L18N_T2_13          AC26   JLK_FIFO1_W D
+>>                                IO_L19P_T3_12          AF21                                                          IO_L19P_T3_13          AD26   JLK_SMARTNT4_
+                            IO_L19N_T3_VREF_12           AG22                                                    IO_L19N_T3_VREF_13           AJ27   JLK_SMARTNT2_
+--- L502 ---
+                                  IO_L19P_T3_12          AF21                                                          IO_L19P_T3_13          AD26   JLK_SMARTNT4_
+>>                          IO_L19N_T3_VREF_12           AG22                                                    IO_L19N_T3_VREF_13           AJ27   JLK_SMARTNT2_
+                                  IO_L20P_T3_12          AH22                                                          IO_L20P_T3_13          AK28   JLK_FIFO1_RD_
+--- L508 ---
+                                  IO_L22P_T3_12          AH20                                                          IO_L22P_T3_13          AH27   JLK_FIFO1_W D
+>>                                IO_L22N_T3_12          AH21                                                          IO_L22N_T3_13          AF26   JLK_FIFO1_W D
+                                  IO_L23P_T3_12          AJ21                                                          IO_L23P_T3_13          AF27   JLK_FIFO1_RDS
+--- L620 ---
+              A29                                       F23                                                             VCCO_17            IO_0_17                
+>>                      VCCO_16            IO_0_16            JLK_SMARTNC3_IDEL_NMB_D16_PW M48   9               B16                                           K18
+              B26                                       B23                                                             VCCO_17       IO_L1P_T0_17                
+--- L630 ---
+              F24                                       F25                                                             VCCO_17 IO_L3P_T0_DQS_17                  
+>>                      VCCO_16 IO_L3P_T0_DQS_16              JLK_SMARTNC4_IDEL_NMB_D17_PW M49   9               L19                                           H17
+              H28                                       E25                                                             VCCO_17 IO_L3N_T0_DQS_17                  
+--- L632 ---
+              H28                                       E25                                                             VCCO_17 IO_L3N_T0_DQS_17                  
+>>                      VCCO_16 IO_L3N_T0_DQS_16              JLK_SMARTNT4_REQ_NMB_D21_PW M53 9                                                                J19
+                                                        E24                                                                           IO_L4P_T0_17                
+--- L640 ---
+                                                        E26                                                                           IO_L5N_T0_17                
+>>                                    IO_L5N_T0_16            JLK_SMARTNC3_ERR_NMB_D18_PW M50    9                                                             K19
+                                                        G23                                                                           IO_L6P_T0_17                
+--- L642 ---
+                                                        G23                                                                           IO_L6P_T0_17                
+>>                                    IO_L6P_T0_16            JLK_SMARTNT3_ERR_NMB_D22_PW M54 9                                                                K20
+                                                        G24                                                                     IO_L6N_T0_VREF_17                 
+--- L644 ---
+                                                        G24                                                                     IO_L6N_T0_VREF_17                 
+>>                              IO_L6N_T0_VREF_16             JLK_SMARTNC4_EMPTY_NMB_D25_PW M57 9                                                              H21
+                                                        B27                                                                           IO_L7P_T1_17                
+--- L662 ---
+                                                        D26                                                                   IO_L11P_T1_SRCC_17                  
+>>                            IO_L11P_T1_SRCC_16               JLK_O_SSC_CLK 8                                                                                 E21
+                                                        C26                                                                   IO_L11N_T1_SRCC_17                  
+--- L666 ---
+                                                        C25                                                                  IO_L12P_T1_MRCC_17                   
+>>                           IO_L12P_T1_MRCC_16                JLK_I_SSC_CLK 8                                                                                 E20
+                                                        B25                                                                  IO_L12N_T1_MRCC_17                   
+--- L703 ---
+                                IO_L21P_T3_DQS_16             JLK_EMIF_EA13_LOOPEN 8                                                                           A21
+>>                                                      F27                                                                     IO_L21N_T3_DQS_17                 
+                                IO_L21N_T3_DQS_16             JLK_EMIF_EA12_IDPAR    8                                                                         B18
+--- L709 ---
+                                     IO_L22N_T3_16             JLK_EMIF_EA0_ID11   8                                                                           B22
+>>                                                      H26                                                                          IO_L23P_T3_17                
+                                     IO_L23P_T3_16             JLK_SMARTNT3_AFULL_NMB_D28_PW M60 9                                                             A22
+--- L710 ---
+                                                        H26                                                                          IO_L23P_T3_17                
+>>                                   IO_L23P_T3_16             JLK_SMARTNT3_AFULL_NMB_D28_PW M60 9                                                             A22
+                                                        H27                                                                          IO_L23N_T3_17                
+...truncated...
+hits 30
+
+======== HW:6-JLK1263C JLK1263N型GLink高速光纤总线节点电路硬件设计指南V2.0（公开）.pdf lines 4725 ========
+--- L55 ---
+                                 型，焊盘设计建议。
+>>                      5.4.1    勘误了 SMARTNT*ACK 的输入/      王威
+                                 输出类型
+--- L218 ---
+  GLINK 总线；同步 FIFO 接口访问适应 CPU/DSP/MCU/FPGA 等主控器件进行
+>>GLINK 大数据传输；对于无主控设备也提供 PWM 响应操作；
+  
+--- L267 ---
+  
+>>  输入随路时钟频率(I_SSC_CLK) ……… 10MHz~100MHz、占空 45%~55%
+  
+--- L754 ---
+                                                   500Mbps
+>>FIFO_WR_SEL 建立时
+                     Tfws_st                       2.5Gbps   1    -    ns
+--- L759 ---
+  
+>>SMARTNC_AFULL 输                                  500Mbps   2   7
+  出到 ISSCK 时钟正沿      Tcosa_is                                          ns
+--- L776 ---
+                                                   500Mbps
+>>FIFO_WR_SEL 保持时
+                     Tfws_hd                       2.5Gbps   1         ns
+--- L782 ---
+                                                   500Mbps
+>>Smartnc_trig 建立时
+                     Ttrig_ck_st                   2.5Gbps   1         ns
+--- L788 ---
+                                                   500Mbps
+>>Smartnc_trig 保持时
+                     Ttrig_ck_hd                   2.5Gbps   1         ns
+--- L796 ---
+  FIFO_RDATA 总线输                                   500Mbps
+>>出到 I_SSC_CLK 时钟    Tcoof_is                                3   7     ns
+  正沿                               见图 7            2.5Gbps
+--- L828 ---
+  
+>>SMARTN_EMPTY 输                                  500Mbps
+  出到 I_SSC_CLK 时钟   Tcose_is                                3   7    ns
+--- L829 ---
+  SMARTN_EMPTY 输                                  500Mbps
+>>出到 I_SSC_CLK 时钟   Tcose_is                                3   7    ns
+  正沿                                              2.5Gbps
+--- L844 ---
+  
+>>Smartn_req 在时钟                                  500Mbps
+  上升沿延迟出现时          Tcosr_is                                3   7    ns
+--- L851 ---
+  FIFO_RDATA 总线输                                  500Mbps
+>>出到 I_SSC_CLK 时钟   Tcoof_is                                3   7    ns
+  正沿的延迟                                           2.5Gbps
+--- L875 ---
+                                                     500Mbps
+>>O_SSC_CLK 上升沿到
+  I_SSC_CLK 上升沿的    Tcois_os                         2.5Gbps            3.5   ns
+--- L876 ---
+  O_SSC_CLK 上升沿到
+>>I_SSC_CLK 上升沿的    Tcois_os                         2.5Gbps            3.5   ns
+  延迟
+--- L898 ---
+  
+>>SMARTN_EMPTY 输                                     500Mbps
+  出到 I_SSC_CLK 上升   Tcose_is                                       3    7     ns
+--- L899 ---
+  SMARTN_EMPTY 输                                     500Mbps
+>>出到 I_SSC_CLK 上升   Tcose_is                                       3    7     ns
+  沿延迟时间                                              2.5Gbps
+--- L902 ---
+  
+>>SMARTN_REQ 输出                                      500Mbps
+  到 I_SSC_CLK 上升沿   Tcosr_is                                       3    7     ns
+--- L903 ---
+  SMARTN_REQ 输出                                      500Mbps
+>>到 I_SSC_CLK 上升沿   Tcosr_is                                       3    7     ns
+  延迟时间                                               2.5Gbps
+--- L907 ---
+  FIFO_RDATA 总线输                                     500Mbps
+>>出到 O_SSC_CLK 时    Tosc_fr                                        1    3     ns
+  钟正沿的延迟                                             2.5Gbps
+--- L910 ---
+  
+>>SMARTN_EMPTY 输                                     500Mbps
+  出到 O_SSC_CLK 上    Tosc_se                                        1    3     ns
+--- L911 ---
+  SMARTN_EMPTY 输                                     500Mbps
+>>出到 O_SSC_CLK 上    Tosc_se                                        1    3     ns
+  升沿延迟时间                                             2.5Gbps
+--- L914 ---
+  
+>>SMARTN_REQ 输出                                      500Mbps
+  到 O_SSC_CLK 上升    Tcosr_os                                   —        3     ns
+--- L915 ---
+  SMARTN_REQ 输出                                      500Mbps
+>>到 O_SSC_CLK 上升    Tcosr_os                                   —        3     ns
+  沿延迟时间                                              2.5Gbps
+--- L983 ---
+  静态电流/静态功耗       PDD                                                  —             700      mW
+>>                                       i_reset_n，i_ssc_clk，CKREFP，
+                                     CKREFPN=0
+...truncated...
+hits 25
+
+======== HW:【非密_V2.9发布】JLK1263型GLink高速光纤总线节点电路硬件设计指南_V2.9_1.pdf lines 5560 ========
+--- L37 ---
+  V1.4   2023.04
+>>                 勘误 I_SMARTNT1/2/3/4_ACK 的输入/输出类型。 王威
+                   新增耦合电容设计要求，电源纹波容限。               邹家轩
+--- L63 ---
+                   充，PCB 设计等长要求做了修改。
+>>V2.3   2024.06   第 9 章增加 fifo 的突发读 smartnc 端时序    徐超
+                   第 87 页的 SMARTNT 改为 SMARTNC，勘误。
+--- L64 ---
+  V2.3   2024.06   第 9 章增加 fifo 的突发读 smartnc 端时序    徐超
+>>                 第 87 页的 SMARTNT 改为 SMARTNC，勘误。
+  V2.4   2024.07                                    徐超
+--- L77 ---
+                   第 8.9.10 页的关于“传输支持的数据量范围为
+>>                 【1B,4GB】”统一改为“传输支持的最大数据量
+                   为 4GB”。第 8.9.11.12 页的关于“单次传输支持
+--- L80 ---
+                   的数据量范围为 1B~512B” 统一改为“单次传输
+>>                 支持的最大数据量为 512B”
+  V2.8   2024.11                                      徐超
+--- L83 ---
+                   第 8 页新增发送异常处理的方法以及时序图说明
+>>                 第 9 页新增 SmartNT 最优匹配速率的解释。
+                   表 16/18/20/22/24/26/28 中统一将存在时序解释不
+--- L103 ---
+  3.2.2 CtrlNC 和 CtrlNT 概述 ...................................................... 9
+>>3.2.3 SmartNC 长报文概述 ....................................................... 10
+  3.2.4 SmartNT 长报文概述 ....................................................... 10
+--- L104 ---
+  3.2.3 SmartNC 长报文概述 ....................................................... 10
+>>3.2.4 SmartNT 长报文概述 ....................................................... 10
+  3.2.5 SmartNC 短报文概述 ....................................................... 11
+--- L105 ---
+  3.2.4 SmartNT 长报文概述 ....................................................... 10
+>>3.2.5 SmartNC 短报文概述 ....................................................... 11
+  3.2.6 SmartNT 短报文概述 ....................................................... 12
+--- L106 ---
+  3.2.5 SmartNC 短报文概述 ....................................................... 11
+>>3.2.6 SmartNT 短报文概述 ....................................................... 12
+  3.3 IO 模式概述 ................................................................ 13
+--- L129 ---
+  6.5 电路上电后的复位........................................................... 68
+>>7 电路工作模式配置说明......................................................... 69
+  8 EMIF 接口时序与 PCB 设计 ...................................................... 70
+--- L226 ---
+      JLK1263 型电路是一款 GLink 总线单节点电路。电路节点包含 2 个 CtrlNC 终端、
+>>1 个 CtrlNT 终端、4 个 SmartNC 终端、4 个 SmartNT 终端和 1 个中继器。
+      特性：
+--- L250 ---
+        JLK1263 型电路可提供 EMIF 异步读写接口和 FIFO 同步读写接口，并支持无处理器
+>>干预的脉冲宽度调制（PWM）输出。JLK1263 主要工作模式有标准模式、IO 模式及 NM
+  模式。
+--- L379 ---
+  
+>>      JLK1263 中同时有 2 个 CtrlNC，1 个 CtrlNT，4 个 SmartNC 和 4 个 SmartNT 存在。
+  如图 6 所示，在标准通信模式下，JLK1263 对外提供 EMIF 接口和 2 路全双工 FIFO 接
+--- L381 ---
+  如图 6 所示，在标准通信模式下，JLK1263 对外提供 EMIF 接口和 2 路全双工 FIFO 接
+>>口，其中 SmartNC1、SmartNC2、SmartNT1、SmartNT2 共用 FIFO1 接口。SmartNC3、
+  SmartNC4、SmartNT3、SmartNT4 共用 FIFO2 接口。
+--- L382 ---
+  口，其中 SmartNC1、SmartNC2、SmartNT1、SmartNT2 共用 FIFO1 接口。SmartNC3、
+>>SmartNC4、SmartNT3、SmartNT4 共用 FIFO2 接口。
+  
+--- L404 ---
+                         512KB    第1路
+>>                       存储器     SmartNC
+  
+--- L408 ---
+                                  第2路
+>>                               SmartNC   FC编解码
+                 FIFO1   复用选择
+--- L411 ---
+                                  第1路              SerdesB
+>>                               SmartNT
+      FIFO访问
+--- L415 ---
+                                  第2路
+>>                               SmartNT
+  
+--- L418 ---
+                                  第3路
+>>                               SmartNC
+  
+--- L421 ---
+                                  第4路
+>>                               SmartNC
+                 FIFO2   复用选择
+--- L424 ---
+                                  第3路
+>>                               SmartNT       标准模式
+                                  第4路
+--- L426 ---
+                                  第4路
+>>                               SmartNT
+  
+--- L434 ---
+  悬空或作为调试探点。标准模式下在使用 FIFO 接口进行数据流传输时需要使用
+>>I_SSC_CLK，考虑到 PCB 的走线，建议 I_SSC_CLK 的时钟最大不超过 200MHz。
+  
+...truncated...
+hits 25
+
+=== SW guide: Smart limitations / 单板 / 同时 ===
+287:      智能控制器（SmartNC）、智能终端（SmartNT）、中继器（Repeater）
+893:  这限制了 FIFO 标准访问接口下的接口时钟频率。
+1180:   i） 标准模式，集成 2 路 CtrlNC、1 路 CtrlNT、4 路 SmartNC、4 路 SmartNT
+1190: 接口，其中 SmartNC1、SmartNC2、SmartNT1、SmartNT2 共用 FIFO1 接口，
+1191: SmartNC3、SmartNC4、SmartNT3、SmartNT4 共用 FIFO2 接口。通过配置寄存
+1239: 1 路控制流 NT、4 路 SmartNC 和 4 路 SmartNT 等访问控制及中继器功能配置。
+1315: 图 19 所示，使用第 1 路 SmartNC 和第 1 路 SmartNT 与总线中的设备进行通信。
+1458: SmartNC-〉SmartNT；单次传输支持的数据量范围为 1~4GB；
+1490: 方向的，即 SmartNC-〉SmartNT；单次传输支持的数据量范围为 1~4GB；
+1493: SmartNC-〉SmartNT，和 SmartNT-〉CtrlNC/ SmartNC；单次传输支持的数据量
+2021:         Bit[15:0]: SmartNC 针对特定目标 SmartNT 发起一次 2 字节数
+2089:         Bit[15:0]: SmartNC 针对特定目标 SmartNT 发起一次 2 字节数
+2159:         Bit[15:0]: SmartNC 针对特定目标 SmartNT 发起一次 2 字节数
+2227:         Bit[15:0]: SmartNC 针对特定目标 SmartNT 发起一次 2 字节数
+2675:                            步进行，避免出现一致性问题;（限制在一个 block
+2907: 工作模式寄存器 12   bit[11:0]: SmartNC 主动发送数据时的第 1 路目标 NT；
+2915: 工作模式寄存器 13   bit[11:0]: SmartNC 主动发送数据时的第 2 路目标 NT；
+2923: 工作模式寄存器 14   bit[11:0]: SmartNC 主动发送数据时的第 3 路目标 NT；
+2949: 工作模式寄存器 16   Bit[15:0]: SmartNC 发送超时时间
+2951: 工作模式寄存器 17   Bit[15:0]: SmartNC 发送目标子地址
+2953: 工作模式寄存器 18   Bit[15:0]: SmartNC 传输周期（单位 us）
+2955: 工作模式寄存器 19   Bit[15:0]: SmartNC 传输周期开始时刻指针
+2957: 工作模式寄存器 20   Bit[15:0]: SmartNC 传输周期结束时刻指针
+2959: 工作模式寄存器 21   SmartNC 配置寄存器
+3021: 工作模式寄存器 23   Bit[0]: IO 回读数据写入 SmartNC 主动发送 FIFO；
+3053: 工作模式寄存器 24   SmartNC 发送配置寄存器
+3114: 工作模式寄存器 25   Bit[1:0]: IO 回读时 SmartNC 主动发送的信号跳变沿数据条数：
+5774:    工作模式寄存器 12   bit[11:0]: SmartNC 主动发送数据时的第 1 路目标 NT；
+5782:    工作模式寄存器 13   bit[11:0]: SmartNC 主动发送数据时的第 2 路目标 NT；
+5790:    工作模式寄存器 14   bit[11:0]: SmartNC 主动发送数据时的第 3 路目标 NT；
+5849:     工作模式寄存器 16   Bit[15:0]: SmartNC 发送超时时间
+5851:     工作模式寄存器 17   Bit[15:0]: SmartNC 发送目标子地址
+5853:     工作模式寄存器 18   Bit[15:0]: SmartNC 传输周期（单位 us）
+5855:     工作模式寄存器 19   Bit[15:0]: SmartNC 传输周期开始时刻指针
+5857:     工作模式寄存器 20   Bit[15:0]: SmartNC 传输周期结束时刻指针
+5859:     工作模式寄存器 21   SmartNC 配置寄存器
+5956:    工作模式寄存器 23   Bit[0]: IO 回读数据写入 SmartNC 主动发送 FIFO；
+6089:     工作模式寄存器 25   Bit[1:0]: IO 回读时 SmartNC 主动发送的信号跳变沿数据条数：
+6402:      容），则应该使能此配置项。若使能此项则必须同时使能环功能使能 Bit[2]，否则该功能无
+6513:                        据流（<4GB）        的 SmartNC-〉SmartNT；单次传输支持的      1) 在长报文传输模式下，SmartNC 支持无限次重
+6519:                                        SmartNC- 〉 CtrlNT/SmartNT ， 和      次重传或禁止重传。
+6521: SmartNT                                CtrlNT/SmartNT-〉SmartNC；单次传输支   1、 在短报文传输模式下，SmartNT 可响应最多 16
+6538: SmartNC 端口和 4 路 SmartNT 端口。在实际使用过程中，建议根据使用场景及
+7382:                                  步进行，避免出现一致性问题;（限制在一个 block
+8221: 访问接口，实现 SmartNC 向 SmartNT/控制流 NT 发起数据访问功能。
+8243: 的 SmartNC 与配对的 SmartNT 之间通过一条虚拟的点对点通道进行通信；传输
+8245: 方向是单向的，即数据只能由 SmartNC 传向 SmartNT，不支持 SmartNT 向
+8474:    4) 初始化工作模式配置寄存器，使能相应路 SmartNC。
+8577: 据访问节点数量等因素限制，SmartNC 占用的网络实时带宽可能存在波动；因此，
+8716:       SmartNC 可针对控制流 NT/SmartNT 发起访问，提供同步 FIFO 访问接口。
+8906: 问接口，实现 SmartNC/控制流 NC 对 SmartNT 发起的数据访问功能。
+8931: 短报文工作模式。在该模式下，SmartNT 单次传输可接收/发送的数据量范围为
+8948:    2) 初始化工作模式配置寄存器，使能相应路 SmartNC。
+9211:    手册中的相关内容），则应该使能此配置项。若使能此项则必须同时使能环功能使
+10018:  工作模式寄存器 12    bit[11:0]: SmartNC 主动发送数据时的第 1 路目标 NT；
+10026:  工作模式寄存器 13    bit[11:0]: SmartNC 主动发送数据时的第 2 路目标 NT；
+10034:  工作模式寄存器 14    bit[11:0]: SmartNC 主动发送数据时的第 3 路目标 NT；
+10042:  工作模式寄存器 16    Bit[15:0]: SmartNC 发送超时时间
+10044:  工作模式寄存器 17    Bit[15:0]: SmartNC 发送目标子地址
+10046:  工作模式寄存器 21    SmartNC 配置寄存器
+10069:  工作模式寄存器 18   Bit[15:0]: SmartNC 传输周期（单位 us）
+10071:  工作模式寄存器 19   Bit[15:0]: SmartNC 传输周期开始时刻指针
+10073:  工作模式寄存器 20   Bit[15:0]: SmartNC 传输周期结束时刻指针
+10085:  工作模式寄存器 25   Bit[1:0]: IO 回读时 SmartNC 主动发送的信号跳变沿数据条数：
+10137:      5）配置工作模式寄存器 24 的 bit1 为“1”使能 SmartNC 主动发送功能；
+10138:      6）通过工作模式寄存器 23 的 bit2 选择触发 SmartNC 开始数据传输的条件：
+10142:      7）通过工作模式寄存器 12~14、16、17、21 配置 SmartNC 数据传输的目标
+10168:      2）配置芯片工作模式寄存器，向芯片第 1 路 SmartNT 发送命令，子地址为
+10481:      2）配置芯片工作模式寄存器，向芯片第 1 路 SmartNT 发送命令，子地址为
+10819:  工作模式寄存器 23   Bit[8]: 智能接口接收数据写入 SmartNC 主动发送 FIFO(rx_fifo)
+10846: 工作模式寄存器 24 的 bit1 选择。主动发送即芯片将智能接口数据通过 SmartNC
+11976: 工作模式寄存器 12   bit[11:0]: SmartNC 主动发送数据时的第 1 路目标 NT；
+11984: 工作模式寄存器 13   bit[11:0]: SmartNC 主动发送数据时的第 2 路目标 NT；
+11992: 工作模式寄存器 14   bit[11:0]: SmartNC 主动发送数据时的第 3 路目标 NT；
+12017: 工作模式寄存器 16   Bit[15:0]: SmartNC 发送超时时间
+12019: 工作模式寄存器 17   Bit[15:0]: SmartNC 发送目标子地址
+12021: 工作模式寄存器 18   Bit[15:0]: SmartNC 传输周期（单位 us）
+12023: 工作模式寄存器 19   Bit[15:0]: SmartNC 传输周期开始时刻指针
+12025: 工作模式寄存器 20   Bit[15:0]: SmartNC 传输周期结束时刻指针
+12027: 工作模式寄存器 21   SmartNC 配置寄存器
+12085: 工作模式寄存器 23   Bit[0]: IO 回读数据写入 SmartNC 主动发送 FIFO；
+12105: 工作模式寄存器 24   SmartNC 发送配置寄存器
+12157: 工作模式寄存器 25   Bit[1:0]: IO 回读时 SmartNC 主动发送的信号跳变沿数据条数：
+12526: SmartNC 运行状态、芯片诊断信息等内容非读取。向 JLK1263 的 SmartNT 发起
+14065:                            自环网
