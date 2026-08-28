@@ -66066,7 +66066,9 @@
    "platform": "any",
    "desc": "动作教学",
    "desc_zh": "动作教学",
-   "desc_en": "动作教学"
+   "desc_en": "动作教学",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-bookkeeping",
@@ -66080,7 +66082,9 @@
    "platform": "any",
    "desc": "记账方法",
    "desc_zh": "记账方法",
-   "desc_en": "记账方法"
+   "desc_en": "记账方法",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pet-bath2",
@@ -66094,7 +66098,9 @@
    "platform": "any",
    "desc": "宠物洗澡",
    "desc_zh": "宠物洗澡",
-   "desc_en": "宠物洗澡"
+   "desc_en": "宠物洗澡",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-hot-drink",
@@ -66108,7 +66114,9 @@
    "platform": "any",
    "desc": "热饮养生",
    "desc_zh": "热饮养生",
-   "desc_en": "热饮养生"
+   "desc_en": "热饮养生",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pet-disease",
@@ -66122,7 +66130,9 @@
    "platform": "any",
    "desc": "宠物常见病",
    "desc_zh": "宠物常见病",
-   "desc_en": "宠物常见病"
+   "desc_en": "宠物常见病",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-wall-mold",
@@ -66136,7 +66146,9 @@
    "platform": "any",
    "desc": "墙面除霉",
    "desc_zh": "墙面除霉",
-   "desc_en": "墙面除霉"
+   "desc_en": "墙面除霉",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-curling",
@@ -66150,7 +66162,9 @@
    "platform": "any",
    "desc": "卷发造型",
    "desc_zh": "卷发造型",
-   "desc_en": "卷发造型"
+   "desc_en": "卷发造型",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-origami",
@@ -66164,7 +66178,9 @@
    "platform": "any",
    "desc": "折纸教程",
    "desc_zh": "折纸教程",
-   "desc_en": "折纸教程"
+   "desc_en": "折纸教程",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-phone-et",
@@ -66178,7 +66194,9 @@
    "platform": "any",
    "desc": "电话礼仪",
    "desc_zh": "电话礼仪",
-   "desc_en": "电话礼仪"
+   "desc_en": "电话礼仪",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-portrait",
@@ -66192,7 +66210,9 @@
    "platform": "any",
    "desc": "人像拍摄",
    "desc_zh": "人像拍摄",
-   "desc_en": "人像拍摄"
+   "desc_en": "人像拍摄",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-menu-plan",
@@ -66206,7 +66226,9 @@
    "platform": "any",
    "desc": "菜单规划",
    "desc_zh": "菜单规划",
-   "desc_en": "菜单规划"
+   "desc_en": "菜单规划",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-seasoning",
@@ -66220,7 +66242,9 @@
    "platform": "any",
    "desc": "调味技巧",
    "desc_zh": "调味技巧",
-   "desc_en": "调味技巧"
+   "desc_en": "调味技巧",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-appliance-life",
@@ -66234,7 +66258,9 @@
    "platform": "any",
    "desc": "家电寿命",
    "desc_zh": "家电寿命",
-   "desc_en": "家电寿命"
+   "desc_en": "家电寿命",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pickle-store",
@@ -66248,7 +66274,9 @@
    "platform": "any",
    "desc": "腌菜保存",
    "desc_zh": "腌菜保存",
-   "desc_en": "腌菜保存"
+   "desc_en": "腌菜保存",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-weight-pick",
@@ -66262,7 +66290,9 @@
    "platform": "any",
    "desc": "重量选择",
    "desc_zh": "重量选择",
-   "desc_en": "重量选择"
+   "desc_en": "重量选择",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-cambodia",
@@ -66276,7 +66306,9 @@
    "platform": "any",
    "desc": "柬埔寨国家",
    "desc_zh": "柬埔寨国家",
-   "desc_en": "柬埔寨国家"
+   "desc_en": "柬埔寨国家",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-age-edu",
@@ -66290,7 +66322,9 @@
    "platform": "any",
    "desc": "分龄教育",
    "desc_zh": "分龄教育",
-   "desc_en": "分龄教育"
+   "desc_en": "分龄教育",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-base-makeup",
@@ -66304,7 +66338,9 @@
    "platform": "any",
    "desc": "底妆技巧",
    "desc_zh": "底妆技巧",
-   "desc_en": "底妆技巧"
+   "desc_en": "底妆技巧",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-dehumid",
@@ -66318,7 +66354,9 @@
    "platform": "any",
    "desc": "除湿方法",
    "desc_zh": "除湿方法",
-   "desc_en": "除湿方法"
+   "desc_en": "除湿方法",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-turtle-health",
@@ -66332,7 +66370,9 @@
    "platform": "any",
    "desc": "龟病预防",
    "desc_zh": "龟病预防",
-   "desc_en": "龟病预防"
+   "desc_en": "龟病预防",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-cold-drink",
@@ -66346,7 +66386,9 @@
    "platform": "any",
    "desc": "冰饮制作",
    "desc_zh": "冰饮制作",
-   "desc_en": "冰饮制作"
+   "desc_en": "冰饮制作",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-bake-fix",
@@ -66360,7 +66402,9 @@
    "platform": "any",
    "desc": "烘焙失败排查",
    "desc_zh": "烘焙失败排查",
-   "desc_en": "烘焙失败排查"
+   "desc_en": "烘焙失败排查",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-crochet",
@@ -66374,7 +66418,9 @@
    "platform": "any",
    "desc": "钩针基础",
    "desc_zh": "钩针基础",
-   "desc_en": "钩针基础"
+   "desc_en": "钩针基础",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-anal-gland",
@@ -66388,7 +66434,9 @@
    "platform": "any",
    "desc": "肛门腺护理",
    "desc_zh": "肛门腺护理",
-   "desc_en": "肛门腺护理"
+   "desc_en": "肛门腺护理",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-anti-theft",
@@ -66402,7 +66450,9 @@
    "platform": "any",
    "desc": "防盗措施",
    "desc_zh": "防盗措施",
-   "desc_en": "防盗措施"
+   "desc_en": "防盗措施",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-run-prevent",
@@ -66416,7 +66466,9 @@
    "platform": "any",
    "desc": "跑步损伤预防",
    "desc_zh": "跑步损伤预防",
-   "desc_en": "跑步损伤预防"
+   "desc_en": "跑步损伤预防",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-bird-health",
@@ -66430,7 +66482,9 @@
    "platform": "any",
    "desc": "健康观察",
    "desc_zh": "健康观察",
-   "desc_en": "健康观察"
+   "desc_en": "健康观察",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-blow-dry",
@@ -66444,7 +66498,9 @@
    "platform": "any",
    "desc": "吹风造型",
    "desc_zh": "吹风造型",
-   "desc_en": "吹风造型"
+   "desc_en": "吹风造型",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-wechat-et",
@@ -66458,7 +66514,9 @@
    "platform": "any",
    "desc": "微信沟通礼仪",
    "desc_zh": "微信沟通礼仪",
-   "desc_en": "微信沟通礼仪"
+   "desc_en": "微信沟通礼仪",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-compose",
@@ -66472,7 +66530,9 @@
    "platform": "any",
    "desc": "构图法则",
    "desc_zh": "构图法则",
-   "desc_en": "构图法则"
+   "desc_en": "构图法则",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-water-care",
@@ -66486,7 +66546,9 @@
    "platform": "any",
    "desc": "水质维护",
    "desc_zh": "水质维护",
-   "desc_en": "水质维护"
+   "desc_en": "水质维护",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-heat-level",
@@ -66500,7 +66562,9 @@
    "platform": "any",
    "desc": "火候判断",
    "desc_zh": "火候判断",
-   "desc_en": "火候判断"
+   "desc_en": "火候判断",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-appliance-clean",
@@ -66514,7 +66578,9 @@
    "platform": "any",
    "desc": "家电清洁",
    "desc_zh": "家电清洁",
-   "desc_en": "家电清洁"
+   "desc_en": "家电清洁",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-nitrite-safe",
@@ -66528,7 +66594,9 @@
    "platform": "any",
    "desc": "亚硝酸盐安全",
    "desc_zh": "亚硝酸盐安全",
-   "desc_en": "亚硝酸盐安全"
+   "desc_en": "亚硝酸盐安全",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-split-plan",
@@ -66542,7 +66610,9 @@
    "platform": "any",
    "desc": "分化训练",
    "desc_zh": "分化训练",
-   "desc_en": "分化训练"
+   "desc_en": "分化训练",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-californium",
@@ -66556,7 +66626,9 @@
    "platform": "any",
    "desc": "锎元素",
    "desc_zh": "锎元素",
-   "desc_en": "锎元素"
+   "desc_en": "锎元素",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-ymc-sidebar",
@@ -66570,7 +66642,10 @@
    "platform": "any",
    "desc": "DSH Web Client 的 VSCode 风格文件树侧栏插件：虚拟化懒加载文件树，支持文本 / Markdown / 图片预览。",
    "desc_zh": "DSH Web Client 的 VSCode 风格文件树侧栏插件：虚拟化懒加载文件树，支持文本 / Markdown / 图片预览。",
-   "desc_en": "DSH Web Client 的 VSCode 风格文件树侧栏插件：虚拟化懒加载文件树，支持文本 / Markdown / 图片预览。"
+   "desc_en": "DSH Web Client 的 VSCode 风格文件树侧栏插件：虚拟化懒加载文件树，支持文本 / Markdown / 图片预览。",
+   "webonly": true,
+   "testDate": "2026-08-28",
+   "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8."
   },
   {
    "name": "dsh-hand-care",
@@ -66584,7 +66659,9 @@
    "platform": "any",
    "desc": "手部护理",
    "desc_zh": "手部护理",
-   "desc_en": "手部护理"
+   "desc_en": "手部护理",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-resize",
@@ -66595,7 +66672,9 @@
    "forks": 0,
    "updated": "2026-08-20",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-lip-pick",
@@ -66609,7 +66688,9 @@
    "platform": "any",
    "desc": "口红选择",
    "desc_zh": "口红选择",
-   "desc_en": "口红选择"
+   "desc_en": "口红选择",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-veg-pest",
@@ -66623,7 +66704,9 @@
    "platform": "any",
    "desc": "病虫害防治",
    "desc_zh": "病虫害防治",
-   "desc_en": "病虫害防治"
+   "desc_en": "病虫害防治",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-oven-temp",
@@ -66637,7 +66720,9 @@
    "platform": "any",
    "desc": "烤箱温度",
    "desc_zh": "烤箱温度",
-   "desc_en": "烤箱温度"
+   "desc_en": "烤箱温度",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-milk-tea",
@@ -66651,7 +66736,9 @@
    "platform": "any",
    "desc": "奶茶配方",
    "desc_zh": "奶茶配方",
-   "desc_en": "奶茶配方"
+   "desc_en": "奶茶配方",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-knit-intro",
@@ -66665,7 +66752,9 @@
    "platform": "any",
    "desc": "编织入门",
    "desc_zh": "编织入门",
-   "desc_en": "编织入门"
+   "desc_en": "编织入门",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-dest-check",
@@ -66679,7 +66768,9 @@
    "platform": "any",
    "desc": "目的地清单",
    "desc_zh": "目的地清单",
-   "desc_en": "目的地清单"
+   "desc_en": "目的地清单",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-bird-tame",
@@ -66693,7 +66784,9 @@
    "platform": "any",
    "desc": "驯养上手",
    "desc_zh": "驯养上手",
-   "desc_en": "驯养上手"
+   "desc_en": "驯养上手",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-turtle-care",
@@ -66707,7 +66800,9 @@
    "platform": "any",
    "desc": "乌龟饲养",
    "desc_zh": "乌龟饲养",
-   "desc_en": "乌龟饲养"
+   "desc_en": "乌龟饲养",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-hair-wash-care",
@@ -66721,7 +66816,9 @@
    "platform": "any",
    "desc": "洗发护发",
    "desc_zh": "洗发护发",
-   "desc_en": "洗发护发"
+   "desc_en": "洗发护发",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-blanch-skill",
@@ -66735,7 +66832,9 @@
    "platform": "any",
    "desc": "焯水去腥",
    "desc_zh": "焯水去腥",
-   "desc_en": "焯水去腥"
+   "desc_en": "焯水去腥",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pickle-time",
@@ -66749,7 +66848,9 @@
    "platform": "any",
    "desc": "腌制时间",
    "desc_zh": "腌制时间",
-   "desc_en": "腌制时间"
+   "desc_en": "腌制时间",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-run-recover",
@@ -66763,7 +66864,9 @@
    "platform": "any",
    "desc": "跑步恢复",
    "desc_zh": "跑步恢复",
-   "desc_en": "跑步恢复"
+   "desc_en": "跑步恢复",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-acupoint",
@@ -66777,7 +66880,9 @@
    "platform": "any",
    "desc": "穴位保健",
    "desc_zh": "穴位保健",
-   "desc_en": "穴位保健"
+   "desc_en": "穴位保健",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-feed-rule",
@@ -66791,7 +66896,9 @@
    "platform": "any",
    "desc": "喂食规则",
    "desc_zh": "喂食规则",
-   "desc_en": "喂食规则"
+   "desc_en": "喂食规则",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-calcium",
@@ -66805,7 +66912,9 @@
    "platform": "any",
    "desc": "钙元素",
    "desc_zh": "钙元素",
-   "desc_en": "钙元素"
+   "desc_en": "钙元素",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-nail-steps",
@@ -66819,7 +66928,9 @@
    "platform": "any",
    "desc": "美甲流程",
    "desc_zh": "美甲流程",
-   "desc_en": "美甲流程"
+   "desc_en": "美甲流程",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-eye-makeup",
@@ -66833,7 +66944,9 @@
    "platform": "any",
    "desc": "眼妆基础",
    "desc_zh": "眼妆基础",
-   "desc_en": "眼妆基础"
+   "desc_en": "眼妆基础",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-balcony-care",
@@ -66847,7 +66960,9 @@
    "platform": "any",
    "desc": "浇水施肥",
    "desc_zh": "浇水施肥",
-   "desc_en": "浇水施肥"
+   "desc_en": "浇水施肥",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-biscuit-recipe",
@@ -66861,7 +66976,9 @@
    "platform": "any",
    "desc": "饼干配方",
    "desc_zh": "饼干配方",
-   "desc_en": "饼干配方"
+   "desc_en": "饼干配方",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-juice-mix",
@@ -66875,7 +66992,9 @@
    "platform": "any",
    "desc": "果汁搭配",
    "desc_zh": "果汁搭配",
-   "desc_en": "果汁搭配"
+   "desc_en": "果汁搭配",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-trip-insure",
