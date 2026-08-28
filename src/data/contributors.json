@@ -796,5 +796,17 @@
     "pkg": ""
    }
   ]
+ },
+ {
+  "github": "ZZZjf13960",
+  "avatar": "https://avatars.githubusercontent.com/u/222472295?v=4",
+  "plugins": [
+   {
+    "name": "dsh-onfail",
+    "slug": "dsh-onfail",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
  }
 ]
