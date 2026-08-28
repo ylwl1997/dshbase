@@ -69496,7 +69496,9 @@
    "platform": "any",
    "desc": "定价计算",
    "desc_zh": "定价计算",
-   "desc_en": "定价计算"
+   "desc_en": "定价计算",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-gold-clean",
@@ -69510,7 +69512,9 @@
    "platform": "any",
    "desc": "珠宝清洗",
    "desc_zh": "珠宝清洗",
-   "desc_en": "珠宝清洗"
+   "desc_en": "珠宝清洗",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-copy-pick",
@@ -69524,7 +69528,9 @@
    "platform": "any",
    "desc": "字帖选择",
    "desc_zh": "字帖选择",
-   "desc_en": "字帖选择"
+   "desc_en": "字帖选择",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-item-route",
@@ -69538,7 +69544,9 @@
    "platform": "any",
    "desc": "旧物处理去向",
    "desc_zh": "旧物处理去向",
-   "desc_en": "旧物处理去向"
+   "desc_en": "旧物处理去向",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-dip-sauce",
@@ -69552,7 +69560,9 @@
    "platform": "any",
    "desc": "蘸料搭配",
    "desc_zh": "蘸料搭配",
-   "desc_en": "蘸料搭配"
+   "desc_en": "蘸料搭配",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-yoga-timing",
@@ -69566,7 +69576,9 @@
    "platform": "any",
    "desc": "练瑜伽时机",
    "desc_zh": "练瑜伽时机",
-   "desc_en": "练瑜伽时机"
+   "desc_en": "练瑜伽时机",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-doc-list",
@@ -69580,7 +69592,9 @@
    "platform": "any",
    "desc": "家庭证件清单",
    "desc_zh": "家庭证件清单",
-   "desc_en": "家庭证件清单"
+   "desc_en": "家庭证件清单",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-camp-site",
@@ -69594,7 +69608,9 @@
    "platform": "any",
    "desc": "营地选址",
    "desc_zh": "营地选址",
-   "desc_en": "营地选址"
+   "desc_en": "营地选址",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-vomit-judge",
@@ -69608,7 +69624,9 @@
    "platform": "any",
    "desc": "误食催吐判断",
    "desc_zh": "误食催吐判断",
-   "desc_en": "误食催吐判断"
+   "desc_en": "误食催吐判断",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-rig-pick",
@@ -69622,7 +69640,9 @@
    "platform": "any",
    "desc": "钓组搭配",
    "desc_zh": "钓组搭配",
-   "desc_en": "钓组搭配"
+   "desc_en": "钓组搭配",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-finger-train",
@@ -69636,7 +69656,9 @@
    "platform": "any",
    "desc": "手指训练",
    "desc_zh": "手指训练",
-   "desc_en": "手指训练"
+   "desc_en": "手指训练",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-baozi-steam",
@@ -69650,7 +69672,9 @@
    "platform": "any",
    "desc": "蒸制时间",
    "desc_zh": "蒸制时间",
-   "desc_en": "蒸制时间"
+   "desc_en": "蒸制时间",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-perfume-layer",
@@ -69664,7 +69688,9 @@
    "platform": "any",
    "desc": "香水叠喷搭配",
    "desc_zh": "香水叠喷搭配",
-   "desc_en": "香水叠喷搭配"
+   "desc_en": "香水叠喷搭配",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-hanfu-size",
@@ -69678,7 +69704,9 @@
    "platform": "any",
    "desc": "汉服尺码计算",
    "desc_zh": "汉服尺码计算",
-   "desc_en": "汉服尺码计算"
+   "desc_en": "汉服尺码计算",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-tea-pick",
@@ -69692,7 +69720,9 @@
    "platform": "any",
    "desc": "应季选茶",
    "desc_zh": "应季选茶",
-   "desc_en": "应季选茶"
+   "desc_en": "应季选茶",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-stall-site",
@@ -69706,7 +69736,9 @@
    "platform": "any",
    "desc": "摆摊选址",
    "desc_zh": "摆摊选址",
-   "desc_en": "摆摊选址"
+   "desc_en": "摆摊选址",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-water-resist",
@@ -69720,7 +69752,9 @@
    "platform": "any",
    "desc": "防水等级判断",
    "desc_zh": "防水等级判断",
-   "desc_en": "防水等级判断"
+   "desc_en": "防水等级判断",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-burundi",
@@ -69734,7 +69768,9 @@
    "platform": "any",
    "desc": "布隆迪国",
    "desc_zh": "布隆迪国",
-   "desc_en": "布隆迪国"
+   "desc_en": "布隆迪国",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-wardrobe-min",
@@ -69748,7 +69784,9 @@
    "platform": "any",
    "desc": "衣橱精简",
    "desc_zh": "衣橱精简",
-   "desc_en": "衣橱精简"
+   "desc_en": "衣橱精简",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-cook-time",
@@ -69762,7 +69800,9 @@
    "platform": "any",
    "desc": "涮烫时间表",
    "desc_zh": "涮烫时间表",
-   "desc_en": "涮烫时间表"
+   "desc_en": "涮烫时间表",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-posture-check",
@@ -69776,7 +69816,9 @@
    "platform": "any",
    "desc": "体态自评",
    "desc_zh": "体态自评",
-   "desc_en": "体态自评"
+   "desc_en": "体态自评",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pet-pill",
@@ -69790,7 +69832,9 @@
    "platform": "any",
    "desc": "宠物喂药",
    "desc_zh": "宠物喂药",
-   "desc_en": "宠物喂药"
+   "desc_en": "宠物喂药",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-repot-check",
@@ -69804,7 +69848,9 @@
    "platform": "any",
    "desc": "换盆判断",
    "desc_zh": "换盆判断",
-   "desc_en": "换盆判断"
+   "desc_en": "换盆判断",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-float-setup",
@@ -69818,7 +69864,9 @@
    "platform": "any",
    "desc": "调漂入门",
    "desc_zh": "调漂入门",
-   "desc_en": "调漂入门"
+   "desc_en": "调漂入门",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-practice-plan",
@@ -69832,7 +69880,9 @@
    "platform": "any",
    "desc": "练琴计划",
    "desc_zh": "练琴计划",
-   "desc_en": "练琴计划"
+   "desc_en": "练琴计划",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-dough-mix",
@@ -69846,7 +69896,9 @@
    "platform": "any",
    "desc": "和面比例",
    "desc_zh": "和面比例",
-   "desc_en": "和面比例"
+   "desc_en": "和面比例",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-scent-pick",
@@ -69860,7 +69912,9 @@
    "platform": "any",
    "desc": "香调场景选择",
    "desc_zh": "香调场景选择",
-   "desc_en": "香调场景选择"
+   "desc_en": "香调场景选择",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-hanfu-style",
@@ -69874,7 +69928,9 @@
    "platform": "any",
    "desc": "汉服形制选择",
    "desc_zh": "汉服形制选择",
-   "desc_en": "汉服形制选择"
+   "desc_en": "汉服形制选择",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-cafe-start",
@@ -69888,7 +69944,9 @@
    "platform": "any",
    "desc": "咖啡店启动测算",
    "desc_zh": "咖啡店启动测算",
-   "desc_en": "咖啡店启动测算"
+   "desc_en": "咖啡店启动测算",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-watch-maintain",
@@ -69902,7 +69960,9 @@
    "platform": "any",
    "desc": "手表保养",
    "desc_zh": "手表保养",
-   "desc_en": "手表保养"
+   "desc_en": "手表保养",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pot-base",
@@ -69916,7 +69976,9 @@
    "platform": "any",
    "desc": "火锅锅底选择",
    "desc_zh": "火锅锅底选择",
-   "desc_en": "火锅锅底选择"
+   "desc_en": "火锅锅底选择",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-declutter-decide",
@@ -69930,7 +69992,9 @@
    "platform": "any",
    "desc": "断舍离决策",
    "desc_zh": "断舍离决策",
-   "desc_en": "断舍离决策"
+   "desc_en": "断舍离决策",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-image-preview",
@@ -69944,7 +70008,9 @@
    "platform": "any",
    "desc": "DSH 会话内图片预览插件：静态图片服务 + 文本渲染(双字体防乱码) + SVG转PNG，让 AI 在会话里直接发图片",
    "desc_zh": "DSH 会话内图片预览插件：静态图片服务 + 文本渲染(双字体防乱码) + SVG转PNG，让 AI 在会话里直接发图片",
-   "desc_en": "DSH 会话内图片预览插件：静态图片服务 + 文本渲染(双字体防乱码) + SVG转PNG，让 AI 在会话里直接发图片"
+   "desc_en": "DSH 会话内图片预览插件：静态图片服务 + 文本渲染(双字体防乱码) + SVG转PNG，让 AI 在会话里直接发图片",
+   "testDate": "2026-08-28",
+   "note": "验证: network-fail"
   },
   {
    "name": "dsh-breath-tech",
@@ -69958,7 +70024,9 @@
    "platform": "any",
    "desc": "呼吸法指导",
    "desc_zh": "呼吸法指导",
-   "desc_en": "呼吸法指导"
+   "desc_en": "呼吸法指导",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-fert-plan",
@@ -69972,7 +70040,9 @@
    "platform": "any",
    "desc": "施肥方案",
    "desc_zh": "施肥方案",
-   "desc_en": "施肥方案"
+   "desc_en": "施肥方案",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-metronome",
@@ -69986,7 +70056,9 @@
    "platform": "any",
    "desc": "节拍练习",
    "desc_zh": "节拍练习",
-   "desc_en": "节拍练习"
+   "desc_en": "节拍练习",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-bait-pick",
@@ -70000,7 +70072,9 @@
    "platform": "any",
    "desc": "鱼饵选择",
    "desc_zh": "鱼饵选择",
-   "desc_en": "鱼饵选择"
+   "desc_en": "鱼饵选择",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-tent-pick",
@@ -70014,7 +70088,9 @@
    "platform": "any",
    "desc": "帐篷选择",
    "desc_zh": "帐篷选择",
-   "desc_en": "帐篷选择"
+   "desc_en": "帐篷选择",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-stretch-plan",
@@ -70028,7 +70104,9 @@
    "platform": "any",
    "desc": "运动拉伸计划",
    "desc_zh": "运动拉伸计划",
-   "desc_en": "运动拉伸计划"
+   "desc_en": "运动拉伸计划",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-candle-make",
@@ -70042,7 +70120,9 @@
    "platform": "any",
    "desc": "香薰蜡烛配方",
    "desc_zh": "香薰蜡烛配方",
-   "desc_en": "香薰蜡烛配方"
+   "desc_en": "香薰蜡烛配方",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-bulgaria",
@@ -70056,7 +70136,9 @@
    "platform": "any",
    "desc": "保加利亚国家",
    "desc_zh": "保加利亚国家",
-   "desc_en": "保加利亚国家"
+   "desc_en": "保加利亚国家",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-fish-weather",
@@ -70070,7 +70152,9 @@
    "platform": "any",
    "desc": "出钓天气判断",
    "desc_zh": "出钓天气判断",
-   "desc_en": "出钓天气判断"
+   "desc_en": "出钓天气判断",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-toilet-train",
@@ -70084,7 +70168,9 @@
    "platform": "any",
    "desc": "如厕训练",
    "desc_zh": "如厕训练",
-   "desc_en": "如厕训练"
+   "desc_en": "如厕训练",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-cutting-guide",
@@ -70098,7 +70184,9 @@
    "platform": "any",
    "desc": "扦插繁殖指南",
    "desc_zh": "扦插繁殖指南",
-   "desc_en": "扦插繁殖指南"
+   "desc_en": "扦插繁殖指南",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-guitar-chord",
@@ -70112,7 +70200,9 @@
    "platform": "any",
    "desc": "吉他调性和弦",
    "desc_zh": "吉他调性和弦",
-   "desc_en": "吉他调性和弦"
+   "desc_en": "吉他调性和弦",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-buenos-aires-city",
@@ -70126,7 +70216,9 @@
    "platform": "any",
    "desc": "布宜诺斯艾利斯市",
    "desc_zh": "布宜诺斯艾利斯市",
-   "desc_en": "布宜诺斯艾利斯市"
+   "desc_en": "布宜诺斯艾利斯市",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-diffuser-use",
@@ -70140,7 +70232,9 @@
    "platform": "any",
    "desc": "香薰机用量",
    "desc_zh": "香薰机用量",
-   "desc_en": "香薰机用量"
+   "desc_en": "香薰机用量",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pose-pick",
@@ -70154,7 +70248,9 @@
    "platform": "any",
    "desc": "瑜伽体式选择",
    "desc_zh": "瑜伽体式选择",
-   "desc_en": "瑜伽体式选择"
+   "desc_en": "瑜伽体式选择",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-fear-pet",
@@ -70168,7 +70264,9 @@
    "platform": "any",
    "desc": "恐惧缓解",
    "desc_zh": "恐惧缓解",
-   "desc_en": "恐惧缓解"
+   "desc_en": "恐惧缓解",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-prune-guide",
@@ -70182,7 +70280,9 @@
    "platform": "any",
    "desc": "修剪指南",
    "desc_zh": "修剪指南",
-   "desc_en": "修剪指南"
+   "desc_en": "修剪指南",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-algo-compare",
@@ -70196,7 +70296,9 @@
    "platform": "any",
    "desc": "算法耗时对比",
    "desc_zh": "算法耗时对比",
-   "desc_en": "算法耗时对比"
+   "desc_en": "算法耗时对比",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-btu2kj",
@@ -70210,7 +70312,9 @@
    "platform": "any",
    "desc": "BTU 转千焦",
    "desc_zh": "BTU 转千焦",
-   "desc_en": "BTU 转千焦"
+   "desc_en": "BTU 转千焦",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-eo-dilute",
@@ -70224,7 +70328,9 @@
    "platform": "any",
    "desc": "精油稀释计算",
    "desc_zh": "精油稀释计算",
-   "desc_en": "精油稀释计算"
+   "desc_en": "精油稀释计算",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-aggression",
@@ -70238,7 +70344,9 @@
    "platform": "any",
    "desc": "攻击行为",
    "desc_zh": "攻击行为",
-   "desc_en": "攻击行为"
+   "desc_en": "攻击行为",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-picky-eat",
@@ -70252,7 +70360,9 @@
    "platform": "any",
    "desc": "挑食纠正",
    "desc_zh": "挑食纠正",
-   "desc_en": "挑食纠正"
+   "desc_en": "挑食纠正",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-pest-plan",
@@ -70266,7 +70376,9 @@
    "platform": "any",
    "desc": "病虫害诊断",
    "desc_zh": "病虫害诊断",
-   "desc_en": "病虫害诊断"
+   "desc_en": "病虫害诊断",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-jumping-fix",
@@ -70280,7 +70392,9 @@
    "platform": "any",
    "desc": "扑人纠正",
    "desc_zh": "扑人纠正",
-   "desc_en": "扑人纠正"
+   "desc_en": "扑人纠正",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-bromine",
@@ -70294,7 +70408,9 @@
    "platform": "any",
    "desc": "溴元素",
    "desc_zh": "溴元素",
-   "desc_en": "溴元素"
+   "desc_en": "溴元素",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-math-modeling-skills-Gatecraft-",
@@ -70305,7 +70421,9 @@
    "forks": 0,
    "updated": "2026-08-20",
    "added": "2026-08-25T08:08:13.052637+00:00",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-08-28",
+   "note": "验证: runtime-fail"
   },
   {
    "name": "dsh-brazil",
