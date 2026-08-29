@@ -450,6 +450,18 @@
   ]
  },
  {
+  "github": "Jokasa7",
+  "avatar": "https://avatars.githubusercontent.com/u/42598207?v=4",
+  "plugins": [
+   {
+    "name": "dsh-product-subagent-console",
+    "slug": "dsh-product-subagent-console",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "KhalilHsu",
   "avatar": "https://avatars.githubusercontent.com/u/65265303?v=4",
   "plugins": [
