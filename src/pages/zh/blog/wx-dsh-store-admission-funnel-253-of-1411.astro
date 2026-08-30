@@ -1,0 +1,16 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
+---
+<BlogPost title="一个对 1225 条记录说不的插件商城:DSH-Store 准入漏斗拆解 | dshbase 中文" description="1411 条目录记录只放进 253 个:三层准入闸、R0 到 R3 风险分级怎么运作,哪些环节还得靠作者自报" currentPath="/blog/wx-dsh-store-admission-funnel-253-of-1411/" category="分析">
+  <h1>一个对 1225 条记录说不的插件商城:DSH-Store 准入漏斗拆解</h1>
+  <p class="muted small" style="margin-bottom:20px">2026年8月31日 · dshbase · 改写解读</p>
+  <p class="muted small">本文基于公众号「山海只能局」文章《几千个插件,为什么 DSH-Store 只让两百多个进场》的事实素材完全改写。原作者自述参与 DSH-Store 开发,漏斗数字为其自报口径,dshbase 未独立复现全部审核过程。</p>
+  <p class="muted small"><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1788109231&amp;ver=6936&amp;signature=8amkXpMw*6GOKBmUTNZCcmIrqgASv0J7DWv36mZKMI4e1oaocLFHMoTuNhX0AlQsR-msRS0ViJmQw1RX*MYB6KC5fp*DpETurGPBeQQf1DlhqsVE92D90za3PWyxt7do&amp;new=1" rel="noopener noreferrer nofollow" target="_blank">参考/线索（微信；非原文搬运）</a> — 本文基于公众号「山海只能局」文章《几千个插件,为什么 DSH-Store 只让两百多个进场》的事实素材完全改写。原作者自述参与 DSH-Store 开发,漏斗数字为其自报口径,dshbase 未独立复现全部审核过程。</p>
+<p>DeepSeek Harness 的插件生态正在经历典型的开源式膨胀:先有仓库,再有清单,再有商城和一键安装。Awesome DSH Plugin 的机器目录已经堆到 1411 条,把各家商城、GitHub Topic、合集仓叠在一起,原始记录轻松数千。而社区项目 DSH-Store 交出的答卷是:只收 253 个。作为一档专门实测社区插件的站点,我们觉得漏斗本身比这个数字更有看头。</p><h2>为什么收录少反而值得审</h2><p>插件不是文章。文章收录错了顶多误导你;插件装错了,是带着你的文件、网络、API Key 在你 Agent 进程里跑的。Node.js 的安装生命周期说得很清楚:preinstall、install、prepare 这些脚本会在安装路径上自动执行——点一下安装,相当于在本机放行了一段别人写的程序。Star 数不会替你审这段程序,许可证也不会,它管的是分发授权,不管代码有没有小动作。</p><h2>三道闸各管一段时间点</h2><p><strong>开发闸。</strong>build-dsh-plugin 这套开发约束先验宿主适配:浏览器扩展、独立 MCP 服务功能再像,没有 dsh.bundle 契约就不是 DSH 插件。然后按风险分级——只读界面投影算 R0,动用 Host 服务或自带状态升 R1,外部进程、网络、凭据进 R2,碰 Profile 生命周期和重启的就是 R3。级别越高,要求的负面测试、故障注入和恢复证据越多。</p><p><strong>上架闸。</strong>每个收录项固定到完整的 40 位 Commit,商城不装浮动分支——今天审过的链接明天可能指向另一段代码。manifest、包名、版本、许可证、bundle patch、入口 ID、生命周期脚本要逐项对得上。目录里声明无安装脚本、固定 Commit 里却出现 prepare,按供应链身份不一致处理,不算笔误。</p><p><strong>本地闸。</strong>安装瞬间重新读在线目录,生成短时有效、单次使用的变更计划,写清目标 Profile、改动文件、重启要求;对 Profile 关键文件算哈希并加文件锁,状态漂移直接停止;装完做健康检查,失败恢复备份,重启观察交给进程外的守护角色。</p><h2>核对作者给的漏斗数字——以及他的立场</h2><p>作者报出的链路是:1411 条记录归并成 1365 个独立仓库,492 项进 npm 同源核验,335 项过结构门,230 项过源码边界,192 项过固定 Commit 审查,最终新增 186 项,商城由 48 涨到 234;第二轮审 99 个提交地址,新增 19 项、拒 61 项,收口到 253 项,其中 248 项有受保护安装路径。淘汰大头倒在身份和工程契约上,而非安全判决——没许可证、npm 与仓库不同源、没有可安装的 bundle 结构。</p><p>必须点破的一件事:写这篇文章的人自述参与 DSH-Store 开发,数字是自我口径,机制也在给自己的项目打分。我们 dshbase 从另一个方向得到的结论兼容:此前实测 101 个社区插件,能从 npm 干净装上的只有 11 个。目录里大多数条目过不了身份与打包这关,跟我们每一份安装日志都对得上。</p><h2>三道闸证明不了什么</h2><p>固定 Commit 证明你审的就是将要装的那份,不证明代码无害;自动化检查证明规则命中范围,不证明没有漏报;安装成功证明事务完成,不证明功能正确。把准入当终身安全认证是误读——作者自己也写了:版本、依赖、契约一变,旧证据作废。</p><p>对普通安装者,可迁移的动作其实很小:装任何社区插件前,确认 npm 包、仓库、Commit 三者同源,看一眼安装脚本会跑什么,并且永远自己钉死版本号。</p>
+<h2>在 dshbase 上</h2>
+<p>装随机 GitHub 插件前，先看<a href={directoryUrl}>已验证目录</a>与<a href={auditUrl}>审计说明</a>。</p>
+
+</BlogPost>

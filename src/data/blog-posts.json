@@ -1,5 +1,14 @@
 [
  {
+  "path": "/blog/wx-dsh-store-admission-funnel-253-of-1411/",
+  "cat": "Analysis",
+  "cat_zh": "分析",
+  "en": "A plugin store that said no to 1,225 entries: reading the DSH-Store admission numbers with you",
+  "zh": "一个对 1225 条记录说不的插件商城:DSH-Store 准入漏斗拆解",
+  "desc_en": "DSH-Store admits 253 of 1,411 catalog records through a three-layer gate. We check the funnel math, the risk tiers, and where it grades its own homework.",
+  "desc_zh": "1411 条目录记录只放进 253 个:三层准入闸、R0 到 R3 风险分级怎么运作,哪些环节还得靠作者自报"
+ },
+ {
   "path": "/blog/wx-agent-architecture-control-three-schools/",
   "cat": "Analysis",
   "cat_zh": "分析",
