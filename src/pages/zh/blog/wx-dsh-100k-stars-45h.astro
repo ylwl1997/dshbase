@@ -1,0 +1,16 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
+---
+<BlogPost title="DeepSeek Harness 45 小时破 10 万星：这波插件潮对使用者意味着什么 | dshbase 中文" description="DSH 开源 45 小时破 10 万星。本文拆解插件生态爆发对安装者的实际影响，以及哪些说法言过其实。" currentPath="/blog/wx-dsh-100k-stars-45h/" category="脉搏">
+  <h1>DeepSeek Harness 45 小时破 10 万星：这波插件潮对使用者意味着什么</h1>
+  <p class="muted small" style="margin-bottom:20px">2026年8月30日 · dshbase · 改写解读</p>
+  <p class="muted small">主题线索来自微信公众号「方直AI」文章，本文为改写分析，非原文搬运。</p>
+  <p class="muted small"><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1788099443&amp;ver=6936&amp;signature=test" rel="noopener noreferrer nofollow" target="_blank">参考/线索（微信；非原文搬运）</a> — 主题线索来自微信公众号「方直AI」文章，本文为改写分析，非原文搬运。</p>
+<h2>这个数字放在什么坐标里</h2><p>45 小时 10 万星，把 DeepSeek Harness 推进了 agent 框架增长最快的那一档——此前这个位置属于早期 Claude Code 生态。对 dshbase 的读者来说，比「装不装」更实用的问题是：星标曲线对插件供给意味着什么。</p><h2>插件为什么突然涌入</h2><ul><li>bundle 清单格式（<code>cordis.patch.yml</code> 一类）让一个合规插件大半是打包工作——投入低、曝光高。</li><li><code>dsh plugin add</code> 支持直接从 GitHub 仓库安装，作者不需要先发 npm。</li><li>一切皆插件：皮肤、工作流小改动都算插件，类目丰富度自然暴涨。</li></ul><h2>给热度加个滤镜</h2><p>星标冲得快，蹭 topic 的仓库也跟着来：挂了 <code>dsh-plugin</code> 标签但根本不是 bundle 的项目混在趋势列表里。这正是本目录先验证、后标 <code>verified</code> 的原因——从热榜装任何插件前，建议先在 dshbase 查一下它的详情页。</p>
+<h2>在 dshbase 上</h2>
+<p>装随机 GitHub 插件前，先看<a href={directoryUrl}>已验证目录</a>与<a href={auditUrl}>审计说明</a>。</p>
+
+</BlogPost>

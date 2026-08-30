@@ -1,0 +1,16 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('en', '/audit/');
+---
+<BlogPost title="DeepSeek Harness Hit 100K GitHub Stars in 45 Hours — What the Plugin Rush Means for You | dshbase" description="DeepSeek Harness crossed 100k stars in 45 hours. We break down what the plugin ecosystem boom changes for installers, and where the hype oversells." currentPath="/blog/wx-dsh-100k-stars-45h/" category="Pulse">
+  <h1>DeepSeek Harness Hit 100K GitHub Stars in 45 Hours — What the Plugin Rush Means for <span class="accent">You</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 30, 2026 · dshbase · rewritten field note</p>
+  <p class="muted small">Theme clue from a WeChat public-account post (方直AI); rewritten analysis, not a copy.</p>
+  <p class="muted small"><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1788099443&amp;ver=6936&amp;signature=test" rel="noopener noreferrer nofollow" target="_blank">Source clue (WeChat via Sogou; not a verbatim reprint)</a> — Theme clue from a WeChat public-account post (方直AI); rewritten analysis, not a copy.</p>
+<h2>The number, in context</h2><p>100,000 stars in 45 hours puts DeepSeek Harness in the fastest-growth tier of agent frameworks, a club previously occupied by Claude Code's early ecosystem. For dshbase readers the more useful question is not <em>whether</em> to install, but what the star curve implies for plugin supply.</p><h2>Why plugins are flooding in</h2><ul><li>The bundle manifest format (<code>cordis.patch.yml</code> and friends) makes a valid plugin mostly a packaging exercise — low effort, high reach.</li><li><code>dsh plugin add</code> works straight from a GitHub repo, so authors do not need npm publishing to ship.</li><li>Everything-is-a-plugin means UI skins and workflow tweaks count as plugins, inflating category variety fast.</li></ul><h2>Read the hype with a filter</h2><p>Star velocity also attracts topic squatting: repos tagged <code>dsh-plugin</code> that are not real bundles. This is exactly why our directory verifies installs before marking entries <code>verified</code>, and why the honest advice is: check the plugin page on dshbase before adding anything from a trending list.</p>
+<h2>On dshbase</h2>
+<p>Before installing random GitHub plugins, check the <a href={directoryUrl}>verified directory</a> and <a href={auditUrl}>audit notes</a>.</p>
+
+</BlogPost>

@@ -188,6 +188,12 @@
       "status": "seen",
       "slug": "",
       "at": "2026-08-27T09:05:00.000000+00:00"
+    },
+    {
+      "href": "https://mp.weixin.qq.com/s?src=11&timestamp=1788099737&ver=6936&signature=glIU0ueNc*5JeXxIXV1lZ8CdtvY-koC94T979zeYBnSinl0zOiZ-OZiTco6cCWGfkpfRmPj-*KSOuVRQYIRWVEfgqLVEss1ttdcLiA9RGeFVo0bLK4YfWv*LfUVh2ipo&new=1",
+      "title": "DeepSeek Harness开源45小时破10万星，插件生态直逼Claude Code",
+      "at": "2026-08-30T22:23:23",
+      "note": "rewrite-fail"
     }
   ],
   "published": [
@@ -316,6 +322,12 @@
       "slug": "wx-dsh-glm53-test",
       "at": "2026-08-25T06:37:56.327814+00:00",
       "batch": "daily"
+    },
+    {
+      "href": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgS2d3pscnm31aidZokFCdXsxlMVojE4NXL1qXa8Fplpd9j_7QronC2fD5LkNC_3OsD0UH0jGHO1FguiutxNlivQvqByHISCNE0hUCcl2uFx42nDbVsFmV0zEYcHl0YRNxkYt5mVs0j0-3Cyr-XcOTEYszc2I0Wqp3UfdV-wN6P9kcmxv1PcMAEeXEemM8ANXzk0FngkcvIpMHkINghVmykODdrgozfSg6bw..&type=2&query=DeepSeek Harness&token=B423EE30185CE72F595F001E33E95D625A9A73DC6A943C99",
+      "title": "DeepSeek Harness开源45小时破10万星，插件生态直逼Claude Code",
+      "slug": "wx-dsh-100k-stars-45h",
+      "at": "2026-08-30T22:25:59"
     }
   ],
   "updated_at": "2026-08-27T09:05:00.000000+00:00"

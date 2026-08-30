@@ -1,5 +1,14 @@
 [
  {
+  "path": "/blog/wx-dsh-100k-stars-45h/",
+  "cat": "Pulse",
+  "cat_zh": "脉搏",
+  "en": "DeepSeek Harness Hit 100K GitHub Stars in 45 Hours — What the Plugin Rush Means for You",
+  "zh": "DeepSeek Harness 45 小时破 10 万星：这波插件潮对使用者意味着什么",
+  "desc_en": "DeepSeek Harness crossed 100k stars in 45 hours. We break down what the plugin ecosystem boom changes for installers, and where the hype oversells.",
+  "desc_zh": "DSH 开源 45 小时破 10 万星。本文拆解插件生态爆发对安装者的实际影响，以及哪些说法言过其实。"
+ },
+ {
   "path": "/blog/wx-dsh-command-map/",
   "cat": "Guide",
   "cat_zh": "指南",
