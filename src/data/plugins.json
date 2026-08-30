@@ -39849,7 +39849,8 @@
    "webonly": true,
    "testDate": "2026-08-27",
    "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8.",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "note_l123": "web-only"
   },
   {
    "name": "dsh-workbench-layout",
@@ -49298,7 +49299,8 @@
    "depCount": 6,
    "depsOfficial": 4,
    "repoOwner": "rj-jiangyichen",
-   "_enriched": "2026-08-17|None"
+   "_enriched": "2026-08-17|None",
+   "note_l123": "runtime-fail"
   },
   {
    "name": "dsh-deveco-cli",
@@ -127279,7 +127281,8 @@
    "depsOfficial": 0,
    "repoOwner": "functy23",
    "_enriched": "2026-08-24|",
-   "testDate": "2026-08-27"
+   "testDate": "2026-08-27",
+   "note_l123": "web-only"
   },
   {
    "name": "dsh-client-ui-prism",
@@ -127307,7 +127310,8 @@
    "depsOfficial": 9,
    "repoOwner": "mantonlove",
    "_enriched": "2026-08-26|1.0.1",
-   "testDate": "2026-08-27"
+   "testDate": "2026-08-27",
+   "note_l123": "runtime-fail"
   },
   {
    "name": "dsh-essentials-bundle",
@@ -127336,7 +127340,8 @@
    "repoOwner": "lussey820",
    "_enriched": "2026-08-27|1.0.4",
    "webonly": true,
-   "testDate": "2026-08-27"
+   "testDate": "2026-08-27",
+   "note_l123": "web-only"
   }
  ],
  "Knowledge": [
@@ -140058,7 +140063,8 @@
    "platform": "any",
    "note": "验证: runtime-fail",
    "testDate": "2026-08-27",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "note_l123": "runtime-fail"
   },
   {
    "name": "rulebase",
@@ -158135,7 +158141,8 @@
    "depsOfficial": 0,
    "repoOwner": "xtd1145",
    "_enriched": "2026-08-26|",
-   "testDate": "2026-08-27"
+   "testDate": "2026-08-27",
+   "note_l123": "runtime-fail"
   }
  ],
  "Productivity": [
