@@ -1,0 +1,34 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('en', '/audit/');
+---
+<BlogPost title="Write Your First DeepSeek Harness Plugin: Tool, Bundle, Publish | dshbase" description="A rewritten step-by-step guide to DSH plugin development: defineTool, cordis.yml overlays, bundling, and the dsh-tools version trap." currentPath="/blog/wx-deepseek-harness-plugin-development-tutorial/" category="Tutorial">
+  <h1>Write Your First DeepSeek Harness Plugin: Tool, Bundle, <span class="accent">Publish</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 30, 2026 · dshbase · rewritten field note</p>
+  <p class="muted small">Adapted and rewritten from a WeChat public-account post by GoCoding.</p>
+  <p class="muted small"><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1788100150&amp;ver=6936&amp;signature=T6TogrY5wquNBkCBEQyIrNzHlQW4Vueywo-OMBN2JJfthO0KIvgBQZ-NzC3As61YiKhn6VgC48qCuXVljKCBmJkhEgEXuMWRbrya89mGAP*IU2k6wWAmzTPXvBpWzoCK&amp;new=1" rel="noopener noreferrer nofollow" target="_blank">Source clue (WeChat via Sogou; not a verbatim reprint)</a> — Adapted and rewritten from a WeChat public-account post by GoCoding.</p>
+<p>Harness ships with plugins, but the interesting part is writing your own. This walkthrough — restructured from a community dev log — covers the full loop: register a tool, load it hot, package it, and publish it.</p>
+<h2>One tool, one module</h2>
+<p>A DSH plugin is a TypeScript module that exports <code>apply(ctx, config)</code>. Capability registration happens through the <code>ctx</code> object. A minimal plugin that adds a <code>greet</code> tool does three things: declares <code>inject: ['tools']</code> so the Cordis runtime waits for the tool registry, defines a config schema with defaults (via <code>Schema.object</code>, validated at load time with clear errors), and calls <code>ctx.tools.register(defineTool({...}))</code> with a name, description, parameters and an <code>execute</code> function.</p>
+<p>Pair the module with a <code>cordis.yml</code> overlay that inserts the plugin id, source path and config values, then boot it:</p>
+<p><code>pnpm dsh web --patch ./start-dsh-plugin/cordis.yml</code></p>
+<p>Ask the model to use the greet tool and it will invoke your code — no restart involved. That hot-plug loop is what makes plugin development feel closer to writing a game mod than an SDK integration.</p>
+<h2>From patch file to installable bundle</h2>
+<p>For distribution, add a <code>package.json</code> with a <code>dsh.bundle.patch</code> field pointing at a <code>cordis.patch.yml</code>. Now the directory becomes an installable bundle:</p>
+<ul>
+<li>Local install: <code>pnpm dsh plugin --profile web add ./start-dsh-plugin</code></li>
+<li>Remove by name: <code>pnpm dsh plugin --profile web remove start-dsh-plugin</code></li>
+<li>Inspect the resolved config tree: <code>pnpm dsh web --dump-config</code></li>
+</ul>
+<p>Profiles live under <code>$DSH_HOME/profiles/&lt;name&gt;</code>; <code>web</code> is the preinstalled one.</p>
+<h2>Publishing: npm, tarball, or GitHub</h2>
+<p>Before publishing, complete the build chain (<code>package.json</code>, <code>tsconfig.json</code>, <code>tsconfig.local.json</code>), compile to <code>lib/</code> with <code>pnpm exec tsc</code>, sanity-check contents via <code>pnpm pack --dry-run</code>, then <code>pnpm pack</code> for a tarball or <code>pnpm publish --access public</code> for npm. GitHub installs work too: <code>dsh plugin add github:user/repo</code>.</p>
+<p>One real-world gotcha from the original author: the sample plugin fails on latest source because <code>dsh-tools</code> moved to 0.1.2-alpha.1 while the manifest pinned an older release line, breaking a <code>CallId</code> import. The fix was building inside the harness repo. Pin nothing you can't verify against current master.</p>
+<h2>Where to find plugins — and a dshbase note</h2>
+<p>The community indexes are DSH Market, Awesome DSH Plugin, and awesome-deepseek-harness on GitHub. But remember the audit rule: a plugin runs with your shell and filesystem in reach. Before adding any bundle, read its <code>execute</code> paths first — the same instinct we bring to every entry in our catalog.</p>
+<h2>On dshbase</h2>
+<p>Before installing random GitHub plugins, check the <a href={directoryUrl}>verified directory</a> and <a href={auditUrl}>audit notes</a>.</p>
+
+</BlogPost>

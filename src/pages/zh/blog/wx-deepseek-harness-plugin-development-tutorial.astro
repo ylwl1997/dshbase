@@ -1,0 +1,34 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
+---
+<BlogPost title="手把手写第一个 DeepSeek Harness 插件：注册、打包、发布 | dshbase 中文" description="改写整理版 DSH 插件开发全流程：defineTool、热加载、打包发布与版本坑。" currentPath="/blog/wx-deepseek-harness-plugin-development-tutorial/" category="教程">
+  <h1>手把手写第一个 DeepSeek Harness 插件：注册、打包、发布</h1>
+  <p class="muted small" style="margin-bottom:20px">2026年8月30日 · dshbase · 改写解读</p>
+  <p class="muted small">本文基于微信公众号「GoCoding」文章改写重组，代码为通用 API 用法示意。</p>
+  <p class="muted small"><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1788100150&amp;ver=6936&amp;signature=T6TogrY5wquNBkCBEQyIrNzHlQW4Vueywo-OMBN2JJfthO0KIvgBQZ-NzC3As61YiKhn6VgC48qCuXVljKCBmJkhEgEXuMWRbrya89mGAP*IU2k6wWAmzTPXvBpWzoCK&amp;new=1" rel="noopener noreferrer nofollow" target="_blank">参考/线索（微信；非原文搬运）</a> — 本文基于微信公众号「GoCoding」文章改写重组，代码为通用 API 用法示意。</p>
+<p>Harness 自带插件，但真正好玩的是自己写。这篇教程把社区开发记录重新组织了一遍：注册工具、热加载、打包、发布，一条链路走通。</p>
+<h2>一个模块，一个工具</h2>
+<p>DSH 插件本质是一个导出 <code>apply(ctx, config)</code> 的 TypeScript 模块，能力全部通过 <code>ctx</code> 注册。以最小可用的 <code>greet</code> 工具为例，只需三步：声明 <code>inject: ['tools']</code> 让 Cordis 等工具注册表就绪；用 <code>Schema.object</code> 定义带默认值的配置（加载时校验，配错直接报清晰错误）；最后 <code>ctx.tools.register(defineTool({...}))</code> 挂上名称、描述、参数和 <code>execute</code> 函数。</p>
+<p>再配一个 <code>cordis.yml</code> 覆盖文件插入插件 id、源码路径和配置，然后：</p>
+<p><code>pnpm dsh web --patch ./start-dsh-plugin/cordis.yml</code></p>
+<p>对话里让模型调用 greet，它就会执行你的代码——全程无需重启。这种热插拔体验更像给游戏写 Mod，而不是做 SDK 集成。</p>
+<h2>从覆盖文件到可安装组合包</h2>
+<p>要分发，就给目录补一个 <code>package.json</code>，用 <code>dsh.bundle.patch</code> 字段指向 <code>cordis.patch.yml</code>，目录即变成一个 bundle：</p>
+<ul>
+<li>本地安装：<code>pnpm dsh plugin --profile web add ./start-dsh-plugin</code></li>
+<li>按名移除：<code>pnpm dsh plugin --profile web remove start-dsh-plugin</code></li>
+<li>查看最终配置树：<code>pnpm dsh web --dump-config</code></li>
+</ul>
+<p>profile 位于 <code>$DSH_HOME/profiles/&lt;name&gt;</code>，<code>web</code> 是预装的那个。</p>
+<h2>发布：npm、tar 包或 GitHub</h2>
+<p>发布前补齐构建链（<code>package.json</code>、<code>tsconfig.json</code>、<code>tsconfig.local.json</code>），<code>pnpm exec tsc</code> 编译出 <code>lib/</code>，用 <code>pnpm pack --dry-run</code> 检查内容物，再 <code>pnpm pack</code> 出 tar 包或 <code>pnpm publish --access public</code> 发 npm。GitHub 直装也支持：<code>dsh plugin add github:user/repo</code>。</p>
+<p>原作者踩过一个真实的坑：示例插件在最新源码上起不来，因为 <code>dsh-tools</code> 已到 0.1.2-alpha.1，而清单里锁的还是旧版本线，导致 <code>CallId</code> 导入失败，最终只能在 harness 仓库内构建解决。版本迭代极快，锁版本不如跟着 master 验证。</p>
+<h2>去哪找插件——以及 dshbase 的提醒</h2>
+<p>社区索引有 DSH Market、Awesome DSH Plugin 和 GitHub 上的 awesome-deepseek-harness。但请记住审计原则：插件运行时，你的 Shell 和文件系统就在它手边。安装任何 bundle 前，先读它的 <code>execute</code> 路径——这也是我们对目录里每一个条目的态度。</p>
+<h2>在 dshbase 上</h2>
+<p>装随机 GitHub 插件前，先看<a href={directoryUrl}>已验证目录</a>与<a href={auditUrl}>审计说明</a>。</p>
+
+</BlogPost>

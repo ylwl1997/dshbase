@@ -1,5 +1,14 @@
 [
  {
+  "path": "/blog/wx-deepseek-harness-plugin-development-tutorial/",
+  "cat": "Tutorial",
+  "cat_zh": "教程",
+  "en": "Write Your First DeepSeek Harness Plugin: Tool, Bundle, Publish",
+  "zh": "手把手写第一个 DeepSeek Harness 插件：注册、打包、发布",
+  "desc_en": "A rewritten step-by-step guide to DSH plugin development: defineTool, cordis.yml overlays, bundling, and the dsh-tools version trap.",
+  "desc_zh": "改写整理版 DSH 插件开发全流程：defineTool、热加载、打包发布与版本坑。"
+ },
+ {
   "path": "/blog/wx-deepseek-harness-100k-stars-plugin-ecosystem/",
   "cat": "Analysis",
   "cat_zh": "分析",
