@@ -1,0 +1,31 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('en', '/audit/');
+---
+<BlogPost title="DeepSeek Harness Hit 100K Stars in 45 Hours: What the Plugin Boom Means for You | dshbase" description="Harness v0.1 went MIT-open and crossed 100k stars in 45 hours. A rewritten analysis of the plugin ecosystem, PTC mode, and security trade-offs." currentPath="/blog/wx-deepseek-harness-100k-stars-plugin-ecosystem/" category="Analysis">
+  <h1>DeepSeek Harness Hit 100K Stars in 45 Hours: What the Plugin Boom Means for <span class="accent">You</span></h1>
+  <p class="muted small" style="margin-bottom:20px">August 30, 2026 · dshbase · rewritten field note</p>
+  <p class="muted small">Adapted and rewritten from a WeChat public-account post by 方直AI (2026-08-30).</p>
+  <p class="muted small"><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1788100150&amp;ver=6936&amp;signature=glIU0ueNc*5JeXxIXV1lZ8CdtvY-koC94T979zeYBnSIPyw3t*V5GWa8cVwUXedIKDC*hBwXtZwXKnFofjqWKrgKwhp2rsmwYNFhA85IbjvO8x0E2kdIoV*Cxji-l9D6&amp;new=1" rel="noopener noreferrer nofollow" target="_blank">Source clue (WeChat via Sogou; not a verbatim reprint)</a> — Adapted and rewritten from a WeChat public-account post by 方直AI (2026-08-30).</p>
+<p>On the evening of August 13, hours after announcing an API price cut, DeepSeek dropped <strong>Harness v0.1</strong>, a developer preview released under the MIT license. Within 45 hours the repository crossed 100,000 GitHub stars — a growth curve usually reserved for breakout models, not agent runtimes.</p>
+<h2>What Harness actually is</h2>
+<p>Think of Harness as the hands and feet bolted onto a chat model. Instead of one question and one answer, the agent can edit files, run commands, call tools and carry a multi-step task to completion on its own. The design bet fits in one sentence: <strong>everything is a plugin</strong>. The model backend, the tool registry, storage and even the UI are swappable modules.</p>
+<p>Four modes ship out of the box: standard, minimal, creative, and PTC (programmatic tool calling). PTC is the sleeper hit — the model writes a small program that executes a long workflow in one shot, keeping intermediate state in the runtime instead of the context window, which slashes token burn on heavy tasks.</p>
+<p>Architecturally it is built on Cordis (descended from the Koishi chatbot framework), which gives it reversible side effects: plugins install and uninstall hot, with no restart.</p>
+<h2>A Minecraft-style ecosystem, overnight</h2>
+<p>More than 700 public repositories now carry the <code>dsh-plugin</code> label. Some are serious (dual-model routing, vision extensions, cross-session memory via <code>dsh-memory-evolve</code>); some are jokes (retro QQ skins, Tetris, a slacking-off dashboard). Two of them are a full-blown ad plugin and an ad-blocker living in the same repo list — a miniature economy forming in days.</p>
+<p>The community analogy is Minecraft: the core is vanilla survival, plugins are mods, and community builds are modpacks. One plugin is even called fabric.</p>
+<h2>The strategic read</h2>
+<p>Harness is not positioned as a Claude Code substitute. Claude Code couples a closed shell tightly to its model; DeepSeek open-sourced the shell from day one, deliberately pushing competition back onto model quality and price — the same play R1 pulled against o1's premium pricing. For dshbase readers the implication is practical: once the agent layer becomes a public good, curated directories, install audits and security reviews of third-party plugins become the scarce resource — not the runtime itself.</p>
+<h2>Three things to do this week</h2>
+<ul>
+<li><strong>Try it.</strong> One Node.js command starts the Harness web UI; add an API key and dispatch tasks to your workspace. DeepSeek, Anthropic and OpenAI models are all supported.</li>
+<li><strong>Look for plugin gaps.</strong> Most of the 700+ plugins are rough MVPs; a polished one gets outsized distribution while the market is this young.</li>
+<li><strong>Audit before you install.</strong> Plugins get shell and filesystem access. A community repo (dsh-security) already demonstrates attack chains. Treat every third-party plugin like an npm dependency on steroids.</li>
+</ul>
+<h2>On dshbase</h2>
+<p>Before installing random GitHub plugins, check the <a href={directoryUrl}>verified directory</a> and <a href={auditUrl}>audit notes</a>.</p>
+
+</BlogPost>

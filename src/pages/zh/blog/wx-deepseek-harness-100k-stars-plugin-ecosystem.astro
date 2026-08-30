@@ -1,0 +1,31 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
+---
+<BlogPost title="DeepSeek Harness 开源45小时破10万星：插件狂潮下该做什么 | dshbase 中文" description="Harness v0.1 开源45小时破10万星。改写解读插件生态、PTC 模式与安全权衡。" currentPath="/blog/wx-deepseek-harness-100k-stars-plugin-ecosystem/" category="分析">
+  <h1>DeepSeek Harness 开源45小时破10万星：插件狂潮下该做什么</h1>
+  <p class="muted small" style="margin-bottom:20px">2026年8月30日 · dshbase · 改写解读</p>
+  <p class="muted small">本文基于微信公众号「方直AI」2026年8月30日文章改写，观点与结构为原创重写。</p>
+  <p class="muted small"><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1788100150&amp;ver=6936&amp;signature=glIU0ueNc*5JeXxIXV1lZ8CdtvY-koC94T979zeYBnSIPyw3t*V5GWa8cVwUXedIKDC*hBwXtZwXKnFofjqWKrgKwhp2rsmwYNFhA85IbjvO8x0E2kdIoV*Cxji-l9D6&amp;new=1" rel="noopener noreferrer nofollow" target="_blank">参考/线索（微信；非原文搬运）</a> — 本文基于微信公众号「方直AI」2026年8月30日文章改写，观点与结构为原创重写。</p>
+<p>8月13日晚，DeepSeek 在宣布 API 调价仅几小时后，突然放出 <strong>Harness v0.1</strong> 开发者预览版，MIT 协议开源。45 小时内 GitHub 星标突破 10 万——这种增长曲线通常只属于明星模型，而不是一个 Agent 运行时。</p>
+<h2>Harness 到底是什么</h2>
+<p>一句话：给会聊天的模型装上「手」和「脚」。它不再是一问一答，而是能自己改文件、跑命令、调工具，把多步骤任务干到收尾。设计理念只有一条——<strong>一切皆插件</strong>：模型后端、工具注册表、数据存储、交互界面，全部可以热替换。</p>
+<p>内置四种模式：标准、极简、创造，以及 PTC（程序化工具调用）。PTC 是隐藏大招：让模型写一段程序一次性执行长流程，中间数据留在执行环境里而不是上下文窗口，重度任务的 Token 消耗骤降。</p>
+<p>底层基于 Cordis 框架（源自 Koishi 聊天机器人框架），带来「可逆副作用」特性：插件即装即卸，无需重启。</p>
+<h2>一夜长出的「我的世界」式生态</h2>
+<p>打着 <code>dsh-plugin</code> 标签的公开仓库已超 700 个。有认真做功能的（双模型路由、视觉扩展、跨会话记忆 <code>dsh-memory-evolve</code>），也有纯整活的（复古 QQ 皮肤、俄罗斯方块、摸鱼面板）。甚至广告插件和去广告插件同时上架，几天内自成一个微型生态圈。</p>
+<p>社区的类比是《我的世界》：本体是原版生存，插件是 Mod，整合包是社区发行版——有个插件干脆就叫 fabric。</p>
+<h2>战略层面的读法</h2>
+<p>Harness 不是 Claude Code 的平替。Claude Code 是模型与外壳紧耦合的闭源集成品；DSH 从第一天就开源外壳，把竞争压回模型本身的性能与价格——和当年 R1 开源冲击 o1 溢价是同一招。对 dshbase 的读者来说，这意味着：当 Agent 外壳变成公共品，稀缺资源变成了<strong>精选目录、安装审计和插件安全审查</strong>，而不是运行时本身。</p>
+<h2>本周就该做的三件事</h2>
+<ul>
+<li><strong>上手体验：</strong>Node.js 一行命令启动 Harness Web UI，配置密钥即可在工作区分派任务，支持 DeepSeek、Anthropic、OpenAI 等主流模型。</li>
+<li><strong>找插件空位：</strong>700+ 插件里大多是粗糙的 MVP，现阶段做一个打磨到位的插件，曝光回报极高。</li>
+<li><strong>装前先审计：</strong>插件能碰 Shell 和文件系统，攻击面巨大；社区已有 dsh-security 演示攻击链。把每个第三方插件当成加强版 npm 依赖来对待。</li>
+</ul>
+<h2>在 dshbase 上</h2>
+<p>装随机 GitHub 插件前，先看<a href={directoryUrl}>已验证目录</a>与<a href={auditUrl}>审计说明</a>。</p>
+
+</BlogPost>

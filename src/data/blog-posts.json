@@ -1,5 +1,14 @@
 [
  {
+  "path": "/blog/wx-deepseek-harness-100k-stars-plugin-ecosystem/",
+  "cat": "Analysis",
+  "cat_zh": "分析",
+  "en": "DeepSeek Harness Hit 100K Stars in 45 Hours: What the Plugin Boom Means for You",
+  "zh": "DeepSeek Harness 开源45小时破10万星：插件狂潮下该做什么",
+  "desc_en": "Harness v0.1 went MIT-open and crossed 100k stars in 45 hours. A rewritten analysis of the plugin ecosystem, PTC mode, and security trade-offs.",
+  "desc_zh": "Harness v0.1 开源45小时破10万星。改写解读插件生态、PTC 模式与安全权衡。"
+ },
+ {
   "path": "/blog/wx-dsh-100k-stars-45h/",
   "cat": "Pulse",
   "cat_zh": "脉搏",
