@@ -510,6 +510,18 @@
   ]
  },
  {
+  "github": "liyangbing",
+  "avatar": "https://avatars.githubusercontent.com/u/16144361?v=4",
+  "plugins": [
+   {
+    "name": "sandbase-harness",
+    "slug": "sandbase-harness",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "LongSir0419",
   "avatar": "https://avatars.githubusercontent.com/u/103190940?v=4",
   "plugins": [
