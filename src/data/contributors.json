@@ -366,6 +366,18 @@
   ]
  },
  {
+  "github": "gychen-NJU",
+  "avatar": "https://avatars.githubusercontent.com/u/106894282?v=4",
+  "plugins": [
+   {
+    "name": "dsh-overleaf-workbench",
+    "slug": "dsh-overleaf-workbench",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "HiNEM66",
   "avatar": "https://avatars.githubusercontent.com/u/92151998?v=4",
   "plugins": [
@@ -626,6 +638,18 @@
     "slug": "shaoshi-dshscan",
     "npm": true,
     "pkg": "@shaoshi/dshscan"
+   }
+  ]
+ },
+ {
+  "github": "ShenXuAkaEkstasis",
+  "avatar": "https://avatars.githubusercontent.com/u/242208456?v=4",
+  "plugins": [
+   {
+    "name": "dsh-ai-shopping-assistant",
+    "slug": "dsh-ai-shopping-assistant",
+    "npm": false,
+    "pkg": ""
    }
   ]
  },
