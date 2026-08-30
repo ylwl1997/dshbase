@@ -138,6 +138,43 @@ const sections = [
     ],
   },
   {
+    id: 'revert',
+    title: '如何恢复 / 回滚 DeepSeek Harness 的更改',
+    items: [
+      {
+        id: 'revert-uninstall-plugin',
+        code: 'dsh plugin remove',
+        title: '撤销一次插件安装',
+        desc: 'DSH 的 profile 是 <code>~/.dsh/profiles/&lt;名称&gt;/</code> 下的自包含目录，装插件只影响该目录。撤销单个插件安装：',
+        cmd: 'dsh plugin --profile web remove <包名>',
+        fix: '<code>remove</code> 会转发给 profile 目录里的 pnpm 执行（0.1.1-rc.2 实测），同时重写 <code>pnpm-lock.yaml</code> 并清理 <code>node_modules</code>。重启 <code>dsh web</code> 生效。',
+      },
+      {
+        id: 'revert-config',
+        code: 'profile 配置回滚',
+        title: '撤销配置改动',
+        desc: 'DSH 不为 profile 配置保留内建版本历史——bundle 层在 profile 目录的 <code>cordis.yml</code> / <code>cordis.patch.yml</code>，用户设置在全局 <code>~/.dsh/settings.yaml</code>。把整个 profile 目录当作回滚单元：',
+        cmd: 'cp -r ~/.dsh/profiles/web ~/.dsh/profiles/web.bak-2026-08   # 危险改动前先备份',
+        fix: '恢复时先停 dsh，删除损坏的 profile 目录再把备份拷回。回滚前可运行 <code>dsh --profile web --dump-config &gt; before.txt</code> 快照实际装配的层树，改动后 diff 对照——dump 才是"当前到底加载了什么"的唯一事实来源。',
+      },
+      {
+        id: 'revert-broken-profile',
+        code: 'profile does not exist',
+        title: 'profile 彻底损坏后的恢复',
+        desc: '手改 <code>cordis.yml</code> 改坏、<code>node_modules</code> 损坏等情况下，启动直接抛栈或报 <code>profile "&lt;名称&gt;" does not exist</code>。',
+        cmd: "rm -rf ~/.dsh/profiles/web && dsh plugin --profile web add @deepseek-ai/dsh-base @deepseek-ai/dsh-web-app",
+        fix: '重建 profile 往往比调试改坏的 bundle 文件更快——会话数据存在 <code>~/.dsh/sessions</code>，与 profile 分离，重建不会丢历史对话。实测：dsh 对缺失 profile 拒绝启动并打印的正是这条重建命令。',
+      },
+      {
+        id: 'revert-credentials',
+        code: '.credentials.yaml',
+        title: '撤销 API key / 凭据改动',
+        desc: '凭据是 <code>~/.dsh/.credentials.yaml</code> 里的纯文本（或用 <code>DEEPSEEK_API_KEY</code> 环境变量，优先级更高），系统不保留历史。',
+        fix: '改动前自行留一份备份（macOS/Linux 上该文件必须保持 <code>chmod 600</code>，否则 DSH 拒绝读取）。误轮换 key 后拷回备份即可恢复本地配置——但旧 key 若已在服务端吊销，本地回滚救不回来。',
+      },
+    ],
+  },
+  {
     id: 'runtime',
     title: '运行时与 Web UI',
     items: [

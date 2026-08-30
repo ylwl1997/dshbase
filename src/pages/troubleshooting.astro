@@ -138,6 +138,43 @@ const sections = [
     ],
   },
   {
+    id: 'revert',
+    title: 'How to revert changes in DeepSeek Harness',
+    items: [
+      {
+        id: 'revert-uninstall-plugin',
+        code: 'dsh plugin remove',
+        title: 'undo a plugin install',
+        desc: 'A DSH profile is a self-contained folder under <code>~/.dsh/profiles/&lt;name&gt;/</code>; installing a plugin adds it to that folder only. To revert one install:',
+        cmd: 'dsh plugin --profile web remove <package>',
+        fix: 'The <code>remove</code> sub-command forwards to pnpm in the profile directory (verified on 0.1.1-rc.2), so it also rewrites <code>pnpm-lock.yaml</code> and prunes <code>node_modules</code>. Restart <code>dsh web</code> to pick up the change.',
+      },
+      {
+        id: 'revert-config',
+        code: 'profile config rollback',
+        title: 'undo configuration changes',
+        desc: 'DSH keeps no built-in version history for profile config — the bundle layers live in <code>cordis.yml</code> / <code>cordis.patch.yml</code> inside the profile folder, and user settings in <code>~/.dsh/settings.yaml</code>. Treat the profile folder as the rollback unit:',
+        cmd: 'cp -r ~/.dsh/profiles/web ~/.dsh/profiles/web.bak-2026-08   # before risky changes',
+        fix: 'To restore, stop dsh, delete the broken profile folder and copy the backup back. Before rolling back, run <code>dsh --profile web --dump-config &gt; before.txt</code> to capture the composed layer tree and diff it after any change — the dump is the source of truth for what is actually loaded.',
+      },
+      {
+        id: 'revert-broken-profile',
+        code: 'profile does not exist',
+        title: 'recover from a fully broken profile',
+        desc: 'If a profile is wrecked (bad hand-edit of <code>cordis.yml</code>, corrupted <code>node_modules</code>), dsh boots fail with stack traces or <code>profile "&lt;name&gt;" does not exist</code>.',
+        cmd: "rm -rf ~/.dsh/profiles/web && dsh plugin --profile web add @deepseek-ai/dsh-base @deepseek-ai/dsh-web-app",
+        fix: 'Rebuilding the profile from scratch is faster than debugging a hand-mangled bundle file — session data lives under <code>~/.dsh/sessions</code>, separate from profiles, so a rebuild does not delete conversation history. Verified: dsh refuses to boot missing profiles and prints exactly this recreate command.',
+      },
+      {
+        id: 'revert-credentials',
+        code: '.credentials.yaml',
+        title: 'undo API-key / credential edits',
+        desc: 'Credential changes are plain text in <code>~/.dsh/.credentials.yaml</code> (or the <code>DEEPSEEK_API_KEY</code> env var, which takes precedence). No history is kept.',
+        fix: 'Keep a copy before editing (the file must stay <code>chmod 600</code> on macOS/Linux or DSH refuses it). To revert an accidental key rotation, restore the backup — but if the old key was already revoked server-side, no local rollback helps.',
+      },
+    ],
+  },
+  {
     id: 'runtime',
     title: 'Runtime & web UI',
     items: [

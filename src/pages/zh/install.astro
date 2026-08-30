@@ -5,18 +5,55 @@ const tutorialUrl = getRelativeLocaleUrl('zh', '/tutorial/');
 const pluginsUrl = getRelativeLocaleUrl('zh', '/plugins/');
 ---
 <Base
-  title="DeepSeek Harness 安装教程 — 一键安装（Windows / macOS / Linux / WSL）| dshbase 中文"
-  description="DeepSeek Harness 安装教程：在 Windows、macOS、Linux、WSL 一键安装 DeepSeek Harness（DSH），或从源码构建。只需 Node.js，然后 npx @deepseek-ai/dsh web。"
+  title="DeepSeek Harness 安装与下载教程 — 官方获取渠道 + 一键安装（Windows / macOS / Linux / WSL）| dshbase 中文"
+  description="DeepSeek Harness 安装与下载完整指南：官方发行渠道（npm 包 @deepseek-ai/dsh / GitHub 源码）、版本与 SHA 校验方法，Windows、macOS、Linux、WSL 一键安装。只需 Node.js，然后 npx @deepseek-ai/dsh web。"
   currentPath="/install/"
 >
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "DeepSeek Harness 怎么下载？有官方安装包吗？",
+        acceptedAnswer: { "@type": "Answer", text: "DeepSeek Harness（DSH）没有独立的 Windows/macOS 安装包（.exe/.dmg）。它是 Node.js 包，官方下载渠道只有两个：npm（@deepseek-ai/dsh，用 npm install -g @deepseek-ai/dsh 获取）和 GitHub 源码仓库（deepseek-ai/deepseek-harness，git clone 后用 pnpm 构建）。" }
+      },
+      {
+        "@type": "Question",
+        name: "「deepseek harness安装」和「deepseek harness下载」有什么区别？",
+        acceptedAnswer: { "@type": "Answer", text: "下载指获取程序本体（npm 包或源码），安装指把 Node.js 运行环境和 dsh 命令配置到位。DSH 的官方流程里两步合一：npx @deepseek-ai/dsh web 会自动下载并运行最新版，无需单独下载安装包。" }
+      },
+      {
+        "@type": "Question",
+        name: "如何校验下载的 DSH 包完整性？",
+        acceptedAnswer: { "@type": "Answer", text: "运行 npm view @deepseek-ai/dsh dist.integrity 查看当前版本的 SHA-512 完整性值；通过 npm/npx 安装的包由 npm 客户端自动校验。手动下载的 .tgz 可用 npm pkg 或 sha512sum 比对。" }
+      },
+      {
+        "@type": "Question",
+        name: "deepseekharness 连写或 deepseek harness安装（无空格）搜到的是一回事吗？",
+        acceptedAnswer: { "@type": "Answer", text: "是。deepseekharness、deepseek_harness、DSH 都是同一个项目 DeepSeek Harness 的常见写法，本页覆盖其下载与安装全流程。" }
+      }
+    ]
+  })} />
   <section class="hero wrap">
-    <p class="eyebrow">安装</p>
-    <h1>安装 DeepSeek Harness <span class="accent">（DSH 安装）</span></h1>
-    <p class="lede">DeepSeek Harness（DSH）是一个 Node.js 包——唯一的要求就是 Node.js。选你的系统用一键脚本完成 DSH 安装，或从源码构建。装好后见 <a href="/zh/blog/dsh-rc8/">rc.8 枢纽</a>。</p>
+    <p class="eyebrow">安装 · 下载</p>
+    <h1>DeepSeek Harness 安装与下载 <span class="accent">（DSH 安装 · DSH 下载）</span></h1>
+    <p class="lede">DeepSeek Harness（DSH）是一个 Node.js 包——唯一的要求就是 Node.js。先看清官方发行渠道与校验方式（下载），再选你的系统一键安装，或从源码构建。装好后见 <a href="/zh/blog/dsh-rc8/">rc.8 枢纽</a>。</p>
   </section>
 
   <section class="info wrap">
-    <h2>开始之前</h2>
+    <h2>DeepSeek Harness 下载：官方发行渠道</h2>
+    <p>DSH <strong>不提供独立的 .exe / .dmg 安装包</strong>——任何第三方"DSH 安装包下载"站都不是官方渠道。官方获取方式只有两条：</p>
+    <ul>
+      <li><strong>npm 发行包</strong>：包名 <code>@deepseek-ai/dsh</code>（当前 <strong>0.1.1-rc.2</strong>，开发者预览迭代中）。安装命令见下文；只想拿压缩包的话，直接下载 registry 的 tarball：<a href="https://registry.npmjs.org/@deepseek-ai/dsh/-/dsh-0.1.1-rc.2.tgz" target="_blank" rel="noopener">registry.npmjs.org/@deepseek-ai/dsh/-/dsh-0.1.1-rc.2.tgz</a>（换版本号即可取对应版本）。</li>
+      <li><strong>GitHub 源码</strong>：<a href="https://github.com/deepseek-ai/deepseek-harness" target="_blank" rel="noopener">github.com/deepseek-ai/deepseek-harness</a>（官方仓库，Releases 页提供版本归档）。</li>
+    </ul>
+    <p style="margin-top:10px"><strong>版本与 SHA 校验</strong>——下载前后核对包完整性：</p>
+    <pre class="code-block"><code>npm view @deepseek-ai/dsh dist.integrity   # 输出 sha512-… 完整性值
+npm view @deepseek-ai/dsh version          # 当前最新版号</code></pre>
+    <p>经 <code>npm install</code> / <code>npx</code> 安装的包由 npm 客户端自动做完整性校验（对照 registry 的 SHA-512），无需手动核对；只有从非 npm 渠道拿到的 <code>.tgz</code> 才需要自己比对 <code>sha512sum</code>。</p>
+
+    <h2 style="margin-top:28px">开始之前</h2>
     <ul>
       <li>需要 <strong>Node.js LTS（18+）</strong>——下面每个脚本都会先检查它。</li>
       <li>DeepSeek Harness 处于<strong>开发者预览</strong>阶段——迭代很快，<strong>未来会有破坏性变更</strong>。</li>
