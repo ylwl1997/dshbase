@@ -158976,7 +158976,9 @@
    "added": "2026-08-30T18:46:42",
    "license": "NOASSERTION",
    "slug": "dsh-ai-shopping-assistant",
-   "platform": "any"
+   "platform": "any",
+   "note_l123": "runtime-fail",
+   "note": "L1/L2 通过，L3 headless 问答未通过（保持 pending，待复测）"
   },
   {
    "name": "dsh-overleaf-workbench",
@@ -158997,7 +158999,9 @@
    "added": "2026-08-30T18:46:58",
    "license": "MIT",
    "slug": "dsh-overleaf-workbench",
-   "platform": "any"
+   "platform": "any",
+   "note_l123": "web-only",
+   "note": "L1/L2 通过，L3 判定 web-only（待 L4）"
   }
  ],
  "Content": [
