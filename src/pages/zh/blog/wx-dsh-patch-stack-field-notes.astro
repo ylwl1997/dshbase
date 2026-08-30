@@ -1,0 +1,16 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
+---
+<BlogPost title="你的 dsh 配置叠了五层纸:补丁栈、PTC 省钱位和那个技能软链坑 | dshbase 中文" description="五层配置怎么叠、apiKeyEnv 别写错、PTC 到底改了什么、技能必须软链到固定目录的设计坑" currentPath="/blog/wx-dsh-patch-stack-field-notes/" category="指南">
+  <h1>你的 dsh 配置叠了五层纸:补丁栈、PTC 省钱位和那个技能软链坑</h1>
+  <p class="muted small" style="margin-bottom:20px">2026年8月31日 · dshbase · 改写解读</p>
+  <p class="muted small">本文基于公众号「龙门小站」《DeepSeek Harness 上手记》的事实素材完全改写,并结合 dshbase 自身插件实测补充。Composio 横评数据为转述,未经独立复现。</p>
+  <p class="muted small"><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1788109228&amp;ver=6936&amp;signature=aGv4tRzpuE5d-Utz3QzvyxKhmflbGnSy37dg8wvrXIemXlkpVMsz5QMfDCJY2p5PJej*6q1dx056QSl3eoT9h1-83-gnTRhzZ*DL07LzpbrC8Fs7n23Se1YOA7YSUcWK&amp;new=1" rel="noopener noreferrer nofollow" target="_blank">参考/线索（微信；非原文搬运）</a> — 本文基于公众号「龙门小站」《DeepSeek Harness 上手记》的事实素材完全改写,并结合 dshbase 自身插件实测补充。Composio 横评数据为转述,未经独立复现。</p>
+<p>公众号「龙门小站」发了一篇两周上手记,它讲对了大多数架构长文忽略的一点:dsh 装起来容易、配起来容易翻车,而翻车点全在配置层。我们把对安装者有用的部分重述一遍,补上我们实测看到的细节,并标注一处无法核实的说法。</p><h2>同一个大脑,换个身体:47% 对 67%</h2><p>上手记开头引用 Composio 今年 8 月 10 日的横评:同一个 DeepSeek V4-Flash,30 个真实多步任务,换一个套壳框架,通过率在 47% 与 67% 之间浮动,单任务成本最高差 7 倍。这组数字我们无法独立复现,但方向与 dshbase 的一贯观察一致:围绕模型的那层运行时,对结果的影响常常大于换模型本身。选 dsh,选的是身体,不是大脑。</p><h2>你的配置是五张纸,不是一个文件</h2><p>多数工具的配置是一个文件改到底,dsh 是逐层往上贴,从底到顶:出厂 cordis.yml(空数组,官方注释别改我)、各 bundle 自带的 patch(dsh-base 给核心能力、dsh-web-app 给界面)、你 Profile 里的 cordis.patch.yml、最后命令行 --patch(可重复、优先级最高)。实际好处是:你的定制全部集中在最上面那张透明贴纸里,官方升级重构下层时不碰你的编辑。排错时别猜哪个层设了值,直接 dsh --profile web --dump-config 读合成后的配置树。</p><h2>两把钥匙,一个抽屉</h2><p>接模型提供方时优先用 apiKeyEnv 写法——配置里只存环境变量名,密钥本体留在系统环境里;apiKey 是把明文密钥写进 YAML。配置文件被复制去提问、提交进仓库的事故远比想象中多。同理,工作区文件夹里的东西默认视为模型可读:.env、SSH 密钥都不要放进去。</p><h2>MCP 带前缀,也带开机成本</h2><p>接入的 MCP 服务在模型侧显示成 mcp__github__create_issue 这类带前缀的名字,一个客户端实例对一个服务,stdio 是最简单的传输方式。我们实测补充两条:每个 MCP 工具的 schema 都会进请求前缀,工具铺太多既贵又可能在集合变化时打穿 KV Cache;连接失败的报错目前很含糊,一位社区作者配错路径愣是查了半小时。先接一个,钉死版本。</p><h2>PTC 到底改了什么</h2><p>四种模式——Standard、PTC、Minimal、Creator——里只有 PTC 容易被误解,因为它改的不是能力清单而是调用方式。普通模式每调一次工具都过一轮模型往返;PTC 只暴露一个 run_code,把其余工具打包成编程接口,模型写一段程序在本地串完十次文件读取,只把摘要交回来——中间内容不进上下文,批量任务上报称省一半 token 就是这么来的,且每次调用照旧走权限与审计。Minimal 顺带一提:那是 DeepSeek 把内部测评装置一并开源,只留命令行和文本编辑器,适合测模型裸能力、也适合看懂 Agent 循环。</p><h2>那个坑:技能只认一个硬编码路径</h2><p>一切皆插件的口号,到技能发现这里断了:dsh 只扫全局 claude 技能目录,项目仓库里的技能得手动建软链才认。对一个以可重组为核心卖点的运行时,扫描路径硬编码是我们见过的最不一致的设计,也是社区上手文里出现频次最高的吐槽。官方改之前,给仓库技能留一个同步脚本。</p><h2>预期管理</h2><p>版本还在 rc 与 alpha 之间跳,破坏性变更是写进文档的既成事实而非猜测;TUI 档在部分机器上启动失败,web 档才是维护中的主路径。这些都不构成不装的理由:钉死版本、定制只写在 patch 层,升级折腾就基本可控。</p>
+<h2>在 dshbase 上</h2>
+<p>装随机 GitHub 插件前，先看<a href={directoryUrl}>已验证目录</a>与<a href={auditUrl}>审计说明</a>。</p>
+
+</BlogPost>

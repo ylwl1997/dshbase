@@ -1,5 +1,14 @@
 [
  {
+  "path": "/blog/wx-dsh-patch-stack-field-notes/",
+  "cat": "Guide",
+  "cat_zh": "指南",
+  "en": "The five layers under your dsh config: field notes on the patch stack, PTC savings and the skills wart",
+  "zh": "你的 dsh 配置叠了五层纸:补丁栈、PTC 省钱位和那个技能软链坑",
+  "desc_en": "How dsh layers five config files, why apiKeyEnv beats apiKey, what PTC mode really changes, and the skills-path wart nobody warns you about.",
+  "desc_zh": "五层配置怎么叠、apiKeyEnv 别写错、PTC 到底改了什么、技能必须软链到固定目录的设计坑"
+ },
+ {
   "path": "/blog/wx-dsh-store-admission-funnel-253-of-1411/",
   "cat": "Analysis",
   "cat_zh": "分析",

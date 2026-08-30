@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const locale = Astro.currentLocale ?? 'zh';
 const posts = [
+  { path: '/blog/wx-dsh-patch-stack-field-notes/', cat: '指南', zh: "你的 dsh 配置叠了五层纸:补丁栈、PTC 省钱位和那个技能软链坑", desc_zh: "五层配置怎么叠、apiKeyEnv 别写错、PTC 到底改了什么、技能必须软链到固定目录的设计坑" },
   { path: '/blog/wx-dsh-store-admission-funnel-253-of-1411/', cat: '分析', zh: "一个对 1225 条记录说不的插件商城:DSH-Store 准入漏斗拆解", desc_zh: "1411 条目录记录只放进 253 个:三层准入闸、R0 到 R3 风险分级怎么运作,哪些环节还得靠作者自报" },
   { path: '/blog/wx-agent-architecture-control-three-schools/', cat: '分析', zh: "Claude Code、Codex 与 DSH 的架构分野：同一项任务，控制权交给谁", desc_zh: "三家 Agent 运行时把工程复杂度花在哪：工作流约定、操作系统级沙箱，还是连内核循环都可替换。" },
   { path: '/blog/wx-dsh-web-ui-plugin-skin-suite-review/', cat: '评测', zh: "dsh-web-ui 全家桶实测评测：一条命令把 DSH 毛坯界面装成工作台", desc_zh: "90 位贡献者、19 款皮肤、任务看板、Git 图谱、SSH 终端——dsh-web-ui 全家桶装了什么、付出什么、先审计哪一处。" },
