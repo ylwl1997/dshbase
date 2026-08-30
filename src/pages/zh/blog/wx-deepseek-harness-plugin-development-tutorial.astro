@@ -11,7 +11,7 @@ const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
   <p class="muted small"><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1788100150&amp;ver=6936&amp;signature=T6TogrY5wquNBkCBEQyIrNzHlQW4Vueywo-OMBN2JJfthO0KIvgBQZ-NzC3As61YiKhn6VgC48qCuXVljKCBmJkhEgEXuMWRbrya89mGAP*IU2k6wWAmzTPXvBpWzoCK&amp;new=1" rel="noopener noreferrer nofollow" target="_blank">参考/线索（微信；非原文搬运）</a> — 本文基于微信公众号「GoCoding」文章改写重组，代码为通用 API 用法示意。</p>
 <p>Harness 自带插件，但真正好玩的是自己写。这篇教程把社区开发记录重新组织了一遍：注册工具、热加载、打包、发布，一条链路走通。</p>
 <h2>一个模块，一个工具</h2>
-<p>DSH 插件本质是一个导出 <code>apply(ctx, config)</code> 的 TypeScript 模块，能力全部通过 <code>ctx</code> 注册。以最小可用的 <code>greet</code> 工具为例，只需三步：声明 <code>inject: ['tools']</code> 让 Cordis 等工具注册表就绪；用 <code>Schema.object</code> 定义带默认值的配置（加载时校验，配错直接报清晰错误）；最后 <code>ctx.tools.register(defineTool({...}))</code> 挂上名称、描述、参数和 <code>execute</code> 函数。</p>
+<p>DSH 插件本质是一个导出 <code>apply(ctx, config)</code> 的 TypeScript 模块，能力全部通过 <code>ctx</code> 注册。以最小可用的 <code>greet</code> 工具为例，只需三步：声明 <code>inject: ['tools']</code> 让 Cordis 等工具注册表就绪；用 <code>Schema.object</code> 定义带默认值的配置（加载时校验，配错直接报清晰错误）；最后 <code>ctx.tools.register(defineTool(&#123;&hellip;&#125;))</code> 挂上名称、描述、参数和 <code>execute</code> 函数。</p>
 <p>再配一个 <code>cordis.yml</code> 覆盖文件插入插件 id、源码路径和配置，然后：</p>
 <p><code>pnpm dsh web --patch ./start-dsh-plugin/cordis.yml</code></p>
 <p>对话里让模型调用 greet，它就会执行你的代码——全程无需重启。这种热插拔体验更像给游戏写 Mod，而不是做 SDK 集成。</p>
