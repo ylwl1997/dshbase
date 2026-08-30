@@ -39850,7 +39850,8 @@
    "testDate": "2026-08-27",
    "note": "验证: web-only；待 L4 web CDP；L4 web CDP runtime-fail on dsh 0.1.0-rc.8.",
    "bareNpm": "other",
-   "note_l123": "web-only"
+   "note_l123": "web-only",
+   "note_l4": "runtime-fail"
   },
   {
    "name": "dsh-workbench-layout",
@@ -127282,7 +127283,8 @@
    "repoOwner": "functy23",
    "_enriched": "2026-08-24|",
    "testDate": "2026-08-27",
-   "note_l123": "web-only"
+   "note_l123": "web-only",
+   "note_l4": "runtime-fail"
   },
   {
    "name": "dsh-client-ui-prism",
@@ -127341,7 +127343,8 @@
    "_enriched": "2026-08-27|1.0.4",
    "webonly": true,
    "testDate": "2026-08-27",
-   "note_l123": "web-only"
+   "note_l123": "web-only",
+   "note_l4": "runtime-fail"
   }
  ],
  "Knowledge": [
@@ -159008,7 +159011,8 @@
    "slug": "dsh-overleaf-workbench",
    "platform": "any",
    "note_l123": "web-only",
-   "note": "L1/L2 通过，L3 判定 web-only（待 L4）"
+   "note": "L1/L2 通过，L3 判定 web-only（待 L4）",
+   "note_l4": "runtime-fail"
   }
  ],
  "Content": [
