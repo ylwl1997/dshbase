@@ -1,0 +1,16 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
+---
+<BlogPost title="dsh-web-ui 全家桶实测评测：一条命令把 DSH 毛坯界面装成工作台 | dshbase 中文" description="90 位贡献者、19 款皮肤、任务看板、Git 图谱、SSH 终端——dsh-web-ui 全家桶装了什么、付出什么、先审计哪一处。" currentPath="/blog/wx-dsh-web-ui-plugin-skin-suite-review/" category="评测">
+  <h1>dsh-web-ui 全家桶实测评测：一条命令把 DSH 毛坯界面装成工作台</h1>
+  <p class="muted small" style="margin-bottom:20px">2026年8月30日 · dshbase · 改写解读</p>
+  <p class="muted small">本文基于公众号「Z的系列回忆录」2026-08-24 相关文章改写并补充审计视角，非转载。</p>
+  <p class="muted small"><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1788105131&amp;ver=6936&amp;signature=FxRMQYdmQuw012mn*ZolmPqHmX7R8zvClmPlRZNUUWWtkilII6MkuDHI6O6obSphWQlunG4HlAFVo8fw30GkDGKgQ8RgQUd79CiQxZDfbT-edFeCtfK2S7BXpHX7*JtL&amp;new=1" rel="noopener noreferrer nofollow" target="_blank">参考/线索（微信；非原文搬运）</a> — 本文基于公众号「Z的系列回忆录」2026-08-24 相关文章改写并补充审计视角，非转载。</p>
+<p>DeepSeek Harness 出厂自带的那个 Web 界面，客气点说，就是一个聊天框。开发者预览版被吐槽最多的从来不是模型能力，而是界面留不住人。社区给出的最重量级答案是 <strong>dsh-web-ui</strong>（仓库已改名 dsh-web，npm 包沿用旧名）：开发者 zhu1090093659 发起的插件全家桶，Apache-2.0 协议，超过 90 位贡献者。</p><h2>全家桶到底装进来什么</h2><ul><li><strong>五列任务看板</strong>：待规划、待办、进行中、已完成、已失败，支持 cron 定时执行，关掉浏览器照样到点触发。</li><li><strong>Git 图谱面板</strong>：分支切换加提交历史可视化；右侧还聚合了资源管理器、编辑器、终端和浏览器窗格。</li><li><strong>SSH 远程运维</strong>：基于 xterm.js 的 Web 终端、SFTP 传输、端口转发、集群并发执行，甚至能在对话里直接发起远程命令。</li><li><strong>移动端远程</strong>：扫码配对，SSE 实时同步，可走公网隧道。</li><li><strong>视觉桥</strong>（describe_image）：让纯文本模型也能看懂截图，兼容 Qwen-VL、GLM-4V、GPT-4o 和本地 Ollama。</li><li><strong>19 款主题皮肤</strong>：从还原 Windows XP Luna 到 Matrix 暗色，全部支持试穿预览。</li></ul><h2>皮相之下的工程底子</h2><p>皮肤之外能看到真功夫：Live2D 宠物和动态壁纸用 PixiJS/WebGL 渲染，移动端推送走 SSE，端到端测试交给 Playwright，提交记录遵循 Conventional Commits。一个野蛮生长的社区项目有这种纪律性不多见——而它同时提醒你另一件事：<strong>一个工程做得再好的插件包，运行时拿到的依然是你 dsh 进程的权限</strong>。</p><h2>装之前先审计</h2><p>两个细节值得比原文更多的笔墨。一是诚实的安装路径：一条 <code>dsh plugin --profile web add @linxin666/dsh-web-ui-all@latest</code> 之后必须重启 dsh 进程，只刷新页面不出入口。二是 SSH 凭据以明文存在 <code>~/.dsh/dsh-ssh.json</code>（权限 0600）。自己机器上这是取舍，公共或办公机器上这就是一条该先报出来的安全隐患。</p><p>我们给任何全家桶的装前清单：翻一遍仓库近期提交、确认许可证、钉死版本号而不是 latest；只想要主题的话，单独装 skin-center 那个包，别整桶吞。</p><h2>结论</h2><p>dsh-web-ui 是 Harness「一切皆插件」这句话目前最硬的证据：第三方没碰一行 Harness 源码，就把任务流、Git、终端、移动端整个界面重做了一遍。日常在用 dsh 的人值得装。但请把它当它本来的样子对待：近二十个插件打包成一条命令，手里握着你的 shell 和文件系统。</p>
+<h2>在 dshbase 上</h2>
+<p>装随机 GitHub 插件前，先看<a href={directoryUrl}>已验证目录</a>与<a href={auditUrl}>审计说明</a>。</p>
+
+</BlogPost>
