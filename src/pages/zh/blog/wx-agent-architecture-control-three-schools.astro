@@ -1,0 +1,16 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
+---
+<BlogPost title="Claude Code、Codex 与 DSH 的架构分野：同一项任务，控制权交给谁 | dshbase 中文" description="三家 Agent 运行时把工程复杂度花在哪：工作流约定、操作系统级沙箱，还是连内核循环都可替换。" currentPath="/blog/wx-agent-architecture-control-three-schools/" category="分析">
+  <h1>Claude Code、Codex 与 DSH 的架构分野：同一项任务，控制权交给谁</h1>
+  <p class="muted small" style="margin-bottom:20px">2026年8月30日 · dshbase · 改写解读</p>
+  <p class="muted small">本文改写自公众号「洋说Ai」2026-08-30 对比三家 Agent 架构的文章，观点与结构为重新组织，非转载。</p>
+  <p class="muted small"><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1788105125&amp;ver=6936&amp;signature=PSeHGY0KUK1dvDQ5D8PxjEFo89ZPCn9j5ZHoK3FN1fC-1qtKWg0xHiOUtV4iU-JAHR5LAWcmQoW2lsLocuylYK*eioXu4lKJ1qbWVJemTfy5QGYELPYdBOEcblCQkLL9&amp;new=1" rel="noopener noreferrer nofollow" target="_blank">参考/线索（微信；非原文搬运）</a> — 本文改写自公众号「洋说Ai」2026-08-30 对比三家 Agent 架构的文章，观点与结构为重新组织，非转载。</p>
+<p>给 Agent 一句话——改支付模块、补测试、交人审查——三个都在干这行的产品立刻分出三条路。哪些文件相关？要不要派子 Agent？权限边界谁来画？失败之后过程能不能还原？公众号「洋说Ai」把 Claude Code、Codex、DeepSeek Harness 的官方文档逐项对齐过一遍，七项能力三家全有格子。表格说明了「有什么」，说明不了「为什么长得不一样」。这篇从一个我们在意的角度补上答案：控制权究竟放在哪一层。</p><h2>复杂度花在三处</h2><p><strong>Claude Code 把复杂度花在工作过程的组织上。</strong>每次会话都要用的项目事实进 CLAUDE.md，只在特定任务有用的发布流程、审查清单做成 Skill 按需加载，主上下文保持干净。Subagent 的工程价值在隔离而不是角色扮演：高噪声的检索和试错留在侧上下文，主会话只收结论——把其中一个改名叫「资深架构师」，得到的只是提示词人设，不是边界。Hook 则接住「不能只靠提醒」的部分：改完跑格式化、拦敏感文件、留存执行记录，触发由系统保证，不靠模型自觉。</p><p><strong>Codex 把复杂度花在边界上。</strong>沙箱与审批的两层拆分是三者里最有操作价值的设计：沙箱决定进程技术上碰得到什么——可写目录、网络、受保护路径；审批决定哪些动作必须停下来等人或策略放行。关键在于任务中途拉起的 git、包管理器、测试进程继承同一套边界，换个工具名绕不出去。提示词里写「请谨慎执行命令」是一个请求；沙箱把同一句话变成物理规律。</p><p><strong>DeepSeek Harness 把复杂度花在「可拆卸」上。</strong>开发者预览版里，模型适配、工具、技能、会话、沙箱后端、甚至 Agent Loop 本身，都是 Cordis 微内核上的插件，内核只管装载、卸载、依赖排序。服务经共享上下文注入，副作用可撤销；依赖文件系统服务的工具永远不知道自己面对的是本地目录还是容器。追加式 Session Log 把提示、推理、工具调用、注入写成同一条事件流，恢复、分叉、检索、回放全查这一个流——从审计视角看，这是整个设计里最值钱的一条属性。</p><h2>每笔交易的代价</h2><ul><li>Claude Code 是闭源的：整套约定照单全收，换来打磨好的产品体验。</li><li>Codex 的边界很硬，但预设了单一执行姿态——你的机器、它的沙箱规则。</li><li>Harness 的自由明码标价。Context、Provider、Effect、Bundle、Profile 的学习曲线真实存在；处处可替换的运行时，把配置漂移和版本耦合变成了你的课题。只在你确实需要多套循环、多种沙箱、多个模型后端共存时，这笔交易才开始划算。</li></ul><h2>装插件前先查三件事</h2><p>从本目录装 DSH 插件的人，架构审阅可以压缩成每个插件三问：它改了哪些上下文？卸载时能不能证明完全回滚了？它注册的东西会不会落进 Session Log？「可逆副作用」这个承诺，恰恰是在这三条缝里被兑现或者被悄悄打破。同一副镜片也照另外两家：Claude Code 靠 Hook 而非口头承诺守住敏感路径时才可信；Codex 每个子进程都关在箱内时才可信。</p><p>三条路线正在互吸——Claude Code 的权限越做越细，Codex 长出了 Skill 与插件，Harness 直接内置完整编码 Agent 模式。下一轮比较 Agent 产品，值得问的已经不是支持多少模型，而是：模型能独自决定到哪一步、程序强制执行什么、人在哪个位置必须介入、失败之后能回放多少过程。</p>
+<h2>在 dshbase 上</h2>
+<p>装随机 GitHub 插件前，先看<a href={directoryUrl}>已验证目录</a>与<a href={auditUrl}>审计说明</a>。</p>
+
+</BlogPost>

@@ -1,5 +1,14 @@
 [
  {
+  "path": "/blog/wx-agent-architecture-control-three-schools/",
+  "cat": "Analysis",
+  "cat_zh": "分析",
+  "en": "Claude Code, Codex, and DeepSeek Harness: three answers to one question — who holds control",
+  "zh": "Claude Code、Codex 与 DSH 的架构分野：同一项任务，控制权交给谁",
+  "desc_en": "Comparing the three agent runtimes on where engineering complexity is spent: workflow conventions, OS-level sandboxing, or a fully replaceable plugin kernel.",
+  "desc_zh": "三家 Agent 运行时把工程复杂度花在哪：工作流约定、操作系统级沙箱，还是连内核循环都可替换。"
+ },
+ {
   "path": "/blog/wx-dsh-web-ui-plugin-skin-suite-review/",
   "cat": "Review",
   "cat_zh": "评测",
