@@ -330,6 +330,18 @@
   ]
  },
  {
+  "github": "duhu2000",
+  "avatar": "https://avatars.githubusercontent.com/u/10329118?v=4",
+  "plugins": [
+   {
+    "name": "dsh-mcp-connector",
+    "slug": "dsh-mcp-connector",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "functy23",
   "avatar": "https://avatars.githubusercontent.com/u/232149530?v=4",
   "plugins": [

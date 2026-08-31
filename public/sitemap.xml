@@ -15574,6 +15574,10 @@
   <url><loc>https://dshbase.com/zh/plugins/deep-read-summarize/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-webui/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-webui/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-ai-shopping-assistant/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/zh/plugins/dsh-ai-shopping-assistant/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-overleaf-workbench/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/zh/plugins/dsh-overleaf-workbench/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/anime-find/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/anime-find/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/news-agent/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -15632,6 +15636,10 @@
   <url><loc>https://dshbase.com/zh/blog/wx-dsh-build-plugin/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/deepseek-harness-comparison/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/blog/deepseek-harness-comparison/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/blog/wx-deepseek-harness-plugin-development-tutorial/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/zh/blog/wx-deepseek-harness-plugin-development-tutorial/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/blog/wx-dsh-patch-stack-field-notes/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/zh/blog/wx-dsh-patch-stack-field-notes/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/vs-cursor/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/blog/vs-cursor/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/dsh-sandbox/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -15688,6 +15696,8 @@
   <url><loc>https://dshbase.com/zh/blog/dsh-self-evolving-software/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/wx-dsh-codex-vs-flash-pro/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/blog/wx-dsh-codex-vs-flash-pro/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/blog/wx-deepseek-harness-100k-stars-plugin-ecosystem/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/zh/blog/wx-deepseek-harness-100k-stars-plugin-ecosystem/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/community-pulse-2/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/blog/community-pulse-2/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/vs-claude-code/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -15700,12 +15710,20 @@
   <url><loc>https://dshbase.com/zh/blog/what-makes-a-good-dsh-plugin/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/plugin-redefined/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/blog/plugin-redefined/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/blog/wx-dsh-web-ui-plugin-skin-suite-review/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/zh/blog/wx-dsh-web-ui-plugin-skin-suite-review/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/blog/wx-dsh-store-admission-funnel-253-of-1411/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/zh/blog/wx-dsh-store-admission-funnel-253-of-1411/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/wx-dsh-agent-team/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/blog/wx-dsh-agent-team/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/dsh-mcp/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/blog/dsh-mcp/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/pi-deepseek-cache/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/blog/pi-deepseek-cache/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/blog/wx-dsh-100k-stars-45h/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/zh/blog/wx-dsh-100k-stars-45h/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/blog/wx-agent-architecture-control-three-schools/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/zh/blog/wx-agent-architecture-control-three-schools/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/dsh-im-integration/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/blog/dsh-im-integration/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/deepseek-harness-faq/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
