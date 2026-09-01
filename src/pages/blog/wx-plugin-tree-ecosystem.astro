@@ -10,6 +10,8 @@ const auditUrl = getRelativeLocaleUrl('en', '/audit/');
   <p class="muted small">Rewritten from a WeChat article (account: 硅基直觉) on the DeepSeek Harness plugin ecosystem; plugin directions are kept as stated in the source and are not a dshbase rating.</p>
   <p class="muted small"><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1788227874&amp;ver=6939&amp;signature=Vl29jz43pmF64FZNLZHIKPRROVWHo70ILrQ0Gb*BWoQh60At9xyGnW7527*o4Y-7rkG194GwENuVeYhWRYPTSSebvSeM9ky5dhiwZa9T7VT*b7ZuGsi9nUB3hrGbVtZc&amp;new=1" rel="noopener noreferrer nofollow" target="_blank">Source clue (WeChat via Sogou; not a verbatim reprint)</a> — Rewritten from a WeChat article (account: 硅基直觉) on the DeepSeek Harness plugin ecosystem; plugin directions are kept as stated in the source and are not a dshbase rating.</p>
 
+  <img src="/assets/blog-wechat/wx-plugin-tree-0.png" alt="DeepSeek Harness plugin tree: model, tools, sessions, sandbox, orchestration and UI stacked as replaceable plugins" loading="lazy" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
 <p>Scroll the DeepSeek Harness topic page and the first impression is noise: hundreds of repos, a lively but messy market. The number of plugins is not what deserves attention. The organizing logic behind them is.</p>
 <p><strong>The core is not bolting tools onto a model; it is splitting the whole agent runtime into replaceable, re-stackable plugins</strong>. Model, tools, skills, sessions, sandbox, storage, loops, scheduling and UI are not baked into the kernel. They are assembled from plugins. The official phrase is blunt: every capability is a plugin.</p>
 <h2>Why build the system as a plugin tree</h2>
@@ -42,6 +44,8 @@ const auditUrl = getRelativeLocaleUrl('en', '/audit/');
 <li>Image uploads, external links and asset management: <code>Molunerfinn/PicGo</code></li>
 <li>Directory repos like awesome-dsh-plugin: good as an entry map, not as your first installs</li>
 </ul>
+
+  <img src="/assets/blog-wechat/wx-plugin-tree-1.png" alt="Six DeepSeek Harness plugin families illustrated: model, tools, memory, sandbox, orchestration and UI" loading="lazy" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
 
 <h2>How to choose: by task, not by hype</h2>
 <p>One principle covers the whole selection game: <strong>try what directly strengthens your current workflow first; set aside what only looks lively</strong>. In a plugin ecosystem the real cost is not installation. It is attention spent on directions that do not fit.</p>

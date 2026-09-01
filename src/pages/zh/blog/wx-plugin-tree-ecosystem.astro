@@ -10,6 +10,8 @@ const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
   <p class="muted small">改写自微信公众号文章（账号：硅基直觉）对 DeepSeek Harness 插件生态的梳理；插件方向按原文保留，不代表 dshbase 推荐排序。</p>
   <p class="muted small"><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1788227874&amp;ver=6939&amp;signature=Vl29jz43pmF64FZNLZHIKPRROVWHo70ILrQ0Gb*BWoQh60At9xyGnW7527*o4Y-7rkG194GwENuVeYhWRYPTSSebvSeM9ky5dhiwZa9T7VT*b7ZuGsi9nUB3hrGbVtZc&amp;new=1" rel="noopener noreferrer nofollow" target="_blank">参考/线索（微信；非原文搬运）</a> — 改写自微信公众号文章（账号：硅基直觉）对 DeepSeek Harness 插件生态的梳理；插件方向按原文保留，不代表 dshbase 推荐排序。</p>
 
+  <img src="/assets/blog-wechat/wx-plugin-tree-0.png" alt="DeepSeek Harness 插件树示意图：模型、工具、会话、沙箱、编排、UI 作为可替换插件叠加" loading="lazy" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
+
 <p>打开 DeepSeek Harness 的 topic 页，很容易觉得插件多到杂乱。真正值得琢磨的不是数量，而是它背后的组织方式。</p>
 <p><strong>核心不是给模型外挂工具，而是把整个 Agent 运行时拆成可替换、可重组、可叠加的插件</strong>。模型、工具、技能、会话、沙箱、存储、循环、调度、UI，都不写死在内核里，而是通过插件组合出来。官方的一句话很直接：every capability is a plugin。</p>
 <h2>为什么要把系统做成插件树</h2>
@@ -42,6 +44,8 @@ const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
 <li>图片上传、外链、素材整理 → <code>Molunerfinn/PicGo</code></li>
 <li>找插件入口 → awesome-dsh-plugin 这类目录仓库，当入口用，别当第一批必装</li>
 </ul>
+
+  <img src="/assets/blog-wechat/wx-plugin-tree-1.png" alt="DSH 六大插件分类示意图：模型、工具、会话、沙箱、编排、UI" loading="lazy" style="max-width:100%;border-radius:10px;border:1px solid var(--border);margin:12px 0">
 
 <h2>怎么选：按任务，不按热度</h2>
 <p>选插件的原则只有一个：<strong>能直接增强当前工作流的先试，只是看起来热闹的先放一放</strong>。对插件生态来说，最贵的不是安装成本，而是把注意力投给了不适合自己的方向。</p>
