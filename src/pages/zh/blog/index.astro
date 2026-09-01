@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const locale = Astro.currentLocale ?? 'zh';
 const posts = [
+  { path: '/blog/wx-dsh-first-month-report/', cat: '分析', zh: "DSH 的第一个月：平台化跑得比产品化快", desc_zh: "三周 11 个预发版，SDK 与事件支持快速落地；而安装卡死、Token 失控、缺成本熔断，正是社区最关心的事。" },
   { path: '/blog/wx-plugin-tree-ecosystem/', cat: '指南', zh: "DSH 插件怎么挑：先看懂插件树，再按任务选", desc_zh: "DSH 的每个能力都是插件。看懂模型、工具、会话、沙箱、编排、UI 六大类，再按任务挑插件，别被热度带偏。" },
   { path: '/blog/wx-dsh-patch-stack-field-notes/', cat: '指南', zh: "你的 dsh 配置叠了五层纸:补丁栈、PTC 省钱位和那个技能软链坑", desc_zh: "五层配置怎么叠、apiKeyEnv 别写错、PTC 到底改了什么、技能必须软链到固定目录的设计坑" },
   { path: '/blog/wx-dsh-store-admission-funnel-253-of-1411/', cat: '分析', zh: "一个对 1225 条记录说不的插件商城:DSH-Store 准入漏斗拆解", desc_zh: "1411 条目录记录只放进 253 个:三层准入闸、R0 到 R3 风险分级怎么运作,哪些环节还得靠作者自报" },

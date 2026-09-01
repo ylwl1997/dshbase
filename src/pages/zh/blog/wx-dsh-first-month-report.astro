@@ -1,0 +1,41 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
+---
+<BlogPost title="DSH 的第一个月：平台化跑得比产品化快 | dshbase 中文" description="三周 11 个预发版，SDK 与事件支持快速落地；而安装卡死、Token 失控、缺成本熔断，正是社区最关心的事。" currentPath="/blog/wx-dsh-first-month-report/" category="分析">
+  <h1>DSH 的第一个月：平台化跑得比产品化快</h1>
+  <p class="muted small" style="margin-bottom:20px">2026年9月1日 · dshbase · 改写解读</p>
+  <p class="muted small">改写自微信公众号文章（账号：百法难治）对 DeepSeek Harness 第一个月的观察；事故数字与讨论编号按原文保留。</p>
+  <p class="muted small"><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1788227874&amp;ver=6939&amp;signature=HtsqMv9bkD3znbuf8UhUBzTJgc*kO5Ouz4NWPVBzZn3w4VQEEegzgpuQJFxf4eHcGtZscSsceTbqBN5md6Fb4lBnrkczQJsOQkGFHrKI0LvYV0wyzVcoIxrIQgwnpPuY&amp;new=1" rel="noopener noreferrer nofollow" target="_blank">参考/线索（微信；非原文搬运）</a> — 改写自微信公众号文章（账号：百法难治）对 DeepSeek Harness 第一个月的观察；事故数字与讨论编号按原文保留。</p>
+
+<p>DeepSeek 官网把 <code>npx @deepseek-ai/dsh web</code> 放在最醒目的位置，像是在说：来，把一个开源 Agent 跑起来。8 月 31 日，在干净的临时目录里执行官方 <code>0.1.1-rc.2</code>，等了 45 秒，没有 lockfile，只有 npm 在后台占着 CPU。换成 <code>0.1.2-alpha.2</code>，约 18 秒完成依赖解析。这个对照很像 Harness 的第一个月：代码在狂奔，用户等待的，往往是它先停下来。</p>
+<h2>半个月，从 Web UI 跑向 runtime</h2>
+<p>8 月 13 日仓库公开；npm 记录显示 8 月 10 日到 30 日 <code>@deepseek-ai/dsh</code> 共 11 个预发版。版本号跑得快，更重要的是方向在往哪跑。</p>
+<p><strong>第一个方向是 SDK</strong>。Python 和 TypeScript 客户端加入明确的 profile 与 Harness home，通过 JSON-RPC 和 Remote 通道让外部程序驱动会话。Harness 不再只是浏览器里的一页，而开始成为其他产品里的会话引擎。</p>
+<p><strong>第二个方向是事件</strong>。GitHub Webhook 可以从事件创建 workspace session；调度、提醒、会话导出、每轮 Token 与耗时统计，把「请 Agent 做一件事」接进了更长的工作流。这不是给聊天框加按钮，是在补一个能长时间运行的 Agent 运行时。</p>
+<h2>外部子 Agent 和 Agent Teams 来了</h2>
+<p>Codex 和 Claude Code 被做成独立可安装的 subagent provider，子 Agent 还能选模型；主线还出现了实验性的 Agent Teams CLI/Web profile。「一切皆插件」到这里才像一句真话：模型可换、工具可换、子 Agent 可换，连工作流和运行环境也能重组。</p>
+<p>问题也随之变难：一次工具调用失败，到底是模型问题、provider 问题、权限问题，还是插件组合问题？</p>
+<h2>社区最热的，不是新功能</h2>
+<p>官方关闭 Issues、讨论全部进入 Discussions，用户的真实优先级反而更清楚：</p>
+<ul>
+<li><strong>入口</strong>（Discussion #172，36 条评论）：要独立客户端、CLI、VS Code。有句评论很准：「WEB 形式还是不得劲」。当一个工具开始接管真实仓库，用户会想把它放进自己已经在用的环境。</li>
+<li><strong>远程访问</strong>（Discussion #76）：围绕 <code>--host 0.0.0.0</code> 的呼声。官方的回答很关键：这不是启动 Bug。Web API 可以驱动 Agent 执行 bash，但远程认证尚未完整，所以官方仍禁止直接暴露，建议用 SSH 转发。这像产品化的一道门：大家想要远程，但开发者不能只把端口打开。</li>
+</ul>
+<h2>最麻烦的 Bug：你连安装都不一定成功</h2>
+<p>Discussion #3786 记录了 Windows 11、Node 24、npm 11 下的诡异状态：没有网络流量，CPU 单核占满，内存上涨，既不结束也不报错。对照实验把问题指向 npm Arborist 在复杂 peer dependency 图上的回溯，而不是镜像、cache 或网络。<code>pnpm dlx</code> 能启动，但后续可能遇到 pnpm 隔离布局与 DSH 回退目录的冲突。「换个包管理器」是绕过路径，还不是干净的发布体验。</p>
+<h2>然后是「停不住」</h2>
+<p>Discussion #3228 报告了一次 Agent 反复执行，最后用掉一亿多 Token 才因 API 欠费停下。单个用户的事故，不是受控实验；但源码对照能确认一个基础事实：当前 agent-loop 有并行工具调用上限，却没有内建的每轮步数、会话 Token 或成本熔断。这个缺口和项目的新方向正好冲突：调度、Webhook、长会话都在落地，用户却仍要自己想办法限制 Agent 的最大代价。</p>
+<h2>插件越自由，责任越难分</h2>
+<p>Discussion #1115 提议尽快建立官方插件市场、标准和安全审核，首帖有 44 个 reaction。用户不是想要更漂亮的插件商店，而是在问：插件由谁维护？兼容哪个版本？需要哪些文件、网络和凭据权限？插件被投毒后，用户怎么知道？官方 <code>SAFETY.md</code> 说得很明确：实验性开发者预览版，没有安全审计，不能当作 secure 或 production-ready 软件。腾讯朱雀实验室的第三方研究在 14,560 次受控执行里测了间接提示注入，但只针对 8 月 13 日附近的一个修订和一种 baseline。</p>
+<h2>第一个月该怎么用</h2>
+<p>如果要稳定跑真实项目：不要因为 master 有新功能就直接更新。固定版本，为工具调用加上明确的权限和费用上限，把插件当可执行程序审查。</p>
+<p>如果你在造自己的 Agent，这个月很值得看：SDK、事件驱动、外部 subagent、Remote 和会话记录，都在告诉你它想做什么。它想做的，不是一个更便宜的 Claude Code，而是一个可以拆开、重组、接入其他产品的 Agent 基础设施。</p>
+<p>只是现在，代码已经跑到了基础设施那一层，发布、权限、成本和插件生态还没跟上。<strong>平台化跑得比产品化快</strong>——这是 DeepSeek Harness 第一个月最值得记住的一句话。</p>
+<p>原文引用的来源：官方 Harness 页、GitHub 仓库、npm registry、Discussions #172/#76/#3786/#3228/#1115、SAFETY.md、腾讯朱雀实验室 arXiv 安全评估。</p>
+<h2>在 dshbase 上</h2>
+<p>装随机 GitHub 插件前，先看<a href={directoryUrl}>已验证目录</a>与<a href={auditUrl}>审计说明</a>。</p>
+
+</BlogPost>

@@ -1,0 +1,41 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('en', '/audit/');
+---
+<BlogPost title="DSH&#x27;s first month: the platform ran ahead of the product | dshbase" description="Eleven prereleases in three weeks, SDK and event support landing fast — while install hangs, runaway token costs and missing cost circuit breakers top the community wishlist." currentPath="/blog/wx-dsh-first-month-report/" category="Analysis">
+  <h1>DSH&#x27;s first month: the platform ran ahead of the <span class="accent">product</span></h1>
+  <p class="muted small" style="margin-bottom:20px">September 01, 2026 · dshbase · rewritten field note</p>
+  <p class="muted small">Rewritten from a WeChat article (account: 百法难治) reporting on DeepSeek Harness&#x27;s first month; all incident numbers and discussion IDs are kept as stated in the source.</p>
+  <p class="muted small"><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1788227874&amp;ver=6939&amp;signature=HtsqMv9bkD3znbuf8UhUBzTJgc*kO5Ouz4NWPVBzZn3w4VQEEegzgpuQJFxf4eHcGtZscSsceTbqBN5md6Fb4lBnrkczQJsOQkGFHrKI0LvYV0wyzVcoIxrIQgwnpPuY&amp;new=1" rel="noopener noreferrer nofollow" target="_blank">Source clue (WeChat via Sogou; not a verbatim reprint)</a> — Rewritten from a WeChat article (account: 百法难治) reporting on DeepSeek Harness&#x27;s first month; all incident numbers and discussion IDs are kept as stated in the source.</p>
+
+<p>DeepSeek's homepage leads with <code>npx @deepseek-ai/dsh web</code> — an invitation to run an open-source agent. On August 31, a clean temp directory took 45 seconds on the official <code>0.1.1-rc.2</code> before the npm install stalled with no lockfile. The same package at <code>0.1.2-alpha.2</code> finished dependency resolution in about 18 seconds. That contrast is a good summary of Harness's first month: the code is sprinting, while users often want it to stop and settle.</p>
+<h2>Half a month from web UI to runtime</h2>
+<p>The repo went public on August 13; npm records 11 prereleases of <code>@deepseek-ai/dsh</code> from August 10 to 30. Version numbers moved fast, but more interesting is where the updates were heading.</p>
+<p><strong>The first direction is the SDK</strong>. Python and TypeScript clients gained explicit profile and Harness home, plus JSON-RPC and Remote channels so external programs can drive sessions. Harness is no longer just a page in the browser; it is becoming a session engine inside other products.</p>
+<p><strong>The second direction is events</strong>. A GitHub webhook can create a workspace session from an event; scheduling, reminders, session export, per-turn token and timing stats connect "ask the agent to do something" into longer workflows. This is not adding buttons to a chat box. It is building a long-running agent runtime.</p>
+<h2>External subagents and agent teams</h2>
+<p>Codex and Claude Code became installable subagent providers, with per-subagent model selection, and an experimental Agent Teams CLI/Web profile appeared. "Everything is a plugin" starts to sound real: model, tools, subagents, workflow and runtime can all be recombined.</p>
+<p>The harder question follows: when a tool call fails, is it the model, the provider, the permission or the plugin combination?</p>
+<h2>What the community is actually asking for</h2>
+<p>The repo moved discussions to GitHub Discussions. The most-heated threads were not about new features:</p>
+<ul>
+<li><strong>Entry points</strong> (Discussion #172, 36 comments): people want standalone clients, CLI and VS Code. One comment was precise: "WEB 形式还是不得劲" — the web form does not cut it. When a tool starts to manage real repositories, users want it inside their existing environment.</li>
+<li><strong>Remote access</strong> (Discussion #76): requests around <code>--host 0.0.0.0</code>. The official answer matters: this is not a launch bug. The web API can drive bash, but remote auth is not complete, so direct exposure stays forbidden — SSH forwarding is the suggested path. A productization gate: users want remote, but the developer cannot just open a port.</li>
+</ul>
+<h2>Install can fail before you even succeed</h2>
+<p>Discussion #3786 tracks a nasty state on Windows 11, Node 24 and npm 11: no network traffic, one CPU core pegged, memory climbing, no exit and no error. The evidence points to npm Arborist backtracking on complex peer dependency graphs, not mirrors or cache. <code>pnpm dlx</code> starts, but then pnpm's isolated layout can clash with DSH fallback directories. A different package manager is a workaround, not a clean release experience.</p>
+<h2>Then there is the runaway loop</h2>
+<p>Discussion #3228 reports an agent repeating execution until more than 100 million tokens were consumed and the API ran out of credit. One user's incident, not a controlled experiment — but the source confirms a basic fact: the agent loop has a parallel tool-call limit yet no built-in per-round step cap, session token cap or cost circuit breaker. That gap collides with the project's own direction: scheduling, webhooks and long sessions are landing, while users still need to invent their own limits on the maximum cost of an agent.</p>
+<h2>Freedom of plugins vs. responsibility</h2>
+<p>Discussion #1115 asks for an official plugin marketplace with standards and security review (44 reactions on the first post). Users are not asking for a prettier store; they are asking who maintains a plugin, which versions it matches, what file/network/credential permissions it needs, and how a poisoned plugin would be detected. The official <code>SAFETY.md</code> is explicit: experimental developer preview, no security audit, not secure or production-ready software. A third-party study by Tencent Zhuque lab ran 14,560 controlled executions against indirect prompt injection, but it covered one revision around August 13 and one baseline.</p>
+<h2>What the first month tells you</h2>
+<p>For a stable real project: do not chase master. Pin a version, set explicit permission and cost ceilings for tool calls, and review plugins as executable programs.</p>
+<p>If you are building your own agent, this month is worth reading closely — SDK, event-driven flows, external subagents, Remote and session records all point at the ambition. It is not aiming to be a cheaper Claude Code. It wants to be an agent infrastructure you can take apart, recombine and embed in other products.</p>
+<p>The code has already reached the infrastructure layer; release, permission, cost and plugin ecosystem have not caught up. <strong>Platformization ran ahead of productization</strong> — that is the sentence worth remembering from DeepSeek Harness's first month.</p>
+<p>Sources cited in the source article: official Harness page, GitHub repo, npm registry, Discussions #172/#76/#3786/#3228/#1115, SAFETY.md, and the Tencent Zhuque security assessment on arXiv.</p>
+<h2>On dshbase</h2>
+<p>Before installing random GitHub plugins, check the <a href={directoryUrl}>verified directory</a> and <a href={auditUrl}>audit notes</a>.</p>
+
+</BlogPost>
