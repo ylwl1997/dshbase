@@ -1,11 +1,8 @@
 ---
-import BlogPost from '../../../layouts/BlogPost.astro';
-import { getRelativeLocaleUrl } from 'astro:i18n';
-const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
-const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
+import BlogPost from '../../layouts/BlogPost.astro';
 ---
 <BlogPost title="DSH 的第一个月：平台化跑得比产品化快 | dshbase 中文" description="三周 11 个预发版，SDK 与事件支持快速落地；而安装卡死、Token 失控、缺成本熔断，正是社区最关心的事。" currentPath="/blog/wx-dsh-first-month-report/" category="分析">
-  <h1>DSH 的第一个月：平台化跑得比产品化快</h1>
+  <h1>DSH 的第一个月：<span class="accent">平台化跑得比产品化快</span></h1>
   <p class="muted small" style="margin-bottom:20px">2026年9月1日 · dshbase · 改写解读</p>
   <p class="muted small">改写自微信公众号文章（账号：百法难治）对 DeepSeek Harness 第一个月的观察；事故数字与讨论编号按原文保留。</p>
   <p class="muted small"><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1788227874&amp;ver=6939&amp;signature=HtsqMv9bkD3znbuf8UhUBzTJgc*kO5Ouz4NWPVBzZn3w4VQEEegzgpuQJFxf4eHcGtZscSsceTbqBN5md6Fb4lBnrkczQJsOQkGFHrKI0LvYV0wyzVcoIxrIQgwnpPuY&amp;new=1" rel="noopener noreferrer nofollow" target="_blank">参考/线索（微信；非原文搬运）</a> — 改写自微信公众号文章（账号：百法难治）对 DeepSeek Harness 第一个月的观察；事故数字与讨论编号按原文保留。</p>
@@ -37,7 +34,4 @@ const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
 <p>如果你在造自己的 Agent，这个月很值得看：SDK、事件驱动、外部 subagent、Remote 和会话记录，都在告诉你它想做什么。它想做的，不是一个更便宜的 Claude Code，而是一个可以拆开、重组、接入其他产品的 Agent 基础设施。</p>
 <p>只是现在，代码已经跑到了基础设施那一层，发布、权限、成本和插件生态还没跟上。<strong>平台化跑得比产品化快</strong>——这是 DeepSeek Harness 第一个月最值得记住的一句话。</p>
 <p>原文引用的来源：官方 Harness 页、GitHub 仓库、npm registry、Discussions #172/#76/#3786/#3228/#1115、SAFETY.md、腾讯朱雀实验室 arXiv 安全评估。</p>
-<h2>在 dshbase 上</h2>
-<p>装随机 GitHub 插件前，先看<a href={directoryUrl}>已验证目录</a>与<a href={auditUrl}>审计说明</a>。</p>
-
 </BlogPost>

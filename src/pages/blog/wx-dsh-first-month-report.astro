@@ -1,8 +1,5 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
-import { getRelativeLocaleUrl } from 'astro:i18n';
-const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
-const auditUrl = getRelativeLocaleUrl('en', '/audit/');
 ---
 <BlogPost title="DSH&#x27;s first month: the platform ran ahead of the product | dshbase" description="Eleven prereleases in three weeks, SDK and event support landing fast — while install hangs, runaway token costs and missing cost circuit breakers top the community wishlist." currentPath="/blog/wx-dsh-first-month-report/" category="Analysis">
   <h1>DSH&#x27;s first month: the platform ran ahead of the <span class="accent">product</span></h1>
@@ -37,7 +34,4 @@ const auditUrl = getRelativeLocaleUrl('en', '/audit/');
 <p>If you are building your own agent, this month is worth reading closely — SDK, event-driven flows, external subagents, Remote and session records all point at the ambition. It is not aiming to be a cheaper Claude Code. It wants to be an agent infrastructure you can take apart, recombine and embed in other products.</p>
 <p>The code has already reached the infrastructure layer; release, permission, cost and plugin ecosystem have not caught up. <strong>Platformization ran ahead of productization</strong> — that is the sentence worth remembering from DeepSeek Harness's first month.</p>
 <p>Sources cited in the source article: official Harness page, GitHub repo, npm registry, Discussions #172/#76/#3786/#3228/#1115, SAFETY.md, and the Tencent Zhuque security assessment on arXiv.</p>
-<h2>On dshbase</h2>
-<p>Before installing random GitHub plugins, check the <a href={directoryUrl}>verified directory</a> and <a href={auditUrl}>audit notes</a>.</p>
-
 </BlogPost>
