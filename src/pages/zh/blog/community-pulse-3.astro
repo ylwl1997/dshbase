@@ -1,0 +1,52 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
+---
+<BlogPost title="社区脉搏 · 第 3 期：保险库热潮、模型列表快照与 20.7 万星的仓库（2026 年 9 月） | dshbase" description="仓库跨过 20.7 万星，依旧零 open issue。dsh-vault 讨论热度持续攀升，模型列表快照的诉求一周过去仍无下文，而第 2 期的安装卡死集群终于出现松动。加上 CLI 诉求、子代理模型 bug，以及这个社区对「记忆」的真实需求。" currentPath="/blog/community-pulse-3/" category="脉搏">
+  <h1>社区脉搏 <span class="accent">第 3 期</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 9 月 1 日 · dshbase · 关于 DeepSeek Harness 社区的定期报告</p>
+
+  <p>这是 <strong>社区脉搏</strong> 的第三期。距离 8 月 25 日的<a href="/zh/blog/community-pulse-2/">第 2 期</a>一周，仓库跨过 <strong>20.7 万星</strong>，「零 open issue」依然成立。我们又拉了一遍讨论区，本周的信号是：dsh-vault 成为全仓库最热的帖子、模型列表快照的诉求继续无人回应、而第 2 期点名的安装卡死集群终于有了动静。下面是变化。</p>
+
+  <h2>快照</h2>
+  <p>写稿时 <strong>207,387 星</strong>，比我们<a href="/zh/blog/dsh-vs-american-tools/">美国工具对比文</a>里记的 ~15.8 万又高了一截。讨论量继续复利增长——最新讨论编号已过 <strong>#4,400</strong>，比第 2 期八天前大约 <strong>+60%</strong>。活跃讨论的分类结构和上期一致：General 占大头，Ideas 与 Q&amp;A 围着同样的痛点，而 <strong>Show Your Plugins</strong> 持续产出最值得读的内容。</p>
+
+  <h2>本期头条：vault 帖子停不下来</h2>
+  <p>第 2 期我们点名了 <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/1457" rel="noopener">dsh-vault</a>——一个加密凭据保险库插件，当时以 <strong>184 条评论</strong>居全站最热。一周后它到了 <strong>207 条评论，依然是仓库里最活跃的讨论</strong>。这不是一次性的热度峰值，而是持续的需求信号。随着 Agent 跑上共享机器、CI 运行器和多用户环境，「安全存好密钥」从锦上添花变成用户会为此换工具的理由。连锁反应在插件市场上也看得到：密钥处理与生命周期管理正在成为差异化卖点，而不是插件数量。</p>
+
+  <h2>第 2 期追踪：哪些动了</h2>
+  <ul>
+    <li><strong>安装卡死终于有动静。</strong> <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/3786" rel="noopener">#3786</a>——最响的安装卡死帖（npx 在依赖解析循环里打满 CPU）——到 8 月 28 日又多了几条评论。临时方案依然有效（显式 pin 发布 tag、预热干净注册表缓存），但帖子的持续活跃说明修复还没进已发布版本。<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/4236" rel="noopener">#4236</a>（npm 10.9.8 peer 解析变体）安静下来了，可能只是同一个根因的重复报告。</li>
+    <li><strong>子代理模型继承仍未修。</strong> <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/455" rel="noopener">#455</a> 和 <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/4311" rel="noopener">#4311</a> 在 8 月底都有更新——<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/4311" rel="noopener">#4311</a> 到 8 月 28 日。对第三方 provider 用户来说，这仍是最尖锐的正确性 bug：子代理继承「创建时的」模型（或过期默认值）而不是会话当前模型，每次子代理调用都炸 <em>"no API key"</em>。这是信任杀手，而且还没修。</li>
+    <li><strong>会话损坏家族添了新成员后安静了。</strong> <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/4385" rel="noopener">#4385</a>（<code>tool/result</code> 事件空 <code>callId</code> 触发 <code>SessionPersistenceCorruptionError</code>）8 月 25 日有人回复后就没动静了——可能夜版修了，也可能只是没人接。下期值得复查。</li>
+  </ul>
+
+  <h2>功能雷达：模型列表快照仍是最响的诉求</h2>
+  <p><a href="https://github.com/deepseek-ai/deepseek-harness/discussions/3816" rel="noopener">#3816</a>——dsh 从内置 <code>pi-ai</code> catalog 快照出模型列表、而不是从网关实时拉取——到 8 月 27 日还在收评论，没有修复迹象。OpenCode Go 上已经能用的模型，依然要等发版才显示。社区里「手动声明 OpenAI 兼容模型」的临时方案被反复推荐——这本身就是信号：用户愿意手写配置，就为了用上一个本该自动出现的模型。</p>
+  <p>老牌诉求依然健在：<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/76" rel="noopener">#76</a>（无头 <code>--host 0.0.0.0</code>）现在 <strong>54 条评论</strong>；<strong>CLI 诉求集群</strong>是真实的：<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/67" rel="noopener">#67</a>（26 条评论）、<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/102" rel="noopener">#102</a>、<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/45" rel="noopener">#45</a> 都在要一个正经终端客户端。三条的共性：Web UI 应付单会话够了，重度用户想要键盘优先、可脚本化的界面。这正是我们在<a href="/zh/blog/deepseek-harness-review/">上手评测</a>里说的「重度用户会掀开引擎盖」的又一次印证。</p>
+
+  <h2>Bug 雷达：Windows、工作区与平台税</h2>
+  <ul>
+    <li><strong>Windows 专属摩擦是这周的暗线。</strong> <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/53" rel="noopener">#53</a>——快速模式下 Windows 调用 Linux 终端命令——更新到 8 月 30 日。<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/37" rel="noopener">#37</a>（Firefox 目录选择对话框在后台弹出）也浮出水面。两个都是「平台税」：核心很棒，但跨平台边缘不断产生同一类 bug。</li>
+    <li><strong>工作区与目录选择器问题扎堆。</strong> <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/30" rel="noopener">#30</a>——<em>"directory picker failed"</em>——已 24 条评论，8 月 30 日还在收报告。和安装卡死是不同的故障，但形状相同：与工具的第一交互，就是它崩的地方。</li>
+    <li><strong>环境噪音。</strong> <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/71" rel="noopener">#71</a>（目录名叫 <code>.env</code> 时报 <code>failed to load .env: EISDIR</code>）和 <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/100" rel="noopener">#100</a>（dsh web 的 <code>node:zlib</code> 模块错误）是本周的新手绊脚石。都很小，但它们是新安装者看到的第一样东西。</li>
+  </ul>
+
+  <h2>生态：数字军备竞赛降温，「发现」升温</h2>
+  <p><a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2423" rel="noopener">#2423</a> 那个 7,000 插件的说法这周基本没动——数量竞赛似乎到了平台期，<em>发现</em>问题接棒。<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/1597" rel="noopener">#1597</a>（「1,700+ 插件，怎么找到适合我的那个？」）持续有人回答；社区插件市场项目 <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/2687" rel="noopener">#2687</a>——生命周期管理、安全启停、一键重启——活跃到 8 月 31 日。各家市场正在收敛到 dshbase 一直在下的注：<em>「能不能真的跑」</em>胜过<em>「有多少个」</em>。我们的<a href={directoryUrl}>已验证插件目录</a>就是为此存在的。</p>
+
+  <h2>这个社区的「记忆」意味着什么</h2>
+  <p>最热的 Ideas 帖之一 <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/14" rel="noopener">#14</a>（「求一个 memory 能力」）已经 <strong>49 条评论</strong>，8 月 30 日还在涨。值得细读，因为这帖子其实在同时要三样东西：跨会话的持久上下文、存/取项目知识的能力、以及更好的长会话行为。Harness 的只追加会话日志（<a href="/zh/blog/deepseek-harness-session-log/">我们的深度解读</a>）解决的是可复现性，不是记忆——社区开始感觉到这个缺口。预计记忆/上下文类插件会是下一个 vault 式需求浪潮。</p>
+
+  <h2>接下来关注什么</h2>
+  <ul>
+    <li><strong>vault 帖是金丝雀。</strong> 当 <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/1457" rel="noopener">#1457</a> 过了 207 条评论还在涨，它就在告诉你真实的部署痛点在哪。留意官方密钥管理支持，或 vault 类插件的大爆发。</li>
+    <li><strong>子代理模型继承</strong>（<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/455" rel="noopener">#455</a>/<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/4311" rel="noopener">#4311</a>）仍是最尖锐的正确性 bug。要么很快被修，要么变成社区标准的「默认能跑、换你的就崩」抱怨。</li>
+    <li><strong>实时模型列表</strong>（<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/3816" rel="noopener">#3816</a>）和 <strong>CLI 诉求集群</strong>（<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/67" rel="noopener">#67</a>/<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/102" rel="noopener">#102</a>/<a href="https://github.com/deepseek-ai/deepseek-harness/discussions/45" rel="noopener">#45</a>）：两个「让工具适配我真实工作方式」的诉求，价值持续复利。</li>
+    <li><strong>记忆是下一块前沿。</strong> 49 条评论的记忆帖加上 vault 需求指向同一个方向：随着 Agent 被托付更多，社区希望它们<em>记得</em>更多——而且要安全地记。过渡期可以先看<a href={auditUrl}>我们的插件审核方法</a>。</li>
+  </ul>
+
+  <p><em>社区脉搏是定期报告。有想让我们追踪的讨论，或想纠正一处？到 <a href="https://github.com/ylwl1997/dshbase" rel="noopener">dshbase 仓库</a>开一个 issue。</em></p>
+</BlogPost>

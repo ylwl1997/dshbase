@@ -394,5 +394,14 @@
   "zh": "冲击美国 Agent 工具",
   "desc_en": "158k stars in 5 days — what it does to Claude Code, Codex, Cursor and Copilot.",
   "desc_zh": "5 天 15.8 万星——对 Claude Code、Codex、Cursor、Copilot 的冲击。"
+ },
+ {
+  "path": "/blog/community-pulse-3/",
+  "cat": "Pulse",
+  "cat_zh": "脉搏",
+  "en": "Community Pulse #3 — vault fever, the model-list snapshot & a repo at 207k stars",
+  "zh": "社区脉搏 · 第 3 期：保险库热潮、模型列表快照与 20.7 万星的仓库",
+  "desc_en": "207k stars, zero open issues: the vault thread keeps climbing, the install-hang cluster moves, and the CLI/memory demand clusters sharpen.",
+  "desc_zh": "20.7 万星、零 open issue：vault 热度持续攀升、安装卡死集群松动，CLI 与记忆诉求集群浮出水面。"
  }
 ]
