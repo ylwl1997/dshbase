@@ -1,0 +1,50 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('zh', '/audit/');
+---
+<BlogPost title="DSH 插件怎么挑：先看懂插件树，再按任务选 | dshbase 中文" description="DSH 的每个能力都是插件。看懂模型、工具、会话、沙箱、编排、UI 六大类，再按任务挑插件，别被热度带偏。" currentPath="/blog/wx-plugin-tree-ecosystem/" category="指南">
+  <h1>DSH 插件怎么挑：先看懂插件树，再按任务选</h1>
+  <p class="muted small" style="margin-bottom:20px">2026年9月1日 · dshbase · 改写解读</p>
+  <p class="muted small">改写自微信公众号文章（账号：硅基直觉）对 DeepSeek Harness 插件生态的梳理；插件方向按原文保留，不代表 dshbase 推荐排序。</p>
+  <p class="muted small"><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1788227874&amp;ver=6939&amp;signature=Vl29jz43pmF64FZNLZHIKPRROVWHo70ILrQ0Gb*BWoQh60At9xyGnW7527*o4Y-7rkG194GwENuVeYhWRYPTSSebvSeM9ky5dhiwZa9T7VT*b7ZuGsi9nUB3hrGbVtZc&amp;new=1" rel="noopener noreferrer nofollow" target="_blank">参考/线索（微信；非原文搬运）</a> — 改写自微信公众号文章（账号：硅基直觉）对 DeepSeek Harness 插件生态的梳理；插件方向按原文保留，不代表 dshbase 推荐排序。</p>
+
+<p>打开 DeepSeek Harness 的 topic 页，很容易觉得插件多到杂乱。真正值得琢磨的不是数量，而是它背后的组织方式。</p>
+<p><strong>核心不是给模型外挂工具，而是把整个 Agent 运行时拆成可替换、可重组、可叠加的插件</strong>。模型、工具、技能、会话、沙箱、存储、循环、调度、UI，都不写死在内核里，而是通过插件组合出来。官方的一句话很直接：every capability is a plugin。</p>
+<h2>为什么要把系统做成插件树</h2>
+<p>把 Agent 比作一辆车，模型只是发动机。方向盘、刹车、导航、仪表盘、安全护栏各有各的位置。Harness 做的，是把这些部件拆开，让运行中的 <code>dsh</code> 变成一棵插件树：profile、bundle、patch 按顺序叠加，组成当前会话看到的能力集。</p>
+<p>这套设计有三个直接收益：</p>
+<ul>
+<li><strong>能替换</strong>：今天用这个模型，明天换另一个适配器，工作流不动。</li>
+<li><strong>能隔离</strong>：危险操作走沙箱和审批层，权限不必散落到每个工具。</li>
+<li><strong>能组合</strong>：一个能力可以拆成工具、事件、UI、存储、策略几层分别挂载。</li>
+</ul>
+<h2>六大类插件，先记能力边界</h2>
+<p>别急着记仓库名，先记边界：</p>
+<ul>
+<li><strong>模型类</strong>：接不同 LLM 或多模态模型，适合切换模型、混合能力。</li>
+<li><strong>工具类</strong>：让模型真的做事——搜索网页、读写文件、调用外部系统、执行命令，最像 Agent 的手脚。</li>
+<li><strong>会话和存储类</strong>：记录上下文、保存状态、回放历史、恢复任务。不想让 Agent 每次失忆，这层很关键。</li>
+<li><strong>沙箱和审批类</strong>：约束高风险动作、限制执行环境、决定哪些操作要人工确认。越接近真实工作流越重要。</li>
+<li><strong>编排类</strong>：循环、调度、子 Agent、后台任务，决定 Agent 是只会答题还是能持续推进。</li>
+<li><strong>UI 类</strong>：Web UI、桌面壳子、面板、消息卡片。入口顺不顺，往往决定使用频率。</li>
+</ul>
+<h2>值得先试的几个方向</h2>
+<p>如果只想挑几个方向打开，按工作场景看这几类：</p>
+<ul>
+<li>可视化产出（原型、看板、页面、PPT、图像）→ <code>nexu-io/open-design</code></li>
+<li>架构图、流程图、数据流图 → <code>tt-a1i/archify</code></li>
+<li>跨天跨项目的长期记忆 → <code>MemTensor/MemOS</code>、<code>EverMind-AI/EverOS</code></li>
+<li>终端里当 coding agent → <code>esengine/DeepSeek-Reasonix</code></li>
+<li>多 Agent 协作、swarm → <code>ruvnet/ruflo</code></li>
+<li>顺手的桌面入口 → <code>anywhere-labs/dsh-desktop</code></li>
+<li>图片上传、外链、素材整理 → <code>Molunerfinn/PicGo</code></li>
+<li>找插件入口 → awesome-dsh-plugin 这类目录仓库，当入口用，别当第一批必装</li>
+</ul>
+
+<h2>怎么选：按任务，不按热度</h2>
+<p>选插件的原则只有一个：<strong>能直接增强当前工作流的先试，只是看起来热闹的先放一放</strong>。对插件生态来说，最贵的不是安装成本，而是把注意力投给了不适合自己的方向。</p>
+<p>在 dshbase 装插件前，建议先看 <a href="/plugins/directory/">已验证目录</a> 和 <a href="/audit/">审计说明</a>。</p>
+<p>刚接触 DSH，可以做一个小实验：从 topic 页挑一个最贴近你工作的插件方向，问自己一句——它是在帮我省步骤，还是只是多一个按钮？前者值得装，后者值得收藏。</p>
+</BlogPost>

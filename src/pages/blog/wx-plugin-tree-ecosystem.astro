@@ -1,0 +1,50 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const auditUrl = getRelativeLocaleUrl('en', '/audit/');
+---
+<BlogPost title="How to pick DSH plugins: read the plugin tree first, then choose by task | dshbase" description="Every DSH capability is a plugin. Read the six plugin families — model, tool, memory, sandbox, orchestration, UI — then pick by task, not by stars." currentPath="/blog/wx-plugin-tree-ecosystem/" category="Guide">
+  <h1>How to pick DSH plugins: read the plugin tree first, then choose by <span class="accent">task</span></h1>
+  <p class="muted small" style="margin-bottom:20px">September 01, 2026 · dshbase · rewritten field note</p>
+  <p class="muted small">Rewritten from a WeChat article (account: 硅基直觉) on the DeepSeek Harness plugin ecosystem; plugin directions are kept as stated in the source and are not a dshbase rating.</p>
+  <p class="muted small"><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1788227874&amp;ver=6939&amp;signature=Vl29jz43pmF64FZNLZHIKPRROVWHo70ILrQ0Gb*BWoQh60At9xyGnW7527*o4Y-7rkG194GwENuVeYhWRYPTSSebvSeM9ky5dhiwZa9T7VT*b7ZuGsi9nUB3hrGbVtZc&amp;new=1" rel="noopener noreferrer nofollow" target="_blank">Source clue (WeChat via Sogou; not a verbatim reprint)</a> — Rewritten from a WeChat article (account: 硅基直觉) on the DeepSeek Harness plugin ecosystem; plugin directions are kept as stated in the source and are not a dshbase rating.</p>
+
+<p>Scroll the DeepSeek Harness topic page and the first impression is noise: hundreds of repos, a lively but messy market. The number of plugins is not what deserves attention. The organizing logic behind them is.</p>
+<p><strong>The core is not bolting tools onto a model; it is splitting the whole agent runtime into replaceable, re-stackable plugins</strong>. Model, tools, skills, sessions, sandbox, storage, loops, scheduling and UI are not baked into the kernel. They are assembled from plugins. The official phrase is blunt: every capability is a plugin.</p>
+<h2>Why build the system as a plugin tree</h2>
+<p>Think of an agent as a car: the model is only the engine. The steering wheel, brakes, navigation, dashboard and safety rails all have their place. Harness takes those parts apart, so a running <code>dsh</code> is a plugin tree: profile, bundle and patch layers stack in order to produce the capability set a session sees.</p>
+<p>The design pays off in three ways:</p>
+<ul>
+<li><strong>Replaceable</strong>: switch to another model adapter tomorrow without touching the workflow.</li>
+<li><strong>Isolated</strong>: risky operations go through the sandbox and approval layer, so permissions do not scatter across every tool.</li>
+<li><strong>Composable</strong>: one capability can be mounted as separate tool, event, UI, storage and policy layers.</li>
+</ul>
+<h2>Six plugin families: learn the boundaries first</h2>
+<p>Before memorizing repo names, learn the capability boundaries:</p>
+<ul>
+<li><strong>Model</strong>: connects different LLMs or multimodal models; useful when you mix providers or switch models.</li>
+<li><strong>Tools</strong>: let the model actually do things — search the web, read and write files, call external systems, run commands. The agent's hands and feet.</li>
+<li><strong>Session and storage</strong>: record context, persist state, replay history, resume tasks. Essential if you do not want the agent to forget everything each turn.</li>
+<li><strong>Sandbox and approval</strong>: constrain high-risk actions, limit the execution environment, decide what needs human confirmation. The closer you get to real workflows, the more this layer matters.</li>
+<li><strong>Orchestration</strong>: loops, scheduling, subagents, background tasks. This decides whether the agent only answers questions or actually drives work forward.</li>
+<li><strong>UI</strong>: web UI, desktop shells, panels, message cards. For many people the entry point decides whether the system gets used daily.</li>
+</ul>
+<h2>Directions worth trying first</h2>
+<p>If you only want a few directions to open, match them to your work:</p>
+<ul>
+<li>Visual output — prototypes, boards, pages, slides, images: <code>nexu-io/open-design</code></li>
+<li>Architecture, flow and data-flow diagrams: <code>tt-a1i/archify</code></li>
+<li>Long-term memory across days, weeks and projects: <code>MemTensor/MemOS</code>, <code>EverMind-AI/EverOS</code></li>
+<li>Terminal coding agent: <code>esengine/DeepSeek-Reasonix</code></li>
+<li>Multi-agent collaboration and swarm: <code>ruvnet/ruflo</code></li>
+<li>Convenient desktop entry: <code>anywhere-labs/dsh-desktop</code></li>
+<li>Image uploads, external links and asset management: <code>Molunerfinn/PicGo</code></li>
+<li>Directory repos like awesome-dsh-plugin: good as an entry map, not as your first installs</li>
+</ul>
+
+<h2>How to choose: by task, not by hype</h2>
+<p>One principle covers the whole selection game: <strong>try what directly strengthens your current workflow first; set aside what only looks lively</strong>. In a plugin ecosystem the real cost is not installation. It is attention spent on directions that do not fit.</p>
+<p>Before installing random GitHub plugins on dshbase, check the <a href="/plugins/directory/">verified directory</a> and the <a href="/audit/">audit notes</a>.</p>
+<p>New to DSH? Run one small experiment: pick the plugin direction closest to your work and ask whether it removes a step or merely adds a button. The former deserves a try; the latter deserves a bookmark.</p>
+</BlogPost>
