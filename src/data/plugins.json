@@ -149682,7 +149682,7 @@
    "trust": "Silver",
    "slug": "dsh-file-review",
    "platform": "any",
-   "bareNpm": "other",
+   "bareNpm": "install-fail",
    "contributors": 0,
    "depCount": 15,
    "depsOfficial": 12,
