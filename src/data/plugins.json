@@ -23902,7 +23902,7 @@
    "depsOfficial": 0,
    "repoOwner": "LongSir0419",
    "_enriched": "2026-08-21|0.1.6",
-   "bareNpm": "install-fail"
+   "bareNpm": "other"
   },
   {
    "name": "deepspider",
@@ -114676,7 +114676,7 @@
    "trust": "Unrated",
    "slug": "dsh-web-ui",
    "platform": "any",
-   "bareNpm": "install-fail",
+   "bareNpm": "other",
    "contributors": 114,
    "depCount": 19,
    "depsOfficial": 0,
@@ -153608,7 +153608,7 @@
    "trust": "Silver",
    "slug": "dsh-file-review",
    "platform": "any",
-   "bareNpm": "install-fail",
+   "bareNpm": "other",
    "contributors": 0,
    "depCount": 15,
    "depsOfficial": 12,
