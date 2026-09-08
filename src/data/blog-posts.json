@@ -412,5 +412,14 @@
   "zh": "社区脉搏 · 第 4 期：rc.1 升级丢会话、五天五版与反转的插件数军备竞赛",
   "desc_en": "5,757 discussions distilled: the upgrade-is-the-new-install regression cluster, zero-arg tool-call binding failures, the temporary-chat ask, and the 0.0.0.0 lockdown debate.",
   "desc_zh": "扫完 5757 个讨论：升级即新安装的回归群、无参数工具调用绑定报错、临时聊天呼声，与 0.0.0.0 监听禁令之争。"
+ },
+ {
+  "path": "/blog/deepseek-v4-1-flash-beta/",
+  "cat": "Analysis",
+  "cat_zh": "分析",
+  "en": "DeepSeek V4.1 Flash enters limited beta: new architecture, native multimodal, and a model id that expires September 10",
+  "zh": "DeepSeek V4.1 Flash 开启限时内测：新结构、原生多模态，模型名里写着 9 月 10 日过期",
+  "desc_en": "A community-group beta of an intermediate V4.1 Flash checkpoint: new model structure, native multimodal support, same price as V4 Flash and 20 concurrency — with the id expiring September 10. What is confirmed, what the community measured, and where DSH stands.",
+  "desc_zh": "社区群里放出的 V4.1 Flash 中间版本：新模型结构、原生多模态、计费与 V4 Flash 相同、限流 20 并发，模型名 9 月 10 日过期。确认的事实、社区实测，以及 DSH 目前的两处摩擦。"
  }
 ]

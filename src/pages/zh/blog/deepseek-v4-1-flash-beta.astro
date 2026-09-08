@@ -1,0 +1,79 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const modelSetupUrl = getRelativeLocaleUrl('zh', '/blog/dsh-model-setup/');
+const visionUrl = getRelativeLocaleUrl('zh', '/blog/dsh-vision/');
+const visionExcelUrl = getRelativeLocaleUrl('zh', '/blog/wx-dsh-vision-excel-flop/');
+---
+<BlogPost title="DeepSeek V4.1 Flash 开启限时内测：新结构、原生多模态，模型名里写着 9 月 10 日过期 | dshbase" description="9 月 8 日 DeepSeek 在官方交流群放出 V4.1 Flash 中间版本内测：新的模型结构、原生多模态支持、计费与 V4 Flash 相同——而模型名里的 expires-on-0910 意味着 9 月 10 日自动下线。本文只讲确认的事实、社区实测的数据，以及 DeepSeek Harness 用户会遇到的两处摩擦。" currentPath="/blog/deepseek-v4-1-flash-beta/" category="分析">
+  <h1>DeepSeek V4.1 Flash 开启限时内测 <span class="accent">——新结构、原生多模态，只有两天可测</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 9 月 8 日 · dshbase · 这次内测到底是什么，对 Harness 用户意味着什么</p>
+
+  <p>9 月 8 日下午，DeepSeek 在官方交流群里直接丢出一个模型让开发者试用：<strong>V4.1 Flash</strong> 的中间 checkpoint，只要把模型名改成 <code>deepseek-v4.1-flash-expires-on-0910</code> 就能调用。没有发布博客，没有技术报告，没有 benchmark 表，截至本文写作时 API 的 Change Log 里也没有它。有的只是一段群通知、一个已经能用的接口，和一个写死在模型名里的过期日期——两天之后，它就没了。</p>
+  <p>这种发布方式即使在 DeepSeek 身上也很少见，也因此特别容易被过度解读。所以在下结论之前，先看清楚：这次内测确认了什么、社区测出了什么，以及 DSH 用户会在哪两处撞上摩擦。</p>
+
+  <h2>确认的事实，仅此而已</h2>
+  <table class="ztable">
+    <tr><th>项目</th><th>状态</th></tr>
+    <tr><td><strong>模型名</strong></td><td><code>deepseek-v4.1-flash-expires-on-0910</code></td></tr>
+    <tr><td><strong>base_url</strong></td><td>不变 —— <code>https://api.deepseek.com</code></td></tr>
+    <tr><td><strong>计费</strong></td><td>与 <code>deepseek-v4-flash</code> 相同</td></tr>
+    <tr><td><strong>限流</strong></td><td>每账号 20 并发（V4 Flash 平时是 2500 并发）</td></tr>
+    <tr><td><strong>可用窗口</strong></td><td>至 2026 年 9 月 10 日——模型名自带过期标记</td></tr>
+    <tr><td><strong>官方文档</strong></td><td>尚未更新，Change Log 中没有记录</td></tr>
+    <tr><td><strong>技术报告 / 跑分</strong></td><td>均未公布</td></tr>
+  </table>
+  <p>官方原话（群内通知转述）：模型采用了<strong>新的模型结构</strong>，<strong>原生多模态支持</strong>、能力更强、速度更快、且成本更低。这就是全部官方信息。下面的内容，要么来自现有价目表上的算术，要么来自社区的实测。</p>
+
+  <h2>「原生多模态」到底改了什么</h2>
+  <p>DeepSeek 从 <strong>8 月 21 日</strong> 的 <code>deepseek-v4-flash-vision-exp</code> 就开始铺路了。那个模型能接受图片，但它是<em>外挂式</em>的：在 V4-Flash-0731 的纯文本底座上，外接了一个视觉编码器和一个对齐器，作为独立模型名与文本模型并列。官方当时的说法是，Vision-Exp 在纯文本、推理和 Agent 能力上与普通 V4 Flash 基本相当，提升集中在需要视觉理解的任务上，多模态 Agent 能力「接近 Opus 4.8」。</p>
+  <p>V4.1 Flash 是 DeepSeek 第一次使用<strong>「原生多模态」</strong>这个说法——图文在基础模型内部处理，而不是外挂上去。如果正式版延续这个设计，独立的 vision 端点就不再是未来的形态，多模态会成为 Flash 主线自带的属性。</p>
+  <p>必须说清楚的保留意见：没有参数规模、没有架构细节、没有多模态跑分。「原生」目前是官方形容词，不是可验证的属性。另外有开发者反馈，在 DSH 里这个模型显示为<em>不支持图片</em>——下一节会说明，这更多是客户端目录的问题，而不是模型的问题。</p>
+
+  <h2>社区测出来的数字</h2>
+  <p>几个小时内，公开社区就出现了大量实测。最一致的结论是：快。</p>
+  <ul>
+    <li><strong>延迟与吞吐。</strong> 有开发者发一句「你好」，思考时间约 0.3 秒，生成速度瞬间到 159.3 token/s；持续生成稳定在 350 token/s 左右，瞬时能冲到约 420 token/s，也有多人报告 400–500 token/s。对 Flash 线来说，这是数倍级别的变化。</li>
+    <li><strong>同任务对比 V4 Flash Vision-Exp。</strong> 国内技术博主做了端到端对比，报告了大幅加速：49k 超长上下文检索 <strong>5.2 倍</strong>、SVG 代码生成 <strong>6.0 倍</strong>、Manacher 回文算法 <strong>4.6 倍</strong>、大型 SQL 生成与优化 <strong>5.0 倍</strong>、asyncio 异步重构 <strong>3.9 倍</strong>。</li>
+    <li><strong>视觉的非正式测试。</strong> 一位博主发了一张西装照，模型回答「条纹西装」。他以为又是幻觉，打开大图细看——确实是条纹西装。</li>
+  </ul>
+  <p>以上全部只能当方向，不能当规格。它们是自测、单人、且针对一个两天后就会删除的 checkpoint，目前没有任何可复现的评测框架。</p>
+
+  <h2>关键在于：单价没变，账单照样可能变贵</h2>
+  <p>这正是「成本更低」这个说法最容易掩盖的地方。计费与 <code>deepseek-v4-flash</code> <strong>完全相同</strong>——每百万 token，空闲时段：缓存命中输入 0.05 元、缓存未命中输入 1.5 元、输出 4.5 元；高峰时段各翻倍。按美元口径就是熟悉的 Flash 价目：高峰时缓存未命中输入 $0.44、输出 $1.32，非高峰减半；V4 Pro 约为这三倍（$1.32 / $3.96）。</p>
+  <p>所以「成本更低」不是单 token 更便宜，而是同一个任务用更少算力完成——更少的 token、更少的轮次、更短的时间。它是否体现在你的账单上，完全取决于你的负载。早期用户的实际反馈甚至相反：「5 分钟 10 块钱」「瞬间几十块没了」——生成更快，token 烧得也更快；而 20 并发是内测限制，不是生产配置。</p>
+
+  <h2>DSH 目前的处境</h2>
+  <p>这个内测模型名<strong>不在 Harness 的 catalog 里</strong>，由此带来两个实际后果：</p>
+  <ul>
+    <li><strong>文本能用，但要手动加模型。</strong> 在 Web UI 打开 <strong>设置 → 模型</strong>，在 DeepSeek 供应商下添加模型，模型 ID 填 <code>deepseek-v4.1-flash-expires-on-0910</code>。base URL 和密钥都不变。周边配置见<a href={modelSetupUrl}>模型接入教程</a>。</li>
+    <li><strong>图片暂时不能用。</strong> 对于 catalog 条目未声明图片输入的模型，DSH 的序列化层会直接拒绝图片内容（<code>UNSUPPORTED_CONTENT</code>）。一个原生多模态的端点在选择器里显示「不支持图片」，是目录缺口而不是模型缺口。有博主正是撞上这一点，改用第三方客户端才测到识图。我们在 <a href={visionUrl}>Vision 教程</a> 和 <a href={visionExcelUrl}>Excel 四列全算错那篇</a> 里记录过同一类问题；修复方式是更新 catalog/适配器，预计正式版上线时会跟上。</li>
+  </ul>
+  <p>换句话说：这两天，DSH 适合评估 V4.1 Flash 的文本与 Agent 那一半，不适合评估它的多模态那一半。先分清这一点，再判断这个模型是不是被吹过头了。</p>
+
+  <h2>DeepSeek 真正在问的那个问题</h2>
+  <p>随内测发放的反馈问卷里有一道很尖锐的题：<em>「DeepSeek V4.1 Flash 中间版本能否全面替换线上的 DeepSeek V4 Pro？」</em> 选项是<strong>可以 / 不可以 / 不确定 / 其他</strong>。这不是一道常规题。DeepSeek 在问自己最重度的用户：便宜的那一档，是不是已经追上贵的那一档了。</p>
+  <p>算一下账就明白为什么这么问。V4 Flash 的成本大约是 V4 Pro 的三分之一。如果一个 Flash 级别、且换了新结构的模型能承接相当一部分 Pro 级别的 Agent 工作，DeepSeek 就拿到了一个它非常需要的性价比故事：在 Artificial Analysis 的智能指数上，它目前是 <strong>36 分、排第 15</strong>——榜首仍是 Claude 与 GPT-6，国内则是智谱（第 7）、Kimi（第 9）、千问（第 13）在前。用新结构在提升能力的同时降低服务成本，是它重回第一梯队最可信的路径。</p>
+
+  <h2>四十天、三次模型动作、一轮大扩招</h2>
+  <p>把这次内测放回它诞生的时间线里看，会清楚很多：</p>
+  <ul>
+    <li><strong>7 月 31 日</strong> —— V4-Flash-0731 正式版上线，架构与规模同预览版，只重做了后训练。Agent 跑分明显抬升：Terminal Bench 2.1 为 82.7、NL2Repo 54.2、DeepSWE 54.4、Toolathlon Verified 70.3。</li>
+    <li><strong>8 月 13 日</strong> —— V4-Pro 正式版发布，API 价格大改（峰谷计费），同时 DeepSeek Harness 开发者预览版开源。</li>
+    <li><strong>8 月 19 日</strong> —— Harness 新版本，补充多模态输入、子智能体协作与工具调用能力。</li>
+    <li><strong>8 月 21 日</strong> —— V4-Flash-Vision-Exp 上线 API；8 月 31 日开放权重。</li>
+    <li><strong>9 月 7 日</strong> —— DeepSeek 宣布约 150 人规模的资深工程师扩招。</li>
+    <li><strong>9 月 8 日</strong> —— V4.1 Flash 中间版本，在交流群里，带着过期日期。</li>
+  </ul>
+  <p>Harness 负责人崔添翼对扩招的表述很直接：这不是常规业务堆人，而是「量的激增引发了复杂度的指数级爆炸」——数据的量、机器与容器的量、训练任务的量、评测任务的量、Agent 环境的量、用户的量、请求的量。这正是这次内测的潜台词：一个更快、更便宜、还多模态的 Flash，恰恰是最会放大沙箱与调度压力的那类模型，而 Harness 就是必须接住它的 Agent 层。</p>
+
+  <h2>这两天该怎么用</h2>
+  <ul>
+    <li><strong>有 API 权限的话，今天就拿自己的负载去测</strong>，并填问卷——这个窗口就是为这个开的。</li>
+    <li><strong>不要做任何依赖这个模型名活到 9 月 11 日的事情。</strong> 名字里写着 <code>expires-on-0910</code>，它说到做到。</li>
+    <li><strong>在 DSH 上：</strong> 手动添加模型，短期内选择器里只有文本，等正式版上线后的 catalog 更新。</li>
+    <li><strong>盯三件事：</strong> 正式版 V4.1 Flash 是否带技术报告和真实跑分；价格是否真的会变（目前没变）；Harness 的 catalog 是否同时接上新模型名和它的图片能力。</li>
+  </ul>
+
+  <p><em>来源：DeepSeek 官方交流群通知（经 Gate News、Hacker News、腾讯新闻转述）；价格来自第一财经转述的官方价目；社区实测来自 LINUX DO、V2EX 及国内技术博主对比；DSH 图片支持缺口来自阿里云开发者社区文章及本站记录。社区数字均为自测、未经独立验证，请据此判断。勘误：欢迎到 <a href="https://github.com/ylwl1997/dshbase" rel="noopener">dshbase 仓库</a> 提 issue。</em></p>
+</BlogPost>

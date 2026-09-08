@@ -1,0 +1,79 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const modelSetupUrl = getRelativeLocaleUrl('en', '/blog/dsh-model-setup/');
+const visionUrl = getRelativeLocaleUrl('en', '/blog/dsh-vision/');
+const visionExcelUrl = getRelativeLocaleUrl('en', '/blog/wx-dsh-vision-excel-flop/');
+---
+<BlogPost title="DeepSeek V4.1 Flash enters limited beta: new architecture, native multimodal, and a model id that expires September 10 | dshbase" description="On September 8 DeepSeek opened an intermediate-checkpoint beta of V4.1 Flash through its community group: a new model structure, native multimodal support, the same price as V4 Flash — and a model id that stops working on September 10. Here is what is confirmed, what the community measured, and where DeepSeek Harness stands." currentPath="/blog/deepseek-v4-1-flash-beta/" category="Analysis">
+  <h1>DeepSeek V4.1 Flash enters limited beta <span class="accent">— new architecture, native multimodal, two days to test</span></h1>
+  <p class="muted small" style="margin-bottom:20px">September 8, 2026 · dshbase · what the beta actually is, and what it means for Harness users</p>
+
+  <p>On the afternoon of September 8, DeepSeek put a model into its official community group and told developers to try it: an intermediate checkpoint of <strong>V4.1 Flash</strong>, callable today by setting the model name to <code>deepseek-v4.1-flash-expires-on-0910</code>. There is no launch blog post, no technical report, no benchmark table, and — as of writing — nothing in the API Change Log. What there is: a one-paragraph announcement, a live endpoint, and an expiry date baked into the model id. Two days, then it is gone.</p>
+  <p>That is an unusual way to ship, even for DeepSeek. It also makes it easy to over-read. So before the takes: here is the confirmed shape of the beta, the community's first measurements, and the two places where DSH users will notice friction.</p>
+
+  <h2>The facts, and only the facts</h2>
+  <table class="ztable">
+    <tr><th>Item</th><th>Status</th></tr>
+    <tr><td><strong>Model id</strong></td><td><code>deepseek-v4.1-flash-expires-on-0910</code></td></tr>
+    <tr><td><strong>base_url</strong></td><td>Unchanged — <code>https://api.deepseek.com</code></td></tr>
+    <tr><td><strong>Price</strong></td><td>Same as <code>deepseek-v4-flash</code></td></tr>
+    <tr><td><strong>Rate limit</strong></td><td>20 concurrent requests per account (V4 Flash normally allows 2,500)</td></tr>
+    <tr><td><strong>Window</strong></td><td>Until September 10, 2026 — the id expires by name</td></tr>
+    <tr><td><strong>Official docs</strong></td><td>Not updated; absent from the Change Log</td></tr>
+    <tr><td><strong>Tech report / benchmarks</strong></td><td>None published</td></tr>
+  </table>
+  <p>DeepSeek's own words, as relayed in the group: the model uses a <strong>new model structure</strong>, with <strong>native multimodal support</strong>, stronger capability, faster speed, and lower cost. That is the entire official claim. Everything below it is either arithmetic from the existing price sheet or community measurement.</p>
+
+  <h2>What "native multimodal" actually changes</h2>
+  <p>DeepSeek has been laying track for this since <strong>August 21</strong>, when it shipped <code>deepseek-v4-flash-vision-exp</code>. That model accepts images, but it is an <em>add-on</em>: a vision encoder plus an aligner bolted onto the V4-Flash-0731 text base, published as a separate model id next to the text one. DeepSeek's own note said Vision-Exp matched plain V4 Flash on text, reasoning and agent tasks, with the gains concentrated in vision-requiring work — and that on those tasks its multimodal agent ability came close to Opus-4.8.</p>
+  <p>V4.1 Flash is the first time DeepSeek uses the phrase <strong>native multimodal</strong> — image and text handled inside the base model rather than attached to it. If the formal release keeps that design, the separate vision endpoint stops being the shape of things and multimodal becomes a property of the main Flash line.</p>
+  <p>The honest caveat: no parameter count, no architecture detail, no multimodal benchmark. "Native" is an official adjective, not a verified property. One early tester using DSH also reported the model presenting as <em>no image support</em> in their harness — which, as the next section explains, says more about client catalogs than about the model.</p>
+
+  <h2>The numbers the community is posting</h2>
+  <p>Within hours, developers were benchmarking the endpoint in public threads. The consistent finding is speed:</p>
+  <ul>
+    <li><strong>Latency and throughput.</strong> A bare "hello" reportedly returned after ~0.3s of thinking at 159 tok/s; sustained generation settled around 350 tok/s, with bursts to ~420 tok/s, and several users reported 400–500 tok/s on short prompts. For reference, that is several times the pace people are used to from the Flash line.</li>
+    <li><strong>Same task, versus V4 Flash Vision-Exp.</strong> Chinese tech bloggers ran head-to-head comparisons and reported large end-to-end speedups: <strong>5.2×</strong> on a 49k-token long-context retrieval task, <strong>6.0×</strong> on SVG code generation, <strong>4.6×</strong> on a Manacher palindrome problem, <strong>5.0×</strong> on a large SQL generation/optimization task, and <strong>3.9×</strong> on an asyncio refactor.</li>
+    <li><strong>Vision, informally.</strong> One tester sent a photo of a person in a suit; the model said striped suit. He assumed a hallucination, opened the full image, and the suit was striped.</li>
+  </ul>
+  <p>Treat all of the above as direction, not specification. They are self-reported, single-user, and measured against a checkpoint that will be deleted in two days. Nobody has published a reproducible harness for them.</p>
+
+  <h2>The catch: the price is the same, and the bill can still go up</h2>
+  <p>This is the part the headline "lower cost" hides. Billing is <strong>identical to <code>deepseek-v4-flash</code></strong> — per million tokens, off-peak: ¥0.05 cache-hit input, ¥1.5 cache-miss input, ¥4.5 output; peak doubles each. In USD terms that is the familiar Flash sheet: $0.44 cache-miss input and $1.32 output at peak, half of that off-peak. V4 Pro sits at roughly 3× those numbers ($1.32 / $3.96).</p>
+  <p>So "lower cost" is not a cheaper per-token rate. It means the model reaches the same result with less compute — fewer tokens, fewer turns, less wall-clock. Whether that shows up on your invoice depends entirely on your workload. Early users reported the opposite experience: "¥10 in five minutes", "dozens of yuan gone in an instant" — faster generation burns tokens faster, and a 20-concurrency cap is a beta constraint, not a production one.</p>
+
+  <h2>Where DSH stands</h2>
+  <p>The beta id is <strong>not in the Harness catalog</strong>, which has two practical consequences:</p>
+  <ul>
+    <li><strong>Text works, but you add the model by hand.</strong> In the Web UI, open <strong>Settings → Models</strong>, add a model to the DeepSeek provider, and enter <code>deepseek-v4.1-flash-expires-on-0910</code> as the model id. The base URL and key are unchanged. See <a href={modelSetupUrl}>our model setup guide</a> for the surrounding configuration.</li>
+    <li><strong>Images do not, yet.</strong> DSH's serialization layer rejects image content for any model whose catalog entry does not declare image input (<code>UNSUPPORTED_CONTENT</code>). A catalog gap — not a model gap — is why a natively multimodal endpoint shows as "does not support images" in the picker. One blogger hit exactly this and tested vision in a third-party client instead. We documented the same class of problem in the <a href={visionUrl}>Vision tutorial</a> and in the <a href={visionExcelUrl}>Excel-flop review</a>; the fix is a catalog/adapter update, which we would expect once the formal release ships.</li>
+  </ul>
+  <p>In other words: for the next two days, DSH is the right place to evaluate the text and agent half of V4.1 Flash, and the wrong place to evaluate its multimodal half. That split is worth knowing before you conclude the model is overhyped.</p>
+
+  <h2>The question DeepSeek is actually asking</h2>
+  <p>The feedback questionnaire distributed with the beta contains a pointed item: <em>"Can the V4.1 Flash intermediate version fully replace online DeepSeek V4 Pro?"</em> — with the options <strong>yes / no / unsure / other</strong>. That is not a routine question. It is DeepSeek asking its own most demanding users whether the cheap tier has caught the expensive one.</p>
+  <p>The arithmetic explains why. V4 Flash costs roughly a third of V4 Pro. If a Flash-class model with a new structure can absorb a meaningful share of Pro-class agent work, DeepSeek gets a price/performance story it badly needs: on Artificial Analysis, its intelligence index sits at <strong>36, ranked 15th</strong> — behind Claude and GPT-6 at the top of the board, and behind 智谱 (#7), Kimi (#9) and Qwen (#13) domestically. A new structure that raises capability while lowering serving cost is the most plausible route back toward the first tier.</p>
+
+  <h2>Forty days, three model moves, one hiring spree</h2>
+  <p>The beta is easier to read against the calendar that produced it:</p>
+  <ul>
+    <li><strong>Jul 31</strong> — V4-Flash-0731 GA, same architecture and size as the preview, retrained only. Agent benchmarks jumped: Terminal Bench 2.1 at 82.7, NL2Repo 54.2, DeepSWE 54.4, Toolathlon Verified 70.3.</li>
+    <li><strong>Aug 13</strong> — V4-Pro GA, a major API price change (peak/off-peak), and the DeepSeek Harness developer preview, open-sourced.</li>
+    <li><strong>Aug 19</strong> — a Harness release adding multimodal input, subagents and richer tool calling.</li>
+    <li><strong>Aug 21</strong> — V4-Flash-Vision-Exp goes live on the API; weights open on Aug 31.</li>
+    <li><strong>Sep 7</strong> — DeepSeek announces ~150 senior engineering hires.</li>
+    <li><strong>Sep 8</strong> — the V4.1 Flash intermediate checkpoint, in a community group, with an expiry date.</li>
+  </ul>
+  <p>The hiring post from Harness lead <strong>Cui Tianyi</strong> framed it bluntly: the expansion is not routine headcount, it is because volume — data, machines, containers, training runs, evals, agent environments, users, requests — is producing "exponential complexity," and the older backend systems no longer fit the load. That is the subtext of this beta. A faster, cheaper, multimodal Flash is exactly the kind of model that multiplies sandbox and scheduling pressure, and Harness is the agent surface that has to absorb it.</p>
+
+  <h2>What to do with two days</h2>
+  <ul>
+    <li><strong>Have API access? Test it on your own workload today</strong> and answer the questionnaire — that is what the window is for.</li>
+    <li><strong>Do not build anything that depends on the id surviving September 11.</strong> A model named <code>expires-on-0910</code> means what it says.</li>
+    <li><strong>On DSH:</strong> add the model manually, expect text-only in the picker for now, and watch for a catalog update when the formal release lands.</li>
+    <li><strong>Watch three things:</strong> whether the formal V4.1 Flash arrives with a technical report and real benchmarks; whether the price actually changes (today it does not); and whether Harness's catalog picks up both the new id and its image capability.</li>
+  </ul>
+
+  <p><em>Sources: DeepSeek's community-group notice as relayed by Gate News, Hacker News and Tencent News; pricing from the DeepSeek price sheet via First Financial; community measurements from LINUX DO, V2EX and Chinese tech-blogger comparisons; the DSH image-support gap from an Alibaba Cloud developer post and our own notes. Community numbers are self-reported and unverified — treat them accordingly. Corrections: open an issue on <a href="https://github.com/ylwl1997/dshbase" rel="noopener">the dshbase repo</a>.</em></p>
+</BlogPost>
