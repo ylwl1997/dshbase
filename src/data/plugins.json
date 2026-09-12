@@ -157077,7 +157077,7 @@
    "trust": "Unrated",
    "slug": "dsh-agent-teams",
    "platform": "any",
-   "bareNpm": "other",
+   "bareNpm": "install-fail",
    "contributors": 16,
    "depCount": 24,
    "depsOfficial": 23,
