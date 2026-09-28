@@ -1,0 +1,69 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="Space Bunny on OpenRouter, tested inside DeepSeek Harness: what BYOM actually means | dshbase" description="After Space Bunny climbed public boards, a lab wired OpenRouter into DSH for coding tests. BYOM means you own tool-calling, the exact model id, and the risk of weights you cannot name." currentPath="/blog/x-pulse-space-bunny-on-dsh/" category="Review">
+  <h1>Space Bunny inside DSH: <span class="accent">what BYOM actually means</span></h1>
+  <p class="muted small" style="margin-bottom:20px">September 28, 2026 · dshbase · X pulse</p>
+
+  <p>A model climbs a public leaderboard and, within a day, someone has pointed DeepSeek Harness at it. That sequence is the whole story of this note. Space Bunny’s board position is a snapshot other people are excited about. The part that matters for installers is narrower: <a href="https://x.com/cxjwin/status/2104395499402911936" rel="noopener noreferrer">@cxjwin</a> describes QbitAI wiring <strong>OpenRouter</strong> into DSH and running coding tests. We did not re-run those tests. We are not going to invent a score, a parameter count, a price, or a rank and then pretend we measured it. The useful question is what “bring your own model” commits you to once the dropdown is no longer a DeepSeek id.</p>
+  <p>DSH is a harness. The model is a guest. Guests do not inherit the host’s reputation, and the host does not inherit the guest’s leaderboard.</p>
+
+  <h2>What the post actually shows</h2>
+  <p>The cited post is a lab note, not a merger announcement. A group took an OpenAI-compatible route — OpenRouter — and aimed it at coding tasks inside the harness. Around it, the usual multi-vendor narrative is doing what it always does: if the shell can host more than one family of weights, then the shell is the product and the model is a cartridge. That narrative is directionally why DSH exists. It is also how people skip the checks that make a cartridge safe to load.</p>
+  <p>OpenRouter, in this kind of setup, is a router in front of someone else’s endpoint. The id you select may fan out to more than one backend, and the backend can change while the id string stays pretty. “We tested Space Bunny” is incomplete until you can say which provider slug, which exact id, and on which day. If the post does not pin those, the test is a demo. Demos are allowed. They are not a procurement decision.</p>
+
+  <h2>DSH as an OpenAI-compatible runtime</h2>
+  <p>The integration path is the one the <a href="/blog/dsh-model-setup/">model setup guide</a> already treats as normal: an endpoint, a key, a model id, and a harness that speaks a chat-completions shape. Official DeepSeek ids are the happy path because the tool-calling dialect and the cache behavior were exercised by the people who ship the presets. A third-party id through a router is the same buttons and a different contract.</p>
+  <p>BYOM means you bring four things, not one:</p>
+  <ul>
+    <li>The base URL and the key, and a story for where that key lives. A desktop leak and a router key are a bad pair; see the <a href="/blog/x-pulse-dsh-desktop-client/">desktop chatter note</a> before you paste credentials into a client you did not pin.</li>
+    <li>The exact model id string, copied from the provider’s page on the day of the run, not from memory of a leaderboard nickname.</li>
+    <li>A tool-calling test that fails closed. If the model cannot emit a schema the harness accepts, it will look stupid at coding for a reason that has nothing to do with its board score.</li>
+    <li>A retention and logging story. Routers log. Providers log. Your session log logs. Three copies of a private repo is a policy, whether you wrote it down or not.</li>
+  </ul>
+  <p>None of those appear in a rank chart. All of them appear in an incident report.</p>
+
+  <h2>Verify tool-calling before you praise the model</h2>
+  <p>Leaderboards that reward a single answer reward a single answer. A harness rewards a model that can call <code>bash</code>, an editor, and search, then read the tool result without inventing a second copy of the file. Space Bunny may do that well. The way you find out is a fixture, not a timeline.</p>
+  <p>A minimal fixture, small enough to run twice:</p>
+  <ol>
+    <li>A repo with one failing test and a short README. No secrets, no customer data.</li>
+    <li>Standard mode, so the tool list is the one you would actually use, not a toy. If you are comparing cost rather than competence, repeat the same task in Minimal and record both. The distinction is the whole point of the <a href="/blog/x-pulse-dsh-cache-token-efficiency/">token-efficiency note</a>.</li>
+    <li>One sentence of instruction. Save it. If you change the sentence between models, you measured the sentence.</li>
+    <li>Watch the first tool call. Wrong arguments, missing tool names, or a prose plan where a call should be are a dialect failure. Stop and file that. Do not “help” the model for ten minutes and then score the help.</li>
+  </ol>
+  <p>The <a href="/blog/wx-dsh-glm53-test/">GLM-5.3 versus GPT-5.6-Sol write-up</a> is the shape to copy: one PRD, two guests, differences in engineering defaults rather than a vibe. We are not claiming Space Bunny matches either of those runs. We are claiming the method survives contact with a new name.</p>
+
+  <h2>Do not idolize a daily leaderboard</h2>
+  <p>Boards reshuffle when the sample, the judge, or the prompt template changes. A Tuesday leader can be a Friday footnote without its weights moving. Space Bunny’s climb is a reason to be curious, not a reason to retarget a production profile or to claim DSH now hosts the best coder. The harness supported an endpoint. The endpoint served a model. The chart is not yours.</p>
+  <p>Nickname risk is part of the same sloppiness. “Space Bunny” is a brand you can remember and an id you can mistype. Providers love readable names and then append dates, sizes, and quantization tags that change the weights. If your note says the nickname and your config says something else, the note is fiction. Pin the id in the profile, and pin the date next to it in the lab book. When you re-run next month, diff the id first. If it moved, you are not reproducing.</p>
+
+  <h2>Compare the same trajectories</h2>
+  <p>DSH’s advantage over a chat box is that the session is an event log. Use it. The <a href="/blog/dsh-trajectory-tracing/">trajectory tracing guide</a> is how you stop arguing from the last paragraph of the assistant and start arguing from the tool calls. For a BYOM test, save two traces that share the task, the mode, and the user prompt:</p>
+  <ul>
+    <li>Where the first wrong edit happened.</li>
+    <li>Whether the model re-read the file it had just written.</li>
+    <li>How many times it called the same tool with the same arguments.</li>
+    <li>Whether a failure was a bad patch or a tool result it never received because the schema was rejected.</li>
+  </ul>
+  <p>That last split is the one leaderboards erase. A model with unknown tool reliability will burn a session looking “thoughtful” while the harness is rejecting its calls. Count that as a harness mismatch, then decide if you care enough to write an adapter. Do not average it into “the model is worse at code.”</p>
+  <p>Cache behavior will not match a native DeepSeek id just because the button lives in the same UI. Prefix caching is a provider feature. A router may not pass cache fields through, or may pass them only for some backends. If your reason for staying on DSH is the bill, re-read the <a href="/blog/deepseek-harness-cost/">cost guide</a> and assume a third-party route is cold until the invoice says otherwise. PTC will not paper over that. It never does.</p>
+
+  <h2>Unknown weights are a safety decision</h2>
+  <p>You do not know, from a leaderboard row, what a model was trained on, whether it will echo secrets it was shown, or which company can read the prompt after OpenRouter routes it. “Unknown weight” is not an insult. It is a description. Treat it the way you would treat an unsigned binary in the <a href="/blog/x-pulse-dsh-desktop-client/">desktop note</a>: interesting in a sandbox, not welcome in a production checkout.</p>
+  <p>Practical limits that do not require us to pretend we audited Space Bunny:</p>
+  <ul>
+    <li>Run the first sessions in a throwaway clone. The <a href="/blog/dsh-sandbox/">permissions model</a> still applies — approve tools, do not grant a wide shell because the model is trending.</li>
+    <li>Strip env files, tokens, and customer dumps before the agent can list the directory. A coding test does not need them. A curious tool call will find them.</li>
+    <li>Assume prompts are retained by every hop you cannot name. If the code is not public, the router is the wrong place to meet a new model.</li>
+    <li>Do not enable Create mode, and do not recruit a team of agents, against an id you have not watched complete one boring repair. Multi-agent spend multiplies a bad dialect. The <a href="/blog/wx-dsh-agent-team/">glass-room piece</a> assumes you can read what the members did. You can. You still should not staff a room with a guest you have not interviewed.</li>
+  </ul>
+  <p>If the coding tests from the QbitAI setup are reproducible, the next honest post is a trajectory diff with the id pinned. Until then, Space Bunny on DSH means the harness did its job: it let a third-party endpoint sit where a first-party model usually sits. That is the feature. The judgment is still yours.</p>
+
+  <h2>X sources</h2>
+  <p>Community signal only. Not a benchmark table and not an official integration announcement.</p>
+  <ul>
+    <li><a href="https://x.com/cxjwin/status/2104395499402911936" rel="noopener noreferrer">@cxjwin</a> — QbitAI wired OpenRouter into DSH for coding tests after Space Bunny’s board run.</li>
+    <li>Surrounding posts framing DSH as a multi-vendor harness. Narrative, not a compatibility matrix.</li>
+  </ul>
+</BlogPost>

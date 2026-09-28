@@ -1,0 +1,54 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="为什么 X 上总有人说 DSH「省 Token」：缓存、极简模式与 V4.1 Flash | dshbase" description="「DSH 省 Token」通常是在说缓存形态、极简模式，或 Flash 档模型。PTC 不会自动让一次运行变便宜。相信这句口号之前，先设成本上限。" currentPath="/blog/x-pulse-dsh-cache-token-efficiency/" category="分析">
+  <h1>为什么 X 上总说 DSH <span class="accent">省 Token</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026年9月28日 · dshbase · X pulse</p>
+
+  <p>「DSH 省 Token」这周在 X 上很响。这句话听起来像产品属性，像汽车的油耗标号。它不是。把真正读到的帖子拆开，同一个口号下面是三种不同的说法：有人把前缀缓存保持热着，有人切到了极简模式，有人把 harness 指到 Flash 档模型再去和更重的模型比。这些杠杆是真的。它们不会自动生效，也不是同一根杠杆。第四种想法——PTC 模式是一张折扣码——还在回复里钻来钻去。它不是。</p>
+  <p>这篇笔记把几种说法分开，指向站内已经把问题形状量过的文章，最后落到口号从来不写的那个控制：成本上限。我们不发一张新的价格表。某个数字如果没有出现在我们链接的旧文里，它就不该出现在一篇传闻综述里。</p>
+
+  <h2>一句好话里面藏着三句话</h2>
+  <p><a href="https://x.com/TheInsiderrz/status/2104340621892940123" rel="noopener noreferrer">@TheInsiderrz</a> 和 <a href="https://x.com/frede_rico/status/2104353022880985195" rel="noopener noreferrer">@frede_rico</a> 待在那一簇里：把 DSH 说得好像省钱是出厂设置。先把它们读成气氛，再问他们动过哪根杠杆。<strong>@BranchGhost</strong> 更具体，也更有用：偏好把缓存保住。这是操作习惯，不是模型评测。另一边，<strong>@ihero1020</strong> 是这句口号需要的反例。Token 花出去很多。同一类工具，相反的轶事。如果两帖都可以为真，「省」就不是你能盖在二进制上的标签。</p>
+  <p><a href="https://x.com/bitflipgremlin/status/2104374981052203027" rel="noopener noreferrer">@bitflipgremlin</a> 做的对比才真能教人东西：同一个模型，极简模式加上不同的思维链设置，结果差很多。这是一个人的运行，不是我们要采纳的基准。方向和 harness 的设计一致。极简是更小的工具面和冻住的提示词。表面一变，行为和账单一起变。两次运行之间，模型卡没有变，变的是请求前缀。</p>
+
+  <h2>Harness 改的是工具面，缓存会注意到</h2>
+  <p>DeepSeek 这一路的前缀缓存，会在请求开头与上一次逐字节相同时复用它。工具 schema 就住在这个开头里。系统提示词也住在这里。一个注入日期、随机打乱顺序，或「好心地」摘要昨天的插件，也住在这里。<a href="/zh/blog/deepseek-harness-cost/">成本与缓存</a>把杠杆走过一遍：工具少且顺序固定、只追加的会话、静态提示词、中间数据留在记录之外。<a href="/zh/blog/pi-deepseek-cache/">Pi 那篇</a>是同一想法的极端——极小的工具表和只增不改的会话——人们会开始谈命中率，就是从那里学的。</p>
+  <p>DSH 在你允许它无聊的时候省。每一轮都把前缀重排的时候，它就贵。加一个插件并不因为插件小就免费：它的 schema 会加入之后每一步的前缀。轮与轮之间重排工具，是你故意买下的一次缓存失效。为了「省上下文」去改写历史，可能毁掉比你删掉的那些更值钱的缓存。<a href="/zh/blog/deepseek-harness-session-log/">只追加的会话日志</a>首先是审计能力，它同时也是对缓存友好的形状。跟它作对，你会在一轮里觉得聪明，在整个会话里变穷。</p>
+  <p><strong>@BranchGhost</strong> 的偏好就是上面这段的实践形式。任务开始前定好工具表，任务进行中别动它，把中途安装插件看成一次冷缓存的新会话。如果你需要一份启动记录，<code>dsh --profile web --dump-config</code> 就是那份清单。账单让你意外时，拿它做 diff。</p>
+
+  <h2>极简和标准</h2>
+  <p>四种预设在<a href="/zh/blog/deepseek-harness-modes/">模式指南</a>里。标准是完整的编码 agent：文件、shell、搜索、技能、规划、子代理。这个表面是标准模式显得能干的原因，也是它的前缀更难保持稳定的原因。极简把它砍成一个持久的 bash 和一个文件编辑器，冻住系统提示词，并把其余大部分关掉。它的存在是为了在 harness 不代劳的情况下比较模型。它顺便也是最便宜的形状，因为前缀又小又静。</p>
+  <p>@bitflipgremlin 的观察属于这里。极简加上更紧的思维链不是皮肤。它拿掉了模型原本会调用的工具，也拿掉了那些调用会贴回记录里的 Token。人们会把这种体验说成「DSH 又聪明又便宜」，实际发生的是「这次运行不再被允许闲逛」。用极简来测量。在 bash 和编辑器确实够用的窄修补上用它。不要把团队留在极简里，然后抱怨规划消失了。也不要把团队留在标准模式里，然后拿一张极简截图当单位成本。</p>
+  <p>思维链是安静的乘数。一个把每个假设都讲出来的模式，工具表再短也会花钱。比较两种设置时，模型 id 保持相同，并把模式和思考设置写在同一行。否则你发出去的是一篇模型评测，测到的其实是提示词。</p>
+
+  <h2>Flash 和 Pro，但不造一张价格表</h2>
+  <p>口号的另一半是模型选择。Flash 档和 Pro 档价格不同，失败方式也不同。X 上的人把这件事塌缩进 harness，是因为下拉框长在 harness 里。我们的<a href="/zh/blog/wx-dsh-codex-vs-flash-pro/">三模型修复测试</a>已经在同一个 bug 上展示过跨度：一条快路径、一条 Flash 路径、一条卡住的 Pro 路径。<a href="/zh/blog/deepseek-v4-1-flash-beta/">V4.1 Flash 内测笔记</a>写的是一个 id 里带着过期日的特定检查点，不是一张永久优惠券。你读到这篇脉搏时，那个 id 自己的期限可能已经过了。除非你的配置里仍然写着它，否则不要把它说成你正在跑的模型。</p>
+  <p>传闻周期搞错的是归因。如果你从 Pro 档 id 换到 Flash 档 id，账单下降了，先谢价格和模型的话多话少，再检查工具是不是也换了。如果 id 没变、账单下降了，谢缓存和模式。这周 X 上的 V4.1 谈论和<a href="/zh/blog/x-pulse-dsh-0-2-expectation/">0.2 传闻</a>缠在一起，包括希望某一天同时到来一个「给 DSH 的」V4.1 Pro。这种配对不是定价方案。锁住你已有的模型 id。新 id 存在之后，在你已经跑过的轨迹上比较，方法在旁边那篇<a href="/zh/blog/x-pulse-space-bunny-on-dsh/">Space Bunny 笔记</a>里。</p>
+
+  <h2>PTC 不会自动省 Token</h2>
+  <p>程序化工具调用让模型写一小段程序，在一次 <code>run_code</code> 里把工具操作串起来，于是中间的文件和搜索结果留在记录之外。任务是重复的流水线时，这可以减少来回，并保护缓存。任务是每一步都要判断时，PTC 会加上规划税：模型写代码，代码失败，模型解释失败，你为一个元循环付了钱。<a href="/zh/blog/wx-orange-book-notes/">橙皮书式手记</a>把这件事说得很直，模式指南又说了一遍：PTC 不是便宜的那个预设。极简才是。PTC 是你看着标准模式在同一种工具花样上挣扎之后才打开的预设。</p>
+  <p>回复里说「用 PTC 就省了」的人，花的是你的钱。把一个重复任务两种方式都量一遍。数输入、数提供方如果报告了的缓存命中、数输出。如果 PTC 的固定开销大于它省下的来回，就切回去。口号没有投票权。</p>
+
+  <h2>相信口号之前，先设成本上限</h2>
+  <p><a href="/zh/blog/wx-dsh-first-month-report/">第一个月的报告</a>已经标出这个洞：循环能跑，产品仍把账单上限留给读者自己发明。有讨论描述过一次运行一直持续到账户被花空。那不是缓存失效。那是一个没有边界的 agent。没有停止条件的效率谈话，就是 @ihero1020 那条车道发生在自以为走在 @BranchGhost 车道上的人身上的方式。</p>
+  <p>做得到的上限，都不需要一个秘密开关：</p>
+  <ul>
+    <li>提供方一侧的预算，或一把不是生产 Key 的钥匙。它停的时候，实验就停。</li>
+    <li>一个你愿意扔掉的会话。不要为了保住缓存去「继续」一条失控的线程；缓存不值那条尾巴。</li>
+    <li>一张你写下来的工具表。如果 agent 中途开始要插件，那是一个新决定，不是自动同意。</li>
+    <li>房间里不止一个 agent 时的跳数上限。协调上的花费就是多了几步的 Token 花费，写在<a href="/zh/blog/x-pulse-dsh-agent-teams-board/">共享任务板</a>那篇里。</li>
+    <li>在创造模式或团队被允许去改预算正在支付的那些文件之前，加一次人工确认。</li>
+  </ul>
+  <p>把上限和模式、模型 id 写在一起。「我们用 DSH 是因为它省」不是控制。「这个 profile 是极简、这个 id、这把月度 Key、到 N 就停」才是控制。X 上的帖子是让你检查自己有哪一条的理由。它们本身不是测量。</p>
+
+  <h2>X 上的来源</h2>
+  <p>只有社区信号。不是价格表，也不是官方的效率声明。</p>
+  <ul>
+    <li><a href="https://x.com/TheInsiderrz/status/2104340621892940123" rel="noopener noreferrer">@TheInsiderrz</a> — 「DSH 省 Token」那一簇的一部分。</li>
+    <li><a href="https://x.com/frede_rico/status/2104353022880985195" rel="noopener noreferrer">@frede_rico</a> — 同一簇；在点名模式和模型 id 之前，只读成气氛。</li>
+    <li><a href="https://x.com/bitflipgremlin/status/2104374981052203027" rel="noopener noreferrer">@bitflipgremlin</a> — 同一模型，极简和思维链让这次运行差很多。</li>
+    <li>@BranchGhost — 偏好保护缓存。</li>
+    <li>@ihero1020 — 反例：一次运行照样花掉很多 Token。</li>
+  </ul>
+</BlogPost>

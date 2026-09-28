@@ -1,0 +1,52 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="Why X users keep saying DSH is token efficient: cache, Minimal, and V4.1 Flash | dshbase" description="The line that DSH is token efficient usually means cache shape, Minimal mode, or a Flash-class model. PTC does not make a run cheap by itself. Set a cost cap before you trust the slogan." currentPath="/blog/x-pulse-dsh-cache-token-efficiency/" category="Analysis">
+  <h1>Why X keeps calling DSH <span class="accent">token efficient</span></h1>
+  <p class="muted small" style="margin-bottom:20px">September 28, 2026 · dshbase · X pulse</p>
+
+  <p>“DSH is token efficient” is having a week on X. The phrase sounds like a property of the product, the way a car has a mileage rating. It is not. Under the posts we actually read, three different claims are sharing one slogan: the prefix cache is being kept warm, someone switched to Minimal, or someone pointed the harness at a Flash-class model and compared it with a heavier one. Those levers are real. They are not automatic, they are not the same lever, and a fourth idea — that PTC mode is a discount code — keeps sneaking into the replies. It is not.</p>
+  <p>This note separates the claims, points at the on-site explainers that already measured the shape of the problem, and ends with the control that the slogan never includes: a cost cap. We are not publishing a new price table. If a number is not already in a post we link, it does not belong in a rumor roundup.</p>
+
+  <h2>Three sentences hiding inside one compliment</h2>
+  <p><a href="https://x.com/TheInsiderrz/status/2104340621892940123" rel="noopener noreferrer">@TheInsiderrz</a> and <a href="https://x.com/frede_rico/status/2104353022880985195" rel="noopener noreferrer">@frede_rico</a> sit in the cluster that talks about DSH as if the savings were baked in. Read them as mood, then ask which lever they touched. <strong>@BranchGhost</strong> is more specific and more useful: a preference for keeping the cache, which is an operational habit rather than a model review. On the other side, <strong>@ihero1020</strong> is the counterexample the slogan needs. A lot of tokens got spent. Same family of tools, opposite anecdote. If both posts can be true, “efficient” is not a label you can stamp on the binary.</p>
+  <p><a href="https://x.com/bitflipgremlin/status/2104374981052203027" rel="noopener noreferrer">@bitflipgremlin</a> makes the comparison that actually teaches something: the same model, with Minimal and a different chain-of-thought setting, moves the outcome a lot. That is one person’s run, not a benchmark we are adopting. The direction matches what the harness is designed to do. Minimal is a smaller tool surface and a frozen prompt. Change the surface and you change both the behavior and the bill. The model card did not change between those runs. The request prefix did.</p>
+
+  <h2>The harness changes the tool surface, and the cache notices</h2>
+  <p>DeepSeek-style prefix caching reuses the front of a request when it matches a previous one byte for byte. Tool schemas live in that front. So does the system prompt. So does a plugin that injects a date, a random ordering, or a “helpful” summary of yesterday. The <a href="/blog/deepseek-harness-cost/">cost and caching guide</a> walks the levers: few tools in a fixed order, append-only sessions, a static prompt, intermediate data kept out of the transcript. The <a href="/blog/pi-deepseek-cache/">Pi note</a> is the extreme version of the same idea — a tiny tool list and a session that only grows — and it is why people learned to talk about hit rate at all.</p>
+  <p>DSH is efficient when you let it be boring. It is expensive when every turn rearranges the prefix. Adding a plugin is not free just because the plugin is small: its schema joins the prefix for every later step. Reordering tools between turns is a cache miss you paid for on purpose. Rewriting history to “save context” can destroy the cache that was saving you more than the rewrite removed. The <a href="/blog/deepseek-harness-session-log/">append-only session log</a> is an audit feature first, and it is also the cache-friendly shape. Fight it and you will feel clever for a turn and poorer for the session.</p>
+  <p><strong>@BranchGhost</strong>’s preference is the practical form. Decide the tool list before the task, leave it alone while the task runs, and treat a mid-task plugin install as a new session with a cold cache. <code>dsh --profile web --dump-config</code> is the list to diff when the bill surprises you.</p>
+
+  <h2>Minimal versus Standard</h2>
+  <p>The four presets are in the <a href="/blog/deepseek-harness-modes/">modes guide</a>. Standard is the full coding agent: files, shell, search, skills, planning, sub-agents. That surface is why Standard feels capable, and why its prefix is harder to keep stable. Minimal cuts this to a persistent bash and a file editor, freezes the system prompt, and turns off most of the rest. It exists so you can compare models without the harness doing the work. It is also, incidentally, the cheapest shape, because the prefix is small and still.</p>
+  <p>@bitflipgremlin’s observation belongs here. Minimal plus a tighter chain of thought is not a skin. It removes tools the model would otherwise have called, and it removes the tokens those calls would have pasted back into the transcript. People experience that as “DSH got smarter and cheaper” when what happened is “the run was no longer allowed to wander.” Use Minimal to measure, or for a narrow repair where bash and an editor are honestly enough. If you compare two settings, keep the model id identical and write the mode next to it. Otherwise you will publish a model review that was actually a prompt review.</p>
+
+  <h2>Flash versus Pro, without a fake price list</h2>
+  <p>The other half of the slogan is model choice. Flash-class and Pro-class models do not cost the same and do not fail the same way, and X collapses that into the harness because the dropdown lives there. Our <a href="/blog/wx-dsh-codex-vs-flash-pro/">three-model fix test</a> already showed the spread on one bug: a fast path, a Flash path, a Pro path that stalled. The <a href="/blog/deepseek-v4-1-flash-beta/">V4.1 Flash beta note</a> was one checkpoint with an expiry in the id, not a permanent coupon. Do not cite it as the model you are running unless your config still says so. If the invoice dropped after a model change, thank the price, then check whether the tools changed too. If the id stayed and the invoice dropped, thank the cache and the mode. This week’s V4.1 talk is tangled with the <a href="/blog/x-pulse-dsh-0-2-expectation/">0.2 rumor</a>, including a hope that a V4.1 Pro “for DSH” arrives the same day. That pairing is not a pricing plan. Pin the id you have, and compare a new one on a trajectory you already ran — the method in the <a href="/blog/x-pulse-space-bunny-on-dsh/">Space Bunny note</a>.</p>
+
+  <h2>PTC does not automatically save tokens</h2>
+  <p>Programmatic tool calling lets the model write a small program that chains tool operations inside one <code>run_code</code>, so intermediate files and search hits stay out of the transcript. When the task is a repetitive pipeline, that can cut round-trips and protect the cache. When the task is a judgment call every step, PTC adds a planning tax: the model writes code, the code fails, the model explains the failure, and you have paid for a meta-loop. The <a href="/blog/wx-orange-book-notes/">orange-book field notes</a> say this plainly, and the modes guide says it again: PTC is not the cheap preset. Minimal is. PTC is the preset you turn on after you have watched Standard thrash on the same tool pattern.</p>
+  <p>A reply that says “just use PTC, it’s efficient” is spending your money. Measure a single repeated task both ways. Count input, cache hits if your provider reports them, and output. If PTC’s fixed overhead is larger than the round-trips it removed, switch back. The slogan does not get a vote.</p>
+
+  <h2>Set a cost cap before you believe the slogan</h2>
+  <p>The <a href="/blog/wx-dsh-first-month-report/">first-month report</a> already flagged the hole: the loop can run, and the product still leaves the maximum bill as an exercise for the reader. One discussion described a run that continued until the account was empty. That is not a cache miss. That is an unbounded agent. Efficiency talk without a stop condition is how the counterexample in @ihero1020’s lane happens to people who thought they were in @BranchGhost’s lane.</p>
+  <p>Practical caps, none of which require a secret setting:</p>
+  <ul>
+    <li>A provider-side budget or a key that is not your production key. When it stops, the experiment stops.</li>
+    <li>A session you are willing to abandon. Do not “continue” a runaway thread to save the cache; the cache is not worth the tail.</li>
+    <li>A tool list you wrote down. If the agent starts asking for plugins mid-task, that is a new decision, not an automatic yes.</li>
+    <li>A hop limit when more than one agent is in the room. The <a href="/blog/x-pulse-dsh-agent-teams-board/">shared-board note</a> is about coordination spend, which is token spend with extra steps.</li>
+    <li>A human check before Create mode or a team is allowed to edit the same files the budget is funding.</li>
+  </ul>
+  <p>Write the cap next to the mode and the model id. “We use DSH because it is efficient” is not a control. “This profile is Minimal, this id, this monthly key, stop at N” is a control. The X posts are a reason to check which of those you have. They are not a measurement.</p>
+
+  <h2>X sources</h2>
+  <p>Community signal only. Not a pricing sheet and not an official efficiency claim.</p>
+  <ul>
+    <li><a href="https://x.com/TheInsiderrz/status/2104340621892940123" rel="noopener noreferrer">@TheInsiderrz</a> — part of the “DSH saves tokens” cluster.</li>
+    <li><a href="https://x.com/frede_rico/status/2104353022880985195" rel="noopener noreferrer">@frede_rico</a> — same cluster; read as mood until a mode and a model id are named.</li>
+    <li><a href="https://x.com/bitflipgremlin/status/2104374981052203027" rel="noopener noreferrer">@bitflipgremlin</a> — same model, Minimal and chain-of-thought changed the run a lot.</li>
+    <li>@BranchGhost — preference for protecting the cache.</li>
+    <li>@ihero1020 — counterexample: a run that spent a lot of tokens anyway.</li>
+  </ul>
+</BlogPost>

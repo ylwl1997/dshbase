@@ -1,0 +1,53 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="DeepSeek Harness desktop chatter: what changes if you leave the browser | dshbase" description="Desktop screenshots are circulating on X: login and key, a local workspace, four modes, team, voice, and a terminal. Until an official client exists, stay on npx @deepseek-ai/dsh web and do not install leaked binaries." currentPath="/blog/x-pulse-dsh-desktop-client/" category="Guide">
+  <h1>Desktop chatter: <span class="accent">what changes if you leave the browser</span></h1>
+  <p class="muted small" style="margin-bottom:20px">September 28, 2026 · dshbase · X pulse</p>
+
+  <p>People have wanted DeepSeek Harness to stop living in a browser tab since the discussion board learned how to count votes. This week the want grew a screenshot. Posts on X are circulating a desktop-shaped window: a login or API-key step, a local workspace, the four modes, and mentions of team, voice, and a terminal. Some of that reads like a product preview. Some of it reads like a wish with pixels. Until a build is published by the project through a channel you can already name, none of it is an installer you should run.</p>
+  <p>The command that remains the supported front door is the one the project already documents:</p>
+  <pre><code>npx @deepseek-ai/dsh web</code></pre>
+  <p>That starts the local web app. It does not download a mystery <code>.dmg</code>, <code>.exe</code>, or zip from a reply thread. If a post offers you a file and calls it a leak, close it. This note will not repeat download links, mirror hostnames, or “just for testing” hashes. A leaked installer is untrusted code with a familiar icon.</p>
+
+  <h2>What the chatter is claiming</h2>
+  <p><a href="https://x.com/Awesome_AI_News/status/2104388910650622131" rel="noopener noreferrer">@Awesome_AI_News</a> is the clearest cluster: a desktop surface that exposes login or a key, binds a local workspace, and shows four modes, with team, voice, and a terminal in the same frame. Read that as a description of a screenshot thread, not as a feature matrix we booted. We have not installed a desktop build to confirm which of those controls are real, which are mock, and which are the existing web UI wearing a window frame.</p>
+  <p>A post associated with <strong>@web3bits</strong> is being passed around as a leak. We are treating it as chatter. “Leak” is a distribution claim, and distribution is the part that hurts you. Even a genuine internal build would be the wrong artifact: no signature path you can check against a published release, no changelog, no promise that the binary matches the screenshot, and a strong chance the bundle will ask for a key before you have decided the process is allowed to see one.</p>
+  <p><strong>@leo114119</strong>, <strong>@GKev1n</strong>, and a long tail of similar posts are not leaks at all. They are wishes for an official desktop. Wishes are useful as demand signal. They are not builds. Mixing the wish posts with the leak posts is how a rumor picks up a download button.</p>
+
+  <h2>This demand is older than the screenshot</h2>
+  <p>The official discussion that still anchors the request is <a href="https://github.com/deepseek-ai/deepseek-harness/discussions/172" rel="noopener noreferrer">#172</a>: an independent client, a CLI, and a VS Code plugin, asked for early and upvoted far past everything around it. We covered that chorus in <a href="/blog/community-pulse-1/">Community Pulse #1</a>. The map of what actually exists today — headless CLI, TUI plugins, Electron shells, editor bridges — is <a href="/blog/dsh-desktop-alternatives/">the desktop-alternatives guide</a>. Those are community frontends on the same local server. They are not the thing the new screenshots are hinting at, and they are also not a reason to widen your trust to a file from X.</p>
+  <p>#172 asked for a non-web entry because a tab feels temporary. That complaint is fair. It does not change the trust model. The harness is still a local process with your files, your shell, and your API key. A window frame does not add a permission boundary. If anything, a desktop shell makes the permission boundary easier to forget, because the icon looks like every other app you already approved.</p>
+
+  <h2>What would actually change if you left the browser</h2>
+  <p>Ignore the marketing nouns for a minute. A real desktop client, official or not, changes a short list of operational facts. The screenshot thread is poking at all of them, which is why it feels like news.</p>
+  <ul>
+    <li><strong>Where the key sits.</strong> In the web UI, a key is something you paste into a local app you started yourself. A desktop login flow can store that key in an OS keychain, in a config file, or in a vendor account. Those are three different leak stories. Do not type a production key into a build whose storage you have not read. Dumping config already prints secrets in plaintext in some paths; a desktop “remember me” checkbox can do worse with less warning. The <a href="/blog/dsh-sandbox/">sandbox and permissions note</a> is about the agent’s tools, and it still applies: the shell does not shrink what the agent can touch.</li>
+    <li><strong>Which directory is the workspace.</strong> A desktop file picker feels safer than typing a path. It is the same grant. Pointing the client at a home directory, a password store, or a monorepo with production env files is still pointing the agent at those files. Pick a scratch checkout until you trust the build.</li>
+    <li><strong>How updates arrive.</strong> <code>npx</code> resolves a package. A desktop app updates through its own channel, often silently. If you cannot pin that channel to the same version string you recorded in the <a href="/blog/x-pulse-dsh-0-2-expectation/">0.2 pin checklist</a>, you have given up the only rollback you had. This week’s version rumor and this week’s desktop rumor should not be installed as a bundle.</li>
+    <li><strong>What “four modes” means.</strong> Standard, PTC, Minimal, and Create are harness presets, documented in the <a href="/blog/deepseek-harness-modes/">modes guide</a>. A desktop that shows four modes is, at most, exposing presets that already exist. It is not a new agent. Switching the frame does not make PTC cheaper or Minimal less minimal. If the screenshot’s four buttons do not match those presets, we do not yet know what they are — another reason not to treat the image as a manual.</li>
+    <li><strong>Team, voice, and terminal.</strong> Team is a real surface in the web app; we wrote it up as a <a href="/blog/wx-dsh-agent-team/">glass room</a>, and the coordination cost gets a separate note in <a href="/blog/x-pulse-dsh-agent-teams-board/">this pulse</a>. Voice and an embedded terminal may be in a build somewhere. They may also be UI chrome. Voice means a microphone permission and, often, a second vendor. A terminal inside the client means a shell that no longer has to hop through the browser’s awkwardness — which is convenient, and which is also the tool you should be most reluctant to hand to an unreviewed binary.</li>
+  </ul>
+
+  <h2>Security reminders while the screenshots circulate</h2>
+  <p>Stay on the loopback you already understand. The supported flow binds a local web server, commonly on <code>127.0.0.1</code>. That trust assumption — “reachable on loopback means trusted” — is load-bearing. We have already written about what happens when a web-exposed harness treats a spoofed Host header as a local user: <a href="/blog/wx-dsh-dsh2shell-rce/">dsh2shell</a>. A desktop wrapper that still serves the same app, then helpfully opens it to your LAN so your phone can connect, inherits that class of bug and adds a discovery surface. Do not enable LAN mode to try a leak.</p>
+  <p>Do not disable OS prompts to “make the leak work.” Unsigned binaries that need Gatekeeper or SmartScreen turned off are telling you the publisher did not sign them. That is the entire review.</p>
+  <p>Do not paste keys, cookies, or customer data into a client you cannot rebuild from a public tag. If you want a window and a tray today, use a community Electron shell you can read, from the alternatives guide, wrapped around a harness version you pinned yourself. That is still unofficial. It is a different risk from executing a file a stranger attached to a post.</p>
+
+  <h2>A practical split for the week</h2>
+  <ol>
+    <li>Keep daily work on <code>npx @deepseek-ai/dsh web</code> with the version pin from the checklist post. The browser tab is ugly. It is also the path with a package name you can audit.</li>
+    <li>If you need a native window, pick a documented community shell and read its repo before you run it. Re-read <a href="/blog/dsh-desktop-alternatives/">desktop alternatives</a> rather than a fresh X thread.</li>
+    <li>When someone posts a download, ask where the tag, the checksum, and the changelog are. If the answer is “in the replies,” you are done.</li>
+    <li>Track #172 for the actual request: client, CLI, editor. A wish getting louder is not a release.</li>
+  </ol>
+  <p>Leaving the browser will matter when it is boring: a signed app, a version you can pin, a note that says where the key is stored, and the same four presets you can already name. Until that note exists, the screenshot is a mood. The command above is the product.</p>
+
+  <h2>X sources</h2>
+  <p>Community signal only. Not an official desktop release.</p>
+  <ul>
+    <li><a href="https://x.com/Awesome_AI_News/status/2104388910650622131" rel="noopener noreferrer">@Awesome_AI_News</a> — desktop exposure described as login or key, local workspace, four modes, team, voice, and a terminal.</li>
+    <li>@web3bits — a post being treated as a leak. Counted here as chatter. No installer link, on purpose.</li>
+    <li>@leo114119, @GKev1n, and similar posts — wishes for an official desktop client, not builds.</li>
+  </ul>
+</BlogPost>
