@@ -1,0 +1,55 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="DSH 0.2 rumors this week: what installers should pin before Monday | dshbase" description="Community posts on X are clustering around a Monday or Tuesday DSH 0.2 window, sometimes tied to a V4.1 Pro-for-DSH rumor. Still a rumor. Here is a pin checklist before you touch production." currentPath="/blog/x-pulse-dsh-0-2-expectation/" category="Pulse">
+  <h1>DSH 0.2 rumors this week: <span class="accent">what to pin before Monday</span></h1>
+  <p class="muted small" style="margin-bottom:20px">September 28, 2026 · dshbase · X pulse</p>
+
+  <p>This is a field note, not a release note. Over the last day, posts on X have started to cluster around a <strong>DeepSeek Harness 0.2</strong> window — Monday, or maybe Tuesday — and a few of them fold in a second hope: that a <strong>V4.1 Pro built for DSH</strong> shows up on the same clock. None of that is an announcement from the project. Treat the dates as rumor. Treat the model pairing as a separate rumor stacked on the first one. What you can do before the week opens is narrower and more useful: freeze the install you already trust.</p>
+
+  <h2>Separate what is confirmed from what is wished</h2>
+  <p>Confirmed, from this desk: we have not seen an official 0.2 changelog, an official ship date, or a model card that says “V4.1 Pro for DSH.” We are not going to invent an npm dist-tag, a star count, or a calendar entry to fill that gap. If your timeline is quoting a version string, copy it from your own machine, not from this page.</p>
+  <p>Also confirmed, from the public record we have already written up: Harness has been moving fast enough that <em>upgrade</em> is its own failure mode. The <a href="/blog/wx-dsh-first-month-report/">first-month note</a> tracked a prerelease train that outran the product. <a href="/blog/community-pulse-4/">Community Pulse #4</a> watched a later rc land and take session lists with it. Plugin authors already live in that weather. A rumor of 0.2 does not create a new risk class. It raises the odds that people will type <code>@latest</code> on a Monday morning because a screenshot said the window was open.</p>
+  <p>The wish, labeled as such: <a href="https://x.com/teortaxesTex/status/2104399733645009217" rel="noopener noreferrer">@teortaxesTex</a> is hoping for Monday, and hoping the drop lines up with a V4.1 Pro aimed at DSH. <a href="https://x.com/som_dutt_/status/2104334833107472817" rel="noopener noreferrer">@som_dutt_</a> puts <code>v0.2.0</code> on Monday or Tuesday and tells plugin authors to check compatibility. Chinese-language echoes from <strong>@Zekunnnnn</strong> and <strong>@VTNuE0tKLGS0N5g</strong> repeat the same cluster. Echoes are how a rumor gets a shape. They are not a second source of truth. “Hoping,” “window,” and “check compat” are the vocabulary of people bracing, not of a tag that has been cut.</p>
+
+  <h2>Two clocks, not one</h2>
+  <p>Even if both halves of the rumor were real, they would not be the same event. A harness version changes plugins, config shape, tool schemas, and session files. A model id changes weights, price, and how those tools get called. Shipping them together would be a coordination story. It is not something you can pin by bumping one package.</p>
+  <p>We have already watched a V4.1 Flash checkpoint move on its own clock. The <a href="/blog/deepseek-v4-1-flash-beta/">limited-beta note</a> was about an intermediate id with an expiry baked into the name, community measurements, and two friction points inside DSH. That post does not authorize anyone to treat “V4.1 Pro for DSH” as a product you can select today. If a new model id appears, read its own card. If a new harness tag appears, read its own changelog. Do not let a single X post weld them into one upgrade command.</p>
+  <p>Plugin authors are the people the Monday/Tuesday line is actually aimed at. A compat check is reasonable precisely because DSH’s extension surface is the product: tools, presets, and config layers move together. See the <a href="/blog/wx-dsh-patch-stack-field-notes/">patch-stack field notes</a> if you need a reminder that “my config” is several files, not one. A breaking API in that stack does not announce itself as a crash on first boot. It announces itself as a plugin that loads and then never shows up in the tree, or a session that opens and then cannot list itself.</p>
+
+  <h2>The pin checklist</h2>
+  <p>Do this on the profile you would be afraid to lose. Do it before you read any more timeline posts. The point is a snapshot you can return to, not a prediction about what 0.2 will contain.</p>
+  <ol>
+    <li><strong>Pin the build you already run.</strong> Record the exact package version your profile resolved — from <code>dsh --version</code>, from <code>npm ls</code> in the environment that actually starts the UI, or from the lockfile of a project install. Write that string into a note next to the machine name. Do not “pin” by leaving the range at <code>latest</code>. Do not copy a version number out of a rumor thread; if this page does not print one, that is intentional.</li>
+    <li><strong>Dump config, both layers.</strong> <code>dsh --profile web --dump-default-config</code> and <code>dsh --profile web --dump-config</code> show defaults versus what you actually booted. Save both outputs somewhere that is not the agent’s workspace. The <a href="/blog/wx-orange-book-notes/">installer field notes</a> treat this as the first move for a reason: arguments about plugins are faster when you can diff a file.</li>
+    <li><strong>List the plugins that are really loaded.</strong> The dump is the list. If you also keep a directory of GitHub-sourced plugins, write down which ones are npm, which are git URLs, and which ones you have locally patched. A compat pass that only names the official bundle will miss the thing that breaks.</li>
+    <li><strong>Tag the snapshot.</strong> Commit your config overlays, your notes, and a one-line “known good” description. If the config lives outside git, copy the directory and name the copy with the date and the version string from step 1. A tag you cannot check out is a feeling.</li>
+    <li><strong>Wait 48 hours before a production upgrade.</strong> When a tag does appear — if it appears — let other people meet the breaking APIs first. Two days is enough for plugin authors to file the obvious mismatches and not enough for you to forget where the rollback tag is. Preview profiles can move sooner. Production profiles should not.</li>
+    <li><strong>Read the changelog for breaking APIs before you move.</strong> Look for session format, tool-argument binding, config keys, plugin inject signatures, and anything that says migration. <a href="/blog/community-pulse-4/">Pulse #4</a> is the cautionary shape: an upgrade that “worked” and then hid sessions. If the notes are empty or the tag is only a social post, you are not upgrading. You are hoping.</li>
+  </ol>
+
+  <h2>What usually breaks, without pretending we have a 0.2 diff</h2>
+  <p>We are not publishing a fictional migration guide. The breaks that have already shown up on this site are the ones worth rehearsing, because a 0.2 rumor does not repeal them.</p>
+  <ul>
+    <li><strong>Session identity.</strong> Forked or seeded sessions have already gone dark across a rc bump when the snapshot check rejected the history. If your work lives in long sessions, export or copy them before you change the package.</li>
+    <li><strong>Tool schemas.</strong> Zero-argument tools have failed at argument binding. Any plugin you wrote against “the model will just call it” needs a schema test, not a vibe check.</li>
+    <li><strong>Config layering.</strong> Home patch, profile, and <code>--patch</code> can hide a key you thought you set. Dump after the upgrade, and diff against the dump from step 2. If the trees differ in places you did not edit, stop.</li>
+    <li><strong>Model ids are not harness versions.</strong> Pointing a new profile at a new model while also bumping the runtime makes the failure unreadable. Change one. The <a href="/blog/dsh-model-setup/">model setup guide</a> is the place to record which endpoint you meant.</li>
+  </ul>
+
+  <h2>What not to do on Monday</h2>
+  <p>Do not run a production profile on <code>npx</code> with an unpinned <code>@latest</code> because the timeline got loud. <code>npx @deepseek-ai/dsh web</code> is still the right way to <em>start</em> a local UI — see the desktop note that goes with this pulse — and a bad way to <em>absorb</em> a surprise major on a machine that has customer data in the workspace.</p>
+  <p>Do not install a binary someone attached because “0.2 leaked.” That failure mode gets its own post. A version rumor and an installer rumor travel together, and only one of them is fixable with a changelog.</p>
+  <p>Do not tell a team the model got smarter because a harness tag might exist. If you need a cost and cache plan for whatever model you already have, that is the <a href="/blog/x-pulse-dsh-cache-token-efficiency/">token-efficiency note</a> in this same set. If you need to know whether a shared board will multiply a bad upgrade, read the <a href="/blog/x-pulse-dsh-agent-teams-board/">task-board note</a> before you add more agents to a moving runtime.</p>
+
+  <h2>How we will update this</h2>
+  <p>If an official tag and changelog show up, the pin checklist still holds: the snapshot is what makes the upgrade reversible. If the week passes with no tag, the rumor expired and your pin did not cost you anything. Either outcome is a better Monday than discovering, at noon, that the plugin tree no longer matches the note you meant to write down.</p>
+
+  <h2>X sources</h2>
+  <p>Posts below are community signals. They are not DeepSeek release notes.</p>
+  <ul>
+    <li><a href="https://x.com/teortaxesTex/status/2104399733645009217" rel="noopener noreferrer">@teortaxesTex</a> — hoping for a Monday 0.2, and hoping it lines up with a V4.1 Pro for DSH.</li>
+    <li><a href="https://x.com/som_dutt_/status/2104334833107472817" rel="noopener noreferrer">@som_dutt_</a> — <code>v0.2.0</code> framed as Monday or Tuesday; plugin authors told to check compatibility.</li>
+    <li>@Zekunnnnn and @VTNuE0tKLGS0N5g — Chinese-language echoes of the same cluster. Counted as echoes, not as confirmation.</li>
+  </ul>
+</BlogPost>

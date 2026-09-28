@@ -1,0 +1,55 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="本周 DSH 0.2 传闻：安装者在周一前该锁什么版本 | dshbase" description="X 上的讨论把 DSH 0.2 聚到周一或周二，还有人把它和「给 DSH 的 V4.1 Pro」绑在一起。这仍是传闻。生产环境动手之前，先按这份清单把现有版本锁住。" currentPath="/blog/x-pulse-dsh-0-2-expectation/" category="脉搏">
+  <h1>本周 DSH 0.2 传闻：<span class="accent">周一前该锁什么</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026年9月28日 · dshbase · X pulse</p>
+
+  <p>这是一篇现场笔记，不是发布说明。过去一天，X 上的帖子开始往同一个窗口靠：<strong>DeepSeek Harness 0.2</strong> 也许周一，也许周二。还有人把第二件愿望叠了上去——希望同时出现一个<strong>面向 DSH 的 V4.1 Pro</strong>。两件事都不是项目方的公告。日期是传闻，模型配对是叠在传闻上的另一则传闻。周一真正能做的事更窄，也更有用：把你已经信得过的那次安装冻住。</p>
+
+  <h2>先把确认过的和盼望中的分开</h2>
+  <p>这篇笔记能够确认的只有边界：我们没有看到官方 0.2 更新日志，没有看到官方发布日，也没有看到写着「V4.1 Pro for DSH」的模型卡。我们不会为了把格子填满而编一个 npm dist-tag、一个 star 数或一个日历条目。时间线上如果有人甩出版本号，请从你自己的机器上抄，不要从这篇笔记里抄——这里故意不印。</p>
+  <p>另一件已经写进站内记录、可以复述的事实是：Harness 快到「升级」本身就是一种故障。 <a href="/zh/blog/wx-dsh-first-month-report/">第一个月的笔记</a>记过一轮跑在产品前面的预发布。<a href="/zh/blog/community-pulse-4/">社区脉搏第 4 期</a>看过后来的 rc 落地之后，会话列表跟着消失。插件作者本来就生活在这种天气里。0.2 的传闻没有发明新的风险种类，它只是提高了一种概率：有人会因为一张截图说「窗口开了」，就在周一早上对生产配置敲下 <code>@latest</code>。</p>
+  <p>盼望的部分必须标明是盼望。<a href="https://x.com/teortaxesTex/status/2104399733645009217" rel="noopener noreferrer">@teortaxesTex</a> 希望周一能看到 0.2，并希望它和面向 DSH 的 V4.1 Pro 对上钟。<a href="https://x.com/som_dutt_/status/2104334833107472817" rel="noopener noreferrer">@som_dutt_</a> 把 <code>v0.2.0</code> 放在周一或周二，并提醒插件作者检查兼容性。<strong>@Zekunnnnn</strong> 和 <strong>@VTNuE0tKLGS0N5g</strong> 的中文帖是同一簇的回声。回声会让传闻长出形状，但回声不是第二来源。「希望」「窗口」「查兼容」是人们在做准备时用的词，不是已经切出来的 tag。</p>
+
+  <h2>两座钟，不是一座</h2>
+  <p>就算传闻的两半后来都成真，它们也不是同一件事。Harness 的版本动的是插件、配置形状、工具 schema 和会话文件。模型 id 动的是权重、价格，以及这些工具被怎么调用。两件事同一天发生，那是协调故事，不是你靠升级一个包就能锁住的针。</p>
+  <p>V4.1 Flash 的检查点曾经按自己的钟走。<a href="/zh/blog/deepseek-v4-1-flash-beta/">限时内测那篇</a>写的是一个名字里带着过期日的中间 id、社区测到的现象，以及 DSH 里的两处摩擦。那篇文章不授权任何人把「给 DSH 的 V4.1 Pro」当成今天就能选中的产品。新的模型 id 如果出现，读它自己的卡片；新的 harness tag 如果出现，读它自己的更新日志。不要让一条 X 把它们焊成同一条升级命令。</p>
+  <p>周一或周二那句话，真正被点名的是插件作者。兼容检查合理，正因为 DSH 的扩展面就是产品本身：工具、预设和配置层一起动。如果你需要提醒自己「我的配置」是好几份文件，去看<a href="/zh/blog/wx-dsh-patch-stack-field-notes/">补丁栈现场笔记</a>。这一层的破坏性 API 往往不是第一次启动就崩给你看，而是插件装上了、树里却没有它，或者会话能打开、列表里却找不到自己。</p>
+
+  <h2>锁版本清单</h2>
+  <p>在你害怕弄丢的那个 profile 上做。做完再去刷时间线。目标是一份可以退回去的快照，不是对 0.2 内容的预测。</p>
+  <ol>
+    <li><strong>锁住你已经在跑的构建。</strong> 记下这个 profile 实际解析到的包版本：看来自 <code>dsh --version</code>，看真正拉起 UI 的环境里的 <code>npm ls</code>，或者看项目安装的 lockfile。把这串字符和机器名写在一起。不要用停留在 <code>latest</code> 冒充锁定。不要从传闻帖里抄版本号；这篇笔记不印版本号，是故意的。</li>
+    <li><strong>把两层配置都倒出来。</strong> <code>dsh --profile web --dump-default-config</code> 和 <code>dsh --profile web --dump-config</code> 分别是默认值和你真正启动的树。两份输出存到 agent 工作区之外。<a href="/zh/blog/wx-orange-book-notes/">安装者手记</a>把这一步放在最前面，是因为插件争论在能 diff 文件的时候会短很多。</li>
+    <li><strong>列出真正加载的插件。</strong> dump 就是清单。如果你还维护一批 GitHub 源的插件，写明哪些是 npm、哪些是 git URL、哪些被你本地改过。只点名官方 bundle 的兼容检查，会漏掉真正会断的那一个。</li>
+    <li><strong>给快照打标。</strong> 把配置覆盖层、笔记，以及一行「已知良好」的说明提交进仓库。配置如果不在 git 里，就把目录复制出来，用日期加上第 1 步的版本串命名。不能检出的标签只是一种感觉。</li>
+    <li><strong>生产环境升级前先等 48 小时。</strong> tag 真的出现之后——如果它出现——让别人先碰上破坏性 API。两天够插件作者把明显的不匹配报出来，又不会长到你忘掉回滚标签在哪。预览 profile 可以先动。生产 profile 不该先动。</li>
+    <li><strong>动之前读更新日志里的破坏性 API。</strong> 看会话格式、工具参数绑定、配置键、插件 inject 签名，以及任何写着迁移的段落。<a href="/zh/blog/community-pulse-4/">脉搏第 4 期</a>就是那个形状：升级「成功」了，会话却暗了。如果说明是空的，或者 tag 只存在于社交帖里，你不是在升级，你是在盼望。</li>
+  </ol>
+
+  <h2>通常会断在哪，但不假装我们有一份 0.2 diff</h2>
+  <p>这里不发布虚构的迁移指南。站内已经出现过的断裂，才值得排练，因为 0.2 传闻并没有把它们作废。</p>
+  <ul>
+    <li><strong>会话身份。</strong> 跨 rc 时，分叉或播种出来的会话已经因为快照校验拒绝历史而从列表里消失过。工作如果活在长会话里，换包之前先导出或复制。</li>
+    <li><strong>工具 schema。</strong> 零参数工具曾经在参数绑定层失败。任何按「模型会自己调用」写出来的插件，需要的是 schema 测试，不是手感。</li>
+    <li><strong>配置分层。</strong> home patch、profile 和 <code>--patch</code> 会藏起你以为已经设置的键。升级后再 dump 一次，和第 2 步的 dump 对 diff。树在你没改过的地方变了，就停。</li>
+    <li><strong>模型 id 不是 harness 版本。</strong> 新 profile 指向新模型的同时再抬运行时，失败就没法读。一次只改一件。<a href="/zh/blog/dsh-model-setup/">模型接入教程</a>是用来记下你指的到底是哪个端点。</li>
+  </ul>
+
+  <h2>周一不要做的事</h2>
+  <p>不要因为时间线变响，就让生产 profile 以不锁定的 <code>@latest</code> 跑 <code>npx</code>。<code>npx @deepseek-ai/dsh web</code> 仍然是<em>启动</em>本地 UI 的正确方式——同一组笔记里的桌面端那篇会再写一遍——却是在存着客户数据的机器上<em>吞下</em>意外大版本的坏方式。</p>
+  <p>不要因为「0.2 泄露了」就装别人附上的二进制。那种失败有单独的一篇。版本传闻和安装包传闻会结伴走，其中只有一种能靠更新日志补救。</p>
+  <p>不要因为 harness 的 tag 也许存在，就告诉团队模型变聪明了。你手头这个模型的成本与缓存，看同一组里的<a href="/zh/blog/x-pulse-dsh-cache-token-efficiency/">省 Token 笔记</a>。共享看板会不会把一次糟糕的升级放大，先读<a href="/zh/blog/x-pulse-dsh-agent-teams-board/">任务板笔记</a>，再决定要不要往一个还在动的运行时上加人。</p>
+
+  <h2>这篇之后怎么改</h2>
+  <p>官方 tag 和更新日志如果出现，清单仍然有效：快照是升级可以反悔的原因。这一周如果过去了还没有 tag，传闻过期了，你的锁定没有成本。两种结果都好过中午才发现插件树和你打算写下的那份笔记对不上。</p>
+
+  <h2>X 上的来源</h2>
+  <p>下面是社区信号，不是 DeepSeek 的发布说明。</p>
+  <ul>
+    <li><a href="https://x.com/teortaxesTex/status/2104399733645009217" rel="noopener noreferrer">@teortaxesTex</a> — 希望周一看到 0.2，并希望与面向 DSH 的 V4.1 Pro 对上时间。</li>
+    <li><a href="https://x.com/som_dutt_/status/2104334833107472817" rel="noopener noreferrer">@som_dutt_</a> — 把 <code>v0.2.0</code> 说成周一或周二，并提醒插件作者检查兼容。</li>
+    <li>@Zekunnnnn 与 @VTNuE0tKLGS0N5g — 同一簇的中文回声。只算回声，不算确认。</li>
+  </ul>
+</BlogPost>

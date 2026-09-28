@@ -1,0 +1,53 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="Shared task boards in DSH: collaboration taste vs coordination overhead | dshbase" description="Shared task boards and member chat give DSH a team feel, and they also create coordination loops. Contrast that with the glass-room Agent Team article, then cap hops, writes, and approvals." currentPath="/blog/x-pulse-dsh-agent-teams-board/" category="Analysis">
+  <h1>Shared task boards: <span class="accent">team feel, coordination cost</span></h1>
+  <p class="muted small" style="margin-bottom:20px">September 28, 2026 · dshbase · X pulse</p>
+
+  <p>A shared board makes a group of agents look like a team. That feeling is the feature people are posting about, and it is also the invoice. This week’s X cluster praises task boards and member-to-member chat inside DeepSeek Harness, then — in the same breath — describes death loops, where agents spend the session coordinating, and asks for circuit breakers. Both halves are the same object. A board that everyone can write to is a collaboration surface. It is also a scheduler you did not mean to run.</p>
+  <p>We already argued the philosophy in <a href="/blog/wx-dsh-agent-team/">the Agent Team piece</a>: you are the project manager, the room is glass, members can message each other, and the point of the tab is that you can see the stuck step. That article still holds. What it under-weights, and what this pulse is for, is the cost of being able to see everything because everything is talking. Visibility is not a substitute for a hop limit. A glass room with no door policy is just a meeting that logs itself.</p>
+
+  <h2>What the glass room already got right</h2>
+  <p>The contrast with a black-box “staff” product was the right one. Fixed employees you cannot inspect are convenient for a two-second chore and hostile to a real project. DSH’s team tab inverts that: recruit a coder, a researcher, a reviewer; give them separate sessions; let them pass a note without funneling every sentence through the lead. When an engineer calls the wrong interface, the log shows the step. That is the part worth keeping. Nothing in this week’s chatter repeals it.</p>
+  <p>Glass also flatters activity into progress. Cards moving between columns look like a standup. Some moves are the work; some are agents narrating status and re-reading a file a teammate already edited. The <a href="/blog/deepseek-harness-session-log/">append-only log</a> will record the waste faithfully. A limit is how you avoid needing that audit.</p>
+
+  <h2>What this week’s posts add</h2>
+  <p><a href="https://x.com/GKev1n/status/2104404939997053425" rel="noopener noreferrer">@GKev1n</a> puts the tension in one place: a task board plus member chat, set against coordination death loops and the wish for circuit breakers. That is the installer-shaped version of the glass-room essay. The board is the taste. The loop is the failure mode. A circuit breaker is the admission that taste will not stop the loop.</p>
+  <p><a href="https://x.com/yuanyang_ai/status/2104381436589748678" rel="noopener noreferrer">@yuanyang_ai</a> makes a different cut, and it is the one to keep when the naming fashion moves on. The word “harness” may fade. The responsibility will not. If a board assigns a card to an agent and the agent merges a bad patch, the board is not accountable. You are. A UI that feels like a team is especially good at laundering that fact, because the card has an assignee that is not you.</p>
+  <p>Plugin UX is growing around the edges, which makes the preview look more finished than it is. <strong>@Nikonenes</strong> is showing <code>dsh-file-drop</code>. <strong>@mykeura</strong> is showing a theme plugin. File drop and themes change how the room feels. They do not add a write lock, a hop budget, or an approval gate, and this note does not invent install counts for them. Polish is arriving faster than policy. The core is still a preview in the sense that matters: failure modes are showing up in public the same week as the praise. Put limits in front of the feature. If the screenshots also tempt you to upgrade, pair that urge with the <a href="/blog/x-pulse-dsh-0-2-expectation/">version-pin checklist</a> — a new frame on an unpinned package is two experiments.</p>
+
+  <h2>Collaboration taste versus coordination overhead</h2>
+  <p>Taste is real. Humans organize work as cards because cards externalize “who has it” and “what done means.” Agents can use the same externalization, and when they do, you can finally point at a column instead of scrolling a transcript. Member chat is the other half of the taste: the researcher does not have to wake the lead to hand the engineer a link. The glass-room article called that out as the point. Keep it for tasks where the handoff is a fact — a URL, a file path, a test command — and not a feeling.</p>
+  <p>Overhead is what happens when the handoff becomes the job. The pattern in the death-loop reports is familiar from human teams and worse in token teams, because agents do not get bored:</p>
+  <ul>
+    <li>Two members rewrite each other’s task description until the card is longer than the patch.</li>
+    <li>A reviewer requests changes, the author “aligns,” the reviewer reviews the alignment, and nobody runs the test.</li>
+    <li>Status updates are posted as chat messages that every member is then obliged to read, so the prefix grows with bureaucracy.</li>
+    <li>A stalled member pings the room, the room reassigns, the stall is now three sessions.</li>
+  </ul>
+  <p>Every hop is a model call. Every model call resends the board. A five-agent room that “just syncs” can outspend a single Standard session that was simply allowed to finish. The <a href="/blog/x-pulse-dsh-cache-token-efficiency/">cache note</a> applies with a multiplier: a shared, mutating board is a prefix you keep invalidating on purpose. If you wanted cache hits, a committee was the wrong shape.</p>
+
+  <h2>Practice limits: hops, write locks, human escalation</h2>
+  <p>These are operating rules, not a claim that the product ships them as checkboxes. If a circuit breaker shows up in the UI later, good. Until then you are the breaker. <a href="https://x.com/GKev1n/status/2104404939997053425" rel="noopener noreferrer">@GKev1n</a> asking for one is the community saying the same thing.</p>
+  <p><strong>Max hop.</strong> Decide, before the room starts, how many member-to-member messages a card may cause. A small integer is the right kind. When the count trips, the card returns to you and the other sessions stop. “They were almost aligned” is how loops survive. Hops are countable in the session log; if you will not count them, do not open the room. One researcher and one implementer is a team. A third agent “for quality” needs a written trigger, not a permanent seat.</p>
+  <p><strong>Write locks.</strong> Only one member may edit a given path at a time. Everyone else gets read, or gets a different directory. The glass room will show you the collision after both patches exist. A lock stops the collision from being the work. If your board cannot express a lock, the lock is a sentence in the task: “no one else touches <code>src/billing</code> until this card closes.” Agents follow explicit constraints more often than they follow the spirit of a column named In Progress.</p>
+  <p><strong>Human escalate approval.</strong> Some transitions are not agent business: adding a dependency, changing auth, deleting tests, opening the workspace wider, spending past the key you set aside, recruiting yet another member. Those moves require you. Escalation is not a failure of autonomy. It is the point of putting a project manager in the loop, which was the title of the glass-room article for a reason. A board that lets agents approve each other’s risky moves has recreated a black box out of transparent parts.</p>
+  <p>Put the three rules in the lead’s first message and in the card template. Repeating them in a theme plugin will not do it. If a run violates a rule, stop the room. Do not negotiate with the transcript.</p>
+
+  <h2>When a board earns its keep</h2>
+  <p>Use the board when the work splits into artifacts you can name: gather, implement, test, review. One artifact per member, then watch the stuck step instead of the spinner. Skip it for a single file, a single bug, or a question — a team for a question is a meeting. Skip it on an unpinned upgrade, a brand-new model id, or a key with no budget. The <a href="/blog/x-pulse-space-bunny-on-dsh/">BYOM note</a> said not to staff a room with a guest you have not interviewed; the same sentence applies to a guest runtime. Skip it when you wanted cache efficiency. Multi-agent is a capability spend. The posts calling DSH cheap and the posts calling the board fun are not the same configuration, and one does not justify the other.</p>
+
+  <h2>Preview, with the responsibilities left in</h2>
+  <p>@yuanyang_ai’s line is the close. Names will churn — harness, team, board, office, whatever the next skin calls the tab. The person who pointed the agents at the repository remains the person who answers for the diff. Plugin themes and file-drop shortcuts will make that tab nicer to sit in. Nicer is not finished. Finished, for this surface, would mean hop limits and write locks that fail closed, and an approval step the agents cannot click for you.</p>
+  <p>Until those exist, borrow them from the way you already run a human team that bills by the hour, because this one does. Read the glass-room article when you need the philosophy. Read the session when you need the evidence. Count the hops before you fall in love with the columns.</p>
+
+  <h2>X sources</h2>
+  <p>Community signal only. Not an official team-feature specification.</p>
+  <ul>
+    <li><a href="https://x.com/GKev1n/status/2104404939997053425" rel="noopener noreferrer">@GKev1n</a> — task board and member chat, set against coordination death loops and circuit breakers.</li>
+    <li><a href="https://x.com/yuanyang_ai/status/2104381436589748678" rel="noopener noreferrer">@yuanyang_ai</a> — the harness name may fade; the responsibility does not.</li>
+    <li>@Nikonenes — <code>dsh-file-drop</code>, an example of plugin UX growing around the core.</li>
+    <li>@mykeura — a theme plugin, same observation. Core team behavior is still preview.</li>
+  </ul>
+</BlogPost>

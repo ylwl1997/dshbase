@@ -3,6 +3,11 @@ import Base from '../../../layouts/Base.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const locale = Astro.currentLocale ?? 'zh';
 const posts = [
+  { path: '/blog/x-pulse-dsh-0-2-expectation/', cat: '脉搏', zh: '本周 DSH 0.2 传闻：安装者在周一前该锁什么版本', desc_zh: 'X 上的讨论把 DSH 0.2 聚到周一或周二，还有人把它和「给 DSH 的 V4.1 Pro」绑在一起。这仍是传闻。生产环境动手之前，先按这份清单把现有版本锁住。' },
+  { path: '/blog/x-pulse-dsh-desktop-client/', cat: '指南', zh: 'DeepSeek Harness 桌面端讨论：离开浏览器后会变什么', desc_zh: 'X 上在传桌面端画面：登录或 Key、本地工作区、四种模式、团队、语音和终端。官方客户端出现之前，继续用 npx @deepseek-ai/dsh web，不要下载来路不明的安装包。' },
+  { path: '/blog/x-pulse-dsh-cache-token-efficiency/', cat: '分析', zh: '为什么 X 上总有人说 DSH「省 Token」：缓存、极简模式与 V4.1 Flash', desc_zh: '「DSH 省 Token」通常是在说缓存形态、极简模式，或 Flash 档模型。PTC 不会自动让一次运行变便宜。相信这句口号之前，先设成本上限。' },
+  { path: '/blog/x-pulse-space-bunny-on-dsh/', cat: '评测', zh: 'Space Bunny 冲榜之后：在 DeepSeek Harness 里测第三方模型意味着什么', desc_zh: 'Space Bunny 登上公开榜单之后，有实验室把 OpenRouter 接进 DSH 做编码测试。BYOM 意味着工具调用、精确的模型 id，以及叫不出名字的权重风险，都要你自己承担。' },
+  { path: '/blog/x-pulse-dsh-agent-teams-board/', cat: '分析', zh: 'DSH 共享任务板：有「团队感」之后，怎么防协调开销', desc_zh: '共享任务板和成员聊天让 DSH 有了团队感，也容易变成协调死循环。对照玻璃房那篇 Agent Team，把跳数、写锁和人工升级先卡住。' },
   { path: '/blog/deepseek-v4-1-flash-beta/', cat: '分析', zh: 'DeepSeek V4.1 Flash 开启限时内测：新结构、原生多模态，模型名里写着 9 月 10 日过期', desc_zh: '社区群里放出的 V4.1 Flash 中间版本：新模型结构、原生多模态、计费与 V4 Flash 相同、限流 20 并发，模型名 9 月 10 日过期。确认的事实、社区实测，以及 DSH 目前的两处摩擦。' },
   { path: '/blog/wx-dsh-first-month-report/', cat: '分析', zh: "DSH 的第一个月：平台化跑得比产品化快", desc_zh: "三周 11 个预发版，SDK 与事件支持快速落地；而安装卡死、Token 失控、缺成本熔断，正是社区最关心的事。" },
   { path: '/blog/wx-plugin-tree-ecosystem/', cat: '指南', zh: "DSH 插件怎么挑：先看懂插件树，再按任务选", desc_zh: "DSH 的每个能力都是插件。看懂模型、工具、会话、沙箱、编排、UI 六大类，再按任务挑插件，别被热度带偏。" },
