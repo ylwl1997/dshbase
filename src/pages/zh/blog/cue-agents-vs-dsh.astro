@@ -1,0 +1,66 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="Cue Agents 对比 DeepSeek Harness：带身份的个人智能体 vs 开源 Harness | dshbase" description="Manus 于 9 月 28 日推出 Cue Agents：每个智能体自带邮箱、电话、钱包与电脑。对照 DeepSeek Harness，哪些能比、哪些不该硬比。" currentPath="/blog/cue-agents-vs-dsh/" category="分析">
+  <h1>Cue Agents 对比 DeepSeek Harness：<span class="accent">带身份的个人智能体 vs 开源 Harness</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026年9月29日 · dshbase · 改写自 X 与官方发布</p>
+
+  <p>2026 年 9 月 28 日，Manus 发布了 Manus 2.0，并同时推出独立应用 Cue。<a href="https://x.com/CueAgents/status/2104589146153181192" rel="noopener noreferrer">@CueAgents</a> 的开场很短：个人智能体，on Cue，站点是 <a href="https://cue.im/" rel="noopener noreferrer">cue.im</a>。真正描述产品的段落在 <a href="https://manus.im/blog/introducing-manus-2-0" rel="noopener noreferrer">Manus 2.0 官方文</a>的第 3 节，“Cue: A new app from Manus”。这篇是给已经在跑 DeepSeek Harness 的人看的次日笔记。</p>
+  <p>Cue 和 DSH 不是一一对应的替代品。Cue 是面向个人生活事务的封闭消费级应用：每个智能体配有邮箱、电话号码、钱包和电脑，多个智能体可以进同一个群聊。DSH 是 MIT 许可的 Harness，给要搭建和改造 Agent 运行时的人用：插件、沙箱、会话，以及你自己拉起来的 Web UI。两边有足够相似的地方，会让上线当天的帖子混为一谈。类别并不相同。下面是一张地图，不是记分牌。</p>
+
+  <h2>实际交付了什么</h2>
+  <p>Cue 是 Manus 的个人多智能体应用，建在与 Manus 相同的基础设施上，覆盖手机、桌面和 Web。<a href="https://x.com/CueAgents/status/2104632868282769772" rel="noopener noreferrer">@CueAgents</a> 把早期访问写成免费且限量，并点名现在能打开的客户端是 Android、Mac 和 Windows。iOS 已提交 App Store 审核，这是「即将到来」，不是今天就能从商店安装的版本。早期访问凭邀请码免费。公开提到的起步码是 <strong>MEETCUE</strong>，限量、先到先得。Manus 没有公布早期访问结束之后的价格。缺价格就是缺价格，这里不编。</p>
+  <p>定义这款产品的是身份栈，单独写在 <a href="/zh/blog/cue-agents-identity-stack-vs-dsh/">邮箱、电话、钱包、电脑</a> 那篇。官方表述是：每个智能体可以发消息、在你设定的预算内付款、在自己的电脑上跑任务、接电话，并把摘要留回 Cue。Manus 说，Manus 与 Cue 的智能体目前可以在部分国家拥有电话号码，其中一些线路只有语音。本文不列国家名单，因为列出来就等于猜测。</p>
+  <p>多智能体的表面是一个有共同目标的群聊。智能体互相交接工作。你定方向，最终决定留在你这里。Manus 文中的日常例子，是编程 Harness 没有对应名词的那种杂事：扫餐厅二维码，由智能体下单或排队占位。这句话就是类别标签。Cue 想替你在外部世界里行动。DSH 想成为你所写工具底下的运行时。</p>
+  <p>Manus 2.0 还提到了内部 Harness Cascade，以及 Cloud Computer、Automations 和 Manus Studio。那是 Cue 所在技术栈的背景。Cascade 的效率百分比留在 <a href="/zh/blog/manus-cascade-vs-deepseek-harness/">Cascade 那篇</a>，并且只作为 Manus 自己的单配置自测。</p>
+  <p><a href="https://x.com/ManusAI/status/2104593894700990910" rel="noopener noreferrer">@ManusAI</a> 把这次发布说成「在 Cue 上介绍个人智能体」。几小时内就有社区摘要。<a href="https://x.com/bb833dong/status/2104714580081758274" rel="noopener noreferrer">@bb833dong</a> 和 <a href="https://x.com/ZachFeng/status/2104734255335219481" rel="noopener noreferrer">@ZachFeng</a> 用中文压缩了功能列表。<a href="https://x.com/FanShifu/status/2104714367162044817" rel="noopener noreferrer">@FanShifu</a> 在想用例。这些帖子适合量温度。它们不是规格说明书，一条整齐的串也不能证明 Cue 和 <code>dsh web</code> 是同一个想法的两张皮肤。</p>
+
+  <h2>一览</h2>
+  <div style="overflow-x:auto">
+    <table class="ztable">
+      <thead>
+        <tr><th></th><th>Cue Agents</th><th>DeepSeek Harness</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>许可</strong></td><td>封闭的消费级应用</td><td>MIT，开源</td></tr>
+        <tr><td><strong>受众</strong></td><td>希望智能体处理生活事务的人</td><td>搭建或改造 Agent 运行时的人</td></tr>
+        <tr><td><strong>身份栈</strong></td><td>每个智能体一份邮箱、电话、钱包和电脑</td><td>沙箱、工具和插件。没有运营商号码或钱包这种产品原语</td></tr>
+        <tr><td><strong>多智能体体验</strong></td><td>群聊。智能体交接。最终决定在你</td><td>团队、共享任务板、会话——构建者的表面</td></tr>
+        <tr><td><strong>扩展</strong></td><td>你使用应用。Agent 循环不是给你 fork 的</td><td>一切皆插件，内核是 Cordis</td></tr>
+        <tr><td><strong>托管</strong></td><td>Manus 托管：Web、桌面、移动</td><td>你自己跑。Web UI 用 <code>npx @deepseek-ai/dsh web</code>，也可以 headless</td></tr>
+        <tr><td><strong>价格模型</strong></td><td>早期访问凭邀请免费。EA 之后的价格未公布。起步码 MEETCUE 限量</td><td>Harness 开源。模型费用付给你指向的提供方</td></tr>
+        <tr><td><strong>成熟度</strong></td><td>上线第一天。iOS 在 App Store 审核中。电话号码仅部分国家</td><td>开发者预览。API 可能破坏性变化</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>每一行都按类别差异来读。DSH 不附带电话号码，是这份工作的描述，不是给 Harness 报的缺陷。Cue 不提供可 fork 的循环，是消费级应用的描述，不是缺了一个插件。</p>
+
+  <h2>它们相像的地方</h2>
+  <p>有三件事两边都出现了。正因为如此，对照才值得写，也正因为如此，对照必须停在这三件事里面。</p>
+  <p><strong>交接。</strong> Cue 的群聊是几个智能体共享目标、把工作递过去的房间。DSH 的团队页签和共享任务板，是几个会话把工作递过去的房间。<a href="/zh/blog/wx-dsh-agent-team/">玻璃房那篇 Agent Team</a> 已经说过：看得见的交接才是要点。<a href="/zh/blog/x-pulse-dsh-agent-teams-board/">任务板脉搏</a> 补上了账单：没有上限的交接就是一场按 Token 计费的会。Cue 把同一个赌注放进聊天记录。审批、跳数、什么时候聊天就够用，写在 <a href="/zh/blog/cue-group-chat-vs-dsh-agent-teams/">群聊指南</a>里。</p>
+  <p><strong>每个工作者有一台机器。</strong> Cue 说每个智能体有一台电脑，可以在上面跑任务。DSH 说一次会话可以有沙箱、工具和工作区。「有一台电脑」是相像之处。这台电脑被允许碰什么——餐厅排队、代码仓库、一笔付款——才是分叉，也是身份那篇的全部题目。</p>
+  <p><strong>你仍然是导演。</strong> Cue 的文案把最终决定留给人。DSH 的玻璃房故意把项目经理留在回路里。就目前公开的说法，两边都还指望人来定方向。如果某段演示暗示有一支你打断不了的员工队伍，那段演示走在了两边文案的前面。</p>
+
+  <h2>它们分开的地方</h2>
+  <p><strong>开源插件，对着封闭应用。</strong> DSH 的句子是「一切皆插件」。模型、工具、沙箱、会话存储和 UI 都是 Cordis 内核上可替换的模块。循环你可以读。仓库是 <a href="https://github.com/deepseek-ai/deepseek-harness" rel="noopener noreferrer">deepseek-ai/deepseek-harness</a>。文档在 <a href="https://deepseek.com/harness/en/" rel="noopener noreferrer">deepseek.com/harness</a>。Cue 不提供这句。你得到的是一个应用。你得不到面向 Harness 作者的插件商店，也得不到 Agent 循环的一份 fork。这个分裂，本站在 <a href="/zh/blog/vs-claude-code/">DeepSeek Harness vs Claude Code</a> 里已经画过一次，这次指向的是生活事务产品，而不是编程客户端。</p>
+  <p><strong>生活事务，对着编程 Harness。</strong> Cue 的例子是消息、电话、你设了预算的付款，以及餐厅二维码。DSH 的例子是文件、工具、轨迹和插件。想让智能体给餐厅发短信的 DSH 读者，看错了安装命令。想换沙箱或钉住模型的 Cue 读者，看错了应用。本批最后的 <a href="/zh/blog/x-pulse-cue-agents-vs-dsh-chooser/">选型单</a>，就是为了让这两种读者不要再共用一张截图。</p>
+  <p><strong>自带模型，对着不透明的 Harness。</strong> DSH 对模型是明示的。你把运行时指向一个提供方，模式预设由你选，API 仍处预览、可能变化，这是合同的一部分。Cue 跑在 Manus 的基础设施上。这套栈里新的内部 Harness 叫 Cascade，Manus 没有把 Cascade 作为开源发布。DSH 的会话你可以审计。Cascade 从外面审计不了。挂在 Cascade 上的任何效率百分比，在 Manus 以外的人能复现那套配置之前，都只是厂商自测。</p>
+
+  <h2>今晚该打开谁</h2>
+  <p>如果你这周想要的是一个有真实联络点的个人智能体——收件箱、号码、设了预算的钱包、一台不是你仓库的机器——就打开 <a href="https://cue.im/" rel="noopener noreferrer">cue.im</a>。邀请门槛是产品的一部分。MEETCUE 是公开的起步码，而且限量。码用完了，等待就是早期访问的状态。如果你今天就要 iOS，App Store 审核还在前面。如果你需要电话号码，官方说法是部分国家、有的只有语音，X 上的回复不是覆盖地图。</p>
+  <p>如果你在构建，就留在 <code>npx @deepseek-ai/dsh web</code>。DSH 是循环、工具、沙箱和会话都可以换掉的那条赛道。它仍是开发者预览。接口会动。这是「Harness 你可以读」的成本，和一款上线第一天的消费应用是不同的成本。生活身份是工作时用 Cue。工作本身是 Harness 时用 DSH。本批另外四篇各切这一句的一片：身份栈、群聊、Cascade，以及上线日的选型单。</p>
+
+  <h2>来源</h2>
+  <p>Manus 博客是官方描述。@CueAgents 与 @ManusAI 的帖子是厂商的发布文案。其余 X 链接是社区信号，适合看人们听到了什么，不适合填规格上的空。</p>
+  <ul>
+    <li><a href="https://manus.im/blog/introducing-manus-2-0" rel="noopener noreferrer">Manus — Introducing Manus 2.0</a>，第 3 节 “Cue: A new app from Manus”。</li>
+    <li><a href="https://cue.im/" rel="noopener noreferrer">cue.im</a> — Cue 产品站。</li>
+    <li><a href="https://deepseek.com/harness/en/" rel="noopener noreferrer">DeepSeek Harness 文档</a>与 <a href="https://github.com/deepseek-ai/deepseek-harness" rel="noopener noreferrer">deepseek-ai/deepseek-harness</a>。</li>
+    <li><a href="https://x.com/CueAgents/status/2104589146153181192" rel="noopener noreferrer">@CueAgents</a> — hello world。</li>
+    <li><a href="https://x.com/CueAgents/status/2104632868282769772" rel="noopener noreferrer">@CueAgents</a> — 免费、限量的早期访问；Android、Mac、Windows。</li>
+    <li><a href="https://x.com/ManusAI/status/2104593894700990910" rel="noopener noreferrer">@ManusAI</a> — 在 Cue 上介绍个人智能体。</li>
+    <li><a href="https://x.com/bb833dong/status/2104714580081758274" rel="noopener noreferrer">@bb833dong</a> — 社区摘要。</li>
+    <li><a href="https://x.com/ZachFeng/status/2104734255335219481" rel="noopener noreferrer">@ZachFeng</a> — 中文社区摘要。</li>
+    <li><a href="https://x.com/FanShifu/status/2104714367162044817" rel="noopener noreferrer">@FanShifu</a> — 用例随想。</li>
+  </ul>
+</BlogPost>

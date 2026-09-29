@@ -1,0 +1,53 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="Manus Cascade vs DeepSeek Harness: closed efficiency claims meet open plugins | dshbase" description="Manus 2.0’s Cascade harness published one-config efficiency numbers. DSH bets on everything-is-a-plugin. How builders should read both." currentPath="/blog/manus-cascade-vs-deepseek-harness/" category="Analysis">
+  <h1>Manus Cascade vs DeepSeek Harness: <span class="accent">closed efficiency claims meet open plugins</span></h1>
+  <p class="muted small" style="margin-bottom:20px">September 29, 2026 · dshbase · X pulse</p>
+
+  <p>Manus 2.0, published September 28, 2026, launched the Cue app and named Cascade, an in-house agent harness. Manus attached three efficiency figures to Cascade, measured against its previous setup in one tested configuration: −23.2% tokens, −28.2% time, and −32% cost. Those figures are Manus’s. They are a vendor self-test. They are not an independent benchmark, and this note will not promote them into one. DeepSeek Harness makes a different bet: everything is a plugin, the code is MIT-licensed, and a builder can read the loop. Cascade and DSH are both called harnesses. They are not 1:1 substitutes. One is a closed component inside a hosted product. The other is an open runtime you run yourself.</p>
+
+  <h2>Where Cascade sits</h2>
+  <p>Cascade is Manus’s new in-house harness. The public description lives in the <a href="https://manus.im/blog/introducing-manus-2-0" rel="noopener noreferrer">Manus 2.0 post</a>, alongside Cloud Computer, Automations, Manus Studio, and Cue. Cue, the personal multi-agent app at <a href="https://cue.im/" rel="noopener noreferrer">cue.im</a>, is built on the same infrastructure as Manus. Cascade is part of how that infrastructure is supposed to spend fewer tokens, less time, and less money than the previous Manus configuration. It is not a package you <code>npm install</code>. Manus has not published Cascade as open source. Treat it as closed. A reader who wants the agent-facing product should read <a href="/blog/cue-agents-vs-dsh/">Cue versus DSH</a>. A reader who wants the runtime claim should stay on this page.</p>
+  <p>The numbers need a fence around them before anyone pastes them into a comparison chart.</p>
+  <div style="overflow-x:auto">
+    <table class="ztable">
+      <thead>
+        <tr><th>Claim, as Manus reported it</th><th>How to read it</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>−23.2% tokens</td><td>One configuration, against Manus’s own previous setup</td></tr>
+        <tr><td>−28.2% time</td><td>Same self-test. Not a public suite you can rerun</td></tr>
+        <tr><td>−32% cost</td><td>Same self-test. Not a price for Cue, and not a DSH invoice</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>A one-config self-test can be honest and still be non-transferable. The post does not name a task mix an outsider can replay, and it does not invite a second lab to hold the model constant. It also does not say what Cue’s early-access invite will cost later, because Manus has not published a post-EA price at all. Placing “32% cheaper” next to a DeepSeek bill mixes a harness delta inside one vendor with a market price. If you need a sentence for a slide, use this one: Manus reports that Cascade, in a single configuration they tested, used fewer tokens, less time, and less money than their previous harness. The audit is theirs.</p>
+
+  <h2>Where DSH sits</h2>
+  <p>DeepSeek Harness is the open alternative in the “harness” conversation, and it is an alternative of kind. The project is MIT-licensed at <a href="https://github.com/deepseek-ai/deepseek-harness" rel="noopener noreferrer">deepseek-ai/deepseek-harness</a>, documented at <a href="https://deepseek.com/harness/en/" rel="noopener noreferrer">deepseek.com/harness</a>. The kernel is Cordis. The slogan that matches the code is “everything is a plugin”: model, tools, sandbox, session storage, UI, and the loop itself are modules you can swap. You start the Web UI with <code>npx @deepseek-ai/dsh web</code>, or you run headless. Mode presets exist so a session can be thicker or thinner. The contract with the reader of this site is the one in <a href="/blog/vs-claude-code/">DeepSeek Harness vs Claude Code</a>: plugins are in-process and forkable; a closed client extends you only as far as its vendor allows.</p>
+  <p>DSH does not publish a Cascade-style percentage for you to wave at Manus, and this note will not invent one. What it publishes is the runtime. You can read a session, replace a tool, bring your own model key, and accept that the project is still a developer preview whose APIs can break. Efficiency, on this side, is a property you measure on your workload — cache shape, mode, model id — not a badge printed on launch day. The <a href="/blog/x-pulse-dsh-cache-token-efficiency/">token-efficiency pulse</a> is the local version of that discipline: “cheap” usually means a specific configuration, and a slogan is not a cap. Set the cap yourself.</p>
+
+  <h2>Reproducibility is the actual difference</h2>
+  <p>You can audit DSH. You cannot audit Cascade. That sentence is the comparison. A builder who disagrees with a DSH behavior can open the repository, pin a commit, and show the plugin that did it. A builder who disagrees with Cascade’s 23.2% can ask Manus for the configuration, and then wait. Until that configuration is public, the percentage is a press figure with a decimal point. Decimals are not reproducibility.</p>
+  <p>This is the same precedent as plugins versus MCP in the Claude Code piece, moved one level down. There, the question was who holds the extension surface. Here, the question is who holds the harness. Cascade’s extension story, as published, is “Manus improved the harness.” DSH’s extension story is “you replace the part.” Cue users inherit Cascade whether they want a harness opinion or not, because Cue is the app on top of Manus infrastructure. DSH users inherit nothing until they install a plugin. Both inheritances have a cost. One cost is opacity. The other is maintenance.</p>
+
+  <h2>When the closed harness wins</h2>
+  <p>A closed harness plus a life-ops identity wins when you wanted the outcome and you did not want the runtime. Cue’s agents come with email, phone, wallet, and computer. The group chat hands work across those identities. Cascade, if it does what Manus says inside Manus, is the part you never see making that cheaper than last month’s Manus. For a person scanning a restaurant QR code, “the harness used fewer tokens in one internal config” is not the feature. The feature is that an agent with a number and a budget did the errand, and a human kept the final call. Take that product on product terms. Take the efficiency line as Manus’s report about itself.</p>
+  <p>The closed side also wins, narrowly, when you explicitly do not want to operate a preview. DSH’s plugin kernel will let a bad plugin into the process because you asked it to. Cascade will not let you in at all. If your threat model is “I will install the wrong npm package at midnight,” a hosted app is a calmer weekend. It is calmer because you gave the loop away. Say that out loud before you call it simpler.</p>
+
+  <h2>When the open harness wins</h2>
+  <p>An open harness plus bring-your-own-model wins when the thing you are building is the agent infrastructure. You need a sandbox you can name, a tool you can delete, a session log you can diff, a model id you chose. You need to know whether a cost change came from the mode, the cache, or the provider. Cascade cannot answer that for you, because you cannot see it. DSH can answer it badly — preview software does — and you can still check.</p>
+  <p>It also wins when the efficiency claim has to survive contact with your repository. A 32% cost delta on Manus’s previous config says nothing about your monorepo, your tool list, or your prefix cache. A plugin you can remove says a lot. If you are choosing tonight, use the <a href="/blog/x-pulse-cue-agents-vs-dsh-chooser/">chooser</a>: Cue when the identity stack is the job, DSH when the plugin runtime is the job, and Cascade as a closed claim you do not get to replay. The group-chat map, if the question is teams rather than tokens, is <a href="/blog/cue-group-chat-vs-dsh-agent-teams/">here</a>.</p>
+
+  <h2>Sources</h2>
+  <p>Cascade’s percentages are quoted from Manus, fenced as a one-configuration self-test. DSH’s plugin claim is the project’s own description. Nothing below turns the percentages into a cross-vendor benchmark.</p>
+  <ul>
+    <li><a href="https://manus.im/blog/introducing-manus-2-0" rel="noopener noreferrer">Manus — Introducing Manus 2.0</a>, Cascade as an in-house harness, with the one-config efficiency figures.</li>
+    <li><a href="https://cue.im/" rel="noopener noreferrer">cue.im</a> — the consumer app on Manus infrastructure, not the harness source.</li>
+    <li><a href="https://deepseek.com/harness/en/" rel="noopener noreferrer">DeepSeek Harness docs</a> — everything-is-a-plugin.</li>
+    <li><a href="https://github.com/deepseek-ai/deepseek-harness" rel="noopener noreferrer">deepseek-ai/deepseek-harness</a> — MIT source you can audit.</li>
+    <li><a href="/blog/vs-claude-code/">dshbase — DeepSeek Harness vs Claude Code</a>, the plugin-versus-closed-extension precedent.</li>
+    <li><a href="https://x.com/ManusAI/status/2104593894700990910" rel="noopener noreferrer">@ManusAI</a> and <a href="https://x.com/CueAgents/status/2104589146153181192" rel="noopener noreferrer">@CueAgents</a> — launch posts for the app, not a Cascade reproduction.</li>
+  </ul>
+</BlogPost>

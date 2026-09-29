@@ -1,0 +1,58 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="Cue 上线之后：Cue、DSH、Grok Bot、Muse —— 给 DSH 读者的选型单 | dshbase" description="上线数小时内 X 就把 Cue 和 Grok Bot、Muse 放一起比。去掉噪音：各自赛道是什么，DeepSeek Harness 仍独占哪一块。" currentPath="/blog/x-pulse-cue-agents-vs-dsh-chooser/" category="脉搏">
+  <h1>Cue 上线之后：<span class="accent">Cue、DSH、Grok Bot、Muse —— 给 DSH 读者的选型单</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026年9月29日 · dshbase · 改写自 X 与官方发布</p>
+
+  <p>Cue 在 9 月 28 日上线后的几小时里，X 不再问 Cue 是什么，开始问它替换了哪个已有的名字。<a href="https://x.com/FacundoMarino1/status/2104726570116218890" rel="noopener noreferrer">@FacundoMarino1</a> 把 Cue、Muse 和 Grok Bot 放进同一个问题。<a href="https://x.com/wisereborn/status/2104735597193752773" rel="noopener noreferrer">@wisereborn</a> 预告了一份指南。<a href="https://x.com/jhdxhl/status/2104717514584596757" rel="noopener noreferrer">@jhdxhl</a> 用中文做了反应。<a href="https://x.com/wjessup/status/2104709149112369436" rel="noopener noreferrer">@wjessup</a> 表示怀疑。这一簇是情绪，不是矩阵。这篇脉搏把它拆成赛道，给已经住在 DeepSeek Harness 里、不需要第四份产品推销的读者。Cue 和 DSH 不是一一替代。Grok Bot 和 Muse 也不是 DSH。上线日有用的动作是叫出赛道，然后忽略线程的其余部分。</p>
+
+  <h2>这些帖子实际做了什么</h2>
+  <p>厂商的帖子很窄。<a href="https://x.com/CueAgents/status/2104589146153181192" rel="noopener noreferrer">@CueAgents</a> 打了招呼：个人智能体，on Cue，站点 <a href="https://cue.im/" rel="noopener noreferrer">cue.im</a>。<a href="https://x.com/CueAgents/status/2104632868282769772" rel="noopener noreferrer">@CueAgents</a> 说早期访问免费且限量，并点名 Android、Mac 和 Windows。<a href="https://x.com/ManusAI/status/2104593894700990910" rel="noopener noreferrer">@ManusAI</a> 介绍了 Cue 上的个人智能体。官方描述仍是 <a href="https://manus.im/blog/introducing-manus-2-0" rel="noopener noreferrer">Manus 2.0 文</a>第 3 节：独立应用，每个智能体有邮箱、电话、钱包和电脑，群聊用来交接，最终决定在你。iOS 在 App Store 审核中。电话号码在部分国家，有的只有语音。公开提到的起步邀请码是 <strong>MEETCUE</strong>，而且限量。早期访问之后的价格没有公布。</p>
+  <p>社区帖子做的是另一件事。它们抓起最近的几个消费级智能体名字，要一个赢家。这很正常。也正是这样，一款生活事务应用、一个桌面伴侣、一条 Meta Muse 赛道上的产品，和一个开源编程 Harness，会落到同一张截图里。@wjessup 的怀疑是这张截图上有用的刹车：上线线程不是现场测试。@jhdxhl 说明同一种压缩也发生在中文里。@wisereborn 说明已经有人想要购买指南。这篇是赛道卡片，不是那份指南的功能表。我们没有、也不会为了填一列而去编 Grok Bot 或 Muse 的规格。</p>
+
+  <h2>按赛道选</h2>
+  <div style="overflow-x:auto">
+    <table class="ztable">
+      <thead>
+        <tr><th>赛道</th><th>讨论指向什么</th><th>DSH 读者该做什么</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>个人生活事务</strong></td><td>Cue。每个智能体一份身份：邮箱、电话、钱包、电脑。群聊。Manus 的封闭应用</td><td>只有身份栈就是工作时，才打开 cue.im。先读 <a href="/zh/blog/cue-agents-vs-dsh/">总对照</a></td></tr>
+        <tr><td><strong>编程 Harness</strong></td><td>DeepSeek Harness。MIT，Cordis 上一切皆插件，你自己跑 <code>dsh web</code></td><td>运行时、沙箱、插件和会话留在这里。在这一组里，这条赛道仍是 DSH 独占</td></tr>
+        <tr><td><strong>桌面伴侣</strong></td><td>Grok Bot，按 X 把问题归在一起的方式。本脉搏不审计它</td><td>不要把一条「vs Grok Bot」的回复当成 DSH 迁移计划</td></tr>
+        <tr><td><strong>Muse 赛道</strong></td><td>Muse，按 X 把问题归在一起的方式。本脉搏不审计它</td><td>同一条规则。引用帖里的一个名字不是插件架构</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>这张表是给句子用的分拣帽，不是排名。Cue 占据生活事务这一格，是因为 Manus 这么说了：联络点，加上设了预算的钱包。DSH 占据 Harness 这一格，是因为仓库这么说了，也因为 Cue 的发布没有提供可 fork 的循环或插件内核。Grok Bot 和 Muse 占着格子，只因为上线日的问题把它们放在那里。功能行留空就是要点。凭记忆去填，会把这篇脉搏写成传闻。</p>
+
+  <h2>DSH 仍独占的那一块</h2>
+  <p>用引用帖的方式看 {Cue, Grok Bot, Muse, DSH} 这一组，有一格不肯塌下去。Cue 是托管的个人应用。另外两个名字被当作消费级伴侣在用。DeepSeek Harness 是开源插件运行时：Web UI、headless、模式、沙箱、Cordis 内核，以及可能弄坏接口的预览。Cue 的发布帖里没有人提议用一个群聊换掉 <code>npx @deepseek-ai/dsh web</code>。Manus 最接近 Harness 对话的是 <a href="/zh/blog/manus-cascade-vs-deepseek-harness/">Cascade 那篇</a>，而 Cascade 是内部的、封闭的。它的 Token −23.2% / 时间 −28.2% / 成本 −32% 是单配置自测。它不会把 DSH 移出开源插件赛道，也不会把 Cue 移进去。</p>
+  <p>如果你这周的工作是一个工具插件、一道沙箱边界、一段可以重放的会话，或一把你自己带来的模型 key，这次发布不会给你一条新的安装命令。它给你一个相邻的类别。这个邻居的形状，写在 <a href="/zh/blog/cue-agents-identity-stack-vs-dsh/">身份笔记</a>和 <a href="/zh/blog/cue-group-chat-vs-dsh-agent-teams/">群聊指南</a>里。队友丢来一张截图时用它们。然后回到 Harness。</p>
+
+  <h2>留在地上的噪音</h2>
+  <p>有两条线程响到可以浪费一个晚上，两条都不改变赛道。</p>
+  <p><strong>邀请码焦虑。</strong> 早期访问凭邀请免费，MEETCUE 被当作限量、先到先得的起步码传过。码用完，是限量码的正常行为。它不能证明产品做完了，也不能证明你该把 DSH 工作区指向一个来路不明的「Cue 加载器」。iOS 仍在 App Store 审核。Android、Mac 和 Windows 是官方账号点过名的客户端。码失效时，官方状态是「限量」，不是「去找镜像」。</p>
+  <p><strong>克隆头像的闲聊。</strong> 上线日也会长出仿冒账号、换头像，以及关于智能体热闹场面、而不是技术栈的线程。把这些闲聊当噪音。如果你在评估 Cue，要紧的身份是 Manus 描述的那套：邮箱、电话、钱包、电脑、预算、最终决定。如果你在评估 DSH，要紧的身份仍然是仓库。一个克隆头像哪一套都交付不了。</p>
+  <p>怀疑属于笔记，不属于围攻。@wjessup 提醒人等产品把事情做出来。Manus 的文章提醒人当时许诺的是哪件事。两样都拿着。不要把它们平均成一个星级。</p>
+
+  <h2>今晚做什么</h2>
+  <p>只有当面的任务是生活身份时，才去试 Cue：智能体能发消息、在已支持的国家打电话、在你设的预算内付款、在应用提供的机器上工作，最后一句话留在你这里。从 <a href="https://cue.im/" rel="noopener noreferrer">cue.im</a> 和 Manus 的文章开始。忽略任何不是来自 Manus 的国家名单。</p>
+  <p>任务是 Harness 时，留在 DeepSeek Harness。插件、沙箱、你能看穿的团队、你愿意钉住版本的预览。Grok Bot 和 Muse 可以留在别人问起它们的那个群里。它们不是开源插件赛道，这篇脉搏也不会借它们的名声来做 DSH 的论点。线程问「谁赢」的时候，用赛道回答。赢家是给同一类别里的产品准备的。这四个名字不是同一类别。</p>
+
+  <h2>来源</h2>
+  <p>Cue 的官方帖和 Manus 博客描述 Cue。其余 X 链接是上线日的对照簇。它们是社区信号。Grok Bot 和 Muse 出现，是因为那些帖子点了名，不是因为本站评测过它们。</p>
+  <ul>
+    <li><a href="https://manus.im/blog/introducing-manus-2-0" rel="noopener noreferrer">Manus — Introducing Manus 2.0</a>，Cue 一节。</li>
+    <li><a href="https://cue.im/" rel="noopener noreferrer">cue.im</a>。</li>
+    <li><a href="https://x.com/CueAgents/status/2104589146153181192" rel="noopener noreferrer">@CueAgents</a> — hello world。</li>
+    <li><a href="https://x.com/CueAgents/status/2104632868282769772" rel="noopener noreferrer">@CueAgents</a> — 免费、限量；Android、Mac、Windows。</li>
+    <li><a href="https://x.com/ManusAI/status/2104593894700990910" rel="noopener noreferrer">@ManusAI</a> — 在 Cue 上介绍个人智能体。</li>
+    <li><a href="https://x.com/FacundoMarino1/status/2104726570116218890" rel="noopener noreferrer">@FacundoMarino1</a> — 把 Cue、Muse、Grok Bot 放在一起问。</li>
+    <li><a href="https://x.com/wisereborn/status/2104735597193752773" rel="noopener noreferrer">@wisereborn</a> — 指南预告。</li>
+    <li><a href="https://x.com/jhdxhl/status/2104717514584596757" rel="noopener noreferrer">@jhdxhl</a> — 中文反应。</li>
+    <li><a href="https://x.com/wjessup/status/2104709149112369436" rel="noopener noreferrer">@wjessup</a> — 怀疑。</li>
+    <li><a href="https://github.com/deepseek-ai/deepseek-harness" rel="noopener noreferrer">deepseek-ai/deepseek-harness</a> 与 <a href="https://deepseek.com/harness/en/" rel="noopener noreferrer">DeepSeek Harness 文档</a>。</li>
+  </ul>
+</BlogPost>

@@ -1,0 +1,64 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="邮箱、电话、钱包、电脑：Cue 身份栈 vs DSH 沙箱 | dshbase" description="Cue 强调智能体有真实联络方式；DSH 提供沙箱、工具与插件。「有一台电脑」在两边分别意味着什么。" currentPath="/blog/cue-agents-identity-stack-vs-dsh/" category="分析">
+  <h1>邮箱、电话、钱包、电脑：<span class="accent">Cue 身份栈 vs DSH 沙箱</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026年9月29日 · dshbase · 改写自 X 与官方发布</p>
+
+  <p>Cue 的发布句是一句身份声明。Manus 说，每个智能体有自己的邮箱、自己的电话号码、自己的钱包，以及自己的电脑。这四件套就是产品。DeepSeek Harness 不附带这样的四件套，公平的读法先承认：这种缺失是结构上的。DSH 给你沙箱、工具表面和插件内核。「有一台电脑」两边都能说。两台电脑不是同一个对象。这篇先定义原语，再说每一边实际交到你手里的是什么。总对照在 <a href="/zh/blog/cue-agents-vs-dsh/">Cue Agents 对比 DeepSeek Harness</a>。Cue 和 DSH 不是一一替代，身份栈是最清楚的地方。</p>
+
+  <h2>四件原语，按 Manus 的说法</h2>
+  <p>官方描述在 <a href="https://manus.im/blog/introducing-manus-2-0" rel="noopener noreferrer">Manus 2.0 文</a>的 Cue 一节。当成一叠来读，四件东西干的活不一样。</p>
+  <ul>
+    <li><strong>邮箱</strong>是智能体可以自行收发的联络点，和你的个人收件箱分开。智能体可以以它自己的身份发消息。</li>
+    <li><strong>电话</strong>是智能体用来打电话、发短信的号码。Manus 说过，Manus 与 Cue 的智能体可以有电话号码，目前限于部分国家，其中一些线路只有语音。国家集合不在这里公布，因为那不是我们能编的。</li>
+    <li><strong>钱包</strong>是一种付款方式，花在你设定的预算之内。Manus 愿意在公开文案里点名的控制，就是这个预算。Cue 本身在早期访问之后的价格没有公布。钱包预算不是那个价格。</li>
+    <li><strong>电脑</strong>是智能体跑任务的机器。官方例子包括日常服务：扫餐厅二维码，由智能体下单或排队占位；接一通电话，再把摘要留回 Cue。</li>
+  </ul>
+  <p>叠在一起，这套栈声称智能体可以出现在已经存在的系统里：收件箱、电话网、支付轨道，以及聊天窗口以外的一台电脑。<a href="https://x.com/ManusAI/status/2104593894700990910" rel="noopener noreferrer">@ManusAI</a> 和 <a href="https://x.com/CueAgents/status/2104589146153181192" rel="noopener noreferrer">@CueAgents</a> 在 2026 年 9 月 28 日发布了这个说法，应用在 <a href="https://cue.im/" rel="noopener noreferrer">cue.im</a>。早期访问凭邀请免费。公开起步码 MEETCUE 限量。iOS 在 App Store 审核中。这些可用性事实不改变四件原语是什么。它们改变的是你什么时候摸得到。</p>
+
+  <h2>在 Cue 这边，「一台电脑」是什么</h2>
+  <p>在 Cue 这边，电脑是托管个人智能体的一部分。你不是用插件去配它。Manus 运行这个应用——Web、桌面和移动；免费限量窗口点名了 Android、Mac 和 Windows——智能体的机器是应用包含的东西之一。有意思的属性是够得着。一台能在餐厅排队占位的电脑，是一台指向外部世界的电脑，配上外部世界可以打回来的身份。</p>
+  <p>Cue 愿意描述的控制是人的控制。你设定钱包可以花的预算。你定方向。最终决定留在你这里，包括几个智能体共享一个群聊的时候。这些是 Manus 文里的产品声明，不是一份独立的安全审计。它们重要，是因为电话号码和钱包的爆炸半径，大于一个对着 git 检出目录的沙箱。预算和人的最终决定，是 Manus 放进发布文案里的刹车。这些刹车在滥用下是否还在，发布文没有用一份报告回答，这篇也不会假装它回答了。</p>
+  <p>社区立刻听懂了这个半径，所以笑话和发布一起来了。<a href="https://x.com/ExiledonMoon/status/2104601048182931878" rel="noopener noreferrer">@ExiledonMoon</a> 发了一则关于「智能体可以被打到」的垃圾信息笑话。把它当幽默，不当漏洞通告。直觉仍然是对的：能接收的号码就能被滥用，能付款的钱包就能被说动去付款。页面上的官方缓解，是你设定的预算和你保留的最终决定。用这句话来要求这款产品。</p>
+
+  <h2>在 DSH 里，「一台电脑」是什么</h2>
+  <p>在 DeepSeek Harness 里，电脑是你配置的沙箱。Harness 是 MIT 许可，「一切皆插件」落在 Cordis 上，并且仍是开发者预览，API 可能破坏性变化。你自己启动它——Web UI 用 <code>npx @deepseek-ai/dsh web</code>，或者 headless——再用你自己的 API key 指向模型。一次会话得到工具、工作区和一道权限边界。本站的 <a href="/zh/blog/dsh-sandbox/">沙箱指南</a>是实操版：审批、预设，以及不要因为演示看起来很安静就让工具跑下去。</p>
+  <p>这个沙箱会让人觉得「智能体有一台电脑」，对编码工作来说它就是。它可以读一棵目录树，在你允许的边界里跑命令，留下可以重放的轨迹。它不会在开箱时拥有运营商电话号码、支付钱包，或公共网络上的邮箱身份。你若要邮件，就自己带一个邮件插件或 MCP 工具，并带上凭据。你若要默认路径以外的模型，就自己带 key。Cue 那套栈在 DSH 里的对应物是一种组合：沙箱，加上工具，加上你愿意把自有账号交给它的插件。组合才是产品。账号在变成智能体的之前，先是你的。</p>
+  <p>MCP 落在同一句里。你接上的服务器可以露出核心 Harness 不附带的能力——浏览器、工单队列、邮箱 API。<a href="/zh/blog/dsh-mcp/">MCP 笔记</a>写的是这种接入怎么做。接上一个邮箱 API，不等于 Manus 发给智能体一个地址。你仍然是账号持有人、密钥持有人，以及卸掉插件的那个人。这是构建者的合同。它比打开 cue.im 慢，也是 DSH 读者在选择 Harness 而不是应用时已经接受的合同。</p>
+
+  <h2>每一边不交付的东西</h2>
+  <div style="overflow-x:auto">
+    <table class="ztable">
+      <thead>
+        <tr><th></th><th>Cue</th><th>DeepSeek Harness</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>联络点</strong></td><td>邮箱和电话号码，部分国家，有的只有语音</td><td>你若需要，自己集成邮件或消息</td></tr>
+        <tr><td><strong>钱</strong></td><td>钱包，花在你设定的预算内</td><td>没有钱包原语。花费是你的模型账单，以及插件被允许去调用的东西</td></tr>
+        <tr><td><strong>机器</strong></td><td>托管智能体自带的一台电脑</td><td>你自己运行的沙箱和工作区</td></tr>
+        <tr><td><strong>循环</strong></td><td>封闭。不是可 fork 的 Agent 循环</td><td>可读、可替换、插件形状</td></tr>
+        <tr><td><strong>给 Harness 作者的扩展</strong></td><td>不是这款产品</td><td>就是这款产品。能力靠插件到来</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>下面两行是 Cue 不交付的东西，因为上面几行更醒目，所以容易被跳过。Cue 没有给 Harness 作者一个发布沙箱实现的地方。DSH 没有给消费者一个电话号码。希望一次安装里两样都有，是合理的愿望。那不是任何一边的发布文所描述的产品。</p>
+  <p>有一条非官方讨论，得在它固化成事实之前贴上标签。<a href="https://x.com/grok/status/2104626552377856328" rel="noopener noreferrer">一条 Grok 帖</a>传过这些智能体的美国号码说法。那帖不是 Manus，也不是国家名单。Manus 自己的措辞是「部分国家」，有的线路只有语音。如果你的决定依赖某个具体国家，来源是 Manus，不是一条回复。</p>
+
+  <h2>你其实想要哪一台电脑</h2>
+  <p>任务离开仓库时，选 Cue 的电脑。对着二维码下单、接电话、在你设的上限内付款、把摘要写回应用，这些是生活事务。身份栈让这些工作对餐厅、运营商和收件箱可读。你接受一个封闭应用、一道邀请门槛，以及一个地理上仍然不完整的电话故事。</p>
+  <p>任务就是运行时的时候，选 DSH 沙箱。你想看见循环、换掉一个工具、钉住自己的 key，并把工作区留在你管理的机器上。你接受：电话号码和钱包是你得自己做的项目，凭据你本来就持有；预览可能弄坏你上周还依赖的 API。下一片是 <a href="/zh/blog/cue-group-chat-vs-dsh-agent-teams/">群聊指南</a>：智能体有了机器之后，几个智能体怎么把工作递过去，以及你实际握着的是哪一块控制面。</p>
+
+  <h2>来源</h2>
+  <p>下面的身份声明来自 Manus 博客。除厂商自己的发布帖外，X 都是社区信号。Grok 链接是非官方的，引它只为了不让它升格成覆盖地图。</p>
+  <ul>
+    <li><a href="https://manus.im/blog/introducing-manus-2-0" rel="noopener noreferrer">Manus — Introducing Manus 2.0</a>，Cue 一节：邮箱、电话、钱包、电脑、预算与最终决定。</li>
+    <li><a href="https://cue.im/" rel="noopener noreferrer">cue.im</a>。</li>
+    <li><a href="https://x.com/ManusAI/status/2104593894700990910" rel="noopener noreferrer">@ManusAI</a> — 在 Cue 上介绍个人智能体。</li>
+    <li><a href="https://x.com/CueAgents/status/2104589146153181192" rel="noopener noreferrer">@CueAgents</a> — hello world。</li>
+    <li><a href="https://x.com/CueAgents/status/2104632868282769772" rel="noopener noreferrer">@CueAgents</a> — Android、Mac、Windows 上的免费限量早期访问。</li>
+    <li><a href="https://x.com/ExiledonMoon/status/2104601048182931878" rel="noopener noreferrer">@ExiledonMoon</a> — 社区垃圾信息笑话。幽默，不是安全通告。</li>
+    <li><a href="https://x.com/grok/status/2104626552377856328" rel="noopener noreferrer">@grok</a> — 关于号码的非官方讨论。不是 Manus 的国家名单。</li>
+    <li><a href="https://deepseek.com/harness/en/" rel="noopener noreferrer">DeepSeek Harness</a> 与 <a href="https://github.com/deepseek-ai/deepseek-harness" rel="noopener noreferrer">deepseek-ai/deepseek-harness</a>。</li>
+  </ul>
+</BlogPost>

@@ -1,0 +1,60 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="Cue group chat vs DSH agent teams: same “handoff” idea, different control surface | dshbase" description="Cue puts several identity agents in one chat. DSH’s shared boards and teams are for builders. A practical map of handoff, approval, and loop risk." currentPath="/blog/cue-group-chat-vs-dsh-agent-teams/" category="Guide">
+  <h1>Cue group chat vs DSH agent teams: <span class="accent">same “handoff” idea, different control surface</span></h1>
+  <p class="muted small" style="margin-bottom:20px">September 29, 2026 · dshbase · X pulse</p>
+
+  <p>Both products let more than one agent touch the same job. Cue puts several identity-bearing agents into one group chat and lets them hand work across. DeepSeek Harness puts members on a team surface — separate sessions, a shared board, member-to-member notes — and lets them hand work across. The verb is the same. The control surface is not. This is a practical map for DSH readers who saw Cue’s “build a team” copy on September 28 and wondered whether the glass room they already have is the same feature. It is not. Cue and DSH are not 1:1 substitutes. One surface is a consumer chat for life tasks. The other is a builder scheduler that happens to look like a team.</p>
+
+  <h2>Cue’s control surface is the chat</h2>
+  <p>The Manus description, in the Cue section of <a href="https://manus.im/blog/introducing-manus-2-0" rel="noopener noreferrer">Introducing Manus 2.0</a>, is chat-native. You place several agents in a group with a shared goal. They hand work off. You set the direction and you keep the final call. The agents in that room are the same objects as the rest of Cue: each one has an email, a phone number, a wallet, and a computer, as covered in <a href="/blog/cue-agents-identity-stack-vs-dsh/">the identity note</a>. A handoff inside Cue can therefore mean “the agent with the number places the call” or “the agent with the wallet pays, inside the budget.” The transcript is the place you watch that happen.</p>
+  <p><a href="https://x.com/bb833dong/status/2104714580081758274" rel="noopener noreferrer">@bb833dong</a>’s launch-day summary includes the multi-agent group chat as one of the bullets people actually repeated. That is community signal that the chat, not a board of columns, is the picture that traveled. The life-task example from Manus fits the same picture. Scan a restaurant QR, and an agent orders or holds a place in line. A group chat is a natural UI for that kind of errand: you can see who was asked to do the boring part, and you can interrupt in the same thread. You do not get a fork of the scheduler. You do not get a plugin that replaces the room. The control you are given is directional — goal, budget, final call — inside an app Manus hosts at <a href="https://cue.im/" rel="noopener noreferrer">cue.im</a>.</p>
+
+  <h2>DSH’s control surface is the board, the session, and the plugin</h2>
+  <p>DSH’s team story is the one this site has already written twice, and both versions still apply. <a href="/blog/wx-dsh-agent-team/">The Agent Team tab is a glass room</a>: you recruit members, they keep separate sessions, they can pass a note without funneling every sentence through the lead, and the point of the tab is that a stuck step is visible. <a href="/blog/x-pulse-dsh-agent-teams-board/">The shared-board pulse</a> is the cost of that visibility. <a href="https://x.com/GKev1n/status/2104404939997053425" rel="noopener noreferrer">@GKev1n</a> put task boards and member chat on one side of a post and coordination death loops, plus a wish for circuit breakers, on the other. A board everyone can write is a collaboration surface. It is also a scheduler you did not mean to start.</p>
+  <p>The audience for that surface is a builder. DeepSeek Harness is an MIT harness, everything-is-a-plugin on Cordis, still a developer preview. You run <code>npx @deepseek-ai/dsh web</code> or a headless session. Members are sessions with tools, not people with phone numbers. A handoff is a path, a URL, a test command, a card. The extension point is a plugin or an RPC-shaped tool, not a new contact in a chat app. If the room misbehaves, the remedy available today is operational: stop the sessions, read the append-only log, tighten the task. A circuit breaker in the product would be welcome. Until it ships, you are the breaker, which is the conclusion the board pulse already reached.</p>
+
+  <h2>The same three risks, on different levers</h2>
+  <div style="overflow-x:auto">
+    <table class="ztable">
+      <thead>
+        <tr><th></th><th>Cue group chat</th><th>DSH agent teams</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>What gets handed off</strong></td><td>A life-ops step: a message, a call, a payment inside your budget, a machine task</td><td>A builder artifact: a file, a command, a card, a note between sessions</td></tr>
+        <tr><td><strong>Where you approve</strong></td><td>In the chat. You keep the final call. Wallet spend is capped by the budget you set</td><td>In the lead message, the card, and the permission boundary. Risky edits escalate to you</td></tr>
+        <tr><td><strong>How a loop looks</strong></td><td>Agents restating the goal in the transcript, or a real-world action repeating because nobody closed it</td><td>Members rewriting the card, status chatter, and token spend on coordination</td></tr>
+        <tr><td><strong>Lever you actually hold</strong></td><td>Direction, budget, and the decision to stop. The scheduler stays inside the app</td><td>Hop caps, write locks, and an approval the agents cannot click for you</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Handoff fails in a familiar way on both sides: the passing of work becomes the work. On Cue, that failure can leave the computer. A loop that re-orders dinner or re-dials a number is a life-ops loop, and the brake in the launch copy is your final call plus the wallet budget. On DSH, the failure usually stays in the session, and it invoices you in tokens. @GKev1n’s death-loop report is the local version. The brakes this site recommends, until the product grows its own, are still the three from the board pulse.</p>
+  <ul>
+    <li><strong>Max hop.</strong> Decide, before the room starts, how many member-to-member passes a task may cause. When the count trips, the task returns to you and the other sessions stop.</li>
+    <li><strong>Write lock.</strong> One member edits a given path. Everyone else reads, or works in a different directory. If the board cannot express a lock, the lock is a sentence in the task.</li>
+    <li><strong>Human escalation.</strong> Adding a dependency, changing auth, deleting tests, widening the workspace, spending past the key you set aside, recruiting another member: those moves require you.</li>
+  </ul>
+  <p>Cue does not expose those three as harness settings, and this guide will not pretend a group-chat composer is a hop counter. You can still borrow the spirit. If the transcript is repeating the goal, stop the room. If a payment is about to repeat, the budget is the lock you were supposed to set before the chat started. If an agent is about to contact someone you did not name, that contact is an escalation, and the final call is yours.</p>
+
+  <h2>When the chat is the right tool</h2>
+  <p>Use Cue’s group chat when the work is a life errand that splits across identities. One agent holds the reservation context, another has the number, you want to watch the handoff in a thread you can type into, and you are willing to live inside Manus’s app. The chat is enough when the artifacts are messages and outcomes, not diffs. It is the wrong tool when you need to replace the loop, pin a model, or audit a plugin. Early access is invite-gated and currently free. MEETCUE is a limited starter code. iOS is still in review. A phone number, if the errand needs one, exists only in the countries Manus has turned on.</p>
+  <p>Use a DSH team when the work splits into artifacts you can name in a repository: gather, implement, test, review. One artifact per member. The glass room earns its keep when you can point at the stuck step. Skip the team for a single file or a single question. A team for a question is a meeting, and meetings are how the death loop starts. Skip it when you wanted cache efficiency. A shared, mutating board is a prefix you keep invalidating. The <a href="/blog/x-pulse-dsh-cache-token-efficiency/">cache note</a> applies with a multiplier once more than one session is reading the same card.</p>
+
+  <h2>When you need a harness scheduler</h2>
+  <p>You need the harness, not the chat, when the handoff itself has to be programmable. A builder wants a hop limit that fails closed, a write lock the model cannot talk its way past, a plugin that changes how members are recruited, a log that can be replayed without trusting a vendor transcript. That is DSH’s lane, with the preview caveats intact: APIs can break, and a team UI that feels finished is still a preview if the circuit breaker is a paragraph in your prompt. Cue’s lane is the opposite shape. The handoff is a conversation among agents that already have identities, and the scheduler is not yours.</p>
+  <p>If you are choosing a product tonight, start from the job, which is the point of the <a href="/blog/cue-agents-vs-dsh/">flagship comparison</a>. Life-ops group chat with phones and wallets: Cue. Inspectable multi-session coding with a board you can outgrow: DSH. The closed harness under Cue, Cascade, is a separate question — efficiency claims, not a team UI — and it is written up in <a href="/blog/manus-cascade-vs-deepseek-harness/">Manus Cascade vs DeepSeek Harness</a>.</p>
+
+  <h2>Sources</h2>
+  <p>Cue’s group-chat behavior is taken from the Manus post. DSH’s board risks are taken from earlier dshbase notes plus the X post that named the death loop. Community summaries are signals about what traveled, not a second spec.</p>
+  <ul>
+    <li><a href="https://manus.im/blog/introducing-manus-2-0" rel="noopener noreferrer">Manus — Introducing Manus 2.0</a>, Cue section, including the group-chat “build a team” description.</li>
+    <li><a href="https://cue.im/" rel="noopener noreferrer">cue.im</a>.</li>
+    <li><a href="https://x.com/bb833dong/status/2104714580081758274" rel="noopener noreferrer">@bb833dong</a> — community summary that carried the multi-agent group-chat bullet.</li>
+    <li><a href="https://x.com/ManusAI/status/2104593894700990910" rel="noopener noreferrer">@ManusAI</a> and <a href="https://x.com/CueAgents/status/2104589146153181192" rel="noopener noreferrer">@CueAgents</a> — launch posts.</li>
+    <li><a href="https://x.com/GKev1n/status/2104404939997053425" rel="noopener noreferrer">@GKev1n</a> — DSH task boards, member chat, coordination loops, circuit breakers.</li>
+    <li><a href="/blog/wx-dsh-agent-team/">dshbase — the Agent Team tab is a glass room</a>.</li>
+    <li><a href="/blog/x-pulse-dsh-agent-teams-board/">dshbase — shared task boards and coordination overhead</a>.</li>
+    <li><a href="https://github.com/deepseek-ai/deepseek-harness" rel="noopener noreferrer">deepseek-ai/deepseek-harness</a>.</li>
+  </ul>
+</BlogPost>
