@@ -158716,7 +158716,7 @@
    "trust": "Silver",
    "slug": "dsh-wecom",
    "platform": "any",
-   "bareNpm": "other",
+   "bareNpm": "install-fail",
    "contributors": 0,
    "depCount": 13,
    "depsOfficial": 11,
