@@ -15636,6 +15636,8 @@
   <url><loc>https://dshbase.com/zh/blog/first-day-with-dsh/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/wx-dsh-six-dim-review/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/blog/wx-dsh-six-dim-review/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/blog/cue-agents-identity-stack-vs-dsh/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/zh/blog/cue-agents-identity-stack-vs-dsh/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/pi-deepseek-cache/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/blog/pi-deepseek-cache/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/dsh-model-setup/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -15652,6 +15654,8 @@
   <url><loc>https://dshbase.com/zh/blog/dsh-rc8/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/vs-cursor/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/blog/vs-cursor/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/blog/manus-cascade-vs-deepseek-harness/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/zh/blog/manus-cascade-vs-deepseek-harness/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/deepseek-harness-cost/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/blog/deepseek-harness-cost/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/wx-dsh-vision-excel-flop/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -15710,6 +15714,8 @@
   <url><loc>https://dshbase.com/zh/blog/wx-dsh-raid-test/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/wx-dsh-web-ui-plugin-skin-suite-review/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/blog/wx-dsh-web-ui-plugin-skin-suite-review/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/blog/x-pulse-cue-agents-vs-dsh-chooser/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/zh/blog/x-pulse-cue-agents-vs-dsh-chooser/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/community-pulse-3/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/blog/community-pulse-3/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/deepseek-v4-1-flash-beta/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -15760,22 +15766,16 @@
   <url><loc>https://dshbase.com/zh/blog/vs-cowork/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/wx-agent-architecture-control-three-schools/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/blog/wx-agent-architecture-control-three-schools/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/blog/cue-group-chat-vs-dsh-agent-teams/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/zh/blog/cue-group-chat-vs-dsh-agent-teams/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/dsh-subagent/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/blog/dsh-subagent/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/blog/cue-agents-vs-dsh/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/zh/blog/cue-agents-vs-dsh/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/community-pulse-4/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/blog/community-pulse-4/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/dsh-vs-american-tools/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/blog/dsh-vs-american-tools/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/blog/x-pulse-dsh-cache-token-efficiency/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/blog/x-pulse-dsh-cache-token-efficiency/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/blog/cue-agents-vs-dsh/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/blog/cue-agents-vs-dsh/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/blog/cue-agents-identity-stack-vs-dsh/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/blog/cue-agents-identity-stack-vs-dsh/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/blog/cue-group-chat-vs-dsh-agent-teams/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/blog/cue-group-chat-vs-dsh-agent-teams/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/blog/manus-cascade-vs-deepseek-harness/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/blog/manus-cascade-vs-deepseek-harness/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/blog/x-pulse-cue-agents-vs-dsh-chooser/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://dshbase.com/zh/blog/x-pulse-cue-agents-vs-dsh-chooser/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>
