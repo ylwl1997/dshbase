@@ -1,0 +1,66 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="Cue Agents vs DeepSeek Harness: personal identity agents meet an open harness | dshbase" description="Manus launched Cue Agents on Sep 28 with email, phone, wallet and computer per agent. Here is how that product maps—and does not map—onto DeepSeek Harness for DSH readers." currentPath="/blog/cue-agents-vs-dsh/" category="Analysis">
+  <h1>Cue Agents vs DeepSeek Harness: <span class="accent">personal identity agents meet an open harness</span></h1>
+  <p class="muted small" style="margin-bottom:20px">September 29, 2026 · dshbase · X pulse</p>
+
+  <p>On September 28, 2026, Manus shipped Manus 2.0 and, beside it, a standalone app called Cue. The account <a href="https://x.com/CueAgents/status/2104589146153181192" rel="noopener noreferrer">@CueAgents</a> introduced itself with a short line — personal agents, on Cue — and pointed at <a href="https://cue.im/" rel="noopener noreferrer">cue.im</a>. The paragraph that actually describes the product is section 3 of the <a href="https://manus.im/blog/introducing-manus-2-0" rel="noopener noreferrer">Manus 2.0 post</a>, “Cue: A new app from Manus.” This note is the day-after reading for people who already run DeepSeek Harness.</p>
+  <p>Cue and DSH are not 1:1 substitutes. Cue is a closed consumer app for personal life operations. Each agent is issued an email, a phone number, a wallet, and a computer, and several of those agents can share a group chat. DSH is an MIT-licensed harness for people who build and customize agent runtimes: plugins, sandboxes, sessions, a Web UI you start yourself. Launch-day threads will rhyme them. This note keeps the categories apart.</p>
+
+  <h2>What actually shipped</h2>
+  <p>Cue is Manus’s personal multi-agent app, built on the same infrastructure as Manus, and offered on phone, desktop, and web. <a href="https://x.com/CueAgents/status/2104632868282769772" rel="noopener noreferrer">@CueAgents</a> described early access as free and limited, and named Android, Mac, and Windows as the clients you can open now. iOS has been submitted for App Store review, which is “coming soon,” not a build you can install from the store today. Early access is free with an invite code. A starter code, <strong>MEETCUE</strong>, has been mentioned in public as limited and first-come. Manus has not published a price for after early access. A missing price is a missing price. This note will not invent one.</p>
+  <p>The feature that defines the product is the identity stack, which gets its own note in <a href="/blog/cue-agents-identity-stack-vs-dsh/">email, phone, wallet, computer</a>. Official copy says each agent can message, pay inside a budget you set, run tasks on its own machine, take calls, and leave the summary back in Cue. Phone numbers, Manus says, exist for Manus and Cue agents in select countries for now, and some of those lines are voice-only. There is no country list in this article, because publishing one would mean guessing.</p>
+  <p>The multi-agent surface is a group chat with a shared goal. Agents hand work to each other. You set the direction and you keep the final call. The everyday example in the Manus post is the kind of chore a coding harness does not have a noun for: scan a restaurant QR code, and the agent orders or holds a place in line. That sentence is the category label. Cue is trying to act in the world on your behalf. DSH is trying to be the runtime under tools you write.</p>
+  <p>Manus 2.0 also named Cascade, an in-house harness, plus Cloud Computer, Automations, and Manus Studio. That is context for the stack Cue sits on. Cascade’s percentages stay in <a href="/blog/manus-cascade-vs-deepseek-harness/">the Cascade note</a>, labeled as Manus’s own one-config self-test.</p>
+  <p><a href="https://x.com/ManusAI/status/2104593894700990910" rel="noopener noreferrer">@ManusAI</a> framed the launch as introducing personal agents on Cue. Community summaries arrived within hours. <a href="https://x.com/bb833dong/status/2104714580081758274" rel="noopener noreferrer">@bb833dong</a> and <a href="https://x.com/ZachFeng/status/2104734255335219481" rel="noopener noreferrer">@ZachFeng</a> compressed the feature list for Chinese readers. <a href="https://x.com/FanShifu/status/2104714367162044817" rel="noopener noreferrer">@FanShifu</a> mused about use cases. Those posts are useful as a temperature reading. They are not a specification, and a tidy thread is not evidence that Cue and <code>dsh web</code> are two skins on one idea.</p>
+
+  <h2>At a glance</h2>
+  <div style="overflow-x:auto">
+    <table class="ztable">
+      <thead>
+        <tr><th></th><th>Cue Agents</th><th>DeepSeek Harness</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>License</strong></td><td>Closed consumer app</td><td>MIT, open source</td></tr>
+        <tr><td><strong>Audience</strong></td><td>Someone who wants agents to handle life ops</td><td>Someone building or customizing an agent runtime</td></tr>
+        <tr><td><strong>Identity stack</strong></td><td>Email, phone, wallet, and computer per agent</td><td>Sandbox, tools, and plugins. No carrier number or wallet as a product primitive</td></tr>
+        <tr><td><strong>Multi-agent UX</strong></td><td>Group chat. Agents hand off. You keep the final call</td><td>Teams, shared boards, sessions — a builder surface</td></tr>
+        <tr><td><strong>Extensibility</strong></td><td>You use the app. The agent loop is not yours to fork</td><td>Everything is a plugin, on Cordis</td></tr>
+        <tr><td><strong>Hosting</strong></td><td>Manus-hosted: web, desktop, mobile</td><td>You run it. Web UI via <code>npx @deepseek-ai/dsh web</code>, or headless</td></tr>
+        <tr><td><strong>Pricing model</strong></td><td>Early access free with invite. Post-EA price not published. Starter code MEETCUE is limited</td><td>The harness is open source. You pay the model provider you point it at</td></tr>
+        <tr><td><strong>Maturity</strong></td><td>Day-one product. iOS in App Store review. Phone numbers in select countries</td><td>Developer preview. APIs can break</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Read each row as a category difference. A cell that says DSH does not ship a phone number is a description of the job, not a bug filed against the harness. A cell that says Cue does not ship a forkable loop is a description of a consumer app, not a missing plugin.</p>
+
+  <h2>Where they rhyme</h2>
+  <p>Three ideas show up on both sides. They are why a comparison is worth writing, and why it has to stay inside those ideas.</p>
+  <p><strong>Handoff.</strong> Cue’s group chat is a room where several agents share a goal and pass work. DSH’s team tab and shared task boards are a room where several sessions pass work. The <a href="/blog/wx-dsh-agent-team/">glass-room Agent Team article</a> already argued that a visible handoff is the point. The <a href="/blog/x-pulse-dsh-agent-teams-board/">board pulse</a> added the invoice: an unlimited handoff is a meeting that bills by the token. Cue makes the same bet inside a chat transcript. The practical map — approval, hop limits, when chat is enough — is in <a href="/blog/cue-group-chat-vs-dsh-agent-teams/">the group-chat guide</a>.</p>
+  <p><strong>Each worker has a machine.</strong> Cue says each agent has a computer and can run tasks on it. DSH says a session can have a sandbox, tools, and a workspace. “Has a computer” is the rhyme. What that computer is allowed to touch — a restaurant line, a repository, a payment — is the divergence, and it is the whole subject of the identity note.</p>
+  <p><strong>You remain the director.</strong> Cue’s copy keeps the final call with the person. DSH’s glass room keeps a project manager in the loop on purpose. Both products, on the evidence we have, still expect a human to set direction. A demo that implies a staff you cannot interrupt is ahead of either write-up.</p>
+
+  <h2>Where they diverge</h2>
+  <p><strong>Open plugins versus a closed app.</strong> DSH’s sentence is “everything is a plugin.” Models, tools, sandboxes, session storage, and UI are swappable modules on the Cordis kernel. You can read the loop. The repo is <a href="https://github.com/deepseek-ai/deepseek-harness" rel="noopener noreferrer">deepseek-ai/deepseek-harness</a>. The docs live at <a href="https://deepseek.com/harness/en/" rel="noopener noreferrer">deepseek.com/harness</a>. Cue does not offer that sentence. You receive an app. You do not receive a plugin store aimed at harness authors, and you do not receive a fork of the agent loop. That split is the same one this site already drew in <a href="/blog/vs-claude-code/">DeepSeek Harness vs Claude Code</a>, pointed this time at a life-ops product instead of a coding client.</p>
+  <p><strong>Life operations versus a coding harness.</strong> Cue’s examples are messages, calls, payments inside a budget you set, and a restaurant QR. DSH’s examples are files, tools, traces, and plugins. A DSH reader who wants an agent to text a restaurant is looking at the wrong install command. A Cue reader who wants to swap the sandbox or pin a model is looking at the wrong app. The <a href="/blog/x-pulse-cue-agents-vs-dsh-chooser/">chooser</a> at the end of this batch is there so those two readers stop sharing one screenshot.</p>
+  <p><strong>Bring your own model versus an opaque harness.</strong> DSH is explicit about the model. You point the runtime at a provider, the mode presets are yours to pick, and the preview nature of the APIs is part of the contract. Cue runs on Manus infrastructure. The new in-house harness under that stack is Cascade, and Manus has not published Cascade as open source. You can audit a DSH session. You cannot audit Cascade from the outside. Any efficiency percentage attached to Cascade stays a vendor self-test until someone who does not work at Manus can reproduce the configuration.</p>
+
+  <h2>Who should open cue.im tonight</h2>
+  <p>Open <a href="https://cue.im/" rel="noopener noreferrer">cue.im</a> if the thing you wanted this week was a personal agent with a real contact point: an inbox, a number, a budgeted wallet, a machine that is not your repository. The invite gate is part of the product. MEETCUE is a public starter code, and it is limited. If the code is exhausted, waiting is the state of early access. If you need iOS today, the App Store review is still in front of you. If you need a phone number, the official line is select countries, some of them voice-only, and a reply on X is not a coverage map.</p>
+  <p>Stay on <code>npx @deepseek-ai/dsh web</code> if you are building. DSH is the lane where the loop, the tools, the sandbox, and the session are yours to replace. It is still a developer preview. Interfaces move. That is the cost of a harness you can read, and it is a different cost from a day-one consumer app. Use Cue when life-ops identity is the job. Use DSH when the job is the harness. The other four notes in this batch take one slice of that sentence each: the identity stack, the group chat, Cascade, and the launch-day chooser.</p>
+
+  <h2>Sources</h2>
+  <p>The Manus blog is the official description. Posts from @CueAgents and @ManusAI are launch copy from the maker. The other X links are community signal, useful for what people heard, not for filling gaps in the spec.</p>
+  <ul>
+    <li><a href="https://manus.im/blog/introducing-manus-2-0" rel="noopener noreferrer">Manus — Introducing Manus 2.0</a>, section “3. Cue: A new app from Manus.”</li>
+    <li><a href="https://cue.im/" rel="noopener noreferrer">cue.im</a> — Cue product site.</li>
+    <li><a href="https://deepseek.com/harness/en/" rel="noopener noreferrer">DeepSeek Harness docs</a> and <a href="https://github.com/deepseek-ai/deepseek-harness" rel="noopener noreferrer">deepseek-ai/deepseek-harness</a>.</li>
+    <li><a href="https://x.com/CueAgents/status/2104589146153181192" rel="noopener noreferrer">@CueAgents</a> — hello world.</li>
+    <li><a href="https://x.com/CueAgents/status/2104632868282769772" rel="noopener noreferrer">@CueAgents</a> — free, limited early access; Android, Mac, and Windows.</li>
+    <li><a href="https://x.com/ManusAI/status/2104593894700990910" rel="noopener noreferrer">@ManusAI</a> — introducing personal agents on Cue.</li>
+    <li><a href="https://x.com/bb833dong/status/2104714580081758274" rel="noopener noreferrer">@bb833dong</a> — community summary.</li>
+    <li><a href="https://x.com/ZachFeng/status/2104734255335219481" rel="noopener noreferrer">@ZachFeng</a> — Chinese-language community summary.</li>
+    <li><a href="https://x.com/FanShifu/status/2104714367162044817" rel="noopener noreferrer">@FanShifu</a> — use-case musing.</li>
+  </ul>
+</BlogPost>

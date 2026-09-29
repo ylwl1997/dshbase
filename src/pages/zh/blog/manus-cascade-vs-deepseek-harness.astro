@@ -1,0 +1,53 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="Manus Cascade 对比 DeepSeek Harness：封闭效率数字 vs 开源插件栈 | dshbase" description="Manus 2.0 的 Cascade 给出单配置效率数字；DSH 押注 everything-is-a-plugin。构建者该怎么读这两边。" currentPath="/blog/manus-cascade-vs-deepseek-harness/" category="分析">
+  <h1>Manus Cascade 对比 DeepSeek Harness：<span class="accent">封闭效率数字 vs 开源插件栈</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026年9月29日 · dshbase · 改写自 X 与官方发布</p>
+
+  <p>2026 年 9 月 28 日发布的 Manus 2.0，既推出了 Cue，也命名了内部 Agent Harness Cascade。Manus 给 Cascade 附了三个效率数字，对照的是他们自己的上一套、且只测了一种配置：Token −23.2%，时间 −28.2%，成本 −32%。这些数字是 Manus 的。它们是厂商自测。它们不是独立基准，这篇也不会把它们升格成基准。DeepSeek Harness 押的是另一注：一切皆插件，代码是 MIT，构建者可以读循环。Cascade 和 DSH 都被叫作 Harness。它们不是一一替代。一个是托管产品内部的封闭组件。另一个是你自己运行的开源运行时。</p>
+
+  <h2>Cascade 坐在哪里</h2>
+  <p>Cascade 是 Manus 新的内部 Harness。公开描述在 <a href="https://manus.im/blog/introducing-manus-2-0" rel="noopener noreferrer">Manus 2.0 文</a>里，和 Cloud Computer、Automations、Manus Studio、Cue 放在一起。个人多智能体应用 Cue（<a href="https://cue.im/" rel="noopener noreferrer">cue.im</a>）建在与 Manus 相同的基础设施上。Cascade 是这套基础设施据说比上一套 Manus 配置更省 Token、更省时间、更省钱的那一部分。它不是一个你去 <code>npm install</code> 的包。Manus 没有把 Cascade 作为开源发布。把它当成封闭的。想看面向智能体的产品，读 <a href="/zh/blog/cue-agents-vs-dsh/">Cue 对比 DSH</a>。想看运行时声明，留在这一页。</p>
+  <p>数字在被贴进对照图之前，需要一道围栏。</p>
+  <div style="overflow-x:auto">
+    <table class="ztable">
+      <thead>
+        <tr><th>Manus 报告的说法</th><th>该怎么读</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Token −23.2%</td><td>一种配置，对照 Manus 自己的上一套</td></tr>
+        <tr><td>时间 −28.2%</td><td>同一次自测。不是外人能重跑的公开套件</td></tr>
+        <tr><td>成本 −32%</td><td>同一次自测。不是 Cue 的价格，也不是一张 DSH 账单</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>单配置自测可以诚实，同时不可迁移。文章没有给出外人能重放的任务组合，也没有邀请第二家实验室把模型固定住再测。它也没有说 Cue 的早期访问邀请以后要花多少钱，因为 Manus 根本没有公布 EA 之后的价格。把「便宜 32%」放在一张 DeepSeek 账单旁边，是把一家厂商内部的 Harness 差值混成了市场价格。如果幻灯片需要一句话，用这句：Manus 报告，Cascade 在他们测试的单一配置里，比他们上一套 Harness 用了更少的 Token、更少的时间和更少的钱。审计是他们的。</p>
+
+  <h2>DSH 坐在哪里</h2>
+  <p>在这场「Harness」对话里，DeepSeek Harness 是开放的那一种，而且是种类上的另一种。项目以 MIT 许可放在 <a href="https://github.com/deepseek-ai/deepseek-harness" rel="noopener noreferrer">deepseek-ai/deepseek-harness</a>，文档在 <a href="https://deepseek.com/harness/en/" rel="noopener noreferrer">deepseek.com/harness</a>。内核是 Cordis。和代码对得上的口号是「一切皆插件」：模型、工具、沙箱、会话存储、UI，以及循环本身，都是你可以换的模块。Web UI 用 <code>npx @deepseek-ai/dsh web</code> 启动，也可以 headless。模式预设让一次会话可以更厚或更薄。本站读者的合同，就是 <a href="/zh/blog/vs-claude-code/">DeepSeek Harness vs Claude Code</a> 里的那份：插件在进程内、可以 fork；封闭客户端只让你扩展到厂商允许的地方。</p>
+  <p>DSH 没有公布一个 Cascade 式的百分比供你朝 Manus 挥，这篇也不会编一个。它公布的是运行时。你可以读会话、换工具、带上自己的模型 key，并接受项目仍是开发者预览、API 可能变化。在这一边，效率是你在自己的负载上测量的属性——缓存形态、模式、模型 id——不是上线日印在徽章上的数字。<a href="/zh/blog/x-pulse-dsh-cache-token-efficiency/">省 Token 那篇脉搏</a>是这种纪律的本地版：「便宜」通常指某一种具体配置，口号不是上限。上限你自己设。</p>
+
+  <h2>可复现才是真正的差别</h2>
+  <p>DSH 你可以审计。Cascade 你不能。这句话就是对照。不同意某段 DSH 行为的构建者，可以打开仓库、钉住一个提交、指出是哪个插件干的。不同意 Cascade 那 23.2% 的构建者，可以向 Manus 要配置，然后等。在配置公开之前，这个百分比是带小数点的新闻数字。小数点不是可复现。</p>
+  <p>这和 Claude Code 那篇里插件对 MCP 的先例是同一件事，只是往下挪了一层。那里的问题是谁握着扩展面。这里的问题是谁握着 Harness。Cascade 已公布的扩展故事是「Manus 改进了 Harness」。DSH 的扩展故事是「你替换那个部件」。Cue 的用户会继承 Cascade，无论他们想不想对 Harness 发表意见，因为 Cue 是 Manus 基础设施上的应用。DSH 的用户在装上插件之前什么都不继承。两种继承都有成本。一种成本是不透明。另一种是维护。</p>
+
+  <h2>封闭 Harness 什么时候赢</h2>
+  <p>当你要的是结果、不要运行时，封闭 Harness 加上生活身份会赢。Cue 的智能体带着邮箱、电话、钱包和电脑。群聊在这些身份之间交接工作。如果 Cascade 在 Manus 内部做了 Manus 所说的事，它就是你看不见、却让这件事比上个月的 Manus 更便宜的那一部分。对一个正在扫餐厅二维码的人来说，「Harness 在一次内部配置里少用了 Token」不是功能。功能是：一个有号码、有预算的智能体办了那件差事，人保留了最终决定。按产品来接受这款产品。把效率那一行当成 Manus 关于自己的报告。</p>
+  <p>当你明确不想运维一个预览时，封闭的一边也会窄胜。DSH 的插件内核会让一个坏插件进进程，因为是你要求它这么做的。Cascade 则根本不让你进去。如果你的威胁模型是「午夜会装错 npm 包」，托管应用是更安静的周末。它更安静，是因为你把循环交出去了。在称它更简单之前，把这句话说出来。</p>
+
+  <h2>开源 Harness 什么时候赢</h2>
+  <p>当你构建的东西就是 Agent 基础设施时，开源 Harness 加上自带模型会赢。你需要叫得出名字的沙箱、删得掉的工具、diff 得了的会话日志、你自己选的模型 id。你需要知道一次成本变化来自模式、缓存还是提供方。Cascade 回答不了，因为你看不见它。DSH 可能回答得很糟——预览软件会这样——你仍然查得到。</p>
+  <p>当效率声明必须撞上你的仓库时，它也会赢。Manus 上一套配置上 32% 的成本差，对你的单体仓库、你的工具列表或你的前缀缓存什么都没说。一个你能卸掉的插件说得很多。如果今晚要选，用 <a href="/zh/blog/x-pulse-cue-agents-vs-dsh-chooser/">选型单</a>：身份栈是工作时用 Cue，插件运行时是工作时用 DSH，Cascade 是一条你重放不了的封闭声明。问题若是团队而不是 Token，群聊地图在 <a href="/zh/blog/cue-group-chat-vs-dsh-agent-teams/">这里</a>。</p>
+
+  <h2>来源</h2>
+  <p>Cascade 的百分比引自 Manus，并围成单配置自测。DSH 的插件声明是项目自己的描述。下面没有任何一条把这些百分比变成跨厂商基准。</p>
+  <ul>
+    <li><a href="https://manus.im/blog/introducing-manus-2-0" rel="noopener noreferrer">Manus — Introducing Manus 2.0</a>，Cascade 作为内部 Harness，以及单配置效率数字。</li>
+    <li><a href="https://cue.im/" rel="noopener noreferrer">cue.im</a> — Manus 基础设施上的消费级应用，不是 Harness 源码。</li>
+    <li><a href="https://deepseek.com/harness/en/" rel="noopener noreferrer">DeepSeek Harness 文档</a> — 一切皆插件。</li>
+    <li><a href="https://github.com/deepseek-ai/deepseek-harness" rel="noopener noreferrer">deepseek-ai/deepseek-harness</a> — 你可以审计的 MIT 源码。</li>
+    <li><a href="/zh/blog/vs-claude-code/">dshbase — DeepSeek Harness vs Claude Code</a>，插件对封闭扩展的先例。</li>
+    <li><a href="https://x.com/ManusAI/status/2104593894700990910" rel="noopener noreferrer">@ManusAI</a> 与 <a href="https://x.com/CueAgents/status/2104589146153181192" rel="noopener noreferrer">@CueAgents</a> — 应用的发布帖，不是 Cascade 的复现。</li>
+  </ul>
+</BlogPost>

@@ -1,0 +1,60 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost title="Cue 群聊 vs DSH Agent Teams：同样是接力，控制面不同 | dshbase" description="Cue 把多个带身份的智能体放进同一群聊；DSH 的共享任务板面向构建者。对照接力、审批与死循环风险。" currentPath="/blog/cue-group-chat-vs-dsh-agent-teams/" category="指南">
+  <h1>Cue 群聊 vs DSH Agent Teams：<span class="accent">同样是接力，控制面不同</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026年9月29日 · dshbase · 改写自 X 与官方发布</p>
+
+  <p>两边都让不止一个智能体碰同一件工作。Cue 把几个带着身份的智能体放进一个群聊，让它们把工作递来递去。DeepSeek Harness 把成员放在团队表面上——各自的会话、一块共享的板、成员之间的纸条——也让它们把工作递来递去。动词一样。控制面不一样。这篇是给 DSH 读者的实操地图：9 月 28 日看到 Cue「组建团队」的文案之后，想知道自己已经有的玻璃房是不是同一个功能。不是。Cue 和 DSH 不是一一替代。一边是做生活任务的消费级聊天。另一边是看起来像团队的构建者调度器。</p>
+
+  <h2>Cue 的控制面是聊天</h2>
+  <p>Manus 的描述在 <a href="https://manus.im/blog/introducing-manus-2-0" rel="noopener noreferrer">Introducing Manus 2.0</a> 的 Cue 一节，是聊天原生的。你把几个智能体放进一个有共同目标的群。它们交接工作。你定方向，最终决定留在你这里。房间里的智能体就是 Cue 的那些对象：每个有邮箱、电话号码、钱包和电脑，见 <a href="/zh/blog/cue-agents-identity-stack-vs-dsh/">身份笔记</a>。因此 Cue 里的一次交接，可以是「有号码的那个去打电话」，或「有钱包的那个在预算内付款」。你看着这件事发生的地方，是聊天记录。</p>
+  <p><a href="https://x.com/bb833dong/status/2104714580081758274" rel="noopener noreferrer">@bb833dong</a> 的上线日摘要里，多智能体群聊是人们真正转发的要点之一。这是社区信号：传开的画面是聊天，不是一排栏目。Manus 的生活任务例子配得上同一张画面。扫餐厅二维码，智能体下单或排队占位。群聊是这种差事的自然界面：你能看见谁被派去做无聊的那一步，也能在同一条线程里打断。你得不到调度器的 fork。你得不到一个能换掉这间房间的插件。你拿到的控制是方向性的——目标、预算、最终决定——在 Manus 托管于 <a href="https://cue.im/" rel="noopener noreferrer">cue.im</a> 的应用里面。</p>
+
+  <h2>DSH 的控制面是板子、会话和插件</h2>
+  <p>DSH 的团队故事，本站已经写过两次，两次都还成立。<a href="/zh/blog/wx-dsh-agent-team/">Agent Team 页签是一间玻璃房</a>：你招募成员，他们各有会话，可以不经过队长传一张纸条，这个页签的意义是卡住的那一步看得见。<a href="/zh/blog/x-pulse-dsh-agent-teams-board/">共享任务板脉搏</a>是这种可见性的成本。<a href="https://x.com/GKev1n/status/2104404939997053425" rel="noopener noreferrer">@GKev1n</a> 把任务板和成员聊天放在帖子的一边，把协调死循环、以及对熔断器的愿望放在另一边。人人都能写的板子是协作表面。它也是一个你没打算启动的调度器。</p>
+  <p>这个表面的受众是构建者。DeepSeek Harness 是 MIT Harness，一切皆插件，内核是 Cordis，仍是开发者预览。你跑 <code>npx @deepseek-ai/dsh web</code>，或一次 headless 会话。成员是带工具的会话，不是带电话号码的人。交接物是一条路径、一个 URL、一条测试命令、一张卡片。扩展点是插件或 RPC 形态的工具，不是聊天应用里的一个新联系人。房间不听话时，今天拿得到的办法是操作上的：停掉会话，读只追加的日志，把任务收紧。产品里若有熔断器会很好。在它出现之前，断路器是你。这是任务板脉搏已经落到的结论。</p>
+
+  <h2>同样三种风险，杠杆不同</h2>
+  <div style="overflow-x:auto">
+    <table class="ztable">
+      <thead>
+        <tr><th></th><th>Cue 群聊</th><th>DSH Agent Teams</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>递过去的是什么</strong></td><td>生活事务的一步：一条消息、一通电话、预算内的一笔付款、机器上的一项任务</td><td>构建产物：一个文件、一条命令、一张卡片、会话之间的一张纸条</td></tr>
+        <tr><td><strong>你在哪里审批</strong></td><td>在聊天里。最终决定在你。钱包花费被你设的预算封顶</td><td>在队长的第一条消息、卡片和权限边界里。高风险编辑升级到你</td></tr>
+        <tr><td><strong>循环长什么样</strong></td><td>智能体在记录里反复陈述目标，或一件现实动作因为没人关闭而重复</td><td>成员改写卡片、状态闲聊，以及花在协调上的 Token</td></tr>
+        <tr><td><strong>你实际握着的杠杆</strong></td><td>方向、预算，以及停下来的决定。调度器留在应用里</td><td>跳数上限、写锁，以及一步智能体不能替你点的批准</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>交接在两边以熟悉的方式失败：传递工作变成了工作本身。在 Cue 上，这种失败可以离开电脑。重新下单一份晚餐或重新拨一个号码，是生活事务的循环，发布文案里的刹车是你的最终决定加上钱包预算。在 DSH 上，失败通常留在会话里，并用 Token 给你开账单。@GKev1n 的死循环报告是本地版本。在产品长出自己的刹车之前，本站建议的仍然是任务板脉搏里的三条。</p>
+  <ul>
+    <li><strong>最大跳数。</strong> 房间开始之前就决定，一项任务可以引起多少次成员之间的传递。计数触发后，任务回到你这里，其他会话停止。</li>
+    <li><strong>写锁。</strong> 同一条路径只让一个成员改。其余的人读，或去另一个目录。板子表达不了锁的时候，锁就是任务里的一句话。</li>
+    <li><strong>人工升级。</strong> 加依赖、改认证、删测试、把工作区开得更宽、花过你单独准备的那把 Key、再招募一个成员：这些动作需要你。</li>
+  </ul>
+  <p>Cue 没有把这三条做成 Harness 设置，这篇指南也不会假装群聊输入框是一个跳数计数器。精神仍然可以借。记录在重复目标，就停掉房间。一笔付款要重复，预算就是你本该在聊天开始前设好的锁。智能体要去联系一个你没点名的人，这次联系就是升级，最终决定是你的。</p>
+
+  <h2>什么时候聊天就是对的工具</h2>
+  <p>工作是一件要按身份拆开的生活差事时，用 Cue 的群聊。一个智能体握着预订上下文，另一个有号码，你想在一条可以打字的线程里看交接，并且愿意住在 Manus 的应用里。产物是消息和结果、不是 diff 的时候，聊天就够。你需要换掉循环、钉住模型或审计插件的时候，它是错的工具。早期访问有邀请门槛，目前免费。MEETCUE 是限量起步码。iOS 仍在审核。差事若需要电话号码，号码只存在于 Manus 已经打开的那些国家。</p>
+  <p>工作能拆成仓库里叫得出名字的产物时，用 DSH 团队：搜集、实现、测试、审阅。每个成员一件产物。你可以指着卡住的那一步时，玻璃房才挣得回位置。单个文件或单个问题，跳过团队。为一个问题组团队，就是开会，会就是死循环的起点。你想要缓存效率时也跳过。一块共享的、还在变的板子，是你不断作废的前缀。一旦不止一个会话在读同一张卡片，<a href="/zh/blog/x-pulse-dsh-cache-token-efficiency/">缓存笔记</a>就要乘一个系数。</p>
+
+  <h2>什么时候你需要 Harness 调度器</h2>
+  <p>交接本身必须可编程时，你需要的是 Harness，不是聊天。构建者想要失败即关闭的跳数上限、模型说不动的写锁、能改变招募方式的插件、不靠厂商记录也能重放的日志。这是 DSH 的赛道，预览的注意事项原样保留：API 可能变化；熔断器若还只是提示词里的一段话，感觉做完了的团队界面仍是预览。Cue 的赛道形状相反。交接是一群已经有身份的智能体之间的对话，调度器不是你的。</p>
+  <p>如果今晚要选产品，从工作出发，这是 <a href="/zh/blog/cue-agents-vs-dsh/">总对照</a>的要点。带着电话和钱包的生活群聊：Cue。可以看穿、也可以用腻的多会话编码和任务板：DSH。Cue 底下的封闭 Harness Cascade 是另一个问题——效率声明，不是团队界面——写在 <a href="/zh/blog/manus-cascade-vs-deepseek-harness/">Manus Cascade 对比 DeepSeek Harness</a>。</p>
+
+  <h2>来源</h2>
+  <p>Cue 的群聊行为取自 Manus 的文章。DSH 的任务板风险取自本站早前的笔记，以及那条点名死循环的 X 帖。社区摘要是「什么传开了」的信号，不是第二份规格。</p>
+  <ul>
+    <li><a href="https://manus.im/blog/introducing-manus-2-0" rel="noopener noreferrer">Manus — Introducing Manus 2.0</a>，Cue 一节，含群聊「组建团队」的描述。</li>
+    <li><a href="https://cue.im/" rel="noopener noreferrer">cue.im</a>。</li>
+    <li><a href="https://x.com/bb833dong/status/2104714580081758274" rel="noopener noreferrer">@bb833dong</a> — 带上了多智能体群聊要点的社区摘要。</li>
+    <li><a href="https://x.com/ManusAI/status/2104593894700990910" rel="noopener noreferrer">@ManusAI</a> 与 <a href="https://x.com/CueAgents/status/2104589146153181192" rel="noopener noreferrer">@CueAgents</a> — 发布帖。</li>
+    <li><a href="https://x.com/GKev1n/status/2104404939997053425" rel="noopener noreferrer">@GKev1n</a> — DSH 任务板、成员聊天、协调循环、熔断器。</li>
+    <li><a href="/zh/blog/wx-dsh-agent-team/">dshbase — Agent Team 页签是一间玻璃房</a>。</li>
+    <li><a href="/zh/blog/x-pulse-dsh-agent-teams-board/">dshbase — 共享任务板与协调开销</a>。</li>
+    <li><a href="https://github.com/deepseek-ai/deepseek-harness" rel="noopener noreferrer">deepseek-ai/deepseek-harness</a>。</li>
+  </ul>
+</BlogPost>

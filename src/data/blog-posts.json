@@ -1,5 +1,50 @@
 [
  {
+  "path": "/blog/cue-agents-vs-dsh/",
+  "cat": "Analysis",
+  "cat_zh": "分析",
+  "en": "Cue Agents vs DeepSeek Harness: personal identity agents meet an open harness",
+  "zh": "Cue Agents 对比 DeepSeek Harness：带身份的个人智能体 vs 开源 Harness",
+  "desc_en": "Manus launched Cue Agents on Sep 28 with email, phone, wallet and computer per agent. Here is how that product maps—and does not map—onto DeepSeek Harness for DSH readers.",
+  "desc_zh": "Manus 于 9 月 28 日推出 Cue Agents：每个智能体自带邮箱、电话、钱包与电脑。对照 DeepSeek Harness，哪些能比、哪些不该硬比。"
+ },
+ {
+  "path": "/blog/cue-agents-identity-stack-vs-dsh/",
+  "cat": "Analysis",
+  "cat_zh": "分析",
+  "en": "Email, phone, wallet, computer: Cue’s identity stack vs DSH sandboxes",
+  "zh": "邮箱、电话、钱包、电脑：Cue 身份栈 vs DSH 沙箱",
+  "desc_en": "Cue’s pitch is agents with real contact points. DSH gives sandboxes, tools and plugins. What “having a computer” means in each world.",
+  "desc_zh": "Cue 强调智能体有真实联络方式；DSH 提供沙箱、工具与插件。「有一台电脑」在两边分别意味着什么。"
+ },
+ {
+  "path": "/blog/cue-group-chat-vs-dsh-agent-teams/",
+  "cat": "Guide",
+  "cat_zh": "指南",
+  "en": "Cue group chat vs DSH agent teams: same “handoff” idea, different control surface",
+  "zh": "Cue 群聊 vs DSH Agent Teams：同样是接力，控制面不同",
+  "desc_en": "Cue puts several identity agents in one chat. DSH’s shared boards and teams are for builders. A practical map of handoff, approval, and loop risk.",
+  "desc_zh": "Cue 把多个带身份的智能体放进同一群聊；DSH 的共享任务板面向构建者。对照接力、审批与死循环风险。"
+ },
+ {
+  "path": "/blog/manus-cascade-vs-deepseek-harness/",
+  "cat": "Analysis",
+  "cat_zh": "分析",
+  "en": "Manus Cascade vs DeepSeek Harness: closed efficiency claims meet open plugins",
+  "zh": "Manus Cascade 对比 DeepSeek Harness：封闭效率数字 vs 开源插件栈",
+  "desc_en": "Manus 2.0’s Cascade harness published one-config efficiency numbers. DSH bets on everything-is-a-plugin. How builders should read both.",
+  "desc_zh": "Manus 2.0 的 Cascade 给出单配置效率数字；DSH 押注 everything-is-a-plugin。构建者该怎么读这两边。"
+ },
+ {
+  "path": "/blog/x-pulse-cue-agents-vs-dsh-chooser/",
+  "cat": "Pulse",
+  "cat_zh": "脉搏",
+  "en": "After Cue’s launch day: Cue, DSH, Grok Bot, Muse — a chooser for DSH readers",
+  "zh": "Cue 上线之后：Cue、DSH、Grok Bot、Muse —— 给 DSH 读者的选型单",
+  "desc_en": "X compared Cue to Grok Bot and Muse within hours. Strip the noise: which lane each product is in, and where DeepSeek Harness still sits alone.",
+  "desc_zh": "上线数小时内 X 就把 Cue 和 Grok Bot、Muse 放一起比。去掉噪音：各自赛道是什么，DeepSeek Harness 仍独占哪一块。"
+ },
+ {
   "path": "/blog/x-pulse-dsh-0-2-expectation/",
   "cat": "Pulse",
   "cat_zh": "脉搏",

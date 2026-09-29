@@ -3,6 +3,11 @@ import Base from '../../../layouts/Base.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const locale = Astro.currentLocale ?? 'zh';
 const posts = [
+  { path: '/blog/cue-agents-vs-dsh/', cat: '分析', zh: 'Cue Agents 对比 DeepSeek Harness：带身份的个人智能体 vs 开源 Harness', desc_zh: 'Manus 于 9 月 28 日推出 Cue Agents：每个智能体自带邮箱、电话、钱包与电脑。对照 DeepSeek Harness，哪些能比、哪些不该硬比。' },
+  { path: '/blog/cue-agents-identity-stack-vs-dsh/', cat: '分析', zh: '邮箱、电话、钱包、电脑：Cue 身份栈 vs DSH 沙箱', desc_zh: 'Cue 强调智能体有真实联络方式；DSH 提供沙箱、工具与插件。「有一台电脑」在两边分别意味着什么。' },
+  { path: '/blog/cue-group-chat-vs-dsh-agent-teams/', cat: '指南', zh: 'Cue 群聊 vs DSH Agent Teams：同样是接力，控制面不同', desc_zh: 'Cue 把多个带身份的智能体放进同一群聊；DSH 的共享任务板面向构建者。对照接力、审批与死循环风险。' },
+  { path: '/blog/manus-cascade-vs-deepseek-harness/', cat: '分析', zh: 'Manus Cascade 对比 DeepSeek Harness：封闭效率数字 vs 开源插件栈', desc_zh: 'Manus 2.0 的 Cascade 给出单配置效率数字；DSH 押注 everything-is-a-plugin。构建者该怎么读这两边。' },
+  { path: '/blog/x-pulse-cue-agents-vs-dsh-chooser/', cat: '脉搏', zh: 'Cue 上线之后：Cue、DSH、Grok Bot、Muse —— 给 DSH 读者的选型单', desc_zh: '上线数小时内 X 就把 Cue 和 Grok Bot、Muse 放一起比。去掉噪音：各自赛道是什么，DeepSeek Harness 仍独占哪一块。' },
   { path: '/blog/x-pulse-dsh-0-2-expectation/', cat: '脉搏', zh: '本周 DSH 0.2 传闻：安装者在周一前该锁什么版本', desc_zh: 'X 上的讨论把 DSH 0.2 聚到周一或周二，还有人把它和「给 DSH 的 V4.1 Pro」绑在一起。这仍是传闻。生产环境动手之前，先按这份清单把现有版本锁住。' },
   { path: '/blog/x-pulse-dsh-desktop-client/', cat: '指南', zh: 'DeepSeek Harness 桌面端讨论：离开浏览器后会变什么', desc_zh: 'X 上在传桌面端画面：登录或 Key、本地工作区、四种模式、团队、语音和终端。官方客户端出现之前，继续用 npx @deepseek-ai/dsh web，不要下载来路不明的安装包。' },
   { path: '/blog/x-pulse-dsh-cache-token-efficiency/', cat: '分析', zh: '为什么 X 上总有人说 DSH「省 Token」：缓存、极简模式与 V4.1 Flash', desc_zh: '「DSH 省 Token」通常是在说缓存形态、极简模式，或 Flash 档模型。PTC 不会自动让一次运行变便宜。相信这句口号之前，先设成本上限。' },

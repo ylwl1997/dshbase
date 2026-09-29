@@ -1,0 +1,64 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost title="Email, phone, wallet, computer: Cue’s identity stack vs DSH sandboxes | dshbase" description="Cue’s pitch is agents with real contact points. DSH gives sandboxes, tools and plugins. What “having a computer” means in each world." currentPath="/blog/cue-agents-identity-stack-vs-dsh/" category="Analysis">
+  <h1>Email, phone, wallet, computer: <span class="accent">Cue’s identity stack vs DSH sandboxes</span></h1>
+  <p class="muted small" style="margin-bottom:20px">September 29, 2026 · dshbase · X pulse</p>
+
+  <p>Cue’s launch sentence is an identity sentence. Manus says each agent gets its own email, its own phone number, its own wallet, and its own computer. That quartet is the product. DeepSeek Harness does not ship a quartet like it, and a fair reading starts by admitting the absence is structural. DSH gives you a sandbox, a tool surface, and a plugin kernel. “Having a computer” is a phrase both sides can say. The computers are not the same object. This note defines the primitives, then says what each side actually hands you. The flagship comparison is <a href="/blog/cue-agents-vs-dsh/">Cue Agents vs DeepSeek Harness</a>. Cue and DSH are not 1:1 substitutes, and the identity stack is the clearest place to see why.</p>
+
+  <h2>Four primitives, as Manus described them</h2>
+  <p>The official description is in the Cue section of the <a href="https://manus.im/blog/introducing-manus-2-0" rel="noopener noreferrer">Manus 2.0 post</a>. Read as a stack, the four pieces do different jobs.</p>
+  <ul>
+    <li><strong>Email</strong> is a contact point the agent can send and receive on, separate from your personal inbox. The agent can message as itself.</li>
+    <li><strong>Phone</strong> is a number the agent can use for calls and texts. Manus has said Manus and Cue agents can have phone numbers, in select countries for now, and that some of those lines are voice-only. The country set is not published here, because it is not ours to invent.</li>
+    <li><strong>Wallet</strong> is a way to pay, inside a budget you set. The control Manus is willing to name in public is that budget. A post-early-access price for Cue itself has not been published, and a wallet budget is not that price.</li>
+    <li><strong>Computer</strong> is a machine the agent runs tasks on. Official examples include everyday services such as scanning a restaurant QR so the agent can order or hold a place in line, and taking a call, then leaving the summary back in Cue.</li>
+  </ul>
+  <p>Put together, the stack is a claim that the agent can show up in systems that already exist: inboxes, phone networks, payment rails, and a computer that is not the chat window. <a href="https://x.com/ManusAI/status/2104593894700990910" rel="noopener noreferrer">@ManusAI</a> and <a href="https://x.com/CueAgents/status/2104589146153181192" rel="noopener noreferrer">@CueAgents</a> launched that claim on September 28, 2026, with the app at <a href="https://cue.im/" rel="noopener noreferrer">cue.im</a>. Early access is free with an invite. The public starter code MEETCUE is limited. iOS is in App Store review. None of those availability facts change what the four primitives are. They change when you can touch them.</p>
+
+  <h2>What “a computer” means on the Cue side</h2>
+  <p>On the Cue side, the computer is part of a hosted personal agent. You do not provision it as a plugin. Manus runs the app — web, desktop, and mobile, with Android, Mac, and Windows called out for the free limited window — and the agent’s machine is one of the things the app includes. The interesting property is reach. A computer that can hold a place in a restaurant line is a computer pointed at the outside world, paired with an identity that the outside world can call back.</p>
+  <p>The controls Cue is willing to describe are human ones. You set the budget the wallet may spend. You set direction. You keep the final call, including when several agents share a group chat. Those are product claims from the Manus post, not an independent security audit. They matter because a phone number and a wallet are higher-blast-radius primitives than a sandbox pointed at a git checkout. A budget and a final human call are the brakes Manus has put in the launch copy. Whether those brakes hold under abuse is a question the launch post does not answer with a report, and this note will not pretend it did.</p>
+  <p>The community reaction understood the blast radius immediately, which is why the jokes arrived with the launch. <a href="https://x.com/ExiledonMoon/status/2104601048182931878" rel="noopener noreferrer">@ExiledonMoon</a> posted a spam joke about agents that can be reached. Treat it as humor, not as a vulnerability write-up. It is still the right instinct: a number that can receive is a number that can be abused, and a wallet that can pay is a wallet that can be talked into paying. The official mitigation on the page is the budget you set and the final call you keep. Hold the product to that sentence.</p>
+
+  <h2>What “a computer” means in DSH</h2>
+  <p>In DeepSeek Harness, the computer is a sandbox you configure. The harness is MIT-licensed, “everything is a plugin” on Cordis, and still a developer preview whose APIs can break. You start it yourself — <code>npx @deepseek-ai/dsh web</code> for the Web UI, or a headless run — and you point it at a model with your own API key. A session gets tools, a workspace, and a permission boundary. The <a href="/blog/dsh-sandbox/">sandbox guide</a> on this site is the practical version: approvals, presets, and the habit of not letting a tool run because the demo looked calm.</p>
+  <p>That sandbox can feel like “the agent has a computer,” and for coding work it is one. It can read a tree, run commands inside the boundary you allowed, and leave a trace you can replay. It does not, out of the box, possess a carrier phone number, a payment wallet, or an email identity on a public network. If you want mail, you bring an email plugin or an MCP tool and you bring the credentials. If you want a model other than the default path, you bring the key. The equivalent of Cue’s stack, inside DSH, is a composition: sandbox, plus tools, plus whatever plugins you trust with your own accounts. The composition is the product. The accounts are yours before they are the agent’s.</p>
+  <p>MCP fits in the same sentence. A server you attach can expose a capability the core harness does not ship — a browser, a ticket queue, a mailbox API. The <a href="/blog/dsh-mcp/">MCP note</a> is how that attachment works. Attaching a mailbox API is not the same as Manus issuing the agent an address. You remain the account holder, the key holder, and the person who uninstalls the plugin. That is the builder contract. It is slower than opening cue.im, and it is the contract DSH readers already accepted when they chose a harness over an app.</p>
+
+  <h2>What each side does not ship</h2>
+  <div style="overflow-x:auto">
+    <table class="ztable">
+      <thead>
+        <tr><th></th><th>Cue</th><th>DeepSeek Harness</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Contact point</strong></td><td>Email and a phone number, select countries, some voice-only</td><td>You integrate mail or messaging yourself, if you want it</td></tr>
+        <tr><td><strong>Money</strong></td><td>A wallet, spent inside a budget you set</td><td>No wallet primitive. Spend is your model bill and anything a plugin is allowed to call</td></tr>
+        <tr><td><strong>Machine</strong></td><td>A computer included with the hosted agent</td><td>A sandbox and a workspace you run</td></tr>
+        <tr><td><strong>Loop</strong></td><td>Closed. Not a forkable agent loop</td><td>Readable, replaceable, plugin-shaped</td></tr>
+        <tr><td><strong>Extension store for harness authors</strong></td><td>Not the product</td><td>The product. Plugins are how capabilities arrive</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>The bottom two rows are what Cue does not ship, and they are easy to skip because the top rows are flashier. Cue is not offering harness authors a place to publish a sandbox implementation. DSH is not offering consumers a phone number. Wanting both in one install is a reasonable wish. It is not what either launch described.</p>
+  <p>One unofficial thread needs a label before it hardens into a fact. <a href="https://x.com/grok/status/2104626552377856328" rel="noopener noreferrer">A Grok post</a> circulated chatter about US numbers for these agents. That post is not Manus. It is not a country list. Manus’s own wording is “select countries,” with some lines voice-only. If your decision depends on a specific country, the source is Manus, not a reply.</p>
+
+  <h2>Which computer you actually wanted</h2>
+  <p>Choose Cue’s computer when the task leaves the repository. Ordering from a QR code, taking a call, paying inside a cap you set, and writing the summary back into the app are life-ops jobs. The identity stack is what makes those jobs legible to restaurants, carriers, and inboxes. You accept a closed app, an invite gate, and a phone story that is still geographically partial.</p>
+  <p>Choose a DSH sandbox when the task is the runtime. You want to see the loop, swap a tool, pin your own key, and keep the workspace on a machine you administer. You accept that a phone number and a wallet are projects you would have to build, with credentials you already hold, and that the preview can break an API you depended on last week. The <a href="/blog/cue-group-chat-vs-dsh-agent-teams/">group-chat guide</a> is the next slice: once an agent has a machine, how several of them hand work across, and which control surface you are actually holding.</p>
+
+  <h2>Sources</h2>
+  <p>Identity claims below come from the Manus blog. X posts are community signal except where they are the maker’s own launch posts. The Grok link is unofficial and is cited only so it does not get promoted into a coverage map.</p>
+  <ul>
+    <li><a href="https://manus.im/blog/introducing-manus-2-0" rel="noopener noreferrer">Manus — Introducing Manus 2.0</a>, Cue section: email, phone, wallet, computer, budget, and the final call.</li>
+    <li><a href="https://cue.im/" rel="noopener noreferrer">cue.im</a>.</li>
+    <li><a href="https://x.com/ManusAI/status/2104593894700990910" rel="noopener noreferrer">@ManusAI</a> — introducing personal agents on Cue.</li>
+    <li><a href="https://x.com/CueAgents/status/2104589146153181192" rel="noopener noreferrer">@CueAgents</a> — hello world.</li>
+    <li><a href="https://x.com/CueAgents/status/2104632868282769772" rel="noopener noreferrer">@CueAgents</a> — free limited early access on Android, Mac, and Windows.</li>
+    <li><a href="https://x.com/ExiledonMoon/status/2104601048182931878" rel="noopener noreferrer">@ExiledonMoon</a> — community spam joke. Humor, not a security advisory.</li>
+    <li><a href="https://x.com/grok/status/2104626552377856328" rel="noopener noreferrer">@grok</a> — unofficial chatter about numbers. Not a Manus country list.</li>
+    <li><a href="https://deepseek.com/harness/en/" rel="noopener noreferrer">DeepSeek Harness</a> and <a href="https://github.com/deepseek-ai/deepseek-harness" rel="noopener noreferrer">deepseek-ai/deepseek-harness</a>.</li>
+  </ul>
+</BlogPost>
