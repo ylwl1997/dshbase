@@ -336,8 +336,8 @@
    {
     "name": "dsh-mcp-connector",
     "slug": "dsh-mcp-connector",
-    "npm": false,
-    "pkg": ""
+    "npm": true,
+    "pkg": "dsh-mcp-connector"
    }
   ]
  },
