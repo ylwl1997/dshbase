@@ -23902,7 +23902,7 @@
    "depsOfficial": 0,
    "repoOwner": "LongSir0419",
    "_enriched": "2026-08-21|0.1.6",
-   "bareNpm": "other"
+   "bareNpm": "install-fail"
   },
   {
    "name": "deepspider",
@@ -143169,7 +143169,7 @@
    "trust": "Unrated",
    "slug": "dsh-sgme",
    "platform": "any",
-   "bareNpm": "other",
+   "bareNpm": "install-fail",
    "contributors": 0,
    "depCount": 4,
    "depsOfficial": 3,
@@ -144492,7 +144492,7 @@
    "trust": "Silver",
    "slug": "dsh-nocturne-memory",
    "platform": "any",
-   "bareNpm": "other",
+   "bareNpm": "install-fail",
    "webonly": false,
    "note": "验证: runtime-fail (0.1.0-rc.6)",
    "contributors": 2,
