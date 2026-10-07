@@ -114745,7 +114745,7 @@
    "trust": "Unrated",
    "slug": "dsh-web-ui",
    "platform": "any",
-   "bareNpm": "other",
+   "bareNpm": "install-fail",
    "contributors": 114,
    "depCount": 19,
    "depsOfficial": 0,
