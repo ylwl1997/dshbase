@@ -1,8 +1,8 @@
 /**
  * Plugin indexability for Google (Bing is unaffected).
  *
- * EN: indexable if stars>=10 OR path in GSC 90d whitelist OR path in Bing click whitelist.
- * ZH: indexable if path in Bing click whitelist OR path in GSC 90d whitelist.
+ * EN: indexable if stars>=10 OR EN/ZH path in GSC 90d OR Bing click whitelist.
+ * ZH: indexable if ZH path in Bing click whitelist OR GSC 90d whitelist.
  *
  * Non-indexable plugin pages emit <meta name="googlebot" content="noindex, follow">
  * (NOT name="robots"), so Bing keeps crawling them.

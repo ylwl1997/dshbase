@@ -46,8 +46,10 @@ for items in plugins.values():
         stars = int(p.get('stars') or 0)
         en_path = f'/plugins/{slug}/'
         zh_path = f'/zh/plugins/{slug}/'
-        if stars >= 10 or en_path in gsc or en_path in bing or zh_path in gsc:
+        # EN: stars OR either-lang GSC/Bing path (www/apex + slash already normalized)
+        if stars >= 10 or en_path in gsc or en_path in bing or zh_path in gsc or zh_path in bing:
             en.add(slug)
+        # ZH: only ZH-path signal (Bing whitelist /zh/plugins/* must stay indexable)
         if zh_path in bing or zh_path in gsc:
             zh.add(slug)
 
@@ -57,7 +59,7 @@ json.dump({
     'en': sorted(en),
     'zh': sorted(zh),
     'rules': {
-        'en': 'stars>=10 OR /plugins/<slug>/ in gsc-whitelist OR bing-whitelist',
+        'en': 'stars>=10 OR /plugins/<slug>/ OR /zh/plugins/<slug>/ in gsc-whitelist OR bing-whitelist',
         'zh': '/zh/plugins/<slug>/ in bing-whitelist OR gsc-whitelist',
         'meta': 'non-indexable plugin pages: <meta name="googlebot" content="noindex, follow">',
         'core_pages': 'never noindexed by this rule (only plugin slug pages use it)',

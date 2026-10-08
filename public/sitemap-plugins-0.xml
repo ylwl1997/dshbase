@@ -1088,6 +1088,7 @@
   <url><loc>https://dshbase.com/plugins/turtle-ui/</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/DeepSeek-Harness-billing-plugin/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-better-archive/</loc><lastmod>2026-08-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-chat-outline/</loc><lastmod>2026-08-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-chat-outline/</loc><lastmod>2026-08-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-codex-provider/</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-codex-provider/</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
@@ -1730,6 +1731,7 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-desktop-pet/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-dir-tree/</loc><lastmod>2026-08-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-document-review/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-drawio/</loc><lastmod>2026-08-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-drawio/</loc><lastmod>2026-08-19</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-enhance/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-enhance/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
@@ -1775,6 +1777,7 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-paseo/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-password-prompt/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-password-prompt/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-pet-whale/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-pet-whale/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-playwright-cli/</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-playwright-cli/</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
@@ -1861,6 +1864,7 @@
   <url><loc>https://dshbase.com/zh/plugins/DSH-Chrome-devtools/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/Dcode/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/Dcode/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://dshbase.com/plugins/DeepJIT/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/DeepJIT/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/DeepSeek-harness-dingtalk/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/DeepSeek-harness-dingtalk/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
@@ -1870,6 +1874,7 @@
   <url><loc>https://dshbase.com/plugins/agent-fix/</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/awesome-dsh/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/chenjie1129-dsh-remotion-video-plugin/</loc><lastmod>2026-08-21</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/plugins/claude-in-dsh/</loc><lastmod>2026-08-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/claude-in-dsh/</loc><lastmod>2026-08-24</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/claude-parchment-theme/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/computer-use-plus/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1883,6 +1888,7 @@
   <url><loc>https://dshbase.com/zh/plugins/deepseek-harness-desktop-13/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/deepseek-harness-lite/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/deepseek-harness-sdk-rs/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/plugins/deepseek-harness-ssh/</loc><lastmod>2026-08-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/deepseek-harness-ssh/</loc><lastmod>2026-08-19</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/deepseek-plugins/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dhs-theme-plugin/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -1922,10 +1928,12 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-browser-control/</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-cache-stabilizer/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-cache-stabilizer/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-cad-modeling/</loc><lastmod>2026-08-25</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-cad-modeling/</loc><lastmod>2026-08-25</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-chrome/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-claude-theme/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-claude-theme/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-client-fix/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-client-fix/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-client-ui-git-branch/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-client-ui-git-branch/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
@@ -1945,6 +1953,7 @@
   <url><loc>https://dshbase.com/plugins/dsh-codex-oauth/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-codex-oauth/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-container/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-context-compactor/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-context-compactor/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-context-lens/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-context-lens/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
@@ -1970,6 +1979,7 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-desktop-window/</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-dev-actions/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-doc-share/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-dock/</loc><lastmod>2026-08-25</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-dock/</loc><lastmod>2026-08-25</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-doctor/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-doctor/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
@@ -2025,6 +2035,7 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-llm-fallbacks/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-llm-kiro/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-llm-kiro/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-llm-opencode/</loc><lastmod>2026-08-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-llm-opencode/</loc><lastmod>2026-08-23</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-llm-proxy/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-llm-proxy/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
@@ -2091,6 +2102,7 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-wepre/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-window-stats/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugins-hub/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-ppt/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-ppt/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-product-delivery-workflow/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-project-file-explorer/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -2192,6 +2204,7 @@
   <url><loc>https://dshbase.com/plugins/dsh-ui-topbar-compact/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-update-radar/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-update-radar/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-version-inspector/</loc><lastmod>2026-08-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-version-inspector/</loc><lastmod>2026-08-24</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-video-downloader/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-view-modes/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -2220,6 +2233,7 @@
   <url><loc>https://dshbase.com/plugins/dsh-worktrees/</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-yuzuha-prompts-manager/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-zen/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-zhipu-coding-plan/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-zhipu-coding-plan/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh2wechat/</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dshp/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -2250,6 +2264,7 @@
   <url><loc>https://dshbase.com/plugins/tmcra-deepseek-harness-memory/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/vpshub/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/vscode-deepseek-harness/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/plugins/wannanbigpig-dsh-usage-stats/</loc><lastmod>2026-08-22</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/wannanbigpig-dsh-usage-stats/</loc><lastmod>2026-08-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/Dsh-UI-Enhance/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/Dsh-UI-Enhance/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
@@ -2267,16 +2282,21 @@
   <url><loc>https://dshbase.com/plugins/dsh-atlascloud/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-auto-compact/</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-auto-compact/</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-blender/</loc><lastmod>2026-08-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-blender/</loc><lastmod>2026-08-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-bottom-stats/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-browser-bridge/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-browser-bridge/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-browser-bsk/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-browser-bsk/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-browser-use/</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-browser-use/</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-cad/</loc><lastmod>2026-08-22</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-cad/</loc><lastmod>2026-08-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-chat-sync/</loc><lastmod>2026-08-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-claude/</loc><lastmod>2026-08-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-claude/</loc><lastmod>2026-08-23</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-claude-code/</loc><lastmod>2026-08-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-claude-code/</loc><lastmod>2026-08-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-code-intel/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-code-intel/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
@@ -2285,6 +2305,7 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-codebuddy/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-codex-canvas/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-codex-canvas/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-context-pro/</loc><lastmod>2026-08-22</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-context-pro/</loc><lastmod>2026-08-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-credentials-system/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-doctor-windows/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -2295,12 +2316,14 @@
   <url><loc>https://dshbase.com/zh/plugins/dsh-fff/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-file-changes/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-file-undo/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-for-wsl/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-for-wsl/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-geo/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-git-branch-switcher/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-git-branch-switcher/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-godot-tool/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-godot-tool/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-grill-me/</loc><lastmod>2026-08-25</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-grill-me/</loc><lastmod>2026-08-25</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-growth/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-interrupt-send/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -2317,7 +2340,9 @@
   <url><loc>https://dshbase.com/plugins/dsh-netcafe/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-netcafe/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-open-with/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-opencode-go/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-opencode-go/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-persona/</loc><lastmod>2026-08-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-persona/</loc><lastmod>2026-08-19</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-pet-codex/</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-asmemory/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -2328,6 +2353,7 @@
   <url><loc>https://dshbase.com/plugins/dsh-plugin-installer-pkg/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-installer-pkg/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-llm-codex/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-plugin-mcp-connector/</loc><lastmod>2026-08-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-plugin-mcp-connector/</loc><lastmod>2026-08-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-provider-quota/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-plugin-quota/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -2340,18 +2366,22 @@
   <url><loc>https://dshbase.com/plugins/dsh-prompt-inject/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-push/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-qwen-multimodal/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-remote-web-ui/</loc><lastmod>2026-08-25</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-remote-web-ui/</loc><lastmod>2026-08-25</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-req-workbench/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-runtime-nutrition-label/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-runtime-nutrition-label/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-sessiondelete/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-sessiondelete/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-shell-termux/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-shell-termux/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-skill-evolve/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-skill-evolve/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-subagent-status/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-system-control/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-system-control/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-team-runner/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-todo-panel/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-todo-panel/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-tool-market-data/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-tool-market-data/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
@@ -2365,6 +2395,7 @@
   <url><loc>https://dshbase.com/plugins/dsh-wending-ssh-manager/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-wending-ssh-manager/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-whale-tui/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/plugins/dsh-wsl/</loc><lastmod>2026-08-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-wsl/</loc><lastmod>2026-08-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/dsh-wsl-bridge/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/dsh-wsl-bridge/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
@@ -2377,6 +2408,7 @@
   <url><loc>https://dshbase.com/plugins/sai-dsh-plugins/</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/vision_kit/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/plugins/wanghailong0419-dsh-toolkit/</loc><lastmod>2026-08-21</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dshbase.com/plugins/zcode-usage-stats/</loc><lastmod>2026-08-22</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dshbase.com/zh/plugins/zcode-usage-stats/</loc><lastmod>2026-08-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dshbase.com/plugins/zhuyh-sai7n-dsh-plugin-manager/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>
