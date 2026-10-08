@@ -140011,7 +140011,7 @@
    "trust": "Silver",
    "slug": "billion-context-dsh",
    "platform": "any",
-   "bareNpm": "other",
+   "bareNpm": "install-fail",
    "contributors": 8,
    "depCount": 7,
    "depsOfficial": 7,
