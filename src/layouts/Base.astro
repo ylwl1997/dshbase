@@ -9,9 +9,11 @@ interface Props {
   currentPath: string;
   /** Override robots meta (e.g. noindex on 404). Default: index, follow. */
   robots?: string;
+  /** Optional Googlebot-only robots directive (e.g. "noindex, follow"). Bing ignores this. */
+  googlebot?: string;
 }
 
-const { title, description, currentPath: rawPath, robots = 'index, follow, max-image-preview:large' } = Astro.props;
+const { title, description, currentPath: rawPath, robots = 'index, follow, max-image-preview:large', googlebot } = Astro.props;
 /** Strip accidental `/zh` prefix so twin URLs / canonical stay locale-agnostic. */
 const currentPath = rawPath.replace(/^\/zh(?=\/|$)/, '') || '/';
 const locale = Astro.currentLocale ?? 'en';
@@ -35,6 +37,7 @@ const t = {
   <title>{title}</title>
   <meta name="description" content={description}>
   <meta name="robots" content={robots}>
+  {googlebot && <meta name="googlebot" content={googlebot} />}
   <link rel="canonical" href={canonical}>
   <link rel="alternate" hreflang="en" href={enUrl}>
   <link rel="alternate" hreflang="zh-CN" href={zhUrl}>

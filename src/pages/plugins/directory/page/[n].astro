@@ -1,0 +1,61 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import Base from '../../../../layouts/Base.astro';
+import PluginCard from '../../../../components/PluginCard.astro';
+import plugins from '../../../../data/plugins.json';
+
+export const PAGE_SIZE = 100;
+
+const sortByStars = (a, b) => (b.stars ?? 0) - (a.stars ?? 0);
+const flat = Object.values(plugins).flat().sort(sortByStars);
+const totalPages = Math.max(1, Math.ceil(flat.length / PAGE_SIZE));
+
+export function getStaticPaths() {
+  const all = Object.values(plugins).flat().sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0));
+  const pages = Math.max(1, Math.ceil(all.length / PAGE_SIZE));
+  return Array.from({ length: pages }, (_, i) => {
+    const n = i + 1;
+    const slice = all.slice(i * PAGE_SIZE, (i + 1) * PAGE_SIZE);
+    return { params: { n: String(n) }, props: { n, slice, pages, total: all.length } };
+  });
+}
+
+const { n, slice, pages, total } = Astro.props;
+const lang = 'en';
+const dirUrl = getRelativeLocaleUrl(lang, '/plugins/directory/');
+const pageUrl = (k) => getRelativeLocaleUrl(lang, `/plugins/directory/page/${k}/`);
+const title = lang === 'zh'
+  ? `插件目录第 ${n}/${pages} 页 — 共 ${total} 个`
+  : `Plugin directory page ${n}/${pages} — ${total} plugins`;
+const desc = lang === 'zh'
+  ? `DeepSeek Harness 插件目录分页（第 ${n} 页，每页最多 ${PAGE_SIZE} 个）。`
+  : `DeepSeek Harness plugin directory page ${n} of ${pages} (${PAGE_SIZE} per page).`;
+---
+<Base title={title} description={desc} currentPath={`/plugins/directory/page/${n}/`}>
+  <section class="hero wrap">
+    <p class="eyebrow"><a href={dirUrl}>{lang === 'zh' ? '插件目录' : 'Plugin directory'}</a> / page {n}</p>
+    <h1>{lang === 'zh' ? `全部插件 · 第 ${n} 页` : `All plugins · page ${n}`}</h1>
+    <p class="lede">{lang === 'zh' ? `共 ${total} 个插件，每页 ${PAGE_SIZE} 个。` : `${total} plugins, ${PAGE_SIZE} per page.`}</p>
+    <nav class="pager" aria-label="Pagination" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px">
+      {n > 1 && <a class="btn btn-ghost btn-sm" href={pageUrl(n - 1)} rel="prev">← prev</a>}
+      <span class="muted" style="align-self:center">page {n} / {pages}</span>
+      {n < pages && <a class="btn btn-ghost btn-sm" href={pageUrl(n + 1)} rel="next">next →</a>}
+      <a class="btn btn-ghost btn-sm" href={dirUrl}>{lang === 'zh' ? '返回目录首页' : 'Back to directory hub'}</a>
+    </nav>
+  </section>
+  <section class="info wrap">
+    <div class="grid3">
+      {slice.map((p) => <PluginCard plugin={p} />)}
+    </div>
+    <nav class="pager" aria-label="Pagination bottom" style="display:flex;gap:8px;flex-wrap:wrap;margin:28px 0">
+      {n > 1 && <a class="btn btn-ghost btn-sm" href={pageUrl(n - 1)} rel="prev">← prev</a>}
+      {Array.from({ length: pages }, (_, i) => i + 1).filter(k => k === 1 || k === pages || Math.abs(k - n) <= 2).map((k, idx, arr) => (
+        <>
+          {idx > 0 && arr[idx - 1] !== k - 1 && <span class="muted">…</span>}
+          <a class="btn btn-ghost btn-sm" href={pageUrl(k)} aria-current={k === n ? 'page' : undefined}>{k}</a>
+        </>
+      ))}
+      {n < pages && <a class="btn btn-ghost btn-sm" href={pageUrl(n + 1)} rel="next">next →</a>}
+    </nav>
+  </section>
+</Base>

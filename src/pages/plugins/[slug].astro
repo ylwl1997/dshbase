@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import plugins from '../../data/plugins.json';
 import notes from '../../data/plugin-notes.json';
 import security from '../../data/security.json';
+import { isPluginIndexable, demoteReadmeHeadings } from '../../lib/plugin-index.js';
 import readmes from '../../data/readmes.json';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { readFileSync, existsSync } from 'node:fs';
@@ -32,7 +33,9 @@ const dirUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
 const catUrl = `${dirUrl}#${catId}`;
 const repo = p.url.replace('https://github.com/', '');
 const npmHome = p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
-const readmeHtml = readmes[p.slug]?.html || '';
+const rawReadme = readmes[p.slug]?.html || '';
+const readmeHtml = demoteReadmeHeadings(rawReadme);
+const googlebot = isPluginIndexable(p.slug ?? p.name, 'en') ? undefined : 'noindex, follow';
 const statusLabel = {
   verified: 'Verified · install-tested on dsh',
   pending: 'Unverified',
@@ -99,7 +102,7 @@ const jsonLd = {
   ...(p.ver ? { softwareVersion: p.ver } : {}),
 };
 ---
-<Base title={pageTitle} description={`${desc} — how to install ${p.name} (${p.npm ? `dsh plugin add ${p.pkg}` : 'npm source'}) and compatibility with dsh 0.1.0-rc.6.`} currentPath={`/plugins/${p.slug}/`}>
+<Base title={pageTitle} description={`${desc} — how to install ${p.name} (${p.npm ? `dsh plugin add ${p.pkg}` : 'npm source'}) and compatibility with dsh 0.1.0-rc.6.`} currentPath={`/plugins/${p.slug}/`} googlebot={googlebot}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <section class="hero wrap">
     <p class="eyebrow"><a href={dirUrl}>Plugin directory</a> / <a href={catUrl}>{cat}</a> / {p.name}</p>
@@ -343,7 +346,7 @@ const jsonLd = {
   }
   /* README 由 set:html 注入，Astro scoped 选择器不匹配，必须用 :global */
   :global(.readme) { margin-top: 18px; font-size: 14.5px; line-height: 1.75; color: var(--ink-2); }
-  :global(.readme h1), :global(.readme h2), :global(.readme h3) { color: var(--ink); margin: 22px 0 8px; }
+  :global(.readme h2), :global(.readme h3), :global(.readme h4) { color: var(--ink); margin: 22px 0 8px; }
   :global(.readme h2) { font-size: 20px; }
   :global(.readme h3) { font-size: 17px; }
   :global(.readme p) { margin: 10px 0; }

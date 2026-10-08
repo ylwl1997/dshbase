@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dshbase.com/sitemap.xml
+# Google / general crawlers: slim index only (core + blog + indexable plugins).
+# Full plugin list is a separate Bing-only sitemap — submit that only in Bing WMT.
+Sitemap: https://dshbase.com/sitemap-index.xml
