@@ -29171,7 +29171,8 @@
    "archived": false,
    "pkg": "dsh-mcp-connector",
    "npm": true,
-   "ver": "0.2.41"
+   "ver": "0.2.41",
+   "bareNpm": "install-fail"
   },
   {
    "name": "dsh-plugin-appshot",
@@ -112146,7 +112147,8 @@
    "slug": "dsh-qboson-ising-solver",
    "platform": "any",
    "note": "无 LICENSE 许可",
-   "testDate": "2026-10-09"
+   "testDate": "2026-10-09",
+   "bareNpm": "install-fail"
   },
   {
    "name": "dsh-deepseek-cost-live",
@@ -112190,7 +112192,8 @@
    "license": "MIT",
    "slug": "dsh-balance-quota",
    "platform": "any",
-   "testDate": "2026-10-09"
+   "testDate": "2026-10-09",
+   "bareNpm": "other"
   }
  ],
  "AI Models": [
@@ -114855,7 +114858,8 @@
    "license": "MIT",
    "slug": "dsh-plugin-subagent-model-route",
    "platform": "any",
-   "testDate": "2026-10-09"
+   "testDate": "2026-10-09",
+   "bareNpm": "install-fail"
   },
   {
    "name": "dsh-factory-provider",
@@ -114906,7 +114910,7 @@
    "trust": "Unrated",
    "slug": "dsh-web-ui",
    "platform": "any",
-   "bareNpm": "install-fail",
+   "bareNpm": "other",
    "contributors": 114,
    "depCount": 19,
    "depsOfficial": 0,
@@ -139590,7 +139594,8 @@
    "license": "MIT",
    "slug": "dsh-wallpaper-bg",
    "platform": "any",
-   "testDate": "2026-10-09"
+   "testDate": "2026-10-09",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-client-ui-paopaocat",
@@ -139612,7 +139617,8 @@
    "license": "MIT",
    "slug": "dsh-client-ui-paopaocat",
    "platform": "any",
-   "testDate": "2026-10-09"
+   "testDate": "2026-10-09",
+   "bareNpm": "other"
   }
  ],
  "Knowledge": [
@@ -154437,7 +154443,8 @@
    "license": "Apache-2.0",
    "slug": "clearai-dsh",
    "platform": "any",
-   "testDate": "2026-10-09"
+   "testDate": "2026-10-09",
+   "bareNpm": "other"
   },
   {
    "name": "ddw-teams-panel",
@@ -154481,7 +154488,8 @@
    "license": "MIT",
    "slug": "honcho-ai-dsh-honcho",
    "platform": "any",
-   "testDate": "2026-10-09"
+   "testDate": "2026-10-09",
+   "bareNpm": "other"
   }
  ],
  "Desktop": [
@@ -161799,7 +161807,8 @@
    "license": "MIT",
    "slug": "bigbigtooth-dsh-devops",
    "platform": "any",
-   "testDate": "2026-10-09"
+   "testDate": "2026-10-09",
+   "bareNpm": "install-fail"
   },
   {
    "name": "dsh-session-resilience",
@@ -165777,7 +165786,8 @@
    "license": "Apache-2.0",
    "slug": "saya-ch-dsh-mobile",
    "platform": "any",
-   "testDate": "2026-10-09"
+   "testDate": "2026-10-09",
+   "bareNpm": "other"
   }
  ],
  "Browser": [
@@ -168381,7 +168391,8 @@
    "license": "MIT",
    "slug": "dsh-agnes-studio",
    "platform": "any",
-   "testDate": "2026-10-09"
+   "testDate": "2026-10-09",
+   "bareNpm": "other"
   }
  ],
  "Data": [
@@ -175240,7 +175251,8 @@
    "license": "MIT",
    "slug": "stmol-dsh-prompt-lib",
    "platform": "any",
-   "testDate": "2026-10-09"
+   "testDate": "2026-10-09",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-workspace-mover",
