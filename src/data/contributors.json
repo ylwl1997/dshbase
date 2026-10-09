@@ -234,6 +234,78 @@
   ]
  },
  {
+  "github": "xtd1145",
+  "avatar": "https://avatars.githubusercontent.com/u/220214673?v=4",
+  "plugins": [
+   {
+    "name": "dsh-deepseek-cost-live",
+    "slug": "dsh-deepseek-cost-live",
+    "npm": false,
+    "pkg": ""
+   },
+   {
+    "name": "dsh-full-access-switch",
+    "slug": "dsh-full-access-switch",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "zmm863-commits",
+  "avatar": "https://avatars.githubusercontent.com/u/317631128?v=4",
+  "plugins": [
+   {
+    "name": "dsh-agnes-studio",
+    "slug": "dsh-agnes-studio",
+    "npm": true,
+    "pkg": "dsh-agnes-studio"
+   },
+   {
+    "name": "dsh-client-ui-paopaocat",
+    "slug": "dsh-client-ui-paopaocat",
+    "npm": true,
+    "pkg": "dsh-client-ui-paopaocat"
+   }
+  ]
+ },
+ {
+  "github": "17897693",
+  "avatar": "https://avatars.githubusercontent.com/u/320908164?v=4",
+  "plugins": [
+   {
+    "name": "dsh-wen",
+    "slug": "dsh-wen",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "aigisx",
+  "avatar": "https://avatars.githubusercontent.com/u/10068803?v=4",
+  "plugins": [
+   {
+    "name": "dsh-plugin-whale-girl",
+    "slug": "dsh-plugin-whale-girl",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "ajspig",
+  "avatar": "https://avatars.githubusercontent.com/u/46900795?v=4",
+  "plugins": [
+   {
+    "name": "@honcho-ai/dsh-honcho",
+    "slug": "honcho-ai-dsh-honcho",
+    "npm": true,
+    "pkg": "@honcho-ai/dsh-honcho"
+   }
+  ]
+ },
+ {
   "github": "alloevil",
   "avatar": "https://avatars.githubusercontent.com/u/12680612?v=4",
   "plugins": [
@@ -246,6 +318,18 @@
   ]
  },
  {
+  "github": "baom1ng",
+  "avatar": "https://avatars.githubusercontent.com/u/45124989?v=4",
+  "plugins": [
+   {
+    "name": "dsh-desktop-archive-manager",
+    "slug": "dsh-desktop-archive-manager",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "bentong-chain",
   "avatar": "https://avatars.githubusercontent.com/u/143051734?v=4",
   "plugins": [
@@ -254,6 +338,30 @@
     "slug": "dsh-dir-tree",
     "npm": true,
     "pkg": "dsh-dir-tree"
+   }
+  ]
+ },
+ {
+  "github": "bigbigtooth",
+  "avatar": "https://avatars.githubusercontent.com/u/1501590?v=4",
+  "plugins": [
+   {
+    "name": "@bigbigtooth/dsh-devops",
+    "slug": "bigbigtooth-dsh-devops",
+    "npm": true,
+    "pkg": "@bigbigtooth/dsh-devops"
+   }
+  ]
+ },
+ {
+  "github": "bilibiliUID1480494301",
+  "avatar": "https://avatars.githubusercontent.com/u/152691848?v=4",
+  "plugins": [
+   {
+    "name": "dsh-relayhub-bridge",
+    "slug": "dsh-relayhub-bridge",
+    "npm": false,
+    "pkg": ""
    }
   ]
  },
@@ -282,6 +390,18 @@
   ]
  },
  {
+  "github": "ccch713",
+  "avatar": "https://avatars.githubusercontent.com/u/287207818?v=4",
+  "plugins": [
+   {
+    "name": "ddw-teams-panel",
+    "slug": "ddw-teams-panel",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "charrywhite",
   "avatar": "https://avatars.githubusercontent.com/u/35485042?v=4",
   "plugins": [
@@ -302,6 +422,18 @@
     "slug": "chenjie1129-dsh-remotion-video-plugin",
     "npm": false,
     "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "Clearailhc",
+  "avatar": "https://avatars.githubusercontent.com/u/30255218?v=4",
+  "plugins": [
+   {
+    "name": "clearai-dsh",
+    "slug": "clearai-dsh",
+    "npm": true,
+    "pkg": "clearai-dsh"
    }
   ]
  },
@@ -330,14 +462,38 @@
   ]
  },
  {
+  "github": "Dalizi2026",
+  "avatar": "https://avatars.githubusercontent.com/u/285649053?v=4",
+  "plugins": [
+   {
+    "name": "dsh-factory-provider",
+    "slug": "dsh-factory-provider",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "duhu2000",
   "avatar": "https://avatars.githubusercontent.com/u/10329118?v=4",
   "plugins": [
    {
     "name": "dsh-mcp-connector",
     "slug": "dsh-mcp-connector",
-    "npm": false,
-    "pkg": ""
+    "npm": true,
+    "pkg": "dsh-mcp-connector"
+   }
+  ]
+ },
+ {
+  "github": "DYF-zs",
+  "avatar": "https://avatars.githubusercontent.com/u/110611791?v=4",
+  "plugins": [
+   {
+    "name": "dsh-qboson-ising-solver",
+    "slug": "dsh-qboson-ising-solver",
+    "npm": true,
+    "pkg": "@dyf-zs/dsh-qboson-ising-solver"
    }
   ]
  },
@@ -390,6 +546,30 @@
   ]
  },
  {
+  "github": "hasan-aghayev",
+  "avatar": "https://avatars.githubusercontent.com/u/200437155?v=4",
+  "plugins": [
+   {
+    "name": "dsh-session-resilience",
+    "slug": "dsh-session-resilience",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "himetuki",
+  "avatar": "https://avatars.githubusercontent.com/u/94748099?v=4",
+  "plugins": [
+   {
+    "name": "dsh-NeoHorse-Jev-4B-plugin",
+    "slug": "dsh-NeoHorse-Jev-4B-plugin",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "HiNEM66",
   "avatar": "https://avatars.githubusercontent.com/u/92151998?v=4",
   "plugins": [
@@ -422,6 +602,18 @@
     "slug": "Martty",
     "npm": true,
     "pkg": "martty"
+   }
+  ]
+ },
+ {
+  "github": "huhu23333",
+  "avatar": "https://avatars.githubusercontent.com/u/107193644?v=4",
+  "plugins": [
+   {
+    "name": "dsh-plugin-subagent-model-route",
+    "slug": "dsh-plugin-subagent-model-route",
+    "npm": true,
+    "pkg": "dsh-plugin-subagent-model-route"
    }
   ]
  },
@@ -494,6 +686,18 @@
     "slug": "khalilhsu-dsh-ui-query-navigator",
     "npm": true,
     "pkg": "@khalilhsu/dsh-ui-query-navigator"
+   }
+  ]
+ },
+ {
+  "github": "kongshan-zhuyu",
+  "avatar": "https://avatars.githubusercontent.com/u/55699373?v=4",
+  "plugins": [
+   {
+    "name": "dsh-balance-quota",
+    "slug": "dsh-balance-quota",
+    "npm": true,
+    "pkg": "dsh-balance-quota"
    }
   ]
  },
@@ -618,6 +822,18 @@
   ]
  },
  {
+  "github": "nishuoyang",
+  "avatar": "https://avatars.githubusercontent.com/u/184843835?v=4",
+  "plugins": [
+   {
+    "name": "dsh-wallpaper-bg",
+    "slug": "dsh-wallpaper-bg",
+    "npm": true,
+    "pkg": "dsh-wallpaper-bg"
+   }
+  ]
+ },
+ {
   "github": "ohoyour",
   "avatar": "https://avatars.githubusercontent.com/u/73328479?v=4",
   "plugins": [
@@ -630,6 +846,18 @@
   ]
  },
  {
+  "github": "PianoPrince",
+  "avatar": "https://avatars.githubusercontent.com/u/74518377?v=4",
+  "plugins": [
+   {
+    "name": "dsh-workspace-mover",
+    "slug": "dsh-workspace-mover",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "sakikoTGW",
   "avatar": "https://avatars.githubusercontent.com/u/247183209?v=4",
   "plugins": [
@@ -638,6 +866,18 @@
     "slug": "pack-agent-dsh",
     "npm": true,
     "pkg": "@sakikotgw/pack-agent-dsh"
+   }
+  ]
+ },
+ {
+  "github": "saya-ch",
+  "avatar": "https://avatars.githubusercontent.com/u/225364157?v=4",
+  "plugins": [
+   {
+    "name": "saya-ch-dsh-mobile",
+    "slug": "saya-ch-dsh-mobile",
+    "npm": true,
+    "pkg": "dsh-mobile"
    }
   ]
  },
@@ -710,6 +950,18 @@
     "slug": "dsh-codex-tools",
     "npm": true,
     "pkg": "dsh-codex-tools"
+   }
+  ]
+ },
+ {
+  "github": "Stmol",
+  "avatar": "https://avatars.githubusercontent.com/u/740892?v=4",
+  "plugins": [
+   {
+    "name": "@stmol/dsh-prompt-lib",
+    "slug": "stmol-dsh-prompt-lib",
+    "npm": true,
+    "pkg": "@stmol/dsh-prompt-lib"
    }
   ]
  },
@@ -810,12 +1062,12 @@
   ]
  },
  {
-  "github": "xtd1145",
-  "avatar": "https://avatars.githubusercontent.com/u/220214673?v=4",
+  "github": "xgxx666",
+  "avatar": "https://avatars.githubusercontent.com/u/252213750?v=4",
   "plugins": [
    {
-    "name": "dsh-full-access-switch",
-    "slug": "dsh-full-access-switch",
+    "name": "dsh-clear-usage",
+    "slug": "dsh-clear-usage",
     "npm": false,
     "pkg": ""
    }
