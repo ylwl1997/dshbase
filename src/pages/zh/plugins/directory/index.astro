@@ -366,7 +366,7 @@ const COLORS = ['#4D6BFE', '#7c8cf8', '#8b5cf6', '#a78bfa', '#6366f1', '#93c5fd'
   const clearFilters = document.getElementById('clear-filters');
   const allCards = [...document.querySelectorAll('.pcard')];
 
-  let activeTab = 'all';
+  let activeTab = 'hot';
   let activeCat = null;
   let activeUc = null;
 
@@ -398,9 +398,12 @@ const COLORS = ['#4D6BFE', '#7c8cf8', '#8b5cf6', '#a78bfa', '#6366f1', '#93c5fd'
   });
 
   function applyFilters() {
-    catSections.hidden = activeTab !== 'all' && activeTab !== 'fav';
-    hotPanel.hidden = activeTab !== 'hot';
-    newPanel.hidden = activeTab !== 'new';
+    if (catSections) catSections.hidden = activeTab !== 'all' && activeTab !== 'fav';
+    // Without #cat-sections, 'all' means show both hub pools (hot+new)
+    const showBoth = activeTab === 'fav' || activeTab === 'all' && !catSections || !!(searchInput?.value || '').trim();
+    if (hotPanel) hotPanel.hidden = !(activeTab === 'hot' || showBoth);
+    if (newPanel) newPanel.hidden = !(activeTab === 'new' || showBoth);
+    if (showBoth && catSections) catSections.hidden = activeTab === 'fav' || !!(searchInput?.value || '').trim();
 
     const q = (searchInput?.value || '').trim().toLowerCase();
     const favMode = activeTab === 'fav';
@@ -421,7 +424,7 @@ const COLORS = ['#4D6BFE', '#7c8cf8', '#8b5cf6', '#a78bfa', '#6366f1', '#93c5fd'
       const hasVisible = grid ? [...grid.querySelectorAll('.pcard')].some((c) => !c.hidden) : false;
       h.hidden = !(show && hasVisible);
       if (grid) grid.hidden = h.hidden;
-      if (!catSections.hidden && !h.hidden) anyVisible = true;
+      if (catSections && !catSections.hidden && !h.hidden) anyVisible = true;
     });
 
     [hotPanel, newPanel].forEach((panel) => {
@@ -456,18 +459,21 @@ const COLORS = ['#4D6BFE', '#7c8cf8', '#8b5cf6', '#a78bfa', '#6366f1', '#93c5fd'
 
   chips.forEach((chip) => {
     chip.addEventListener('click', () => {
+      const catId = chip.dataset.cat;
+      if (!catSections) {
+        window.location.href = `/zh/plugins/directory/page/1/#${catId}`;
+        return;
+      }
       if (activeTab !== 'all' && activeTab !== 'fav') {
         activeTab = 'all';
         tabs.forEach((t) => t.classList.toggle('is-active', t.dataset.tab === 'all'));
       }
-      const catId = chip.dataset.cat;
       if (activeCat === catId) {
         activeCat = null;
         chips.forEach((c) => c.classList.remove('is-active'));
       } else {
         activeCat = catId;
         chips.forEach((c) => c.classList.toggle('is-active', c === chip));
-        // 分类与使用场景互斥：避免两者同时生效时交集为空
         activeUc = null;
         ucChips.forEach((c) => c.classList.remove('is-active'));
       }
@@ -508,6 +514,8 @@ const COLORS = ['#4D6BFE', '#7c8cf8', '#8b5cf6', '#a78bfa', '#6366f1', '#93c5fd'
     }
     applyFilters();
   });
+
+  applyFilters();
 
   // ⌘K 全站搜索已迁移到全局导航栏（src/components/Search.astro），此处不再重复挂载。
 
