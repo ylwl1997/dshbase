@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "include": ["/plugins/*", "/zh/plugins/*"],
+  "exclude": [
+    "/plugins",
+    "/plugins/",
+    "/plugins/directory",
+    "/plugins/directory/",
+    "/plugins/directory/*",
+    "/zh/plugins",
+    "/zh/plugins/",
+    "/zh/plugins/directory",
+    "/zh/plugins/directory/",
+    "/zh/plugins/directory/*"
+  ]
+}

@@ -3,19 +3,41 @@ import { renderPluginPage } from '../_data/render-plugin.js';
 
 const RESERVED = new Set(['directory', 'compare']);
 
+async function assetsOrNext(env, request) {
+  const url = new URL(request.url);
+  const candidates = [request];
+  // try trailing-slash variants — CF asset keys are picky
+  if (url.pathname.endsWith('/')) {
+    const u = new URL(url); u.pathname = u.pathname.replace(/\/$/, '') || '/';
+    candidates.push(new Request(u, request));
+  } else {
+    const u = new URL(url); u.pathname = u.pathname + '/';
+    candidates.push(new Request(u, request));
+  }
+  for (const req of candidates) {
+    const res = await env.ASSETS.fetch(req);
+    if (res.status !== 404) return res;
+  }
+  return null;
+}
+
 export async function onRequestGet(context) {
   const slug = context.params.slug;
   const { request, env } = context;
 
-  // Never shadow the directory / compare apps or real static HTML.
   if (RESERVED.has(slug)) {
-    return env.ASSETS.fetch(request);
+    const asset = await assetsOrNext(env, request);
+    if (asset) return asset;
+    // last resort: do not emit plain "Not found" — redirect to directory index path
+    return Response.redirect(new URL('/plugins/directory/', request.url), 302);
   }
 
-  const asset = await env.ASSETS.fetch(request);
-  if (asset.status !== 404) return asset;
+  const asset = await assetsOrNext(env, request);
+  if (asset) return asset;
 
   const p = fallback[slug];
-  if (!p) return new Response('Not found', { status: 404 });
+  if (!p) {
+    return Response.redirect(new URL('/plugins/directory/', request.url), 302);
+  }
   return renderPluginPage(p, 'en');
 }
