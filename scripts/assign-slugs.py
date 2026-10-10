@@ -15,40 +15,22 @@ from collections import defaultdict
 DB = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src', 'data', 'plugins.json'))
 
 
-def sanitize(name: str) -> str:
-    """URL-safe slug base: strip @scope/, ban path separators."""
-    import re
-    s = (name or 'plugin').strip().lstrip('@')
-    s = s.replace('/', '-')
-    s = re.sub(r'[^A-Za-z0-9._~-]+', '-', s)
-    s = re.sub(r'-{2,}', '-', s).strip('-')
-    return s or 'plugin'
-
-
 def main():
     d = json.load(open(DB, encoding='utf-8'))
     by_name = defaultdict(list)
     for cat, items in d.items():
         for p in items:
-            base = sanitize(p.get('name') or 'plugin')
-            by_name[base.lower()].append((cat, p, base))
+            by_name[p['name']].append((cat, p))
 
-    used = set()
-    for _key, group in by_name.items():
+    for name, group in by_name.items():
         # verified 优先，然后 stars 降序，最后 url 稳定（保证多次运行结果一致）
         group.sort(key=lambda cp: (
             0 if cp[1].get('test') == 'verified' else 1,
             -(cp[1].get('stars') or 0),
             cp[1].get('url') or '',
         ))
-        for i, (cat, p, base) in enumerate(group):
-            slug = base if i == 0 else f'{base}-{i + 1}'
-            cand, n = slug, 2
-            while cand.lower() in used:
-                cand = f'{base}-{n}'
-                n += 1
-            used.add(cand.lower())
-            p['slug'] = cand
+        for i, (cat, p) in enumerate(group):
+            p['slug'] = name if i == 0 else f'{name}-{i + 1}'
 
     json.dump(d, open(DB, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     total = sum(len(v) for v in d.values())

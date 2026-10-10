@@ -155,7 +155,7 @@ const COLORS = ['#4D6BFE', '#7c8cf8', '#8b5cf6', '#a78bfa', '#6366f1', '#93c5fd'
           </div>
         </div>
       </div>
-      <p class="eco-note">数据源：GitHub <code>dsh-plugin</code> topic 与社区目录 · 更新于 {syncDate.updated}</p>
+      <p class="eco-note">数据源：GitHub dsh-plugin topic + dsh.so 目录合并 · 更新于 {syncDate.updated}</p>
     </div>
     <div class="top-plugins">
       <div class="tp-head">🔥 按 Stars 热门 Top 10</div>
@@ -366,7 +366,7 @@ const COLORS = ['#4D6BFE', '#7c8cf8', '#8b5cf6', '#a78bfa', '#6366f1', '#93c5fd'
   const clearFilters = document.getElementById('clear-filters');
   const allCards = [...document.querySelectorAll('.pcard')];
 
-  let activeTab = 'hot';
+  let activeTab = 'all';
   let activeCat = null;
   let activeUc = null;
 
@@ -398,14 +398,9 @@ const COLORS = ['#4D6BFE', '#7c8cf8', '#8b5cf6', '#a78bfa', '#6366f1', '#93c5fd'
   });
 
   function applyFilters() {
-    if (catSections) catSections.hidden = activeTab !== 'all' && activeTab !== 'fav';
-    if (hotPanel) hotPanel.hidden = activeTab !== 'hot' && activeTab !== 'fav' && !(activeTab === 'all' && !catSections);
-    if (newPanel) newPanel.hidden = activeTab !== 'new' && activeTab !== 'fav' && !(activeTab === 'all' && !catSections);
-    if (activeTab === 'fav' || (searchInput?.value || '').trim()) {
-      if (hotPanel) hotPanel.hidden = false;
-      if (newPanel) newPanel.hidden = false;
-      if (catSections) catSections.hidden = true;
-    }
+    catSections.hidden = activeTab !== 'all' && activeTab !== 'fav';
+    hotPanel.hidden = activeTab !== 'hot';
+    newPanel.hidden = activeTab !== 'new';
 
     const q = (searchInput?.value || '').trim().toLowerCase();
     const favMode = activeTab === 'fav';
@@ -413,9 +408,8 @@ const COLORS = ['#4D6BFE', '#7c8cf8', '#8b5cf6', '#a78bfa', '#6366f1', '#93c5fd'
     allCards.forEach((card) => {
       const match = !q || (card.dataset.search || '').includes(q);
       const ucMatch = !activeUc || (card.dataset.ucs || '').split('|').includes(activeUc);
-      const catMatch = !activeCat || card.dataset.cat === activeCat;
       const favMatch = !favMode || favSet.has(card.dataset.slug);
-      const show = match && ucMatch && catMatch && favMatch;
+      const show = match && ucMatch && favMatch;
       card.hidden = !show;
       if (show) visibleCount++;
     });
@@ -427,7 +421,7 @@ const COLORS = ['#4D6BFE', '#7c8cf8', '#8b5cf6', '#a78bfa', '#6366f1', '#93c5fd'
       const hasVisible = grid ? [...grid.querySelectorAll('.pcard')].some((c) => !c.hidden) : false;
       h.hidden = !(show && hasVisible);
       if (grid) grid.hidden = h.hidden;
-      if (catSections && !catSections.hidden && !h.hidden) anyVisible = true;
+      if (!catSections.hidden && !h.hidden) anyVisible = true;
     });
 
     [hotPanel, newPanel].forEach((panel) => {
@@ -462,21 +456,18 @@ const COLORS = ['#4D6BFE', '#7c8cf8', '#8b5cf6', '#a78bfa', '#6366f1', '#93c5fd'
 
   chips.forEach((chip) => {
     chip.addEventListener('click', () => {
-      const catId = chip.dataset.cat;
-      if (!catSections) {
-        window.location.href = `/zh/plugins/directory/page/1/#${catId}`;
-        return;
-      }
       if (activeTab !== 'all' && activeTab !== 'fav') {
         activeTab = 'all';
         tabs.forEach((t) => t.classList.toggle('is-active', t.dataset.tab === 'all'));
       }
+      const catId = chip.dataset.cat;
       if (activeCat === catId) {
         activeCat = null;
         chips.forEach((c) => c.classList.remove('is-active'));
       } else {
         activeCat = catId;
         chips.forEach((c) => c.classList.toggle('is-active', c === chip));
+        // 分类与使用场景互斥：避免两者同时生效时交集为空
         activeUc = null;
         ucChips.forEach((c) => c.classList.remove('is-active'));
       }
@@ -517,8 +508,6 @@ const COLORS = ['#4D6BFE', '#7c8cf8', '#8b5cf6', '#a78bfa', '#6366f1', '#93c5fd'
     }
     applyFilters();
   });
-
-  applyFilters();
 
   // ⌘K 全站搜索已迁移到全局导航栏（src/components/Search.astro），此处不再重复挂载。
 
