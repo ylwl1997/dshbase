@@ -170,3 +170,11 @@ open(os.path.join(PUBLIC, 'sitemap-index.xml'), 'w', encoding='utf-8').write('\n
 open(os.path.join(PUBLIC, 'sitemap.xml'), 'w', encoding='utf-8').write('\n'.join(lines))
 
 print(f'sitemap-index: core={n_core} blog={n_blog} plugins_indexable={len(idx_plugins)} in {len(plugin_files)} files; bing_full={n_bing}; dir_pages={n_pages}')
+
+# Keep Pages Function fallback map in sync for non-SSG plugin slugs (CF 20k file cap).
+import subprocess, sys
+try:
+    subprocess.check_call([sys.executable, os.path.join(os.path.dirname(__file__), 'gen-plugin-fallback.py')])
+except Exception as e:
+    print('gen-plugin-fallback skipped:', e)
+
