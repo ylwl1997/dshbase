@@ -290,6 +290,15 @@ article img, .info img {
 .foot-brand { font-family: var(--font-display); font-weight: 800; font-size: 18px; margin: 0 0 8px; display: flex; align-items: center; gap: 9px; color: var(--ink); }
 .foot-brand strong { color: var(--primary); }
 .foot-logo { width: 24px; height: 24px; flex: none; border-radius: 6px; }
+.foot-related {
+  max-width: 1160px; margin: 0 auto; padding: 0 22px 8px;
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px;
+}
+.foot-related b {
+  color: var(--ink); font-size: 13px; text-transform: uppercase; letter-spacing: .05em;
+}
+.foot-related a { color: var(--ink-2); font-size: 13.5px; }
+.foot-related a:hover { color: var(--primary); }
 .foot-in { padding: 0 22px 26px; text-align: center; }
 
 /* ---------- status / misc ---------- */

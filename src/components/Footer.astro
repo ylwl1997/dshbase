@@ -5,9 +5,21 @@ interface Props { tagline: string; note: string }
 const { tagline, note } = Astro.props;
 const locale = Astro.currentLocale ?? 'en';
 const L = {
-  en: { guides: 'Guides', tutorial: 'Tutorial', install: 'Install', plugins: 'Plugins', troubleshooting: 'Troubleshooting', resources: 'Resources', directory: 'Plugin directory', packs: 'Packs', themes: 'Themes', contributors: 'Contributors', audit: 'Plugin audit', what: 'What is DSH', blog: 'Blog', vscode: 'vs Claude Code', about: 'About', contact: 'Contact', privacy: 'Privacy' },
-  zh: { guides: '指南', tutorial: '教程', install: '安装', plugins: '插件', troubleshooting: '排错', resources: '资源', directory: '插件目录', packs: '场景包', themes: '皮肤', contributors: '贡献者', audit: '插件审计', what: '什么是 DSH', blog: '博客', vscode: '对比 Claude Code', about: '关于', contact: '联系', privacy: '隐私' },
+  en: { guides: 'Guides', tutorial: 'Tutorial', install: 'Install', plugins: 'Plugins', troubleshooting: 'Troubleshooting', resources: 'Resources', directory: 'Plugin directory', packs: 'Packs', themes: 'Themes', contributors: 'Contributors', audit: 'Plugin audit', what: 'What is DSH', blog: 'Blog', vscode: 'vs Claude Code', about: 'About', contact: 'Contact', privacy: 'Privacy', related: 'Related', relatedNote: 'Unofficial community docs. Not affiliated with dshbase.' },
+  zh: { guides: '指南', tutorial: '教程', install: '安装', plugins: '插件', troubleshooting: '排错', resources: '资源', directory: '插件目录', packs: '场景包', themes: '皮肤', contributors: '贡献者', audit: '插件审计', what: '什么是 DSH', blog: '博客', vscode: '对比 Claude Code', about: '关于', contact: '联系', privacy: '隐私', related: '相关项目', relatedNote: '非官方社区指南。与本站无隶属关系。' },
 }[locale];
+/** Diversified dofollow anchors. Locale picks the matching rea.run language. */
+const related = locale === 'zh'
+  ? [
+      { href: 'https://rea.run/zh/', text: 'rea.run' },
+      { href: 'https://rea.run/zh/', text: '编程智能体逆向' },
+      { href: 'https://rea.run/zh/docs/install/', text: 'REA 安装指南' },
+    ]
+  : [
+      { href: 'https://rea.run/', text: 'rea.run' },
+      { href: 'https://rea.run/', text: 'agent reverse engineering' },
+      { href: 'https://rea.run/docs/install/', text: 'REA install guide' },
+    ];
 ---
 
 <footer class="foot">
@@ -43,6 +55,13 @@ const L = {
       <a href={getRelativeLocaleUrl(locale, '/contact/')}>{L.contact}</a>
       <a href={getRelativeLocaleUrl(locale, '/privacy/')}>{L.privacy}</a>
     </div>
+  </div>
+  <div class="wrap foot-related">
+    <b>{L.related}</b>
+    <span class="muted small">{L.relatedNote}</span>
+    {related.map((item) => (
+      <a href={item.href} target="_blank" rel="noopener">{item.text}</a>
+    ))}
   </div>
   <div class="wrap foot-in">
     <p class="muted small">{note}</p>
