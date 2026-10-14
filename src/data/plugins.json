@@ -129658,7 +129658,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "本地一个窗口，驱动你所有机器上的 dsh · Drive the dsh instances on your other machines from one local window",
    "desc_en": "本地一个窗口，驱动你所有机器上的 dsh · Drive the dsh instances on your other machines from one local window",
    "desc_zh": "本地一个窗口，驱动你所有机器上的 dsh：远端 dsh 的会话原生出现在本地侧栏并流式回流，远端用自己的凭据/工具干活，零远端改动、零依赖一条命令安装。与远程工作区类插件（dsh-remote 等）互补——远端没装 dsh 用它们，装了用本插件。",
@@ -129676,7 +129676,8 @@
    "depCount": 3,
    "depsOfficial": 3,
    "repoOwner": "6mt",
-   "_enriched": "2026-10-14|"
+   "_enriched": "2026-10-14|",
+   "testDate": "2026-10-14"
   },
   {
    "name": "@wulongxi/dsh-skills-hub",
@@ -129684,7 +129685,7 @@
    "pkg": "@wulongxi/dsh-skills-hub",
    "ver": "0.1.1",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "DeepSeek Harness (DSH) 技能中心插件 —— 原生 Web GUI 面板：搜索网络技能市场（SkillHub / skills.sh / GitHub）、一键安装到用户/项目根、管理与创建本地技能。npm: @wulongxi/dsh-skills-hub",
    "desc_en": "DeepSeek Harness (DSH) 技能中心插件 —— 原生 Web GUI 面板：搜索网络技能市场（SkillHub / skills.sh / GitHub）、一键安装到用户/项目根、管理与创建本地技能。npm: @wulongxi/dsh-skills-hub",
    "desc_zh": "",
@@ -129708,7 +129709,8 @@
    "depCount": 2,
    "depsOfficial": 1,
    "repoOwner": "WLX2007",
-   "_enriched": "2026-10-13|0.1.1"
+   "_enriched": "2026-10-13|0.1.1",
+   "testDate": "2026-10-14"
   },
   {
    "name": "dsh-mcp-design-toolbox",
@@ -129716,7 +129718,7 @@
    "pkg": "dsh-mcp-design-toolbox",
    "ver": "0.1.1",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "MCP servers that turn Lanhu design specs, Tencent CoDesign prototypes, and Shimo i18n sheets into structured data your AI coding agent can actually consume. 把蓝湖设计稿、CoDesign 原型、石墨翻译表转成 AI 编码 Agent 可直接消费的结构化数据。",
    "desc_en": "MCP servers that turn Lanhu design specs, Tencent CoDesign prototypes, and Shimo i18n sheets into structured data your AI coding agent can actually consume. 把蓝湖设计稿、CoDesign 原型、石墨翻译表转成 AI 编码 Agent 可直接消费的结构化数据。",
    "desc_zh": "把三个设计链路 MCP 一键接入 DeepSeek Harness——石墨翻译表（shimo-mcp）、蓝湖设计稿（lanhu-design-mcp，含视觉理解）、腾讯 CoDesign 原型转结构化需求文档（codesign-prd-mcp）",
@@ -129734,7 +129736,8 @@
    "depCount": 0,
    "depsOfficial": 0,
    "repoOwner": "awaygu",
-   "_enriched": "2026-10-10|0.1.1"
+   "_enriched": "2026-10-10|0.1.1",
+   "testDate": "2026-10-14"
   },
   {
    "name": "dsh-anagenesis",
@@ -129742,7 +129745,7 @@
    "pkg": "dsh-anagenesis",
    "ver": "0.2.1",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "dsh-anagenesis该插件是 DSH 上的可编程记忆编排层 + 自我进化引擎",
    "desc_en": "dsh-anagenesis该插件是 DSH 上的可编程记忆编排层 + 自我进化引擎",
    "desc_zh": "[dsh-anagenesis](https://github.com/3likofj/dsh-anagenesis/blob/README.md) 的桌面窗口，以及把这块窗口挂到界面上的三个入口。 一个 Loader 行、一份 dsh.client 客户端半、一个窗口 —— 三道门。",
@@ -129765,7 +129768,8 @@
    "depCount": 2,
    "depsOfficial": 2,
    "repoOwner": "3likofj",
-   "_enriched": "2026-10-11|0.2.1"
+   "_enriched": "2026-10-11|0.2.1",
+   "testDate": "2026-10-14"
   },
   {
    "name": "rea",
@@ -210924,7 +210928,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "",
    "desc_en": "",
    "desc_zh": "",
@@ -210939,7 +210943,8 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-custom-reasoning",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-10-14"
   },
   {
    "name": "research-agent-harness",
@@ -241362,7 +241367,8 @@
    "depCount": 10,
    "depsOfficial": 9,
    "repoOwner": "WYH66666666",
-   "_enriched": "2026-08-22|"
+   "_enriched": "2026-08-22|",
+   "testDate": "2026-10-14"
   },
   {
    "name": "engramory",
@@ -269767,7 +269773,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "Aqua glassmorphism theme plugin for DeepSeek Harness (DSH v0.2.x / desktop v0.22.3+) — original by WYH66666666, adapted for 0.2.x",
    "desc_en": "Aqua glassmorphism theme plugin for DeepSeek Harness (DSH v0.2.x / desktop v0.22.3+) — original by WYH66666666, adapted for 0.2.x",
    "desc_zh": "DSH 网页端玻璃拟态（Aqua）主题的 0.2.x 适配版：顶栏、侧边栏、输入框、统计行、轨迹视图悬浮在 WebGL 流体板或图片/视频壁纸上的磨砂玻璃片；云母 / 兼容双布局；模糊、磨砂、色调、亮度可调；粒子鲸鱼等海洋装饰；一键恢复默认；总开关关闭即完全还原原生界面。本仓库是 WYH66666666 原作（Aqua）在 DSH 0.2.x 时代的活跃维护适配版，已在 README 标注原作者、修改内容与日期（2026-10），沿用上游 AGPL-3.0 许可。",
@@ -269782,7 +269788,8 @@
    "slug": "DSH-Transparent-UI-Plugin",
    "platform": "any",
    "trust": "Silver",
-   "ucs": []
+   "ucs": [],
+   "testDate": "2026-10-14"
   },
   {
    "name": "dsh-deepseek-web-relay",
@@ -269790,7 +269797,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DSH (DeepSeek Harness) 插件：在左侧边栏加原生菜单项打开 chat.deepseek.com（独立窗口 + 登录态持久化），并支持 DSH 与网页端双向划词互传（基于 CDP）。",
    "desc_en": "DSH (DeepSeek Harness) 插件：在左侧边栏加原生菜单项打开 chat.deepseek.com（独立窗口 + 登录态持久化），并支持 DSH 与网页端双向划词互传（基于 CDP）。",
    "desc_zh": "在 DSH（DeepSeek Harness）左侧边栏添加一个原生菜单项，一键打开 chat.deepseek.com 独立浏览器窗口（登录一次长期保留），并让 DSH 与网页端之间可以直接互传文字与对话上下文。\n\n**主要功能**\n\n- **一键直达** —— 左侧边栏原生菜单项，点击即在独立窗口中打开 chat.deepseek.com，窗口已存在时切回前台；登录态持久化，不用每次重新登录。\n- **双向划词互传** —— 在 DSH 里选中文字，一键送进网页端输入框；在网页端选中文字，一键接力回 DSH 输入框。\n- **一键分支新对话** —— 网页端每条 AI 回复末尾有「↪ 分支到",
@@ -269803,7 +269810,8 @@
    "added": "2026-10-14T17:26:30",
    "license": "MIT",
    "slug": "dsh-deepseek-web-relay",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-10-14"
   },
   {
    "name": "dsh-output-setting",
@@ -269811,7 +269819,7 @@
    "pkg": "dsh-output-setting",
    "ver": "1.0.0",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "DSH output settings plugin: auto-expand reasoning/tool nodes, code block font size & line height, model output language (auto/Chinese/English)",
    "desc_en": "DSH output settings plugin: auto-expand reasoning/tool nodes, code block font size & line height, model output language (auto/Chinese/English)",
    "desc_zh": "把「过程节点怎么展开、代码块多大、模型用什么语言回答」集中到一个配置页：自动展开思考与工具调用节点、实时调整代码块字号与行距、指定模型输出语言（自动跟随界面 / 中文 / English），全部改动实时生效、无需重启。",
@@ -269826,7 +269834,8 @@
    "slug": "dsh-output-setting",
    "platform": "any",
    "trust": "Gold",
-   "ucs": []
+   "ucs": [],
+   "testDate": "2026-10-14"
   },
   {
    "name": "cute-fat-fish-pet",
@@ -269834,7 +269843,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "蓝毛小女仆 (Blue-Haired Little Maid) · 住在 Windows 桌面上的 Q 版蓝发小女仆桌面宠物：106 个手绘透明动画、本地 Ollama 或在线模型陪聊、可选看屏幕吐槽、离线语音识别（安装器与便携版）。免费开源 MIT。同时是 DeepSeek Harness 桌面宠物插件（dsh-plugin）。By Mikolu.",
    "desc_en": "蓝毛小女仆 (Blue-Haired Little Maid) · 住在 Windows 桌面上的 Q 版蓝发小女仆桌面宠物：106 个手绘透明动画、本地 Ollama 或在线模型陪聊、可选看屏幕吐槽、离线语音识别（安装器与便携版）。免费开源 MIT。同时是 DeepSeek Harness 桌面宠物插件（dsh-plugin）。By Mikolu.",
    "desc_zh": "住在 DSH Web UI 上的 Q 版蓝发小女仆桌宠：自带 106 个手绘透明动画（发呆 / 挥手 / 打瞌睡 / 被落叶淹没 / 抛接三球 / 偷吃零食被抓住 …），会在界面里慢慢走动，被点击时有反应并说碎碎念。可选功能：接本地 Ollama 或 DSH 在线模型陪聊、看屏幕吐槽。除「陪聊」外都不需要账号、不需要联网；宠物资源随插件一起安装，无外部服务、无数据库。",
@@ -269847,7 +269856,8 @@
    "added": "2026-10-14T17:27:15",
    "license": "MIT",
    "slug": "cute-fat-fish-pet",
-   "platform": "any"
+   "platform": "any",
+   "testDate": "2026-10-14"
   },
   {
    "name": "awesome-dsh-plugin",
@@ -328973,7 +328983,7 @@
    "pkg": "dsh-memory-snapshot",
    "ver": "0.3.0",
    "npm": true,
-   "test": "pending",
+   "test": "verified",
    "desc": "零依赖 DeepSeek Harness 插件：让本地 markdown 成为 dsh 的长期记忆",
    "desc_en": "零依赖 DeepSeek Harness 插件：让本地 markdown 成为 dsh 的长期记忆",
    "desc_zh": "把本地已有的 markdown 文档（笔记、规则、知识库仓库）按路径清单注入 dsh 每个会话的系统提示词，当只读记忆——零依赖：无数据库、无服务、无写入通道，文档原地不动。支持文件与目录路径（`dirDepth` 控制递归）、UTF-8 字节预算截断（单文件 + 总额度）、YAML front-matter 剥离、快照新鲜度时间戳（生成时间 + 各文件 mtime）、缺失路径静默跳过；每次装配实",
@@ -328991,7 +329001,8 @@
    "ucs": [
     "Memory",
     "File"
-   ]
+   ],
+   "testDate": "2026-10-14"
   },
   {
    "name": "WeKnora",
@@ -439944,7 +439955,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "deepseek harness 第三方模型推理强度选择",
    "desc_en": "deepseek harness 第三方模型推理强度选择",
    "desc_zh": "自动给官方没有推理强度(Effort)选项的第三方模型补上标准五档推理等级，补完后由 DSH 官方推理等级选择器接管。",
@@ -439959,7 +439970,8 @@
    "slug": "dsh-custom-reasoning",
    "platform": "any",
    "trust": "Gold",
-   "ucs": []
+   "ucs": [],
+   "testDate": "2026-10-14"
   },
   {
    "name": "@reactive-resume/reactive-resume",
@@ -457287,7 +457299,7 @@
    "pkg": "",
    "ver": "",
    "npm": false,
-   "test": "pending",
+   "test": "verified",
    "desc": "DSH 技能：情侣向睡前陪伴。一句温柔情话 → 一个谐音梗猜谜小故事 → 一句温柔晚安。131 条谐音词对、43 个落点，纯 Markdown、零依赖。",
    "desc_en": "DSH 技能：情侣向睡前陪伴。一句温柔情话 → 一个谐音梗猜谜小故事 → 一句温柔晚安。131 条谐音词对、43 个落点，纯 Markdown、零依赖。",
    "desc_zh": "一个**情侣向的睡前陪伴技能**：按「一句温柔情话 → 一个谐音梗猜谜小故事 → 一句温柔晚安」三段式输出。\n\n内含 **131 条谐音词对**（按 43 个落点分组，标了声调档位，其中 62 条为读音全同的\"一档\"）、5 篇排比句式成稿与反面对照表、11 词书面腔禁词表。纯 Markdown 技能 + 一个只做技能装载的 bundle 插件（不注册任何工具）。\n\n**零依赖、无网络请求、无凭据**：插件仅使用 `node:fs/promises` 与 `node:url` 两个 Node 内置模块。",
@@ -457302,7 +457314,8 @@
    "slug": "wen-wanan",
    "platform": "any",
    "trust": "Gold",
-   "ucs": []
+   "ucs": [],
+   "testDate": "2026-10-14"
   },
   {
    "name": "open-design",
