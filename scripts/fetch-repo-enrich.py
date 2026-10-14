@@ -13,6 +13,7 @@
   plugins.json 写回 contributors / depsOfficial / repoOwner 字段
 
 限流: --limit N 默认 100；已拉取且有 updatedAt 的跳过（--force 重拉）。
+  --slugs a,b,c  只富化这些 slug（优先 backlog / issue-ingest）。
 """
 import argparse
 import json
@@ -223,6 +224,8 @@ def main():
     ap.add_argument("--limit", type=int, default=100)
     ap.add_argument("--start", type=int, default=0)
     ap.add_argument("--force", action="store_true")
+    ap.add_argument("--slugs", type=str, default="",
+                    help="Comma-separated slugs to enrich preferentially (filter queue to these)")
     args = ap.parse_args()
 
     db = json.load(open(DATA, encoding="utf-8"))
@@ -235,8 +238,16 @@ def main():
         for p in items:
             allp.append(p)
     pending = [p for p in allp if _needs_enrich(p, readmes, args.force)]
+    slug_filter = {s.strip() for s in args.slugs.split(",") if s.strip()}
+    if slug_filter:
+        pending = [p for p in pending if p.get("slug") in slug_filter]
+        # also include already-enriched if force not set but missing from readmes
+        if not args.force:
+            have = set(readmes)
+            extra = [p for p in allp if p.get("slug") in slug_filter and p.get("slug") not in have and p not in pending]
+            pending = extra + pending
     queue = pending[args.start:args.start + args.limit]
-    print(f"catalog={len(allp)} pending={len(pending)} this_run={len(queue)} (start={args.start} limit={args.limit})", flush=True)
+    print(f"catalog={len(allp)} pending={len(pending)} this_run={len(queue)} (start={args.start} limit={args.limit} slugs={sorted(slug_filter) or 'ALL'})", flush=True)
 
     done = 0
     for i, p in enumerate(queue, 1):
