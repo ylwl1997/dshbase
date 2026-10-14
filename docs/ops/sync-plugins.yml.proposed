@@ -1,0 +1,90 @@
+name: Daily plugin sync (dsh.so primary)
+
+# Primary: dsh.so search-index → plugins.json
+# Supplement: GitHub topic dsh-plugin, hot repos only (stars >= 100)
+# Cadence: keep ~04:17 UTC; topic supplement also weekly Sunday 05:17 UTC
+
+on:
+  schedule:
+    - cron: '17 4 * * *'   # daily primary (dsh.so + optional topic)
+    - cron: '17 5 * * 0'   # weekly topic-focused supplement (Sunday)
+  workflow_dispatch:
+    inputs:
+      skip_topic:
+        description: 'Skip GitHub topic supplement'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+      dshso_no_add:
+        description: 'dsh.so refresh only (do not add new repos)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install marked (README renderer)
+        run: npm install marked
+
+      - name: Sync from dsh.so (primary)
+        run: |
+          set -euo pipefail
+          EXTRA=()
+          if [ "${{ github.event.inputs.dshso_no_add || 'false' }}" = "true" ]; then
+            EXTRA+=(--no-add)
+          fi
+          python scripts/sync-dshso.py "${EXTRA[@]}"
+          python scripts/gen-repos.py
+          python scripts/gen-sitemap.py
+          python scripts/gen-badges.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Topic supplement (hot repos, stars >= 100)
+        if: ${{ github.event.inputs.skip_topic != 'true' }}
+        run: |
+          set -euo pipefail
+          # Daily job still runs topic with filter; weekly cron is the same script.
+          python scripts/sync-topic.py
+          python scripts/fetch-contributors.py > /tmp/contributors.log 2>&1 || true
+          python scripts/fetch-repo-enrich.py --limit 500 >> /tmp/contributors.log 2>&1 || true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/plugins.json src/data/sync-date.json \
+            functions/api/repos.js functions/badges/data.js \
+            public/sitemap.xml public/sitemap-index.xml \
+            public/sitemap-core.xml public/sitemap-blog.xml \
+            public/sitemap-plugins-*.xml public/sitemap-bing-full.xml \
+            src/data/contributors.json src/data/readmes.json || true
+          if git diff --cached --quiet; then
+            echo "no change"
+          else
+            git commit -m "chore: daily sync ($(date -u +%Y-%m-%d))"
+            git push
+          fi

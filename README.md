@@ -21,9 +21,13 @@
 
 ## 🔌 Data source
 
-Sourced from the official **[GitHub `dsh-plugin` topic](https://github.com/topics/dsh-plugin)** — not any third-party snapshot. A daily sync refreshes stars, forks, language, and archive status.
+**Primary (daily):** [dsh.so](https://www.dsh.so/) `search-index.json` via `scripts/sync-dshso.py` — refreshes catalog metadata and can add new repos. We trust the upstream feed (no separate screening pass); public pages still use dshbase’s existing verify UX (`test` / Verified badge).
 
-> Honest note: the raw topic contains some repos that merely tag `dsh-plugin` for visibility. We keep a curated list of real plugins, while refreshing the data (stars, etc.) from the official topic.
+**Supplement (hot only):** GitHub topic [`dsh-plugin`](https://github.com/topics/dsh-plugin) via `scripts/sync-topic.py` — **stars ≥ 100** only. Lower-star topic repos are skipped (logged).
+
+**Dedup:** same GitHub repository identity only (canonical `owner/repo`, normalizing scheme, `.git`, trailing slash, case). Matching display names alone are not duplicates.
+
+> Honest note: the topic still contains tag-squatting repos. The topic path only touches especially popular ones; listing growth mainly follows dsh.so + issue submissions.
 
 ## 🛠️ Tech stack
 
@@ -37,7 +41,7 @@ Two GitHub Actions workflows keep the directory fresh every day:
 
 | Bot | When | What it does |
 |---|---|---|
-| 🔄 **Sync** `sync-topic.yml` | daily 04:17 UTC | refreshes stars/forks/language from the official topic |
+| 🔄 **Sync** `sync-plugins.yml` | daily 04:17 UTC (+ weekly topic Sun 05:17 UTC) | primary: dsh.so → `plugins.json`; supplement: topic repos with stars ≥ 100 |
 | 🧪 **Health-check** `compat-check.yml` | daily 03:23 UTC | installs each npm plugin and upgrades verified status (never downgrades) |
 
 ## 📮 Submit a plugin
@@ -61,8 +65,8 @@ npm run build     # outputs to dist/
 Scripts in `scripts/` (require `GITHUB_TOKEN`, some also `DEEPSEEK_API_KEY`):
 
 ```bash
-# verify + ingest one plugin (global dedup by name/repo)
-python scripts/ingest-plugin.py https://github.com/owner/repo --category "Tools & Capabilities"
+# verify + ingest one plugin (dedup by canonical GitHub repo only)
+python scripts/ingest-plugin.py https://github.com/owner/repo --category "Developer"
 
 # Hub catalog as *clues only* → ingest pending (never auto-verified)
 python scripts/import-hub-candidates.py              # dry-run top gaps
@@ -71,8 +75,10 @@ python scripts/import-hub-candidates.py --ingest --limit 20
 # export lightweight in-DSH catalog (+ verified-only packs)
 python scripts/gen-catalog.py /path/to/dshbase-catalog/src/catalog.json
 
-# refresh stars from the official topic
-python scripts/sync-topic.py
+# primary daily sync from dsh.so (use --dry-run / --no-add / --max-add N for smoke)
+python scripts/sync-dshso.py --dry-run
+# supplemental topic sync — hot repos only (stars >= 100)
+python scripts/sync-topic.py --dry-run
 ```
 
 In-DSH discovery: install `dsh plugin add dshbase-catalog` — see [docs/dshbase-catalog.md](docs/dshbase-catalog.md). Scene packs (verified-only): `/packs/`.

@@ -72,6 +72,42 @@
   ]
  },
  {
+  "github": "17897693",
+  "avatar": "https://avatars.githubusercontent.com/u/320908164?v=4",
+  "plugins": [
+   {
+    "name": "dsh-wen",
+    "slug": "dsh-wen",
+    "npm": false,
+    "pkg": ""
+   },
+   {
+    "name": "wen-wanan",
+    "slug": "wen-wanan",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "3likofj",
+  "avatar": "https://avatars.githubusercontent.com/u/285413565?v=4",
+  "plugins": [
+   {
+    "name": "dsh-anagenesis",
+    "slug": "dsh-anagenesis",
+    "npm": true,
+    "pkg": "dsh-anagenesis"
+   },
+   {
+    "name": "dsh-custom-reasoning",
+    "slug": "dsh-custom-reasoning",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "dawsondx",
   "avatar": "https://avatars.githubusercontent.com/u/50289626?v=4",
   "plugins": [
@@ -270,12 +306,36 @@
   ]
  },
  {
-  "github": "17897693",
-  "avatar": "https://avatars.githubusercontent.com/u/320908164?v=4",
+  "github": "12we21",
+  "avatar": "https://avatars.githubusercontent.com/u/199404849?v=4",
   "plugins": [
    {
-    "name": "dsh-wen",
-    "slug": "dsh-wen",
+    "name": "cute-fat-fish-pet",
+    "slug": "cute-fat-fish-pet",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "6mt",
+  "avatar": "https://avatars.githubusercontent.com/u/52192316?v=4",
+  "plugins": [
+   {
+    "name": "dsh-control",
+    "slug": "dsh-control",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "acdsh4869",
+  "avatar": "https://avatars.githubusercontent.com/u/334112917?v=4",
+  "plugins": [
+   {
+    "name": "dsh-deepseek-web-relay",
+    "slug": "dsh-deepseek-web-relay",
     "npm": false,
     "pkg": ""
    }
@@ -314,6 +374,18 @@
     "slug": "dsh-xray",
     "npm": true,
     "pkg": "dsh-xray"
+   }
+  ]
+ },
+ {
+  "github": "awaygu",
+  "avatar": "https://avatars.githubusercontent.com/u/54172372?v=4",
+  "plugins": [
+   {
+    "name": "dsh-mcp-design-toolbox",
+    "slug": "dsh-mcp-design-toolbox",
+    "npm": true,
+    "pkg": "dsh-mcp-design-toolbox"
    }
   ]
  },
@@ -1050,6 +1122,18 @@
   ]
  },
  {
+  "github": "WLX2007",
+  "avatar": "https://avatars.githubusercontent.com/u/140959173?v=4",
+  "plugins": [
+   {
+    "name": "@wulongxi/dsh-skills-hub",
+    "slug": "wulongxi-dsh-skills-hub",
+    "npm": true,
+    "pkg": "@wulongxi/dsh-skills-hub"
+   }
+  ]
+ },
+ {
   "github": "wuykjl",
   "avatar": "https://avatars.githubusercontent.com/u/131710423?v=4",
   "plugins": [
@@ -1074,6 +1158,18 @@
   ]
  },
  {
+  "github": "yijiezhong",
+  "avatar": "https://avatars.githubusercontent.com/u/823156?v=4",
+  "plugins": [
+   {
+    "name": "dsh-output-setting",
+    "slug": "dsh-output-setting",
+    "npm": true,
+    "pkg": "dsh-output-setting"
+   }
+  ]
+ },
+ {
   "github": "YOGEMOW",
   "avatar": "https://avatars.githubusercontent.com/u/103344974?v=4",
   "plugins": [
@@ -1094,6 +1190,18 @@
     "slug": "dsh-usage-lens",
     "npm": true,
     "pkg": "@yokesky/dsh-usage-lens"
+   }
+  ]
+ },
+ {
+  "github": "yzx4036",
+  "avatar": "https://avatars.githubusercontent.com/u/9145458?v=4",
+  "plugins": [
+   {
+    "name": "dsh-memory-snapshot",
+    "slug": "dsh-memory-snapshot",
+    "npm": true,
+    "pkg": "dsh-memory-snapshot"
    }
   ]
  },

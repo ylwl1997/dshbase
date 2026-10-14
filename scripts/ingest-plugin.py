@@ -6,7 +6,7 @@
       --category "UI Enhancements" --npm "@scope/pkg" --desc-zh "中文描述"
 
 - 验证：仓库存在 / dsh-plugin topic / LICENSE / bundle 清单（cordis.patch.yml 等，递归查子目录支持 monorepo）
-- 收录：写入 src/data/plugins.json，全局去重（按 name 和 repo）
+- 收录：写入 src/data/plugins.json，全局去重（仅按 canonical GitHub owner/repo；同名不同仓不算重复）
 - 输出：--json 时输出 JSON 结果供自动化使用，否则打印人类可读文本
 
 退出码：0=收录/已存在，1=拒绝（缺条件）
@@ -222,14 +222,38 @@ def run_verify(name, src):
         return (False, f'verify-error: {e}')
 
 
+def canonical_repo(url_or_key):
+    """Normalize to lowercase owner/repo. Dedup identity is repo only (not display name)."""
+    if not url_or_key:
+        return None
+    s = str(url_or_key).strip()
+    m = re.search(
+        r"(?:https?://)?(?:www\.)?github\.com/([^/\s?#]+)/([^/\s?#]+)",
+        s,
+        re.I,
+    )
+    if m:
+        owner, repo = m.group(1), m.group(2)
+    else:
+        m = re.match(r"^([^/\s]+)/([^/\s]+)$", s)
+        if not m:
+            return None
+        owner, repo = m.group(1), m.group(2)
+    owner = owner.strip("/")
+    repo = repo.removesuffix(".git").rstrip("/").strip("/")
+    if not owner or not repo:
+        return None
+    return f"{owner}/{repo}".lower()
+
+
 def find_existing(db, name, url):
-    """全局查重：按 name（小写）或 repo 是否已存在。"""
-    target_repo = parse_repo(url)
+    """全局查重：仅按 canonical GitHub owner/repo。同名不同仓不算重复。"""
+    target_repo = canonical_repo(url) or canonical_repo(parse_repo(url) or "")
+    if not target_repo:
+        return None
     for items in db.values():
         for p in items:
-            if p["name"].lower() == name.lower():
-                return p
-            if target_repo and parse_repo(p.get("url")) == target_repo.lower():
+            if canonical_repo(p.get("url")) == target_repo:
                 return p
     return None
 
