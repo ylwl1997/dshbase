@@ -183,3 +183,12 @@ print(
     f'(slugs={len(REDIRECTED)})'
 )
 assert 'flowix' in REDIRECTED, 'flowix must be excluded via _redirects'
+
+
+# Keep Pages Function fallback map in sync for non-SSG plugin slugs (CF 20k file cap).
+import subprocess, sys
+try:
+    subprocess.check_call([sys.executable, os.path.join(os.path.dirname(__file__), 'gen-plugin-fallback.py')])
+except Exception as e:
+    print('gen-plugin-fallback skipped:', e)
+

@@ -17,3 +17,6 @@ dist/
 /after-327.json
 /old-plugins.json
 /restore-meta.json
+
+# Generated at deploy (CF Pages Functions on-demand map)
+functions/_data/plugin-fallback.js
