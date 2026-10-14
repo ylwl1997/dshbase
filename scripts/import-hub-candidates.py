@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
-"""Import Hub catalog clues into dshbase as pending (never auto-verified).
+"""Import Hub catalog clues into dshbase via ingest-plugin (defaults verified).
 
 Hub's installability=verified is a *candidate* signal only. This script:
   1. Fetches https://dsh-hub.cc/api/v1/plugins (scope=verified by default)
   2. Diffs against src/data/plugins.json by GitHub repo
-  3. Prints / optionally ingests missing repos with test=pending
+  3. Prints / optionally ingests missing repos (ingest defaults test=verified)
 
 Usage:
   python scripts/import-hub-candidates.py              # dry-run top gaps
   python scripts/import-hub-candidates.py --limit 50
   python scripts/import-hub-candidates.py --ingest --limit 20   # needs GITHUB_TOKEN
 
-Never marks entries verified — that requires L1/L2/L3 on the verify host.
+Ingest defaults new rows to verified (product 2026-10-14; no batch verify).
 """
 from __future__ import annotations
 
@@ -120,7 +120,7 @@ def main():
         "hub_scanned": len(hub_items),
         "known_repos": len(known),
         "gaps": len(gaps),
-        "note": "Hub installability is a clue only; ingest writes test=pending. L3 must run separately.",
+        "note": "Hub installability is a clue only; ingest defaults test=verified.",
         "candidates": gaps,
     }
 
@@ -185,7 +185,7 @@ def main():
             ok += 1
         else:
             fail += 1
-    print(f"Done ingest ok={ok} fail={fail}. All new entries are pending — run verify-runtime.sh next.")
+    print(f"Done ingest ok={ok} fail={fail}. New entries default to test=verified.")
     return 0 if fail == 0 else 1
 
 

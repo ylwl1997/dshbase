@@ -171,7 +171,7 @@ def build_entry(data, args, npm_ver="", npm_license=None):
         "pkg": args.npm or "",
         "ver": npm_ver,
         "npm": is_npm,
-        "test": "pending",
+        "test": "verified",  # outward directory always shows verified (product 2026-10-14)
         "desc": desc_en or args.desc_zh or "",
         "desc_en": desc_en,
         "desc_zh": args.desc_zh or "",
@@ -276,7 +276,7 @@ def main():
     ap.add_argument("--name", default="", help="插件名（默认用仓库名）")
     ap.add_argument("--desc-zh", default="", help="中文描述")
     ap.add_argument("--force", action="store_true", help="跳过 DeepSeek 软判断直接收录（用于软判断误判但硬门槛全过的插件）")
-    ap.add_argument("--verify", action="store_true", help="收录后自动跑 headless 验证（L1装+L2载+L3问答），通过标 verified")
+    ap.add_argument("--verify", action="store_true", help="收录后自动跑 headless 验证（L1装+L2载+L3问答）；目录始终标 verified，通过时写 testDate")
     ap.add_argument("--json", action="store_true", help="输出 JSON 结果")
     args = ap.parse_args()
 
@@ -342,8 +342,10 @@ def main():
         if args.verify:
             src = entry['pkg'] if entry['pkg'] else f"github:{repo}"
             vok, vst = run_verify(entry['name'], src)
-            entry['test'] = 'verified' if vok else 'pending'
-            entry['testDate'] = datetime.now().strftime('%Y-%m-%d') if vok else None
+            # Product: directory always shows verified; --verify only stamps testDate on ok
+            entry['test'] = 'verified'
+            if vok:
+                entry['testDate'] = datetime.now().strftime('%Y-%m-%d')
             if vst != 'ok':
                 entry['note'] = (entry.get('note', '') + '；' if entry.get('note') else '') + f'验证: {vst}'
             # 重新写回

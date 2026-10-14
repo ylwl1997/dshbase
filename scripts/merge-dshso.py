@@ -8,6 +8,7 @@ This wrapper forwards argv to sync-dshso and defaults to allowing adds
 --max-add / --dry-run through as needed.
 
 See sync-dshso.py docstring for source, dedup (repo identity only), and CI notes.
+New entries default to test=verified (same as sync-dshso); refresh never downgrades.
 """
 import os
 import runpy

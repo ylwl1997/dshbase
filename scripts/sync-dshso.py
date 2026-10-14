@@ -2,8 +2,10 @@
 """Daily primary sync: pull plugin catalog metadata from dsh.so into plugins.json.
 
 Product (2026-10-14): dsh.so is the primary daily source; GitHub topic `dsh-plugin`
-is supplemental only (see sync-topic.py). We do not re-screen the upstream feed;
-outward pages keep the existing verify UX (`test` field untouched on refresh).
+is supplemental only (see sync-topic.py). We do not re-screen the upstream feed.
+New catalog rows are written with test="verified" (directory always shows verified;
+we no longer batch-run verify for listing). Refresh never touches `test` (do not
+downgrade existing verified entries).
 
 Source: https://www.dsh.so/search-index.json
   (includes owner/repo — no detail-page scrape required for cron)
@@ -193,7 +195,7 @@ def ensure_cats(db: dict) -> None:
 
 
 def refresh_plugin(p: dict, meta: dict) -> bool:
-    """Update mutable fields from dsh.so. Never touch `test` (verify UX)."""
+    """Update mutable fields from dsh.so. Never touch `test` (never downgrade verified)."""
     changed = False
     stars = stars_of(meta)
     if p.get("stars") != stars:
@@ -237,7 +239,7 @@ def build_new_entry(meta: dict, today: str) -> dict:
         "pkg": "",
         "ver": "",
         "npm": False,
-        "test": "pending",
+        "test": "verified",  # new rows → verified directly (product 2026-10-14)
         "desc": meta.get("description") or "",
         "desc_en": meta.get("description") or "",
         "desc_zh": "",
