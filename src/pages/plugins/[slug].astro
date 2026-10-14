@@ -6,6 +6,7 @@ import security from '../../data/security.json';
 import { demoteReadmeHeadings } from '../../lib/plugin-index.js';
 import { withCfEmailOff, cfSafeTextHtml, looksLikeEmail } from '../../lib/email-off.js';
 import readmes from '../../data/readmes.json';
+import { enStaticPaths } from '../../lib/ssg-plugins.js';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -22,9 +23,7 @@ try {
 } catch {}
 
 export function getStaticPaths() {
-  return Object.entries(plugins).flatMap(([cat, items]) =>
-    items.map((p) => ({ params: { slug: p.slug ?? p.name }, props: { cat, p } }))
-  );
+  return enStaticPaths();
 }
 
 const { cat, p } = Astro.props;
