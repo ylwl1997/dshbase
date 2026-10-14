@@ -210944,7 +210944,12 @@
    "trust": "Gold",
    "slug": "dsh-custom-reasoning",
    "platform": "any",
-   "testDate": "2026-10-14"
+   "testDate": "2026-10-14",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "gao-gao-zai",
+   "_enriched": "|"
   },
   {
    "name": "research-agent-harness",
@@ -269811,7 +269816,12 @@
    "license": "MIT",
    "slug": "dsh-deepseek-web-relay",
    "platform": "any",
-   "testDate": "2026-10-14"
+   "testDate": "2026-10-14",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "acdsh4869",
+   "_enriched": "2026-10-10|"
   },
   {
    "name": "dsh-output-setting",
@@ -269835,7 +269845,12 @@
    "platform": "any",
    "trust": "Gold",
    "ucs": [],
-   "testDate": "2026-10-14"
+   "testDate": "2026-10-14",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "yijiezhong",
+   "_enriched": "2026-10-09|1.0.0"
   },
   {
    "name": "cute-fat-fish-pet",
@@ -269857,7 +269872,12 @@
    "license": "MIT",
    "slug": "cute-fat-fish-pet",
    "platform": "any",
-   "testDate": "2026-10-14"
+   "testDate": "2026-10-14",
+   "contributors": 2,
+   "depCount": 12,
+   "depsOfficial": 9,
+   "repoOwner": "12we21",
+   "_enriched": "2026-10-10|"
   },
   {
    "name": "awesome-dsh-plugin",
@@ -329002,7 +329022,12 @@
     "Memory",
     "File"
    ],
-   "testDate": "2026-10-14"
+   "testDate": "2026-10-14",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "yzx4036",
+   "_enriched": "2026-10-12|0.3.0"
   },
   {
    "name": "WeKnora",
@@ -439971,7 +439996,12 @@
    "platform": "any",
    "trust": "Gold",
    "ucs": [],
-   "testDate": "2026-10-14"
+   "testDate": "2026-10-14",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "3likofj",
+   "_enriched": "2026-10-03|"
   },
   {
    "name": "@reactive-resume/reactive-resume",
@@ -457315,7 +457345,12 @@
    "platform": "any",
    "trust": "Gold",
    "ucs": [],
-   "testDate": "2026-10-14"
+   "testDate": "2026-10-14",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "17897693",
+   "_enriched": "2026-10-10|"
   },
   {
    "name": "open-design",
