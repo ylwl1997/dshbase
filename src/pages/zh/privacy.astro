@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Mailto from '../../components/Mailto.astro';
 ---
 <Base
   title="隐私政策 — dshbase"
@@ -24,6 +25,6 @@ import Base from '../../layouts/Base.astro';
     <p>您可访问 <a href="https://www.google.com/settings/ads" rel="noopener">Google 广告设置</a> 退出个性化广告，也可在 <a href="https://www.aboutads.info" rel="noopener">www.aboutads.info</a> 退出部分第三方供应商的个性化广告 Cookie。</p>
     <p>包括 Google 在内的第三方供应商，可能使用 Cookie 或网络信标，根据您之前访问本站或其他网站的情况投放广告。</p>
     <h2>联系</h2>
-    <p>问题请联系：<a href="mailto:hello@dshbase.com">hello@dshbase.com</a></p>
+    <p>问题请联系：<Mailto address="hello@dshbase.com" /></p>
   </section>
 </Base>

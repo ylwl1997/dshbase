@@ -4,6 +4,7 @@ import plugins from '../../../data/plugins.json';
 import notes from '../../../data/plugin-notes.json';
 import security from '../../../data/security.json';
 import { isPluginIndexable, demoteReadmeHeadings } from '../../../lib/plugin-index.js';
+import { withCfEmailOff, cfSafeTextHtml, looksLikeEmail } from '../../../lib/email-off.js';
 import readmes from '../../../data/readmes.json';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { readFileSync, existsSync } from 'node:fs';
@@ -33,7 +34,7 @@ const catUrl = `${dirUrl}#${catId}`;
 const repo = p.url.replace('https://github.com/', '');
 const npmHome = p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
 const rawReadme = readmes[p.slug]?.html || '';
-const readmeHtml = demoteReadmeHeadings(rawReadme);
+const readmeHtml = withCfEmailOff(demoteReadmeHeadings(rawReadme));
 const googlebot = isPluginIndexable(p.slug ?? p.name, 'zh') ? undefined : 'noindex, follow';
 const statusLabel = {
   verified: '已验证 · 实测可装',
@@ -136,7 +137,9 @@ const jsonLd = {
   <section class="detail-grid wrap">
     <div class="dg-main">
       <h2>功能简介</h2>
-      <p class="what-it-does">{desc}</p>
+      {looksLikeEmail(desc)
+        ? <p class="what-it-does" set:html={cfSafeTextHtml(desc)} />
+        : <p class="what-it-does">{desc}</p>}
 
       <div class={`verdict ${verdict.cls}`}>
         <span class="v-icon">{verdict.icon}</span>

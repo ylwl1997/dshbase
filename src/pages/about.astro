@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Mailto from '../components/Mailto.astro';
 ---
 <Base
   title="About dshbase — Independent DeepSeek Harness Resource | dshbase"
@@ -29,6 +30,6 @@ import Base from '../layouts/Base.astro';
     <p>Readers comparing how coding agents are put together can also look at <a href="https://rea.run/" target="_blank" rel="noopener">REA</a>, an unofficial community guide. Those pages are community docs maintained separately from dshbase; this site is not affiliated with that project.</p>
 
     <h2>Contact</h2>
-    <p>Questions, corrections, or plugin submissions: <a href="mailto:hello@dshbase.com">hello@dshbase.com</a>.</p>
+    <p>Questions, corrections, or plugin submissions: <Mailto address="hello@dshbase.com" />.</p>
   </section>
 </Base>

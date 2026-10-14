@@ -1,4 +1,6 @@
 ---
+import { cfSafeTextHtml, looksLikeEmail } from '../lib/email-off.js';
+
 const { plugin: p, cat = '', lang = 'en' } = Astro.props;
 const _repo = (u) => (u || '').replace('https://github.com/', '');
 const _owner = (u) => (u || '').replace('https://github.com/', '').split('/')[0] || '';
@@ -28,7 +30,9 @@ const trustClass = { Silver: 't-silver', Bronze: 't-bronze', Gold: 't-gold' }[tr
     </span>
   </div>
   <span class="pcard-name">{p.name}{featured ? ' ⭐' : ''}</span>
-  {desc && <p class="pcard-desc">{desc}</p>}
+  {desc && (looksLikeEmail(desc)
+    ? <p class="pcard-desc" set:html={cfSafeTextHtml(desc)} />
+    : <p class="pcard-desc">{desc}</p>)}
   <div class="pcard-foot">
     <span class="pcard-stars">★ {p.stars ?? 0}</span>
     {isNpm ? (

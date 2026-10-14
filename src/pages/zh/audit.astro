@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Mailto from '../../components/Mailto.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import plugins from '../../data/plugins.json';
 import syncDate from '../../data/sync-date.json';
@@ -191,7 +192,7 @@ const report = {
       <li><strong>可复核</strong>——清单、仓库状态与实测结果。</li>
     </ul>
 
-    <p>发现错误条目？<a href="mailto:hello@dshbase.com">告诉我们</a>，或<a href="https://github.com/ylwl1997/dshbase/issues/new?template=plugin-submission.yml" rel="noopener">开 Issue</a>。也可看<a href={pluginsUrl}>插件指南</a>。</p>
+    <p>发现错误条目？<Mailto address="hello@dshbase.com" label="告诉我们" />，或<a href="https://github.com/ylwl1997/dshbase/issues/new?template=plugin-submission.yml" rel="noopener">开 Issue</a>。也可看<a href={pluginsUrl}>插件指南</a>。</p>
   </section>
 </Base>
 

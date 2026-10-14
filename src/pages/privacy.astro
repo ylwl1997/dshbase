@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Mailto from '../components/Mailto.astro';
 ---
 <Base
   title="Privacy — dshbase"
@@ -24,6 +25,6 @@ import Base from '../layouts/Base.astro';
     <p>You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" rel="noopener">Google Ads Settings</a>. You can also opt out of some third-party vendors' use of cookies for personalized advertising at <a href="https://www.aboutads.info" rel="noopener">www.aboutads.info</a>.</p>
     <p>Third-party vendors, including Google, may use cookies or web beacons to serve ads based on your prior visits to this website or other websites.</p>
     <h2>Contact</h2>
-    <p>Questions: <a href="mailto:hello@dshbase.com">hello@dshbase.com</a></p>
+    <p>Questions: <Mailto address="hello@dshbase.com" /></p>
   </section>
 </Base>

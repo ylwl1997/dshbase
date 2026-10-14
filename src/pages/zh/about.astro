@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Mailto from '../../components/Mailto.astro';
 ---
 <Base
   title="关于 dshbase — 独立 DeepSeek Harness 资源站 | dshbase 中文"
@@ -29,6 +30,6 @@ import Base from '../../layouts/Base.astro';
     <p>如果想从另一侧了解编程智能体是怎么搭起来的，可以看 <a href="https://rea.run/zh/" target="_blank" rel="noopener">REA</a>。那是一份非官方社区指南，与 DeepSeek Harness 和 dshbase 都没有隶属关系。</p>
 
     <h2>联系</h2>
-    <p>问题、勘误、插件收录：<a href="mailto:hello@dshbase.com">hello@dshbase.com</a>。</p>
+    <p>问题、勘误、插件收录：<Mailto address="hello@dshbase.com" />。</p>
   </section>
 </Base>

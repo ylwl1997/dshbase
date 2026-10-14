@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Mailto from '../components/Mailto.astro';
 ---
 <Base
   title="Contact dshbase | dshbase"
@@ -8,7 +9,7 @@ import Base from '../layouts/Base.astro';
 >
   <section class="info wrap">
     <h1>Contact <span class="accent">dshbase</span></h1>
-    <p>For corrections, questions, or to submit a plugin for the directory, email <a href="mailto:hello@dshbase.com">hello@dshbase.com</a>.</p>
+    <p>For corrections, questions, or to submit a plugin for the directory, email <Mailto address="hello@dshbase.com" />.</p>
     <p>Please include the plugin repository URL when submitting a plugin. We respond to factual corrections and plugin submissions.</p>
   </section>
 </Base>
