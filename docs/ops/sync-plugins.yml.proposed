@@ -66,7 +66,7 @@ jobs:
         run: |
           set -euo pipefail
           # Daily job still runs topic with filter; weekly cron is the same script.
-          python scripts/sync-topic.py
+          python scripts/sync-topic.py --topic-only
           python scripts/fetch-contributors.py > /tmp/contributors.log 2>&1 || true
           python scripts/fetch-repo-enrich.py --limit 500 >> /tmp/contributors.log 2>&1 || true
         env:

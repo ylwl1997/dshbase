@@ -18,8 +18,10 @@ are never used as duplicate keys.
 
 Usage: GITHUB_TOKEN=xxx python scripts/sync-topic.py [--dry-run]
 
-Schedule: weekly Sunday 05:17 UTC inside sync-plugins.yml, and optionally
-after the daily dsh.so step on workflow_dispatch / same job when enabled.
+Schedule: preferred workflow is sync-plugins.yml (see
+docs/ops/sync-plugins.yml.proposed). Until that lands, the legacy
+sync-topic.yml job still works: this script runs sync-dshso.py first
+unless --topic-only is passed.
 """
 from __future__ import annotations
 
@@ -100,8 +102,39 @@ def is_hot(it: dict) -> bool:
     return (it.get("stargazers_count") or 0) >= HOT_STARS
 
 
+def maybe_run_dshso(argv: list[str]) -> None:
+    """Legacy sync-topic.yml only invokes this file — run primary dsh.so sync first.
+
+    Pass --topic-only to skip (when sync-plugins.yml already ran sync-dshso.py).
+    Forwards --dry-run / --no-add / --max-add N when present.
+    """
+    if "--topic-only" in argv:
+        return
+    import runpy
+    syn = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sync-dshso.py")
+    saved = list(sys.argv)
+    fwd = [syn]
+    for flag in ("--dry-run", "--no-add"):
+        if flag in argv:
+            fwd.append(flag)
+    # optional --max-add N
+    if "--max-add" in argv:
+        i = argv.index("--max-add")
+        fwd.append("--max-add")
+        if i + 1 < len(argv):
+            fwd.append(argv[i + 1])
+    print("== primary: sync-dshso.py ==")
+    sys.argv = fwd
+    try:
+        runpy.run_path(syn, run_name="__main__")
+    finally:
+        sys.argv = saved
+    print("== supplement: topic hot-only ==")
+
+
 def main():
     dry = "--dry-run" in sys.argv
+    maybe_run_dshso(sys.argv)
     repos, total = fetch_topic()
     print(f"topic:dsh-plugin total≈{total}, fetched {len(repos)} (search cap 1000)")
     print(f"hot threshold: stars >= {HOT_STARS}")
