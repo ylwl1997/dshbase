@@ -456601,6 +456601,33 @@
    "trust": "Silver",
    "slug": "dsh-tmp-wks",
    "platform": "any"
+  },
+  {
+   "name": "@stmol/dsh-rub-cost",
+   "url": "https://github.com/Stmol/dsh-rub-cost",
+   "pkg": "@stmol/dsh-rub-cost",
+   "ver": "1.2.0",
+   "npm": true,
+   "test": "verified",
+   "desc": "DSH plugin: session cost in RUB in the conversation dock",
+   "desc_en": "DSH plugin: session cost in RUB in the conversation dock",
+   "desc_zh": "在 DSH 会话对话停靠栏紧挨 token 计数器显示当前会话卢布花费：胶囊点开后展示模型、档位与切换倒计时、按 1M 输出 token 的 API 价目、带发布日期的央行汇率、含 subagent 的会话总花费、缓存节省与 DeepSeek Platform 钱包余额。",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-10-11",
+   "archived": false,
+   "added": "2026-10-15T07:57:50",
+   "license": "MIT",
+   "slug": "stmol-dsh-rub-cost",
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "Stmol",
+   "_enriched": "2026-10-11|1.2.0",
+   "testDate": "2026-10-15"
   }
  ],
  "Content": [
