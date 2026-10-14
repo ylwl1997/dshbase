@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Mailto from '../components/Mailto.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import plugins from '../data/plugins.json';
 import syncDate from '../data/sync-date.json';
@@ -191,7 +192,7 @@ const report = {
       <li><strong>Honest and reproducible</strong> — manifests, repository state, and actual test results.</li>
     </ul>
 
-    <p>Found a wrong entry? <a href="mailto:hello@dshbase.com">Tell us</a>, or <a href="https://github.com/ylwl1997/dshbase/issues/new?template=plugin-submission.yml" rel="noopener">open an issue</a>. Browse the <a href={pluginsUrl}>plugin guide</a>.</p>
+    <p>Found a wrong entry? <Mailto address="hello@dshbase.com" label="Tell us" />, or <a href="https://github.com/ylwl1997/dshbase/issues/new?template=plugin-submission.yml" rel="noopener">open an issue</a>. Browse the <a href={pluginsUrl}>plugin guide</a>.</p>
   </section>
 </Base>
 

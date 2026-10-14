@@ -1,0 +1,15 @@
+---
+/**
+ * mailto link wrapped in Cloudflare <!--email_off--> markers so Scrape Shield
+ * does not rewrite the href to /cdn-cgi/l/email-protection (crawler 404s).
+ */
+import { mailtoHtml } from '../lib/email-off.js';
+
+interface Props {
+  address: string;
+  /** Visible link text; defaults to the address. */
+  label?: string;
+}
+const { address, label = address } = Astro.props;
+---
+<span style="display:contents" set:html={mailtoHtml(address, label)} />
