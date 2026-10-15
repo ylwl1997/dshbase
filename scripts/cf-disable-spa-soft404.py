@@ -66,4 +66,29 @@ print(
     f"{PROJECT} → Settings → Builds & deployments / Custom domains → "
     "Not found handling = '404 page' (not Single-page application)."
 )
+
+# Purge stale edge responses for on-demand plugin pages (long s-maxage can outlive deploys).
+PURGE_FILES = [
+    "https://dshbase.com/zh/plugins/beautiCode/",
+    "https://www.dshbase.com/zh/plugins/beautiCode/",
+    "https://dshbase.com/plugins/beautiCode/",
+    "https://dshbase.com/zh/plugins/agent-skills-2/",
+    "https://dshbase.com/zh/plugins/causal-memory/",
+]
+zone_list = req("GET", "https://api.cloudflare.com/client/v4/zones?name=dshbase.com")
+zone_id = None
+if zone_list and zone_list.get("success") and zone_list.get("result"):
+    zone_id = zone_list["result"][0].get("id")
+if not zone_id:
+    print("purge skip: could not resolve dshbase.com zone id")
+    sys.exit(0)
+purge_resp = req(
+    "POST",
+    f"https://api.cloudflare.com/client/v4/zones/{zone_id}/purge_cache",
+    {"files": PURGE_FILES},
+)
+if purge_resp and purge_resp.get("success"):
+    print("purge ok:", len(PURGE_FILES), "files")
+else:
+    print("purge failed:", json.dumps((purge_resp or {}).get("errors", purge_resp), ensure_ascii=False)[:500])
 sys.exit(0)
