@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import AdBanner from '../components/AdBanner.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const installUrl = getRelativeLocaleUrl('en', '/install/');
 const pluginsUrl = getRelativeLocaleUrl('en', '/plugins/');
@@ -48,7 +47,6 @@ const pluginsUrl = getRelativeLocaleUrl('en', '/plugins/');
     </ul>
     <p>Three concrete setups (official DeepSeek / OpenCode Go / free Agnes) with base URLs and referral links: see the <a href="/blog/dsh-model-setup/">model setup guide</a>.</p>
 
-    <AdBanner variant="banner" />
     <h2 style="margin-top:28px">Install &amp; manage plugins</h2>
     <p>Plugins are npm packages. Add one to a profile with the <code>dsh plugin</code> command — the arguments are forwarded to <code>pnpm</code> (install it with <code>npm install -g pnpm</code> first):</p>
     <pre class="code-block"><code>dsh plugin --profile web add dsh-claude-marketplace
@@ -86,6 +84,5 @@ python examples/jsonrpc-agent/minimal.py \
     <p>The minimal example gives the model just two tools (bash + file editor) — Bash timeout 300s, edit limit 16,000 chars.</p>
 
     <p style="margin-top:20px"><a class="btn btn-ghost" href={pluginsUrl}>Build a plugin &rarr;</a> <a class="btn btn-ghost" href="/plugins/directory/">Browse the plugin directory &rarr;</a></p>
-    <AdBanner />
   </section>
 </Base>
