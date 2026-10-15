@@ -129710,7 +129710,8 @@
    "depsOfficial": 1,
    "repoOwner": "WLX2007",
    "_enriched": "2026-10-13|0.1.1",
-   "testDate": "2026-10-14"
+   "testDate": "2026-10-14",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-mcp-design-toolbox",
@@ -129737,7 +129738,8 @@
    "depsOfficial": 0,
    "repoOwner": "awaygu",
    "_enriched": "2026-10-10|0.1.1",
-   "testDate": "2026-10-14"
+   "testDate": "2026-10-14",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-anagenesis",
@@ -129769,7 +129771,8 @@
    "depsOfficial": 2,
    "repoOwner": "3likofj",
    "_enriched": "2026-10-11|0.2.1",
-   "testDate": "2026-10-14"
+   "testDate": "2026-10-14",
+   "bareNpm": "other"
   },
   {
    "name": "rea",
@@ -269850,7 +269853,8 @@
    "depCount": 1,
    "depsOfficial": 1,
    "repoOwner": "yijiezhong",
-   "_enriched": "2026-10-09|1.0.0"
+   "_enriched": "2026-10-09|1.0.0",
+   "bareNpm": "other"
   },
   {
    "name": "cute-fat-fish-pet",
@@ -329027,7 +329031,8 @@
    "depCount": 0,
    "depsOfficial": 0,
    "repoOwner": "yzx4036",
-   "_enriched": "2026-10-12|0.3.0"
+   "_enriched": "2026-10-12|0.3.0",
+   "bareNpm": "other"
   },
   {
    "name": "WeKnora",
@@ -456627,7 +456632,8 @@
    "depsOfficial": 0,
    "repoOwner": "Stmol",
    "_enriched": "2026-10-11|1.2.0",
-   "testDate": "2026-10-15"
+   "testDate": "2026-10-15",
+   "bareNpm": "other"
   }
  ],
  "Content": [
