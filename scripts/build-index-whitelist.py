@@ -5,9 +5,9 @@ Sources (override with env):
   GSC_JSON  default /workspace/seo-expert/raw3/dsh_gsc_pages90.json
   BING_JSON default /workspace/seo-expert/raw3/dsh_bing_clicked_urls.json
 
-Matching normalizes www→apex and trailing slash. Core/non-plugin paths are kept
-in the whitelist files but never affect the googlebot rule (that only runs on
-plugin slug pages).
+Matching normalizes www→apex and trailing slash. Whitelist is analytics /
+SSG-priority only — plugin detail pages are indexable and do not emit googlebot
+noindex (Astro SSG + Pages Functions on-demand renderer).
 """
 import json, os
 from urllib.parse import urlparse
@@ -61,8 +61,8 @@ json.dump({
     'rules': {
         'en': 'stars>=10 OR /plugins/<slug>/ OR /zh/plugins/<slug>/ in gsc-whitelist OR bing-whitelist',
         'zh': '/zh/plugins/<slug>/ in bing-whitelist OR gsc-whitelist',
-        'meta': 'non-indexable plugin pages: <meta name="googlebot" content="noindex, follow">',
-        'core_pages': 'never noindexed by this rule (only plugin slug pages use it)',
+        'meta': 'whitelist is analytics-only; plugin detail pages are indexable (no googlebot noindex)',
+        'core_pages': 'plugin slug pages no longer use this whitelist for robots',
     },
     'counts': {'en': len(en), 'zh': len(zh), 'total_plugins': n},
 }, open(os.path.join(OUT, 'indexable-plugins.json'), 'w'), indent=1)
