@@ -3,7 +3,8 @@
  *
  * Historical note: googlebot noindex via indexable-plugins.json whitelist was
  * a regression for organic plugin-detail traffic. Plugin detail pages (EN+ZH)
- * are indexable again; keep whitelist data/scripts for analytics only.
+ * are indexable again — Astro SSG and Pages Functions on-demand renderer alike.
+ * Keep whitelist data/scripts for analytics only.
  *
  * Soft-deleted plugin URLs that 301 via public/_redirects must not appear in
  * sitemaps (see scripts/gen-sitemap.py).

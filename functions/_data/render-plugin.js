@@ -179,7 +179,6 @@ export function renderPluginPage(p, lang) {
 <title>${title}</title>
 <meta name="description" content="${descMeta}">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<meta name="googlebot" content="noindex, follow">
 <link rel="canonical" href="${canonical}">
 <link rel="alternate" hreflang="en" href="${enCanon}">
 <link rel="alternate" hreflang="zh-CN" href="${zhCanon}">
