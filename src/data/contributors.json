@@ -144,6 +144,24 @@
   ]
  },
  {
+  "github": "himetuki",
+  "avatar": "https://avatars.githubusercontent.com/u/94748099?v=4",
+  "plugins": [
+   {
+    "name": "@luobosibing2/dsh-jev-plugin",
+    "slug": "dsh-jev-plugin-3",
+    "npm": false,
+    "pkg": ""
+   },
+   {
+    "name": "dsh-NeoHorse-Jev-4B-plugin",
+    "slug": "dsh-NeoHorse-Jev-4B-plugin",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "julescules",
   "avatar": "https://avatars.githubusercontent.com/u/131376318?v=4",
   "plugins": [
@@ -230,6 +248,24 @@
     "slug": "dsh-rollback-visual",
     "npm": false,
     "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "Stmol",
+  "avatar": "https://avatars.githubusercontent.com/u/740892?v=4",
+  "plugins": [
+   {
+    "name": "@stmol/dsh-prompt-lib",
+    "slug": "stmol-dsh-prompt-lib",
+    "npm": true,
+    "pkg": "@stmol/dsh-prompt-lib"
+   },
+   {
+    "name": "@stmol/dsh-rub-cost",
+    "slug": "stmol-dsh-rub-cost",
+    "npm": true,
+    "pkg": "@stmol/dsh-rub-cost"
    }
   ]
  },
@@ -630,18 +666,6 @@
   ]
  },
  {
-  "github": "himetuki",
-  "avatar": "https://avatars.githubusercontent.com/u/94748099?v=4",
-  "plugins": [
-   {
-    "name": "dsh-NeoHorse-Jev-4B-plugin",
-    "slug": "dsh-NeoHorse-Jev-4B-plugin",
-    "npm": false,
-    "pkg": ""
-   }
-  ]
- },
- {
   "github": "HiNEM66",
   "avatar": "https://avatars.githubusercontent.com/u/92151998?v=4",
   "plugins": [
@@ -1022,18 +1046,6 @@
     "slug": "dsh-codex-tools",
     "npm": true,
     "pkg": "dsh-codex-tools"
-   }
-  ]
- },
- {
-  "github": "Stmol",
-  "avatar": "https://avatars.githubusercontent.com/u/740892?v=4",
-  "plugins": [
-   {
-    "name": "@stmol/dsh-prompt-lib",
-    "slug": "stmol-dsh-prompt-lib",
-    "npm": true,
-    "pkg": "@stmol/dsh-prompt-lib"
    }
   ]
  },
