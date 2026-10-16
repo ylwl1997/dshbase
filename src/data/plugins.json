@@ -24345,7 +24345,7 @@
    "depsOfficial": 0,
    "repoOwner": "LongSir0419",
    "_enriched": "2026-08-21|0.1.6",
-   "bareNpm": "other",
+   "bareNpm": "install-fail",
    "trust": "Gold",
    "ucs": [
     "GitHub integration"
@@ -260922,7 +260922,7 @@
    "trust": "Unrated",
    "slug": "dsh-web-ui",
    "platform": "any",
-   "bareNpm": "other",
+   "bareNpm": "install-fail",
    "contributors": 114,
    "depCount": 19,
    "depsOfficial": 0,
@@ -476767,7 +476767,7 @@
    "repoOwner": "wannanbigpig",
    "note": "Headless L3 web-only then L4 web CDP PASS on dsh 0.1.0-rc.8 with @wannanbigpig/dsh-usage-stats@0.1.7 (2026-08-24)",
    "webonly": true,
-   "bareNpm": "other",
+   "bareNpm": "install-fail",
    "contributors": 0,
    "depCount": 1,
    "depsOfficial": 0,
