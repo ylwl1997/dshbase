@@ -277,6 +277,8 @@ document.querySelectorAll("pre.code-block").forEach(t=>{
     headers: {
       'content-type': 'text/html; charset=utf-8',
       'cache-control': 'public, max-age=300',
+      // Identify fresh Function HTML vs residual edge bodies with noindex
+      'x-dshbase-cachebust': '1',
     },
   });
 }
