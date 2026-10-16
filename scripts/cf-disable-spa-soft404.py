@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Best-effort: set Cloudflare Pages not_found_handling to 404 (disable SPA soft-404).
+"""Best-effort: remind to disable SPA soft-404 + purge stale on-demand plugin URLs.
 
-Uses CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID from env.
+Uses CLOUDFLARE_API_TOKEN (+ optional CLOUDFLARE_ACCOUNT_ID) from env.
 Safe to no-op if token lacks permission or API shape differs.
 """
 from __future__ import annotations
@@ -16,11 +16,10 @@ ACCOUNT = os.environ.get("CLOUDFLARE_ACCOUNT_ID", "").strip()
 TOKEN = os.environ.get("CLOUDFLARE_API_TOKEN", "").strip()
 PROJECT = os.environ.get("CF_PAGES_PROJECT", "dshbase")
 
-if not ACCOUNT or not TOKEN:
-    print("skip: missing CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID")
+if not TOKEN:
+    print("skip: missing CLOUDFLARE_API_TOKEN")
     sys.exit(0)
 
-base = f"https://api.cloudflare.com/client/v4/accounts/{ACCOUNT}/pages/projects/{PROJECT}"
 headers = {
     "Authorization": f"Bearer {TOKEN}",
     "Content-Type": "application/json",
@@ -40,40 +39,37 @@ def req(method: str, url: str, body: dict | None = None):
         return None
 
 
-info = req("GET", base)
-if not info or not info.get("success"):
-    print("could not read pages project; leave SPA setting for manual dashboard fix")
-    sys.exit(0)
-
-# Try patch deployment configs (production) — API fields evolve; attempt common shapes.
-patch_bodies = [
-    {
-        "deployment_configs": {
-            "production": {
-                "env_vars": {},
-                "fail_open": True,
-                "always_use_latest_compatibility_date": True,
-            }
-        }
-    },
-]
-
-# Document intent; CF Pages "not found handling" is often dashboard-only.
-# If PATCH unsupported, print instructions.
-print("project=", info.get("result", {}).get("name"))
-print(
-    "ACTION REQUIRED if soft-404 persists: Cloudflare Dashboard → Workers & Pages → "
-    f"{PROJECT} → Settings → Builds & deployments / Custom domains → "
-    "Not found handling = '404 page' (not Single-page application)."
-)
+# Soft-404 reminder needs account id; purge below only needs zone + token.
+if ACCOUNT:
+    base = f"https://api.cloudflare.com/client/v4/accounts/{ACCOUNT}/pages/projects/{PROJECT}"
+    info = req("GET", base)
+    if info and info.get("success"):
+        print("project=", info.get("result", {}).get("name"))
+    else:
+        print("could not read pages project; leave SPA setting for manual dashboard fix")
+    print(
+        "ACTION REQUIRED if soft-404 persists: Cloudflare Dashboard → Workers & Pages → "
+        f"{PROJECT} → Settings → Builds & deployments / Custom domains → "
+        "Not found handling = '404 page' (not Single-page application)."
+    )
+else:
+    print("skip pages project check: missing CLOUDFLARE_ACCOUNT_ID (purge still runs)")
 
 # Purge stale edge responses for on-demand plugin pages (long s-maxage can outlive deploys).
+# #150 removed googlebot noindex from Functions, but custom-domain edge bodies with
+# X-Robots-Tag: noindex / googlebot meta can linger until purged (seo-dash #3196).
 PURGE_FILES = [
     "https://dshbase.com/zh/plugins/beautiCode/",
     "https://www.dshbase.com/zh/plugins/beautiCode/",
     "https://dshbase.com/plugins/beautiCode/",
     "https://dshbase.com/zh/plugins/agent-skills-2/",
     "https://dshbase.com/zh/plugins/causal-memory/",
+    "https://dshbase.com/zh/plugins/custom-first-control-prompt/",
+    "https://www.dshbase.com/zh/plugins/custom-first-control-prompt/",
+    "https://dshbase.com/plugins/custom-first-control-prompt/",
+    "https://dshbase.com/zh/plugins/dsh-omi-voice/",
+    "https://www.dshbase.com/zh/plugins/dsh-omi-voice/",
+    "https://dshbase.com/plugins/dsh-omi-voice/",
 ]
 zone_list = req("GET", "https://api.cloudflare.com/client/v4/zones?name=dshbase.com")
 zone_id = None

@@ -67,7 +67,11 @@ def plugin_lastmod(slug, p):
     added = (p.get('added') or '')[:10]
     return added or TODAY
 
-# Privacy is noindex; directory pagination (/page/N/) is thin/noindex — omit both.
+# Intentional noindex omissions (must never appear in any sitemap shard):
+# - /privacy/ (and zh twin) — noindex by design; not listed in STATIC
+# - directory pagination (/plugins/directory/page/N/) — thin/noindex; only directory index in STATIC
+# Plugin detail pages (EN+ZH) are indexable (Astro SSG + Pages Functions render-plugin:
+# robots index,follow; no googlebot noindex). Do not reintroduce a noindex whitelist into sitemaps.
 STATIC = [
     ('/', 'weekly', '1.0', 'src/pages/index.astro'),
     ('/zh/', 'weekly', '0.9', 'src/pages/zh/index.astro'),
