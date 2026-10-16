@@ -58,6 +58,13 @@ else:
 # Purge stale edge responses for on-demand plugin pages (long s-maxage can outlive deploys).
 # #150 removed googlebot noindex from Functions, but custom-domain edge bodies with
 # X-Robots-Tag: noindex / googlebot meta can linger until purged (seo-dash #3196).
+#
+# NOTE: GitHub/box CLOUDFLARE_API_TOKEN currently lacks Cache Purge (purge returns 401).
+# Fallback already live in CF: Worker `dshbase-beauticode-cachebust` proxies matching
+# custom-domain paths to https://dshbase.pages.dev and strips X-Robots-Tag. Routes:
+#   dshbase.com|www /zh/plugins/{beautiCode,custom-first-control-prompt,dsh-omi-voice}*
+# Zone cache rule also bypasses cache for /zh/plugins/* (except directory).
+# Prefer fixing token Cache Purge + this PURGE_FILES list; keep Worker routes as belt-and-suspenders.
 PURGE_FILES = [
     "https://dshbase.com/zh/plugins/beautiCode/",
     "https://www.dshbase.com/zh/plugins/beautiCode/",
