@@ -160012,7 +160012,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-review-gate",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 4,
+   "repoOwner": "ttxs66666",
+   "_enriched": "|"
   },
   {
    "name": "dsh-rule-lens",
@@ -160038,7 +160043,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-rule-lens",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "jackeyunjie",
+   "_enriched": "|"
   },
   {
    "name": "dsh-devops",
@@ -160061,7 +160071,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-devops",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 5,
+   "depsOfficial": 2,
+   "repoOwner": "jackson-chen97",
+   "_enriched": "|"
   },
   {
    "name": "dsh-mermaid-comm",
@@ -160084,7 +160099,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-mermaid-comm",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 4,
+   "repoOwner": "kp-z",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-vllm-ascend-profiler",
@@ -160110,7 +160130,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-vllm-ascend-profiler",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "nutsdad",
+   "_enriched": "|"
   },
   {
    "name": "dsh-lifecycle-inspector",
@@ -160135,7 +160160,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-lifecycle-inspector",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 8,
+   "depsOfficial": 7,
+   "repoOwner": "rex16200513",
+   "_enriched": "|"
   },
   {
    "name": "dsh-skill-authoring",
@@ -160160,7 +160190,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-skill-authoring-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "gezi-wen",
+   "_enriched": "|"
   },
   {
    "name": "deepseek-harness-plugins",
@@ -160183,7 +160218,12 @@
    "ucs": [],
    "trust": "Bronze",
    "slug": "deepseek-harness-plugins-11",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "manoloremiddi",
+   "_enriched": "|"
   },
   {
    "name": "dsh-deadend",
@@ -160209,7 +160249,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-deadend",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "liyixuan201211",
+   "_enriched": "|"
   },
   {
    "name": "DLT",
@@ -160236,7 +160281,12 @@
    ],
    "trust": "Gold",
    "slug": "dlt",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "llylab",
+   "_enriched": "|"
   },
   {
    "name": "dsh-steering",
@@ -160259,7 +160309,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-steering",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "manoloremiddi",
+   "_enriched": "|"
   },
   {
    "name": "dsh-dingtalk-connector",
@@ -160282,7 +160337,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-dingtalk-connector",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "yiyunet",
+   "_enriched": "|"
   },
   {
    "name": "meow-file-view",
@@ -160310,7 +160370,12 @@
    ],
    "trust": "Gold",
    "slug": "meow-file-view",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "meimiaoji-creator",
+   "_enriched": "|"
   },
   {
    "name": "DSH-WhaleMaid-Companion",
@@ -160333,7 +160398,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-whalemaid-companion",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "sun-l1",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-devkit",
@@ -160359,7 +160429,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-devkit",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "ckeffaf",
+   "_enriched": "|"
   },
   {
    "name": "dsh-left-panel",
@@ -160386,7 +160461,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-left-panel",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "trynewthin",
+   "_enriched": "|"
   },
   {
    "name": "dsh-preset-agent-manager",
@@ -160409,7 +160489,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-preset-agent-manager",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "qingli-sketch",
+   "_enriched": "|"
   },
   {
    "name": "dsh-mcptoon",
@@ -160432,7 +160517,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-mcptoon",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "activeing123",
+   "_enriched": "|"
   },
   {
    "name": "dsh-whale-buddy",
@@ -160457,7 +160547,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-whale-buddy",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "rangeking",
+   "_enriched": "|"
   },
   {
    "name": "dsh-jenkins-panel",
@@ -160482,7 +160577,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-jenkins-panel",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 12,
+   "depsOfficial": 9,
+   "repoOwner": "developerdh",
+   "_enriched": "|"
   },
   {
    "name": "dsh-tgrep",
@@ -160507,7 +160607,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-tgrep",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "huuthuan-nguyen",
+   "_enriched": "|"
   },
   {
    "name": "vscode-dsh-sidebar",
@@ -160534,7 +160639,12 @@
    ],
    "trust": "Silver",
    "slug": "vscode-dsh-sidebar",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "elevator14b",
+   "_enriched": "|"
   },
   {
    "name": "dsh-composition-doctor",
@@ -160559,7 +160669,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-composition-doctor",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 1,
+   "repoOwner": "lemonxiny55",
+   "_enriched": "|"
   },
   {
    "name": "dsh-simple-codegraph",
@@ -160585,7 +160700,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-simple-codegraph",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 7,
+   "repoOwner": "quantumkuba",
+   "_enriched": "|"
   },
   {
    "name": "dsh-code-graph",
@@ -160611,7 +160731,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-code-graph",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "hoyyang",
+   "_enriched": "|"
   },
   {
    "name": "dsh-session-diff",
@@ -160638,7 +160763,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-session-diff",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "2002xiaoyu",
+   "_enriched": "|"
   },
   {
    "name": "@BaqiF2/dsh-plugin-precheck",
@@ -160664,7 +160794,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-precheck",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 4,
+   "repoOwner": "baqif2",
+   "_enriched": "|"
   },
   {
    "name": "@john-walks-slow/dsh-qol",
@@ -160689,7 +160824,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-qol",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "john-walks-slow",
+   "_enriched": "|"
   },
   {
    "name": "@ajceee/dsh-subscription-overlay",
@@ -160714,7 +160854,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-subscription-overlay",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 4,
+   "repoOwner": "ajceee",
+   "_enriched": "|"
   },
   {
    "name": "@leolee9086/dsh-tool-cordis-local",
@@ -160737,7 +160882,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-tool-cordis-local",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "leolee9086",
+   "_enriched": "|"
   },
   {
    "name": "@DBinK/youarehere",
@@ -160762,7 +160912,12 @@
    ],
    "trust": "Silver",
    "slug": "youarehere",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "dbink",
+   "_enriched": "|"
   },
   {
    "name": "@hj01857655/dsh-tool-stats",
@@ -160785,7 +160940,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-tool-stats",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "hj01857655",
+   "_enriched": "|"
   },
   {
    "name": "@1622352030/ansys-agent-bridge",
@@ -160808,7 +160968,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "ansys-agent-bridge",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "1622352030",
+   "_enriched": "|"
   },
   {
    "name": "@Bay-Zeddie/dsh-agent-instructions",
@@ -160834,7 +160999,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-agent-instructions",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "bay-zeddie",
+   "_enriched": "|"
   },
   {
    "name": "@zhangyy0423/veripipe",
@@ -160859,7 +161029,12 @@
    ],
    "trust": "Silver",
    "slug": "veripipe",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "zhangyy0423",
+   "_enriched": "|"
   },
   {
    "name": "@xbzbing/dsh-openviking-manager",
@@ -160886,7 +161061,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-openviking-manager",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 8,
+   "depsOfficial": 6,
+   "repoOwner": "xbzbing",
+   "_enriched": "|"
   },
   {
    "name": "@hoyyang/dsh-best-ponytail",
@@ -160911,7 +161091,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-best-ponytail",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "hoyyang",
+   "_enriched": "|"
   },
   {
    "name": "@wjw99830/dsh-plugin-noema",
@@ -160936,7 +161121,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-noema",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 14,
+   "depsOfficial": 10,
+   "repoOwner": "wjw99830",
+   "_enriched": "|"
   },
   {
    "name": "@mikasa-servent/dsh-research-check",
@@ -160963,7 +161153,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-research-check",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "mikasa-servent",
+   "_enriched": "|"
   },
   {
    "name": "@Zh0uHX/dsh-skills",
@@ -160989,7 +161184,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-skills-6",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "zh0uhx",
+   "_enriched": "|"
   },
   {
    "name": "@173787247/dsh-wsl-glab",
@@ -161016,7 +161216,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-wsl-glab",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "173787247",
+   "_enriched": "|"
   },
   {
    "name": "@173787247/dsh-wsl-terraform",
@@ -161041,7 +161246,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-wsl-terraform",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "173787247",
+   "_enriched": "|"
   },
   {
    "name": "@173787247/dsh-wsl-helm",
@@ -161066,7 +161276,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-wsl-helm",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "173787247",
+   "_enriched": "|"
   },
   {
    "name": "@173787247/dsh-wsl-git",
@@ -161093,7 +161308,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-wsl-git",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "173787247",
+   "_enriched": "|"
   },
   {
    "name": "@173787247/dsh-wsl-pkg",
@@ -161118,7 +161338,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-wsl-pkg",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "173787247",
+   "_enriched": "|"
   },
   {
    "name": "@173787247/dsh-wsl-k8s",
@@ -161143,7 +161368,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-wsl-k8s",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "173787247",
+   "_enriched": "|"
   },
   {
    "name": "@2333hutao/dsh-ls125-uv-probe",
@@ -161168,7 +161398,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-ls125-uv-probe",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "2333hutao",
+   "_enriched": "|"
   },
   {
    "name": "@njjpro/dsh-remote-workspace",
@@ -161194,7 +161429,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-remote-workspace-6",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 0,
+   "repoOwner": "njjpro",
+   "_enriched": "|"
   },
   {
    "name": "@dpwgc/dsh-coding-workflow",
@@ -161219,7 +161459,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-coding-workflow",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "dpwgc",
+   "_enriched": "|"
   },
   {
    "name": "@harde1/dsh-xcodebuild",
@@ -161244,7 +161489,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-xcodebuild",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "harde1",
+   "_enriched": "|"
   },
   {
    "name": "@janpauldahlke/dsh-gpu-monitor-nvml",
@@ -161269,7 +161519,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-gpu-monitor-nvml",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "janpauldahlke",
+   "_enriched": "|"
   },
   {
    "name": "@cup113/dsh-plugin-pyrun",
@@ -161294,7 +161549,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-pyrun",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "cup113",
+   "_enriched": "|"
   },
   {
    "name": "@site-chenwei/dsh-default-overrides",
@@ -161319,7 +161579,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-default-overrides",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "site-chenwei",
+   "_enriched": "|"
   },
   {
    "name": "@azazo1/dsh-reveal-context",
@@ -161344,7 +161609,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-reveal-context",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 5,
+   "repoOwner": "azazo1",
+   "_enriched": "|"
   },
   {
    "name": "@ninglovegithub/dsh-workspace-combiner",
@@ -161370,7 +161640,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-workspace-combiner",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 4,
+   "repoOwner": "ninglovegithub",
+   "_enriched": "|"
   },
   {
    "name": "@jghwwnq/dsh-model-audit",
@@ -161393,7 +161668,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-model-audit",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "jghwwnq",
+   "_enriched": "|"
   },
   {
    "name": "@Ink-dark/dsh-adversarial-review-preset",
@@ -161419,7 +161699,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-adversarial-review-preset",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 12,
+   "depsOfficial": 12,
+   "repoOwner": "ink-dark",
+   "_enriched": "|"
   },
   {
    "name": "@Ln1m/anoslide-plugins",
@@ -161444,7 +161729,12 @@
    ],
    "trust": "Silver",
    "slug": "anoslide-plugins",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "ln1m",
+   "_enriched": "|"
   },
   {
    "name": "@s-huizhuy-u/dsh-github-sync",
@@ -161471,7 +161761,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-github-sync-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 6,
+   "repoOwner": "s-huizhuy-u",
+   "_enriched": "|"
   },
   {
    "name": "@kangtsang/dsh-worktree-space",
@@ -161497,7 +161792,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-worktree-space",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 4,
+   "repoOwner": "kangtsang",
+   "_enriched": "|"
   },
   {
    "name": "@Neo65536-engineer/dsh-agent-log",
@@ -161522,7 +161822,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-agent-log",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "neo65536-engineer",
+   "_enriched": "|"
   },
   {
    "name": "@ONEOne-1v1/dsh-github-upload",
@@ -161548,7 +161853,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-github-upload",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "oneone-1v1",
+   "_enriched": "|"
   },
   {
    "name": "@hbgdjb/dsh-session-shield",
@@ -161573,7 +161883,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-session-shield",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "hbgdjb",
+   "_enriched": "|"
   },
   {
    "name": "@yousj666/dsh-audio-converter",
@@ -161598,7 +161913,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-audio-converter",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "yousj666",
+   "_enriched": "|"
   },
   {
    "name": "@mimajiushi/dsh-plugins",
@@ -161624,7 +161944,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugins-123",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "mimajiushi",
+   "_enriched": "|"
   },
   {
    "name": "@jeffreyren1/dsh-custom-js",
@@ -161650,7 +161975,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-custom-js",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 9,
+   "depsOfficial": 7,
+   "repoOwner": "jeffreyren1",
+   "_enriched": "|"
   },
   {
    "name": "@demxyuanli/dsh-canvas",
@@ -161673,7 +162003,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-canvas-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 3,
+   "repoOwner": "demxyuanli",
+   "_enriched": "|"
   },
   {
    "name": "@mydsp/dsh-branchman",
@@ -161698,7 +162033,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-branchman",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "mydsp",
+   "_enriched": "|"
   },
   {
    "name": "@railgun52/dsh-mcp-servers",
@@ -161723,7 +162063,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-mcp-servers-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 2,
+   "repoOwner": "railgun52",
+   "_enriched": "|"
   },
   {
    "name": "@railgun52/dsh-user-rules",
@@ -161748,7 +162093,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-user-rules",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 2,
+   "repoOwner": "railgun52",
+   "_enriched": "|"
   },
   {
    "name": "@windwhiterain/dsh-llm-quota-retry",
@@ -161771,7 +162121,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-llm-quota-retry",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "windwhiterain",
+   "_enriched": "|"
   },
   {
    "name": "@lingyingaojue/dsh-dev-mode",
@@ -161796,7 +162151,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-dev-mode",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "lingyingaojue",
+   "_enriched": "|"
   },
   {
    "name": "@stefanohe/dsh-prefill-speed-stats",
@@ -161819,7 +162179,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-prefill-speed-stats",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "stefanohe",
+   "_enriched": "|"
   },
   {
    "name": "@2JumpSinA/dsh-context-guard",
@@ -161846,7 +162211,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-context-guard-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "2jumpsina",
+   "_enriched": "|"
   },
   {
    "name": "@Han-1413141/dsh-visual-edit",
@@ -161871,7 +162241,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-visual-edit",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 1,
+   "repoOwner": "han-1413141",
+   "_enriched": "|"
   },
   {
    "name": "@Han-1413141/dsh-compat-guardian",
@@ -161896,7 +162271,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-compat-guardian",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 11,
+   "depsOfficial": 8,
+   "repoOwner": "han-1413141",
+   "_enriched": "|"
   },
   {
    "name": "@longhao666666/dsh-element-context",
@@ -161921,7 +162301,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-element-context",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "longhao666666",
+   "_enriched": "|"
   },
   {
    "name": "@moazzamak/dsh-code-review",
@@ -161946,7 +162331,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-code-review-10",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 8,
+   "depsOfficial": 8,
+   "repoOwner": "moazzamak",
+   "_enriched": "|"
   },
   {
    "name": "@121212165/dsh-plugin-ide-hub",
@@ -161972,7 +162362,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-ide-hub",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "121212165",
+   "_enriched": "|"
   },
   {
    "name": "@zcr-133/dsh-follow-edits",
@@ -161998,7 +162393,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-follow-edits",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "zcr-133",
+   "_enriched": "|"
   },
   {
    "name": "@wula1223/dsh-plugin-dev",
@@ -162021,7 +162421,12 @@
    "ucs": [],
    "trust": "Bronze",
    "slug": "dsh-plugin-dev-8",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "wula1223",
+   "_enriched": "|"
   },
   {
    "name": "@Bear0117/dsh-plan-checkup",
@@ -162046,7 +162451,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plan-checkup",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "bear0117",
+   "_enriched": "|"
   },
   {
    "name": "@floydc-sz/dsh-serial-debugger",
@@ -162071,7 +162481,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-serial-debugger",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "floydc-sz",
+   "_enriched": "|"
   },
   {
    "name": "@AEmbers/dsh-adjudication",
@@ -162096,7 +162511,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-adjudication",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "aembers",
+   "_enriched": "|"
   },
   {
    "name": "@LoveDoLove/dsh-codebase-memory-mcp",
@@ -162122,7 +162542,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-codebase-memory-mcp-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "lovedolove",
+   "_enriched": "|"
   },
   {
    "name": "@GuoMonth/dsh-devwork",
@@ -162148,7 +162573,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-devwork",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 6,
+   "repoOwner": "guomonth",
+   "_enriched": "|"
   },
   {
    "name": "@eryi-lab/dsh-gsap",
@@ -162171,7 +162601,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-gsap",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "eryi-lab",
+   "_enriched": "|"
   },
   {
    "name": "@MCviseron/dsh-eda-mcp",
@@ -162194,7 +162629,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-eda-mcp",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 12,
+   "depsOfficial": 10,
+   "repoOwner": "mcviseron",
+   "_enriched": "|"
   },
   {
    "name": "@Ytibu/dsh-agents-md",
@@ -162219,7 +162659,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-agents-md-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "ytibu",
+   "_enriched": "|"
   },
   {
    "name": "@Noob-stupid/dsh-connection-card-host",
@@ -162242,7 +162687,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-connection-card-host",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 4,
+   "repoOwner": "noob-stupid",
+   "_enriched": "|"
   },
   {
    "name": "@duxingxiake3/dsh-plugin-market",
@@ -162267,7 +162717,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-market-29",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "duxingxiake3",
+   "_enriched": "|"
   },
   {
    "name": "@Wenaixi/dsh-plugin-dev",
@@ -162290,7 +162745,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugin-dev-9",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "wenaixi",
+   "_enriched": "|"
   },
   {
    "name": "@YuMo-233/dsh-kubejs",
@@ -162315,7 +162775,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-kubejs",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "yumo-233",
+   "_enriched": "|"
   },
   {
    "name": "@447662/dsh-native-codex-cli",
@@ -162340,7 +162805,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-native-codex-cli",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "447662",
+   "_enriched": "|"
   },
   {
    "name": "@louisyeaaah/dsh-doctor",
@@ -162365,7 +162835,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-doctor-10",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "louisyeaaah",
+   "_enriched": "|"
   },
   {
    "name": "@lzyyzznl/dsh-prompt-tuner",
@@ -162391,7 +162866,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-prompt-tuner",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "lzyyzznl",
+   "_enriched": "|"
   },
   {
    "name": "@hy-sde/dsh-tool-library-search",
@@ -162417,7 +162897,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tool-library-search",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "hy-sde",
+   "_enriched": "|"
   },
   {
    "name": "@2DogsLee/dsh-watcher",
@@ -162444,7 +162929,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-watcher-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "2dogslee",
+   "_enriched": "|"
   },
   {
    "name": "@ltmroberthk915/dsh-session-telecom",
@@ -162469,7 +162959,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-session-telecom",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 3,
+   "repoOwner": "ltmroberthk915",
+   "_enriched": "|"
   },
   {
    "name": "@hqa-shu/dsh-review-mode",
@@ -162494,7 +162989,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-review-mode",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "hqa-shu",
+   "_enriched": "|"
   },
   {
    "name": "@ccneedb/dsh-information-environment-governance",
@@ -162517,7 +163017,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-information-environment-governance",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "ccneedb",
+   "_enriched": "|"
   },
   {
    "name": "@overact/dsh-statusline-plus",
@@ -162544,7 +163049,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-statusline-plus",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 2,
+   "repoOwner": "overact",
+   "_enriched": "|"
   },
   {
    "name": "@ventisyn/dsh-agent-control",
@@ -162567,7 +163077,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-agent-control",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "ventisyn",
+   "_enriched": "|"
   },
   {
    "name": "@HarryHeYu/dsh-sessionflow",
@@ -162594,7 +163109,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-sessionflow",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "harryheyu",
+   "_enriched": "|"
   },
   {
    "name": "@JokerAn/dsh-mcp-manager",
@@ -162620,7 +163140,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-mcp-manager-18",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "jokeran",
+   "_enriched": "|"
   },
   {
    "name": "@kkaporn/dsh-session-composer",
@@ -162646,7 +163171,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-session-composer",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "kkaporn",
+   "_enriched": "|"
   },
   {
    "name": "@SOH4C4759/dsh-plugin-cicd",
@@ -162672,7 +163202,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-cicd",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "soh4c4759",
+   "_enriched": "|"
   },
   {
    "name": "@Linicc/dsh-plugin-guard",
@@ -162695,7 +163230,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-plugin-guard-5",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "linicc",
+   "_enriched": "|"
   },
   {
    "name": "@hello-heyongping/dsh-helloai-bak",
@@ -162721,7 +163261,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-helloai-bak",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 4,
+   "repoOwner": "hello-heyongping",
+   "_enriched": "|"
   },
   {
    "name": "@hello-heyongping/dsh-helloai-skills",
@@ -162747,7 +163292,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-helloai-skills",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 4,
+   "repoOwner": "hello-heyongping",
+   "_enriched": "|"
   },
   {
    "name": "@gavinc-cn/touchstone-dsh",
@@ -162772,7 +163322,12 @@
    ],
    "trust": "Silver",
    "slug": "touchstone-dsh",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "gavinc-cn",
+   "_enriched": "|"
   },
   {
    "name": "@huangxp12/dsh-plugin-search",
@@ -162797,7 +163352,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-search-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "huangxp12",
+   "_enriched": "|"
   },
   {
    "name": "@hh719509125/deepseek_harness_plugin",
@@ -162822,7 +163382,12 @@
    ],
    "trust": "Silver",
    "slug": "deepseek-harness-plugin-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "hh719509125",
+   "_enriched": "|"
   },
   {
    "name": "@DDDMUC/dsh-url-router",
@@ -162847,7 +163412,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-url-router",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "dddmuc",
+   "_enriched": "|"
   },
   {
    "name": "@OpencodeSilver/OpencodeSilver",
@@ -162870,7 +163440,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "opencodesilver",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "opencodesilver",
+   "_enriched": "|"
   },
   {
    "name": "@P-JIANGH/dsh-enhance",
@@ -162896,7 +163471,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-enhance-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "p-jiangh",
+   "_enriched": "|"
   },
   {
    "name": "@felixpu/dsh-settings-params",
@@ -162923,7 +163503,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-settings-params",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "felixpu",
+   "_enriched": "|"
   },
   {
    "name": "@godlike985/dsh-sidebar-editor",
@@ -162949,7 +163534,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-sidebar-editor",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "godlike985",
+   "_enriched": "|"
   },
   {
    "name": "@mirelconstantin/dsh-ponytail-sync",
@@ -162974,7 +163564,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-ponytail-sync",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "mirelconstantin",
+   "_enriched": "|"
   },
   {
    "name": "@drscrewdriver/dsh-patch-edit-plus",
@@ -163000,7 +163595,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-patch-edit-plus",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 9,
+   "depsOfficial": 8,
+   "repoOwner": "drscrewdriver",
+   "_enriched": "|"
   },
   {
    "name": "@hairyf/dsh-tool-activator",
@@ -163023,7 +163623,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-tool-activator",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "hairyf",
+   "_enriched": "|"
   },
   {
    "name": "@Ronniealgo/dsh-find-file",
@@ -163049,7 +163654,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-find-file",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "ronniealgo",
+   "_enriched": "|"
   },
   {
    "name": "@visheshgubrani/clean-dev",
@@ -163075,7 +163685,12 @@
    ],
    "trust": "Bronze",
    "slug": "clean-dev",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "visheshgubrani",
+   "_enriched": "|"
   },
   {
    "name": "@ilun886/dsh-harmonyos-devkit",
@@ -163101,7 +163716,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-harmonyos-devkit",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "ilun886",
+   "_enriched": "|"
   },
   {
    "name": "@changli7047/DeepSeek-Harness-Plugins",
@@ -163127,7 +163747,12 @@
    ],
    "trust": "Silver",
    "slug": "deepseek-harness-plugins-13",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "changli7047",
+   "_enriched": "|"
   },
   {
    "name": "@lanxiuyun/dsh-multi-chat",
@@ -163152,7 +163777,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-multi-chat-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "lanxiuyun",
+   "_enriched": "|"
   },
   {
    "name": "@alanhaskey/dsh-gitmate",
@@ -163178,7 +163808,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-gitmate",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "alanhaskey",
+   "_enriched": "|"
   },
   {
    "name": "@shuxidemosheng/dsh-skill-compat-plus",
@@ -163204,7 +163839,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-skill-compat-plus",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 2,
+   "repoOwner": "shuxidemosheng",
+   "_enriched": "|"
   },
   {
    "name": "@kkj-luna/dsh-image-bridge",
@@ -163230,7 +163870,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-image-bridge-5",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "kkj-luna",
+   "_enriched": "|"
   },
   {
    "name": "@2026heshao/dsh-skill-mcp-board",
@@ -163253,7 +163898,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-skill-mcp-board",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 12,
+   "depsOfficial": 9,
+   "repoOwner": "2026heshao",
+   "_enriched": "|"
   },
   {
    "name": "@chenkui-luo/dsh-plugin-restart",
@@ -163278,7 +163928,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-restart-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "chenkui-luo",
+   "_enriched": "|"
   },
   {
    "name": "@vasptiger/vasp-scope",
@@ -163303,7 +163958,12 @@
    ],
    "trust": "Silver",
    "slug": "vasp-scope",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "vasptiger",
+   "_enriched": "|"
   },
   {
    "name": "@Airisey/dsh-model-failover",
@@ -163326,7 +163986,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-model-failover-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "airisey",
+   "_enriched": "|"
   },
   {
    "name": "@JianYiAG/dsh-prompt-enhancer",
@@ -163351,7 +164016,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-prompt-enhancer-7",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "jianyiag",
+   "_enriched": "|"
   },
   {
    "name": "intent-flow",
@@ -163377,7 +164047,12 @@
    ],
    "trust": "Silver",
    "slug": "intent-flow",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "thechengxi",
+   "_enriched": "|"
   },
   {
    "name": "git-skills",
@@ -163404,7 +164079,12 @@
    ],
    "trust": "Bronze",
    "slug": "git-skills",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "lispking",
+   "_enriched": "|"
   },
   {
    "name": "marketplace",
@@ -163427,7 +164107,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "marketplace",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "cogine-ai",
+   "_enriched": "|"
   },
   {
    "name": "dsh-deepseek-balance",
@@ -163450,7 +164135,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-deepseek-balance-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "dshiq04",
+   "_enriched": "|"
   },
   {
    "name": "fasthtml-desktop",
@@ -163473,7 +164163,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "fasthtml-desktop",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "kuailexiaozixin",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-manager",
@@ -163500,7 +164195,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-manager-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "jesse-njx",
+   "_enriched": "|"
   },
   {
    "name": "deepseek-harness-python",
@@ -163523,7 +164223,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "deepseek-harness-python",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "awesimon",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugins",
@@ -163548,7 +164253,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugins-13",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "karuisawa-mrs",
+   "_enriched": "|"
   },
   {
    "name": "tkinter-desktop",
@@ -163575,7 +164285,12 @@
    ],
    "trust": "Silver",
    "slug": "tkinter-desktop",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "kuailexiaozixin",
+   "_enriched": "|"
   },
   {
    "name": "dshplugin",
@@ -163600,7 +164315,12 @@
    ],
    "trust": "Silver",
    "slug": "dshplugin",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 9,
+   "depsOfficial": 0,
+   "repoOwner": "oa1mgo",
+   "_enriched": "|"
   },
   {
    "name": "deepseek-harness-101",
@@ -163626,7 +164346,12 @@
    ],
    "trust": "Unrated",
    "slug": "deepseek-harness-101",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "momojie-s",
+   "_enriched": "|"
   },
   {
    "name": "dsh-workspace-file-view",
@@ -163652,7 +164377,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-workspace-file-view",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "usamirenkorin",
+   "_enriched": "|"
   },
   {
    "name": "dsh-profile-pack",
@@ -163675,7 +164405,12 @@
    "ucs": [],
    "trust": "Bronze",
    "slug": "dsh-profile-pack",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "xiaoxingdelabi1",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-dev-skill",
@@ -163698,7 +164433,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugin-dev-skill-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "smiletao",
+   "_enriched": "|"
   },
   {
    "name": "deepseek-harness-molt",
@@ -163725,7 +164465,12 @@
    ],
    "trust": "Silver",
    "slug": "deepseek-harness-molt",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "houyongsheng",
+   "_enriched": "|"
   },
   {
    "name": "dsh-update-checker",
@@ -163750,7 +164495,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-update-checker-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "kelearns",
+   "_enriched": "|"
   },
   {
    "name": "dsh-command-check-update",
@@ -163776,7 +164526,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-command-check-update",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "xiaoxingdelabi1",
+   "_enriched": "|"
   },
   {
    "name": "dsh-session-repair",
@@ -163801,7 +164556,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-session-repair",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "equinox7379",
+   "_enriched": "|"
   },
   {
    "name": "dsh-composition-check",
@@ -163827,7 +164587,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-composition-check",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "aryswisnu",
+   "_enriched": "|"
   },
   {
    "name": "dsh-billing-balance",
@@ -163850,7 +164615,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-billing-balance",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "echo804",
+   "_enriched": "|"
   },
   {
    "name": "dsh-worktree",
@@ -163877,7 +164647,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-worktree-4",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "eleven-is-cool",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugins",
@@ -163902,7 +164677,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugins-18",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "rockeymen",
+   "_enriched": "|"
   },
   {
    "name": "dsh-changelog",
@@ -163928,7 +164708,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-changelog",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "gongyuancaiji",
+   "_enriched": "|"
   },
   {
    "name": "dsh-verify",
@@ -163953,7 +164738,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-verify",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "pingfanfan",
+   "_enriched": "|"
   },
   {
    "name": "dsh-replay-studio",
@@ -163979,7 +164769,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-replay-studio",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "dmsobtl",
+   "_enriched": "|"
   },
   {
    "name": "dsh-subagent-model-selector",
@@ -164002,7 +164797,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-subagent-model-selector",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "qwased",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-market-laoboshi",
@@ -164029,7 +164829,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-market-laoboshi",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "modole",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-skill-panel",
@@ -164055,7 +164860,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-skill-panel",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "jasper-zsh",
+   "_enriched": "|"
   },
   {
    "name": "dsh-remote-vps",
@@ -164081,7 +164891,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-remote-vps",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "alexisdevos",
+   "_enriched": "|"
   },
   {
    "name": "dsh-lens",
@@ -164108,7 +164923,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-lens",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 14,
+   "depsOfficial": 12,
+   "repoOwner": "hajimixiaojie",
+   "_enriched": "|"
   },
   {
    "name": "dsh-restart-plugin",
@@ -164134,7 +164954,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-restart-plugin",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "zdjmrq",
+   "_enriched": "|"
   },
   {
    "name": "dsh-ssh",
@@ -164160,7 +164985,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-ssh-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "onlca",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-guide",
@@ -164186,7 +165016,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-plugin-guide-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "harcochen",
+   "_enriched": "|"
   },
   {
    "name": "dsh-codetime",
@@ -164212,7 +165047,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-codetime",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 4,
+   "repoOwner": "codetime-dev",
+   "_enriched": "|"
   },
   {
    "name": "LastTokens",
@@ -164235,7 +165075,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "lasttokens",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "synetai",
+   "_enriched": "|"
   },
   {
    "name": "dsh-tool-tdd",
@@ -164260,7 +165105,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tool-tdd",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 8,
+   "depsOfficial": 8,
+   "repoOwner": "xiaooooo434680",
+   "_enriched": "|"
   },
   {
    "name": "dsh-model-switch",
@@ -164283,7 +165133,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-model-switch",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "amouren7",
+   "_enriched": "|"
   },
   {
    "name": "dsh-superpowers-zh",
@@ -164306,7 +165161,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-superpowers-zh",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "gongyuancaiji",
+   "_enriched": "|"
   },
   {
    "name": "dsh-git-graph",
@@ -164333,7 +165193,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-git-graph-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "samecorner",
+   "_enriched": "|"
   },
   {
    "name": "opendsh",
@@ -164359,7 +165224,12 @@
    ],
    "trust": "Silver",
    "slug": "opendsh",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "thechengxi",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugins",
@@ -164382,7 +165252,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugins-20",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "pengyonglei",
+   "_enriched": "|"
   },
   {
    "name": "dsh-docker-sidebar",
@@ -164408,7 +165283,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-docker-sidebar",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "fanshong",
+   "_enriched": "|"
   },
   {
    "name": "dsh-quality",
@@ -164433,7 +165313,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-quality",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "humditty",
+   "_enriched": "|"
   },
   {
    "name": "dsh-tool-code-review",
@@ -164459,7 +165344,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tool-code-review",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "dmsobtl",
+   "_enriched": "|"
   },
   {
    "name": "dsh-pi-adapter",
@@ -164482,7 +165372,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-pi-adapter",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 1,
+   "repoOwner": "cyzlmh",
+   "_enriched": "|"
   },
   {
    "name": "dsh-skill-manager",
@@ -164507,7 +165402,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-skill-manager-7",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "thomas-key",
+   "_enriched": "|"
   },
   {
    "name": "dsh-git",
@@ -164534,7 +165434,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-git-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 17,
+   "depsOfficial": 14,
+   "repoOwner": "zicanc",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugins",
@@ -164559,7 +165464,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugins-21",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "an0range",
+   "_enriched": "|"
   },
   {
    "name": "WhaleHarness",
@@ -164586,7 +165496,12 @@
    ],
    "trust": "Silver",
    "slug": "whaleharness",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "whaleharness",
+   "_enriched": "|"
   },
   {
    "name": "ojgen",
@@ -164611,7 +165526,12 @@
    ],
    "trust": "Silver",
    "slug": "ojgen",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "linux-tools",
+   "_enriched": "|"
   },
   {
    "name": "dsh-git-status",
@@ -164638,7 +165558,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-git-status",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "weiyuou-chowbus",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-file-drop",
@@ -164664,7 +165589,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-file-drop",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "reyesyang",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugins-public",
@@ -164687,7 +165617,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugins-public",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "starpivotnet",
+   "_enriched": "|"
   },
   {
    "name": "dsh-repo-map",
@@ -164715,7 +165650,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-repo-map",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "mkaliezz",
+   "_enriched": "|"
   },
   {
    "name": "dsh-harness-console",
@@ -164740,7 +165680,12 @@
    ],
    "trust": "Bronze",
    "slug": "dsh-harness-console",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "jensen-yao",
+   "_enriched": "|"
   },
   {
    "name": "dsh-marketplace",
@@ -164766,7 +165711,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-marketplace-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "ydhrdh",
+   "_enriched": "|"
   },
   {
    "name": "dsh-opencode-usage",
@@ -164791,7 +165741,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-opencode-usage-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "fengyangxun123",
+   "_enriched": "|"
   },
   {
    "name": "dsh-auth-gateway",
@@ -164818,7 +165773,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-auth-gateway-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 0,
+   "repoOwner": "ghbhiee",
+   "_enriched": "|"
   },
   {
    "name": "dsh-tools",
@@ -164845,7 +165805,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tools",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "harryli-7",
+   "_enriched": "|"
   },
   {
    "name": "dsh-deepview",
@@ -164870,7 +165835,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-deepview",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 7,
+   "depsOfficial": 5,
+   "repoOwner": "xiaomao66666",
+   "_enriched": "|"
   },
   {
    "name": "dsh-anchored-standard-1024",
@@ -164896,7 +165866,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-anchored-standard-1024",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "sishuai33-commits",
+   "_enriched": "|"
   },
   {
    "name": "dsh-api-client",
@@ -164919,7 +165894,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-api-client",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "mkaliezz",
+   "_enriched": "|"
   },
   {
    "name": "dsh-web-restart",
@@ -164945,7 +165925,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-web-restart-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "jifeng15",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-marketplace",
@@ -164970,7 +165955,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-marketplace-5",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "lijma",
+   "_enriched": "|"
   },
   {
    "name": "dsh-github",
@@ -164995,7 +165985,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-github-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "lvsh13",
+   "_enriched": "|"
   },
   {
    "name": "dsh-lib-context-injection",
@@ -165020,7 +166015,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-lib-context-injection",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "davidgereb",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-marketplace",
@@ -165046,7 +166046,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-marketplace-6",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 5,
+   "repoOwner": "xhvdhczd",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin",
@@ -165069,7 +166074,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugin-9",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "daifuyang",
+   "_enriched": "|"
   },
   {
    "name": "dsh-dev-server",
@@ -165094,7 +166104,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-dev-server",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "mkaliezz",
+   "_enriched": "|"
   },
   {
    "name": "dsh-commands",
@@ -165120,7 +166135,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-commands",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 9,
+   "depsOfficial": 7,
+   "repoOwner": "etbystudio",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-template",
@@ -165143,7 +166163,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugin-template-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "zhijiangtang",
+   "_enriched": "|"
   },
   {
    "name": "dsh-greet-plugin",
@@ -165166,7 +166191,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-greet-plugin",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "shixiangyu2",
+   "_enriched": "|"
   },
   {
    "name": "dsh-mode-switch",
@@ -165191,7 +166221,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-mode-switch",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "yaya716",
+   "_enriched": "|"
   },
   {
    "name": "dsh-opencode-go-usage",
@@ -165216,7 +166251,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-opencode-go-usage-4",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "garfieldgcat",
+   "_enriched": "|"
   },
   {
    "name": "dsh-token-usage",
@@ -165241,7 +166281,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-token-usage-5",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 3,
+   "repoOwner": "joyiok",
+   "_enriched": "|"
   },
   {
    "name": "dsh-skill-hub",
@@ -165268,7 +166313,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-skill-hub-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "hskelp9527-pixel",
+   "_enriched": "|"
   },
   {
    "name": "dsh-yzlin499-easy-plugins",
@@ -165293,7 +166343,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-yzlin499-easy-plugins",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "yzlin499",
+   "_enriched": "|"
   },
   {
    "name": "dsh-delete-session",
@@ -165321,7 +166376,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-delete-session-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 7,
+   "depsOfficial": 6,
+   "repoOwner": "smwhff",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugins",
@@ -165344,7 +166404,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugins-28",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "freespace8",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-deepseek-balance",
@@ -165367,7 +166432,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugin-deepseek-balance-4",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "jasonchtt",
+   "_enriched": "|"
   },
   {
    "name": "dshplugins",
@@ -165390,7 +166460,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dshplugins",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "stimqq",
+   "_enriched": "|"
   },
   {
    "name": "metavibe_dsh",
@@ -165415,7 +166490,12 @@
    ],
    "trust": "Gold",
    "slug": "metavibe-dsh",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "metavibecoding",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugins",
@@ -165438,7 +166518,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugins-29",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "rossbool",
+   "_enriched": "|"
   },
   {
    "name": "dsh-session-manager",
@@ -165464,7 +166549,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-session-manager-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "wuxiangru915",
+   "_enriched": "|"
   },
   {
    "name": "dsh-rewind",
@@ -165490,7 +166580,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-rewind-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 9,
+   "depsOfficial": 8,
+   "repoOwner": "ddll8023",
+   "_enriched": "|"
   },
   {
    "name": "dsh-session-import",
@@ -165515,7 +166610,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-session-import-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "junelearn",
+   "_enriched": "|"
   },
   {
    "name": "DSH-plugin-market",
@@ -165541,7 +166641,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-market-10",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 8,
+   "repoOwner": "v-dev-388",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-store",
@@ -165568,7 +166673,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-store-4",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 3,
+   "repoOwner": "anjaymi",
+   "_enriched": "|"
   },
   {
    "name": "dsh-turn-usage",
@@ -165591,7 +166701,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-turn-usage",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "habidskoft",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-safe",
@@ -165617,7 +166732,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-safe",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "zhou1736948757-cpu",
+   "_enriched": "|"
   },
   {
    "name": "dsh-req-miner",
@@ -165642,7 +166762,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-req-miner",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "nortejiang-tech",
+   "_enriched": "|"
   },
   {
    "name": "dsh-git-panel",
@@ -165669,7 +166794,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-git-panel-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "dashingmonkey",
+   "_enriched": "|"
   },
   {
    "name": "dsh-skill-manager",
@@ -165695,7 +166825,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-skill-manager-9",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "yi-wei-h",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-development-skill",
@@ -165718,7 +166853,12 @@
    "ucs": [],
    "trust": "Bronze",
    "slug": "dsh-plugin-development-skill",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "zephyrpersonal",
+   "_enriched": "|"
   },
   {
    "name": "dsh-jwt",
@@ -165743,7 +166883,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-jwt",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "zhijiangtang",
+   "_enriched": "|"
   },
   {
    "name": "wealth-device-inspector",
@@ -165770,7 +166915,12 @@
    ],
    "trust": "Silver",
    "slug": "wealth-device-inspector",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "junbaocao",
+   "_enriched": "|"
   },
   {
    "name": "dsh-preset-kit",
@@ -165795,7 +166945,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-preset-kit",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "moeblack",
+   "_enriched": "|"
   },
   {
    "name": "dsh-error-explainer",
@@ -165818,7 +166973,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-error-explainer",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "mkaliezz",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-suite",
@@ -165844,7 +167004,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-suite-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "zdjmrq",
+   "_enriched": "|"
   },
   {
    "name": "dsh-toolkit",
@@ -165871,7 +167036,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-toolkit-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "chou109",
+   "_enriched": "|"
   },
   {
    "name": "dsh-norm-spec",
@@ -165897,7 +167067,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-norm-spec",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 6,
+   "repoOwner": "cyanoorg",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugins",
@@ -165920,7 +167095,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugins-35",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "ryanyujazz-dev",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-dev",
@@ -165945,7 +167125,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-dev-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "ligaoc",
+   "_enriched": "|"
   },
   {
    "name": "dsh-rewind",
@@ -165973,7 +167158,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-rewind-4",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 9,
+   "depsOfficial": 7,
+   "repoOwner": "sipengxie2024",
+   "_enriched": "|"
   },
   {
    "name": "dsh-file-mention",
@@ -165998,7 +167188,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-file-mention-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "sunshaobei",
+   "_enriched": "|"
   },
   {
    "name": "project-understanding",
@@ -166024,7 +167219,12 @@
    ],
    "trust": "Silver",
    "slug": "project-understanding",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "guchengyouzi12138",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugins",
@@ -166049,7 +167249,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugins-36",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "lihuu",
+   "_enriched": "|"
   },
   {
    "name": "dsh-semver",
@@ -166072,7 +167277,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-semver",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "uckkk",
+   "_enriched": "|"
   },
   {
    "name": "token-budget",
@@ -166098,7 +167308,12 @@
    ],
    "trust": "Silver",
    "slug": "token-budget",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "tachika710",
+   "_enriched": "|"
   },
   {
    "name": "dsh-cron",
@@ -166121,7 +167336,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-cron-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "uckkk",
+   "_enriched": "|"
   },
   {
    "name": "dsh-code-review",
@@ -166147,7 +167367,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-code-review",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "mario03690",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-market",
@@ -166172,7 +167397,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-market-16",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 6,
+   "repoOwner": "acemaravilla",
+   "_enriched": "|"
   },
   {
    "name": "dshpack",
@@ -166198,7 +167428,12 @@
    ],
    "trust": "Silver",
    "slug": "dshpack",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "hili986",
+   "_enriched": "|"
   },
   {
    "name": "dsh-lab",
@@ -166223,7 +167458,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-lab",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "pengkodam",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-dev",
@@ -166249,7 +167489,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-dev-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "baihejiangnan",
+   "_enriched": "|"
   },
   {
    "name": "dsh-adversarial-review",
@@ -166274,7 +167519,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-adversarial-review",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "mario03690",
+   "_enriched": "|"
   },
   {
    "name": "dsh-project",
@@ -166300,7 +167550,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-project",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "863683348",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-safety-toolkit",
@@ -166327,7 +167582,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-safety-toolkit",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "chshcbz",
+   "_enriched": "|"
   },
   {
    "name": "WSL-for-DSH",
@@ -166353,7 +167613,12 @@
    ],
    "trust": "Silver",
    "slug": "wsl-for-dsh",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "larrye135",
+   "_enriched": "|"
   },
   {
    "name": "dsh-headless-resumable",
@@ -166379,7 +167644,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-headless-resumable",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 4,
+   "repoOwner": "outblock",
+   "_enriched": "|"
   },
   {
    "name": "dsh-cost-monitor",
@@ -166402,7 +167672,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-cost-monitor",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "tuoluofusijiyang",
+   "_enriched": "|"
   },
   {
    "name": "dsh-token-usage",
@@ -166427,7 +167702,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-token-usage-9",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "vector-sunlight",
+   "_enriched": "|"
   },
   {
    "name": "superpowers-workflow",
@@ -166453,7 +167733,12 @@
    ],
    "trust": "Silver",
    "slug": "superpowers-workflow",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "yefei124",
+   "_enriched": "|"
   },
   {
    "name": "dsh-tech-stack-survey",
@@ -166476,7 +167761,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-tech-stack-survey",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 4,
+   "depsOfficial": 3,
+   "repoOwner": "guozijan",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-marketplace",
@@ -166502,7 +167792,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-marketplace-7",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "wine-cupable",
+   "_enriched": "|"
   },
   {
    "name": "dsh-session-cost",
@@ -166525,7 +167820,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-session-cost-5",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "glangzh",
+   "_enriched": "|"
   },
   {
    "name": "pack-Agent",
@@ -166552,7 +167852,12 @@
    ],
    "trust": "Silver",
    "slug": "pack-agent-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "aoye516",
+   "_enriched": "|"
   },
   {
    "name": "dsh-prompt-regression",
@@ -166578,7 +167883,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-prompt-regression",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "helloxkk",
+   "_enriched": "|"
   },
   {
    "name": "dsh-auto-coding",
@@ -166604,7 +167914,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-auto-coding",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "facai0316",
+   "_enriched": "|"
   },
   {
    "name": "DeepseekHarness-AndroidClient",
@@ -166630,7 +167945,12 @@
    ],
    "trust": "Silver",
    "slug": "deepseekharness-androidclient",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "sparkweiyang",
+   "_enriched": "|"
   },
   {
    "name": "omdsh-plugins.github.io",
@@ -166656,7 +167976,12 @@
    ],
    "trust": "Silver",
    "slug": "omdsh-plugins-github-io",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "omdsh-plugins",
+   "_enriched": "|"
   },
   {
    "name": "dsh-update-checker",
@@ -166682,7 +168007,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-update-checker-5",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "ymh0000123",
+   "_enriched": "|"
   },
   {
    "name": "dsh-story",
@@ -166705,7 +168035,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-story-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "791813037",
+   "_enriched": "|"
   },
   {
    "name": "registry",
@@ -166730,7 +168065,12 @@
    ],
    "trust": "Bronze",
    "slug": "registry",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "omdsh-plugins",
+   "_enriched": "|"
   },
   {
    "name": "dsh-prompt-manager",
@@ -166757,7 +168097,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-prompt-manager-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 3,
+   "repoOwner": "1056802185",
+   "_enriched": "|"
   },
   {
    "name": "web-dev",
@@ -166783,7 +168128,12 @@
    ],
    "trust": "Silver",
    "slug": "web-dev",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "dsh-packs",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-registry",
@@ -166811,7 +168161,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-registry-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 1,
+   "repoOwner": "dove-a",
+   "_enriched": "|"
   },
   {
    "name": "dsh-at-mention",
@@ -166837,7 +168192,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-at-mention-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "shiragawaanri",
+   "_enriched": "|"
   },
   {
    "name": "deepseek-harness-plugin-dev-guide",
@@ -166860,7 +168220,12 @@
    "ucs": [],
    "trust": "Bronze",
    "slug": "deepseek-harness-plugin-dev-guide",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "moneka123",
+   "_enriched": "|"
   },
   {
    "name": "dsh-extension-ops",
@@ -166886,7 +168251,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-extension-ops",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "yzke",
+   "_enriched": "|"
   },
   {
    "name": "dsh-public-plugins",
@@ -166909,7 +168279,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-public-plugins",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "ruby1304",
+   "_enriched": "|"
   },
   {
    "name": "dsh-skill-manager",
@@ -166934,7 +168309,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-skill-manager-14",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "xingyingyuzhui",
+   "_enriched": "|"
   },
   {
    "name": "dsh-deepseek-balance",
@@ -166961,7 +168341,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-deepseek-balance-10",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "qschen86",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plannotator",
@@ -166986,7 +168371,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plannotator-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "eighthundreds",
+   "_enriched": "|"
   },
   {
    "name": "dev-workbench",
@@ -167011,7 +168401,12 @@
    ],
    "trust": "Silver",
    "slug": "dev-workbench",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "cnskycn",
+   "_enriched": "|"
   },
   {
    "name": "dsh-web-restart",
@@ -167036,7 +168431,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-web-restart-4",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "qschen86",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugins",
@@ -167061,7 +168461,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugins-45",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "guobinmengxiang-rgb",
+   "_enriched": "|"
   },
   {
    "name": "dsh-doc-skill",
@@ -167086,7 +168491,12 @@
    ],
    "trust": "Bronze",
    "slug": "dsh-doc-skill",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "hiccupgeng",
+   "_enriched": "|"
   },
   {
    "name": "dsh-skills-manager",
@@ -167112,7 +168522,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-skills-manager-5",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 6,
+   "repoOwner": "penglai-doll",
+   "_enriched": "|"
   },
   {
    "name": "dsh-git-workbench",
@@ -167139,7 +168554,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-git-workbench-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "kaixinbaba",
+   "_enriched": "|"
   },
   {
    "name": "dsh-community",
@@ -167165,7 +168585,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-community",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "qwert702",
+   "_enriched": "|"
   },
   {
    "name": "dshmarketplace-py",
@@ -167191,7 +168616,12 @@
    ],
    "trust": "Silver",
    "slug": "dshmarketplace-py",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "dshmarketplace",
+   "_enriched": "|"
   },
   {
    "name": "dsh-remote-workspace",
@@ -167216,7 +168646,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-remote-workspace-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "hefulalala",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-workbench",
@@ -167243,7 +168678,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-workbench-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 2,
+   "repoOwner": "ghbhiee",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-guardian",
@@ -167270,7 +168710,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-guardian-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 10,
+   "repoOwner": "nico0713520",
+   "_enriched": "|"
   },
   {
    "name": "dsh-host-compliance-check",
@@ -167296,7 +168741,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-host-compliance-check",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "liuyun847",
+   "_enriched": "|"
   },
   {
    "name": "dsh-mcp-list",
@@ -167321,7 +168771,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-mcp-list",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "dmz2922990",
+   "_enriched": "|"
   },
   {
    "name": "dsh-double-shift-file-search",
@@ -167347,7 +168802,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-double-shift-file-search",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "codezha",
+   "_enriched": "|"
   },
   {
    "name": "dsh-enhanced",
@@ -167372,7 +168832,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-enhanced",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "22-ai-00",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-verify",
@@ -167399,7 +168864,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-verify-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "863683348",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugins",
@@ -167426,7 +168896,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugins-46",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "wryyyds7",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-development",
@@ -167449,7 +168924,12 @@
    "ucs": [],
    "trust": "Unrated",
    "slug": "dsh-plugin-development-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "qiuyongjin",
+   "_enriched": "|"
   },
   {
    "name": "local-git-4-llm",
@@ -167477,7 +168957,12 @@
    ],
    "trust": "Silver",
    "slug": "local-git-4-llm",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 14,
+   "depsOfficial": 12,
+   "repoOwner": "kelai141",
+   "_enriched": "|"
   },
   {
    "name": "dsh-github-watchdog",
@@ -167503,7 +168988,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-github-watchdog",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "kelai141",
+   "_enriched": "|"
   },
   {
    "name": "dsh-usage",
@@ -167530,7 +169020,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-usage-4",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "godpanzz",
+   "_enriched": "|"
   },
   {
    "name": "dsh-mcp-manager",
@@ -167556,7 +169051,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-mcp-manager-8",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "penglai-doll",
+   "_enriched": "|"
   },
   {
    "name": "dsh-code-review",
@@ -167581,7 +169081,12 @@
    ],
    "trust": "Bronze",
    "slug": "dsh-code-review-4",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "sipengxie2024",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-registry",
@@ -167606,7 +169111,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-registry-4",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "xrj",
+   "_enriched": "|"
   },
   {
    "name": "dsh-graph",
@@ -167632,7 +169142,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-graph",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "wooleo1995",
+   "_enriched": "|"
   },
   {
    "name": "dsh-dev",
@@ -167657,7 +169172,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-dev-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 0,
+   "repoOwner": "dsh-io",
+   "_enriched": "|"
   },
   {
    "name": "dsh-mechanics-lab",
@@ -167680,7 +169200,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-mechanics-lab",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "godcreator02",
+   "_enriched": "|"
   },
   {
    "name": "dsh-adt",
@@ -167705,7 +169230,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-adt",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "nefevcore",
+   "_enriched": "|"
   },
   {
    "name": "dsh-kernel-grok",
@@ -167728,7 +169258,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-kernel-grok",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "oppnc",
+   "_enriched": "|"
   },
   {
    "name": "dsh-kernel-codex",
@@ -167754,7 +169289,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-kernel-codex",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "oppnc",
+   "_enriched": "|"
   },
   {
    "name": "dsh-routing-suite-opencode-go",
@@ -167777,7 +169317,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-routing-suite-opencode-go",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "sixtysevenlf",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-pub-review",
@@ -167802,7 +169347,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-pub-review",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 6,
+   "repoOwner": "weopenfire-git",
+   "_enriched": "|"
   },
   {
    "name": "dsh-customizations",
@@ -167827,7 +169377,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-customizations",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "trees163",
+   "_enriched": "|"
   },
   {
    "name": "dsh-monitor",
@@ -167852,7 +169407,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-monitor",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "coco-king",
+   "_enriched": "|"
   },
   {
    "name": "dsh-subagent-agy",
@@ -167878,7 +169438,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-subagent-agy",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "umicorn07",
+   "_enriched": "|"
   },
   {
    "name": "dsh-skills",
@@ -167903,7 +169468,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-skills",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "alice-p197",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-market",
@@ -167930,7 +169500,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-market-19",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 1,
+   "repoOwner": "newbieyi",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-reducer",
@@ -167955,7 +169530,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-reducer",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "armywas",
+   "_enriched": "|"
   },
   {
    "name": "dsh-hashline",
@@ -167980,7 +169560,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-hashline",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "mouyase",
+   "_enriched": "|"
   },
   {
    "name": "dsh-updater",
@@ -168006,7 +169591,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-updater",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "onewilk",
+   "_enriched": "|"
   },
   {
    "name": "dsh-ecc",
@@ -168031,7 +169621,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-ecc-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 5,
+   "repoOwner": "staavanothanh",
+   "_enriched": "|"
   },
   {
    "name": "dshwork",
@@ -168056,7 +169651,12 @@
    ],
    "trust": "Silver",
    "slug": "dshwork",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "charlzyx",
+   "_enriched": "|"
   },
   {
    "name": "stacktree-dsh",
@@ -168082,7 +169682,12 @@
    ],
    "trust": "Bronze",
    "slug": "stacktree-dsh",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "stevysmith",
+   "_enriched": "|"
   },
   {
    "name": "dshp",
@@ -168108,7 +169713,12 @@
    ],
    "trust": "Silver",
    "slug": "dshp-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "bigstyle777",
+   "_enriched": "|"
   },
   {
    "name": "dsh-balance-plugin",
@@ -168131,7 +169741,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-balance-plugin-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "luhaifeng666",
+   "_enriched": "|"
   },
   {
    "name": "plugin-center",
@@ -168156,7 +169771,12 @@
    ],
    "trust": "Silver",
    "slug": "plugin-center",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "1162514620",
+   "_enriched": "|"
   },
   {
    "name": "dsh-vscode-opener",
@@ -168181,7 +169801,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-vscode-opener",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "potterlee369-prog",
+   "_enriched": "|"
   },
   {
    "name": "dsh-cbm",
@@ -168206,7 +169831,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-cbm",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "staavanothanh",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugins",
@@ -168229,7 +169859,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugins-51",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "eya46",
+   "_enriched": "|"
   },
   {
    "name": "dsh-web-restart",
@@ -168255,7 +169890,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-web-restart-5",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "xiaojing-511",
+   "_enriched": "|"
   },
   {
    "name": "dsh-restart",
@@ -168280,7 +169920,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-restart-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "zhouchengke2046",
+   "_enriched": "|"
   },
   {
    "name": "dsh-evidence-task-board",
@@ -168305,7 +169950,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-evidence-task-board",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "mkaliezz",
+   "_enriched": "|"
   },
   {
    "name": "dsh-test-normalizer",
@@ -168330,7 +169980,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-test-normalizer",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "mkaliezz",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-market",
@@ -168356,7 +170011,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-market-20",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 1,
+   "repoOwner": "jasperguwp",
+   "_enriched": "|"
   },
   {
    "name": "dsh-session-delete",
@@ -168382,7 +170042,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-session-delete-8",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 7,
+   "repoOwner": "bakacirno233",
+   "_enriched": "|"
   },
   {
    "name": "dsh-peak",
@@ -168405,7 +170070,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-peak",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 0,
+   "repoOwner": "ibrhr",
+   "_enriched": "|"
   },
   {
    "name": "deep-tariff",
@@ -168428,7 +170098,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "deep-tariff",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 8,
+   "depsOfficial": 7,
+   "repoOwner": "temidayoxyz",
+   "_enriched": "|"
   },
   {
    "name": "faultseed",
@@ -168454,7 +170129,12 @@
    ],
    "trust": "Silver",
    "slug": "faultseed",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "jw53222",
+   "_enriched": "|"
   },
   {
    "name": "dsh-balance",
@@ -168479,7 +170159,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-balance-14",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 5,
+   "depsOfficial": 4,
+   "repoOwner": "eka3os",
+   "_enriched": "|"
   },
   {
    "name": "Novera-AI-agent",
@@ -168504,7 +170189,12 @@
    ],
    "trust": "Bronze",
    "slug": "novera-ai-agent",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "whaojie797-design",
+   "_enriched": "|"
   },
   {
    "name": "source-watch",
@@ -168532,7 +170222,12 @@
    ],
    "trust": "Silver",
    "slug": "source-watch",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "whaojie797-design",
+   "_enriched": "|"
   },
   {
    "name": "diagram-drift",
@@ -168558,7 +170253,12 @@
    ],
    "trust": "Silver",
    "slug": "diagram-drift",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "whaojie797-design",
+   "_enriched": "|"
   },
   {
    "name": "dsh-token-billing",
@@ -168583,7 +170283,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-token-billing-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "jianzhexu",
+   "_enriched": "|"
   },
   {
    "name": "dsh-btw",
@@ -168608,7 +170313,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-btw-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "136155330",
+   "_enriched": "|"
   },
   {
    "name": "dsh_AutoLoad_workflow",
@@ -168634,7 +170344,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-autoload-workflow",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "mfwtw",
+   "_enriched": "|"
   },
   {
    "name": "texpage-bridge",
@@ -168660,7 +170375,12 @@
    ],
    "trust": "Silver",
    "slug": "texpage-bridge",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "dongyaoze",
+   "_enriched": "|"
   },
   {
    "name": "dsh-command-vscode",
@@ -168685,7 +170405,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-command-vscode",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "foxi-ui",
+   "_enriched": "|"
   },
   {
    "name": "dsh-at-file",
@@ -168710,7 +170435,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-at-file-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 9,
+   "depsOfficial": 8,
+   "repoOwner": "misrightw",
+   "_enriched": "|"
   },
   {
    "name": "dsh-session-notify",
@@ -168737,7 +170467,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-session-notify-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 4,
+   "repoOwner": "huaiyuwangh",
+   "_enriched": "|"
   },
   {
    "name": "Repo_Tutor",
@@ -168763,7 +170498,12 @@
    ],
    "trust": "Bronze",
    "slug": "repo-tutor",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "wang-yifan666",
+   "_enriched": "|"
   },
   {
    "name": "dsh-codeact-tools",
@@ -168789,7 +170529,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-codeact-tools",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "lyuwen",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-creator-skill",
@@ -168816,7 +170561,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-plugin-creator-skill",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "lovstudio",
+   "_enriched": "|"
   },
   {
    "name": "dsh-upgrade-kit",
@@ -168843,7 +170593,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-upgrade-kit",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "piggy00544",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-best-practices-skill",
@@ -168869,7 +170624,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-best-practices-skill",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "502399493zjw-lgtm",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-publisher-skill",
@@ -168896,7 +170656,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-plugin-publisher-skill",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "lovstudio",
+   "_enriched": "|"
   },
   {
    "name": "dsh-fresh-environment-creator",
@@ -168922,7 +170687,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-fresh-environment-creator",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "warma16",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugins",
@@ -168948,7 +170718,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugins-57",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "koji-xiaoer",
+   "_enriched": "|"
   },
   {
    "name": "dsh-file-ref",
@@ -168973,7 +170748,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-file-ref-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "cucen066",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-windows",
@@ -168999,7 +170779,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-windows",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "avaritiachaos",
+   "_enriched": "|"
   },
   {
    "name": "dsh-codex",
@@ -169026,7 +170811,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-codex-6",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 20,
+   "depsOfficial": 19,
+   "repoOwner": "ryanzhou",
+   "_enriched": "|"
   },
   {
    "name": "dsh-remote-access-patch",
@@ -169051,7 +170841,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-remote-access-patch",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "homoland",
+   "_enriched": "|"
   },
   {
    "name": "dsh-minimal-tools-preset",
@@ -169078,7 +170873,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-minimal-tools-preset",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "canson666",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-marketplace",
@@ -169103,7 +170903,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-marketplace-8",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 5,
+   "depsOfficial": 4,
+   "repoOwner": "shixiaosia",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-smart-patch",
@@ -169128,7 +170933,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-smart-patch",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "avaritiachaos",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-mcp",
@@ -169155,7 +170965,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-mcp",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "avaritiachaos",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugins",
@@ -169180,7 +170995,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-plugins-59",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "mkaliezz",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-market",
@@ -169206,7 +171026,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-market-22",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "mrk-king",
+   "_enriched": "|"
   },
   {
    "name": "dsh-update-checker",
@@ -169231,7 +171056,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-update-checker-6",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "harryli-7",
+   "_enriched": "|"
   },
   {
    "name": "dsh-profile-port",
@@ -169258,7 +171088,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-profile-port",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "fusu123fusu",
+   "_enriched": "|"
   },
   {
    "name": "DeepSeekHarnessSDK",
@@ -169284,7 +171119,12 @@
    ],
    "trust": "Silver",
    "slug": "deepseekharnesssdk",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "fei-hang",
+   "_enriched": "|"
   },
   {
    "name": "dsh-workbench",
@@ -169310,7 +171150,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-workbench-5",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "ai-thinkshare",
+   "_enriched": "|"
   },
   {
    "name": "dsh-cc-suite",
@@ -169336,7 +171181,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-cc-suite",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "as17514",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-installer",
@@ -169363,7 +171213,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-installer-4",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "gogogodoge",
+   "_enriched": "|"
   },
   {
    "name": "dsh-toolObserver",
@@ -169388,7 +171243,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-toolobserver",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "neruzz-jpg",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-manager",
@@ -169414,7 +171274,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-manager-23",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "rogueservitor-495",
+   "_enriched": "|"
   },
   {
    "name": "dsh-phone",
@@ -169437,7 +171302,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-phone-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "uckkk",
+   "_enriched": "|"
   },
   {
    "name": "dsh-skill-multi-model-review",
@@ -169463,7 +171333,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-skill-multi-model-review",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "yangfei222666-9",
+   "_enriched": "|"
   },
   {
    "name": "law-dsh-plugin",
@@ -169489,7 +171364,12 @@
    ],
    "trust": "Silver",
    "slug": "law-dsh-plugin",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "rinsonlaw",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-graph",
@@ -169515,7 +171395,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-graph-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "steven95",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plan-mode-enhanced",
@@ -169538,7 +171423,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plan-mode-enhanced",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "afisht",
+   "_enriched": "|"
   },
   {
    "name": "dsh-fff",
@@ -169563,7 +171453,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-fff-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "slothtron",
+   "_enriched": "|"
   },
   {
    "name": "dsh-skills",
@@ -169590,7 +171485,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-skills-4",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "linhut",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-catalog",
@@ -169613,7 +171513,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-plugin-catalog-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 5,
+   "repoOwner": "fengs2021",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-manager",
@@ -169638,7 +171543,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-manager-24",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "chuyue-yue",
+   "_enriched": "|"
   },
   {
    "name": "ZeishuaiDeepSeekHarness",
@@ -169661,7 +171571,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "zeishuaideepseekharness",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "zeishuai-s-project",
+   "_enriched": "|"
   },
   {
    "name": "dsh-filetree",
@@ -169686,7 +171601,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-filetree-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "yangatc",
+   "_enriched": "|"
   },
   {
    "name": "dsh-settings-manager",
@@ -169712,7 +171632,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-settings-manager",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "kitai-ai",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-manager",
@@ -169737,7 +171662,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-manager-25",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "big-lixin",
+   "_enriched": "|"
   },
   {
    "name": "dsh-claude-plugin-loader",
@@ -169762,7 +171692,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-claude-plugin-loader",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 10,
+   "depsOfficial": 9,
+   "repoOwner": "lengdanran",
+   "_enriched": "|"
   },
   {
    "name": "dsh-opencode-usage",
@@ -169787,7 +171722,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-opencode-usage-5",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "zzh799",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-manager",
@@ -169812,7 +171752,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-manager-26",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "yolotd",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-market",
@@ -169837,7 +171782,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-market-23",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "zr-promise",
+   "_enriched": "|"
   },
   {
    "name": "dsh-session-cost",
@@ -169860,7 +171810,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-session-cost-9",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "jyhn-hunao",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-installer",
@@ -169887,7 +171842,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-installer-5",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "quophic",
+   "_enriched": "|"
   },
   {
    "name": "dsh-skill-mcp-manager",
@@ -169913,7 +171873,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-skill-mcp-manager",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 9,
+   "depsOfficial": 8,
+   "repoOwner": "hanihahaha",
+   "_enriched": "|"
   },
   {
    "name": "dsh-better-price",
@@ -169936,7 +171901,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-better-price",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 4,
+   "repoOwner": "fantasality",
+   "_enriched": "|"
   },
   {
    "name": "dsh-web-profile",
@@ -169963,7 +171933,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-web-profile",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 20,
+   "depsOfficial": 0,
+   "repoOwner": "yiklek",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-catalog",
@@ -169989,7 +171964,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-catalog-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "wemio",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-manager",
@@ -170014,7 +171994,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-plugin-manager-27",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "newbieyi",
+   "_enriched": "|"
   },
   {
    "name": "dsh-checkpoint-rewind",
@@ -170040,7 +172025,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-checkpoint-rewind-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 8,
+   "depsOfficial": 7,
+   "repoOwner": "skkaczsh",
+   "_enriched": "|"
   },
   {
    "name": "dsh_token_usage",
@@ -170065,7 +172055,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-token-usage-13",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "xbyzzz",
+   "_enriched": "|"
   },
   {
    "name": "dsh-omp-tools",
@@ -170091,7 +172086,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-omp-tools",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 6,
+   "repoOwner": "keynowu",
+   "_enriched": "|"
   },
   {
    "name": "dsh-money",
@@ -170114,7 +172114,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-money",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "yanhuifair",
+   "_enriched": "|"
   },
   {
    "name": "dsh-updater-plugin",
@@ -170140,7 +172145,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-updater-plugin",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "stefanisme",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugins",
@@ -170166,7 +172176,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugins-65",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "ivwumupy",
+   "_enriched": "|"
   },
   {
    "name": "dsh-harness-control",
@@ -170192,7 +172207,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-harness-control",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "anoko1122",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-developer",
@@ -170219,7 +172239,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-developer",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "welsione",
+   "_enriched": "|"
   },
   {
    "name": "dsh-doctor-windows",
@@ -170245,7 +172270,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-doctor-windows-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 2,
+   "repoOwner": "xianfanwindy",
+   "_enriched": "|"
   },
   {
    "name": "source-code-mgmt",
@@ -170271,7 +172301,12 @@
    ],
    "trust": "Gold",
    "slug": "source-code-mgmt",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 2,
+   "depsOfficial": 0,
+   "repoOwner": "zhucy123",
+   "_enriched": "|"
   },
   {
    "name": "dsh-workspace",
@@ -170298,7 +172333,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-workspace-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 38,
+   "depsOfficial": 13,
+   "repoOwner": "xuqingsakura",
+   "_enriched": "|"
   },
   {
    "name": "dsh-session-cleaner",
@@ -170324,7 +172364,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-session-cleaner-5",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 13,
+   "depsOfficial": 12,
+   "repoOwner": "them14",
+   "_enriched": "|"
   },
   {
    "name": "easy-git",
@@ -170350,7 +172395,12 @@
    ],
    "trust": "Silver",
    "slug": "easy-git",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "easysir10",
+   "_enriched": "|"
   },
   {
    "name": "dsh-session-telemetry-otlp-trace",
@@ -170373,7 +172423,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-session-telemetry-otlp-trace",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 13,
+   "depsOfficial": 8,
+   "repoOwner": "dawei008",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-market",
@@ -170399,7 +172454,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-market-25",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "250shiwo",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-development",
@@ -170424,7 +172484,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-development-4",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "striveh",
+   "_enriched": "|"
   },
   {
    "name": "dsh-agent-plugin-research",
@@ -170450,7 +172515,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-agent-plugin-research",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "asteroid0449",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-registry",
@@ -170476,7 +172546,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-registry-5",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "harzva",
+   "_enriched": "|"
   },
   {
    "name": "dsh-tool-git",
@@ -170503,7 +172578,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tool-git-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 11,
+   "depsOfficial": 11,
+   "repoOwner": "gxinxing",
+   "_enriched": "|"
   },
   {
    "name": "hedgehog-core-deepseek-harness",
@@ -170528,7 +172608,12 @@
    ],
    "trust": "Silver",
    "slug": "hedgehog-core-deepseek-harness",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "skyf0xx",
+   "_enriched": "|"
   },
   {
    "name": "dsh-updater",
@@ -170554,7 +172639,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-updater-4",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 0,
+   "repoOwner": "zhuoxuanliu53-svg",
+   "_enriched": "|"
   },
   {
    "name": "dsh-conservative-anchor",
@@ -170580,7 +172670,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-conservative-anchor",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "delta-water",
+   "_enriched": "|"
   },
   {
    "name": "Session-Cost-Alert",
@@ -170605,7 +172700,12 @@
    ],
    "trust": "Silver",
    "slug": "session-cost-alert",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "lan0o0",
+   "_enriched": "|"
   },
   {
    "name": "matlab-assistant",
@@ -170631,7 +172731,12 @@
    ],
    "trust": "Silver",
    "slug": "matlab-assistant",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "iloveyanjialin1314",
+   "_enriched": "|"
   },
   {
    "name": "DSH-for-VSCode",
@@ -170656,7 +172761,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-for-vscode",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "skylake0216",
+   "_enriched": "|"
   },
   {
    "name": "DSH-plugins",
@@ -170682,7 +172792,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugins-73",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 0,
+   "repoOwner": "lidongjmx",
+   "_enriched": "|"
   },
   {
    "name": "dsh-store-server",
@@ -170707,7 +172822,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-store-server",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 0,
+   "repoOwner": "hajimilvdou",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-local-utilities",
@@ -170733,7 +172853,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-local-utilities",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "hjjj0918",
+   "_enriched": "|"
   },
   {
    "name": "dsh-git",
@@ -170761,7 +172886,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-git-5",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "taontech",
+   "_enriched": "|"
   },
   {
    "name": "dsh-vscode",
@@ -170786,7 +172916,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-vscode-6",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "hyna-hla",
+   "_enriched": "|"
   },
   {
    "name": "acp-extension-dsh",
@@ -170811,7 +172946,12 @@
    ],
    "trust": "Silver",
    "slug": "acp-extension-dsh",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 4,
+   "depCount": 3,
+   "depsOfficial": 0,
+   "repoOwner": "lodyai",
+   "_enriched": "|"
   },
   {
    "name": "dsh-workspace",
@@ -170837,7 +172977,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-workspace-4",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "wenliang9527",
+   "_enriched": "|"
   },
   {
    "name": "dsh-file-mention",
@@ -170862,7 +173007,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-file-mention-6",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "seryta",
+   "_enriched": "|"
   },
   {
    "name": "web2cli",
@@ -170887,7 +173037,12 @@
    ],
    "trust": "Silver",
    "slug": "web2cli",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "deng7112",
+   "_enriched": "|"
   },
   {
    "name": "dsh-session-manager",
@@ -170914,7 +173069,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-session-manager-10",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "theheartfickle",
+   "_enriched": "|"
   },
   {
    "name": "dsh-tools",
@@ -170940,7 +173100,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tools-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "gcd1949",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-custom-provider-raw-key",
@@ -170963,7 +173128,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugin-custom-provider-raw-key",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "arcj137442",
+   "_enriched": "|"
   },
   {
    "name": "dsh-sidebar-open-in-ide",
@@ -170988,7 +173158,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-sidebar-open-in-ide",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 2,
+   "repoOwner": "gunduziba",
+   "_enriched": "|"
   },
   {
    "name": "dsh-hooks-pack",
@@ -171014,7 +173189,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-hooks-pack",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 5,
+   "depsOfficial": 5,
+   "repoOwner": "chenzhi-clude",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugins",
@@ -171041,7 +173221,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugins-78",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "messiahyl",
+   "_enriched": "|"
   },
   {
    "name": "dsh-manage",
@@ -171066,7 +173251,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-manage",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "elmaxid",
+   "_enriched": "|"
   },
   {
    "name": "Dsh-dev",
@@ -171093,7 +173283,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-dev-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "vimalinx",
+   "_enriched": "|"
   },
   {
    "name": "dsh-k8s",
@@ -171118,7 +173313,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-k8s",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 4,
+   "repoOwner": "mryangyt",
+   "_enriched": "|"
   },
   {
    "name": "AutoCoding",
@@ -171144,7 +173344,12 @@
    ],
    "trust": "Silver",
    "slug": "autocoding",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 3,
+   "depsOfficial": 0,
+   "repoOwner": "zengfr",
+   "_enriched": "|"
   },
   {
    "name": "anno",
@@ -171170,7 +173375,12 @@
    ],
    "trust": "Silver",
    "slug": "anno",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "philmingdao",
+   "_enriched": "|"
   },
   {
    "name": "dsh-worktree",
@@ -171197,7 +173407,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-worktree-7",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 14,
+   "depsOfficial": 12,
+   "repoOwner": "jiazliang",
+   "_enriched": "|"
   },
   {
    "name": "dsh-dev-standards",
@@ -171223,7 +173438,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-dev-standards",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "nilnon",
+   "_enriched": "|"
   },
   {
    "name": "dsh-hashline-edittool",
@@ -171248,7 +173468,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-hashline-edittool",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 4,
+   "depCount": 9,
+   "depsOfficial": 1,
+   "repoOwner": "hyperion2144",
+   "_enriched": "|"
   },
   {
    "name": "create-dsh-app",
@@ -171273,7 +173498,12 @@
    ],
    "trust": "Silver",
    "slug": "create-dsh-app",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "menotbobbybrown",
+   "_enriched": "|"
   },
   {
    "name": "dsh-docker",
@@ -171299,7 +173529,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-docker-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "devviking-persike",
+   "_enriched": "|"
   },
   {
    "name": "dsh-block-to-file",
@@ -171327,7 +173562,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-block-to-file",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 7,
+   "depsOfficial": 7,
+   "repoOwner": "alexkaiqi",
+   "_enriched": "|"
   },
   {
    "name": "dsh-tool-github",
@@ -171353,7 +173593,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-tool-github-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "tkwkeven",
+   "_enriched": "|"
   },
   {
    "name": "dsh-sim-restart",
@@ -171378,7 +173623,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-sim-restart",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 2,
+   "repoOwner": "tkwkeven",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-dev-agent-skill",
@@ -171404,7 +173654,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-dev-agent-skill",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "frederico-kluser",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-skill-router",
@@ -171430,7 +173685,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-skill-router",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "wuxie233",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-session-rehome",
@@ -171457,7 +173717,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-session-rehome",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "wuxie233",
+   "_enriched": "|"
   },
   {
    "name": "dsh_plugins",
@@ -171480,7 +173745,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-plugins-79",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "zizaiwo",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-session-title",
@@ -171505,7 +173775,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-session-title",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "wuxie233",
+   "_enriched": "|"
   },
   {
    "name": "dsh-ios",
@@ -171530,7 +173805,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-ios-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 3,
+   "depCount": 15,
+   "depsOfficial": 12,
+   "repoOwner": "kickstartparty3459",
+   "_enriched": "|"
   },
   {
    "name": "dsh-lens",
@@ -171555,7 +173835,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-lens-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "coffee-man666",
+   "_enriched": "|"
   },
   {
    "name": "dsh-deepseek-usage",
@@ -171578,7 +173863,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-deepseek-usage-8",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "dougen",
+   "_enriched": "|"
   },
   {
    "name": "dsh-git",
@@ -171603,7 +173893,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-git-6",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 11,
+   "depsOfficial": 9,
+   "repoOwner": "necokeine",
+   "_enriched": "|"
   },
   {
    "name": "cordis-plugin-github",
@@ -171629,7 +173924,12 @@
    ],
    "trust": "Silver",
    "slug": "cordis-plugin-github",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "xinvxueyuan",
+   "_enriched": "|"
   },
   {
    "name": "dsh-lab",
@@ -171652,7 +173952,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-lab-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "s2p2",
+   "_enriched": "|"
   },
   {
    "name": "hermes",
@@ -171677,7 +173982,12 @@
    ],
    "trust": "Silver",
    "slug": "hermes",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "ya-mic",
+   "_enriched": "|"
   },
   {
    "name": "dsh-token-stats",
@@ -171700,7 +174010,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-token-stats-14",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 1,
+   "repoOwner": "benyuan-nolove-onani",
+   "_enriched": "|"
   },
   {
    "name": "dsh-auto-review",
@@ -171725,7 +174040,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-auto-review-5",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 23,
+   "depsOfficial": 21,
+   "repoOwner": "xinlong-wu",
+   "_enriched": "|"
   },
   {
    "name": "dsh-workflows",
@@ -171750,7 +174070,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-workflows",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 28,
+   "depsOfficial": 23,
+   "repoOwner": "zaalipro",
+   "_enriched": "|"
   },
   {
    "name": "dsh-governor",
@@ -171775,7 +174100,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-governor",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 4,
+   "depsOfficial": 4,
+   "repoOwner": "joaquindg",
+   "_enriched": "|"
   },
   {
    "name": "dsh-codex-import",
@@ -171800,7 +174130,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-codex-import-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 2,
+   "repoOwner": "qinxi-ai",
+   "_enriched": "|"
   },
   {
    "name": "dsh-balance",
@@ -171826,7 +174161,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-balance-22",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 4,
+   "repoOwner": "yyfather",
+   "_enriched": "|"
   },
   {
    "name": "dsh-attention",
@@ -171851,7 +174191,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-attention-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "bigfurma-bot",
+   "_enriched": "|"
   },
   {
    "name": "dsh-workspace-git",
@@ -171877,7 +174222,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-workspace-git",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 9,
+   "depsOfficial": 8,
+   "repoOwner": "leonardoxr",
+   "_enriched": "|"
   },
   {
    "name": "dsh-coding-tools",
@@ -171903,7 +174253,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-coding-tools",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 17,
+   "depsOfficial": 15,
+   "repoOwner": "leonardoxr",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugin-manager",
@@ -171929,7 +174284,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugin-manager-34",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 15,
+   "depsOfficial": 13,
+   "repoOwner": "leonardoxr",
+   "_enriched": "|"
   },
   {
    "name": "dsh-companion",
@@ -171955,7 +174315,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-companion-7",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "leonardoxr",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugins",
@@ -171980,7 +174345,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugins-82",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 11,
+   "depsOfficial": 0,
+   "repoOwner": "leonardoxr",
+   "_enriched": "|"
   },
   {
    "name": "dsh-where-am-i",
@@ -172005,7 +174375,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-where-am-i",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "gausszhou",
+   "_enriched": "|"
   },
   {
    "name": "dsh-plugins",
@@ -172030,7 +174405,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-plugins-84",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "tuofangzhe",
+   "_enriched": "|"
   },
   {
    "name": "harness-alchemist",
@@ -172056,7 +174436,12 @@
    ],
    "trust": "Gold",
    "slug": "harness-alchemist",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 1,
+   "repoOwner": "lunarmoon26",
+   "_enriched": "|"
   },
   {
    "name": "dsh-blackbox",
@@ -172081,7 +174466,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-blackbox",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 1,
+   "repoOwner": "eversko",
+   "_enriched": "|"
   },
   {
    "name": "dsh-svw-waveform",
@@ -172107,7 +174497,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-svw-waveform",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "svcomplex-dev",
+   "_enriched": "|"
   },
   {
    "name": "dsh-session-delete",
@@ -172134,7 +174529,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-session-delete-10",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "yicijiuhaobala",
+   "_enriched": "|"
   },
   {
    "name": "dsh-md-viewer",
@@ -172160,7 +174560,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-md-viewer",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 2,
+   "depsOfficial": 0,
+   "repoOwner": "2017java",
+   "_enriched": "|"
   },
   {
    "name": "dsh-svn-plugin",
@@ -172186,7 +174591,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-svn-plugin",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 7,
+   "depsOfficial": 4,
+   "repoOwner": "jinryu-online",
+   "_enriched": "|"
   },
   {
    "name": "dsh-usage-center",
@@ -172209,7 +174619,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-usage-center",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "tieboyh",
+   "_enriched": "|"
   },
   {
    "name": "dsh-get-balance",
@@ -172232,7 +174647,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-get-balance",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 11,
+   "depsOfficial": 10,
+   "repoOwner": "jsoncode",
+   "_enriched": "|"
   },
   {
    "name": "dsh-loglens",
@@ -172257,7 +174677,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-loglens",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "monicaxixi",
+   "_enriched": "|"
   },
   {
    "name": "dsh-github-trending",
@@ -172283,7 +174708,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-github-trending",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 15,
+   "depsOfficial": 12,
+   "repoOwner": "wang-junjian",
+   "_enriched": "|"
   },
   {
    "name": "dsh-fulltext-search",
@@ -172309,7 +174739,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-fulltext-search",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 4,
+   "repoOwner": "termanli",
+   "_enriched": "|"
   },
   {
    "name": "dsh-cordis-devtools",
@@ -172332,7 +174767,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-cordis-devtools",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 5,
+   "depsOfficial": 1,
+   "repoOwner": "wang-kaopu",
+   "_enriched": "|"
   },
   {
    "name": "dsh-superpowers-plugin",
@@ -172355,7 +174795,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-superpowers-plugin",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "peijingbobo",
+   "_enriched": "|"
   },
   {
    "name": "codex-dsh-bridge",
@@ -172383,7 +174828,12 @@
    ],
    "trust": "Silver",
    "slug": "codex-dsh-bridge-3",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 0,
+   "repoOwner": "jony5933",
+   "_enriched": "|"
   },
   {
    "name": "create-dsh-plugin",
@@ -172408,7 +174858,12 @@
    ],
    "trust": "Silver",
    "slug": "create-dsh-plugin-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "richdavidmu",
+   "_enriched": "|"
   },
   {
    "name": "dsh-reasoning-depth",
@@ -172433,7 +174888,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-reasoning-depth",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "elysiaqwq",
+   "_enriched": "|"
   },
   {
    "name": "dsh-self-upgrade",
@@ -172459,7 +174919,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-self-upgrade",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "snow930",
+   "_enriched": "|"
   },
   {
    "name": "dsh-ccswitch",
@@ -172485,7 +174950,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-ccswitch-2",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "elysiaqwq",
+   "_enriched": "|"
   },
   {
    "name": "dsh-preview-ui",
@@ -172512,7 +174982,12 @@
    ],
    "trust": "Gold",
    "slug": "dsh-preview-ui",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 6,
+   "depsOfficial": 6,
+   "repoOwner": "xusuyang030218",
+   "_enriched": "|"
   },
   {
    "name": "dsh-usage-stats",
@@ -172535,7 +175010,12 @@
    "ucs": [],
    "trust": "Gold",
    "slug": "dsh-usage-stats-12",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 1,
+   "depsOfficial": 0,
+   "repoOwner": "dustinmoon78",
+   "_enriched": "|"
   },
   {
    "name": "open-in-vscode",
@@ -172561,7 +175041,12 @@
    ],
    "trust": "Gold",
    "slug": "open-in-vscode",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "alex-dsh-plugin",
+   "_enriched": "|"
   },
   {
    "name": "dsh-skill-creator",
@@ -172586,7 +175071,12 @@
    ],
    "trust": "Silver",
    "slug": "dsh-skill-creator-4",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 3,
+   "depsOfficial": 3,
+   "repoOwner": "988hj7tczd-oss",
+   "_enriched": "|"
   },
   {
    "name": "dsh-opencode-go-dashboard",
@@ -172609,7 +175099,12 @@
    "ucs": [],
    "trust": "Silver",
    "slug": "dsh-opencode-go-dashboard",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 2,
+   "depCount": 6,
+   "depsOfficial": 3,
+   "repoOwner": "12398k",
+   "_enriched": "|"
   },
   {
    "name": "dsh-external-access-guide",
@@ -172634,7 +175129,12 @@
    ],
    "trust": "Unrated",
    "slug": "dsh-external-access-guide",
-   "platform": "any"
+   "platform": "any",
+   "contributors": 0,
+   "depCount": 0,
+   "depsOfficial": 0,
+   "repoOwner": "vinokok",
+   "_enriched": "|"
   },
   {
    "name": "dsh-modernize-code",
