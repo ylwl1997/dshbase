@@ -6,8 +6,9 @@ const zhSet = new Set(indexable.zh || []);
 /** Legacy catalog always gets static pages; post-bulk only high-star / indexable / recent-verified. */
 export const BULK_ADDED = '2026-10-10';
 
+/** Recent curated rows: verified, or metadata-listed since #145 (keeps their static pages). */
 function isRecentVerified(p) {
-  return p.test === 'verified' && (p.added || '') >= '2026-10-14';
+  return (p.test === 'verified' || p.test === 'listed') && (p.added || '') >= '2026-10-14';
 }
 
 export function shouldSsgEn(p) {

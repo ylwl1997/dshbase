@@ -122,9 +122,10 @@ export function renderPluginPage(p, lang) {
     ? `dsh plugin --profile web add ${p.pkg}`
     : `dsh plugin --profile web add github:${repo}`;
   const verified = p.test === 'verified';
+  const listed = !verified && p.test !== 'pending';
   const statusLabel = zh
-    ? (verified ? '已验证 · 已在 dsh 上安装测试' : '未验证')
-    : (verified ? 'Verified · install-tested on dsh' : 'Unverified');
+    ? (verified ? '已验证 · 已在 dsh 上安装测试' : listed ? '已收录 · 尚未实测' : '未验证')
+    : (verified ? 'Verified · install-tested on dsh' : listed ? 'Listed · not yet install-tested' : 'Unverified');
   const statusClass = verified ? 'st-ok' : 'st-warn';
   const stars = p.stars ?? 0;
   const enCanon = `https://dshbase.com/plugins/${esc(p.slug)}/`;
@@ -152,8 +153,10 @@ export function renderPluginPage(p, lang) {
         catalogHint: '先安装目录插件，然后对 DeepSeek Harness 说「帮我安装这个插件」即可。',
         take: '我们的判断',
         takeBody: verified
-          ? '已验证 — CI 在干净环境中成功执行了 dsh plugin add。'
-          : '未验证 — 尚未完成安装测试，请自行评估。',
+          ? '已验证 — 在我们的实测中能干净安装：CI 在干净环境中成功执行了 dsh plugin add。'
+          : listed
+            ? '已收录 — 依据 npm/GitHub 元数据收录；dshbase 尚未做安装实测。'
+            : '未验证 — 尚未完成安装测试，请自行评估。',
         honest: '「已验证」仅表示我们的自动化流水线跑通了安装与启动，不是安全审计，也不是对第三方代码的背书。',
       }
     : {
@@ -166,8 +169,10 @@ export function renderPluginPage(p, lang) {
         catalogHint: 'Install the catalog once, then ask DeepSeek Harness to find and install this plugin.',
         take: 'Our take',
         takeBody: verified
-          ? 'Works — verified: CI ran dsh plugin add in a clean profile and it booted.'
-          : 'Unverified — not yet install-tested; try it in your own environment.',
+          ? 'Works — verified: installs cleanly in our testing (CI ran dsh plugin add in a clean profile and it booted).'
+          : listed
+            ? 'Listed from npm/GitHub metadata; not yet install-tested by dshbase.'
+            : 'Unverified — not yet install-tested; try it in your own environment.',
         honest: '“Verified” means our CI ran dsh plugin add in a clean profile and it booted — not a security audit and not an endorsement of third-party code.',
       };
 

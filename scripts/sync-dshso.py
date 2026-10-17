@@ -3,9 +3,9 @@
 
 Product (2026-10-14): dsh.so is the primary daily source; GitHub topic `dsh-plugin`
 is supplemental only (see sync-topic.py). We do not re-screen the upstream feed.
-New catalog rows are written with test="verified" (directory always shows verified;
-we no longer batch-run verify for listing). Refresh never touches `test` (do not
-downgrade existing verified entries).
+New catalog rows are written with test="listed" (metadata only — dshbase has not
+install-tested them; compat-check / verify-runtime promote to verified on a real
+pass). Refresh never touches `test` (do not downgrade existing verified entries).
 
 Source: https://www.dsh.so/search-index.json
   (includes owner/repo — no detail-page scrape required for cron)
@@ -239,7 +239,7 @@ def build_new_entry(meta: dict, today: str) -> dict:
         "pkg": "",
         "ver": "",
         "npm": False,
-        "test": "verified",  # new rows → verified directly (product 2026-10-14)
+        "test": "listed",  # metadata-only; verified only after a real install test
         "desc": meta.get("description") or "",
         "desc_en": meta.get("description") or "",
         "desc_zh": "",

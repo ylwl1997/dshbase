@@ -12,7 +12,7 @@ the threshold get stars/forks/issues/language/updated/archived refreshed.
 Topic repos not in the catalog that meet the threshold are reported as
 candidates (not auto-added here — listing stays curated / issue / dsh.so).
 When candidates are later ingested (ingest-plugin / sync-dshso), new rows
-default to test="verified"; this script only refreshes stars/meta and never
+default to test="listed"; this script only refreshes stars/meta and never
 touches `test`.
 
 Dedup identity when matching the catalog: canonical GitHub owner/repo only

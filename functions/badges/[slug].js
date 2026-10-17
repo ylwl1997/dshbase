@@ -53,7 +53,7 @@ export async function onRequest(context) {
   let svg;
   if (data[name] === 'verified') {
     svg = badge('dshbase', 'install-tested', GREEN);
-  } else if (data[name] === 'pending') {
+  } else if (data[name] === 'pending' || data[name] === 'listed') {
     svg = badge('dshbase', 'listed', GRAY);
   } else {
     svg = badge('dshbase', 'plugin', GRAY);

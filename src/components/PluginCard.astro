@@ -6,9 +6,9 @@ const _repo = (u) => (u || '').replace('https://github.com/', '');
 const _owner = (u) => (u || '').replace('https://github.com/', '').split('/')[0] || '';
 const isNpm = p.npm && !!p.pkg;
 const installCmd = isNpm ? `dsh plugin add ${p.pkg}` : `dsh plugin add github:${_repo(p.url)}`;
-const statusLabel = p.test === 'verified' ? (lang === 'zh' ? '已验证' : 'Verified') : (lang === 'zh' ? '未验证' : 'Unverified');
+const statusLabel = p.test === 'verified' ? (lang === 'zh' ? '已验证' : 'Verified') : p.test === 'pending' ? (lang === 'zh' ? '未验证' : 'Unverified') : (lang === 'zh' ? '已收录' : 'Listed');
 const copyLabel = lang === 'zh' ? '📋 安装' : '📋 copy';
-const statusClass = p.test === 'verified' ? 'st-ok' : 'st-warn';
+const statusClass = p.test === 'verified' ? 'st-ok' : p.test === 'pending' ? 'st-warn' : 'st-listed';
 const trust = p.trust || '';
 const license = p.license || '';
 const updated = p.updated || '';
@@ -85,4 +85,5 @@ const trustClass = { Silver: 't-silver', Bronze: 't-bronze', Gold: 't-gold' }[tr
   .badge { font-size: 11px; padding: 3px 9px; white-space: nowrap; }
   .st-ok { color: #1a7f37; border-color: #b7e0c0; background: #f0fff4; }
   .st-warn { color: #9a6700; border-color: #e5c27a; background: #fff8e6; }
+  .st-listed { color: #4b5563; border-color: #d1d5db; background: #f3f4f6; }
 </style>

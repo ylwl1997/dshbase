@@ -4,7 +4,8 @@
 # directory/dashboard stay current. Runs in GitHub Actions (ubuntu-latest).
 #
 # Requires on PATH: node, pnpm, dsh (installed by the workflow).
-# Writes `test` (verified) + `testDate` on npm plugins whose install+boot pass,
+# Writes `test` (verified) + `testDate` on npm plugins whose install+boot pass
+# (this is how metadata-only `listed` rows get promoted after a real install test),
 # plus an informational `bareNpm` (bare `npm install` + import smoke).
 #
 # Platform guard: win32/macos-only plugins are NOT auto-upgraded to "verified"

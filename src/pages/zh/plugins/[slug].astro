@@ -7,6 +7,7 @@ import { demoteReadmeHeadings } from '../../../lib/plugin-index.js';
 import { withCfEmailOff, cfSafeTextHtml, looksLikeEmail } from '../../../lib/email-off.js';
 import readmes from '../../../data/readmes.json';
 import { zhStaticPaths } from '../../../lib/ssg-plugins.js';
+import { pluginStatus, isUntested, dshVersionFor } from '../../../lib/plugin-status.js';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -34,12 +35,18 @@ const repo = p.url.replace('https://github.com/', '');
 const npmHome = p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
 const rawReadme = readmes[p.slug]?.html || '';
 const readmeHtml = withCfEmailOff(demoteReadmeHeadings(rawReadme));
+const st = pluginStatus(p);
+const untested = isUntested(p);
+const dshVer = dshVersionFor(p);
+const LISTED_COPY = '依据 npm/GitHub 元数据收录；dshbase 尚未做安装实测。';
 const statusLabel = {
   verified: '已验证 · 实测可装',
+  listed: '已收录 · 尚未实测',
   pending: '未验证',
 };
 const statusClass = {
   verified: 'st-ok',
+  listed: 'st-listed',
   pending: 'st-warn',
 };
 const platform = p.platform || 'any';
@@ -48,7 +55,7 @@ const sec = security[p.name];
 const riskLabel = { low: '低', medium: '中', high: '高', critical: '严重' };
 const riskClass = { low: 'sec-low', medium: 'sec-med', high: 'sec-high', critical: 'sec-crit' };
 const catLabel = { secrets: '硬编码密钥', 'dangerous-cmd': '危险命令', exfil: '外传回调', permissions: '越权访问' };
-const badgeAlt = p.test === 'verified' ? 'dshbase 实测可装' : 'dshbase 已收录';
+const badgeAlt = st === 'verified' ? 'dshbase 实测可装' : 'dshbase 已收录';
 const badgeHref = `https://dshbase.com/zh/plugins/${p.slug}/`;
 const badgeMd = `[![${badgeAlt}](https://dshbase.com/badges/${p.slug}.svg)](${badgeHref})`;
 const badgeHtml = `<a href="${badgeHref}"><img src="https://dshbase.com/badges/${p.slug}.svg" alt="${badgeAlt}"></a>`;
@@ -73,20 +80,24 @@ const maintained = !p.archived && (p.updated || '') >= new Date(Date.now() - 90 
 const langPure = (p.language || '').toLowerCase();
 const verdict = p.archived
   ? { label: '已归档 — 不再维护，谨慎使用', cls: 'v-warn', icon: '⚠️' }
-  : p.test === 'verified'
+  : st === 'verified'
     ? stars >= 100
       ? { label: '推荐 — 实测可用且热门', cls: 'v-ok', icon: '✅' }
       : stars >= 20
         ? { label: '可用 — 实测通过，社区增长中', cls: 'v-ok', icon: '✅' }
         : { label: '可用 — 实测通过，早期项目', cls: 'v-ok', icon: '✅' }
-    : { label: '未验证 — 尚未实测', cls: 'v-warn', icon: '⏳' };
+    : st === 'listed'
+      ? { label: '已收录 — 依据 npm/GitHub 元数据，尚未实测', cls: 'v-warn', icon: '📋' }
+      : { label: '未验证 — 尚未实测', cls: 'v-warn', icon: '⏳' };
 const review = p.archived
   ? `该插件已归档、不再维护——除非你愿意自己维护，否则慎用。`
-  : p.test === 'verified'
-    ? `${desc} 实测能干净安装、正常启动。${stars >= 100 ? `${stars}+ stars，社区认可度高，是低风险选择。` : stars >= 20 ? `社区在增长，是个稳妥选择。` : `早期项目，但功能可用。`}`
-    : p.needs
-      ? `${desc} 尚未验证——它需要外部账号或服务，我们的沙箱无法提供，因此未能完整安装测试。它在你自己的环境里可能工作正常。`
-      : `${desc} 尚未验证——请自行安装测试。`;
+  : st === 'verified'
+    ? `${desc} 在我们的实测中能干净安装、正常启动。${stars >= 100 ? `${stars}+ stars，社区认可度高，是低风险选择。` : stars >= 20 ? `社区在增长，是个稳妥选择。` : `早期项目，但功能可用。`}`
+    : untested
+      ? `${desc} ${LISTED_COPY}${p.needs ? '它需要外部账号或服务（我们的沙箱无法提供），在你自己的环境里可能需要额外配置。' : ''}`
+      : p.needs
+        ? `${desc} 尚未验证——它需要外部账号或服务，我们的沙箱无法提供，因此未能完整安装测试。它在你自己的环境里可能工作正常。`
+        : `${desc} 尚未验证——请自行安装测试。`;
 const related = (plugins[cat] || []).filter((x) => x.slug !== p.slug).slice(0, 6);
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -100,13 +111,13 @@ const jsonLd = {
   ...(p.ver ? { softwareVersion: p.ver } : {}),
 };
 ---
-<Base title={pageTitle} description={`${desc} — 如何安装 ${p.name}（${p.npm ? `dsh plugin add ${p.pkg}` : 'npm 源码'}）及其与 dsh 0.1.0-rc.6 的兼容性。`} currentPath={`/plugins/${p.slug}/`}>
+<Base title={pageTitle} description={`${desc} — 如何安装 ${p.name}（${p.npm ? `dsh plugin add ${p.pkg}` : 'npm 源码'}）${dshVer ? `及其与 dsh ${dshVer} 的兼容性` : ''}。`} currentPath={`/plugins/${p.slug}/`}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <section class="hero wrap">
     <p class="eyebrow"><a href={dirUrl}>插件目录</a> / <a href={catUrl}>{cat}</a> / {p.name}</p>
     <h1>{p.name}</h1>
     <p class="lede">
-      <span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span>{' '}
+      <span class={`badge ${statusClass[st]}`}>{statusLabel[st]}</span>{' '}
       {repoOwner && <span class="badge badge-ghost">{repoOwner}</span>}
     </p>
     <div class="badge-row">
@@ -145,12 +156,12 @@ const jsonLd = {
       </div>
       <p class="review-text">{review}</p>
 
-      <p class="honest-note">「{p.test === 'verified' ? '已验证' : '未验证'}」表示我们的自动化 CI{' '}
-        {p.test === 'verified' ? (
+      <p class="honest-note">「{statusLabel[st].split(' · ')[0]}」表示{st === 'listed' ? '该条目依据 npm/GitHub 元数据收录，我们的自动化 CI' : '我们的自动化 CI'}{' '}
+        {st === 'verified' ? (
           <Fragment>在干净 profile 里实际执行了 <code>dsh plugin add</code> 并启动成功——仅此而已</Fragment>
         ) : (
           '尚未安装过该插件'
-        )}。{platform !== 'any' && p.test === 'verified' ? `我们的 CI 跑在 Linux 上，只能确认安装+启动，无法验证该插件 ${platformLabel} 专属行为。` : ''}功能描述与版本兼容性均为作者声明。这不是安全审计，也不代表对第三方代码的背书。</p>
+        )}。{platform !== 'any' && st === 'verified' ? `我们的 CI 跑在 Linux 上，只能确认安装+启动，无法验证该插件 ${platformLabel} 专属行为。` : ''}功能描述与版本兼容性均为作者声明。这不是安全审计，也不代表对第三方代码的背书。</p>
 
       {p.needs && (
         <div class="needs-cta">
@@ -162,7 +173,7 @@ const jsonLd = {
         </div>
       )}
 
-      {p.test === 'pending' && !p.archived && !p.needs && (
+      {st !== 'verified' && !p.archived && !p.needs && (
         <div class="verify-cta">
           <strong>你是插件作者？</strong> 想拿到「已验证」标签——提交你自己的验证证据（截图、日志或短视频），我们审核通过后即改为「已验证」。
           <p style="margin-top:10px"><a class="btn btn-ghost btn-sm" href={verifyUrl} target="_blank" rel="noopener">提交验证证据 ↗</a></p>
@@ -197,11 +208,12 @@ const jsonLd = {
             <p class="muted small">Headless（CLI）profile：</p>
             <pre class="code-block"><code>dsh plugin --profile headless add {p.pkg}</code></pre>
             <h2 style="margin-top:20px">包信息</h2>
-            <p>npm：<a href={npmHome} target="_blank" rel="noopener">{p.pkg}</a> · 版本 <strong>{p.ver || '—'}</strong> · 实测环境 dsh <strong>0.1.0-rc.6</strong></p>
+            <p>npm：<a href={npmHome} target="_blank" rel="noopener">{p.pkg}</a> · 版本 <strong>{p.ver || '—'}</strong>{dshVer && <Fragment> · 实测环境 dsh <strong>{dshVer}</strong></Fragment>}</p>
             <h2 style="margin-top:20px">实测报告</h2>
-            <p>{p.test === 'verified' && '端到端验证通过：dsh 0.1.0-rc.6 上 L1 安装 + L2 加载 + L3 运行问答。'}
-               {p.test === 'pending' && '尚未 L3 验证——若已跑过，见下方失败备注。'}</p>
-            {p.test === 'pending' && (
+            <p>{st === 'verified' && `验证通过：dshbase 已做安装实测${dshVer ? `（dsh ${dshVer}）` : ''}${p.testDate ? `，最近测试 ${p.testDate}` : ''}。`}
+               {untested && LISTED_COPY}
+               {st === 'pending' && !untested && '尚未 L3 验证——若已跑过，见下方失败备注。'}</p>
+            {st === 'pending' && !untested && (
               <div class="honest-note">
                 <strong>状态：</strong>pending
                 {p.testDate ? <> · 最近测试 <code>{p.testDate}</code></> : null}
@@ -231,9 +243,10 @@ const jsonLd = {
             {p.test !== 'not-on-npm' && (
               <Fragment>
                 <h2 style="margin-top:20px">实测报告</h2>
-                <p>{p.test === 'verified' && '验证通过：从 GitHub 源码完成 L1 安装 + L2 加载 + L3 运行（dsh 0.1.0-rc.6）。'}
-                   {p.test === 'pending' && '尚未 L3 验证——若已跑过，见下方失败备注。'}</p>
-                {p.test === 'pending' && (
+                <p>{st === 'verified' && `验证通过：dshbase 已从 GitHub 源码做安装实测${dshVer ? `（dsh ${dshVer}）` : ''}${p.testDate ? `，最近测试 ${p.testDate}` : ''}。`}
+                   {untested && LISTED_COPY}
+                   {st === 'pending' && !untested && '尚未 L3 验证——若已跑过，见下方失败备注。'}</p>
+                {st === 'pending' && !untested && (
                   <div class="honest-note">
                     <strong>状态：</strong>pending
                     {p.testDate ? <> · 最近测试 <code>{p.testDate}</code></> : null}
@@ -302,7 +315,7 @@ const jsonLd = {
           {related.map((r) => (
             <a class="card card-link" href={`/zh/plugins/${r.slug}/`}>
               <h3>{r.name}</h3>
-              <p>{r.test === 'verified' ? '✅ 已验证' : r.test === 'pending' ? '⏳ 未验证' : r.npm ? 'npm 可装' : 'GitHub 源码'} · ★{r.stars ?? 0}</p>
+              <p>{r.test === 'verified' ? '✅ 已验证' : r.test === 'listed' ? '📋 已收录' : r.test === 'pending' ? '⏳ 未验证' : r.npm ? 'npm 可装' : 'GitHub 源码'} · ★{r.stars ?? 0}</p>
             </a>
           ))}
         </div>
@@ -317,6 +330,7 @@ const jsonLd = {
   .st-ok { color: #1a7f37; border-color: #b7e0c0; background: #f0fff4; }
   .st-src { color: var(--ink-2); background: #f7f8fa; }
   .st-warn { color: #9a6700; border-color: #e5c27a; background: #fff8e6; }
+  .st-listed { color: #4b5563; border-color: #d1d5db; background: #f3f4f6; }
   .what-it-does { font-size: 15px; line-height: 1.7; color: var(--ink); background: #f7f8fc; border-left: 3px solid var(--primary); padding: 14px 16px; border-radius: 8px; }
   .review-text { font-size: 14px; line-height: 1.7; color: var(--ink-2); margin: 10px 0 4px; }
   .honest-note { font-size: 12.5px; line-height: 1.6; color: var(--ink-3); background: #f8fafc; border: 1px dashed var(--border); border-radius: 8px; padding: 10px 12px; margin: 12px 0; }

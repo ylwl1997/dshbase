@@ -16,6 +16,7 @@ const total = catOrder.reduce((s, k) => s + plugins[k].length, 0);
 const all = catOrder.flatMap((k) => plugins[k]);
 const nVerified = all.filter((p) => p.test === 'verified').length;
 const nPending = all.filter((p) => p.test === 'pending').length;
+const nListed = all.filter((p) => p.test !== 'verified' && p.test !== 'pending').length;
 const nNpm = all.filter((p) => p.npm).length;
 
 // category distribution (stacked bar)
@@ -91,6 +92,7 @@ const COLORS = ['#4D6BFE', '#7c8cf8', '#8b5cf6', '#a78bfa', '#6366f1', '#93c5fd'
         <div class="stat"><b>{total.toLocaleString('en-US')}</b><span>plugins</span></div>
         <div class="stat"><b>{nVerified}</b><span>verified</span></div>
         <div class="stat"><b>{nPending}</b><span>unverified</span></div>
+        <div class="stat"><b>{nListed}</b><span>listed</span></div>
         <div class="stat"><b>{nNpm}</b><span>on npm</span></div>
       </div>
       <div class="eco-cards">
@@ -264,6 +266,7 @@ const COLORS = ['#4D6BFE', '#7c8cf8', '#8b5cf6', '#a78bfa', '#6366f1', '#93c5fd'
   .badge { font-size: 11px; padding: 3px 9px; white-space: nowrap; }
   .st-ok { color: #1a7f37; border-color: #b7e0c0; background: #f0fff4; }
   .st-warn { color: #9a6700; border-color: #e5c27a; background: #fff8e6; }
+  .st-listed { color: #4b5563; border-color: #d1d5db; background: #f3f4f6; }
   .stats-line { font-size: 13px; color: var(--ink-2); margin: 10px 0 0; text-align: center; }
   .agent-box { font-size: 13.5px; color: var(--ink-2); background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 8px 14px; margin: 10px 0 0; overflow: hidden; }
   .agent-slides { position: relative; }

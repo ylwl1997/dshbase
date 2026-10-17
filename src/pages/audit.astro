@@ -16,6 +16,7 @@ const uniqueRepos = new Set(all.map((p) => repoOf(p.url)).filter(Boolean)).size;
 
 const nVerified = all.filter((p) => p.test === 'verified').length;
 const nPending = all.filter((p) => p.test === 'pending').length;
+const nListed = all.filter((p) => p.test !== 'verified' && p.test !== 'pending').length;
 const nMit = all.filter((p) => (p.license || '') === 'MIT').length;
 const nWebonly = all.filter((p) => !!p.webonly).length;
 const nWebVer = all.filter((p) => !!p.webonly && p.test === 'verified').length;
@@ -38,6 +39,7 @@ const stats = [
   { n: fmt(nL3Ver), label: 'verified · L3' },
   { n: fmt(nWebVer), label: 'verified · Web L4' },
   { n: fmt(nPending), label: 'pending' },
+  { n: fmt(nListed), label: 'listed (not install-tested)' },
   { n: fmt(nMit), label: 'MIT-licensed' },
 ];
 
@@ -110,6 +112,7 @@ const report = {
     </ul>
     <ul>
       <li><strong><code>verified</code></strong> — L3 headless ok, or L3 web-only + L4 CDP ok.</li>
+      <li><strong><code>listed</code></strong> — taken from npm/GitHub metadata; dshbase has not install-tested it yet (not counted as verified).</li>
       <li><strong><code>pending</code></strong> — listed but not yet passed (including web-only waiting on L4, or a prior failure — see the note).</li>
       <li><strong>Trust tier</strong> is supplementary; stars are popularity only.</li>
     </ul>
