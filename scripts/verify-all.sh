@@ -18,9 +18,9 @@ d = json.load(open(sys.argv[1], encoding='utf-8'))
 filt = os.environ.get('VERIFY_FILTER', '')
 def keep(p):
     if filt == 'pending-github':
-        return p.get('test') == 'pending' and not p.get('npm')
+        return p.get('test') in ('pending', 'listed') and not p.get('npm')
     if filt == 'pending':
-        return p.get('test') == 'pending'
+        return p.get('test') in ('pending', 'listed')
     return True
 out = []
 for items in d.values():

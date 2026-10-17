@@ -23,7 +23,7 @@ DATA = os.path.join(ROOT, "src", "data", "plugins.json")
 
 
 def bucket(p: dict) -> str:
-    if p.get("test") != "pending":
+    if p.get("test") not in ("pending", "listed"):
         return "skip"
     note = (p.get("note") or "").lower()
     webonly = bool(p.get("webonly"))

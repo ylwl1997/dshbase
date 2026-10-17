@@ -7,6 +7,7 @@ import { demoteReadmeHeadings } from '../../lib/plugin-index.js';
 import { withCfEmailOff, cfSafeTextHtml, looksLikeEmail } from '../../lib/email-off.js';
 import readmes from '../../data/readmes.json';
 import { enStaticPaths } from '../../lib/ssg-plugins.js';
+import { pluginStatus, isUntested, dshVersionFor } from '../../lib/plugin-status.js';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -35,12 +36,18 @@ const repo = p.url.replace('https://github.com/', '');
 const npmHome = p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
 const rawReadme = readmes[p.slug]?.html || '';
 const readmeHtml = withCfEmailOff(demoteReadmeHeadings(rawReadme));
+const st = pluginStatus(p);
+const untested = isUntested(p);
+const dshVer = dshVersionFor(p);
+const LISTED_COPY = 'Listed from npm/GitHub metadata; not yet install-tested by dshbase.';
 const statusLabel = {
   verified: 'Verified · install-tested on dsh',
+  listed: 'Listed · not yet install-tested',
   pending: 'Unverified',
 };
 const statusClass = {
   verified: 'st-ok',
+  listed: 'st-listed',
   pending: 'st-warn',
 };
 const platform = p.platform || 'any';
@@ -49,7 +56,7 @@ const sec = security[p.name];
 const riskLabel = { low: 'Low', medium: 'Medium', high: 'High', critical: 'Critical' };
 const riskClass = { low: 'sec-low', medium: 'sec-med', high: 'sec-high', critical: 'sec-crit' };
 const catLabel = { secrets: 'Hardcoded secret', 'dangerous-cmd': 'Dangerous command', exfil: 'Exfiltration endpoint', permissions: 'Suspicious permission' };
-const badgeAlt = p.test === 'verified' ? 'dshbase install-tested' : 'dshbase listed';
+const badgeAlt = st === 'verified' ? 'dshbase install-tested' : 'dshbase listed';
 const badgeHref = `https://dshbase.com/plugins/${p.slug}/`;
 const badgeMd = `[![${badgeAlt}](https://dshbase.com/badges/${p.slug}.svg)](${badgeHref})`;
 const badgeHtml = `<a href="${badgeHref}"><img src="https://dshbase.com/badges/${p.slug}.svg" alt="${badgeAlt}"></a>`;
@@ -74,20 +81,24 @@ const maintained = !p.archived && (p.updated || '') >= new Date(Date.now() - 90 
 const langPure = (p.language || '').toLowerCase();
 const verdict = p.archived
   ? { label: 'Archived — no longer maintained, use with caution', cls: 'v-warn', icon: '⚠️' }
-  : p.test === 'verified'
+  : st === 'verified'
     ? stars >= 100
       ? { label: 'Recommended — verified working and popular', cls: 'v-ok', icon: '✅' }
       : stars >= 20
         ? { label: 'Works — verified, growing community', cls: 'v-ok', icon: '✅' }
         : { label: 'Works — verified, early-stage project', cls: 'v-ok', icon: '✅' }
-    : { label: 'Unverified — not yet verified', cls: 'v-warn', icon: '⏳' };
+    : st === 'listed'
+      ? { label: 'Listed — from npm/GitHub metadata, not yet install-tested', cls: 'v-warn', icon: '📋' }
+      : { label: 'Unverified — not yet verified', cls: 'v-warn', icon: '⏳' };
 const review = p.archived
   ? `This plugin has been archived and is no longer maintained — use it only if you're willing to maintain it yourself.`
-  : p.test === 'verified'
-    ? `${desc} It installs cleanly and boots without issues in our testing. ${stars >= 100 ? `With ${stars}+ stars it's a community-endorsed, low-risk pick.` : stars >= 20 ? `It has a growing community — a solid choice.` : `It's early-stage but functional.`}`
-    : p.needs
-      ? `${desc} Not yet verified — it needs an external account or service our sandbox can't provide, so we couldn't run a full install test. It may work fine in your own environment.`
-      : `${desc} Not yet verified — install and test it yourself.`;
+  : st === 'verified'
+    ? `${desc} It installs cleanly in our testing and boots without issues. ${stars >= 100 ? `With ${stars}+ stars it's a community-endorsed, low-risk pick.` : stars >= 20 ? `It has a growing community — a solid choice.` : `It's early-stage but functional.`}`
+    : untested
+      ? `${desc} ${LISTED_COPY}${p.needs ? ` It needs an external account or service our sandbox can't provide, so it may need extra setup in your own environment.` : ''}`
+      : p.needs
+        ? `${desc} Not yet verified — it needs an external account or service our sandbox can't provide, so we couldn't run a full install test. It may work fine in your own environment.`
+        : `${desc} Not yet verified — install and test it yourself.`;
 const related = (plugins[cat] || []).filter((x) => x.slug !== p.slug).slice(0, 6);
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -101,13 +112,13 @@ const jsonLd = {
   ...(p.ver ? { softwareVersion: p.ver } : {}),
 };
 ---
-<Base title={pageTitle} description={`${desc} — how to install ${p.name} (${p.npm ? `dsh plugin add ${p.pkg}` : 'npm source'}) and compatibility with dsh 0.1.0-rc.6.`} currentPath={`/plugins/${p.slug}/`}>
+<Base title={pageTitle} description={`${desc} — how to install ${p.name} (${p.npm ? `dsh plugin add ${p.pkg}` : 'npm source'})${dshVer ? ` and compatibility with dsh ${dshVer}` : ''}.`} currentPath={`/plugins/${p.slug}/`}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <section class="hero wrap">
     <p class="eyebrow"><a href={dirUrl}>Plugin directory</a> / <a href={catUrl}>{cat}</a> / {p.name}</p>
     <h1>{p.name}</h1>
     <p class="lede">
-      <span class={`badge ${statusClass[p.test]}`}>{statusLabel[p.test]}</span>{' '}
+      <span class={`badge ${statusClass[st]}`}>{statusLabel[st]}</span>{' '}
       {repoOwner && <span class="badge badge-ghost">{repoOwner}</span>}
     </p>
     <div class="badge-row">
@@ -146,12 +157,12 @@ const jsonLd = {
       </div>
       <p class="review-text">{review}</p>
 
-      <p class="honest-note">“{p.test === 'verified' ? 'Verified' : 'Unverified'}” means our automated CI{' '}
-        {p.test === 'verified' ? (
+      <p class="honest-note">“{statusLabel[st].split(' · ')[0]}” means {st === 'listed' ? 'this entry comes from npm/GitHub metadata and our automated CI' : 'our automated CI'}{' '}
+        {st === 'verified' ? (
           <Fragment>actually ran <code>dsh plugin add</code> in a clean profile and it booted — nothing more</Fragment>
         ) : (
           'has not yet installed this plugin'
-        )}. {platform !== 'any' && p.test === 'verified' ? `Our CI runs on Linux, so it confirms install + boot but not this plugin's ${platformLabel}-specific behavior. ` : ''}Feature descriptions and version compatibility are the author’s claims. This is not a security audit and not an endorsement of third-party code.</p>
+        )}. {platform !== 'any' && st === 'verified' ? `Our CI runs on Linux, so it confirms install + boot but not this plugin's ${platformLabel}-specific behavior. ` : ''}Feature descriptions and version compatibility are the author’s claims. This is not a security audit and not an endorsement of third-party code.</p>
 
       {p.needs && (
         <div class="needs-cta">
@@ -163,7 +174,7 @@ const jsonLd = {
         </div>
       )}
 
-      {p.test === 'pending' && !p.archived && !p.needs && (
+      {st !== 'verified' && !p.archived && !p.needs && (
         <div class="verify-cta">
           <strong>Plugin author?</strong> Get the “Verified” label — submit your own evidence (screenshots, logs, or a short demo) and we'll review and flip the badge.
           <p style="margin-top:10px"><a class="btn btn-ghost btn-sm" href={verifyUrl} target="_blank" rel="noopener">Submit verification evidence ↗</a></p>
@@ -198,12 +209,13 @@ const jsonLd = {
             <p class="muted small">Headless (CLI) profile:</p>
             <pre class="code-block"><code>dsh plugin --profile headless add {p.pkg}</code></pre>
             <h2 style="margin-top:20px">Package</h2>
-            <p>npm: <a href={npmHome} target="_blank" rel="noopener">{p.pkg}</a> · version <strong>{p.ver || '—'}</strong> · tested on dsh <strong>0.1.0-rc.6</strong></p>
+            <p>npm: <a href={npmHome} target="_blank" rel="noopener">{p.pkg}</a> · version <strong>{p.ver || '—'}</strong>{dshVer && <Fragment> · tested on dsh <strong>{dshVer}</strong></Fragment>}</p>
             <h2 style="margin-top:20px">Test report</h2>
-            <p>{p.test === 'verified' && 'Verified end-to-end: L1 install + L2 load + L3 runtime Q&A on dsh 0.1.0-rc.6.'}
-               {p.test === 'pending' && 'Not yet L3-verified — see failure note below if we already ran it.'}
+            <p>{st === 'verified' && `Verified: install-tested by dshbase${dshVer ? ` on dsh ${dshVer}` : ''}${p.testDate ? ` (last test ${p.testDate})` : ''}.`}
+               {untested && LISTED_COPY}
+               {st === 'pending' && !untested && 'Not yet L3-verified — see failure note below if we already ran it.'}
 </p>
-            {p.test === 'pending' && (
+            {st === 'pending' && !untested && (
               <div class="honest-note">
                 <strong>Status:</strong> pending
                 {p.testDate ? <> · last test <code>{p.testDate}</code></> : null}
@@ -233,10 +245,11 @@ const jsonLd = {
             {p.test !== 'not-on-npm' && (
               <Fragment>
                 <h2 style="margin-top:20px">Test report</h2>
-                <p>{p.test === 'verified' && 'Verified: L1 install + L2 load + L3 runtime from GitHub source on dsh 0.1.0-rc.6.'}
-                   {p.test === 'pending' && 'Not yet L3-verified — see failure note below if we already ran it.'}
+                <p>{st === 'verified' && `Verified: install-tested from GitHub source by dshbase${dshVer ? ` on dsh ${dshVer}` : ''}${p.testDate ? ` (last test ${p.testDate})` : ''}.`}
+                   {untested && LISTED_COPY}
+                   {st === 'pending' && !untested && 'Not yet L3-verified — see failure note below if we already ran it.'}
 </p>
-                {p.test === 'pending' && (
+                {st === 'pending' && !untested && (
                   <div class="honest-note">
                     <strong>Status:</strong> pending
                     {p.testDate ? <> · last test <code>{p.testDate}</code></> : null}
@@ -305,7 +318,7 @@ const jsonLd = {
           {related.map((r) => (
             <a class="card card-link" href={`/plugins/${r.slug}/`}>
               <h3>{r.name}</h3>
-              <p>{r.test === 'verified' ? '✅ verified' : r.test === 'pending' ? '⏳ unverified' : r.npm ? 'on npm' : 'GitHub source'} · ★{r.stars ?? 0}</p>
+              <p>{r.test === 'verified' ? '✅ verified' : r.test === 'listed' ? '📋 listed' : r.test === 'pending' ? '⏳ unverified' : r.npm ? 'on npm' : 'GitHub source'} · ★{r.stars ?? 0}</p>
             </a>
           ))}
         </div>
@@ -320,6 +333,7 @@ const jsonLd = {
   .st-ok { color: #1a7f37; border-color: #b7e0c0; background: #f0fff4; }
   .st-src { color: var(--ink-2); background: #f7f8fa; }
   .st-warn { color: #9a6700; border-color: #e5c27a; background: #fff8e6; }
+  .st-listed { color: #4b5563; border-color: #d1d5db; background: #f3f4f6; }
   .what-it-does { font-size: 15px; line-height: 1.7; color: var(--ink); background: #f7f8fc; border-left: 3px solid var(--primary); padding: 14px 16px; border-radius: 8px; }
   .review-text { font-size: 14px; line-height: 1.7; color: var(--ink-2); margin: 10px 0 4px; }
   .honest-note { font-size: 12.5px; line-height: 1.6; color: var(--ink-3); background: #f8fafc; border: 1px dashed var(--border); border-radius: 8px; padding: 10px 12px; margin: 12px 0; }

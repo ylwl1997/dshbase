@@ -8,7 +8,8 @@ en_i, zh_i = set(idx.get('en') or []), set(idx.get('zh') or [])
 BULK = '2026-10-10'
 
 def recent_verified(p):
-  return p.get('test') == 'verified' and (p.get('added') or '') >= '2026-10-14'
+  # recent curated rows (verified or metadata-listed) keep static pages; mirrors src/lib/ssg-plugins.js
+  return p.get('test') in ('verified', 'listed') and (p.get('added') or '') >= '2026-10-14'
 
 def ssg_en(p):
   slug = p.get('slug') or p['name']
@@ -36,7 +37,7 @@ for cat, items in plugins.items():
     slug = p.get('slug') or p['name']
     out[slug] = {
       'slug': slug, 'name': p['name'], 'url': p.get('url') or '', 'pkg': p.get('pkg') or '',
-      'npm': bool(p.get('npm') and p.get('pkg')), 'test': p.get('test') or 'pending',
+      'npm': bool(p.get('npm') and p.get('pkg')), 'test': p.get('test') or 'listed',
       'desc': (p.get('desc_en') or p.get('desc') or '')[:400],
       'desc_zh': (p.get('desc_zh') or '')[:400],
       'stars': int(p.get('stars') or 0), 'cat': cat,

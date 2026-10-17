@@ -46,7 +46,7 @@ export const GET: APIRoute = () => {
         cat,
         ucs,
         stars: p.stars ?? 0,
-        test: p.test || 'pending',
+        test: p.test || 'listed',
         cmd,
         q,
       });

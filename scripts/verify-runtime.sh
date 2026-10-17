@@ -37,7 +37,7 @@ import json, re, sys, os
 d = json.load(open(sys.argv[1], encoding='utf-8'))
 filt = os.environ.get('VERIFY_FILTER', '')
 def keep(p):
-    if p.get('test') != 'pending':
+    if p.get('test') not in ('pending', 'listed'):
         return False
     if filt == 'pending-github':
         return not p.get('npm')

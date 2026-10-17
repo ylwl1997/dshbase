@@ -16,6 +16,7 @@ const uniqueRepos = new Set(all.map((p) => repoOf(p.url)).filter(Boolean)).size;
 
 const nVerified = all.filter((p) => p.test === 'verified').length;
 const nPending = all.filter((p) => p.test === 'pending').length;
+const nListed = all.filter((p) => p.test !== 'verified' && p.test !== 'pending').length;
 const nMit = all.filter((p) => (p.license || '') === 'MIT').length;
 const nWebonly = all.filter((p) => !!p.webonly).length;
 const nWebVer = all.filter((p) => !!p.webonly && p.test === 'verified').length;
@@ -38,6 +39,7 @@ const stats = [
   { n: fmt(nL3Ver), label: 'L3 已验证' },
   { n: fmt(nWebVer), label: 'Web L4 已验证' },
   { n: fmt(nPending), label: '待验证' },
+  { n: fmt(nListed), label: '已收录·未实测' },
   { n: fmt(nMit), label: 'MIT 协议' },
 ];
 
@@ -110,6 +112,7 @@ const report = {
     </ul>
     <ul>
       <li><strong><code>verified</code></strong> — L3 headless 通过，或 L3 为 web-only 且 L4 CDP 通过。</li>
+      <li><strong><code>listed</code></strong> — 依据 npm/GitHub 元数据收录；dshbase 尚未做安装实测（不计入已验证）。</li>
       <li><strong><code>pending</code></strong> — 已收录但未通过（含 web-only 待 L4，或先前失败——见备注）。</li>
       <li><strong>信任等级</strong>只是辅助；star 只表示热度。</li>
     </ul>
