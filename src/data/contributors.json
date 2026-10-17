@@ -162,6 +162,24 @@
   ]
  },
  {
+  "github": "huhu23333",
+  "avatar": "https://avatars.githubusercontent.com/u/107193644?v=4",
+  "plugins": [
+   {
+    "name": "dsh-plugin-subagent-model-route",
+    "slug": "dsh-plugin-subagent-model-route",
+    "npm": true,
+    "pkg": "dsh-plugin-subagent-model-route"
+   },
+   {
+    "name": "dsh-reasoning-distill",
+    "slug": "dsh-reasoning-distill",
+    "npm": true,
+    "pkg": "dsh-reasoning-distill"
+   }
+  ]
+ },
+ {
   "github": "julescules",
   "avatar": "https://avatars.githubusercontent.com/u/131376318?v=4",
   "plugins": [
@@ -582,6 +600,18 @@
   ]
  },
  {
+  "github": "diwer",
+  "avatar": "https://avatars.githubusercontent.com/u/4810523?v=4",
+  "plugins": [
+   {
+    "name": "dsh-codex-official-adapter",
+    "slug": "dsh-codex-official-adapter",
+    "npm": true,
+    "pkg": "dsh-codex-official-adapter"
+   }
+  ]
+ },
+ {
   "github": "duhu2000",
   "avatar": "https://avatars.githubusercontent.com/u/10329118?v=4",
   "plugins": [
@@ -698,18 +728,6 @@
     "slug": "Martty",
     "npm": true,
     "pkg": "martty"
-   }
-  ]
- },
- {
-  "github": "huhu23333",
-  "avatar": "https://avatars.githubusercontent.com/u/107193644?v=4",
-  "plugins": [
-   {
-    "name": "dsh-plugin-subagent-model-route",
-    "slug": "dsh-plugin-subagent-model-route",
-    "npm": true,
-    "pkg": "dsh-plugin-subagent-model-route"
    }
   ]
  },
