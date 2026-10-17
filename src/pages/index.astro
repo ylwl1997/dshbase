@@ -13,6 +13,7 @@ const vsUrl = getRelativeLocaleUrl('en', '/blog/vs-claude-code/');
 const flat = Object.values(plugins).flat();
 const totalPlugins = flat.length.toLocaleString('en-US');
 const nVerified = flat.filter((p) => p.test === 'verified').length.toLocaleString('en-US');
+const nListed = flat.filter((p) => p.test === 'listed').length.toLocaleString('en-US');
 ---
 <Base
   title="DeepSeek Harness (DSH) — Install, Tutorial &amp; vs Claude Code | dshbase"
@@ -53,7 +54,7 @@ const nVerified = flat.filter((p) => p.test === 'verified').length.toLocaleStrin
       <div class="card"><h3>L3 · Headless</h3><p>Headless Q&amp;A exits cleanly. If the plugin is GUI-only (web-only), we do not stop here.</p></div>
       <div class="card"><h3>L4 · Web CDP</h3><p>Required for web-only plugins: live web profile + browser CDP Q&amp;A. Pass → Verified.</p></div>
     </div>
-    <p style="margin-top:14px">{nVerified} of {totalPlugins} listings are Verified today. Some other catalogs label “verified” when a plugin is merely installable from a manifest — here it means <em>we ran it</em>. See the <a href={auditUrl}>audit methodology</a>, browse the <a href={directoryUrl}>directory</a>, or start from a <a href={packsUrl}>verified-only scene pack</a>.</p>
+    <p style="margin-top:14px">{nVerified} of {totalPlugins} listings are Verified today, plus {nListed} listed (not yet install-tested). Some other catalogs label “verified” when a plugin is merely installable from a manifest — here it means <em>we ran it</em>. See the <a href={auditUrl}>audit methodology</a>, browse the <a href={directoryUrl}>directory</a>, or start from a <a href={packsUrl}>verified-only scene pack</a>.</p>
   </section>
 
   <section class="info wrap">
@@ -72,7 +73,7 @@ const nVerified = flat.filter((p) => p.test === 'verified').length.toLocaleStrin
     <div class="grid3">
       <a class="card card-link card-accent" href={tutorialUrl}><span class="cat">Guide</span><h3>DSH tutorial</h3><p>Install, configure, use plugins, and run real tasks — step by step. <span class="arr">&rarr;</span></p></a>
       <a class="card card-link" href={vsUrl}><span class="cat">Compare</span><h3>vs Claude Code</h3><p>Plugins vs MCP, pricing, and which to choose. <span class="arr">&rarr;</span></p></a>
-      <a class="card card-link" href={directoryUrl}><span class="cat">Ecosystem</span><h3>Plugin directory</h3><p>{totalPlugins} plugins — {nVerified} install-tested (L1–L4). <span class="arr">&rarr;</span></p></a>
+      <a class="card card-link" href={directoryUrl}><span class="cat">Ecosystem</span><h3>Plugin directory</h3><p>{totalPlugins} plugins — {nVerified} install-tested (L1–L4), {nListed} listed (not yet install-tested). <span class="arr">&rarr;</span></p></a>
       <a class="card card-link" href={packsUrl}><span class="cat">Packs</span><h3>Verified scene packs</h3><p>Curated setups — every slot is verified, not just highest stars. <span class="arr">&rarr;</span></p></a>
       <a class="card card-link" href={pluginsUrl}><span class="cat">Build</span><h3>Plugin guide</h3><p>Write your first dsh plugin and register tools. <span class="arr">&rarr;</span></p></a>
       <a class="card card-link" href={auditUrl}><span class="cat">Trust</span><h3>How we audit</h3><p>L1–L4 methodology and transparent pending failures. <span class="arr">&rarr;</span></p></a>
