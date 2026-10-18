@@ -8,7 +8,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:41:15+00:00"
+  "scannedAt": "2026-10-18T09:53:21+00:00"
  },
  "modlens": {
   "risk": "high",
@@ -23,13 +23,13 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:41:00+00:00"
+  "scannedAt": "2026-10-18T09:53:11+00:00"
  },
  "dsh-web-ui": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:40:40+00:00"
+  "scannedAt": "2026-10-18T09:52:57+00:00"
  },
  "DSH-better-sidebar": {
   "risk": "medium",
@@ -40,31 +40,31 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:41:10+00:00"
+  "scannedAt": "2026-10-18T09:53:18+00:00"
  },
  "awesome-dsh-plugins": {
   "risk": "low",
   "findings": [],
   "files": 17,
-  "scannedAt": "2026-10-17T09:43:26+00:00"
+  "scannedAt": "2026-10-18T09:54:49+00:00"
  },
  "OpenViking": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:38:32+00:00"
+  "scannedAt": "2026-10-18T09:51:31+00:00"
  },
  "colleague-skill": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:39:10+00:00"
+  "scannedAt": "2026-10-18T09:51:56+00:00"
  },
  "voyager": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:39:16+00:00"
+  "scannedAt": "2026-10-18T09:51:59+00:00"
  },
  "deepseek-harness-desktop": {
   "risk": "high",
@@ -79,13 +79,13 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:39:25+00:00"
+  "scannedAt": "2026-10-18T09:52:06+00:00"
  },
  "iPolloWork": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:40:17+00:00"
+  "scannedAt": "2026-10-18T09:52:41+00:00"
  },
  "petdex": {
   "risk": "high",
@@ -96,7 +96,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:41:05+00:00"
+  "scannedAt": "2026-10-18T09:53:14+00:00"
  },
  "EchoBird": {
   "risk": "high",
@@ -106,38 +106,38 @@
     "sev": "high"
    }
   ],
-  "files": 24,
-  "scannedAt": "2026-10-17T09:41:47+00:00"
+  "files": 25,
+  "scannedAt": "2026-10-18T09:53:43+00:00"
  },
  "Vibe-Skills": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:41:19+00:00"
+  "scannedAt": "2026-10-18T09:53:24+00:00"
  },
  "dsh-TUI": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:40:56+00:00"
+  "scannedAt": "2026-10-18T09:53:08+00:00"
  },
  "dsh-cc-tui": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:43:04+00:00"
+  "scannedAt": "2026-10-18T09:54:35+00:00"
  },
  "brooks-lint": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:43:13+00:00"
+  "scannedAt": "2026-10-18T09:54:40+00:00"
  },
  "dsh-deep-whale": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:42:04+00:00"
+  "scannedAt": "2026-10-18T09:53:55+00:00"
  },
  "deeptide": {
   "risk": "high",
@@ -148,7 +148,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:44:34+00:00"
+  "scannedAt": "2026-10-18T09:55:34+00:00"
  },
  "Aegis": {
   "risk": "high",
@@ -163,25 +163,25 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:43:35+00:00"
+  "scannedAt": "2026-10-18T09:54:55+00:00"
  },
  "agent-vision-toolkit": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:43:49+00:00"
+  "scannedAt": "2026-10-18T09:55:05+00:00"
  },
  "wesight": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:45:04+00:00"
+  "scannedAt": "2026-10-18T09:55:55+00:00"
  },
  "agent-qa": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:45:18+00:00"
+  "scannedAt": "2026-10-18T09:56:04+00:00"
  },
  "dsh-market": {
   "risk": "medium",
@@ -192,7 +192,7 @@
    }
   ],
   "files": 23,
-  "scannedAt": "2026-10-17T09:40:21+00:00"
+  "scannedAt": "2026-10-18T09:52:44+00:00"
  },
  "awesome-deepseek-harness": {
   "risk": "high",
@@ -203,7 +203,7 @@
    }
   ],
   "files": 5,
-  "scannedAt": "2026-10-17T09:44:10+00:00"
+  "scannedAt": "2026-10-18T09:55:18+00:00"
  },
  "sandbase-harness": {
   "risk": "low",
@@ -221,7 +221,7 @@
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:45:23+00:00"
+  "scannedAt": "2026-10-18T09:56:07+00:00"
  },
  "graph-memory": {
   "risk": "low",
@@ -249,7 +249,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:44:24+00:00"
+  "scannedAt": "2026-10-18T09:55:28+00:00"
  },
  "dsh-ads": {
   "risk": "low",
@@ -272,7 +272,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:42:22+00:00"
+  "scannedAt": "2026-10-18T09:54:07+00:00"
  },
  "treg": {
   "risk": "high",
@@ -283,7 +283,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:40:49+00:00"
+  "scannedAt": "2026-10-18T09:53:03+00:00"
  },
  "superdesign-skill": {
   "risk": "low",
@@ -386,7 +386,7 @@
   "risk": "low",
   "findings": [],
   "files": 23,
-  "scannedAt": "2026-10-17T09:39:30+00:00"
+  "scannedAt": "2026-10-18T09:52:09+00:00"
  },
  "deepseek-harness-studio": {
   "risk": "low",
@@ -505,7 +505,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:42:26+00:00"
+  "scannedAt": "2026-10-18T09:54:10+00:00"
  },
  "modsearch": {
   "risk": "high",
@@ -644,7 +644,7 @@
   "risk": "low",
   "findings": [],
   "files": 3,
-  "scannedAt": "2026-10-17T09:44:40+00:00"
+  "scannedAt": "2026-10-18T09:55:39+00:00"
  },
  "gal-view": {
   "risk": "low",
@@ -685,7 +685,7 @@
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:43:22+00:00"
+  "scannedAt": "2026-10-18T09:54:46+00:00"
  },
  "dsh-annotation": {
   "risk": "low",
@@ -697,7 +697,7 @@
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:43:30+00:00"
+  "scannedAt": "2026-10-18T09:54:52+00:00"
  },
  "awesome-DSH-plugin": {
   "risk": "low",
@@ -831,8 +831,8 @@
     "sev": "high"
    }
   ],
-  "files": 24,
-  "scannedAt": "2026-10-17T09:42:50+00:00"
+  "files": 25,
+  "scannedAt": "2026-10-18T09:54:25+00:00"
  },
  "Minke": {
   "risk": "low",
@@ -886,7 +886,7 @@
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:43:09+00:00"
+  "scannedAt": "2026-10-18T09:54:38+00:00"
  },
  "Abu-Cowork": {
   "risk": "high",
@@ -931,8 +931,8 @@
  "dsh-im": {
   "risk": "low",
   "findings": [],
-  "files": 25,
-  "scannedAt": "2026-10-17T09:42:36+00:00"
+  "files": 24,
+  "scannedAt": "2026-10-18T09:54:16+00:00"
  },
  "DeepSeek-Balance-Whale-Widget": {
   "risk": "high",
@@ -947,7 +947,7 @@
    }
   ],
   "files": 14,
-  "scannedAt": "2026-10-17T09:40:52+00:00"
+  "scannedAt": "2026-10-18T09:53:05+00:00"
  },
  "open-sea-skin": {
   "risk": "high",
@@ -997,7 +997,7 @@
    }
   ],
   "files": 24,
-  "scannedAt": "2026-10-17T09:43:58+00:00"
+  "scannedAt": "2026-10-18T09:55:11+00:00"
  },
  "dshcode": {
   "risk": "low",
@@ -1142,7 +1142,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:45:28+00:00"
+  "scannedAt": "2026-10-18T09:56:10+00:00"
  },
  "saya-ch-dsh-mobile": {
   "risk": "low",
@@ -1154,7 +1154,7 @@
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:38:07+00:00"
+  "scannedAt": "2026-10-18T09:51:16+00:00"
  },
  "open-design": {
   "risk": "high",
@@ -1165,7 +1165,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:38:13+00:00"
+  "scannedAt": "2026-10-18T09:51:19+00:00"
  },
  "archify": {
   "risk": "high",
@@ -1180,37 +1180,37 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:38:18+00:00"
+  "scannedAt": "2026-10-18T09:51:22+00:00"
  },
  "ruflo": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:38:22+00:00"
+  "scannedAt": "2026-10-18T09:51:25+00:00"
  },
  "@reactive-resume/reactive-resume": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:38:27+00:00"
+  "scannedAt": "2026-10-18T09:51:28+00:00"
  },
  "DeepSeek-Reasonix": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:38:37+00:00"
+  "scannedAt": "2026-10-18T09:51:34+00:00"
  },
  "awesome-gpt-image-2": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:38:41+00:00"
+  "scannedAt": "2026-10-18T09:51:37+00:00"
  },
  "WeKnora": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:38:46+00:00"
+  "scannedAt": "2026-10-18T09:51:40+00:00"
  },
  "dsh-desktop": {
   "risk": "high",
@@ -1225,7 +1225,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:38:51+00:00"
+  "scannedAt": "2026-10-18T09:51:43+00:00"
  },
  "PicGo": {
   "risk": "high",
@@ -1236,19 +1236,19 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:38:56+00:00"
+  "scannedAt": "2026-10-18T09:51:46+00:00"
  },
  "distilly": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:39:00+00:00"
+  "scannedAt": "2026-10-18T09:51:49+00:00"
  },
  "nocobase": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:39:05+00:00"
+  "scannedAt": "2026-10-18T09:51:53+00:00"
  },
  "learn-harness-engineering": {
   "risk": "high",
@@ -1259,25 +1259,25 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:39:21+00:00"
+  "scannedAt": "2026-10-18T09:52:03+00:00"
  },
  "EverOS": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:39:40+00:00"
+  "scannedAt": "2026-10-18T09:52:15+00:00"
  },
  "MemOS": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:39:44+00:00"
+  "scannedAt": "2026-10-18T09:52:19+00:00"
  },
  "@Ebony-Vinyl/dsh-our-free-model": {
   "risk": "low",
   "findings": [],
   "files": 24,
-  "scannedAt": "2026-10-17T09:39:35+00:00"
+  "scannedAt": "2026-10-18T09:52:12+00:00"
  },
  "BrowserSkill": {
   "risk": "high",
@@ -1288,46 +1288,46 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:39:49+00:00"
+  "scannedAt": "2026-10-18T09:52:22+00:00"
  },
  "dsh-web": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:39:54+00:00"
+  "scannedAt": "2026-10-18T09:52:25+00:00"
  },
  "yao": {
   "risk": "high",
   "findings": [
    {
-    "cat": "permissions",
-    "sev": "medium"
-   },
-   {
     "cat": "dangerous-cmd",
     "sev": "high"
+   },
+   {
+    "cat": "permissions",
+    "sev": "medium"
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:39:58+00:00"
+  "scannedAt": "2026-10-18T09:52:28+00:00"
  },
  "honcho": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:40:03+00:00"
+  "scannedAt": "2026-10-18T09:52:31+00:00"
  },
  "dsh-routing-suite": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:40:12+00:00"
+  "scannedAt": "2026-10-18T09:52:38+00:00"
  },
  "ouroboros": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:40:30+00:00"
+  "scannedAt": "2026-10-18T09:52:50+00:00"
  },
  "openpencil": {
   "risk": "high",
@@ -1342,7 +1342,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:40:35+00:00"
+  "scannedAt": "2026-10-18T09:52:53+00:00"
  },
  "dsh-purge": {
   "risk": "high",
@@ -1357,7 +1357,7 @@
    }
   ],
   "files": 23,
-  "scannedAt": "2026-10-17T09:40:44+00:00"
+  "scannedAt": "2026-10-18T09:52:59+00:00"
  },
  "mirage": {
   "risk": "high",
@@ -1368,61 +1368,61 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:41:24+00:00"
+  "scannedAt": "2026-10-18T09:53:27+00:00"
  },
  "ReMe": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:41:29+00:00"
+  "scannedAt": "2026-10-18T09:53:30+00:00"
  },
  "OpenBiliClaw": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:41:34+00:00"
+  "scannedAt": "2026-10-18T09:53:34+00:00"
  },
  "dashi-taskboard": {
   "risk": "low",
   "findings": [],
   "files": 24,
-  "scannedAt": "2026-10-17T09:41:43+00:00"
+  "scannedAt": "2026-10-18T09:53:39+00:00"
  },
  "zhuzhiliao": {
   "risk": "low",
   "findings": [],
   "files": 5,
-  "scannedAt": "2026-10-17T09:41:56+00:00"
+  "scannedAt": "2026-10-18T09:53:49+00:00"
  },
  "memsearch": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:42:00+00:00"
+  "scannedAt": "2026-10-18T09:53:52+00:00"
  },
  "OpenBitFun": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:42:09+00:00"
+  "scannedAt": "2026-10-18T09:53:58+00:00"
  },
  "vox-director": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:42:13+00:00"
+  "scannedAt": "2026-10-18T09:54:01+00:00"
  },
  "memmy-agent": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:42:32+00:00"
+  "scannedAt": "2026-10-18T09:54:13+00:00"
  },
  "last30days-skill-cn": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:42:41+00:00"
+  "scannedAt": "2026-10-18T09:54:19+00:00"
  },
  "@Fei2411/DeepSeek-Bot": {
   "risk": "medium",
@@ -1433,7 +1433,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:42:46+00:00"
+  "scannedAt": "2026-10-18T09:54:22+00:00"
  },
  "openpets": {
   "risk": "high",
@@ -1444,19 +1444,19 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:43:39+00:00"
+  "scannedAt": "2026-10-18T09:54:59+00:00"
  },
  "mem9": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:43:53+00:00"
+  "scannedAt": "2026-10-18T09:55:08+00:00"
  },
  "coding-tools-mcp": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:44:08+00:00"
+  "scannedAt": "2026-10-18T09:55:17+00:00"
  },
  "deja-vu": {
   "risk": "high",
@@ -1471,7 +1471,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:44:04+00:00"
+  "scannedAt": "2026-10-18T09:55:14+00:00"
  },
  "agentrq": {
   "risk": "high",
@@ -1482,7 +1482,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:44:19+00:00"
+  "scannedAt": "2026-10-18T09:55:25+00:00"
  },
  "Browser4": {
   "risk": "high",
@@ -1493,7 +1493,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:44:14+00:00"
+  "scannedAt": "2026-10-18T09:55:22+00:00"
  },
  "CloudBase-AI-Toolkit": {
   "risk": "medium",
@@ -1504,19 +1504,19 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:44:29+00:00"
+  "scannedAt": "2026-10-18T09:55:31+00:00"
  },
  "tongflow": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:44:38+00:00"
+  "scannedAt": "2026-10-18T09:55:38+00:00"
  },
  "GLM-5.3-Flash-J-Space-Capability-Realization-Report": {
   "risk": "low",
   "findings": [],
   "files": 3,
-  "scannedAt": "2026-10-17T09:44:41+00:00"
+  "scannedAt": "2026-10-18T09:55:39+00:00"
  },
  "dsh-plugin-shop": {
   "risk": "high",
@@ -1546,13 +1546,13 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:44:46+00:00"
+  "scannedAt": "2026-10-18T09:55:43+00:00"
  },
  "MindMemOS": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:45:14+00:00"
+  "scannedAt": "2026-10-18T09:56:01+00:00"
  },
  "PicGo-Core": {
   "risk": "medium",
@@ -1563,7 +1563,7 @@
    }
   ],
   "files": 24,
-  "scannedAt": "2026-10-17T09:44:50+00:00"
+  "scannedAt": "2026-10-18T09:55:46+00:00"
  },
  "dsh-tavern": {
   "risk": "medium",
@@ -1574,7 +1574,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:45:09+00:00"
+  "scannedAt": "2026-10-18T09:55:58+00:00"
  },
  "@Miaotofu01/Study-Mate": {
   "risk": "medium",
@@ -1585,13 +1585,13 @@
    }
   ],
   "files": 24,
-  "scannedAt": "2026-10-17T09:44:59+00:00"
+  "scannedAt": "2026-10-18T09:55:52+00:00"
  },
  "hol-guard": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:45:32+00:00"
+  "scannedAt": "2026-10-18T09:56:14+00:00"
  },
  "Wegent": {
   "risk": "low",
@@ -1631,13 +1631,13 @@
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:40:07+00:00"
+  "scannedAt": "2026-10-18T09:52:34+00:00"
  },
  "@loopx-project/loopx": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:40:26+00:00"
+  "scannedAt": "2026-10-18T09:52:47+00:00"
  },
  "@QingYunA/answer-me-with-html": {
   "risk": "high",
@@ -1648,31 +1648,31 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:41:38+00:00"
+  "scannedAt": "2026-10-18T09:53:36+00:00"
  },
  "@sopaco/deepwiki-rs": {
   "risk": "low",
   "findings": [],
   "files": 13,
-  "scannedAt": "2026-10-17T09:41:50+00:00"
+  "scannedAt": "2026-10-18T09:53:44+00:00"
  },
  "@Tiger3807861189/J-Space-Cognition-Suite": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:41:54+00:00"
+  "scannedAt": "2026-10-18T09:53:48+00:00"
  },
  "@dream-num/univer-workspace": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:42:18+00:00"
+  "scannedAt": "2026-10-18T09:54:04+00:00"
  },
  "@anywhere-labs/Agents-Anywhere": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:42:55+00:00"
+  "scannedAt": "2026-10-18T09:54:28+00:00"
  },
  "@kenryu42/cc-safety-net": {
   "risk": "high",
@@ -1683,7 +1683,7 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:42:59+00:00"
+  "scannedAt": "2026-10-18T09:54:31+00:00"
  },
  "@T-Auto/dsh-ops": {
   "risk": "high",
@@ -1697,14 +1697,14 @@
     "sev": "high"
    }
   ],
-  "files": 24,
-  "scannedAt": "2026-10-17T09:43:17+00:00"
+  "files": 25,
+  "scannedAt": "2026-10-18T09:54:43+00:00"
  },
  "@ranxianglei/billion-context": {
   "risk": "low",
   "findings": [],
   "files": 25,
-  "scannedAt": "2026-10-17T09:43:44+00:00"
+  "scannedAt": "2026-10-18T09:55:02+00:00"
  },
  "@hanliang97/MatrixMedia": {
   "risk": "high",
@@ -1719,6 +1719,6 @@
    }
   ],
   "files": 25,
-  "scannedAt": "2026-10-17T09:44:55+00:00"
+  "scannedAt": "2026-10-18T09:55:49+00:00"
  }
 }
