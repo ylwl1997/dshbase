@@ -129721,7 +129721,7 @@
    "pkg": "dsh-mcp-design-toolbox",
    "ver": "0.1.1",
    "npm": true,
-   "test": "listed",
+   "test": "verified",
    "desc": "MCP servers that turn Lanhu design specs, Tencent CoDesign prototypes, and Shimo i18n sheets into structured data your AI coding agent can actually consume. 把蓝湖设计稿、CoDesign 原型、石墨翻译表转成 AI 编码 Agent 可直接消费的结构化数据。",
    "desc_en": "MCP servers that turn Lanhu design specs, Tencent CoDesign prototypes, and Shimo i18n sheets into structured data your AI coding agent can actually consume. 把蓝湖设计稿、CoDesign 原型、石墨翻译表转成 AI 编码 Agent 可直接消费的结构化数据。",
    "desc_zh": "把三个设计链路 MCP 一键接入 DeepSeek Harness——石墨翻译表（shimo-mcp）、蓝湖设计稿（lanhu-design-mcp，含视觉理解）、腾讯 CoDesign 原型转结构化需求文档（codesign-prd-mcp）",
@@ -129742,7 +129742,8 @@
    "_enriched": "2026-10-10|0.1.1",
    "bareNpm": "other",
    "trust": "Bronze",
-   "ucs": []
+   "ucs": [],
+   "testDate": "2026-10-18"
   },
   {
    "name": "dsh-anagenesis",
@@ -129750,7 +129751,7 @@
    "pkg": "dsh-anagenesis",
    "ver": "0.2.1",
    "npm": true,
-   "test": "listed",
+   "test": "verified",
    "desc": "dsh-anagenesis该插件是 DSH 上的可编程记忆编排层 + 自我进化引擎",
    "desc_en": "dsh-anagenesis该插件是 DSH 上的可编程记忆编排层 + 自我进化引擎",
    "desc_zh": "[dsh-anagenesis](https://github.com/3likofj/dsh-anagenesis/blob/README.md) 的桌面窗口，以及把这块窗口挂到界面上的三个入口。 一个 Loader 行、一份 dsh.client 客户端半、一个窗口 —— 三道门。",
@@ -129774,7 +129775,8 @@
    "depsOfficial": 2,
    "repoOwner": "3likofj",
    "_enriched": "2026-10-11|0.2.1",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "testDate": "2026-10-18"
   },
   {
    "name": "rea",
@@ -263396,7 +263398,7 @@
    "pkg": "dsh-codex-official-adapter",
    "ver": "0.1.8",
    "npm": true,
-   "test": "listed",
+   "test": "verified",
    "desc": "ChatGPT subscription / GPT provider for DeepSeek Harness desktop: image input, host tools and DeepSeek/GPT switching. Community MIT plugin — not an OpenAI or DeepSeek official product.",
    "desc_en": "ChatGPT subscription / GPT provider for DeepSeek Harness desktop: image input, host tools and DeepSeek/GPT switching. Community MIT plugin — not an OpenAI or DeepSeek official product.",
    "desc_zh": "在 DeepSeek Harness 桌面版中使用 ChatGPT 订阅登录，选择 GPT 模型，支持账户可用的图片能力和宿主工具。",
@@ -263412,7 +263414,9 @@
    "platform": "any",
    "needs": "Your own ChatGPT account with an active subscription / model access (sign-in, no API key). Targets DeepSeek Harness desktop 0.2.0-rc.2 on macOS (desktop profile).",
    "needsZh": "需要你自己的 ChatGPT 账号及可用订阅/模型权限（登录即可，无需 API Key）；面向 macOS DeepSeek Harness 桌面版 0.2.0-rc.2（desktop Profile）。",
-   "note": "Issue #152 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + bundle manifest all present). Marketplace runtime L1–L3/L4 NOT run: needs a user ChatGPT account + macOS desktop app our sandbox can't provide; author self-test not treated as market certification. Community plugin, not an OpenAI or DeepSeek official product."
+   "note": "Issue #152 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + bundle manifest all present). Marketplace runtime L1–L3/L4 NOT run: needs a user ChatGPT account + macOS desktop app our sandbox can't provide; author self-test not treated as market certification. Community plugin, not an OpenAI or DeepSeek official product.",
+   "bareNpm": "other",
+   "testDate": "2026-10-18"
   },
   {
    "name": "dsh-reasoning-distill",
@@ -263420,7 +263424,7 @@
    "pkg": "dsh-reasoning-distill",
    "ver": "0.1.5",
    "npm": true,
-   "test": "listed",
+   "test": "verified",
    "desc": "DSH plugin: distill over-long model reasoning into its useful core, replay the compressed version on every later request, and report each session's cost and savings.",
    "desc_en": "DSH plugin: distill over-long model reasoning into its useful core, replay the compressed version on every later request, and report each session's cost and savings.",
    "desc_zh": "把过长的模型思考压缩成有用核心，之后每次请求重放压缩版，省下重复发送的 token，并给出每个会话的开销与节省报告。蒸馏结果要写回会话历史，需二选一的前置后端：内置 in-place（给 DSH 本体打补丁）或第三方分支式 message-edit。",
@@ -263436,7 +263440,9 @@
    "platform": "any",
    "needs": "An assistant-message rewrite backend must be installed first: built-in in-place (patch DSH itself with the bundled scripts/dsh-inplace-patch.mjs) or the third-party message-edit fork backend (vendored). Without either, no compression happens.",
    "needsZh": "启用前须先选装「助手消息改写后端」：内置 in-place（用插件自带 scripts/dsh-inplace-patch.mjs 给 DSH 本体打补丁）或第三方 message-edit 分支后端（插件自带 vendor 包）。两者都未装时不会产生任何压缩。",
-   "note": "Issue #156 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + bundle manifest all present). Marketplace runtime L1–L3/L4 NOT run: core function requires patching DSH (in-place) or a forked message-edit backend, which the stock verify sandbox does not provide."
+   "note": "Issue #156 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + bundle manifest all present). Marketplace runtime L1–L3/L4 NOT run: core function requires patching DSH (in-place) or a forked message-edit backend, which the stock verify sandbox does not provide.",
+   "bareNpm": "other",
+   "testDate": "2026-10-18"
   }
  ],
  "UI & Skins": [
@@ -267400,7 +267406,7 @@
    "trust": "Gold",
    "slug": "dsh-doublecheck",
    "platform": "any",
-   "bareNpm": "install-fail",
+   "bareNpm": "other",
    "contributors": 2,
    "depCount": 12,
    "depsOfficial": 10,
@@ -292204,7 +292210,7 @@
    "pkg": "dsh-output-setting",
    "ver": "1.0.0",
    "npm": true,
-   "test": "listed",
+   "test": "verified",
    "desc": "DSH output settings plugin: auto-expand reasoning/tool nodes, code block font size & line height, model output language (auto/Chinese/English)",
    "desc_en": "DSH output settings plugin: auto-expand reasoning/tool nodes, code block font size & line height, model output language (auto/Chinese/English)",
    "desc_zh": "把「过程节点怎么展开、代码块多大、模型用什么语言回答」集中到一个配置页：自动展开思考与工具调用节点、实时调整代码块字号与行距、指定模型输出语言（自动跟随界面 / 中文 / English），全部改动实时生效、无需重启。",
@@ -292225,7 +292231,8 @@
    "depsOfficial": 1,
    "repoOwner": "yijiezhong",
    "_enriched": "2026-10-09|1.0.0",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "testDate": "2026-10-18"
   },
   {
    "name": "cute-fat-fish-pet",
@@ -339391,7 +339398,7 @@
    "trust": "Gold",
    "slug": "dsh-background-agents",
    "platform": "any",
-   "bareNpm": "install-fail",
+   "bareNpm": "other",
    "contributors": 2,
    "depCount": 11,
    "depsOfficial": 10,
@@ -353071,7 +353078,7 @@
    "pkg": "dsh-memory-snapshot",
    "ver": "0.3.0",
    "npm": true,
-   "test": "listed",
+   "test": "verified",
    "desc": "零依赖 DeepSeek Harness 插件：让本地 markdown 成为 dsh 的长期记忆",
    "desc_en": "零依赖 DeepSeek Harness 插件：让本地 markdown 成为 dsh 的长期记忆",
    "desc_zh": "把本地已有的 markdown 文档（笔记、规则、知识库仓库）按路径清单注入 dsh 每个会话的系统提示词，当只读记忆——零依赖：无数据库、无服务、无写入通道，文档原地不动。支持文件与目录路径（`dirDepth` 控制递归）、UTF-8 字节预算截断（单文件 + 总额度）、YAML front-matter 剥离、快照新鲜度时间戳（生成时间 + 各文件 mtime）、缺失路径静默跳过；每次装配实",
@@ -353095,7 +353102,8 @@
    "depsOfficial": 0,
    "repoOwner": "yzx4036",
    "_enriched": "2026-10-12|0.3.0",
-   "bareNpm": "other"
+   "bareNpm": "other",
+   "testDate": "2026-10-18"
   },
   {
    "name": "WeKnora",
