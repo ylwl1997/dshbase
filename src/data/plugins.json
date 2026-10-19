@@ -210011,6 +210011,28 @@
    "trust": "Gold",
    "slug": "dsh-fork-worktree",
    "platform": "any"
+  },
+  {
+   "name": "dsh-plugin-resolver",
+   "url": "https://github.com/sakikoTGW/dsh-plugin-resolver",
+   "pkg": "dsh-plugin-resolver",
+   "ver": "0.1.2",
+   "npm": true,
+   "test": "listed",
+   "desc": "Agent-facing DSH plugin installer: catalog search and same-name disambiguation, pick a compatible version for the running kernel (reads @deepseek-ai/dsh* peers and engines.dsh), install from registry or GitHub source build, then re-read loader/client status.",
+   "desc_en": "Agent-facing DSH plugin installer: catalog search and same-name disambiguation, pick a compatible version for the running kernel (reads @deepseek-ai/dsh* peers and engines.dsh), install from registry or GitHub source build, then re-read loader/client status.",
+   "desc_zh": "面向 agent 的 DSH 插件安装助手：目录检索与同名消歧、按当前运行内核选兼容版本（读 @deepseek-ai/dsh* peer 与 engines.dsh）、registry 或 GitHub 源码构建安装、装后回读 loader/client 状态校验。",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-10-17",
+   "archived": false,
+   "added": "2026-10-19T11:17:41",
+   "license": "MIT",
+   "slug": "dsh-plugin-resolver",
+   "platform": "any",
+   "note": "Issue #161 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + bundle manifest all present). Listed only — marketplace runtime L1–L3/L4 not run."
   }
  ],
  "AI Models": [
@@ -336032,6 +336054,28 @@
    "trust": "Silver",
    "slug": "dsh-claude-code-theme",
    "platform": "any"
+  },
+  {
+   "name": "dsh-whale-ricebowl",
+   "url": "https://github.com/LuChen0820/dsh-whale-ricebowl",
+   "pkg": "",
+   "ver": "",
+   "npm": false,
+   "test": "listed",
+   "desc": "Rice-bowl overlay for the DSH whale token widget: load 1/2/5 bowls (1 bowl = 1M tokens), eat rice by real token use each turn, bubble a bill at turn end, beg when empty; per-chat ledger, max 5 bowls. Requires host plugin dsh-whale-widget.",
+   "desc_en": "Rice-bowl overlay for the DSH whale token widget: load 1/2/5 bowls (1 bowl = 1M tokens), eat rice by real token use each turn, bubble a bill at turn end, beg when empty; per-chat ledger, max 5 bowls. Requires host plugin dsh-whale-widget.",
+   "desc_zh": "给「DSH 小鲸鱼记账挂件」加一层装饭喂鱼：装 1/2/5 碗白饭（1 碗 = 100 万 token），每轮对话按真实 token 消耗吃米饭、每轮结束用气泡报账，吃完自动讨饭；每个对话独立饭账，最多显示 5 碗。依赖宿主插件 dsh-whale-widget。",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-10-18",
+   "archived": false,
+   "added": "2026-10-19T11:17:24",
+   "license": "MIT",
+   "slug": "dsh-whale-ricebowl",
+   "platform": "any",
+   "note": "Issue #165 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + bundle manifest all present). Listed only — marketplace runtime L1–L3/L4 not run. Depends on host plugin dsh-whale-widget."
   }
  ],
  "Knowledge": [
@@ -367236,6 +367280,30 @@
    "trust": "Gold",
    "slug": "dsh-engramory-recall",
    "platform": "any"
+  },
+  {
+   "name": "dsh-mnemos-continuity",
+   "url": "https://github.com/xthingillu-sketch/dsh-mnemos-continuity",
+   "pkg": "dsh-mnemos-continuity",
+   "ver": "1.5.10",
+   "npm": true,
+   "test": "listed",
+   "desc": "Move judgment out of the chat: memory, skills and rules live as local files so they survive model and session switches (constitution/discipline layer, skill review, folded snapshots, multi-agent task graphs).",
+   "desc_en": "Move judgment out of the chat: memory, skills and rules live as local files so they survive model and session switches (constitution/discipline layer, skill review, folded snapshots, multi-agent task graphs).",
+   "desc_zh": "把「判断」从会话里搬出来：记忆/技能/规则存在本地文件，换模型、换会话之后还能接着用（宪法与纪律层、技能评审、折叠快照、多 agent 任务图）",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-10-18",
+   "archived": false,
+   "added": "2026-10-19T11:17:17",
+   "license": "MIT",
+   "slug": "dsh-mnemos-continuity",
+   "platform": "any",
+   "needs": "Optional idle-learning only: a third-party model router with your own API key. Core continuity flow works out of the box.",
+   "needsZh": "可选功能「空闲学习」需要你自己配一个带 key 的第三方模型路由；核心流程开箱即用。",
+   "note": "Issue #167 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + bundle manifest all present). Listed only — marketplace runtime L1–L3/L4 not run (optional external model router for idle learning)."
   }
  ],
  "Desktop": [
@@ -390163,6 +390231,30 @@
    "trust": "Bronze",
    "slug": "dsh-ofm-updater",
    "platform": "any"
+  },
+  {
+   "name": "dsh-plugin-lx-music",
+   "url": "https://github.com/afawfawffaf/dsh-plugin-lx-music",
+   "pkg": "",
+   "ver": "",
+   "npm": false,
+   "test": "listed",
+   "desc": "Embed LX Music (落雪音乐) now-playing lyrics in the DSH chat wallpaper strip (current line ±2), with prev/play-pause/next capsule above; starts LX from tray if closed. Read-only open API; Windows only.",
+   "desc_en": "Embed LX Music (落雪音乐) now-playing lyrics in the DSH chat wallpaper strip (current line ±2), with prev/play-pause/next capsule above; starts LX from tray if closed. Read-only open API; Windows only.",
+   "desc_zh": "把落雪音乐（LX Music）正在播放的歌词内嵌到 DSH 对话区右侧的壁纸带（当前行 + 前后各两句），歌词正上方的胶囊放上一首 / 播放暂停 / 下一首；播放器没开时点播放会自动把它拉起来。只读落雪开放 API，不接管播放。",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-10-18",
+   "archived": false,
+   "added": "2026-10-19T11:17:33",
+   "license": "MIT",
+   "slug": "dsh-plugin-lx-music",
+   "platform": "win32",
+   "needs": "Local LX Music (落雪音乐) v2.7+ with Open API enabled (default 127.0.0.1:23330). Windows only (PowerShell + user32 for window wake). Without LX/API the lyric strip simply stays hidden.",
+   "needsZh": "需要本机已安装落雪音乐（LX Music）v2.7+，并在「设置 → 开放 API」里打开接口（默认 127.0.0.1:23330）。仅支持 Windows（窗口显隐/唤醒走 PowerShell + user32）；没有落雪或没开 API 时只是不显示歌词区。",
+   "note": "Issue #164 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + bundle manifest all present). Listed only — marketplace runtime L1–L3/L4 not run (requires local LX Music + Windows)."
   }
  ],
  "Automation": [
@@ -511326,6 +511418,30 @@
    "trust": "Gold",
    "slug": "dsh-sticker-pack",
    "platform": "any"
+  },
+  {
+   "name": "dsh-plugin-ai-drama",
+   "url": "https://github.com/HengryLiang/dsh-plugin-ai-drama",
+   "pkg": "",
+   "ver": "",
+   "npm": false,
+   "test": "listed",
+   "desc": "AI short-drama workspace for DeepSeek Harness: sidebar entry, 14-tab center panel, dedicated drama-mode agent preset, 34 agent tools and 9 skills covering pitch through export; optional LibTV / NeoWoW canvas CLI for generation.",
+   "desc_en": "AI short-drama workspace for DeepSeek Harness: sidebar entry, 14-tab center panel, dedicated drama-mode agent preset, 34 agent tools and 9 skills covering pitch through export; optional LibTV / NeoWoW canvas CLI for generation.",
+   "desc_zh": "面向 DeepSeek Harness 的 AI 短剧工作区：侧栏入口 + 中央面板（14 页签）+ 独立的「短剧模式」Agent 预设，随包 34 个 Agent 工具与 9 个技能，覆盖立项、总纲、人物、世界观、剧本、分镜、草稿、定稿与 Markdown/JSON/CSV 导出，并可对接 LibTV / NeoWoW 画布 CLI 做生成编排。",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-10-17",
+   "archived": false,
+   "added": "2026-10-19T11:17:09",
+   "license": "MIT",
+   "slug": "dsh-plugin-ai-drama",
+   "platform": "any",
+   "needs": "Optional generation only: local LibTV (`libtv`) or NeoWoW (`neowow`) canvas CLI with a logged-in account. Create / edit / review / export work without those CLIs.",
+   "needsZh": "仅可选的「生成」能力需要本机 LibTV（`libtv`）或 NeoWoW（`neowow`）画布 CLI 且对应账号已登录。不配置这些 CLI 时，创作/编辑/检查/导出/审读均开箱即用。",
+   "note": "Issue #168 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + bundle manifest all present). Listed only — marketplace runtime L1–L3/L4 not run (optional LibTV/NeoWoW CLIs). Install: `dsh plugin add github:HengryLiang/dsh-plugin-ai-drama#v0.6.3` (or Release tarball)."
   }
  ]
 }
