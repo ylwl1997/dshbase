@@ -270,6 +270,24 @@
   ]
  },
  {
+  "github": "sakikoTGW",
+  "avatar": "https://avatars.githubusercontent.com/u/247183209?v=4",
+  "plugins": [
+   {
+    "name": "dsh-plugin-resolver",
+    "slug": "dsh-plugin-resolver",
+    "npm": true,
+    "pkg": "dsh-plugin-resolver"
+   },
+   {
+    "name": "pack-agent-dsh",
+    "slug": "pack-agent-dsh",
+    "npm": true,
+    "pkg": "@sakikotgw/pack-agent-dsh"
+   }
+  ]
+ },
+ {
   "github": "Stmol",
   "avatar": "https://avatars.githubusercontent.com/u/740892?v=4",
   "plugins": [
@@ -390,6 +408,18 @@
    {
     "name": "dsh-deepseek-web-relay",
     "slug": "dsh-deepseek-web-relay",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "afawfawffaf",
+  "avatar": "https://avatars.githubusercontent.com/u/235626663?v=4",
+  "plugins": [
+   {
+    "name": "dsh-plugin-lx-music",
+    "slug": "dsh-plugin-lx-music",
     "npm": false,
     "pkg": ""
    }
@@ -696,6 +726,18 @@
   ]
  },
  {
+  "github": "HengryLiang",
+  "avatar": "https://avatars.githubusercontent.com/u/23513504?v=4",
+  "plugins": [
+   {
+    "name": "dsh-plugin-ai-drama",
+    "slug": "dsh-plugin-ai-drama",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "HiNEM66",
   "avatar": "https://avatars.githubusercontent.com/u/92151998?v=4",
   "plugins": [
@@ -876,6 +918,18 @@
   ]
  },
  {
+  "github": "LuChen0820",
+  "avatar": "https://avatars.githubusercontent.com/u/292306445?v=4",
+  "plugins": [
+   {
+    "name": "dsh-whale-ricebowl",
+    "slug": "dsh-whale-ricebowl",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "LuckVd",
   "avatar": "https://avatars.githubusercontent.com/u/37114923?v=4",
   "plugins": [
@@ -968,18 +1022,6 @@
     "slug": "dsh-workspace-mover",
     "npm": false,
     "pkg": ""
-   }
-  ]
- },
- {
-  "github": "sakikoTGW",
-  "avatar": "https://avatars.githubusercontent.com/u/247183209?v=4",
-  "plugins": [
-   {
-    "name": "pack-agent-dsh",
-    "slug": "pack-agent-dsh",
-    "npm": true,
-    "pkg": "@sakikotgw/pack-agent-dsh"
    }
   ]
  },
@@ -1184,6 +1226,18 @@
     "slug": "dsh-clear-usage",
     "npm": false,
     "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "xthingillu-sketch",
+  "avatar": "https://avatars.githubusercontent.com/u/344300856?v=4",
+  "plugins": [
+   {
+    "name": "dsh-mnemos-continuity",
+    "slug": "dsh-mnemos-continuity",
+    "npm": true,
+    "pkg": "dsh-mnemos-continuity"
    }
   ]
  },
