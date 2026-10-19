@@ -210018,7 +210018,7 @@
    "pkg": "dsh-plugin-resolver",
    "ver": "0.1.2",
    "npm": true,
-   "test": "listed",
+   "test": "verified",
    "desc": "Agent-facing DSH plugin installer: catalog search and same-name disambiguation, pick a compatible version for the running kernel (reads @deepseek-ai/dsh* peers and engines.dsh), install from registry or GitHub source build, then re-read loader/client status.",
    "desc_en": "Agent-facing DSH plugin installer: catalog search and same-name disambiguation, pick a compatible version for the running kernel (reads @deepseek-ai/dsh* peers and engines.dsh), install from registry or GitHub source build, then re-read loader/client status.",
    "desc_zh": "面向 agent 的 DSH 插件安装助手：目录检索与同名消歧、按当前运行内核选兼容版本（读 @deepseek-ai/dsh* peer 与 engines.dsh）、registry 或 GitHub 源码构建安装、装后回读 loader/client 状态校验。",
@@ -210032,7 +210032,9 @@
    "license": "MIT",
    "slug": "dsh-plugin-resolver",
    "platform": "any",
-   "note": "Issue #161 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + bundle manifest all present). Listed only — marketplace runtime L1–L3/L4 not run."
+   "note": "Issue #161 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + bundle manifest all present). Listed only — marketplace runtime L1–L3/L4 not run.",
+   "bareNpm": "other",
+   "testDate": "2026-10-19"
   }
  ],
  "AI Models": [
@@ -367287,7 +367289,7 @@
    "pkg": "dsh-mnemos-continuity",
    "ver": "1.5.10",
    "npm": true,
-   "test": "listed",
+   "test": "verified",
    "desc": "Move judgment out of the chat: memory, skills and rules live as local files so they survive model and session switches (constitution/discipline layer, skill review, folded snapshots, multi-agent task graphs).",
    "desc_en": "Move judgment out of the chat: memory, skills and rules live as local files so they survive model and session switches (constitution/discipline layer, skill review, folded snapshots, multi-agent task graphs).",
    "desc_zh": "把「判断」从会话里搬出来：记忆/技能/规则存在本地文件，换模型、换会话之后还能接着用（宪法与纪律层、技能评审、折叠快照、多 agent 任务图）",
@@ -367303,7 +367305,9 @@
    "platform": "any",
    "needs": "Optional idle-learning only: a third-party model router with your own API key. Core continuity flow works out of the box.",
    "needsZh": "可选功能「空闲学习」需要你自己配一个带 key 的第三方模型路由；核心流程开箱即用。",
-   "note": "Issue #167 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + bundle manifest all present). Listed only — marketplace runtime L1–L3/L4 not run (optional external model router for idle learning)."
+   "note": "Issue #167 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + bundle manifest all present). Listed only — marketplace runtime L1–L3/L4 not run (optional external model router for idle learning).",
+   "bareNpm": "other",
+   "testDate": "2026-10-19"
   }
  ],
  "Desktop": [
