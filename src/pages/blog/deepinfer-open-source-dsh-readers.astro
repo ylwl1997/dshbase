@@ -30,6 +30,7 @@ const firstDayUrl = getRelativeLocaleUrl('en', '/blog/first-day-with-dsh/');
   </table>
   <p>DeepInfer’s official README: high-performance inference framework for DeepSeek’s large-scale production services; this release “provides <strong>offline inference</strong> with the core features needed for serving at scale.” Supported model at ship time: <strong>DeepSeek-V4.1-Flash</strong> (HF <code>deepseek-ai/DeepSeek-V4.1-Flash-1017</code>). deepseek-recipe’s README is equally blunt: use it to connect <em>an</em> inference backend to multi-format API fronts — <strong>the caller provides model inference</strong>.</p>
   <p>If your goal is “run an agent on V4.1 Flash,” the default path is still <strong>DSH + official API</strong> (layer 1 only). You do not need DeepInfer or recipe for that.</p>
+  <p><strong>Dedicated DeepInfer guide:</strong> install checklist, vs vLLM, and recipe vs engine — <a href="https://deepinfer.run/" rel="noopener noreferrer">https://deepinfer.run/</a> (independent guide; not affiliated with DeepSeek).</p>
 
   <h2>Source trail (verify at ship time)</h2>
   <table class="ztable">
@@ -93,7 +94,7 @@ const firstDayUrl = getRelativeLocaleUrl('en', '/blog/first-day-with-dsh/');
   <h2>DSH reader action checklist</h2>
   <ul>
     <li><strong>Stay on DSH + API only (most readers):</strong> keep <code>npx @deepseek-ai/dsh web</code> (or your pinned profile) on the <strong>official DeepSeek API</strong>. You need neither DeepInfer nor deepseek-recipe for day-to-day agents. See <a href={firstDayUrl}>first day with DSH</a> and <a href={modelSetupUrl}>model setup</a>.</li>
-    <li><strong>Install the engine (DeepInfer) only if:</strong> you run <strong>SM100 or Ascend 950</strong> shop floors, want private/offline V4.1-Flash serving, and can own KV cache + PD disaggregation + replica LB as separate projects. Start at <a href="https://github.com/deepseek-ai/DeepInfer" rel="noopener noreferrer">deepseek-ai/DeepInfer</a>; read the “not included” list before promising a cutover.</li>
+    <li><strong>Install the engine (DeepInfer) only if:</strong> you run <strong>SM100 or Ascend 950</strong> shop floors, want private/offline V4.1-Flash serving, and can own KV cache + PD disaggregation + replica LB as separate projects. Start at <a href="https://github.com/deepseek-ai/DeepInfer" rel="noopener noreferrer">deepseek-ai/DeepInfer</a> (or the checklist at <a href="https://deepinfer.run/" rel="noopener noreferrer">deepinfer.run</a>); read the “not included” list before promising a cutover.</li>
     <li><strong>Need recipe only if:</strong> you are wiring a custom API front (Messages / Chat Completions / Responses) and must match official encode/decode / prompt behavior. Short link: <a href="https://github.com/deepseek-ai/deepseek-recipe" rel="noopener noreferrer">deepseek-ai/deepseek-recipe</a> (PyPI 0.2.0). It does <strong>not</strong> run the model — bring your own backend (DeepInfer, vLLM, official API, …).</li>
     <li><strong>Do not</strong> treat Prefill vs Decode charts, DeepInfer, and deepseek-recipe as three interchangeable downloads. Prefill/Decode are phases inside DeepInfer; recipe is the codec layer; DSH is the agent runtime.</li>
     <li><strong>Do not</strong> download random “DeepInfer one-click” binaries from unofficial mirrors. Prefer the official GitHub trees and Apache-2.0 LICENSE.</li>
@@ -102,8 +103,9 @@ const firstDayUrl = getRelativeLocaleUrl('en', '/blog/first-day-with-dsh/');
     <li><strong>Plugin hygiene:</strong> serving news does not relax plugin risk. Prefer verified entries from the <a href={pluginsUrl}>plugins hub</a> / <a href={directoryUrl}>directory</a>.</li>
   </ul>
 
-  <h2>Internal links for DSH readers</h2>
+  <h2>Related links for DSH readers</h2>
   <ul>
+    <li><a href="https://deepinfer.run/" rel="noopener noreferrer">deepinfer.run</a> — independent DeepInfer guide (install, vs vLLM, recipe).</li>
     <li><a href={homeUrl}>dshbase homepage</a> — install entry and catalog orientation.</li>
     <li><a href={flashUrl}>DeepSeek V4.1 Flash limited-beta analysis</a> — prior Flash checkpoint reporting.</li>
     <li><a href={costUrl}>Cost &amp; caching</a> · <a href={cachePulseUrl}>Why X calls DSH “token efficient”</a> — bill controls that still apply.</li>
