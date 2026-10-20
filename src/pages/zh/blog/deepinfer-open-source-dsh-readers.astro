@@ -30,6 +30,7 @@ const firstDayUrl = getRelativeLocaleUrl('zh', '/blog/first-day-with-dsh/');
   </table>
   <p>DeepInfer 官方 README：驱动 DeepSeek 大规模生产服务的高性能推理框架；本次开源提供「带规模化服务所需核心能力的<strong>离线推理</strong>」。发文时支持模型：<strong>DeepSeek-V4.1-Flash</strong>（HF <code>deepseek-ai/DeepSeek-V4.1-Flash-1017</code>）。deepseek-recipe 的 README 同样直白：用它把<strong>某个</strong>推理后端接到多格式 API 前端——<strong>模型推理由调用方提供</strong>。</p>
   <p>目标若是「在 V4.1 Flash 上跑 Agent」，默认路径仍是<strong>只要第 1 层：DSH + 官方 API</strong>。为此你不需要 DeepInfer，也不需要 recipe。</p>
+  <p><strong>独立 DeepInfer 指南：</strong>安装清单、相对 vLLM、recipe 与引擎对照 —— <a href="https://deepinfer.run/" rel="noopener noreferrer">https://deepinfer.run/</a>（第三方站点；与 DeepSeek 无隶属关系）。</p>
 
   <h2>信源链（发文时请再点开核对）</h2>
   <table class="ztable">
@@ -93,7 +94,7 @@ const firstDayUrl = getRelativeLocaleUrl('zh', '/blog/first-day-with-dsh/');
   <h2>DSH 读者行动清单</h2>
   <ul>
     <li><strong>只留 DSH + API（大多数读者）：</strong>继续 <code>npx @deepseek-ai/dsh web</code>（或钉死的 profile）对接<strong>官方 DeepSeek API</strong>。日常 Agent 既不需要 DeepInfer，也不需要 deepseek-recipe。见 <a href={firstDayUrl}>DSH 的第一天</a> 与 <a href={modelSetupUrl}>模型接入</a>。</li>
-    <li><strong>只有这些人才装引擎（DeepInfer）：</strong>你跑 <strong>SM100 或昇腾 950</strong> 机房，要私有/离线服 V4.1-Flash，并能把 KV cache、PD 分离、副本 LB 当独立项目。从 <a href="https://github.com/deepseek-ai/DeepInfer" rel="noopener noreferrer">deepseek-ai/DeepInfer</a> 起步；承诺切换前先读完「未包含」清单。</li>
+    <li><strong>只有这些人才装引擎（DeepInfer）：</strong>你跑 <strong>SM100 或昇腾 950</strong> 机房，要私有/离线服 V4.1-Flash，并能把 KV cache、PD 分离、副本 LB 当独立项目。从 <a href="https://github.com/deepseek-ai/DeepInfer" rel="noopener noreferrer">deepseek-ai/DeepInfer</a> 起步（或看 <a href="https://deepinfer.run/" rel="noopener noreferrer">deepinfer.run</a> 清单）；承诺切换前先读完「未包含」清单。</li>
     <li><strong>只有这些人才需要 recipe：</strong>你在搭自定义 API 前端（Messages / Chat Completions / Responses），必须贴近官方编解码 / prompt 行为。短链：<a href="https://github.com/deepseek-ai/deepseek-recipe" rel="noopener noreferrer">deepseek-ai/deepseek-recipe</a>（PyPI 0.2.0）。它<strong>不</strong>跑模型——自备后端（DeepInfer、vLLM、官方 API……）。</li>
     <li><strong>不要</strong>把 Prefill / Decode 图、DeepInfer、deepseek-recipe 当成三个可互换的下载包。Prefill/Decode 是 DeepInfer 内部两个阶段；recipe 是编解码层；DSH 是 Agent 运行时。</li>
     <li><strong>不要</strong>从不明确镜像下载「DeepInfer 一键包」。优先官方 GitHub 树与 Apache-2.0 LICENSE。</li>
@@ -102,8 +103,9 @@ const firstDayUrl = getRelativeLocaleUrl('zh', '/blog/first-day-with-dsh/');
     <li><strong>插件卫生：</strong>服务端新闻不降低插件风险。优先 <a href={pluginsUrl}>插件中心</a> / <a href={directoryUrl}>目录</a> 里的已验证条目。</li>
   </ul>
 
-  <h2>站内相关链接</h2>
+  <h2>相关链接</h2>
   <ul>
+    <li><a href="https://deepinfer.run/" rel="noopener noreferrer">deepinfer.run</a> — 独立 DeepInfer 指南（安装、相对 vLLM、recipe）。</li>
     <li><a href={homeUrl}>dshbase 首页</a> — 安装入口与目录导览。</li>
     <li><a href={flashUrl}>DeepSeek V4.1 Flash 限时内测分析</a> — 此前 Flash checkpoint 报道。</li>
     <li><a href={costUrl}>成本与缓存</a> · <a href={cachePulseUrl}>为什么 X 上说 DSH「省 Token」</a> — 账单控制仍然适用。</li>
