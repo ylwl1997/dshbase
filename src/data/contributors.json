@@ -1,5 +1,29 @@
 [
  {
+  "github": "appthin",
+  "avatar": "https://avatars.githubusercontent.com/u/61135286?v=4",
+  "plugins": [
+   {
+    "name": "@appthin/dsh-skills-manager-plus",
+    "slug": "dsh-skills-manager-plus",
+    "npm": true,
+    "pkg": "dsh-skills-manager-plus"
+   },
+   {
+    "name": "dsh-mcp-manager-plus",
+    "slug": "dsh-mcp-manager-plus",
+    "npm": true,
+    "pkg": "dsh-mcp-manager-plus"
+   },
+   {
+    "name": "dsh-rea-agents",
+    "slug": "dsh-rea-agents",
+    "npm": true,
+    "pkg": "dsh-rea-agents"
+   }
+  ]
+ },
+ {
   "github": "nan1010082085",
   "avatar": "https://avatars.githubusercontent.com/u/26052449?v=4",
   "plugins": [
@@ -678,6 +702,18 @@
   ]
  },
  {
+  "github": "GuihaiHU",
+  "avatar": "https://avatars.githubusercontent.com/u/3085435?v=4",
+  "plugins": [
+   {
+    "name": "dsh-temp-note",
+    "slug": "dsh-temp-note",
+    "npm": true,
+    "pkg": "dsh-temp-note"
+   }
+  ]
+ },
+ {
   "github": "guiyi-labs",
   "avatar": "https://avatars.githubusercontent.com/u/277616126?v=4",
   "plugins": [
@@ -734,6 +770,18 @@
     "slug": "dsh-plugin-ai-drama",
     "npm": false,
     "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "hffek",
+  "avatar": "https://avatars.githubusercontent.com/u/318533254?v=4",
+  "plugins": [
+   {
+    "name": "dsh-steer-note",
+    "slug": "dsh-steer-note",
+    "npm": true,
+    "pkg": "dsh-steer-note"
    }
   ]
  },
@@ -806,6 +854,18 @@
     "slug": "dsh-guandan",
     "npm": true,
     "pkg": "dsh-guandan"
+   }
+  ]
+ },
+ {
+  "github": "JeffTsuiCUG",
+  "avatar": "https://avatars.githubusercontent.com/u/34744908?v=4",
+  "plugins": [
+   {
+    "name": "@JeffTsuiCUG/dsh-connect-minimaxcode",
+    "slug": "dsh-connect-minimaxcode",
+    "npm": true,
+    "pkg": "dsh-connect-minimaxcode"
    }
   ]
  },
