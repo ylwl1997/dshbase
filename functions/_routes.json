@@ -1,6 +1,9 @@
 {
   "version": 1,
-  "include": [],
+  "include": [
+    "/api/*",
+    "/badges/*"
+  ],
   "exclude": [
     "/plugins",
     "/plugins/",
