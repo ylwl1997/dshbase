@@ -1,0 +1,120 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const homeUrl = getRelativeLocaleUrl('zh', '/');
+const flashUrl = getRelativeLocaleUrl('zh', '/blog/deepseek-v4-1-flash-beta/');
+const costUrl = getRelativeLocaleUrl('zh', '/blog/deepseek-harness-cost/');
+const cachePulseUrl = getRelativeLocaleUrl('zh', '/blog/x-pulse-dsh-cache-token-efficiency/');
+const pluginsUrl = getRelativeLocaleUrl('zh', '/plugins/');
+const directoryUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
+const modelSetupUrl = getRelativeLocaleUrl('zh', '/blog/dsh-model-setup/');
+const firstDayUrl = getRelativeLocaleUrl('zh', '/blog/first-day-with-dsh/');
+---
+<BlogPost title="DeepInfer 开源：DSH / V4.1-Flash 安装者该知道的硬件门槛、相对 vLLM 的缺口，以及何时继续用官方 API | dshbase" description="DeepSeek 开源了驱动 V4.1-Flash 的生产推理框架 DeepInfer。给 DSH 读者：它和 Harness 不是一层、SM100/昇腾 950 硬件门槛、README 明确未开源的 KV cache / PD 分离 / 负载均衡，以及多数人该继续官方 API 的理由。" currentPath="/blog/deepinfer-open-source-dsh-readers/" category="分析">
+  <h1>DeepInfer 开源了 <span class="accent">—— DSH / V4.1-Flash 安装者该先看清什么</span></h1>
+  <p class="muted small" style="margin-bottom:20px">2026 年 10 月 20 日 · dshbase · 硬件门槛、开源缺口、以及官方 API 何时仍是正解</p>
+
+  <p>2026 年 10 月 20 日，<a href="https://x.com/deepseek_ai/status/2112476496283775135" rel="noopener noreferrer">@deepseek_ai</a> 发了一条四连帖，宣布把内部推理框架 <strong>DeepInfer</strong> 全面开源，代码在 <a href="https://github.com/deepseek-ai/DeepInfer" rel="noopener noreferrer">github.com/deepseek-ai/DeepInfer</a>。官方说法很直接：驱动 <strong>DeepSeek-V4.1-Flash</strong> 大规模生产服务的同一套栈，现在开放出来，方便社区压低算力成本与能耗。</p>
+  <p>如果你是从 <a href={homeUrl}>dshbase</a> 过来、平时跑 <code>npx @deepseek-ai/dsh web</code> 的人，这篇不是「今晚就去 clone」。DeepInfer 是<strong>模型服务 / 推理引擎</strong>；DeepSeek Harness（DSH）是<strong>Agent 运行时</strong>。把两层混成一层，周末会烧掉、Agent 循环还是没有。下面只写能核验的事实、硬件门槛、官方 README 明确没开源的部分、和「继续官方 API + DSH」怎么选，最后给行动清单。</p>
+
+  <h2>DeepInfer 是什么——以及它不是什么</h2>
+  <p>官方 README 写得很清楚：DeepInfer 是驱动 DeepSeek 大规模生产服务的高性能推理框架；这次开源提供「带规模化服务所需核心能力的<strong>离线推理</strong>」。发文时支持的模型：<strong>DeepSeek-V4.1-Flash</strong>（默认权重指向 Hugging Face <code>deepseek-ai/DeepSeek-V4.1-Flash-1017</code>）。</p>
+  <p>Harness 是另一层。DSH 是 TypeScript/Node 的 Agent 表面——工具、插件、沙箱、会话日志、模式——它对接模型 HTTP 端点。它不代替推理引擎；推理引擎也不给你插件市场或轨迹追踪。同一品牌，两层分工：</p>
+  <table class="ztable">
+    <tr><th>层级</th><th>DeepSeek Harness（DSH）</th><th>DeepInfer</th></tr>
+    <tr><td><strong>职责</strong></td><td>Agent 运行时 / Harness</td><td>模型服务 / 推理引擎</td></tr>
+    <tr><td><strong>典型安装</strong></td><td><code>npx @deepseek-ai/dsh web</code></td><td>源码构建（Python 3.12 + CUDA 13 或 CANN 9.2）</td></tr>
+    <tr><td><strong>对接</strong></td><td>HTTP API（官方 DeepSeek、OpenRouter 等）</td><td>GPU/NPU 算子 + checkpoint</td></tr>
+    <tr><td><strong>给你什么</strong></td><td>工具、插件、模式、会话审计</td><td>在列出硬件上的 prefill/decode 吞吐</td></tr>
+    <tr><td><strong>不给你什么</strong></td><td>自建 Flash 集群</td><td>Agent 循环、插件市场、Web UI</td></tr>
+    <tr><td><strong>仓库（请自行核验）</strong></td><td>DeepSeek Harness / <code>@deepseek-ai/dsh</code></td><td><a href="https://github.com/deepseek-ai/DeepInfer" rel="noopener noreferrer">deepseek-ai/DeepInfer</a></td></tr>
+  </table>
+  <p>目标若是「在 V4.1 Flash 上跑 Agent」，默认路径仍是 <strong>DSH + 官方 API</strong>。DeepInfer 面向已经拥有（或能采购）列出加速卡、并愿自己搭服务厨房的团队。</p>
+
+  <h2>信源链（发文时请再点开核对）</h2>
+  <table class="ztable">
+    <tr><th>条目</th><th>链接 / 说明</th></tr>
+    <tr><td><strong>官方 X 帖（1/4）</strong></td><td><a href="https://x.com/deepseek_ai/status/2112476496283775135" rel="noopener noreferrer">status/2112476496283775135</a> — 2026-10-20 09:30 UTC（UTC+8 17:30）。时间线短文常被截断；长文 note 收在 “make AI more affordable” 并以 “1/4” 结尾。</td></tr>
+    <tr><td><strong>2/4</strong></td><td><a href="https://x.com/deepseek_ai/status/2112476498598957056" rel="noopener noreferrer">Inside DeepInfer</a> — 高性能算子与优化引擎、分布式推理与推测解码、SWA Bounded Replay 与结构化输出；后续模型推理代码也会落在此仓。</td></tr>
+    <tr><td><strong>3/4</strong></td><td><a href="https://x.com/deepseek_ai/status/2112476501065286085" rel="noopener noreferrer">deepseek-recipe</a> — 与官方 API 处理逻辑对齐的生产级 Token 编解码 → <a href="https://github.com/deepseek-ai/deepseek-recipe" rel="noopener noreferrer">github.com/deepseek-ai/deepseek-recipe</a>。</td></tr>
+    <tr><td><strong>4/4</strong></td><td><a href="https://x.com/deepseek_ai/status/2112476503673864665" rel="noopener noreferrer">收束</a> — “Open models. Open kernels. Open inference.”</td></tr>
+    <tr><td><strong>代码</strong></td><td><a href="https://github.com/deepseek-ai/DeepInfer" rel="noopener noreferrer">deepseek-ai/DeepInfer</a>（Apache-2.0）。写作时核对过 README；星标/Issue 会变，引用前请重开仓库。</td></tr>
+    <tr><td><strong>配套</strong></td><td><a href="https://github.com/deepseek-ai/deepseek-recipe" rel="noopener noreferrer">deepseek-ai/deepseek-recipe</a> — 请求/响应转换、prompt 渲染、分词路径，方便社区搭接近官方形态的 API 前端。</td></tr>
+  </table>
+  <p>同日中文转述（如 IT之家）口径一致：推理是权重与可负担服务之间的「中间层」、兼容英伟达与昇腾、并提到 recipe 配套。若转述与 README / X 原文冲突，以仓库与官方线程为准。</p>
+
+  <h2>互动快照（标注：UTC+8）</h2>
+  <p>数字每分钟都在变。我们在 <strong>2026-10-20 约 18:16（UTC+8）</strong> 用 X API 刷新了主帖（发帖后约数小时，发帖时间为当日 17:30 UTC+8）：</p>
+  <table class="ztable">
+    <tr><th>指标</th><th>实况（约 18:16 UTC+8）</th><th>更早 PM 快照（发帖后数小时）</th></tr>
+    <tr><td>曝光</td><td>约 11.2 万</td><td>约 9.7 万</td></tr>
+    <tr><td>赞</td><td>约 3.5k</td><td>约 3.1k</td></tr>
+    <tr><td>转发</td><td>约 442</td><td>约 410</td></tr>
+    <tr><td>书签</td><td>约 909</td><td>约 803</td></tr>
+  </table>
+  <p>实况时还可见引用约 273、回复约 226。这些只是<strong>传播热度，不是产品质量</strong>。若文案必须钉一个数，请自己重查帖子，不要把 PM 快照当成永恒。</p>
+
+  <h2>硬件与开源范围（摘自官方 README）</h2>
+  <p>多数 DSH 安装者会卡在这里。README 列出的支持硬件很短：</p>
+  <table class="ztable">
+    <tr><th>支持硬件（官方）</th><th>写明的前置条件</th></tr>
+    <tr><td>NVIDIA <strong>SM100</strong> GPU</td><td>Linux、GCC ≥ 13、Python 3.12、<strong>CUDA 13</strong></td></tr>
+    <tr><td>华为 <strong>昇腾 950</strong> NPU</td><td>同上基线；<strong>CANN 9.2</strong>；<code>requirements-ascend.txt</code> / <code>DEEPINFER_ACCELERATOR=ascend</code></td></tr>
+  </table>
+  <p>README 也把本次发布标成<strong>离线推理</strong>。这与社区「更偏私有化 / 机房侧」的读法一致：适合能自己补齐缺失件的产线，而不是一键替换 DeepSeek 公有多租户 API。</p>
+  <p>官方「完整推理服务还需要、但<strong>本次未包含</strong>」清单——直接跟 README，不额外发明：</p>
+  <table class="ztable">
+    <tr><th>模块</th><th>本次开源？</th></tr>
+    <tr><td>优化算子 / 模型与采样运行时（FlashMLA、DeepGEMM、DeepEP、TileKernels、DeepSelect、TileLang ops）</td><td><strong>包含</strong>（以文档为准）</td></tr>
+    <tr><td>并行：Attention DP / balanced CP，MoE EP + EPLB</td><td><strong>包含</strong></td></tr>
+    <tr><td>DSpark + 置信度调度验证；SWA bounded replay；异步调度；batch-invariant / 确定性采样（README 注明 NVIDIA）；结构化输出</td><td><strong>包含</strong></td></tr>
+    <tr><td>离线推理示例（<code>examples/offline_inference.py</code>）</td><td><strong>包含</strong></td></tr>
+    <tr><td><strong>KV cache 系统</strong></td><td><strong>未包含</strong></td></tr>
+    <tr><td><strong>VE / Prefill / Decode 分离</strong>（README：引擎侧多数功能已实现，但仍把分离层列为必需且未开源）</td><td><strong>未包含</strong></td></tr>
+    <tr><td>prefill 与 decode 数据并行副本之间的<strong>负载均衡</strong></td><td><strong>未包含</strong></td></tr>
+  </table>
+  <p>缺的三块就是引擎外围的生产「厨房」。社区说它更偏离线，与 README 措辞一致——引用 README，不要引用传闻吞吐。</p>
+  <p>DeepSeek 在 <code>doc/images/</code> 下放了 prefill / decode 的 Pareto 图，测量环境为 <strong>prefill 4 张 SM100、decode 64 张 SM100</strong>（各自在一个 scale-up 域内），复现脚本见 <code>examples/sweep/run_sweep.sh</code>。本文<strong>不</strong>把图上的 tok/s 抄进正文；要做容量规划请打开原图或自己跑 sweep。</p>
+
+  <h2>相对 vLLM / SGLang / 继续官方 API</h2>
+  <p>DeepInfer 致谢写明：最初主要基于 <a href="https://github.com/vllm-project/vllm" rel="noopener noreferrer">vLLM</a> 构建，并受 <a href="https://github.com/sgl-project/sglang" rel="noopener noreferrer">SGLang</a> 与 TensorRT-LLM 启发。这是血缘，不是「明天就能当通用多模型服务器」的承诺。</p>
+  <table class="ztable">
+    <tr><th>路径</th><th>什么时候适合 DSH 读者</th><th>门槛（可核验，不编造价格）</th></tr>
+    <tr><td><strong>官方 API + DSH</strong></td><td>默认。要 Agent、插件、模式和 V4.1 Flash 行为，但不想拥有 GPU。</td><td>API Key + Token 账单。设上限——见 <a href={costUrl}>成本与缓存</a> 与 <a href={cachePulseUrl}>「省 Token」脉搏</a>。</td></tr>
+    <tr><td><strong>自建 DeepInfer</strong></td><td>已有 SM100 或昇腾 950 机队，要私有/离线服 V4.1-Flash，并能自己补 KV cache、PD 分离与负载均衡。</td><td>硬件 + 构建（CUDA 13 / CANN 9.2）+ 上面三块缺失服务。不是笔记本项目。</td></tr>
+    <tr><td><strong>vLLM / SGLang（社区栈）</strong></td><td>模型种类更广、硬件故事更通用，或你已经在运这些栈。</td><td>可能落后 DeepInfer 对 Flash 的 Day-0 算子；DeepInfer 也可能落后通用多模型体验。按运维现实选，别按星标选。</td></tr>
+    <tr><td><strong>deepseek-recipe + 自有后端</strong></td><td>你要搭必须贴近官方编解码行为的 API 前端。</td><td>推理、工具与 HTTP 仍由你提供——recipe 不是引擎。</td></tr>
+  </table>
+  <p>本文<strong>不</strong>编造 tok/s、$/MTok 或「比 API 便宜 N 倍」。官方营销语言是定性的（高吞吐、低延迟、降低算力成本）。容量算术请在你自己的 SKU 上跑 sweep。</p>
+
+  <h2>重名提醒：deepinfer.org 不是这个项目</h2>
+  <p>搜索引擎仍会顶出 <a href="http://www.deepinfer.org/" rel="noopener noreferrer">deepinfer.org</a>——更早的开源<strong>医学影像</strong>部署工具包（3D Slicer / Docker 模型仓库；SPIE 论文脉络）。与 DeepSeek 无关。搜索时加上 <strong>DeepSeek</strong>，或直接走 GitHub 组织路径 <code>deepseek-ai/DeepInfer</code>，避免装错二进制或引错论文。</p>
+
+  <h2>DSH 读者行动清单</h2>
+  <ul>
+    <li><strong>大多数安装者：</strong>继续 <code>npx @deepseek-ai/dsh web</code>（或你钉死的 profile）对接<strong>官方 DeepSeek API</strong>。DeepInfer 不改变这条路。见 <a href={firstDayUrl}>DSH 的第一天</a> 与 <a href={modelSetupUrl}>模型接入</a>。</li>
+    <li><strong>只有 SM100 / 昇腾 950 机房：</strong>clone <a href="https://github.com/deepseek-ai/DeepInfer" rel="noopener noreferrer">deepseek-ai/DeepInfer</a>，承诺生产切换前先读完「未包含」清单，并把 KV cache、PD 分离、副本 LB 当成独立项目排期。</li>
+    <li><strong>不要</strong>从不明确镜像下载「DeepInfer 一键包」。优先官方 GitHub 树与 Apache-2.0 LICENSE。</li>
+    <li><strong>无论哪种服务路径，都要设 Token / 成本上限</strong>——工具失控在 API 上烧钱，在自建上烧集群时间。具体控制见 <a href={cachePulseUrl}>省 Token 笔记</a> 与 <a href={costUrl}>成本指南</a>。</li>
+    <li><strong>V4.1 Flash 背景：</strong>若还在追 Flash 线本身，先看 <a href={flashUrl}>V4.1 Flash 限时内测分析</a>（checkpoint 窗口史），并以当前 API 文档里的活模型名为准。</li>
+    <li><strong>插件卫生：</strong>推理新闻周期不降低插件风险。优先 <a href={pluginsUrl}>插件中心</a> / <a href={directoryUrl}>目录</a> 里的已验证条目。</li>
+    <li><strong>若需要贴近官方的分词与编解码：</strong>把 <a href="https://github.com/deepseek-ai/deepseek-recipe" rel="noopener noreferrer">deepseek-recipe</a> 当配套评估，而不是 DeepInfer 或 DSH 的替代品。</li>
+  </ul>
+
+  <h2>站内相关链接</h2>
+  <ul>
+    <li><a href={homeUrl}>dshbase 首页</a> — 安装入口与目录导览。</li>
+    <li><a href={flashUrl}>DeepSeek V4.1 Flash 限时内测分析</a> — 此前 Flash checkpoint 报道。</li>
+    <li><a href={costUrl}>成本与缓存</a> · <a href={cachePulseUrl}>为什么 X 上说 DSH「省 Token」</a> — 账单控制仍然适用。</li>
+    <li><a href={pluginsUrl}>插件</a> · <a href={directoryUrl}>插件目录</a> — 服务端新闻刷屏时仍盯已验证包。</li>
+  </ul>
+
+  <h2>我们不声称的事情</h2>
+  <ul>
+    <li>我们不是 DeepSeek；这是给 dshbase 读者的第三方安装者笔记。</li>
+    <li>没有可在正文里指向的一手数字时，我们不发 MIPS、$/tok、tok/s 表（README 图在仓库里，像素留给原图）。</li>
+    <li>我们不建议用半成品私有栈去替换官方 API。</li>
+  </ul>
+
+  <p><em>写作时核验的信源（2026-10-20，UTC+8）：<a href="https://x.com/deepseek_ai/status/2112476496283775135" rel="noopener noreferrer">DeepSeek X 线程 1–4</a>；<a href="https://github.com/deepseek-ai/DeepInfer" rel="noopener noreferrer">DeepInfer README</a>（硬件、离线范围、未包含清单、致谢、基准测量说明）；<a href="https://github.com/deepseek-ai/deepseek-recipe" rel="noopener noreferrer">deepseek-recipe README</a>；与 deepinfer.org / SPIE 医学工具包的重名核对。互动数据来自约 18:16 UTC+8 的 X API 刷新——会继续漂移。勘误：请在 <a href="https://github.com/ylwl1997/dshbase" rel="noopener">dshbase 仓库</a>开 Issue。</em></p>
+</BlogPost>

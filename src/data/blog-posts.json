@@ -1,5 +1,14 @@
 [
  {
+  "path": "/blog/deepinfer-open-source-dsh-readers/",
+  "cat": "Analysis",
+  "cat_zh": "分析",
+  "en": "DeepInfer open-sourced: what DSH / V4.1-Flash installers should know (hardware, gaps vs vLLM, when to stay on API)",
+  "zh": "DeepInfer 开源：DSH / V4.1-Flash 安装者该知道的硬件门槛、相对 vLLM 的缺口，以及何时继续用官方 API",
+  "desc_en": "DeepSeek open-sourced DeepInfer, the production inference stack behind V4.1-Flash. For DSH readers: what it is vs the Harness, SM100/Ascend 950 hardware, what the README leaves out (KV cache, PD split, load balancing), and when to keep the official API.",
+  "desc_zh": "DeepSeek 开源了驱动 V4.1-Flash 的生产推理框架 DeepInfer。给 DSH 读者：它和 Harness 不是一层、SM100/昇腾 950 硬件门槛、README 明确未开源的 KV cache / PD 分离 / 负载均衡，以及多数人该继续官方 API 的理由。"
+ },
+ {
   "path": "/blog/cue-agents-vs-dsh/",
   "cat": "Analysis",
   "cat_zh": "分析",

@@ -1,0 +1,120 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const homeUrl = getRelativeLocaleUrl('en', '/');
+const flashUrl = getRelativeLocaleUrl('en', '/blog/deepseek-v4-1-flash-beta/');
+const costUrl = getRelativeLocaleUrl('en', '/blog/deepseek-harness-cost/');
+const cachePulseUrl = getRelativeLocaleUrl('en', '/blog/x-pulse-dsh-cache-token-efficiency/');
+const pluginsUrl = getRelativeLocaleUrl('en', '/plugins/');
+const directoryUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
+const modelSetupUrl = getRelativeLocaleUrl('en', '/blog/dsh-model-setup/');
+const firstDayUrl = getRelativeLocaleUrl('en', '/blog/first-day-with-dsh/');
+---
+<BlogPost title="DeepInfer open-sourced: what DSH / V4.1-Flash installers should know (hardware, gaps vs vLLM, when to stay on API) | dshbase" description="DeepSeek open-sourced DeepInfer, the production inference stack behind V4.1-Flash. For DSH readers: what it is vs the Harness, SM100/Ascend 950 hardware, what the README leaves out (KV cache, PD split, load balancing), and when to keep the official API." currentPath="/blog/deepinfer-open-source-dsh-readers/" category="Analysis">
+  <h1>DeepInfer open-sourced <span class="accent">— what DSH / V4.1-Flash installers should know</span></h1>
+  <p class="muted small" style="margin-bottom:20px">October 20, 2026 · dshbase · hardware, open gaps, and when the official API is still the right call</p>
+
+  <p>On October 20, 2026, <a href="https://x.com/deepseek_ai/status/2112476496283775135" rel="noopener noreferrer">@deepseek_ai</a> posted a four-part thread introducing <strong>DeepInfer</strong> — DeepSeek’s in-house inference framework — as fully open source, with the code at <a href="https://github.com/deepseek-ai/DeepInfer" rel="noopener noreferrer">github.com/deepseek-ai/DeepInfer</a>. The pitch is blunt: the same stack that powers <strong>DeepSeek-V4.1-Flash</strong> at production scale is now available so the community can chase lower compute cost and energy use.</p>
+  <p>If you came here from <a href={homeUrl}>dshbase</a> because you run <code>npx @deepseek-ai/dsh web</code>, this post is not “go clone the repo tonight.” DeepInfer is a <em>model serving</em> layer. DeepSeek Harness (DSH) is an <em>agent runtime</em>. Confusing the two is how people burn a weekend and still have no agent loop. Below: verified facts, the hardware gate, what the open release deliberately leaves out, how that compares to staying on the official API with DSH, and a short action checklist.</p>
+
+  <h2>What DeepInfer is — and what it is not</h2>
+  <p>The official README states it plainly: DeepInfer is the high-performance inference framework that powers DeepSeek’s large-scale production services. The open-source release “provides <strong>offline inference</strong> with the core features needed for serving at scale.” Supported model at ship time: <strong>DeepSeek-V4.1-Flash</strong> (weights pointed at Hugging Face <code>deepseek-ai/DeepSeek-V4.1-Flash-1017</code>).</p>
+  <p>DeepSeek Harness is a different box. DSH is the TypeScript/Node agent surface — tools, plugins, sandboxes, session logs, modes — that talks to a model endpoint. It does not replace an inference engine, and an inference engine does not give you plugins or trajectory tracing. Same company brand, two layers:</p>
+  <table class="ztable">
+    <tr><th>Layer</th><th>DeepSeek Harness (DSH)</th><th>DeepInfer</th></tr>
+    <tr><td><strong>Job</strong></td><td>Agent runtime / harness</td><td>Model serving / inference engine</td></tr>
+    <tr><td><strong>Typical install</strong></td><td><code>npx @deepseek-ai/dsh web</code></td><td>Build from source (Python 3.12 + CUDA 13 or CANN 9.2)</td></tr>
+    <tr><td><strong>Talks to</strong></td><td>HTTP APIs (official DeepSeek, OpenRouter, …)</td><td>GPU/NPU kernels + checkpoints</td></tr>
+    <tr><td><strong>Gives you</strong></td><td>Tools, plugins, modes, session audit</td><td>Prefill/decode throughput on listed hardware</td></tr>
+    <tr><td><strong>Does not give you</strong></td><td>A self-hosted Flash cluster</td><td>Agent loops, plugin market, web UI</td></tr>
+    <tr><td><strong>Repo (verify)</strong></td><td>DeepSeek Harness / <code>@deepseek-ai/dsh</code></td><td><a href="https://github.com/deepseek-ai/DeepInfer" rel="noopener noreferrer">deepseek-ai/DeepInfer</a></td></tr>
+  </table>
+  <p>If your goal is “run an agent on V4.1 Flash,” the default path is still <strong>DSH + official API</strong>. DeepInfer is for teams that already own (or can buy) the listed accelerators and want to operate the serving kitchen themselves.</p>
+
+  <h2>Source trail (verify at ship time)</h2>
+  <table class="ztable">
+    <tr><th>Item</th><th>Link / note</th></tr>
+    <tr><td><strong>Official X thread (1/4)</strong></td><td><a href="https://x.com/deepseek_ai/status/2112476496283775135" rel="noopener noreferrer">status/2112476496283775135</a> — posted 2026-10-20 09:30 UTC (17:30 UTC+8). Public timeline text is often truncated; the long-form note ends with “make AI more affordable” and “1/4”.</td></tr>
+    <tr><td><strong>Thread 2/4</strong></td><td><a href="https://x.com/deepseek_ai/status/2112476498598957056" rel="noopener noreferrer">Inside DeepInfer</a> — kernels, distributed inference, speculative decoding, SWA Bounded Replay, structured outputs; future model inference code lands here.</td></tr>
+    <tr><td><strong>Thread 3/4</strong></td><td><a href="https://x.com/deepseek_ai/status/2112476501065286085" rel="noopener noreferrer">deepseek-recipe</a> — production token encode/decode aligned with official API behavior → <a href="https://github.com/deepseek-ai/deepseek-recipe" rel="noopener noreferrer">github.com/deepseek-ai/deepseek-recipe</a>.</td></tr>
+    <tr><td><strong>Thread 4/4</strong></td><td><a href="https://x.com/deepseek_ai/status/2112476503673864665" rel="noopener noreferrer">Closing</a> — “Open models. Open kernels. Open inference.”</td></tr>
+    <tr><td><strong>Code</strong></td><td><a href="https://github.com/deepseek-ai/DeepInfer" rel="noopener noreferrer">deepseek-ai/DeepInfer</a> (Apache-2.0). README checked at write time; stars/issues change — re-open the repo before you quote counts.</td></tr>
+    <tr><td><strong>Companion</strong></td><td><a href="https://github.com/deepseek-ai/deepseek-recipe" rel="noopener noreferrer">deepseek-ai/deepseek-recipe</a> — request/response conversion, prompt render, tokenizer path for community API-shaped fronts.</td></tr>
+  </table>
+  <p>Chinese-language secondary coverage (e.g. IT之家 on the same day) restates the same framing: inference as the “middle layer” between trained weights and affordable serving, NVIDIA + Ascend compatibility, and the recipe companion. Prefer the GitHub README and the X thread when those diverge.</p>
+
+  <h2>Engagement snapshot (label: UTC+8)</h2>
+  <p>Numbers move every minute. We refreshed the root post with live X API tools at <strong>~18:16 UTC+8 on 2026-10-20</strong> (a few hours after the 17:30 UTC+8 post):</p>
+  <table class="ztable">
+    <tr><th>Metric</th><th>Live check (~18:16 UTC+8)</th><th>Earlier PM snapshot (hours after post)</th></tr>
+    <tr><td>Impressions</td><td>~112k</td><td>~97k</td></tr>
+    <tr><td>Likes</td><td>~3.5k</td><td>~3.1k</td></tr>
+    <tr><td>Reposts</td><td>~442</td><td>~410</td></tr>
+    <tr><td>Bookmarks</td><td>~909</td><td>~803</td></tr>
+  </table>
+  <p>Quote (~273) and reply (~226) counts were also visible on the live check. Treat all of these as <strong>engagement mood, not product quality</strong>. If your copy needs a single figure, re-query the post; do not freeze the PM snapshot as eternal.</p>
+
+  <h2>Hardware and open scope (from the official README)</h2>
+  <p>This is the gate most DSH installers will trip on. The README’s supported hardware list is short:</p>
+  <table class="ztable">
+    <tr><th>Supported hardware (official)</th><th>Prerequisites called out</th></tr>
+    <tr><td>NVIDIA <strong>SM100</strong> GPUs</td><td>Linux, GCC ≥ 13, Python 3.12, <strong>CUDA 13</strong></td></tr>
+    <tr><td>Huawei <strong>Ascend 950</strong> NPUs</td><td>Same base tooling; <strong>CANN 9.2</strong>; <code>requirements-ascend.txt</code> / <code>DEEPINFER_ACCELERATOR=ascend</code></td></tr>
+  </table>
+  <p>The README also labels the release as <strong>offline inference</strong>. That matches the community read: useful for shop-floor / private stacks that can assemble the missing pieces, not a drop-in replacement for DeepSeek’s public multi-tenant API.</p>
+  <p>Official “required for a complete inference service (<strong>not included</strong> in this release)” checklist — quote the README, do not invent extras:</p>
+  <table class="ztable">
+    <tr><th>Piece</th><th>In this open release?</th></tr>
+    <tr><td>Optimized kernels / model &amp; sampler runtime (FlashMLA, DeepGEMM, DeepEP, TileKernels, DeepSelect, TileLang ops)</td><td><strong>Included</strong> (as documented)</td></tr>
+    <tr><td>Parallelism: Attention DP / balanced CP, MoE EP + EPLB</td><td><strong>Included</strong></td></tr>
+    <tr><td>DSpark + confidence-scheduled verification; SWA bounded replay; async scheduling; batch-invariant / deterministic sampling (NVIDIA notes in README); structured outputs</td><td><strong>Included</strong></td></tr>
+    <tr><td>Offline inference example (<code>examples/offline_inference.py</code>)</td><td><strong>Included</strong></td></tr>
+    <tr><td>A <strong>KV cache system</strong></td><td><strong>Not included</strong></td></tr>
+    <tr><td><strong>VE / Prefill / Decode disaggregation</strong> (README: most required engine functionality already implemented, but the disaggregation layer is still listed as required-and-missing)</td><td><strong>Not included</strong></td></tr>
+    <tr><td><strong>Load balancing</strong> across data-parallel replicas for prefill and decode</td><td><strong>Not included</strong></td></tr>
+  </table>
+  <p>Those three missing pieces are the production “kitchen” around the engine. Community shorthand that DeepInfer is more offline-oriented is consistent with the README’s own wording — cite the README, not rumor throughput.</p>
+  <p>DeepSeek publishes Pareto charts under <code>doc/images/</code> for prefill and decode, measured on <strong>4 SM100 GPUs for prefill and 64 for decode</strong> (each within one scale-up domain), with a reproduce script at <code>examples/sweep/run_sweep.sh</code>. We are <strong>not</strong> copying chart tokens-per-second into this article; open the images or re-run the sweep if you need a number for a capacity plan.</p>
+
+  <h2>vs vLLM / SGLang / staying on the official API</h2>
+  <p>DeepInfer’s acknowledgments say it was originally built primarily on <a href="https://github.com/vllm-project/vllm" rel="noopener noreferrer">vLLM</a>, with inspiration from <a href="https://github.com/sgl-project/sglang" rel="noopener noreferrer">SGLang</a> and TensorRT-LLM. That is lineage, not a promise that DeepInfer is a general-purpose multi-model server tomorrow.</p>
+  <table class="ztable">
+    <tr><th>Path</th><th>When it fits a DSH reader</th><th>Barrier (verifiable, not invented $)</th></tr>
+    <tr><td><strong>Official API + DSH</strong></td><td>Default. You want agents, plugins, modes, and V4.1 Flash behavior without owning GPUs.</td><td>API key + token bill. Set caps — see <a href={costUrl}>cost &amp; caching</a> and the <a href={cachePulseUrl}>token-efficiency pulse</a>.</td></tr>
+    <tr><td><strong>Self-host DeepInfer</strong></td><td>You already run SM100 or Ascend 950 fleets, need private/offline serving of V4.1-Flash, and can supply KV cache, PD split, and LB yourself.</td><td>Hardware + build (CUDA 13 / CANN 9.2) + the three missing service pieces above. Not a laptop project.</td></tr>
+    <tr><td><strong>vLLM / SGLang (community stacks)</strong></td><td>Broader model zoo, more portable hardware stories, or you already operate those stacks.</td><td>May lag Day-0 DeepSeek-specific kernels that DeepInfer ships for Flash; DeepInfer may lag general multi-model ergonomics. Pick from your ops reality, not from a star count.</td></tr>
+    <tr><td><strong>deepseek-recipe + your backend</strong></td><td>You are building an API-shaped front that must match official encode/decode behavior.</td><td>You still provide inference, tools, and HTTP — recipe is not the engine.</td></tr>
+  </table>
+  <p>We invent <strong>no</strong> tok/s, $/MTok, or “N× cheaper than API” claims here. Official marketing language is qualitative (“high throughput,” “low latency,” “lower compute costs”). Capacity math belongs in your own sweep on your own SKUs.</p>
+
+  <h2>Name collision: deepinfer.org is not this project</h2>
+  <p>Search engines still surface <a href="http://www.deepinfer.org/" rel="noopener noreferrer">deepinfer.org</a> — an older open-source <strong>medical imaging</strong> deployment toolkit (3D Slicer / Docker model store; SPIE paper lineage). It is unrelated to DeepSeek. When you search, add <strong>DeepSeek</strong> or use the GitHub org path <code>deepseek-ai/DeepInfer</code> so you do not install the wrong binary or cite the wrong paper.</p>
+
+  <h2>DSH reader action checklist</h2>
+  <ul>
+    <li><strong>Most installers:</strong> keep <code>npx @deepseek-ai/dsh web</code> (or your pinned profile) pointed at the <strong>official DeepSeek API</strong>. DeepInfer does not change that path. See <a href={firstDayUrl}>first day with DSH</a> and <a href={modelSetupUrl}>model setup</a>.</li>
+    <li><strong>Only SM100 / Ascend 950 shop floors:</strong> clone <a href="https://github.com/deepseek-ai/DeepInfer" rel="noopener noreferrer">deepseek-ai/DeepInfer</a>, read the “not included” list before promising a production cutover, and plan KV cache + PD disaggregation + replica LB as separate projects.</li>
+    <li><strong>Do not</strong> download random “DeepInfer one-click” binaries from unofficial mirrors. Prefer the official GitHub tree and Apache-2.0 LICENSE.</li>
+    <li><strong>Set token / cost caps</strong> on the agent side regardless of serving path — unbounded tools burn money on API and burn cluster time on self-host. Practical controls are in the <a href={cachePulseUrl}>token-efficiency note</a> and <a href={costUrl}>cost guide</a>.</li>
+    <li><strong>V4.1 Flash context:</strong> if you are still catching up on the Flash line itself, start with our <a href={flashUrl}>V4.1 Flash beta analysis</a> (history of the checkpoint window) and current API docs for the live model id.</li>
+    <li><strong>Plugin hygiene:</strong> serving changes do not relax plugin risk. Prefer verified entries from the <a href={pluginsUrl}>plugins hub</a> / <a href={directoryUrl}>directory</a>.</li>
+    <li><strong>If you need API-faithful tokenization:</strong> evaluate <a href="https://github.com/deepseek-ai/deepseek-recipe" rel="noopener noreferrer">deepseek-recipe</a> as a companion, not as a substitute for DeepInfer or DSH.</li>
+  </ul>
+
+  <h2>Internal links for DSH readers</h2>
+  <ul>
+    <li><a href={homeUrl}>dshbase homepage</a> — install entry and catalog orientation.</li>
+    <li><a href={flashUrl}>DeepSeek V4.1 Flash limited-beta analysis</a> — prior Flash checkpoint reporting.</li>
+    <li><a href={costUrl}>Cost &amp; caching</a> · <a href={cachePulseUrl}>Why X calls DSH “token efficient”</a> — bill controls that still apply.</li>
+    <li><a href={pluginsUrl}>Plugins</a> · <a href={directoryUrl}>Plugin directory</a> — stay on verified packs while the serving news cycles.</li>
+  </ul>
+
+  <h2>What we are not claiming</h2>
+  <ul>
+    <li>We are not DeepSeek; this is a third-party installer note for dshbase readers.</li>
+    <li>We are not publishing MIPS, $/tok, or tok/s tables without a primary source number we can point at in prose (the README charts exist; we leave their pixels in the repo).</li>
+    <li>We are not telling you to replace the official API with a half-built private stack.</li>
+  </ul>
+
+  <p><em>Sources checked at write time (2026-10-20, UTC+8): <a href="https://x.com/deepseek_ai/status/2112476496283775135" rel="noopener noreferrer">DeepSeek X thread 1–4</a>; <a href="https://github.com/deepseek-ai/DeepInfer" rel="noopener noreferrer">DeepInfer README</a> (hardware, offline scope, not-included list, acknowledgments, benchmark measurement note); <a href="https://github.com/deepseek-ai/deepseek-recipe" rel="noopener noreferrer">deepseek-recipe README</a>; name-collision check against deepinfer.org / SPIE medical toolkit. Engagement metrics from live X API refresh ~18:16 UTC+8 — they will drift. Corrections: open an issue on <a href="https://github.com/ylwl1997/dshbase" rel="noopener">the dshbase repo</a>.</em></p>
+</BlogPost>
