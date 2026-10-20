@@ -24345,7 +24345,7 @@
    "depsOfficial": 0,
    "repoOwner": "LongSir0419",
    "_enriched": "2026-08-21|0.1.6",
-   "bareNpm": "install-fail",
+   "bareNpm": "other",
    "trust": "Gold",
    "ucs": [
     "GitHub integration"
@@ -135248,7 +135248,8 @@
    "repoOwner": "appthin",
    "_enriched": "|",
    "testDate": "2026-10-20",
-   "note": "Issue #175 community self-test evidence (dsh 0.2.0-rc.2, screenshots + verify-release passed)"
+   "note": "Issue #175 community self-test evidence (dsh 0.2.0-rc.2, screenshots + verify-release passed)",
+   "bareNpm": "other"
   },
   {
    "name": "@Jaylor-Wang/dsh-tool-antigravity",
@@ -210044,7 +210045,7 @@
    "pkg": "dsh-rea-agents",
    "ver": "1.0.8",
    "npm": true,
-   "test": "listed",
+   "test": "verified",
    "desc": "DeepSeek Harness的REA插件。Pinned-version REA for DeepSeek Harness: installs rea-agents locally, starts its MCP server from that pinned copy, and upgrades only when you press Update.",
    "desc_en": "DeepSeek Harness的REA插件。Pinned-version REA for DeepSeek Harness: installs rea-agents locally, starts its MCP server from that pinned copy, and upgrades only when you press Update.",
    "desc_zh": "把逆向分析 MCP 服务 REA（rea-agents）固定到当前配置档中的一个确切版本，并从该副本启动其 MCP 服务；只有按下「更新」时版本才会推进。",
@@ -210060,7 +210061,9 @@
    "platform": "any",
    "note": "Issue #174 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + bundle manifest all present). Listed only — marketplace runtime L1–L3/L4 not run. Plugin installable; full REA toolset needs local analysis engines (Ghidra/IDA, jadx+apktool, adb).",
    "needs": "No account/API key. Full REA toolset needs local analysis engines: Ghidra (or IDA), jadx + apktool, adb. Plugin + MCP service still work without them; missing engines report provider_unavailable.",
-   "needsZh": "不需要账号或 API Key。完整工具集需本机自备分析引擎：Ghidra（或 IDA）、jadx + apktool、adb。缺少时插件与 MCP 服务仍可用，对应工具报 provider_unavailable。"
+   "needsZh": "不需要账号或 API Key。完整工具集需本机自备分析引擎：Ghidra（或 IDA）、jadx + apktool、adb。缺少时插件与 MCP 服务仍可用，对应工具报 provider_unavailable。",
+   "bareNpm": "other",
+   "testDate": "2026-10-20"
   }
  ],
  "AI Models": [
@@ -257914,7 +257917,8 @@
    "platform": "any",
    "note": "Issue #173 intake (already in catalog; flipped pending→listed). Hard gates ok. Marketplace runtime L1–L3/L4 not run. Needs MiniMax Code desktop App (CN) signed-in on host.",
    "needs": "Requires MiniMax Code desktop App (China edition) installed and signed in on the host; reuses its local session (no API key).",
-   "needsZh": "需要本机已安装并登录 MiniMax Code 桌面 App（国内版）；插件复用其本机登录态，不另需 API Key。"
+   "needsZh": "需要本机已安装并登录 MiniMax Code 桌面 App（国内版）；插件复用其本机登录态，不另需 API Key。",
+   "bareNpm": "other"
   },
   {
    "name": "@dakeqiqi123/dsh-skill-market",
@@ -263501,7 +263505,7 @@
    "trust": "Unrated",
    "slug": "dsh-web-ui",
    "platform": "any",
-   "bareNpm": "install-fail",
+   "bareNpm": "other",
    "contributors": 114,
    "depCount": 19,
    "depsOfficial": 0,
@@ -336091,7 +336095,7 @@
    "pkg": "dsh-temp-note",
    "ver": "0.1.0",
    "npm": true,
-   "test": "listed",
+   "test": "verified",
    "desc": "A temp note in the DeepSeek Harness right sidebar, with session, workspace, and global scopes, one-click copy, and LLM polish.",
    "desc_en": "A temp note in the DeepSeek Harness right sidebar, with session, workspace, and global scopes, one-click copy, and LLM polish.",
    "desc_zh": "在 DeepSeek Harness 右侧边栏提供一篇临时笔记，支持会话级/工作区级/全局三种范围、本地自动保存、一键复制与一键优化为 Markdown。",
@@ -336105,7 +336109,9 @@
    "license": "MIT",
    "slug": "dsh-temp-note",
    "platform": "any",
-   "note": "Issue #172 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + bundle manifest all present). Listed only — marketplace runtime L1–L3/L4 not run."
+   "note": "Issue #172 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + bundle manifest all present). Listed only — marketplace runtime L1–L3/L4 not run.",
+   "bareNpm": "other",
+   "testDate": "2026-10-20"
   },
   {
    "name": "dsh-steer-note",
@@ -336113,7 +336119,7 @@
    "pkg": "dsh-steer-note",
    "ver": "0.2.1",
    "npm": true,
-   "test": "listed",
+   "test": "verified",
    "desc": "Seamless mid-turn steering for DeepSeek Harness: text, images, files, read receipts, and draft rescue.",
    "desc_en": "Seamless mid-turn steering for DeepSeek Harness: text, images, files, read receipts, and draft rescue.",
    "desc_zh": "在 DSH 任务运行时提供输入框上方的独立插话栏：可发送文字、图片和普通文件，并显示已读状态；任务结束时草稿自动搬进主输入框。",
@@ -336127,7 +336133,9 @@
    "license": "MIT",
    "slug": "dsh-steer-note",
    "platform": "any",
-   "note": "Issue #170 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + bundle manifest all present). Listed only — marketplace runtime L1–L3/L4 not run."
+   "note": "Issue #170 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + bundle manifest all present). Listed only — marketplace runtime L1–L3/L4 not run.",
+   "bareNpm": "other",
+   "testDate": "2026-10-20"
   }
  ],
  "Knowledge": [
@@ -496805,7 +496813,8 @@
    "trust": "Gold",
    "slug": "dsh-skills-manager-plus",
    "platform": "any",
-   "note": "Issue #176 intake (already in catalog; flipped pending→listed). Hard gates ok. Marketplace runtime L1–L3/L4 not run."
+   "note": "Issue #176 intake (already in catalog; flipped pending→listed). Hard gates ok. Marketplace runtime L1–L3/L4 not run.",
+   "bareNpm": "other"
   }
  ],
  "Content": [
@@ -497455,7 +497464,7 @@
    "depCount": 13,
    "depsOfficial": 6,
    "_enriched": "2026-08-21|0.1.2",
-   "bareNpm": "install-fail",
+   "bareNpm": "other",
    "trust": "Gold",
    "ucs": []
   },
