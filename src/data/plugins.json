@@ -496905,6 +496905,27 @@
    "slug": "dsh-coding-sound",
    "platform": "any",
    "note": "Issue #183 intake. Listed only — marketplace L1–L4 not run."
+  },
+  {
+   "name": "dsh-deepworker",
+   "url": "https://github.com/tinyblckc0000al/dsh-deepworker",
+   "pkg": "dsh-deepworker",
+   "ver": "0.1.6",
+   "npm": true,
+   "test": "listed",
+   "desc": "DeepWorker — 把 DSH 变成更便捷、更沉浸的工作台。基于dsh底层功能针对日常需求集成多个“一键触达”。会话操作 （任意轮次：重试、编辑、引用、模式新建、分支）/ 笔记 / 摘要 / 查找 / 会话专注锁 / 工作区命令执行按钮。",
+   "desc_en": "DeepWorker — 把 DSH 变成更便捷、更沉浸的工作台。基于dsh底层功能针对日常需求集成多个“一键触达”。会话操作 （任意轮次：重试、编辑、引用、模式新建、分支）/ 笔记 / 摘要 / 查找 / 会话专注锁 / 工作区命令执行按钮。",
+   "desc_zh": "把 DSH 变成更便捷、更沉浸的工作台：会话操作、笔记、摘要、查找、专注锁与工作区命令一键触达。",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-10-25",
+   "archived": false,
+   "added": "2026-10-26T00:01:01",
+   "license": "MIT",
+   "slug": "dsh-deepworker",
+   "platform": "any"
   }
  ],
  "Content": [
