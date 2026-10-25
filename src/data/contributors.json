@@ -204,6 +204,24 @@
   ]
  },
  {
+  "github": "JeffTsuiCUG",
+  "avatar": "https://avatars.githubusercontent.com/u/34744908?v=4",
+  "plugins": [
+   {
+    "name": "@JeffTsuiCUG/dsh-connect-minimaxcode",
+    "slug": "dsh-connect-minimaxcode",
+    "npm": true,
+    "pkg": "dsh-connect-minimaxcode"
+   },
+   {
+    "name": "awesome-dsh-plugin",
+    "slug": "awesome-dsh-plugin",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "julescules",
   "avatar": "https://avatars.githubusercontent.com/u/131376318?v=4",
   "plugins": [
@@ -254,6 +272,24 @@
     "slug": "dsh-windows-ocr",
     "npm": true,
     "pkg": "@maxwell-feng/dsh-windows-ocr"
+   }
+  ]
+ },
+ {
+  "github": "mhlywxl",
+  "avatar": "https://avatars.githubusercontent.com/u/8207774?v=4",
+  "plugins": [
+   {
+    "name": "dsh-coding-sound",
+    "slug": "dsh-coding-sound",
+    "npm": true,
+    "pkg": "dsh-coding-sound"
+   },
+   {
+    "name": "dsh-split-workspace",
+    "slug": "dsh-split-workspace",
+    "npm": true,
+    "pkg": "dsh-split-workspace"
    }
   ]
  },
@@ -690,6 +726,18 @@
   ]
  },
  {
+  "github": "Faust-zyb",
+  "avatar": "https://avatars.githubusercontent.com/u/177863096?v=4",
+  "plugins": [
+   {
+    "name": "dsh-models-sort",
+    "slug": "dsh-models-sort",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "functy23",
   "avatar": "https://avatars.githubusercontent.com/u/232149530?v=4",
   "plugins": [
@@ -858,18 +906,6 @@
   ]
  },
  {
-  "github": "JeffTsuiCUG",
-  "avatar": "https://avatars.githubusercontent.com/u/34744908?v=4",
-  "plugins": [
-   {
-    "name": "@JeffTsuiCUG/dsh-connect-minimaxcode",
-    "slug": "dsh-connect-minimaxcode",
-    "npm": true,
-    "pkg": "dsh-connect-minimaxcode"
-   }
-  ]
- },
- {
   "github": "jinguanghai",
   "avatar": "https://avatars.githubusercontent.com/u/31503310?v=4",
   "plugins": [
@@ -1010,6 +1046,18 @@
     "slug": "dsh-essentials-bundle",
     "npm": false,
     "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "micellince",
+  "avatar": "https://avatars.githubusercontent.com/u/30015235?v=4",
+  "plugins": [
+   {
+    "name": "dsh-long-novel-workbench",
+    "slug": "dsh-long-novel-workbench",
+    "npm": true,
+    "pkg": "dsh-long-novel-workbench"
    }
   ]
  },
@@ -1254,6 +1302,18 @@
   ]
  },
  {
+  "github": "WhitePlusMS",
+  "avatar": "https://avatars.githubusercontent.com/u/31911089?v=4",
+  "plugins": [
+   {
+    "name": "dsh-git-graph",
+    "slug": "dsh-git-graph-3",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "WLX2007",
   "avatar": "https://avatars.githubusercontent.com/u/140959173?v=4",
   "plugins": [
@@ -1298,6 +1358,18 @@
     "slug": "dsh-mnemos-continuity",
     "npm": true,
     "pkg": "dsh-mnemos-continuity"
+   }
+  ]
+ },
+ {
+  "github": "xuqiuba888",
+  "avatar": "https://avatars.githubusercontent.com/u/345635001?v=4",
+  "plugins": [
+   {
+    "name": "dsh-enter-swap",
+    "slug": "dsh-enter-swap-2",
+    "npm": false,
+    "pkg": ""
    }
   ]
  },
