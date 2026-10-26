@@ -24345,7 +24345,7 @@
    "depsOfficial": 0,
    "repoOwner": "LongSir0419",
    "_enriched": "2026-08-21|0.1.6",
-   "bareNpm": "install-fail",
+   "bareNpm": "other",
    "trust": "Gold",
    "ucs": [
     "GitHub integration"
@@ -336145,7 +336145,7 @@
    "pkg": "dsh-split-workspace",
    "ver": "0.4.3",
    "npm": true,
-   "test": "listed",
+   "test": "verified",
    "desc": "Split-screen workspace for DeepSeek Harness (DSH) Desktop: unlimited native panes, side-by-side, stacked and 2x2 grid layouts, drag to rearrange.",
    "desc_en": "Split-screen workspace for DeepSeek Harness (DSH) Desktop: unlimited native panes, side-by-side, stacked and 2x2 grid layouts, drag to rearrange.",
    "desc_zh": "把 DSH 对话区拆成任意数量的原生窗格：左右、上下、田字 2×2 与自动网格，每个窗格都是独立会话。",
@@ -336159,7 +336159,9 @@
    "license": "MIT",
    "slug": "dsh-split-workspace",
    "platform": "any",
-   "note": "Issue #184 intake. Listed only — marketplace L1–L4 not run."
+   "note": "Issue #184 intake. Listed only — marketplace L1–L4 not run.",
+   "bareNpm": "other",
+   "testDate": "2026-10-26"
   },
   {
    "name": "dsh-models-sort",
@@ -496890,7 +496892,7 @@
    "pkg": "dsh-coding-sound",
    "ver": "0.1.3",
    "npm": true,
-   "test": "listed",
+   "test": "verified",
    "desc": "Generative background music and notification chimes for DeepSeek Harness.",
    "desc_en": "Generative background music and notification chimes for DeepSeek Harness.",
    "desc_zh": "用声音盯住 Agent：模型输出时演奏生成式背景音乐，完成/等待提示音与思考、回答、工具执行的阶段声音都可分别调节。",
@@ -496904,7 +496906,9 @@
    "license": "MIT",
    "slug": "dsh-coding-sound",
    "platform": "any",
-   "note": "Issue #183 intake. Listed only — marketplace L1–L4 not run."
+   "note": "Issue #183 intake. Listed only — marketplace L1–L4 not run.",
+   "bareNpm": "other",
+   "testDate": "2026-10-26"
   },
   {
    "name": "dsh-deepworker",
@@ -496912,7 +496916,7 @@
    "pkg": "dsh-deepworker",
    "ver": "0.1.6",
    "npm": true,
-   "test": "listed",
+   "test": "verified",
    "desc": "DeepWorker — 把 DSH 变成更便捷、更沉浸的工作台。基于dsh底层功能针对日常需求集成多个“一键触达”。会话操作 （任意轮次：重试、编辑、引用、模式新建、分支）/ 笔记 / 摘要 / 查找 / 会话专注锁 / 工作区命令执行按钮。",
    "desc_en": "DeepWorker — 把 DSH 变成更便捷、更沉浸的工作台。基于dsh底层功能针对日常需求集成多个“一键触达”。会话操作 （任意轮次：重试、编辑、引用、模式新建、分支）/ 笔记 / 摘要 / 查找 / 会话专注锁 / 工作区命令执行按钮。",
    "desc_zh": "把 DSH 变成更便捷、更沉浸的工作台：会话操作、笔记、摘要、查找、专注锁与工作区命令一键触达。",
@@ -496925,7 +496929,9 @@
    "added": "2026-10-26T00:01:01",
    "license": "MIT",
    "slug": "dsh-deepworker",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other",
+   "testDate": "2026-10-26"
   }
  ],
  "Content": [
@@ -511647,7 +511653,7 @@
    "pkg": "dsh-long-novel-workbench",
    "ver": "0.5.1",
    "npm": true,
-   "test": "listed",
+   "test": "verified",
    "desc": "长篇中文小说工作台：章节/时间线/事实账本/伏笔/冲突/人物/高光/审稿/提案/对齐/9 Agent 分工/名家风格预设，AI 可直接生成与审稿。",
    "desc_en": "长篇中文小说工作台：章节/时间线/事实账本/伏笔/冲突/人物/高光/审稿/提案/对齐/9 Agent 分工/名家风格预设，AI 可直接生成与审稿。",
    "desc_zh": "注意力优先的长篇中文小说工作台：章节编辑器、时间线、事实账本、世界/地点地图、注意力评分、Agent 分工与整书生成扩写。",
@@ -511661,7 +511667,9 @@
    "license": "MIT",
    "slug": "dsh-long-novel-workbench",
    "platform": "any",
-   "note": "Issue #187 intake. Listed only — marketplace L1–L4 not run."
+   "note": "Issue #187 intake. Listed only — marketplace L1–L4 not run.",
+   "bareNpm": "other",
+   "testDate": "2026-10-26"
   }
  ]
 }
