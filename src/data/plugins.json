@@ -24345,7 +24345,7 @@
    "depsOfficial": 0,
    "repoOwner": "LongSir0419",
    "_enriched": "2026-08-21|0.1.6",
-   "bareNpm": "other",
+   "bareNpm": "install-fail",
    "trust": "Gold",
    "ucs": [
     "GitHub integration"
@@ -393554,7 +393554,7 @@
    "trust": "Silver",
    "slug": "dash",
    "platform": "any",
-   "bareNpm": "install-fail",
+   "bareNpm": "other",
    "contributors": 0,
    "depCount": 14,
    "depsOfficial": 0,
