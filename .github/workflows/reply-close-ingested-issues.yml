@@ -1,0 +1,68 @@
+name: Reply and close ingested plugin issues
+
+# One-shot: the cloud agent token cannot write issues. This workflow uses the
+# repo GITHUB_TOKEN (issues: write) to post the catalog close-out and close
+# Issues #199 and #200. Safe to delete after it succeeds.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/reply-close-ingested-issues.yml
+
+permissions:
+  issues: write
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comment and close #199 and #200
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const comments = {
+              199: [
+                "Thanks for shipping **dsh-plugin-market-selfhosted** — it’s live on dshbase as **Verified** 🎉",
+                "",
+                "Directory: https://dshbase.com/plugins/dsh-plugin-market-selfhosted/",
+                "中文：https://dshbase.com/zh/plugins/dsh-plugin-market-selfhosted/",
+                "",
+                "目录已改到新 slug，旧的 dsh-plugin-market-internal 会跳转到新页面。团队自托管插件市场：服务端管账号、权限和制品，DSH 客户端负责安装、更新与召回，收录啦。Closing this Issue — 感谢投稿！",
+              ].join("\n"),
+              200: [
+                "Thanks for shipping **dsh-sidebar-scroll** — it’s live on dshbase as **Verified** 🎉",
+                "",
+                "Directory: https://dshbase.com/plugins/dsh-sidebar-scroll/",
+                "中文：https://dshbase.com/zh/plugins/dsh-sidebar-scroll/",
+                "",
+                "侧栏共用滚动：功能菜单、项目和会话走同一个滚动区域，菜单滚出视野后把空间留给项目和会话，开箱即用，收录啦。Closing this Issue — 感谢投稿！",
+              ].join("\n"),
+            };
+            const { owner, repo } = context.repo;
+            for (const [num, body] of Object.entries(comments)) {
+              const issue_number = Number(num);
+              const existing = await github.rest.issues.listComments({
+                owner,
+                repo,
+                issue_number,
+                per_page: 100,
+              });
+              const already = existing.data.some((c) =>
+                (c.body || "").includes("https://dshbase.com/plugins/") &&
+                (c.body || "").includes("Closing this Issue")
+              );
+              if (!already) {
+                await github.rest.issues.createComment({ owner, repo, issue_number, body });
+              } else {
+                core.info(`#${issue_number} already has the close-out comment`);
+              }
+              await github.rest.issues.update({
+                owner,
+                repo,
+                issue_number,
+                state: "closed",
+                state_reason: "completed",
+              });
+              core.info(`closed #${issue_number}`);
+            }
