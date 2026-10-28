@@ -2,6 +2,9 @@ import fallback from '../_data/plugin-fallback.js';
 import { renderPluginPage } from '../_data/render-plugin.js';
 
 const RESERVED = new Set(['directory', 'compare']);
+const RENAMES = {
+  'dsh-plugin-market-internal': '/plugins/dsh-plugin-market-selfhosted/',
+};
 
 async function assetsOrNext(env, request) {
   const url = new URL(request.url);
@@ -24,6 +27,9 @@ async function assetsOrNext(env, request) {
 export async function onRequestGet(context) {
   const slug = context.params.slug;
   const { request, env } = context;
+
+  const renamed = RENAMES[slug];
+  if (renamed) return Response.redirect(new URL(renamed, request.url), 301);
 
   if (RESERVED.has(slug)) {
     const asset = await assetsOrNext(env, request);

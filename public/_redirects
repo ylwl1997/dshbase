@@ -117,3 +117,9 @@
 /zh/plugins/open-managed-agents/  /zh/plugins/directory/  301
 /plugins/role-model/  /plugins/directory/  301
 /zh/plugins/role-model/  /zh/plugins/directory/  301
+
+# Renamed catalog slug (Issue #199). Keep the old detail URL on the new page.
+/plugins/dsh-plugin-market-internal  /plugins/dsh-plugin-market-selfhosted/  301
+/plugins/dsh-plugin-market-internal/  /plugins/dsh-plugin-market-selfhosted/  301
+/zh/plugins/dsh-plugin-market-internal  /zh/plugins/dsh-plugin-market-selfhosted/  301
+/zh/plugins/dsh-plugin-market-internal/  /zh/plugins/dsh-plugin-market-selfhosted/  301
