@@ -5,6 +5,10 @@ name: Reply and close ingested plugin issues
 # Issues #192 and #193. Safe to delete after it succeeds.
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/reply-close-ingested-issues.yml
 
 permissions:
   issues: write
@@ -38,7 +42,21 @@ jobs:
             const { owner, repo } = context.repo;
             for (const [num, body] of Object.entries(comments)) {
               const issue_number = Number(num);
-              await github.rest.issues.createComment({ owner, repo, issue_number, body });
+              const existing = await github.rest.issues.listComments({
+                owner,
+                repo,
+                issue_number,
+                per_page: 100,
+              });
+              const already = existing.data.some((c) =>
+                (c.body || "").includes(`https://dshbase.com/plugins/`) &&
+                (c.body || "").includes("Closing this Issue")
+              );
+              if (!already) {
+                await github.rest.issues.createComment({ owner, repo, issue_number, body });
+              } else {
+                core.info(`#${issue_number} already has the close-out comment`);
+              }
               await github.rest.issues.update({
                 owner,
                 repo,
