@@ -24345,7 +24345,7 @@
    "depsOfficial": 0,
    "repoOwner": "LongSir0419",
    "_enriched": "2026-08-21|0.1.6",
-   "bareNpm": "install-fail",
+   "bareNpm": "other",
    "trust": "Gold",
    "ucs": [
     "GitHub integration"
@@ -390434,7 +390434,8 @@
    "platform": "win32",
    "needs": "Windows 10/11 x64. Edge TTS works out of the box; optional local GPT-SoVITS voice needs Python 3.10+.",
    "needsZh": "需要 Windows 10/11（x64）。Edge TTS 开箱即用；可选的本地 GPT-SoVITS 音色需要 Python 3.10+。",
-   "note": "Issue #192 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + bundle manifest all present). Listed only — marketplace runtime L1–L3/L4 not run (Windows Live2D desktop companion). npm dsh-dstuber@0.1.0; the scoped name in the issue (@tmsreyes/dsh-dstuber) is not published."
+   "note": "Issue #192 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + bundle manifest all present). Listed only — marketplace runtime L1–L3/L4 not run (Windows Live2D desktop companion). npm dsh-dstuber@0.1.0; the scoped name in the issue (@tmsreyes/dsh-dstuber) is not published.",
+   "bareNpm": "other"
   }
  ],
  "Automation": [
