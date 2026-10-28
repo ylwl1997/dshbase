@@ -210065,6 +210065,30 @@
    "needsZh": "不需要账号或 API Key。完整工具集需本机自备分析引擎：Ghidra（或 IDA）、jadx + apktool、adb。缺少时插件与 MCP 服务仍可用，对应工具报 provider_unavailable。",
    "bareNpm": "other",
    "testDate": "2026-10-20"
+  },
+  {
+   "name": "dsh-plugin-market-internal",
+   "url": "https://github.com/yanghongqiang3/dsh-plugin-market-selfhosted",
+   "pkg": "",
+   "ver": "",
+   "npm": false,
+   "test": "listed",
+   "desc": "A self-hosted, internal DSH plugin marketplace supporting plugin publishing, discovery, distribution, access control, and plugin recall/retrieval.",
+   "desc_en": "A self-hosted, internal DSH plugin marketplace supporting plugin publishing, discovery, distribution, access control, and plugin recall/retrieval.",
+   "desc_zh": "面向团队的 DSH 自托管插件市场：服务端提供账号、权限组、制品存储与安装统计，DSH 客户端负责安装、更新与召回。",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-10-27",
+   "archived": false,
+   "added": "2026-10-28T00:19:07",
+   "license": "MIT",
+   "slug": "dsh-plugin-market-internal",
+   "platform": "any",
+   "needs": "A self-hosted market server (Docker or start-market.sh) plus MARKET_SERVICE_URL on the DSH side. The client plugin is the marketplace entry, not the server.",
+   "needsZh": "需要自行部署市场服务端（Docker 或 start-market.sh），并在 DSH 侧配置 MARKET_SERVICE_URL。客户端插件只是市场入口。",
+   "note": "Issue #193 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + bundle manifest all present). Listed only — marketplace runtime L1–L3/L4 not run. Package name dsh-plugin-market-internal; repo yanghongqiang3/dsh-plugin-market-selfhosted."
   }
  ],
  "AI Models": [
@@ -390365,6 +390389,30 @@
    "needs": "Local LX Music (落雪音乐) v2.7+ with Open API enabled (default 127.0.0.1:23330). Windows only (PowerShell + user32 for window wake). Without LX/API the lyric strip simply stays hidden.",
    "needsZh": "需要本机已安装落雪音乐（LX Music）v2.7+，并在「设置 → 开放 API」里打开接口（默认 127.0.0.1:23330）。仅支持 Windows（窗口显隐/唤醒走 PowerShell + user32）；没有落雪或没开 API 时只是不显示歌词区。",
    "note": "Issue #164 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + bundle manifest all present). Listed only — marketplace runtime L1–L3/L4 not run (requires local LX Music + Windows)."
+  },
+  {
+   "name": "dsh-DSTuber",
+   "url": "https://github.com/T-MS-Reyes/dsh-DSTuber",
+   "pkg": "dsh-dstuber",
+   "ver": "0.1.0",
+   "npm": true,
+   "test": "listed",
+   "desc": "Windows Live2D desktop pet for DeepSeek Harness: watches the session, reacts, chimes in, and reads replies aloud with local TTS.",
+   "desc_en": "Windows Live2D desktop pet for DeepSeek Harness: watches the session, reacts, chimes in, and reads replies aloud with local TTS.",
+   "desc_zh": "一个运行在 Windows 桌面的 Live2D 桌宠插件，与 DSH 深度联动：看着你干活、碎碎念、在会话里插话，并用本地语音把回答念出来。",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-10-27",
+   "archived": false,
+   "added": "2026-10-28T00:19:04",
+   "license": "MIT",
+   "slug": "dsh-DSTuber",
+   "platform": "win32",
+   "needs": "Windows 10/11 x64. Edge TTS works out of the box; optional local GPT-SoVITS voice needs Python 3.10+.",
+   "needsZh": "需要 Windows 10/11（x64）。Edge TTS 开箱即用；可选的本地 GPT-SoVITS 音色需要 Python 3.10+。",
+   "note": "Issue #192 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + bundle manifest all present). Listed only — marketplace runtime L1–L3/L4 not run (Windows Live2D desktop companion). npm dsh-dstuber@0.1.0; the scoped name in the issue (@tmsreyes/dsh-dstuber) is not published."
   }
  ],
  "Automation": [

@@ -1242,6 +1242,30 @@
   ]
  },
  {
+  "github": "T-MS-Reyes",
+  "avatar": "https://avatars.githubusercontent.com/u/221496130?v=4",
+  "plugins": [
+   {
+    "name": "dsh-DSTuber",
+    "slug": "dsh-DSTuber",
+    "npm": true,
+    "pkg": "dsh-dstuber"
+   }
+  ]
+ },
+ {
+  "github": "tinyblckc0000al",
+  "avatar": "https://avatars.githubusercontent.com/u/25299939?v=4",
+  "plugins": [
+   {
+    "name": "dsh-deepworker",
+    "slug": "dsh-deepworker",
+    "npm": true,
+    "pkg": "dsh-deepworker"
+   }
+  ]
+ },
+ {
   "github": "tluoluo",
   "avatar": "https://avatars.githubusercontent.com/u/266670047?v=4",
   "plugins": [
@@ -1368,6 +1392,18 @@
    {
     "name": "dsh-enter-swap",
     "slug": "dsh-enter-swap-2",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "yanghongqiang3",
+  "avatar": "https://avatars.githubusercontent.com/u/68804342?v=4",
+  "plugins": [
+   {
+    "name": "dsh-plugin-market-internal",
+    "slug": "dsh-plugin-market-internal",
     "npm": false,
     "pkg": ""
    }
