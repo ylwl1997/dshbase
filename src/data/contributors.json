@@ -330,6 +330,18 @@
   ]
  },
  {
+  "github": "Rakanrkk",
+  "avatar": "https://avatars.githubusercontent.com/u/89185887?v=4",
+  "plugins": [
+   {
+    "name": "dsh-sidebar-scroll",
+    "slug": "dsh-sidebar-scroll",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "sakikoTGW",
   "avatar": "https://avatars.githubusercontent.com/u/247183209?v=4",
   "plugins": [
@@ -1402,8 +1414,8 @@
   "avatar": "https://avatars.githubusercontent.com/u/68804342?v=4",
   "plugins": [
    {
-    "name": "dsh-plugin-market-internal",
-    "slug": "dsh-plugin-market-internal",
+    "name": "dsh-plugin-market-selfhosted",
+    "slug": "dsh-plugin-market-selfhosted",
     "npm": false,
     "pkg": ""
    }

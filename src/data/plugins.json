@@ -210067,10 +210067,10 @@
    "testDate": "2026-10-20"
   },
   {
-   "name": "dsh-plugin-market-internal",
+   "name": "dsh-plugin-market-selfhosted",
    "url": "https://github.com/yanghongqiang3/dsh-plugin-market-selfhosted",
    "pkg": "",
-   "ver": "",
+   "ver": "0.1.4",
    "npm": false,
    "test": "listed",
    "desc": "A self-hosted, internal DSH plugin marketplace supporting plugin publishing, discovery, distribution, access control, and plugin recall/retrieval.",
@@ -210080,15 +210080,15 @@
    "forks": 0,
    "issues": 0,
    "language": "JavaScript",
-   "updated": "2026-10-27",
+   "updated": "2026-10-28",
    "archived": false,
    "added": "2026-10-28T00:19:07",
    "license": "MIT",
-   "slug": "dsh-plugin-market-internal",
+   "slug": "dsh-plugin-market-selfhosted",
    "platform": "any",
    "needs": "A self-hosted market server (Docker or start-market.sh) plus MARKET_SERVICE_URL on the DSH side. The client plugin is the marketplace entry, not the server.",
    "needsZh": "需要自行部署市场服务端（Docker 或 start-market.sh），并在 DSH 侧配置 MARKET_SERVICE_URL。客户端插件只是市场入口。",
-   "note": "Issue #193 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + bundle manifest all present). Listed only — marketplace runtime L1–L3/L4 not run. Package name dsh-plugin-market-internal; repo yanghongqiang3/dsh-plugin-market-selfhosted."
+   "note": "Issue #193 intake, renamed in #199 at v0.1.4 (package, README, and badge now dsh-plugin-market-selfhosted). Hard gates still present (dsh-plugin topic + LICENSE + cordis.patch.yml). Listed only — marketplace runtime L1–L3/L4 not run. Install: dsh plugin --profile web add github:yanghongqiang3/dsh-plugin-market-selfhosted. Old slug dsh-plugin-market-internal redirects here."
   }
  ],
  "AI Models": [
@@ -336208,6 +336208,28 @@
    "slug": "dsh-models-sort",
    "platform": "any",
    "note": "Issue #188 intake (GitHub install only). Listed only — marketplace L1–L4 not run."
+  },
+  {
+   "name": "dsh-sidebar-scroll",
+   "url": "https://github.com/Rakanrkk/dsh-sidebar-scroll",
+   "pkg": "",
+   "ver": "0.1.1",
+   "npm": false,
+   "test": "listed",
+   "desc": "Shared scrolling for DeepSeek Harness sidebar navigation, projects, and conversations.",
+   "desc_en": "Shared scrolling for DeepSeek Harness sidebar navigation, projects, and conversations.",
+   "desc_zh": "让左侧功能菜单、项目和会话共用一个纵向滚动区域；向下滚动时菜单移出视野，为项目和会话留出空间，顶部品牌、新会话按钮和底部账户栏保持固定。",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-10-28",
+   "archived": false,
+   "added": "2026-10-28T03:59:27",
+   "license": "MIT",
+   "slug": "dsh-sidebar-scroll",
+   "platform": "any",
+   "note": "Issue #200 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + cordis.patch.yml all present). Listed only — marketplace runtime L1–L3/L4 not run. Package @rakan/dsh-sidebar-scroll@0.1.1 is private (not on npm). Install github:Rakanrkk/dsh-sidebar-scroll#v0.1.1 pin b4bcf67095da406c5f988f204da98b8aac1579ba. Prebuilt https://github.com/Rakanrkk/dsh-sidebar-scroll/releases/download/v0.1.1/rakan-dsh-sidebar-scroll-0.1.1.tgz. Author reports host DeepSeek Harness 0.2.1-rc.3 and no external account."
   }
  ],
  "Knowledge": [
