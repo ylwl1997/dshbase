@@ -132,6 +132,24 @@
   ]
  },
  {
+  "github": "ayuanxx-max",
+  "avatar": "https://avatars.githubusercontent.com/u/307478908?v=4",
+  "plugins": [
+   {
+    "name": "dsh-session-accordion",
+    "slug": "dsh-session-accordion",
+    "npm": false,
+    "pkg": ""
+   },
+   {
+    "name": "dsh-session-fork-tree",
+    "slug": "dsh-session-fork-tree",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "dawsondx",
   "avatar": "https://avatars.githubusercontent.com/u/50289626?v=4",
   "plugins": [
@@ -810,6 +828,18 @@
   ]
  },
  {
+  "github": "H3OOCH",
+  "avatar": "https://avatars.githubusercontent.com/u/193848277?v=4",
+  "plugins": [
+   {
+    "name": "dsh-trust-center",
+    "slug": "dsh-trust-center",
+    "npm": true,
+    "pkg": "dsh-trust-center"
+   }
+  ]
+ },
+ {
   "github": "hasan-aghayev",
   "avatar": "https://avatars.githubusercontent.com/u/200437155?v=4",
   "plugins": [
@@ -1154,6 +1184,18 @@
     "slug": "saya-ch-dsh-mobile",
     "npm": true,
     "pkg": "dsh-mobile"
+   }
+  ]
+ },
+ {
+  "github": "sdiwenchen-lang",
+  "avatar": "https://avatars.githubusercontent.com/u/272386836?v=4",
+  "plugins": [
+   {
+    "name": "DeepSeek-Usage",
+    "slug": "DeepSeek-Usage",
+    "npm": true,
+    "pkg": "deepseek-usage"
    }
   ]
  },
