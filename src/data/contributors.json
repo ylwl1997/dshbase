@@ -1546,5 +1546,35 @@
     "pkg": ""
    }
   ]
+ },
+ {
+  "github": "mdl233",
+  "avatar": "https://avatars.githubusercontent.com/u/234754813?v=4",
+  "plugins": [
+   {
+    "name": "dsh-staging-guard",
+    "slug": "dsh-staging-guard",
+    "npm": true,
+    "pkg": "dsh-staging-guard"
+   }
+  ]
+ },
+ {
+  "github": "chenbocheng2568-dot",
+  "avatar": "https://avatars.githubusercontent.com/u/259995559?v=4",
+  "plugins": [
+   {
+    "name": "dsh-threebody-boot",
+    "slug": "dsh-threebody-boot",
+    "npm": false,
+    "pkg": ""
+   },
+   {
+    "name": "dsh-threebody-skin",
+    "slug": "dsh-threebody-skin",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
  }
 ]
