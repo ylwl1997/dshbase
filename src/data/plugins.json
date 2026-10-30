@@ -24345,7 +24345,7 @@
    "depsOfficial": 0,
    "repoOwner": "LongSir0419",
    "_enriched": "2026-08-21|0.1.6",
-   "bareNpm": "other",
+   "bareNpm": "install-fail",
    "trust": "Gold",
    "ucs": [
     "GitHub integration"
@@ -210096,7 +210096,7 @@
    "ver": "1.0.0",
    "pkg": "dsh-staging-guard",
    "npm": true,
-   "test": "listed",
+   "test": "verified",
    "license": "MIT",
    "platform": "any",
    "language": "JavaScript",
@@ -210110,7 +210110,9 @@
    "desc": "DSH pre-execute hook: deny writes under a read-only result zone of protected roots. Everything else passes through.",
    "desc_en": "DSH pre-execute hook: deny writes under a read-only result zone of protected roots. Everything else passes through.",
    "desc_zh": "DSH tools/pre-execute hook: protect result zone under protected roots.",
-   "note": "Issue 214 intake. Hard gates present. npm 1.0.0. Listed only."
+   "note": "Issue 214 intake. Hard gates present. npm 1.0.0. Listed only.",
+   "bareNpm": "other",
+   "testDate": "2026-10-30"
   }
  ],
  "AI Models": [
@@ -465770,7 +465772,7 @@
    "pkg": "deepseek-usage",
    "ver": "0.1.1",
    "npm": true,
-   "test": "listed",
+   "test": "verified",
    "desc": "DeepSeek usage panel for DSH: official account balance and daily bills, a 5-level usage calendar, and local session-log token/cost estimates across providers using editable per-model rates.",
    "desc_en": "DeepSeek usage panel for DSH: official account balance and daily bills, a 5-level usage calendar, and local session-log token/cost estimates across providers using editable per-model rates.",
    "desc_zh": "DSH 的 DeepSeek 用量面板：官方账户余额与每日账单、5 级用量日历，以及按可编辑的逐模型费率估算全部 Provider 的本地会话日志 Token/费用。",
@@ -465786,7 +465788,9 @@
    "platform": "any",
    "needs": "Official balance and daily bills need a DeepSeek platform account already signed in inside DSH. The plugin reads that host credential by reference and does not persist it. Local aggregation can read this machine's DSH session logs without an extra account; the balance figure still comes from the official account.",
    "needsZh": "官方余额与每日账单需要 DSH 里已登录的 DeepSeek 平台账号（插件只按引用读取宿主凭据，不落盘）。本地聚合可直接读取本机 DSH 会话日志，无需额外账号；余额数字仍来自官方账户。",
-   "note": "Issue #209 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + cordis.patch.yml all present). Listed only — marketplace runtime L1–L3/L4 not run. Display name DeepSeek-Usage; npm package deepseek-usage@0.1.1 (issue left npm blank; the published package repository is this repo). Tag v0.1.1 pin 4a36bccc22bcaf2404fe0da96b39f1a85a998dba. Install: dsh plugin --profile web add deepseek-usage."
+   "note": "Issue #209 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + cordis.patch.yml all present). Listed only — marketplace runtime L1–L3/L4 not run. Display name DeepSeek-Usage; npm package deepseek-usage@0.1.1 (issue left npm blank; the published package repository is this repo). Tag v0.1.1 pin 4a36bccc22bcaf2404fe0da96b39f1a85a998dba. Install: dsh plugin --profile web add deepseek-usage.",
+   "bareNpm": "other",
+   "testDate": "2026-10-30"
   }
  ],
  "Security": [
@@ -479063,7 +479067,7 @@
    "pkg": "dsh-trust-center",
    "ver": "0.2.1",
    "npm": true,
-   "test": "listed",
+   "test": "verified",
    "desc": "Read-only trust audit for MCP tool descriptions and Skills: prompt injection, hidden Unicode, dangerous commands, credential access, schema bloat, and context cost, plus tool-fingerprint drift and an explicit hash-only baseline.",
    "desc_en": "Read-only trust audit for MCP tool descriptions and Skills: prompt injection, hidden Unicode, dangerous commands, credential access, schema bloat, and context cost, plus tool-fingerprint drift and an explicit hash-only baseline.",
    "desc_zh": "只读审计 MCP 工具描述/Schema 与 Skills：提示注入、隐藏 Unicode、危险命令、凭据访问、Schema 膨胀与上下文成本，并支持工具指纹漂移和显式 hash-only baseline。",
@@ -479077,7 +479081,9 @@
    "license": "MIT",
    "slug": "dsh-trust-center",
    "platform": "any",
-   "note": "Issue #206 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + cordis.patch.yml all present). Listed only — marketplace runtime L1–L3/L4 not run. npm dsh-trust-center@0.2.1. Install: dsh plugin --profile web add dsh-trust-center. GitHub pin github:H3OOCH/dsh-trust-center#v0.2.1 (4b74b9e9e619ec57a4be8f2f556a251d6ce86b02). Declares dsh >=0.2.1-rc.2 <0.3.0-0. Read-only heuristic audit (does not execute, block, or auto-disable). Trust Center panel is local web session only. No external account."
+   "note": "Issue #206 intake via scripts/ingest-plugin.py (hard gates: dsh-plugin topic + LICENSE + cordis.patch.yml all present). Listed only — marketplace runtime L1–L3/L4 not run. npm dsh-trust-center@0.2.1. Install: dsh plugin --profile web add dsh-trust-center. GitHub pin github:H3OOCH/dsh-trust-center#v0.2.1 (4b74b9e9e619ec57a4be8f2f556a251d6ce86b02). Declares dsh >=0.2.1-rc.2 <0.3.0-0. Read-only heuristic audit (does not execute, block, or auto-disable). Trust Center panel is local web session only. No external account.",
+   "bareNpm": "other",
+   "testDate": "2026-10-30"
   }
  ],
  "Productivity": [
