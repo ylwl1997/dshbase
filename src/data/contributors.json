@@ -1612,5 +1612,17 @@
     "pkg": "dsh-submodel"
    }
   ]
+ },
+ {
+  "github": "2503455457-max",
+  "avatar": "https://avatars.githubusercontent.com/u/271499098?v=4",
+  "plugins": [
+   {
+    "name": "dsh-think-zh",
+    "slug": "dsh-think-zh",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
  }
 ]
