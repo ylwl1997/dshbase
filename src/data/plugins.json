@@ -336413,6 +336413,29 @@
    "desc_en": "Three-Body skin for DeepSeek Harness: cold palette with landscape ghost; pairs with dsh-threebody-boot.",
    "desc_zh": "DeepSeek Harness skin in Three-Body cold palette; pairs with dsh-threebody-boot.",
    "note": "Issue 216 intake. Hard gates present. Not on npm. Listed only."
+  },
+  {
+   "name": "dsh-think-zh",
+   "slug": "dsh-think-zh",
+   "ver": "0.2.3",
+   "pkg": "",
+   "npm": false,
+   "test": "verified",
+   "license": "MIT",
+   "platform": "any",
+   "language": "JavaScript",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "archived": false,
+   "updated": "2026-10-31",
+   "added": "2026-10-31T09:40:00",
+   "url": "https://github.com/2503455457-max/dsh-reasoning-translate-zh",
+   "desc": "Display-layer Chinese for model reasoning: a collapsed Chinese summary, and an expanded Chinese body plus the English original. Does not inject prompts or change model behavior.",
+   "desc_en": "Display-layer Chinese for model reasoning: a collapsed Chinese summary, and an expanded Chinese body plus the English original. Does not inject prompts or change model behavior.",
+   "desc_zh": "思考过程显示层中文翻译：折叠显示中文摘要，展开显示中文正文和英文原文。不注入提示词、不改变模型行为；可用 DSH 已配置模型、本地 Ollama 或任意 OpenAI 兼容端点。",
+   "note": "Issue #223 intake. Hard gates present (dsh-plugin topic + LICENSE + cordis.patch.yml). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run. Not on npm. Package id dsh-think-zh@0.2.3 (repo dsh-reasoning-translate-zh). Install: dsh plugin --profile desktop add git+https://github.com/2503455457-max/dsh-reasoning-translate-zh.git (web: same command with --profile web). Git tag v0.2.3, no GitHub Release; pin github:2503455457-max/dsh-reasoning-translate-zh#v0.2.3 (2afbc17b17b46e1836f80add7a7c21efb66701a4). Declares dsh >=0.2.1-rc.2 <0.3.0 and node >=20. Author reports a local run on DeepSeek Harness 0.2.1-rc.3 and 0.2.1-rc.5 (macOS desktop). Display layer only. Default engine reuses models already in the profile; optional local Ollama or an OpenAI-compatible endpoint. Distinct from Len7183/DSH-Think-zh and lance808/dsh-think-zh, which inject a system prompt.",
+   "testDate": "2026-10-31"
   }
  ],
  "Knowledge": [
