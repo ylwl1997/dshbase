@@ -1576,5 +1576,41 @@
     "pkg": ""
    }
   ]
+ },
+ {
+  "github": "zdkcomeon",
+  "avatar": "https://avatars.githubusercontent.com/u/89736679?v=4",
+  "plugins": [
+   {
+    "name": "dsh-mcp-link",
+    "slug": "dsh-mcp-link",
+    "npm": true,
+    "pkg": "dsh-mcp-link"
+   }
+  ]
+ },
+ {
+  "github": "icymint0220",
+  "avatar": "https://avatars.githubusercontent.com/u/145472557?v=4",
+  "plugins": [
+   {
+    "name": "dsh-restart-switch",
+    "slug": "dsh-restart-switch",
+    "npm": true,
+    "pkg": "dsh-restart-switch"
+   }
+  ]
+ },
+ {
+  "github": "angel291592",
+  "avatar": "https://avatars.githubusercontent.com/u/206995683?v=4",
+  "plugins": [
+   {
+    "name": "dsh-submodel",
+    "slug": "dsh-submodel",
+    "npm": true,
+    "pkg": "dsh-submodel"
+   }
+  ]
  }
 ]
