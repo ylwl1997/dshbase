@@ -24345,7 +24345,7 @@
    "depsOfficial": 0,
    "repoOwner": "LongSir0419",
    "_enriched": "2026-08-21|0.1.6",
-   "bareNpm": "install-fail",
+   "bareNpm": "other",
    "trust": "Gold",
    "ucs": [
     "GitHub integration"
@@ -210137,7 +210137,8 @@
    "needs": "No account or API key. Linking needs MCP configs already on this machine (other clients, or a project .mcp.json). A connection test needs that MCP server to be startable; a stopped server failing the test is expected.",
    "needsZh": "不需要账号或 API Key。接入需要本机已有 MCP 配置（其他客户端，或项目里的 .mcp.json）。连接测试需要对应 MCP 服务能被启动；服务未启动时测试失败是正常状态。",
    "note": "Issue #218 intake. Hard gates present (dsh-plugin topic + LICENSE + cordis.patch.yml). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run. npm dsh-mcp-link@0.1.1. Install: dsh plugin --profile web add dsh-mcp-link (desktop profile also supported). GitHub pin github:zdkcomeon/dsh-mcp-link#v0.1.1 (6ff62db7305889ee6abed5bbbb6e4c8cd522c194). Declares dsh ^0.2.0-rc.2 and node >=22.19.",
-   "testDate": "2026-10-31"
+   "testDate": "2026-10-31",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-restart-switch",
@@ -210160,7 +210161,8 @@
    "desc_en": "Composer-toolbar switch to reload the Cordis kernel or relaunch DSH, with failures shown in the menu.",
    "desc_zh": "输入框工具栏的重启开关：可只重启内核，也可重启整个 DSH，失败原因直接显示在菜单里。",
    "note": "Issue #219 intake. Hard gates present (dsh-plugin topic + LICENSE + cordis.patch.yml). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run. npm dsh-restart-switch@1.0.0. Install: dsh plugin add dsh-restart-switch. No GitHub release tag; pin github:icymint0220/dsh-restart-switch (144eadd777257d8e65db16ed9ae24653e827af41). Declares dsh >=0.2.1-rc.5 <0.3.0. Desktop and web. No external account.",
-   "testDate": "2026-10-31"
+   "testDate": "2026-10-31",
+   "bareNpm": "other"
   }
  ],
  "AI Models": [
@@ -263597,7 +263599,8 @@
    "desc_en": "Default policy pack for the official subagent: when to work locally, when to delegate, and to whom.",
    "desc_zh": "官方 subagent 的默认策略包：一次配好何时自己干、何时派出去、派给谁。",
    "note": "Issue #221 intake. Hard gates present (dsh-plugin topic + LICENSE + cordis.patch.yml). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run. npm dsh-submodel@0.1.0. Install: dsh plugin add dsh-submodel. No GitHub release tag; pin github:angel291592/dsh-submodel (ae305b7c93501d4d0aebded46769e7eda0a58e8c). Declares dsh >=0.2.1-rc.3 <0.3.0. Author reports a local run on DeepSeek Harness 0.2.1-rc.5. No external account; reads providers already in the profile. Distinct from anna-la/dsh-submodel-change.",
-   "testDate": "2026-10-31"
+   "testDate": "2026-10-31",
+   "bareNpm": "other"
   }
  ],
  "UI & Skins": [
