@@ -146,6 +146,12 @@
     "slug": "dsh-session-fork-tree",
     "npm": false,
     "pkg": ""
+   },
+   {
+    "name": "dsh-smooth",
+    "slug": "dsh-smooth",
+    "npm": false,
+    "pkg": ""
    }
   ]
  },
@@ -1622,6 +1628,54 @@
     "slug": "dsh-think-zh",
     "npm": false,
     "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "zemyao7",
+  "avatar": "https://avatars.githubusercontent.com/u/351103372?v=4",
+  "plugins": [
+   {
+    "name": "dsh-academic-skills",
+    "slug": "dsh-academic-skills",
+    "npm": true,
+    "pkg": "dsh-academic-skills"
+   }
+  ]
+ },
+ {
+  "github": "elalamiimed",
+  "avatar": "https://avatars.githubusercontent.com/u/149338391?v=4",
+  "plugins": [
+   {
+    "name": "dsh-prism-themes",
+    "slug": "dsh-prism-themes",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "Chemiofitor4096",
+  "avatar": "https://avatars.githubusercontent.com/u/181641243?v=4",
+  "plugins": [
+   {
+    "name": "minecraft-dev-starter",
+    "slug": "minecraft-dev-starter",
+    "npm": true,
+    "pkg": "minecraft-dev-starter"
+   }
+  ]
+ },
+ {
+  "github": "Lumivox-wiz",
+  "avatar": "https://avatars.githubusercontent.com/u/103355137?v=4",
+  "plugins": [
+   {
+    "name": "memory-lattice",
+    "slug": "memory-lattice",
+    "npm": true,
+    "pkg": "memory-lattice"
    }
   ]
  }
