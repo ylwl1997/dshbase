@@ -1,0 +1,92 @@
+name: Reply and close ingested plugin issues
+
+# One-shot: the cloud agent token cannot write issues. This workflow uses the
+# repo GITHUB_TOKEN (issues: write) to post catalog close-outs for #227–#231
+# and a single note on #232 (left open). Safe to delete after it succeeds.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/reply-close-ingested-issues.yml
+
+permissions:
+  issues: write
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comment and close #227–#231; note #232
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const closeOut = {
+              227: [
+                "Thanks for submitting! We've added **dsh-academic-skills** to the catalog: https://dshbase.com/plugins/dsh-academic-skills/",
+                "",
+                "Literature cards, citation formatting, journal polish, and review outlines — with missing facts marked instead of invented — is a really useful research workflow. Appreciate you sharing this with the community 🙌",
+              ].join("\n"),
+              228: [
+                "Thanks for submitting! **Prism Theme Studio** is in the catalog: https://dshbase.com/plugins/dsh-prism-themes/",
+                "",
+                "Twenty-four hand-tuned light and dark palettes for the Web UI is a lovely addition. Appreciate you sharing this with the community 🙌",
+              ].join("\n"),
+              229: [
+                "Thanks for submitting! We've added **minecraft-dev-starter** to the catalog: https://dshbase.com/plugins/minecraft-dev-starter/",
+                "",
+                "Picking up a Fabric / Forge / NeoForge / Architectury / Paper project from the session header and closing the change → run → verdict loop is exactly the kind of tool we want in the catalog. Appreciate you sharing this with the community 🙌",
+              ].join("\n"),
+              230: [
+                "Thanks for submitting! **DSH Smooth** is in the catalog: https://dshbase.com/plugins/dsh-smooth/",
+                "",
+                "A pure config bundle for the stutter, reconnect popup, and slow-start rough edges is a practical one. Appreciate you sharing this with the community 🙌",
+              ].join("\n"),
+              231: [
+                "Thanks for submitting! **Memory Lattice** is in the catalog: https://dshbase.com/plugins/memory-lattice/",
+                "",
+                "Memory that forgets on purpose — short-term expiry, spaced review, and a sleep zone instead of an ever-growing context — is a sharp take. Appreciate you sharing this with the community 🙌",
+              ].join("\n"),
+            };
+            const note232 = [
+              "**memory-lattice** is in the catalog: https://dshbase.com/plugins/memory-lattice/",
+              "",
+              "We still need verified L3 / run-through evidence before this can be closed. This intake listing is not an empirical dshbase run.",
+            ].join("\n");
+
+            async function ensureComment(issue_number, body, marker) {
+              const existing = await github.rest.issues.listComments({
+                owner,
+                repo,
+                issue_number,
+                per_page: 100,
+              });
+              const already = existing.data.some((c) => (c.body || "").includes(marker));
+              if (!already) {
+                await github.rest.issues.createComment({ owner, repo, issue_number, body });
+                core.info(`commented #${issue_number}`);
+              } else {
+                core.info(`#${issue_number} already has the catalog note`);
+              }
+            }
+
+            for (const [num, body] of Object.entries(closeOut)) {
+              const issue_number = Number(num);
+              const marker = body.match(/https:\/\/dshbase\.com\/plugins\/[^/\s]+\/?/)[0];
+              await ensureComment(issue_number, body, marker);
+              await github.rest.issues.update({
+                owner,
+                repo,
+                issue_number,
+                state: "closed",
+                state_reason: "completed",
+              });
+              core.info(`closed #${issue_number}`);
+            }
+
+            await ensureComment(232, note232, "We still need verified L3 / run-through evidence");
+            const still = await github.rest.issues.get({ owner, repo, issue_number: 232 });
+            if (still.data.state !== "open") {
+              core.setFailed("#232 was not left open");
+            }
