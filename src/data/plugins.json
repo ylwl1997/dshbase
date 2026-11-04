@@ -210213,6 +210213,31 @@
    "note": "Issue #229 intake. Hard gates present (dsh-plugin topic + LICENSE + cordis.patch.yml). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm minecraft-dev-starter@0.1.10 (gitHead 85c9c5ad4976d2e1ce68ef8d4727149b55a16295). Install: dsh plugin --profile desktop add minecraft-dev-starter. No git tag v0.1.10 (tags stop at v0.1.8); pin github:Chemiofitor4096/minecraft-dev-starter (85c9c5ad4976d2e1ce68ef8d4727149b55a16295). Peer @deepseek-ai/dsh-tools ^0.2.1-rc.1 and node >=20. Author says DSH Desktop 0.2.1 or newer. Also detects Spigot.",
    "testDate": "2026-11-03",
    "bareNpm": "other"
+  },
+  {
+   "name": "dsh-plugin-upgrader",
+   "slug": "dsh-plugin-upgrader",
+   "ver": "1.7.5",
+   "pkg": "dsh-plugin-upgrader",
+   "npm": true,
+   "test": "verified",
+   "license": "MIT",
+   "platform": "any",
+   "language": "TypeScript",
+   "stars": 3,
+   "forks": 1,
+   "issues": 0,
+   "archived": false,
+   "updated": "2026-11-04",
+   "added": "2026-11-04T05:16:00",
+   "url": "https://github.com/zuwenyin/dsh-plugin-upgrader",
+   "desc": "A Versions tab on the Plugins page: upgrade every plugin or a chosen subset with live pnpm stages you can cancel, browse every published version, and roll back in place. Each version number opens the real GitHub release.",
+   "desc_en": "A Versions tab on the Plugins page: upgrade every plugin or a chosen subset with live pnpm stages you can cancel, browse every published version, and roll back in place. Each version number opens the real GitHub release.",
+   "desc_zh": "插件页上的「版本」标签：一键升级全部或勾选的插件，显示真实阶段和 pnpm 日志并可取消；列出每个已发布版本，原位回滚，版本号指向 GitHub release。",
+   "note": "Issue #242 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm dsh-plugin-upgrader@1.7.5 (maintainer zuwenyin; repository zuwenyin/dsh-plugin-upgrader). Install: dsh plugin --profile web add dsh-plugin-upgrader. GitHub Release v1.7.5; pin github:zuwenyin/dsh-plugin-upgrader#v1.7.5 (9f1d0693fecd9c57a28c7bb5e7757f8152d12a6b). Declares node >=20 and dsh >=0.2.1-rc.3 <0.3.0-0. Author reports a desktop web-profile install on dsh 0.2.1-rc.5 (Windows 11, Node 24) and dsh.so L5 on 0.2.1-rc.2, rc.3, and rc.5. Versions tab: batch or selective upgrade with live pnpm stages, cancel, version history, in-place rollback to a GitHub release, and a marker when the configured registry mirror lags upstream. Writes the profile package.json only while holding DSH's package.json.lock. HTTP routes are loopback-only. No third-party service or API key. Distinct from dsh-plugin-manager and @wwumit/dsh-plugin-tools.",
+   "testDate": "2026-11-04",
+   "bareNpm": "other",
+   "repoOwner": "zuwenyin"
   }
  ],
  "AI Models": [
@@ -408855,6 +408880,31 @@
    "trust": "Silver",
    "slug": "dsh-tool-n8n",
    "platform": "any"
+  },
+  {
+   "name": "dsh-shutdown-guard",
+   "slug": "dsh-shutdown-guard",
+   "ver": "1.5.1",
+   "pkg": "dsh-shutdown-guard",
+   "npm": true,
+   "test": "verified",
+   "license": "MIT",
+   "platform": "win32",
+   "language": "JavaScript",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "archived": false,
+   "updated": "2026-11-04",
+   "added": "2026-11-04T05:16:00",
+   "url": "https://github.com/ltayshark0637/dsh-Shutdown-Guard",
+   "desc": "A sidebar card that shuts Windows down only after every task is really finished. Five gates, a background-job guard, AFK replies, and graded blocked states, with three looks and Chinese, English, and Russian.",
+   "desc_en": "A sidebar card that shuts Windows down only after every task is really finished. Five gates, a background-job guard, AFK replies, and graded blocked states, with three looks and Chinese, English, and Russian.",
+   "desc_zh": "侧边栏「所有任务完成后自动关机」卡片。五道判定闸、后台任务守卫、AFK 接管、阻断态分级，三种外观，中英俄。仅 Windows。",
+   "note": "Issue #246 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm dsh-shutdown-guard@1.5.1 (maintainer ltayshark; repository ltayshark0637/dsh-Shutdown-Guard). Install: dsh plugin --profile web add dsh-shutdown-guard. Git tag v1.5.1; GitHub Release v1.5.0 is the latest release (1.5.1 is tagged, not released). Pin github:ltayshark0637/dsh-Shutdown-Guard#v1.5.1 (cfde5f8fc58fce8481ee9dc786f02bf50a063fbf). Declares node >=22.19 and dsh >=0.1.5-rc.1. package.json os is win32. Author reports a local run on dsh 0.2.1-rc.2. Sidebar card under the skill center: five gates, background-job guard, AFK replies, graded blocked states, three skins, zh/en/ru. Issues shutdown /s only when armed and every gate holds. No external account. Distinct from knlght/DSH-shutdown (slug dsh-shutdown), virggle/dsh-shutdown-after-task, yelloooooow/dsh-shutdown-button, and lundly/dsh-shutdown (slug dsh-shutdown-2).",
+   "testDate": "2026-11-04",
+   "bareNpm": "other",
+   "repoOwner": "ltayshark0637"
   }
  ],
  "Network": [
