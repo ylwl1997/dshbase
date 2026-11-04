@@ -1714,5 +1714,29 @@
     "pkg": "dsh-remote-plugin"
    }
   ]
+ },
+ {
+  "github": "zuwenyin",
+  "avatar": "https://avatars.githubusercontent.com/u/72490874?v=4",
+  "plugins": [
+   {
+    "name": "dsh-plugin-upgrader",
+    "slug": "dsh-plugin-upgrader",
+    "npm": true,
+    "pkg": "dsh-plugin-upgrader"
+   }
+  ]
+ },
+ {
+  "github": "ltayshark0637",
+  "avatar": "https://avatars.githubusercontent.com/u/300083159?v=4",
+  "plugins": [
+   {
+    "name": "dsh-shutdown-guard",
+    "slug": "dsh-shutdown-guard",
+    "npm": true,
+    "pkg": "dsh-shutdown-guard"
+   }
+  ]
  }
 ]
