@@ -1,0 +1,71 @@
+name: Reply and close ingested plugin issues
+
+# One-shot: the cloud agent token cannot write issues. This workflow uses the
+# repo GITHUB_TOKEN (issues: write) to post catalog close-outs for #238, #241,
+# and #239. Safe to delete after it succeeds. It does not touch other issues.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/reply-close-ingested-issues.yml
+
+permissions:
+  issues: write
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comment and close #238, #241, and #239
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const closeOut = {
+              238: [
+                "Thanks for submitting! We've added **@cjylzs/dsh-browser** to the catalog: https://dshbase.com/plugins/dsh-browser-14/",
+                "",
+                "A real Chrome or Edge for every conversation, mirrored in the sidebar so you can watch and take over, is a lovely fit for the browser shelf. We listed the scoped package `@cjylzs/dsh-browser` (the unscoped `dsh-browser` name belongs to a different project) and kept this row on slug `dsh-browser-14` so it doesn't collide with the other dsh-browser already in the directory. Appreciate you sharing this with the community 🙌",
+              ].join("\n"),
+              241: [
+                "Thanks for submitting! **守链 / dsh-memory-chain** is in the catalog: https://dshbase.com/plugins/dsh-memory-chain/",
+                "",
+                "Five verbs — wake, work, pit, tomb, close — and four markdown pages that are still there after a restart is a sharp way to keep an agent continuous. Appreciate you sharing this with the community 🙌",
+              ].join("\n"),
+              239: [
+                "Thanks for the errata — **DSH Remote** is updated in place: https://dshbase.com/plugins/dsh-Remote/ (中文: https://dshbase.com/zh/plugins/dsh-Remote/)",
+                "",
+                "The npm package is now `dsh-remote-plugin` (install with `dsh plugin --profile web add dsh-remote-plugin@latest`), the version is **0.8.4**, and the category is the remote / mobile console shelf (Network) instead of Data. The earlier install-test note is unchanged — this was a metadata fix, not a new audit. Appreciate you keeping the listing accurate 🙌",
+              ].join("\n"),
+            };
+
+            async function ensureComment(issue_number, body, marker) {
+              const existing = await github.rest.issues.listComments({
+                owner,
+                repo,
+                issue_number,
+                per_page: 100,
+              });
+              const already = existing.data.some((c) => (c.body || "").includes(marker));
+              if (!already) {
+                await github.rest.issues.createComment({ owner, repo, issue_number, body });
+                core.info(`commented #${issue_number}`);
+              } else {
+                core.info(`#${issue_number} already has the catalog note`);
+              }
+            }
+
+            for (const [num, body] of Object.entries(closeOut)) {
+              const issue_number = Number(num);
+              const marker = body.match(/https:\/\/dshbase\.com\/plugins\/[^/\s]+\/?/)[0];
+              await ensureComment(issue_number, body, marker);
+              await github.rest.issues.update({
+                owner,
+                repo,
+                issue_number,
+                state: "closed",
+                state_reason: "completed",
+              });
+              core.info(`closed #${issue_number}`);
+            }
