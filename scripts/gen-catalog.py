@@ -22,7 +22,12 @@ slug_map = {}
 for cat, items in d.items():
     for p in items:
         repo = owner_repo(p.get("url"))
-        install = f"dsh plugin add {p['pkg']}" if (p.get("npm") and p.get("pkg")) else f"dsh plugin add github:{repo}"
+        if p.get("installPkg"):
+            install = f"dsh plugin --profile web add {p['installPkg']}"
+        elif p.get("npm") and p.get("pkg"):
+            install = f"dsh plugin add {p['pkg']}"
+        else:
+            install = f"dsh plugin add github:{repo}"
         row = {
             "name": p["name"],
             "slug": p.get("slug") or p["name"],

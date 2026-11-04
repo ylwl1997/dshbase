@@ -1678,5 +1678,41 @@
     "pkg": "memory-lattice"
    }
   ]
+ },
+ {
+  "github": "CJYLZS",
+  "avatar": "https://avatars.githubusercontent.com/u/62733895?v=4",
+  "plugins": [
+   {
+    "name": "@cjylzs/dsh-browser",
+    "slug": "dsh-browser-14",
+    "npm": true,
+    "pkg": "@cjylzs/dsh-browser"
+   }
+  ]
+ },
+ {
+  "github": "raoain",
+  "avatar": "https://avatars.githubusercontent.com/u/128879184?v=4",
+  "plugins": [
+   {
+    "name": "@silentrainhero/dsh-memory-chain",
+    "slug": "dsh-memory-chain",
+    "npm": true,
+    "pkg": "@silentrainhero/dsh-memory-chain"
+   }
+  ]
+ },
+ {
+  "github": "Blank-not-black",
+  "avatar": "https://avatars.githubusercontent.com/u/110587128?v=4",
+  "plugins": [
+   {
+    "name": "dsh-Remote",
+    "slug": "dsh-Remote",
+    "npm": true,
+    "pkg": "dsh-remote-plugin"
+   }
+  ]
  }
 ]

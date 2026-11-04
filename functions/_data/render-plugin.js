@@ -118,8 +118,9 @@ export function renderPluginPage(p, lang) {
   const catId = String(cat).toLowerCase().replace(/[^a-z0-9]+/g, '-');
   const catUrl = `${dir}page/1/#${catId}`;
   const repo = (p.url || '').replace(/^https?:\/\/github\.com\//, '');
-  const install = p.npm && p.pkg
-    ? `dsh plugin --profile web add ${p.pkg}`
+  const spec = p.installPkg || p.pkg;
+  const install = p.npm && spec
+    ? `dsh plugin --profile web add ${spec}`
     : `dsh plugin --profile web add github:${repo}`;
   const verified = p.test === 'verified';
   const listed = !verified && p.test !== 'pending';
