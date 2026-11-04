@@ -1,0 +1,66 @@
+name: Reply and close ingested plugin issues
+
+# One-shot: the cloud agent token cannot write issues. This workflow uses the
+# repo GITHUB_TOKEN (issues: write) to post catalog close-outs for #242 and
+# #246. Safe to delete after it succeeds. It does not touch other issues.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/reply-close-ingested-issues.yml
+
+permissions:
+  issues: write
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comment and close #242 and #246
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const closeOut = {
+              242: [
+                "Thanks for submitting! We've added **dsh-plugin-upgrader** to the catalog: https://dshbase.com/plugins/dsh-plugin-upgrader/",
+                "",
+                "A Versions tab that upgrades in place, shows the real pnpm stages, and rolls back to a GitHub release is a great fit for the developer shelf. Appreciate you sharing this with the community 🙌",
+              ].join("\n"),
+              246: [
+                "Thanks for submitting! **dsh-shutdown-guard** is in the catalog: https://dshbase.com/plugins/dsh-shutdown-guard/",
+                "",
+                "Five gates before Windows actually powers off — and a sidebar card that stays armed until the work is really done — is a sharp automation. Appreciate you sharing this with the community 🙌",
+              ].join("\n"),
+            };
+
+            async function ensureComment(issue_number, body, marker) {
+              const existing = await github.rest.issues.listComments({
+                owner,
+                repo,
+                issue_number,
+                per_page: 100,
+              });
+              const already = existing.data.some((c) => (c.body || "").includes(marker));
+              if (!already) {
+                await github.rest.issues.createComment({ owner, repo, issue_number, body });
+                core.info(`commented #${issue_number}`);
+              } else {
+                core.info(`#${issue_number} already has the catalog note`);
+              }
+            }
+
+            for (const [num, body] of Object.entries(closeOut)) {
+              const issue_number = Number(num);
+              const marker = body.match(/https:\/\/dshbase\.com\/plugins\/[^/\s]+\/?/)[0];
+              await ensureComment(issue_number, body, marker);
+              await github.rest.issues.update({
+                owner,
+                repo,
+                issue_number,
+                state: "closed",
+                state_reason: "completed",
+              });
+              core.info(`closed #${issue_number}`);
+            }
