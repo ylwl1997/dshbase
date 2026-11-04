@@ -13136,12 +13136,12 @@
     "dev_zh": "数据源和转换工具是缝——加格式、聚合或可视化输出。"
   },
   "dsh-Remote": {
-    "use": "Let the agent crunch data — parse, transform, or analyze — so it works with real datasets, not just prose.",
-    "aud": "Users whose tasks involve tables, files, or numbers that need processing or analysis.",
-    "dev": "Data sources and transformation tools are the seams — add formats, aggregations, or visualization outputs.",
-    "use_zh": "让 agent 处理数据——解析、转换或分析——用真实数据集工作，而不只是文字。",
-    "aud_zh": "任务涉及表格、文件或数字、需要处理或分析的人。",
-    "dev_zh": "数据源和转换工具是缝——加格式、聚合或可视化输出。"
+    "use": "Use a phone or a second computer as a DSH console: open the sessions already running on the host, approve tools, answer questions, and move files.",
+    "aud": "People who run DeepSeek Harness on a computer and want to continue that same session from a phone, tablet, or another desktop over LAN or Tailscale.",
+    "dev": "The gateway, the pairing token, and the Android and WebUI clients are the seams. The npm package is dsh-remote-plugin; install it into the web profile.",
+    "use_zh": "把手机或另一台电脑当成 DSH 控制台：查看主机上已有的会话、处理工具审批、回答提问、收发文件。",
+    "aud_zh": "DSH 跑在电脑上、想用手机、平板或另一台电脑继续同一会话的人。走局域网或 Tailscale。",
+    "dev_zh": "网关、配对令牌和 Android / WebUI 客户端是缝。npm 包名是 dsh-remote-plugin，装进 web profile。"
   },
   "ds-api-usage": {
     "use": "Let the agent crunch data — parse, transform, or analyze — so it works with real datasets, not just prose.",

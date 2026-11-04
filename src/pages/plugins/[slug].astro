@@ -205,7 +205,7 @@ const jsonLd = {
         {p.npm && p.pkg ? (
           <Fragment>
             <p class="muted small">Web profile:</p>
-            <pre class="code-block"><code>dsh plugin --profile web add {p.pkg}</code></pre>
+            <pre class="code-block"><code>dsh plugin --profile web add {p.installPkg || p.pkg}</code></pre>
             <p class="muted small">Headless (CLI) profile:</p>
             <pre class="code-block"><code>dsh plugin --profile headless add {p.pkg}</code></pre>
             <h2 style="margin-top:20px">Package</h2>
