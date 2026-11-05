@@ -210238,6 +210238,27 @@
    "testDate": "2026-11-04",
    "bareNpm": "other",
    "repoOwner": "zuwenyin"
+  },
+  {
+   "name": "dsh-plugin-dbgraph",
+   "url": "https://github.com/CC19990113/dsh-plugin-dbgraph",
+   "pkg": "dsh-plugin-dbgraph",
+   "ver": "0.1.0",
+   "npm": true,
+   "test": "listed",
+   "desc": "Database structure for DeepSeek Harness — indexes a database catalog into a local store so the agent knows every table and column before it writes a query, then answers with one tool call",
+   "desc_en": "Database structure for DeepSeek Harness — indexes a database catalog into a local store so the agent knows every table and column before it writes a query, then answers with one tool call",
+   "desc_zh": "给 agent 的数据库结构图谱：索引远端库 catalog 到本地 SQLite，写 SQL 前注入表字段摘要；支持 sqlite/mysql/postgres/mongodb/redis。",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-11-05",
+   "archived": false,
+   "added": "2026-11-05T19:43:12",
+   "license": "MIT",
+   "slug": "dsh-plugin-dbgraph",
+   "platform": "any"
   }
  ],
  "AI Models": [
@@ -497566,6 +497587,27 @@
    "note": "Issue #237 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. Not on npm (package id wecom-dsh-plugins@0.0.0; registry 404). Install: dsh plugin add github:Cillivian/wecom-file-dsh. No git tag or GitHub Release; pin github:Cillivian/wecom-file-dsh (3f5ee4d65d6b2706dd358976e7680a0b2596d0ea). The README also documents a local pnpm link into the desktop or web profile, then adding bundle id wecom-dsh-plugins. Declares node >=22.18. Peer @deepseek-ai/cordis. Composer picker for desktop and dsh web. Distinct from krudiy/wecom-bridge (slug wecom-bridge), a WeCom chat bot.",
    "testDate": "2026-11-05",
    "repoOwner": "Cillivian"
+  },
+  {
+   "name": "dsh-plugin-sessiongraph",
+   "url": "https://github.com/CC19990113/dsh-plugin-sessiongraph",
+   "pkg": "dsh-plugin-sessiongraph",
+   "ver": "0.1.21",
+   "npm": true,
+   "test": "listed",
+   "desc": "Local conversation-history index for DeepSeek Harness — full-text search across every local session (Chinese two-character terms included), with a Rust kernel",
+   "desc_en": "Local conversation-history index for DeepSeek Harness — full-text search across every local session (Chinese two-character terms included), with a Rust kernel",
+   "desc_zh": "本机全部 DSH 会话的全文索引：跨工作区检索对话，中文双字分词；sessiongraph_index 构建与刷新索引。",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "TypeScript",
+   "updated": "2026-11-05",
+   "archived": false,
+   "added": "2026-11-05T19:43:06",
+   "license": "MIT",
+   "slug": "dsh-plugin-sessiongraph",
+   "platform": "any"
   }
  ],
  "Content": [
