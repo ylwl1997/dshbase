@@ -1738,5 +1738,53 @@
     "pkg": "dsh-shutdown-guard"
    }
   ]
+ },
+ {
+  "github": "Cillivian",
+  "avatar": "https://avatars.githubusercontent.com/u/26425455?v=4",
+  "plugins": [
+   {
+    "name": "wecom-dsh-plugins",
+    "slug": "wecom-dsh-plugins",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "jeckun",
+  "avatar": "https://avatars.githubusercontent.com/u/31623221?v=4",
+  "plugins": [
+   {
+    "name": "dsh-plugin-favorites",
+    "slug": "dsh-plugin-favorites",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "StarRob1n",
+  "avatar": "https://avatars.githubusercontent.com/u/198976119?v=4",
+  "plugins": [
+   {
+    "name": "dsh-balance-ball",
+    "slug": "dsh-balance-ball",
+    "npm": true,
+    "pkg": "dsh-balance-ball"
+   }
+  ]
+ },
+ {
+  "github": "vlgalib",
+  "avatar": "https://avatars.githubusercontent.com/u/72434411?v=4",
+  "plugins": [
+   {
+    "name": "@hiai-gg/dsh-docsmint",
+    "slug": "dsh-docsmint",
+    "npm": true,
+    "pkg": "@hiai-gg/dsh-docsmint"
+   }
+  ]
  }
 ]
