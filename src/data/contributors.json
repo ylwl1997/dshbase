@@ -1786,5 +1786,17 @@
     "pkg": "@hiai-gg/dsh-docsmint"
    }
   ]
+ },
+ {
+  "github": "QIC-9821",
+  "avatar": "https://avatars.githubusercontent.com/u/352873856?v=4",
+  "plugins": [
+   {
+    "name": "dsh-memory-sync",
+    "slug": "dsh-memory-sync",
+    "npm": true,
+    "pkg": "dsh-memory-sync"
+   }
+  ]
  }
 ]
