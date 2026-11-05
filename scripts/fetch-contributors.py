@@ -31,6 +31,8 @@ ALIASES = {
     # monorepo submission URL → dedicated npm package repo
     "github.com/nan1010082085/dsh-plugins": "github.com/nan1010082085/dsh-plugin-ima-sync",
     "github.com/nan1010082085/dsh-plugins/tree/main/packages/ima-sync": "github.com/nan1010082085/dsh-plugin-ima-sync",
+    # repo rename: issue #262 still cites the old URL, which GitHub redirects
+    "github.com/qic-9821/dsh": "github.com/qic-9821/dsh-memory-sync",
 }
 
 # Contributors who submitted via the official discussion (not the issue form).
