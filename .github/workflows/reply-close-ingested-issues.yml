@@ -1,0 +1,76 @@
+name: Reply and close ingested plugin issues
+
+# One-shot: the cloud agent token cannot write issues. This workflow uses the
+# repo GITHUB_TOKEN (issues: write) to post catalog close-outs for #267–#270.
+# Safe to delete after it succeeds. It does not touch #261, #250, #205, or #207.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/reply-close-ingested-issues.yml
+
+permissions:
+  issues: write
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comment and close #267, #268, #269, and #270
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const closeOut = {
+              267: [
+                "感谢提交！**dsh-pc-bridge** 已经收录进目录了：https://dshbase.com/plugins/dsh-pc-bridge/",
+                "",
+                "只在本机回环上开一座小桥，让可信的对端探活、跑命令，还能可选地守着 ssh 反向隧道，这个设计很干净，放在网络分类刚刚好。对端机器和共享密钥的要求已经写在目录页上。感谢分享给社区 🙌",
+              ].join("\n"),
+              268: [
+                "感谢提交！**dsh-wechat-pad** 已经收录进目录了：https://dshbase.com/plugins/dsh-wechat-pad/",
+                "",
+                "私聊自动回、群里被 @ 才说话，还按群拆开会话，这个实验性接法很有意思。目录页写明了它依赖你自建的微信 iPad 协议后端（以及扫码登录的微信号），协议端本身不随包提供。感谢分享给社区 🙌",
+              ].join("\n"),
+              269: [
+                "感谢提交！**dsh-obsidian-notes** 已经收录进目录了：https://dshbase.com/plugins/dsh-obsidian-notes/",
+                "",
+                "把本地 Markdown 文件夹放进右侧栏，目录树、带行号的预览和编辑，还能选中一段直接带着路径问 AI，太适合知识分类了。纯本地、开箱即用。感谢分享给社区 🙌",
+              ].join("\n"),
+              270: [
+                "感谢提交！**dsh-todo-time-log** 已经收录进目录了：https://dshbase.com/plugins/dsh-todo-time-log/",
+                "",
+                "待办不只记「还有什么没做」，还自动记下创建和完成时间，表格、看板、甘特图、日历四视图一起看真实耗时，这个角度太适合效率分类了。数据留在本机。感谢分享给社区 🙌",
+              ].join("\n"),
+            };
+
+            async function ensureComment(issue_number, body, marker) {
+              const existing = await github.rest.issues.listComments({
+                owner,
+                repo,
+                issue_number,
+                per_page: 100,
+              });
+              const already = existing.data.some((c) => (c.body || "").includes(marker));
+              if (!already) {
+                await github.rest.issues.createComment({ owner, repo, issue_number, body });
+                core.info(`commented #${issue_number}`);
+              } else {
+                core.info(`#${issue_number} already has the catalog note`);
+              }
+            }
+
+            for (const [num, body] of Object.entries(closeOut)) {
+              const issue_number = Number(num);
+              const marker = body.match(/https:\/\/dshbase\.com\/plugins\/[^/\s]+\/?/)[0];
+              await ensureComment(issue_number, body, marker);
+              await github.rest.issues.update({
+                owner,
+                repo,
+                issue_number,
+                state: "closed",
+                state_reason: "completed",
+              });
+              core.info(`closed #${issue_number}`);
+            }
