@@ -5785,7 +5785,7 @@
    "trust": "Gold",
    "slug": "dsh-approval-llm",
    "platform": "any",
-   "bareNpm": "install-fail",
+   "bareNpm": "other",
    "contributors": 0,
    "depCount": 10,
    "depsOfficial": 10,
@@ -24345,7 +24345,7 @@
    "depsOfficial": 0,
    "repoOwner": "LongSir0419",
    "_enriched": "2026-08-21|0.1.6",
-   "bareNpm": "other",
+   "bareNpm": "install-fail",
    "trust": "Gold",
    "ucs": [
     "GitHub integration"
@@ -210245,7 +210245,7 @@
    "pkg": "dsh-plugin-dbgraph",
    "ver": "0.1.0",
    "npm": true,
-   "test": "listed",
+   "test": "verified",
    "desc": "Database structure for DeepSeek Harness — indexes a database catalog into a local store so the agent knows every table and column before it writes a query, then answers with one tool call",
    "desc_en": "Database structure for DeepSeek Harness — indexes a database catalog into a local store so the agent knows every table and column before it writes a query, then answers with one tool call",
    "desc_zh": "给 agent 的数据库结构图谱：索引远端库 catalog 到本地 SQLite，写 SQL 前注入表字段摘要；支持 sqlite/mysql/postgres/mongodb/redis。",
@@ -210258,7 +210258,9 @@
    "added": "2026-11-05T19:43:12",
    "license": "MIT",
    "slug": "dsh-plugin-dbgraph",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other",
+   "testDate": "2026-11-06"
   }
  ],
  "AI Models": [
@@ -267660,7 +267662,7 @@
    "trust": "Gold",
    "slug": "dsh-doublecheck",
    "platform": "any",
-   "bareNpm": "other",
+   "bareNpm": "install-fail",
    "contributors": 2,
    "depCount": 12,
    "depsOfficial": 10,
@@ -367914,7 +367916,8 @@
    "desc_zh": "把本地 Markdown 文件夹放进 DSH 右侧栏：目录树、带行号的 Obsidian 风格预览和编辑，粘贴截图直接进笔记库，选中文字可带路径和行号向 AI 提问。",
    "note": "Issue #269 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm dsh-obsidian-notes@0.5.2 (maintainer revive123456; repository revive123456/dsh-obsidian-notes; gitHead c86707bff6cc6ed6badd5d0633ebf7f6a4f4409b; published 2026-11-02T13:41:37Z). Install: dsh plugin --profile web add dsh-obsidian-notes, then restart the host. GitHub Release v0.5.2; pin github:revive123456/dsh-obsidian-notes#v0.5.2 (e0b14ad4839b027020eae0f96dd600f2f4b5f554). The tag is two commits after the npm gitHead (a readme pointer and a gitignore); default-branch HEAD 44d45cfee28a035cf9d74257b38a4c9a8995ffd0 is one commit after the tag (screenshots.json and assets/icon-180.png) and does not bump the version. Declares node ^22.19 || >=24. No engines.dsh field. README requires DSH 0.2.1+ and pnpm on the CLI install path. Author reports a one-command install check on an isolated DSH 0.2.1-rc.5 profile; dshbase did not re-run it. Local Markdown folder only: sidebar tree, line-numbered preview and edit, paste screenshots into the vault, ask with path and line numbers. No telemetry and no third-party API. Ships a prebuilt lib/client.js. Distinct from dsh-obsidian, dsh-obsidian-assistant, dsh-obsidian-vault, and dsh-obsidian-note.",
    "testDate": "2026-11-06",
-   "repoOwner": "revive123456"
+   "repoOwner": "revive123456",
+   "bareNpm": "other"
   }
  ],
  "Desktop": [
@@ -409079,7 +409082,8 @@
    "needsZh": "实验性。需要一个微信账号扫码登录（非官方 iPad 协议，有封号风险），以及你自己部署的 iPad 协议后端（目前适配 WeChatPadPro 一类接口）。本包不提供协议端、不提供账号，也不提供绕过风控的手段。协议端和 DSH 不在同一台机器时，还需要公网地址或隧道，webhook 才能回调到 DSH。",
    "note": "Issue #268 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. Experimental. npm dsh-wechat-pad@0.1.0 (maintainer qic-9821; repository QIC-9821/dsh-wechat-pad; gitHead 7fd029d8fe75a889268604f782532e2d786c11cf; published 2026-11-06T00:42:28Z). Install: dsh plugin add dsh-wechat-pad. GitHub Release v0.1.0; pin github:QIC-9821/dsh-wechat-pad#v0.1.0 (7fd029d8fe75a889268604f782532e2d786c11cf). Default-branch HEAD 358b7209998f346405beb687bf947822b96576e5 is one commit after the tag (feat: settings UI, group policy and message coalescing) and sets package.json to 0.2.0; 0.2.0 is not on npm and has no tag, so the catalog row stays on 0.1.0. Declares node >=22. No engines.dsh field. README asks for DSH 0.2.x. The package does not implement a WeChat protocol: it talks to a self-hosted iPad-protocol backend (WeChatPadPro-compatible HTTP). Required config is padUrl plus a token (padToken or DSH_WECHAT_PAD_TOKEN). QR login, per-group sessions, group replies only when mentioned, webhook written back on startup. Author warns the unofficial protocol breaks WeChat's terms and can ban the account. This package does not ship the protocol server, an account, or ban-evasion. Distinct from dsh-wechat, dsh-wechat-bridge, and dsh-wechat-gateway.",
    "testDate": "2026-11-06",
-   "repoOwner": "QIC-9821"
+   "repoOwner": "QIC-9821",
+   "bareNpm": "other"
   }
  ],
  "Network": [
@@ -420391,7 +420395,8 @@
    "needsZh": "需要一台能访问本机的可信对端（或一条 ssh 反向隧道，把桥映射到对端回环）以及共享密钥。桥只监听 127.0.0.1，不依赖第三方账号或云服务。开启隧道时，本机还要有 ssh 和密钥。",
    "note": "Issue #267 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm dsh-pc-bridge@0.1.0 (maintainer qic-9821; repository QIC-9821/dsh-pc-bridge; gitHead 725ea627526c522f7834b3343246e145a0a0dfc5; published 2026-11-06T00:45:26Z). Install: dsh plugin add dsh-pc-bridge. GitHub Release v0.1.0; pin github:QIC-9821/dsh-pc-bridge#v0.1.0 (725ea627526c522f7834b3343246e145a0a0dfc5). Tag, npm gitHead, and default-branch HEAD match. Declares node >=22. No engines.dsh field. No npm dependencies. Host bridge listens on 127.0.0.1:18790 (POST /exec, GET|POST /ping) and requires header x-pc-secret; the secret comes from DSH_PC_BRIDGE_SECRET or a generated file under $DSH_HOME/pc-bridge/secret. Tools pc_ping and pc_exec. CLI pcctl works without Harness. Optional tunnelEnabled supervises ssh -N -R and reconnects with backoff; both ends stay on loopback. Distinct from dsh-pc-manager.",
    "testDate": "2026-11-06",
-   "repoOwner": "QIC-9821"
+   "repoOwner": "QIC-9821",
+   "bareNpm": "other"
   }
  ],
  "Browser": [
@@ -497696,7 +497701,7 @@
    "pkg": "dsh-plugin-sessiongraph",
    "ver": "0.1.21",
    "npm": true,
-   "test": "listed",
+   "test": "verified",
    "desc": "Local conversation-history index for DeepSeek Harness — full-text search across every local session (Chinese two-character terms included), with a Rust kernel",
    "desc_en": "Local conversation-history index for DeepSeek Harness — full-text search across every local session (Chinese two-character terms included), with a Rust kernel",
    "desc_zh": "本机全部 DSH 会话的全文索引：跨工作区检索对话，中文双字分词；sessiongraph_index 构建与刷新索引。",
@@ -497709,7 +497714,9 @@
    "added": "2026-11-05T19:43:06",
    "license": "MIT",
    "slug": "dsh-plugin-sessiongraph",
-   "platform": "any"
+   "platform": "any",
+   "bareNpm": "other",
+   "testDate": "2026-11-06"
   },
   {
    "name": "dsh-todo-time-log",
@@ -497733,7 +497740,8 @@
    "desc_zh": "待办插件：自动记下每条待办的创建与完成时间，用表格、看板、甘特图和日历呈现真实耗时；支持分类、优先级、类型、@工作区文件，以及 todo_time_log 工具和 /todo 命令。",
    "note": "Issue #270 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm dsh-todo-time-log@0.6.2 (maintainer spongzi; repository FantasyStarry/dsh-todo-time-log; gitHead d4ab778dda011f3e6bddf0aa76534e834b14e6fb; published 2026-11-06T01:40:15Z). Install: dsh plugin add dsh-todo-time-log. GitHub Release v0.6.2; pin github:FantasyStarry/dsh-todo-time-log#v0.6.2 (d4ab778dda011f3e6bddf0aa76534e834b14e6fb). Tag, npm gitHead, and default-branch HEAD match. Declares node >=20 and dsh >=0.2.0-rc.2 <0.2.3-0. Optional peer @deepseek-ai/dsh with the same range (peerDependenciesMeta.optional is true); the host already provides dsh, so this is not an external account. Local JSON store, no network and no upload. Table, kanban, Gantt, and calendar views; categories, priority, type, @workspace files, JSON/CSV import and export, agent tool todo_time_log, and the /todo command. Distinct from dsh-todo-list, dsh-todos, dsh-todo-board, and dsh-personal-todo.",
    "testDate": "2026-11-06",
-   "repoOwner": "FantasyStarry"
+   "repoOwner": "FantasyStarry",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-content-search",
@@ -497757,7 +497765,8 @@
    "desc_zh": "在对话头部加一个搜索按钮，命中结果在右侧栏展示：检索走宿主日志，所以能搜整段会话历史（不只是已加载的那部分），命中关键词在用户消息和 AI 回复里都标黄，点结果可跳转到对话中的位置；全文索引被关闭时同样可用。",
    "note": "Issue #275 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm dsh-content-search@1.0.1 (maintainer appthin; repository appthin/dsh-content-search; gitHead 4bcd1ffcad067e9c0825286d7ab1f2c88f6cb04f; published 2026-11-06T06:29:19Z; tarball sha1 3098bf4ac8eeae5e37c7a1220989d89ab7fee05f). Install: dsh plugin --profile web add dsh-content-search. GitHub Release v1.0.1; pin github:appthin/dsh-content-search#v1.0.1 (4bcd1ffcad067e9c0825286d7ab1f2c88f6cb04f). Tag, npm gitHead, and default-branch HEAD match. No node engines field. Declares engines.dsh >=0.1.6-alpha.1 <0.3.0. Optional peer @deepseek-ai/dsh with the same range (peerDependenciesMeta.optional is true); the host already provides dsh, so this is not an external account. No npm dependencies. Web client bundle. Header button at conversation.session.header.utilities (order 15) and a right-sidebar tab type contentSearch. Loaded-window search is client-side; whole-history search is read-only GET /api/content-search.search, which scans the committed host log with sessionQuery.filterEvents, so it still works when the full-text index is off (openAt never). Yellow highlight on user and assistant text; a click jumps to the hit. Local only: reads the log, writes no session events, no third-party API or account. Author reports a linked-bundle check on DSH desktop 0.2.1-rc.5 and 0.2.2-rc.1, including the 1.0.1 registry race fix (ctx.inject sidebarRightTabs) registering exactly one contentSearch tab type for both early and late order against @deepseek-ai/cordis 4.1.0; dshbase did not re-run it. The desktop profile is Electron-managed, so dsh plugin --profile desktop is rejected; install in-app or on the web profile. Distinct from dsh-conv-search (Ctrl+F over the loaded window) and dsh-plugin-sessiongraph (cross-session index).",
    "testDate": "2026-11-06",
-   "repoOwner": "appthin"
+   "repoOwner": "appthin",
+   "bareNpm": "other"
   }
  ],
  "Content": [
