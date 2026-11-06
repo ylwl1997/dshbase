@@ -20,6 +20,12 @@
     "slug": "dsh-rea-agents",
     "npm": true,
     "pkg": "dsh-rea-agents"
+   },
+   {
+    "name": "dsh-content-search",
+    "slug": "dsh-content-search",
+    "npm": true,
+    "pkg": "dsh-content-search"
    }
   ]
  },

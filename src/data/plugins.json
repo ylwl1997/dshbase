@@ -497734,6 +497734,30 @@
    "note": "Issue #270 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm dsh-todo-time-log@0.6.2 (maintainer spongzi; repository FantasyStarry/dsh-todo-time-log; gitHead d4ab778dda011f3e6bddf0aa76534e834b14e6fb; published 2026-11-06T01:40:15Z). Install: dsh plugin add dsh-todo-time-log. GitHub Release v0.6.2; pin github:FantasyStarry/dsh-todo-time-log#v0.6.2 (d4ab778dda011f3e6bddf0aa76534e834b14e6fb). Tag, npm gitHead, and default-branch HEAD match. Declares node >=20 and dsh >=0.2.0-rc.2 <0.2.3-0. Optional peer @deepseek-ai/dsh with the same range (peerDependenciesMeta.optional is true); the host already provides dsh, so this is not an external account. Local JSON store, no network and no upload. Table, kanban, Gantt, and calendar views; categories, priority, type, @workspace files, JSON/CSV import and export, agent tool todo_time_log, and the /todo command. Distinct from dsh-todo-list, dsh-todos, dsh-todo-board, and dsh-personal-todo.",
    "testDate": "2026-11-06",
    "repoOwner": "FantasyStarry"
+  },
+  {
+   "name": "dsh-content-search",
+   "slug": "dsh-content-search",
+   "ver": "1.0.1",
+   "pkg": "dsh-content-search",
+   "npm": true,
+   "test": "verified",
+   "license": "MIT",
+   "platform": "any",
+   "language": "JavaScript",
+   "stars": 2,
+   "forks": 0,
+   "issues": 0,
+   "archived": false,
+   "updated": "2026-11-06",
+   "added": "2026-11-06T09:50:00",
+   "url": "https://github.com/appthin/dsh-content-search",
+   "desc": "A search button in the conversation header. Hits open in the right sidebar, the host log covers the whole session and not only the loaded window, keywords highlight in yellow in both user and assistant messages, and a click jumps to the match. It still works when full-text indexing is off.",
+   "desc_en": "A search button in the conversation header. Hits open in the right sidebar, the host log covers the whole session and not only the loaded window, keywords highlight in yellow in both user and assistant messages, and a click jumps to the match. It still works when full-text indexing is off.",
+   "desc_zh": "在对话头部加一个搜索按钮，命中结果在右侧栏展示：检索走宿主日志，所以能搜整段会话历史（不只是已加载的那部分），命中关键词在用户消息和 AI 回复里都标黄，点结果可跳转到对话中的位置；全文索引被关闭时同样可用。",
+   "note": "Issue #275 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm dsh-content-search@1.0.1 (maintainer appthin; repository appthin/dsh-content-search; gitHead 4bcd1ffcad067e9c0825286d7ab1f2c88f6cb04f; published 2026-11-06T06:29:19Z; tarball sha1 3098bf4ac8eeae5e37c7a1220989d89ab7fee05f). Install: dsh plugin --profile web add dsh-content-search. GitHub Release v1.0.1; pin github:appthin/dsh-content-search#v1.0.1 (4bcd1ffcad067e9c0825286d7ab1f2c88f6cb04f). Tag, npm gitHead, and default-branch HEAD match. No node engines field. Declares engines.dsh >=0.1.6-alpha.1 <0.3.0. Optional peer @deepseek-ai/dsh with the same range (peerDependenciesMeta.optional is true); the host already provides dsh, so this is not an external account. No npm dependencies. Web client bundle. Header button at conversation.session.header.utilities (order 15) and a right-sidebar tab type contentSearch. Loaded-window search is client-side; whole-history search is read-only GET /api/content-search.search, which scans the committed host log with sessionQuery.filterEvents, so it still works when the full-text index is off (openAt never). Yellow highlight on user and assistant text; a click jumps to the hit. Local only: reads the log, writes no session events, no third-party API or account. Author reports a linked-bundle check on DSH desktop 0.2.1-rc.5 and 0.2.2-rc.1, including the 1.0.1 registry race fix (ctx.inject sidebarRightTabs) registering exactly one contentSearch tab type for both early and late order against @deepseek-ai/cordis 4.1.0; dshbase did not re-run it. The desktop profile is Electron-managed, so dsh plugin --profile desktop is rejected; install in-app or on the web profile. Distinct from dsh-conv-search (Ctrl+F over the loaded window) and dsh-plugin-sessiongraph (cross-session index).",
+   "testDate": "2026-11-06",
+   "repoOwner": "appthin"
   }
  ],
  "Content": [
