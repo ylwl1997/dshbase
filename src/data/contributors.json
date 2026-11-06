@@ -1796,6 +1796,42 @@
     "slug": "dsh-memory-sync",
     "npm": true,
     "pkg": "dsh-memory-sync"
+   },
+   {
+    "name": "dsh-pc-bridge",
+    "slug": "dsh-pc-bridge",
+    "npm": true,
+    "pkg": "dsh-pc-bridge"
+   },
+   {
+    "name": "dsh-wechat-pad",
+    "slug": "dsh-wechat-pad",
+    "npm": true,
+    "pkg": "dsh-wechat-pad"
+   }
+  ]
+ },
+ {
+  "github": "revive123456",
+  "avatar": "https://avatars.githubusercontent.com/u/264570768?v=4",
+  "plugins": [
+   {
+    "name": "dsh-obsidian-notes",
+    "slug": "dsh-obsidian-notes",
+    "npm": true,
+    "pkg": "dsh-obsidian-notes"
+   }
+  ]
+ },
+ {
+  "github": "FantasyStarry",
+  "avatar": "https://avatars.githubusercontent.com/u/165247386?v=4",
+  "plugins": [
+   {
+    "name": "dsh-todo-time-log",
+    "slug": "dsh-todo-time-log",
+    "npm": true,
+    "pkg": "dsh-todo-time-log"
    }
   ]
  }
