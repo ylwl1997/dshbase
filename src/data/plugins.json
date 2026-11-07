@@ -497767,6 +497767,31 @@
    "testDate": "2026-11-06",
    "repoOwner": "appthin",
    "bareNpm": "other"
+  },
+  {
+   "name": "dsh-time-pin",
+   "slug": "dsh-time-pin",
+   "ver": "0.2.0",
+   "pkg": "dsh-time-pin",
+   "npm": true,
+   "test": "verified",
+   "license": "MIT",
+   "platform": "any",
+   "language": "JavaScript",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "archived": false,
+   "updated": "2026-11-06",
+   "added": "2026-11-07T00:11:21",
+   "url": "https://github.com/HenryHe520/dsh-time-pin",
+   "desc": "Pin each conversation's as-of clock and a dated evidence window before and after it (past, future, or BC). In restricted mode, web_search keeps only dated sources inside the window and the first reply echoes that window; silent background jobs get deterministic [TIME FACT] facts. Default mode injects nothing and filters nothing.",
+   "desc_en": "Pin each conversation's as-of clock and a dated evidence window before and after it (past, future, or BC). In restricted mode, web_search keeps only dated sources inside the window and the first reply echoes that window; silent background jobs get deterministic [TIME FACT] facts. Default mode injects nothing and filters nothing.",
+   "desc_zh": "给每个对话钉住 as_of 时间点和前后回看范围（过去、未来或公元前均可）。受限模式下只保留窗口内带日期的 web_search 证据，首条回复必须复述时间窗；长时间静默的后台任务会收到确定性的 [TIME FACT]。默认模式不注入、不过滤。",
+   "note": "Issue #279 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm dsh-time-pin@0.2.0 (maintainer henryhe520; repository HenryHe520/dsh-time-pin; gitHead 9e245c3d3fb73f55d7e99f9271f4de35a2c0f17f; published 2026-11-06T14:44:15Z; tarball sha1 85e5c48dbc2b438b1c8a1083ecde5e235fc05ce8). Install: dsh plugin add dsh-time-pin into the profile you chat in (--profile web or --profile desktop); the header chip needs a Web/Desktop profile, and Host modules need one restart after install. GitHub Release v0.2.0; pin github:HenryHe520/dsh-time-pin#v0.2.0 (9e245c3d3fb73f55d7e99f9271f4de35a2c0f17f). Tag and npm gitHead match. Default-branch HEAD 97825c14fc6fcdc098bb086f709f5ef6be01c7ac is one commit after the tag (INDEXING.md and PUBLISH.md only) and does not bump the version. Declares node >=20 and dsh >=0.2.1-rc <2. Optional peers @deepseek-ai/cordis >=4.0.0-rc <5, @deepseek-ai/schemastery ^3.18.0, @deepseek-ai/dsh-llm, @deepseek-ai/dsh-session, @deepseek-ai/dsh-session-projection, and @deepseek-ai/dsh-tools (all >=0.2.1-rc <2), plus zod ^4; peerDependenciesMeta.optional is true and the host already provides them, so this is not an external account. No npm dependencies. Web client (header chip, /pin panel, Configure page) plus a host evidence filter. Restricted mode keeps dated web_search sources inside [as_of − before, as_of + after] and drops undated sources; the first reply must echo the window. Default mode injects nothing and filters nothing. Silence narration is on by default (90s, then every 3 minutes) and appends deterministic [TIME FACT] facts for silent background jobs. Zero telemetry and no plugin-owned network. The model cannot move the window. Author README says the 0.1.0 build was loaded in a DSH desktop 0.2.1-rc.5 profile; dshbase did not re-run a 0.2.0 install. The issue cited npm 0.1.1; the catalog row uses live latest 0.2.0. Distinct from dsh-time-inject, dsh-time-context, dsh-time-prefix, dsh-timestamp, dsh-time-stamp, dsh-timer, dsh-time-machine, dsh-plugin-verified-search, and dsh-turn-watchdog.",
+   "testDate": "2026-11-07",
+   "repoOwner": "HenryHe520",
+   "bareNpm": "other"
   }
  ],
  "Content": [

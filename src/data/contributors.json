@@ -1840,5 +1840,17 @@
     "pkg": "dsh-todo-time-log"
    }
   ]
+ },
+ {
+  "github": "HenryHe520",
+  "avatar": "https://avatars.githubusercontent.com/u/291243204?v=4",
+  "plugins": [
+   {
+    "name": "dsh-time-pin",
+    "slug": "dsh-time-pin",
+    "npm": true,
+    "pkg": "dsh-time-pin"
+   }
+  ]
  }
 ]
