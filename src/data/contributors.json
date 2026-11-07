@@ -1864,5 +1864,17 @@
     "pkg": "@xrn1997/dsh-session-delete"
    }
   ]
+ },
+ {
+  "github": "resnowh",
+  "avatar": "https://avatars.githubusercontent.com/u/74843108?v=4",
+  "plugins": [
+   {
+    "name": "dsh-caption-balance",
+    "slug": "dsh-caption-balance",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
  }
 ]
