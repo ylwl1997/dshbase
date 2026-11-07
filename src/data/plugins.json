@@ -336611,6 +336611,30 @@
    "testDate": "2026-11-05",
    "bareNpm": "other",
    "repoOwner": "StarRob1n"
+  },
+  {
+   "name": "dsh-caption-balance",
+   "slug": "dsh-caption-balance",
+   "ver": "0.2.1",
+   "pkg": "",
+   "npm": false,
+   "test": "verified",
+   "license": "MIT",
+   "platform": "any",
+   "language": "JavaScript",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "archived": false,
+   "updated": "2026-11-07",
+   "added": "2026-11-07T09:34:41",
+   "url": "https://github.com/resnowh/dsh-caption-balance",
+   "desc": "A one-line readout in the DeepSeek Harness desktop title bar, just after 应用 / 编辑: account balance, today's spend, and the current peak or off-peak window. macOS desktop and dsh web fall back to the same chip in the session header.",
+   "desc_en": "A one-line readout in the DeepSeek Harness desktop title bar, just after 应用 / 编辑: account balance, today's spend, and the current peak or off-peak window. macOS desktop and dsh web fall back to the same chip in the session header.",
+   "desc_zh": "在桌面端标题栏（应用 / 编辑 右侧）显示账号余额、今日花费和当前峰谷时段。macOS 桌面端和 dsh web 没有这排菜单时，退回会话标题栏显示同款读数。",
+   "note": "Issue #287 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. Not on npm (registry 404 for dsh-caption-balance). Package id dsh-caption-balance@0.2.1. Install: dsh plugin --profile desktop add github:resnowh/dsh-caption-balance. GitHub Release v0.2.1; pin github:resnowh/dsh-caption-balance#v0.2.1 (40c68f2116a20bba0f095fc741659a7ba9d93d8c). Tag matches package.json version 0.2.1. Default-branch HEAD a846ee25958925070f741e6d97e7bb54d07c8007 is four commits after the tag (awesome-dsh-plugin listing draft, fallback-chip test, CI test discovery, CI badge) and does not bump the version. Declares dsh >=0.2.2-rc.1 <0.3.0-0. No npm dependencies and no peerDependencies; no build step. Host route GET /api/dsh-caption-balance/summary answers only loopback, same-origin, non-cross-site callers. Balance comes from deepseekAccount.getBalance, the same source as Settings → Account & balance; the plugin does not read or store credentials. Today's spend is an estimate from local session logs under $DSH_HOME/sessions, using the off-peak price table; peak hours (Beijing weekdays 09:00–12:00 and 14:00–18:00) multiply by peakMultiplier (default 2). The issue says no external account. Windows desktop places the chip in the caption menu after 应用 / 编辑; macOS desktop and dsh web fall back to conversation.session.header.utilities after 4 seconds. Restart the app and hard-reload after install. Author README requires DeepSeek Harness desktop 0.2.2-rc.1 or newer; dshbase did not re-run it. Distinct from dsh-balance-ball, dsh-account-balance, dsh-balance, deepseek-usage, and dsh-usage.",
+   "testDate": "2026-11-07",
+   "repoOwner": "resnowh"
   }
  ],
  "Knowledge": [
