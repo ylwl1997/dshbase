@@ -1852,5 +1852,17 @@
     "pkg": "dsh-time-pin"
    }
   ]
+ },
+ {
+  "github": "xrn1997",
+  "avatar": "https://avatars.githubusercontent.com/u/61549147?v=4",
+  "plugins": [
+   {
+    "name": "@xrn1997/dsh-session-delete",
+    "slug": "dsh-session-delete-32",
+    "npm": true,
+    "pkg": "@xrn1997/dsh-session-delete"
+   }
+  ]
  }
 ]
