@@ -10,9 +10,23 @@ pass). Refresh never touches `test` (do not downgrade existing verified entries)
 Source: https://www.dsh.so/search-index.json
   (includes owner/repo — no detail-page scrape required for cron)
 
+  Current payload is a v2 object {v, d, i, p}:
+    v = 2
+    d.c  category names; d.u  use-case names
+    i    rows [slug, name, owner, repo, description,
+               cat_indices, usecase_indices, stars_str, starsN]
+    p    topic cards — ignored
+  load_index() expands each i row into a dict with
+  name, owner, repo, description, stars, starsN, ucs, categories, slug.
+  A legacy JSON array of those objects is still accepted.
+  Malformed rows are skipped. SKIP_NAMES (deepseek-harness) is always
+  dropped. Upstream category "Interface & Layout" folds into "UI & Skins".
+  Catalog rows are not stamped with a public source attribution.
+
 Dedup identity: canonical GitHub owner/repo only
   (normalize https/http, www, .git suffix, trailing slash, case).
   Display-name collisions alone are NOT duplicates.
+  When two index rows share a repo, the higher starsN wins.
 
 Usage:
   python scripts/sync-dshso.py [--dry-run] [--no-add] [--max-add N]
@@ -50,11 +64,12 @@ UA = {
     "User-Agent": "dshbase-sync-dshso/1.0 (+https://github.com/ylwl1997/dshbase)"
 }
 
-# 15 categories (dsh.so cats merged). key=ours, value=their source names
+# Catalog buckets. key=ours, value=upstream names that fold into the key.
+# "Interface & Layout" is the v2 label for the UI bucket.
 CAT_MERGE = {
     "Developer": ["Developer"],
     "AI Models": ["AI Models"],
-    "UI & Skins": ["UI & Skins", "Game"],
+    "UI & Skins": ["UI & Skins", "Game", "Interface & Layout"],
     "Knowledge": ["Knowledge"],
     "Desktop": ["Desktop", "Launcher"],
     "Automation": ["Automation"],
@@ -81,6 +96,11 @@ USE_CASES = [
     "GitHub integration",
     "Code review",
     "Notifications",
+    # v2 d.u names that were not in the original allow-list
+    "Agent orchestration",
+    "Creator & social",
+    "Office automation",
+    "Skins & Themes",
 ]
 
 SKIP_NAMES = {"deepseek-harness"}
@@ -154,6 +174,15 @@ def primary_cat(cats: list) -> str:
     return "Developer"
 
 
+def meta_categories(meta: dict) -> list:
+    """Category names for a row. v2 uses `categories`; legacy objects used `cats`."""
+    cats = meta.get("categories")
+    if isinstance(cats, list) and cats:
+        return cats
+    legacy = meta.get("cats")
+    return legacy if isinstance(legacy, list) else []
+
+
 def make_slug(name: str, fallback: str) -> str:
     if fallback:
         return fallback
@@ -162,17 +191,133 @@ def make_slug(name: str, fallback: str) -> str:
     return name
 
 
-def load_index(path: str | None, timeout: int) -> list:
-    if path:
-        raw = json.load(open(path, encoding="utf-8"))
-    else:
-        raw = json.loads(http_get(INDEX_URL, timeout=timeout))
+def _text(value) -> str:
+    """Coerce a scalar index field to a stripped string. Containers become empty."""
+    if isinstance(value, str):
+        return value.strip()
+    if value is None or isinstance(value, (list, dict, bool)):
+        return ""
+    return str(value).strip()
+
+
+def _coerce_stars_n(stars_n, stars) -> int:
+    if isinstance(stars_n, bool):
+        return parse_stars(stars)
+    if isinstance(stars_n, int):
+        return stars_n
+    if isinstance(stars_n, float):
+        return int(stars_n)
+    parsed = parse_stars(stars_n)
+    if parsed:
+        return parsed
+    return parse_stars(stars)
+
+
+def _lookup_names(table, indices) -> list | None:
+    """Resolve a list of indexes into table names.
+
+    None means the index field itself is malformed (not a list). Out-of-range
+    or non-int indexes are dropped so one bad pointer does not discard the row.
+    """
+    if not isinstance(indices, list):
+        return None
+    if not isinstance(table, list):
+        table = []
+    names: list[str] = []
+    for i in indices:
+        # bool is an int subclass; True would otherwise select table[1].
+        if isinstance(i, bool) or not isinstance(i, int):
+            continue
+        if 0 <= i < len(table) and isinstance(table[i], str) and table[i]:
+            names.append(table[i])
+    return names
+
+
+def _expand_v2_row(row, cat_names: list, uc_names: list) -> dict | None:
+    """Expand one v2 `i` row into the dict shape the rest of the sync expects.
+
+    Row layout: [slug, name, owner, repo, description, cat_indices,
+    usecase_indices, stars_str, starsN]. Returns None for a bad row.
+    """
+    if not isinstance(row, (list, tuple)) or len(row) < 9:
+        return None
+    slug, name, owner, repo, description, cat_idx, uc_idx, stars, stars_n = row[:9]
+    name_s = _text(name)
+    if not name_s:
+        return None
+    categories = _lookup_names(cat_names, cat_idx)
+    usecases = _lookup_names(uc_names, uc_idx)
+    if categories is None or usecases is None:
+        return None
+    return {
+        "slug": _text(slug),
+        "name": name_s,
+        "owner": _text(owner),
+        "repo": _text(repo),
+        "description": _text(description),
+        "stars": stars if isinstance(stars, str) else _text(stars),
+        "starsN": _coerce_stars_n(stars_n, stars),
+        "ucs": usecases,
+        "categories": categories,
+    }
+
+
+def _load_v2(raw: dict) -> list:
+    """Expand a {v, d, i, p} document. `p` (topic cards) is intentionally unused."""
+    d = raw.get("d") if isinstance(raw.get("d"), dict) else {}
+    cat_names = d.get("c") if isinstance(d.get("c"), list) else []
+    uc_names = d.get("u") if isinstance(d.get("u"), list) else []
     out = []
+    skipped = 0
+    for row in raw.get("i") or []:
+        item = _expand_v2_row(row, cat_names, uc_names)
+        if item is None:
+            skipped += 1
+            continue
+        if item["name"] in SKIP_NAMES:
+            continue
+        out.append(item)
+    if skipped:
+        print(f"search-index: skipped {skipped} bad rows")
+    return out
+
+
+def _load_legacy_array(raw: list) -> list:
+    """Accept the pre-v2 JSON array of plugin objects. Non-objects are bad rows."""
+    out = []
+    skipped = 0
     for x in raw:
+        if not isinstance(x, dict):
+            skipped += 1
+            continue
         if x.get("name") in SKIP_NAMES:
             continue
+        # Older objects used `cats`. Downstream reads `categories`.
+        if "categories" not in x and isinstance(x.get("cats"), list):
+            x = {**x, "categories": list(x["cats"])}
         out.append(x)
+    if skipped:
+        print(f"search-index: skipped {skipped} bad rows")
     return out
+
+
+def load_index(path: str | None, timeout: int) -> list:
+    """Load the upstream search index as a list of plugin dicts.
+
+    Supports the current v2 object and a legacy JSON array of objects.
+    """
+    if path:
+        with open(path, encoding="utf-8") as f:
+            raw = json.load(f)
+    else:
+        raw = json.loads(http_get(INDEX_URL, timeout=timeout))
+    if isinstance(raw, list):
+        return _load_legacy_array(raw)
+    if isinstance(raw, dict) and raw.get("v", 2) == 2 and isinstance(raw.get("i"), list):
+        return _load_v2(raw)
+    raise SystemExit(
+        "search-index.json: expected a v2 object {v, d, i, p} or a legacy array"
+    )
 
 
 def index_by_repo(their: list) -> dict:
@@ -209,10 +354,12 @@ def refresh_plugin(p: dict, meta: dict) -> bool:
     if ucs and p.get("ucs") != ucs:
         p["ucs"] = ucs
         changed = True
-    archived = meta.get("health") == "Archived"
-    if bool(p.get("archived")) != archived:
-        p["archived"] = archived
-        changed = True
+    # v2 rows have no health field. Absence must not clear an existing flag.
+    if "health" in meta:
+        archived = meta.get("health") == "Archived"
+        if bool(p.get("archived")) != archived:
+            p["archived"] = archived
+            changed = True
     # Prefer dsh.so description when ours is empty
     desc = (meta.get("description") or "").strip()
     if desc:
@@ -323,7 +470,7 @@ def main() -> int:
         return 0
 
     for key, meta in to_add:
-        cat = primary_cat(meta.get("cats") or [])
+        cat = primary_cat(meta_categories(meta))
         entry = build_new_entry(meta, today)
         # Re-check identity only (another add in this run)
         if canonical_repo(entry["url"]) in ours_by_repo:
