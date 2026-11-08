@@ -10,6 +10,12 @@
     "pkg": "dsh-skills-manager-plus"
    },
    {
+    "name": "dsh-content-search",
+    "slug": "dsh-content-search",
+    "npm": true,
+    "pkg": "dsh-content-search"
+   },
+   {
     "name": "dsh-mcp-manager-plus",
     "slug": "dsh-mcp-manager-plus",
     "npm": true,
@@ -20,12 +26,54 @@
     "slug": "dsh-rea-agents",
     "npm": true,
     "pkg": "dsh-rea-agents"
+   }
+  ]
+ },
+ {
+  "github": "ayuanxx-max",
+  "avatar": "https://avatars.githubusercontent.com/u/307478908?v=4",
+  "plugins": [
+   {
+    "name": "dsh-session-accordion",
+    "slug": "dsh-session-accordion",
+    "npm": false,
+    "pkg": ""
    },
    {
-    "name": "dsh-content-search",
-    "slug": "dsh-content-search",
+    "name": "dsh-session-fork-tree",
+    "slug": "dsh-session-fork-tree",
+    "npm": false,
+    "pkg": ""
+   },
+   {
+    "name": "dsh-smooth",
+    "slug": "dsh-smooth",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "CC19990113",
+  "avatar": "https://avatars.githubusercontent.com/u/134904617?v=4",
+  "plugins": [
+   {
+    "name": "dsh-plugin-codegraph",
+    "slug": "dsh-plugin-codegraph",
+    "npm": false,
+    "pkg": ""
+   },
+   {
+    "name": "dsh-plugin-dbgraph",
+    "slug": "dsh-plugin-dbgraph",
     "npm": true,
-    "pkg": "dsh-content-search"
+    "pkg": "dsh-plugin-dbgraph"
+   },
+   {
+    "name": "dsh-plugin-sessiongraph",
+    "slug": "dsh-plugin-sessiongraph",
+    "npm": true,
+    "pkg": "dsh-plugin-sessiongraph"
    }
   ]
  },
@@ -50,6 +98,30 @@
     "slug": "dsh-plugin-ima-sync",
     "npm": true,
     "pkg": "dsh-plugin-ima-sync"
+   }
+  ]
+ },
+ {
+  "github": "QIC-9821",
+  "avatar": "https://avatars.githubusercontent.com/u/352873856?v=4",
+  "plugins": [
+   {
+    "name": "dsh-memory-sync",
+    "slug": "dsh-memory-sync",
+    "npm": true,
+    "pkg": "dsh-memory-sync"
+   },
+   {
+    "name": "dsh-pc-bridge",
+    "slug": "dsh-pc-bridge",
+    "npm": true,
+    "pkg": "dsh-pc-bridge"
+   },
+   {
+    "name": "dsh-wechat-pad",
+    "slug": "dsh-wechat-pad",
+    "npm": true,
+    "pkg": "dsh-wechat-pad"
    }
   ]
  },
@@ -138,24 +210,18 @@
   ]
  },
  {
-  "github": "ayuanxx-max",
-  "avatar": "https://avatars.githubusercontent.com/u/307478908?v=4",
+  "github": "chenbocheng2568-dot",
+  "avatar": "https://avatars.githubusercontent.com/u/259995559?v=4",
   "plugins": [
    {
-    "name": "dsh-session-accordion",
-    "slug": "dsh-session-accordion",
+    "name": "dsh-threebody-boot",
+    "slug": "dsh-threebody-boot",
     "npm": false,
     "pkg": ""
    },
    {
-    "name": "dsh-session-fork-tree",
-    "slug": "dsh-session-fork-tree",
-    "npm": false,
-    "pkg": ""
-   },
-   {
-    "name": "dsh-smooth",
-    "slug": "dsh-smooth",
+    "name": "dsh-threebody-skin",
+    "slug": "dsh-threebody-skin",
     "npm": false,
     "pkg": ""
    }
@@ -360,18 +426,6 @@
   ]
  },
  {
-  "github": "Rakanrkk",
-  "avatar": "https://avatars.githubusercontent.com/u/89185887?v=4",
-  "plugins": [
-   {
-    "name": "dsh-sidebar-scroll",
-    "slug": "dsh-sidebar-scroll",
-    "npm": false,
-    "pkg": ""
-   }
-  ]
- },
- {
   "github": "sakikoTGW",
   "avatar": "https://avatars.githubusercontent.com/u/247183209?v=4",
   "plugins": [
@@ -492,6 +546,18 @@
   ]
  },
  {
+  "github": "2503455457-max",
+  "avatar": "https://avatars.githubusercontent.com/u/271499098?v=4",
+  "plugins": [
+   {
+    "name": "dsh-think-zh",
+    "slug": "dsh-think-zh",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "6mt",
   "avatar": "https://avatars.githubusercontent.com/u/52192316?v=4",
   "plugins": [
@@ -560,6 +626,18 @@
     "slug": "dsh-xray",
     "npm": true,
     "pkg": "dsh-xray"
+   }
+  ]
+ },
+ {
+  "github": "angel291592",
+  "avatar": "https://avatars.githubusercontent.com/u/206995683?v=4",
+  "plugins": [
+   {
+    "name": "dsh-submodel",
+    "slug": "dsh-submodel",
+    "npm": true,
+    "pkg": "dsh-submodel"
    }
   ]
  },
@@ -636,6 +714,18 @@
   ]
  },
  {
+  "github": "Blank-not-black",
+  "avatar": "https://avatars.githubusercontent.com/u/110587128?v=4",
+  "plugins": [
+   {
+    "name": "dsh-Remote",
+    "slug": "dsh-Remote",
+    "npm": true,
+    "pkg": "dsh-remote-plugin"
+   }
+  ]
+ },
+ {
   "github": "BorisXiao",
   "avatar": "https://avatars.githubusercontent.com/u/76441108?v=4",
   "plugins": [
@@ -672,6 +762,18 @@
   ]
  },
  {
+  "github": "Chemiofitor4096",
+  "avatar": "https://avatars.githubusercontent.com/u/181641243?v=4",
+  "plugins": [
+   {
+    "name": "minecraft-dev-starter",
+    "slug": "minecraft-dev-starter",
+    "npm": true,
+    "pkg": "minecraft-dev-starter"
+   }
+  ]
+ },
+ {
   "github": "chenjie1129",
   "avatar": "https://avatars.githubusercontent.com/u/31786685?v=4",
   "plugins": [
@@ -680,6 +782,30 @@
     "slug": "chenjie1129-dsh-remotion-video-plugin",
     "npm": false,
     "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "Cillivian",
+  "avatar": "https://avatars.githubusercontent.com/u/26425455?v=4",
+  "plugins": [
+   {
+    "name": "wecom-dsh-plugins",
+    "slug": "wecom-dsh-plugins",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "CJYLZS",
+  "avatar": "https://avatars.githubusercontent.com/u/62733895?v=4",
+  "plugins": [
+   {
+    "name": "@cjylzs/dsh-browser",
+    "slug": "dsh-browser-14",
+    "npm": true,
+    "pkg": "@cjylzs/dsh-browser"
    }
   ]
  },
@@ -716,6 +842,18 @@
     "slug": "dsh-siyuan",
     "npm": true,
     "pkg": "dsh-siyuan"
+   }
+  ]
+ },
+ {
+  "github": "CTX666666",
+  "avatar": "https://avatars.githubusercontent.com/u/296767890?v=4",
+  "plugins": [
+   {
+    "name": "@CTX666666/dsh-prompt-polish",
+    "slug": "dsh-prompt-polish-9",
+    "npm": false,
+    "pkg": ""
    }
   ]
  },
@@ -764,6 +902,30 @@
     "slug": "dsh-qboson-ising-solver",
     "npm": true,
     "pkg": "@dyf-zs/dsh-qboson-ising-solver"
+   }
+  ]
+ },
+ {
+  "github": "elalamiimed",
+  "avatar": "https://avatars.githubusercontent.com/u/149338391?v=4",
+  "plugins": [
+   {
+    "name": "dsh-prism-themes",
+    "slug": "dsh-prism-themes",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "FantasyStarry",
+  "avatar": "https://avatars.githubusercontent.com/u/165247386?v=4",
+  "plugins": [
+   {
+    "name": "dsh-todo-time-log",
+    "slug": "dsh-todo-time-log",
+    "npm": true,
+    "pkg": "dsh-todo-time-log"
    }
   ]
  },
@@ -876,6 +1038,18 @@
   ]
  },
  {
+  "github": "HenryHe520",
+  "avatar": "https://avatars.githubusercontent.com/u/291243204?v=4",
+  "plugins": [
+   {
+    "name": "dsh-time-pin",
+    "slug": "dsh-time-pin",
+    "npm": true,
+    "pkg": "dsh-time-pin"
+   }
+  ]
+ },
+ {
   "github": "hffek",
   "avatar": "https://avatars.githubusercontent.com/u/318533254?v=4",
   "plugins": [
@@ -924,6 +1098,18 @@
   ]
  },
  {
+  "github": "hxdts",
+  "avatar": "https://avatars.githubusercontent.com/u/167055502?v=4",
+  "plugins": [
+   {
+    "name": "@hxdts/dsh-browser-setup",
+    "slug": "dsh-browser-setup",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "Hyperionjust",
   "avatar": "https://avatars.githubusercontent.com/u/141640340?v=4",
   "plugins": [
@@ -948,6 +1134,18 @@
   ]
  },
  {
+  "github": "icymint0220",
+  "avatar": "https://avatars.githubusercontent.com/u/145472557?v=4",
+  "plugins": [
+   {
+    "name": "dsh-restart-switch",
+    "slug": "dsh-restart-switch",
+    "npm": true,
+    "pkg": "dsh-restart-switch"
+   }
+  ]
+ },
+ {
   "github": "jansen-66",
   "avatar": "https://avatars.githubusercontent.com/u/271416944?v=4",
   "plugins": [
@@ -956,6 +1154,18 @@
     "slug": "dsh-guandan",
     "npm": true,
     "pkg": "dsh-guandan"
+   }
+  ]
+ },
+ {
+  "github": "jeckun",
+  "avatar": "https://avatars.githubusercontent.com/u/31623221?v=4",
+  "plugins": [
+   {
+    "name": "dsh-plugin-favorites",
+    "slug": "dsh-plugin-favorites",
+    "npm": false,
+    "pkg": ""
    }
   ]
  },
@@ -1068,6 +1278,18 @@
   ]
  },
  {
+  "github": "ltayshark0637",
+  "avatar": "https://avatars.githubusercontent.com/u/300083159?v=4",
+  "plugins": [
+   {
+    "name": "dsh-shutdown-guard",
+    "slug": "dsh-shutdown-guard",
+    "npm": true,
+    "pkg": "dsh-shutdown-guard"
+   }
+  ]
+ },
+ {
   "github": "LuChen0820",
   "avatar": "https://avatars.githubusercontent.com/u/292306445?v=4",
   "plugins": [
@@ -1092,6 +1314,18 @@
   ]
  },
  {
+  "github": "Lumivox-wiz",
+  "avatar": "https://avatars.githubusercontent.com/u/103355137?v=4",
+  "plugins": [
+   {
+    "name": "memory-lattice",
+    "slug": "memory-lattice",
+    "npm": true,
+    "pkg": "memory-lattice"
+   }
+  ]
+ },
+ {
   "github": "lussey820",
   "avatar": "https://avatars.githubusercontent.com/u/251263419?v=4",
   "plugins": [
@@ -1104,6 +1338,30 @@
   ]
  },
  {
+  "github": "MathewWuZJ",
+  "avatar": "https://avatars.githubusercontent.com/u/154486169?v=4",
+  "plugins": [
+   {
+    "name": "dsh-tv",
+    "slug": "dsh-tv",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "mdl233",
+  "avatar": "https://avatars.githubusercontent.com/u/234754813?v=4",
+  "plugins": [
+   {
+    "name": "dsh-staging-guard",
+    "slug": "dsh-staging-guard",
+    "npm": true,
+    "pkg": "dsh-staging-guard"
+   }
+  ]
+ },
+ {
   "github": "micellince",
   "avatar": "https://avatars.githubusercontent.com/u/30015235?v=4",
   "plugins": [
@@ -1112,6 +1370,18 @@
     "slug": "dsh-long-novel-workbench",
     "npm": true,
     "pkg": "dsh-long-novel-workbench"
+   }
+  ]
+ },
+ {
+  "github": "miko-cn",
+  "avatar": "https://avatars.githubusercontent.com/u/20636038?v=4",
+  "plugins": [
+   {
+    "name": "@yumiku/dsh-commandcode-quota",
+    "slug": "yumiku-dsh-commandcode-quota",
+    "npm": true,
+    "pkg": "@yumiku/dsh-commandcode-quota"
    }
   ]
  },
@@ -1176,6 +1446,18 @@
   ]
  },
  {
+  "github": "Pabears",
+  "avatar": "https://avatars.githubusercontent.com/u/13316344?v=4",
+  "plugins": [
+   {
+    "name": "@Pabears/software-phase-theory",
+    "slug": "software-phase-theory",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "PianoPrince",
   "avatar": "https://avatars.githubusercontent.com/u/74518377?v=4",
   "plugins": [
@@ -1184,6 +1466,54 @@
     "slug": "dsh-workspace-mover",
     "npm": false,
     "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "Rakanrkk",
+  "avatar": "https://avatars.githubusercontent.com/u/89185887?v=4",
+  "plugins": [
+   {
+    "name": "dsh-sidebar-scroll",
+    "slug": "dsh-sidebar-scroll",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "raoain",
+  "avatar": "https://avatars.githubusercontent.com/u/128879184?v=4",
+  "plugins": [
+   {
+    "name": "@silentrainhero/dsh-memory-chain",
+    "slug": "dsh-memory-chain",
+    "npm": true,
+    "pkg": "@silentrainhero/dsh-memory-chain"
+   }
+  ]
+ },
+ {
+  "github": "resnowh",
+  "avatar": "https://avatars.githubusercontent.com/u/74843108?v=4",
+  "plugins": [
+   {
+    "name": "dsh-caption-balance",
+    "slug": "dsh-caption-balance",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "revive123456",
+  "avatar": "https://avatars.githubusercontent.com/u/264570768?v=4",
+  "plugins": [
+   {
+    "name": "dsh-obsidian-notes",
+    "slug": "dsh-obsidian-notes",
+    "npm": true,
+    "pkg": "dsh-obsidian-notes"
    }
   ]
  },
@@ -1284,6 +1614,30 @@
   ]
  },
  {
+  "github": "StarRob1n",
+  "avatar": "https://avatars.githubusercontent.com/u/198976119?v=4",
+  "plugins": [
+   {
+    "name": "dsh-balance-ball",
+    "slug": "dsh-balance-ball",
+    "npm": true,
+    "pkg": "dsh-balance-ball"
+   }
+  ]
+ },
+ {
+  "github": "stayw1thme999",
+  "avatar": "https://avatars.githubusercontent.com/u/352496628?v=4",
+  "plugins": [
+   {
+    "name": "dsh-workflow-kit",
+    "slug": "dsh-workflow-kit",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "sweven-tears",
   "avatar": "https://avatars.githubusercontent.com/u/39357041?v=4",
   "plugins": [
@@ -1340,6 +1694,18 @@
     "slug": "dsh-persist",
     "npm": true,
     "pkg": "dsh-persist"
+   }
+  ]
+ },
+ {
+  "github": "vlgalib",
+  "avatar": "https://avatars.githubusercontent.com/u/72434411?v=4",
+  "plugins": [
+   {
+    "name": "@hiai-gg/dsh-docsmint",
+    "slug": "dsh-docsmint",
+    "npm": true,
+    "pkg": "@hiai-gg/dsh-docsmint"
    }
   ]
  },
@@ -1440,6 +1806,18 @@
   ]
  },
  {
+  "github": "xrn1997",
+  "avatar": "https://avatars.githubusercontent.com/u/61549147?v=4",
+  "plugins": [
+   {
+    "name": "@xrn1997/dsh-session-delete",
+    "slug": "dsh-session-delete-32",
+    "npm": true,
+    "pkg": "@xrn1997/dsh-session-delete"
+   }
+  ]
+ },
+ {
   "github": "xthingillu-sketch",
   "avatar": "https://avatars.githubusercontent.com/u/344300856?v=4",
   "plugins": [
@@ -1524,6 +1902,30 @@
   ]
  },
  {
+  "github": "zdkcomeon",
+  "avatar": "https://avatars.githubusercontent.com/u/89736679?v=4",
+  "plugins": [
+   {
+    "name": "dsh-mcp-link",
+    "slug": "dsh-mcp-link",
+    "npm": true,
+    "pkg": "dsh-mcp-link"
+   }
+  ]
+ },
+ {
+  "github": "zemyao7",
+  "avatar": "https://avatars.githubusercontent.com/u/351103372?v=4",
+  "plugins": [
+   {
+    "name": "dsh-academic-skills",
+    "slug": "dsh-academic-skills",
+    "npm": true,
+    "pkg": "dsh-academic-skills"
+   }
+  ]
+ },
+ {
   "github": "zhengendong",
   "avatar": "https://avatars.githubusercontent.com/u/45273227?v=4",
   "plugins": [
@@ -1548,180 +1950,6 @@
   ]
  },
  {
-  "github": "ZZZjf13960",
-  "avatar": "https://avatars.githubusercontent.com/u/222472295?v=4",
-  "plugins": [
-   {
-    "name": "dsh-onfail",
-    "slug": "dsh-onfail",
-    "npm": false,
-    "pkg": ""
-   }
-  ]
- },
- {
-  "github": "mdl233",
-  "avatar": "https://avatars.githubusercontent.com/u/234754813?v=4",
-  "plugins": [
-   {
-    "name": "dsh-staging-guard",
-    "slug": "dsh-staging-guard",
-    "npm": true,
-    "pkg": "dsh-staging-guard"
-   }
-  ]
- },
- {
-  "github": "chenbocheng2568-dot",
-  "avatar": "https://avatars.githubusercontent.com/u/259995559?v=4",
-  "plugins": [
-   {
-    "name": "dsh-threebody-boot",
-    "slug": "dsh-threebody-boot",
-    "npm": false,
-    "pkg": ""
-   },
-   {
-    "name": "dsh-threebody-skin",
-    "slug": "dsh-threebody-skin",
-    "npm": false,
-    "pkg": ""
-   }
-  ]
- },
- {
-  "github": "zdkcomeon",
-  "avatar": "https://avatars.githubusercontent.com/u/89736679?v=4",
-  "plugins": [
-   {
-    "name": "dsh-mcp-link",
-    "slug": "dsh-mcp-link",
-    "npm": true,
-    "pkg": "dsh-mcp-link"
-   }
-  ]
- },
- {
-  "github": "icymint0220",
-  "avatar": "https://avatars.githubusercontent.com/u/145472557?v=4",
-  "plugins": [
-   {
-    "name": "dsh-restart-switch",
-    "slug": "dsh-restart-switch",
-    "npm": true,
-    "pkg": "dsh-restart-switch"
-   }
-  ]
- },
- {
-  "github": "angel291592",
-  "avatar": "https://avatars.githubusercontent.com/u/206995683?v=4",
-  "plugins": [
-   {
-    "name": "dsh-submodel",
-    "slug": "dsh-submodel",
-    "npm": true,
-    "pkg": "dsh-submodel"
-   }
-  ]
- },
- {
-  "github": "2503455457-max",
-  "avatar": "https://avatars.githubusercontent.com/u/271499098?v=4",
-  "plugins": [
-   {
-    "name": "dsh-think-zh",
-    "slug": "dsh-think-zh",
-    "npm": false,
-    "pkg": ""
-   }
-  ]
- },
- {
-  "github": "zemyao7",
-  "avatar": "https://avatars.githubusercontent.com/u/351103372?v=4",
-  "plugins": [
-   {
-    "name": "dsh-academic-skills",
-    "slug": "dsh-academic-skills",
-    "npm": true,
-    "pkg": "dsh-academic-skills"
-   }
-  ]
- },
- {
-  "github": "elalamiimed",
-  "avatar": "https://avatars.githubusercontent.com/u/149338391?v=4",
-  "plugins": [
-   {
-    "name": "dsh-prism-themes",
-    "slug": "dsh-prism-themes",
-    "npm": false,
-    "pkg": ""
-   }
-  ]
- },
- {
-  "github": "Chemiofitor4096",
-  "avatar": "https://avatars.githubusercontent.com/u/181641243?v=4",
-  "plugins": [
-   {
-    "name": "minecraft-dev-starter",
-    "slug": "minecraft-dev-starter",
-    "npm": true,
-    "pkg": "minecraft-dev-starter"
-   }
-  ]
- },
- {
-  "github": "Lumivox-wiz",
-  "avatar": "https://avatars.githubusercontent.com/u/103355137?v=4",
-  "plugins": [
-   {
-    "name": "memory-lattice",
-    "slug": "memory-lattice",
-    "npm": true,
-    "pkg": "memory-lattice"
-   }
-  ]
- },
- {
-  "github": "CJYLZS",
-  "avatar": "https://avatars.githubusercontent.com/u/62733895?v=4",
-  "plugins": [
-   {
-    "name": "@cjylzs/dsh-browser",
-    "slug": "dsh-browser-14",
-    "npm": true,
-    "pkg": "@cjylzs/dsh-browser"
-   }
-  ]
- },
- {
-  "github": "raoain",
-  "avatar": "https://avatars.githubusercontent.com/u/128879184?v=4",
-  "plugins": [
-   {
-    "name": "@silentrainhero/dsh-memory-chain",
-    "slug": "dsh-memory-chain",
-    "npm": true,
-    "pkg": "@silentrainhero/dsh-memory-chain"
-   }
-  ]
- },
- {
-  "github": "Blank-not-black",
-  "avatar": "https://avatars.githubusercontent.com/u/110587128?v=4",
-  "plugins": [
-   {
-    "name": "dsh-Remote",
-    "slug": "dsh-Remote",
-    "npm": true,
-    "pkg": "dsh-remote-plugin"
-   }
-  ]
- },
- {
   "github": "zuwenyin",
   "avatar": "https://avatars.githubusercontent.com/u/72490874?v=4",
   "plugins": [
@@ -1734,180 +1962,12 @@
   ]
  },
  {
-  "github": "ltayshark0637",
-  "avatar": "https://avatars.githubusercontent.com/u/300083159?v=4",
+  "github": "ZZZjf13960",
+  "avatar": "https://avatars.githubusercontent.com/u/222472295?v=4",
   "plugins": [
    {
-    "name": "dsh-shutdown-guard",
-    "slug": "dsh-shutdown-guard",
-    "npm": true,
-    "pkg": "dsh-shutdown-guard"
-   }
-  ]
- },
- {
-  "github": "Cillivian",
-  "avatar": "https://avatars.githubusercontent.com/u/26425455?v=4",
-  "plugins": [
-   {
-    "name": "wecom-dsh-plugins",
-    "slug": "wecom-dsh-plugins",
-    "npm": false,
-    "pkg": ""
-   }
-  ]
- },
- {
-  "github": "jeckun",
-  "avatar": "https://avatars.githubusercontent.com/u/31623221?v=4",
-  "plugins": [
-   {
-    "name": "dsh-plugin-favorites",
-    "slug": "dsh-plugin-favorites",
-    "npm": false,
-    "pkg": ""
-   }
-  ]
- },
- {
-  "github": "StarRob1n",
-  "avatar": "https://avatars.githubusercontent.com/u/198976119?v=4",
-  "plugins": [
-   {
-    "name": "dsh-balance-ball",
-    "slug": "dsh-balance-ball",
-    "npm": true,
-    "pkg": "dsh-balance-ball"
-   }
-  ]
- },
- {
-  "github": "vlgalib",
-  "avatar": "https://avatars.githubusercontent.com/u/72434411?v=4",
-  "plugins": [
-   {
-    "name": "@hiai-gg/dsh-docsmint",
-    "slug": "dsh-docsmint",
-    "npm": true,
-    "pkg": "@hiai-gg/dsh-docsmint"
-   }
-  ]
- },
- {
-  "github": "QIC-9821",
-  "avatar": "https://avatars.githubusercontent.com/u/352873856?v=4",
-  "plugins": [
-   {
-    "name": "dsh-memory-sync",
-    "slug": "dsh-memory-sync",
-    "npm": true,
-    "pkg": "dsh-memory-sync"
-   },
-   {
-    "name": "dsh-pc-bridge",
-    "slug": "dsh-pc-bridge",
-    "npm": true,
-    "pkg": "dsh-pc-bridge"
-   },
-   {
-    "name": "dsh-wechat-pad",
-    "slug": "dsh-wechat-pad",
-    "npm": true,
-    "pkg": "dsh-wechat-pad"
-   }
-  ]
- },
- {
-  "github": "revive123456",
-  "avatar": "https://avatars.githubusercontent.com/u/264570768?v=4",
-  "plugins": [
-   {
-    "name": "dsh-obsidian-notes",
-    "slug": "dsh-obsidian-notes",
-    "npm": true,
-    "pkg": "dsh-obsidian-notes"
-   }
-  ]
- },
- {
-  "github": "FantasyStarry",
-  "avatar": "https://avatars.githubusercontent.com/u/165247386?v=4",
-  "plugins": [
-   {
-    "name": "dsh-todo-time-log",
-    "slug": "dsh-todo-time-log",
-    "npm": true,
-    "pkg": "dsh-todo-time-log"
-   }
-  ]
- },
- {
-  "github": "HenryHe520",
-  "avatar": "https://avatars.githubusercontent.com/u/291243204?v=4",
-  "plugins": [
-   {
-    "name": "dsh-time-pin",
-    "slug": "dsh-time-pin",
-    "npm": true,
-    "pkg": "dsh-time-pin"
-   }
-  ]
- },
- {
-  "github": "xrn1997",
-  "avatar": "https://avatars.githubusercontent.com/u/61549147?v=4",
-  "plugins": [
-   {
-    "name": "@xrn1997/dsh-session-delete",
-    "slug": "dsh-session-delete-32",
-    "npm": true,
-    "pkg": "@xrn1997/dsh-session-delete"
-   }
-  ]
- },
- {
-  "github": "resnowh",
-  "avatar": "https://avatars.githubusercontent.com/u/74843108?v=4",
-  "plugins": [
-   {
-    "name": "dsh-caption-balance",
-    "slug": "dsh-caption-balance",
-    "npm": false,
-    "pkg": ""
-   }
-  ]
- },
- {
-  "github": "miko-cn",
-  "avatar": "https://avatars.githubusercontent.com/u/20636038?v=4",
-  "plugins": [
-   {
-    "name": "@yumiku/dsh-commandcode-quota",
-    "slug": "yumiku-dsh-commandcode-quota",
-    "npm": true,
-    "pkg": "@yumiku/dsh-commandcode-quota"
-   }
-  ]
- },
- {
-  "github": "MathewWuZJ",
-  "avatar": "https://avatars.githubusercontent.com/u/154486169?v=4",
-  "plugins": [
-   {
-    "name": "dsh-tv",
-    "slug": "dsh-tv",
-    "npm": false,
-    "pkg": ""
-   }
-  ]
- },
- {
-  "github": "stayw1thme999",
-  "avatar": "https://avatars.githubusercontent.com/u/352496628?v=4",
-  "plugins": [
-   {
-    "name": "dsh-workflow-kit",
-    "slug": "dsh-workflow-kit",
+    "name": "dsh-onfail",
+    "slug": "dsh-onfail",
     "npm": false,
     "pkg": ""
    }
