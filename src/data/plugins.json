@@ -409108,6 +409108,30 @@
    "testDate": "2026-11-06",
    "repoOwner": "QIC-9821",
    "bareNpm": "other"
+  },
+  {
+   "name": "dsh-workflow-kit",
+   "slug": "dsh-workflow-kit",
+   "ver": "0.2.0",
+   "pkg": "",
+   "npm": false,
+   "test": "verified",
+   "license": "MIT",
+   "platform": "any",
+   "language": "JavaScript",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "archived": false,
+   "updated": "2026-11-08",
+   "added": "2026-11-08T10:22:54",
+   "url": "https://github.com/stayw1thme999/dsh-workflow-kit",
+   "desc": "A local multi-receiver workflow kit: mailbox and work orders, auto-take, failure records that must quote the error, and timed wake-ups. Six host tools forward to one CLI state machine. No external account.",
+   "desc_en": "A local multi-receiver workflow kit: mailbox and work orders, auto-take, failure records that must quote the error, and timed wake-ups. Six host tools forward to one CLI state machine. No external account.",
+   "desc_zh": "给 DeepSeek Harness 加一层多接收方任务流转：信箱、工单、自动接单、失败留证、定时巡检。六个宿主工具转发到同一套 CLI 状态机，不需要外部账号。",
+   "note": "Issue #250 intake. Previously blocked: the 2026-11-04 submission had the dsh-plugin topic and MIT LICENSE but no cordis.patch.yml (CLI + bin/init.mjs only). Author reply on 2026-11-08 added the bundle and bumped 0.1.0 to 0.2.0. Hard gates now present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm dsh-workflow-kit and @stayw1thme999/dsh-workflow-kit are both 404. Package id dsh-workflow-kit@0.2.0. Install: dsh plugin add github:stayw1thme999/dsh-workflow-kit. No git tag or GitHub Release; pin github:stayw1thme999/dsh-workflow-kit#a43c7226755427740a6db01b76db97987b433cff (default-branch HEAD). Declares node >=18. No engines.dsh field. Optional peer @deepseek-ai/dsh-tools >=0.2.1-rc <2 (peerDependenciesMeta.optional is true); the host already provides it, so this is not an external account. No npm dependencies. cordis.patch.yml inserts loader id dsh-workflow-kit. lib/dsh-plugin.mjs exports name and apply(ctx), which registers workflow_list, workflow_take, workflow_report, workflow_submit, workflow_accept, and workflow_block. Each tool spawns bin/wo.mjs, so the CLI and the plugin share one state machine. Local files under the workspace (config default ~/dsh-workspace, overridable with DSH_WORKFLOW_DATA). config.example.json sets qqNotify false, which the README treats as no external calls. No account. Companion to deepseek-ai/dsh-superagent-prototype; it does not require or replace that project. Author reports node scripts/test-plugin.mjs (6 tools, exit 0) and bin/selfcheck.mjs 15/15; dshbase did not re-run them. Distinct from dsh-workflow-canvas, dsh-workflow-loop, dsh-workflow-studio, and dsh-workflow-templates.",
+   "testDate": "2026-11-08",
+   "repoOwner": "stayw1thme999"
   }
  ],
  "Network": [
@@ -497818,6 +497842,33 @@
    "testDate": "2026-11-07",
    "repoOwner": "HenryHe520",
    "bareNpm": "other"
+  },
+  {
+   "name": "@yumiku/dsh-commandcode-quota",
+   "slug": "yumiku-dsh-commandcode-quota",
+   "ver": "1.0.2",
+   "pkg": "@yumiku/dsh-commandcode-quota",
+   "npm": true,
+   "test": "verified",
+   "license": "MIT",
+   "platform": "any",
+   "language": "JavaScript",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "archived": false,
+   "updated": "2026-11-08",
+   "added": "2026-11-08T10:22:54",
+   "url": "https://github.com/miko-cn/dsh-commandcode-quota",
+   "desc": "A Settings tab and a draggable floating capsule for Command Code: plan credits, the 5-hour and weekly windows, this period's request stats, the plan tier, and an API key editor.",
+   "desc_en": "A Settings tab and a draggable floating capsule for Command Code: plan credits, the 5-hour and weekly windows, this period's request stats, the plan tier, and an API key editor.",
+   "desc_zh": "在 DeepSeek Harness 里查看 Command Code 的套餐额度、5 小时 / 每周滚动窗口、本期请求统计与套餐档位，含设置页签与可拖动的浮窗胶囊，并内置 API key 管理。",
+   "needs": "Needs your own Command Code account and API key to show live quota. The Settings page can save a key into the DSH credential store, or the plugin reuses COMMAND_CODE_API_KEY, COMMANDCODE_API_KEY, COMMAND_API_KEY, a previous cmd login (~/.commandcode/auth.json), or ~/.dsh/.credentials.yaml.",
+   "needsZh": "要看实时额度，需要你自己的 Command Code 账号和 API key。可在设置页写入 DSH 凭据库，或复用 COMMAND_CODE_API_KEY、COMMANDCODE_API_KEY、COMMAND_API_KEY、cmd login 留下的 ~/.commandcode/auth.json，或 ~/.dsh/.credentials.yaml。",
+   "note": "Issue #292 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm @yumiku/dsh-commandcode-quota@1.0.2 (maintainer yumiku; repository miko-cn/dsh-commandcode-quota; gitHead 804d6c81541cbd9f0cbb69ce7a758745d3110d6f; published 2026-11-08T07:29:53Z; tarball sha1 f015b736cba8cf7684a44097f3d6be49fc526706). Install: dsh plugin add @yumiku/dsh-commandcode-quota into the profile you use (README: dsh plugin --profile <profile> add @yumiku/dsh-commandcode-quota). The Settings tab and capsule need a Web/Desktop profile; host routes need one restart after install. No v1.0.2 tag. GitHub Release v1.0.0 is package version 1.0.0 (abceeeb1b58d8b980e134375d9ce3d31365c3c2a), so pin the published tree github:miko-cn/dsh-commandcode-quota#804d6c81541cbd9f0cbb69ce7a758745d3110d6f. Default-branch HEAD 699fa96109e53eb1c720361a3d4d56985b81f056 is two commits after that gitHead (self-hosted format-1 Discover index, then AGENTS.md and anonymized demo assets) and does not bump the version; index.js, client.js, and cordis.patch.yml are unchanged. Declares node >=20 and dsh >=0.2.0 <0.3.0. Published tarball has no dependencies and no peerDependencies. Pure JavaScript, no build step. Web client (Settings → Command Code, draggable capsule) plus host routes GET /dsh-commandcode/api/report, GET/POST /dsh-commandcode/api/key. The host calls api.commandcode.ai (/alpha/whoami, billing, usage/summary) with the key; the client reads the report and never receives the key. cordis.patch.yml id commandcode-quota, apiBase https://api.commandcode.ai, apiKeyEnv COMMAND_CODE_API_KEY. Slug is yumiku-dsh-commandcode-quota because dsh-commandcode-quota, dsh-commandcode-quota-2, and dsh-commandcode-quota-3 already belong to other repositories. Distinct from jovan1666/dsh-commandcode-quota, s11phere/dsh-commandcode-quota, and fuqiancheng/dsh-commandcode-quota (unscoped npm dsh-commandcode-quota@0.3.2). Do not install that unscoped name for this plugin.",
+   "testDate": "2026-11-08",
+   "repoOwner": "miko-cn",
+   "bareNpm": "other"
   }
  ],
  "Content": [
@@ -512556,6 +512607,30 @@
    "note": "Issue #187 intake. Listed only — marketplace L1–L4 not run.",
    "bareNpm": "other",
    "testDate": "2026-10-26"
+  },
+  {
+   "name": "dsh-tv",
+   "slug": "dsh-tv",
+   "ver": "0.1.0",
+   "pkg": "",
+   "npm": false,
+   "test": "verified",
+   "license": "MIT",
+   "platform": "any",
+   "language": "JavaScript",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "archived": false,
+   "updated": "2026-11-08",
+   "added": "2026-11-08T10:22:54",
+   "url": "https://github.com/MathewWuZJ/dsh-tv",
+   "desc": "A right-sidebar short-video and TV panel. Favicon tabs for Douyin, short drama, YouTube, Bilibili, Instagram, and HackerTube, plus a random global channel drawn from public IPTV lists and checked before it plays. Desktop embeds an Electron webview.",
+   "desc_en": "A right-sidebar short-video and TV panel. Favicon tabs for Douyin, short drama, YouTube, Bilibili, Instagram, and HackerTube, plus a random global channel drawn from public IPTV lists and checked before it plays. Desktop embeds an Electron webview.",
+   "desc_zh": "右侧边栏短视频/电视面板：图标 tab 切换抖音、短剧、YouTube、B站、Instagram、HackerTube，并内置随机全球频道（公开 IPTV 列表、播放前校验、可换台）。桌面端用 Electron webview 加载，不是 iframe。",
+   "note": "Issue #293 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. Author said npm is not published. @mathewwuzj/dsh-tv is 404. Unscoped npm dsh-tv@0.0.1 (maintainer dushaobindoudou; repository dushaobindoudou/dsh-tv; published 2026-08-20T01:47:45Z) is a different name-reservation package, not this repo — do not install it. Package id dsh-tv@0.1.0. Install: dsh plugin --profile desktop add github:MathewWuZJ/dsh-tv. No git tag or GitHub Release; pin github:MathewWuZJ/dsh-tv#8a47234e8a9e1512cc70ec0530870359153f3040 (default-branch HEAD). Three commits on main; package.json stays 0.1.0 (the later two add a format-1 market index and a jsDelivr README mirror note). Declares node >=22.19.0 and dsh >=0.2.0 <0.3.0. No npm dependencies and no peerDependencies; no build step (lib/ is shipped). Web client: header button, favicon tabs, settings gear stored in localStorage. Desktop uses an Electron webview rather than an iframe. Global TV picks a random channel from public IPTV playlists (iptv-org / community lists), checks HLS and a first segment, prefers H.264, and skips DRM or HEVC-only streams. Each site runs in an isolated session and does not read Chrome cookies; signing in inside the panel is optional. No API key. The issue says no external account. Author states no affiliation with the listed sites. Distinct from the placeholder npm dsh-tv and from dsh-tvision.",
+   "testDate": "2026-11-08",
+   "repoOwner": "MathewWuZJ"
   }
  ]
 }
