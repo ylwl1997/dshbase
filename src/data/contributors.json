@@ -1876,5 +1876,41 @@
     "pkg": ""
    }
   ]
+ },
+ {
+  "github": "miko-cn",
+  "avatar": "https://avatars.githubusercontent.com/u/20636038?v=4",
+  "plugins": [
+   {
+    "name": "@yumiku/dsh-commandcode-quota",
+    "slug": "yumiku-dsh-commandcode-quota",
+    "npm": true,
+    "pkg": "@yumiku/dsh-commandcode-quota"
+   }
+  ]
+ },
+ {
+  "github": "MathewWuZJ",
+  "avatar": "https://avatars.githubusercontent.com/u/154486169?v=4",
+  "plugins": [
+   {
+    "name": "dsh-tv",
+    "slug": "dsh-tv",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "stayw1thme999",
+  "avatar": "https://avatars.githubusercontent.com/u/352496628?v=4",
+  "plugins": [
+   {
+    "name": "dsh-workflow-kit",
+    "slug": "dsh-workflow-kit",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
  }
 ]
