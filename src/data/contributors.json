@@ -1446,6 +1446,18 @@
   ]
  },
  {
+  "github": "OStarsO",
+  "avatar": "https://avatars.githubusercontent.com/u/131366530?v=4",
+  "plugins": [
+   {
+    "name": "dsh-processing-status",
+    "slug": "dsh-processing-status",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "Pabears",
   "avatar": "https://avatars.githubusercontent.com/u/13316344?v=4",
   "plugins": [
@@ -1454,6 +1466,18 @@
     "slug": "software-phase-theory",
     "npm": false,
     "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "PerryLink",
+  "avatar": "https://avatars.githubusercontent.com/u/255665900?v=4",
+  "plugins": [
+   {
+    "name": "dsh-sherlock",
+    "slug": "dsh-sherlock",
+    "npm": true,
+    "pkg": "dsh-sherlock"
    }
   ]
  },
@@ -1694,6 +1718,18 @@
     "slug": "dsh-persist",
     "npm": true,
     "pkg": "dsh-persist"
+   }
+  ]
+ },
+ {
+  "github": "vacum972",
+  "avatar": "https://avatars.githubusercontent.com/u/219677025?v=4",
+  "plugins": [
+   {
+    "name": "@vacum972/dsh-usage-billing",
+    "slug": "vacum972-dsh-usage-billing",
+    "npm": true,
+    "pkg": "@vacum972/dsh-usage-billing"
    }
   ]
  },
