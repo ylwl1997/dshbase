@@ -7,11 +7,25 @@ idx = json.load(open(os.path.join(ROOT, 'src/data/indexable-plugins.json'), enco
 en_i, zh_i = set(idx.get('en') or []), set(idx.get('zh') or [])
 BULK = '2026-10-10'
 
+def later_bulk_listed(p):
+  # Mirrors src/lib/ssg-plugins.js. Bulk listed rows from 2026-11-08 onward
+  # are not static pages (Cloudflare Pages 20,000-file cap).
+  added = p.get('added') or ''
+  if added < '2026-11-08':
+    return False
+  if p.get('test') != 'listed':
+    return False
+  return 'Issue #' not in (p.get('note') or '')
+
 def recent_verified(p):
   # recent curated rows (verified or metadata-listed) keep static pages; mirrors src/lib/ssg-plugins.js
+  if later_bulk_listed(p):
+    return False
   return p.get('test') in ('verified', 'listed') and (p.get('added') or '') >= '2026-10-14'
 
 def ssg_en(p):
+  if later_bulk_listed(p):
+    return False
   slug = p.get('slug') or p['name']
   return (
     int(p.get('stars') or 0) >= 10
@@ -21,6 +35,8 @@ def ssg_en(p):
   )
 
 def ssg_zh(p):
+  if later_bulk_listed(p):
+    return False
   slug = p.get('slug') or p['name']
   has_zh = bool((p.get('desc_zh') or '').strip())
   return (
@@ -32,6 +48,8 @@ def ssg_zh(p):
 out = {}
 for cat, items in plugins.items():
   for p in items:
+    if later_bulk_listed(p):
+      continue
     if ssg_en(p) and ssg_zh(p):
       continue
     slug = p.get('slug') or p['name']
