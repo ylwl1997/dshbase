@@ -10,6 +10,9 @@ node_modules/
 dist/
 .astro/
 
+# verify-pilot.py 的本地报告（CI 用 artifact，不入库）
+/pilot-report/
+
 # 审计产物（脚本在 scripts/audit-dsh.py，不忽略）
 /audit-*
 /removed-*.txt
