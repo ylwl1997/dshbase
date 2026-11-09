@@ -459316,6 +459316,29 @@
    "trust": "Unrated",
    "slug": "study-decks",
    "platform": "any"
+  },
+  {
+   "name": "dsh-memory-scaffold",
+   "url": "https://github.com/malabananclauss-rgb/dsh-memory-scaffold",
+   "pkg": "",
+   "ver": "0.2.0",
+   "npm": false,
+   "test": "listed",
+   "desc": "A structure scaffold for a DSH agent's lasting self: layered memory files, judgment cards, a full and compact handoff with 8 verification questions, and a two-question ruler (transferability × continuability). Markdown and JSON only. Zero dependencies, no network, and no model calls. Structure, not a memory engine.",
+   "desc_en": "A structure scaffold for a DSH agent's lasting self: layered memory files, judgment cards, a full and compact handoff with 8 verification questions, and a two-question ruler (transferability × continuability). Markdown and JSON only. Zero dependencies, no network, and no model calls. Structure, not a memory engine.",
+   "desc_zh": "给 DSH agent 的长期自我提供结构脚手架：分层记忆文件、判断卡、完整/紧凑接续包（含 8 个验证问题），以及可迁移性×可接续性两问尺子。纯 markdown/JSON，零依赖、不联网、不调用模型；只是结构，不是记忆引擎。",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-11-09",
+   "archived": false,
+   "added": "2026-11-09T09:56:07",
+   "license": "MIT",
+   "slug": "dsh-memory-scaffold",
+   "platform": "any",
+   "repoOwner": "malabananclauss-rgb",
+   "note": "Issue #307 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Metadata intake only — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. Display name dsh-memory-scaffold; bundle row id stays dsh-self so user overrides keep a stable target. CLI binary is still dsh-self. Package renamed from dsh-self at v0.2.0. npm unpublished (registry 404 for dsh-memory-scaffold). Do not install unscoped npm dsh-self@0.10.20 (maintainer xiaoyezi; repository xiaoyeziyinxing/dsh-self) — that is a different emotion plugin. Package id dsh-memory-scaffold@0.2.0. Install: dsh plugin --profile web add github:malabananclauss-rgb/dsh-memory-scaffold#v0.2.0. GitHub Release v0.2.0 includes dsh-memory-scaffold-0.2.0.tgz; pin github:malabananclauss-rgb/dsh-memory-scaffold#v0.2.0 (36b71c7205f1457c9facde2d9d4a82977cf28aae). Tag and default-branch HEAD match. Declares node >=20. No npm dependencies and no dsh peer. No external account. Zero dependencies, no network, no model calls. Structure only, not a memory engine."
   }
  ],
  "Desktop": [
