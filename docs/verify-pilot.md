@@ -5,9 +5,14 @@ This is a pilot, not the badge writer. It runs the same L1–L3 commands as
 not edit `src/data/plugins.json` and it does not use `CATALOG_REPO_TOKEN`.
 
 **Verified** on the public audit pages means L1 install + L2 load + L3 headless
-on dsh `0.1.0-rc.8`. If L3 is `web-only`, L4 web CDP is required. This pilot
-pins that runtime. L4 is skipped: `scripts/verify-webonly.sh` needs
-`~/webverify/l3.mjs` and a pinned Puppeteer Chrome that are not in this repo.
+on dsh `0.1.0-rc.8`. If L3 is `web-only`, L4 web CDP is required before a badge.
+This pilot pins that runtime and does not write badges.
+
+L4 for GitHub-hosted runners is `scripts/l4-cdp.mjs` (Playwright). It does not
+use `~/webverify/l3.mjs` or a pinned Puppeteer Chrome path. `ubuntu-latest`
+already has Google Chrome; Playwright's Chromium is the fallback. Headless
+mode does not need xvfb. The L1–L3 workflow does not run L4. The browser
+workflow is `.github/workflows/verify-pilot-l4.yml`.
 
 ## What it runs
 
@@ -32,14 +37,38 @@ Workflow: `.github/workflows/verify-pilot.yml`.
 
 Artifacts: `verify-pilot-report` (`report.json`, `summary.md`, per-plugin logs).
 
+## L4 browser job
+
+Workflow: `.github/workflows/verify-pilot-l4.yml` (**Plugin verify pilot L4**).
+
+Default set:
+
+| Slug | What the browser looks for |
+|---|---|
+| `yumiku-dsh-commandcode-quota` | Known web-only (`waiting for service: webServer` on Actions run 42562689033). Pass means the shell mounted, `.dcq-float` or `#dcq-style` is in the page, and `GET /dsh-commandcode/api/key` returns JSON. No Command Code key is set. |
+| `dsh-processing-status` | Optional. The status line is hidden until a task runs. The idle signal is `style[data-plugin="dsh-processing-status"]`. |
+| `vacum972-dsh-usage-billing` | Optional. Headless L3 already passed, so L4 is not required. The probe is the composer pill `[data-composer-stat="billing"]`. |
+
+L3 is not repeated. `DEEPSEEK_API_KEY` is not read. `l4-pass` in the artifact is not a catalog Verified badge, and a metadata `test=verified` row is not confirmed by this job.
+
+- `workflow_dispatch` is listed after this file is on the default branch. A push to `cursor/dsh-verify-l4-cdp-7249` that changes the workflow or the L4 scripts starts one run before that.
+- Optional `plugins` input: one `slug|install-spec` per line. Known slugs keep the probes above. Leave it empty for the table.
+- Artifacts: `verify-pilot-l4-report` (`report.json`, `summary.md`, logs, screenshots).
+
+Making L4 the default for web-only intakes is a follow-up, not this job. Headless L3 stays the check for terminal plugins. Run L4 only after L3 returns `web-only`, keep it on `workflow_dispatch` until more than the quota plugin is green, and keep `merge-webonly.py` as the only badge writer.
+
 ## Run locally
 
 ```bash
 npm install -g pnpm@10 @deepseek-ai/dsh@0.1.0-rc.8
 python3 scripts/verify-pilot.py --self-check
 python3 scripts/verify-pilot.py --only dsh-plugin-observatory --out-dir /tmp/pilot-report
+
+# L4 needs Playwright plus Chrome or Playwright's Chromium. It drops DEEPSEEK_API_KEY.
+npm install --prefix /tmp/l4-browser playwright@1.65.0
+L4_BROWSER_DIR=/tmp/l4-browser python3 scripts/verify-pilot.py --l4 --only yumiku-dsh-commandcode-quota --out-dir /tmp/pilot-l4
 ```
 
 Node 24.9 or newer matches the sherlock engine. The script still runs L1–L2 on older Node and records the engine error when pnpm refuses the package.
 
-On dsh 0.1.0-rc.8 the headless prompt creates the HMR plugin and then immediately asks for the service, while that fiber is still loading. The script inserts a one-second settle into the installed CLI (`pilot-hmr-settle`) so L3 can reach the model call. Without it, every headless prompt dies with `user patch-layer watching requires the Cordis HMR service`. That edit stays on the runner. It is not a catalog change.
+On dsh 0.1.0-rc.8 the headless prompt creates the HMR plugin and then immediately asks for the service, while that fiber is still loading. The script inserts a one-second settle into the installed CLI (`pilot-hmr-settle`) so L3 can reach the model call. Without it, every headless prompt dies with `user patch-layer watching requires the Cordis HMR service`. Web profiles disable that HMR row. The fallback service has no `registerConfig`, and the throw was taking down a web server that had already printed its URL. The same edit skips user-patch watching in that case. The edit stays on the runner. It is not a catalog change.

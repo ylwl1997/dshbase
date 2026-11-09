@@ -18,6 +18,8 @@
 # 依赖（服务器已装）:
 #   dsh 0.1.0-rc.8, node, pnpm 11, puppeteer+Chromium (~/webverify/l3.mjs)
 #   $DSH_OVERRIDES  可指定 overrides yaml 路径（默认仓库 scripts/dsh-overrides.yaml）
+# GitHub-hosted L4 does not use this file. It runs scripts/l4-cdp.mjs
+# (Playwright, no ~/webverify) via scripts/verify-pilot.py --l4.
 set -uo pipefail
 
 PROF_ROOT="$HOME/.dsh/profiles"
