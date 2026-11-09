@@ -414353,7 +414353,7 @@
    "ver": "0.1.3",
    "pkg": "@vacum972/dsh-usage-billing",
    "npm": true,
-   "test": "listed",
+   "test": "verified",
    "license": "MIT",
    "platform": "any",
    "language": "JavaScript",
@@ -414369,8 +414369,9 @@
    "desc_zh": "输入框下方的实时用量胶囊：按官方高峰/空闲价目逐次计算本会话消费、请求次数和 Tokens。剩余余额需要已登录的 DeepSeek 账号，未登录时显示「登录后查看」。",
    "needs": "Needs a signed-in DeepSeek account to show the remaining balance (top-up wallet plus grant wallet). Signed out, that row says Sign in to view. Session cost, request count, and tokens still render. Official price and holiday refresh uses public pages, not an extra API key.",
    "needsZh": "要显示剩余余额，需要已登录的 DeepSeek 账号（充值余额加赠送余额）。未登录时这一项显示「登录后查看」。本会话消费、请求次数和 Tokens 仍会显示。官方价目和节假日日历走公开页面，不另要 API key。",
-   "note": "Issue #297 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Metadata intake only — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm @vacum972/dsh-usage-billing@0.1.3 (maintainer vacum972; repository vacum972/dsh-usage-billing; gitHead 572b1f06a2630f788a2a19d67f1bb09474c8b8fe; published 2026-11-06T12:31:54Z; tarball sha1 423d8a3237e199b04c0e3969e62129fc6a778ac9). Install: dsh plugin --profile web add @vacum972/dsh-usage-billing. GitHub Release v0.1.3; pin github:vacum972/dsh-usage-billing#v0.1.3 (572b1f06a2630f788a2a19d67f1bb09474c8b8fe). Tag, npm gitHead, and default-branch HEAD match. Declares dsh >=0.2.1-rc.5 <0.3.0-0. No node engines field. No npm dependencies and no peerDependencies. Web client capsule under the composer plus a host unit that prices each model attempt with the official peak/idle table. autoRefresh reads the public pricing markdown and the statutory-holiday calendar; that refresh is not an account. Remaining balance uses ctx.remote.account.getBalance on the signed-in DeepSeek account (top-up wallet plus grant wallet) and shows Sign in to view when signed out. The desktop profile is Electron-managed, so dsh plugin --profile desktop is rejected; install in-app or on the web profile. Slug is vacum972-dsh-usage-billing because dsh-usage-billing already belongs to 940842546/dsh-usage-billing and dsh-ui-usage-billing belongs to kenz1117/dsh-ui-usage-billing. Unscoped npm dsh-usage-billing@0.16.0 (maintainer ohmyrika; no repository URL) is a different package. Do not install that unscoped name for this plugin.",
-   "repoOwner": "vacum972"
+   "note": "Verified 2026-11-09 from GitHub Actions L1–L3 pilot run 42562689033 (L3 pass) plus author Desktop self-test evidence on issue #305 (DSH 0.2.1-rc.5). Remaining balance needs a signed-in DeepSeek account; signed-out shows Sign in to view. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml). npm @vacum972/dsh-usage-billing@0.1.3. Install: dsh plugin --profile web add @vacum972/dsh-usage-billing. Pin github:vacum972/dsh-usage-billing#v0.1.3. Declares dsh >=0.2.1-rc.5 <0.3.0-0. Slug is vacum972-dsh-usage-billing because dsh-usage-billing and dsh-ui-usage-billing belong to other authors. Do not install unscoped npm dsh-usage-billing for this plugin.",
+   "repoOwner": "vacum972",
+   "testDate": "2026-11-09"
   },
   {
    "name": "dsh-processing-status",
