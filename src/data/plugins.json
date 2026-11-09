@@ -24392,7 +24392,7 @@
    "depsOfficial": 0,
    "repoOwner": "LongSir0419",
    "_enriched": "2026-08-21|0.1.6",
-   "bareNpm": "other",
+   "bareNpm": "install-fail",
    "trust": "Gold",
    "ucs": [
     "GitHub integration"
@@ -313063,7 +313063,7 @@
    "trust": "Unrated",
    "slug": "dsh-web-ui",
    "platform": "any",
-   "bareNpm": "other",
+   "bareNpm": "install-fail",
    "contributors": 114,
    "depCount": 19,
    "depsOfficial": 0,
@@ -414371,7 +414371,8 @@
    "needsZh": "要显示剩余余额，需要已登录的 DeepSeek 账号（充值余额加赠送余额）。未登录时这一项显示「登录后查看」。本会话消费、请求次数和 Tokens 仍会显示。官方价目和节假日日历走公开页面，不另要 API key。",
    "note": "Verified 2026-11-09 from GitHub Actions L1–L3 pilot run 42562689033 (L3 pass) plus author Desktop self-test evidence on issue #305 (DSH 0.2.1-rc.5). Remaining balance needs a signed-in DeepSeek account; signed-out shows Sign in to view. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml). npm @vacum972/dsh-usage-billing@0.1.3. Install: dsh plugin --profile web add @vacum972/dsh-usage-billing. Pin github:vacum972/dsh-usage-billing#v0.1.3. Declares dsh >=0.2.1-rc.5 <0.3.0-0. Slug is vacum972-dsh-usage-billing because dsh-usage-billing and dsh-ui-usage-billing belong to other authors. Do not install unscoped npm dsh-usage-billing for this plugin.",
    "repoOwner": "vacum972",
-   "testDate": "2026-11-09"
+   "testDate": "2026-11-09",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-processing-status",
@@ -631411,7 +631412,7 @@
    "ver": "0.1.1",
    "pkg": "dsh-sherlock",
    "npm": true,
-   "test": "listed",
+   "test": "verified",
    "license": "Apache-2.0",
    "platform": "any",
    "language": "JavaScript",
@@ -631426,7 +631427,9 @@
    "desc_en": "Public username checks against a pinned Sherlock site list. Tools sherlock_check and sherlock_sites keep claimed, available, unknown, blocked, illegal, and unreliable apart, and a claimed hit is checked against a random control handle.",
    "desc_zh": "按一份固定的 Sherlock 站点清单检查公开用户名。工具 sherlock_check 和 sherlock_sites 把 claimed、available、unknown、blocked、illegal、unreliable 分开，claimed 还会用随机对照用户名再核一次。",
    "note": "Issue #300 intake. Hard gates present (dsh-plugin topic + Apache-2.0 LICENSE + cordis.patch.yml at repo root). Metadata intake only — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm dsh-sherlock@0.1.1 (maintainer perrylink; repository PerryLink/dsh-sherlock; published 2026-11-08T12:56:24Z; tarball sha1 c4f0acaca9790f5b4c34fb6de4e60ad26fae419a). The registry gitHead 8d0430fa4833c182ae111b0c37ef0e624570511c is tag v0.1.0, whose package.json version is 0.1.0. The published 0.1.1 tarball's package.json, index.js, and cordis.patch.yml match tag v0.1.1 (74995604aef618d9635bd089cb9ffdccef6c3c6c), so pin github:PerryLink/dsh-sherlock#v0.1.1 and not the stale gitHead. Install: dsh plugin add dsh-sherlock. GitHub Release v0.1.1. Default-branch HEAD 759c79bcd3bc06d4bae38cdc8db2e8f7f7e3a23d is tag v0.1.2 and is not npm latest (no v0.1.2 GitHub Release). The 0.1.2 changelog is typecheck, lint, header-filter tests, data-sync tooling, and docs; the catalog row stays on published 0.1.1. Declares node >=24.9.0 <25 and dsh >=0.2.1-rc.3 <0.4.0. No npm dependencies. Tools sherlock_check and sherlock_sites, plus an on-demand sherlock-osint skill. Pinned Sherlock site snapshot: 481 sites; core scope is 41 effective sites (45 names minus 4 exclusions); scope all is capped at 120 sites per call. Result states are claimed, available, unknown, blocked, illegal, and unreliable; claimed results get a random negative-control check. Public pages only: no login, no credential use, and the tool result does not include raw HTML. Distinct from jo32/dsh-video-sherlock (slug dsh-video-sherlock).",
-   "repoOwner": "PerryLink"
+   "repoOwner": "PerryLink",
+   "bareNpm": "other",
+   "testDate": "2026-11-09"
   }
  ],
  "Productivity": [
