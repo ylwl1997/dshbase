@@ -1,24 +1,30 @@
 #!/usr/bin/env python3
-"""Pilot L1–L3 plugin check for GitHub-hosted runners.
+"""Pilot plugin check for GitHub-hosted runners.
 
 Reuses the install / dump-config / headless commands from
 scripts/verify-runtime.sh and the package pin in scripts/dsh-overrides.yaml.
 Writes a JSON report and a Markdown summary. Does not edit plugins.json,
-does not call merge-verify.py, and does not talk to the catalog mirror.
+does not call merge-verify.py or merge-webonly.py, and does not talk to the
+catalog mirror.
 
 Stages (same meanings as https://dshbase.com/audit/):
-  L1  dsh plugin add into a clean profile, with dsh-base + dsh-headless
-      pinned to DSH_VERSION (default 0.1.0-rc.8).
+  L1  dsh plugin add into a clean profile, with dsh-base plus either
+      dsh-headless (default) or dsh-web-app (--l4), pinned to DSH_VERSION
+      (default 0.1.0-rc.8).
   L2  dsh --dump-config, and the plugin package is in dsh.profile.bundles.
   L3  headless prompt "Reply with exactly: OK".
       web-only (GUI service missing) is not a pass.
       A missing DEEPSEEK_API_KEY is needs-env, not a plugin failure.
-  L4  skipped. verify-webonly.sh needs a host-local l3.mjs and a pinned
-      Puppeteer Chrome that ubuntu-latest does not have.
+      --l4 skips this call. The browser job does not read the API key.
+  L4  --l4 only. Boot `dsh --profile <name> --host 127.0.0.1 --port <port>
+      --no-open` and run scripts/l4-cdp.mjs (Playwright, system Chrome or
+      bundled Chromium). No ~/webverify path. A pass is browser evidence,
+      not a catalog Verified badge.
 
 Usage:
   python3 scripts/verify-pilot.py --self-check
   python3 scripts/verify-pilot.py --out-dir pilot-report
+  python3 scripts/verify-pilot.py --l4 --out-dir pilot-report
   python3 scripts/verify-pilot.py --only dsh-dir-tree --out-dir /tmp/pilot-report
   PILOT_PLUGINS=$'slug|spec\\n' python3 scripts/verify-pilot.py --out-dir pilot-report
 """
@@ -29,9 +35,13 @@ import json
 import os
 import re
 import shutil
+import signal
+import socket
 import subprocess
 import sys
 import time
+import urllib.error
+import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -42,17 +52,32 @@ PLUGINS_JSON = ROOT / "src" / "data" / "plugins.json"
 DSH_VERSION = os.environ.get("DSH_VERSION", "0.1.0-rc.8").strip() or "0.1.0-rc.8"
 BASE_PKG = f"@deepseek-ai/dsh-base@{DSH_VERSION}"
 HEADLESS_PKG = f"@deepseek-ai/dsh-headless@{DSH_VERSION}"
-OFFICIAL_DEPS = {"@deepseek-ai/dsh-base", "@deepseek-ai/dsh-headless"}
+WEB_PKG = f"@deepseek-ai/dsh-web-app@{DSH_VERSION}"
+OFFICIAL_DEPS = {
+    "@deepseek-ai/dsh-base",
+    "@deepseek-ai/dsh-headless",
+    "@deepseek-ai/dsh-web-app",
+}
+L4_SCRIPT = Path(__file__).resolve().parent / "l4-cdp.mjs"
 
 L1_TIMEOUT = int(os.environ.get("PILOT_L1_TIMEOUT", "240"))
 L2_TIMEOUT = int(os.environ.get("PILOT_L2_TIMEOUT", "180"))
 L3_TIMEOUT = int(os.environ.get("PILOT_L3_TIMEOUT", "180"))
+WEB_BOOT_TIMEOUT = int(os.environ.get("PILOT_WEB_BOOT_TIMEOUT", "90"))
+L4_TIMEOUT = int(os.environ.get("PILOT_L4_TIMEOUT", "60"))
 L3_PROMPT = "Reply with exactly: OK"
 
 L4_REASON = (
-    "Skipped. scripts/verify-webonly.sh drives L4 through ~/webverify/l3.mjs "
-    "and a pinned Puppeteer Chrome path that are not in this repo and are not "
-    "installed on ubuntu-latest. This pilot does not invent a CDP result."
+    "Skipped in this L1–L3 job. Web CDP is scripts/l4-cdp.mjs, run with "
+    "--l4 (workflow .github/workflows/verify-pilot-l4.yml). It uses Playwright "
+    "and the runner's Chrome or Playwright's Chromium. This job does not invent "
+    "a CDP result."
+)
+L3_SKIPPED_FOR_L4 = (
+    "Skipped. This is the web CDP job, so it does not send a headless prompt "
+    "and does not read DEEPSEEK_API_KEY. Actions run 42562689033 already "
+    "classified @yumiku/dsh-commandcode-quota as web-only (waiting for service: "
+    "webServer) before any model answer."
 )
 
 # Historical allowBuilds seed from scripts/verify-runtime.sh. Further keys are
@@ -113,6 +138,68 @@ DEFAULT_PLUGINS = [
             "dshbase did not run L1–L4. Live quota needs a Command Code API key, "
             "which this pilot does not set. Declares dsh >=0.2.0 <0.3.0."
         ),
+    },
+]
+
+# Browser probes. selectorsAny is OR. A route probe asks the page to fetch a
+# same-origin path and requires JSON, which is how a host row proves it left
+# "waiting for service: webServer". Live account data is not required.
+L4_PLUGINS = [
+    {
+        "slug": "yumiku-dsh-commandcode-quota",
+        "installSpec": "@yumiku/dsh-commandcode-quota@1.1.1",
+        "catalogTest": "verified",
+        "role": (
+            "Known web-only from Actions run 42562689033: headless L3 stopped at "
+            "pending (waiting for service: webServer) before a model answer. "
+            "Web client is a Settings tab plus a floating capsule (.dcq-float). "
+            "Host routes include GET /dsh-commandcode/api/key, which returns JSON "
+            "and never the key. This run does not set a Command Code key. "
+            "Catalog test=verified is metadata-only and is not confirmed here."
+        ),
+        "l4": {
+            "dismiss": ["Continue", "继续"],
+            "openText": ["Configure later", "稍后配置", "Settings", "设置"],
+            "selectorsAny": [".dcq-float", "#dcq-style"],
+            "textAny": ["Command Code"],
+            "forbid": ["#dcq-boot-error"],
+            "route": "/dsh-commandcode/api/key",
+            "routeExpect": "json",
+            "note": "First-run notice is dismissed. Capsule, style, or the Command Code label counts. The key route answers JSON without a Command Code key.",
+        },
+    },
+    {
+        "slug": "dsh-processing-status",
+        "installSpec": "github:OStarsO/dsh-processing-status#v1.0.0",
+        "catalogTest": "listed",
+        "role": (
+            "Optional. Web client only (composer status line + settings switch). "
+            "Headless L3 on run 42562689033 failed inside watchUserPatches "
+            "(hmr.registerConfig), not with waiting-for-webServer. The status "
+            "line renders only while a task is running, so the idle-page signal "
+            "is the style tag the client inserts on apply."
+        ),
+        "l4": {
+            "selectorsAny": ['style[data-plugin="dsh-processing-status"]'],
+            "forbid": [],
+            "note": "Status line stays unmounted until a task is running. Style tag means the client applied.",
+        },
+    },
+    {
+        "slug": "vacum972-dsh-usage-billing",
+        "installSpec": "@vacum972/dsh-usage-billing@0.1.3",
+        "catalogTest": "listed",
+        "role": (
+            "Optional. Headless L3 passed on run 42562689033, so L4 is not "
+            "required for the audit rule. The package also ships a web composer "
+            "pill (data-composer-stat=billing). Remaining balance needs a "
+            "signed-in DeepSeek account; this run does not sign in."
+        ),
+        "l4": {
+            "selectorsAny": ['[data-composer-stat="billing"]', ".ub-pill"],
+            "forbid": [],
+            "note": "Pill is the composer dock. No account session is started.",
+        },
     },
 ]
 
@@ -409,7 +496,220 @@ def verdict_for(l1: str, l2: str, l3: str) -> str:
     return "fail"
 
 
-def verify_plugin(plugin: dict, home: Path, log_dir: Path, env: dict, secrets: list[str], key_present: bool) -> dict:
+def verdict_for_l4(l1: str, l2: str, l4: str) -> str:
+    if l1 != "pass" or l2 != "pass":
+        return "fail"
+    if l4 == "pass":
+        return "l4-pass"
+    if l4 == "skipped":
+        return "incomplete"
+    return "l4-fail"
+
+
+def l4_ready(cdp: dict, expect: dict) -> tuple[bool, str]:
+    """Decide the browser probe. Facts come from l4-cdp.mjs; this is the verdict."""
+    if cdp.get("harnessError"):
+        return False, str(cdp["harnessError"])
+    if not cdp.get("shellMounted"):
+        return False, cdp.get("bootText") or cdp.get("detail") or "Web shell did not mount."
+    if cdp.get("bootFailed"):
+        return False, cdp.get("bootText") or "Web boot overlay reported a failure."
+    found = cdp.get("selectors") or {}
+    forbidden = [sel for sel in (expect.get("forbid") or []) if found.get(sel)]
+    if forbidden:
+        return False, "Plugin boot error UI present: " + ", ".join(forbidden)
+    wanted = list(expect.get("selectorsAny") or [])
+    texts = list(expect.get("textAny") or [])
+    text_hits = cdp.get("texts") or {}
+    selector_hit = any(found.get(sel) for sel in wanted)
+    text_hit = any(text_hits.get(text) for text in texts)
+    if (wanted or texts) and not selector_hit and not text_hit:
+        buttons = ", ".join(cdp.get("buttons") or []) or "none"
+        missing = []
+        if wanted:
+            missing.append("selectors " + ", ".join(wanted))
+        if texts:
+            missing.append("text " + ", ".join(texts))
+        scripts = cdp.get("pluginResponses") or []
+        extra = ""
+        if scripts:
+            extra = " Scripts: " + " | ".join(str(item) for item in scripts[:8])
+        route_info = cdp.get("route") or {}
+        route_note = ""
+        if route_info.get("json"):
+            route_note = f" Host route returned JSON {route_info.get('status')}."
+        return False, "Plugin client UI was not in the page (" + "; ".join(missing) + ")." + route_note + " Buttons: " + buttons + extra
+    route = expect.get("route") or ""
+    info = cdp.get("route") or {}
+    if route and expect.get("routeExpect") == "json" and not info.get("json"):
+        return False, f"Route {route} did not return JSON (status {info.get('status')})."
+    if not wanted and not route:
+        return False, "No L4 probe configured."
+    notes = []
+    hit = [sel for sel in wanted if found.get(sel)]
+    if hit:
+        notes.append("selectors " + ", ".join(hit))
+    seen = [text for text in texts if text_hits.get(text)]
+    if seen:
+        notes.append("text " + ", ".join(seen))
+    if route and info.get("json"):
+        notes.append(f"route {route} JSON {info.get('status')}")
+    if expect.get("note"):
+        notes.append(str(expect["note"]))
+    return True, "; ".join(notes)
+
+
+def free_port() -> int:
+    with socket.socket() as sock:
+        sock.bind(("127.0.0.1", 0))
+        return int(sock.getsockname()[1])
+
+
+def stop_process_group(proc: subprocess.Popen) -> None:
+    if proc.poll() is not None:
+        return
+    try:
+        os.killpg(proc.pid, signal.SIGTERM)
+    except ProcessLookupError:
+        return
+    except OSError:
+        proc.terminate()
+    deadline = time.monotonic() + 8
+    while time.monotonic() < deadline:
+        if proc.poll() is not None:
+            return
+        time.sleep(0.2)
+    try:
+        os.killpg(proc.pid, signal.SIGKILL)
+    except (ProcessLookupError, OSError):
+        proc.kill()
+    try:
+        proc.wait(timeout=5)
+    except subprocess.TimeoutExpired:
+        pass
+
+
+def wait_http(url: str, proc: subprocess.Popen, timeout: int) -> bool:
+    deadline = time.monotonic() + timeout
+    while time.monotonic() < deadline:
+        if proc.poll() is not None:
+            return False
+        try:
+            with urllib.request.urlopen(url, timeout=3) as response:
+                if response.status < 500:
+                    return True
+        except (urllib.error.URLError, TimeoutError, OSError):
+            time.sleep(1)
+    return False
+
+
+def run_l4_browser(url: str, expect: dict, out_json: Path, screenshot: Path, log_path: Path, env: dict, secrets: list[str]) -> tuple[int, dict, int]:
+    payload = json.dumps(expect, ensure_ascii=False)
+    code, text, duration = run_cmd(
+        [
+            "node",
+            str(L4_SCRIPT),
+            "--url",
+            url,
+            "--out",
+            str(out_json),
+            "--screenshot",
+            str(screenshot),
+            "--timeout",
+            str(L4_TIMEOUT * 1000),
+            "--expect",
+            payload,
+        ],
+        L4_TIMEOUT + 30,
+        log_path,
+        env,
+        secrets,
+    )
+    cdp: dict = {}
+    if out_json.is_file():
+        try:
+            cdp = json.loads(out_json.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            cdp = {"harnessError": "l4-cdp.mjs wrote invalid JSON", "detail": snippet(text)}
+    elif code == 124:
+        cdp = {"harnessError": "", "shellMounted": False, "detail": "CDP script timed out"}
+    else:
+        cdp = {"harnessError": snippet(text) or f"l4-cdp.mjs exited {code} without a result", "shellMounted": False}
+    if code == 2 and not cdp.get("harnessError"):
+        cdp["harnessError"] = snippet(text) or "browser failed to start"
+    return code, cdp, duration
+
+
+def boot_and_probe(prof: str, expect: dict, log_dir: Path, log_path: Path, env: dict, secrets: list[str]) -> dict:
+    """Start the web profile and run the vendored CDP script. Caller owns cleanup."""
+    port = free_port()
+    url = f"http://127.0.0.1:{port}/"
+    handle = log_path.open("a", encoding="utf-8")
+    handle.write(f"\n--- L4 web boot ---\n$ dsh --profile {prof} --host 127.0.0.1 --port {port} --no-open\n")
+    handle.flush()
+    proc = subprocess.Popen(
+        ["dsh", "--profile", prof, "--host", "127.0.0.1", "--port", str(port), "--no-open"],
+        stdout=handle,
+        stderr=subprocess.STDOUT,
+        env=env,
+        start_new_session=True,
+    )
+    started = time.monotonic()
+    try:
+        up = wait_http(url, proc, WEB_BOOT_TIMEOUT)
+        boot_ms = int((time.monotonic() - started) * 1000)
+        if not up:
+            tail = ""
+            if log_path.is_file():
+                tail = snippet(log_path.read_text(encoding="utf-8", errors="replace").split("--- L4 web boot ---", 1)[-1])
+            alive = proc.poll() is None
+            return stage(
+                "fail",
+                boot_ms,
+                tail or "Web server did not accept HTTP.",
+                url=url,
+                serverAlive=alive,
+                harness=False,
+            )
+        out_json = log_dir / f"{profile_name_file(prof)}-l4.json"
+        screenshot = log_dir / f"{profile_name_file(prof)}-l4.png"
+        code, cdp, dur = run_l4_browser(url, expect, out_json, screenshot, log_path, env, secrets)
+        ready, detail = l4_ready(cdp, expect)
+        harness = bool(cdp.get("harnessError")) or code == 2
+        status = "pass" if ready else "fail"
+        error = "" if ready else detail
+        route = cdp.get("route") or {}
+        if route.get("bodySnippet"):
+            route = dict(route)
+            route["bodySnippet"] = redact(str(route["bodySnippet"]), secrets)[:400]
+        return stage(
+            status,
+            boot_ms + dur,
+            error,
+            url=url,
+            browser=cdp.get("browser") or "",
+            shellMounted=bool(cdp.get("shellMounted")),
+            bootFailed=bool(cdp.get("bootFailed")),
+            selectors=cdp.get("selectors") or {},
+            route=route or None,
+            consoleErrors=[redact(item, secrets) for item in (cdp.get("consoleErrors") or [])],
+            pageErrors=[redact(item, secrets) for item in (cdp.get("pageErrors") or [])],
+            screenshot=str(screenshot) if screenshot.is_file() else "",
+            pluginResponses=cdp.get("pluginResponses") or [],
+            serverAlive=proc.poll() is None,
+            harness=harness,
+            detail=detail,
+        )
+    finally:
+        stop_process_group(proc)
+        handle.close()
+
+
+def profile_name_file(prof: str) -> str:
+    return re.sub(r"[^A-Za-z0-9_-]", "", prof)[:60] or "plugin"
+
+
+def verify_plugin(plugin: dict, home: Path, log_dir: Path, env: dict, secrets: list[str], key_present: bool, l4_mode: bool = False) -> dict:
     slug = plugin["slug"]
     spec = plugin.get("installSpec") or ""
     prof = profile_name(slug)
@@ -455,8 +755,9 @@ def verify_plugin(plugin: dict, home: Path, log_dir: Path, env: dict, secrets: l
     try:
         for attempt in range(1, 4):
             attempts = attempt
+            runtime_pkg = WEB_PKG if l4_mode else HEADLESS_PKG
             code, text, dur = run_cmd(
-                ["dsh", "plugin", "--profile", prof, "add", BASE_PKG, HEADLESS_PKG, spec],
+                ["dsh", "plugin", "--profile", prof, "add", BASE_PKG, runtime_pkg, spec],
                 L1_TIMEOUT,
                 log_path,
                 env,
@@ -500,6 +801,8 @@ def verify_plugin(plugin: dict, home: Path, log_dir: Path, env: dict, secrets: l
         if l1_status != "pass":
             result["stages"]["L2"] = stage("skipped")
             result["stages"]["L3"] = stage("skipped")
+            if l4_mode:
+                result["stages"]["L4"] = stage("skipped", error="L1 did not pass, so the browser was not started.")
         else:
             code, text, dur = run_cmd(
                 ["dsh", "--profile", prof, "--dump-config"],
@@ -533,6 +836,13 @@ def verify_plugin(plugin: dict, home: Path, log_dir: Path, env: dict, secrets: l
 
             if l2_status != "pass":
                 result["stages"]["L3"] = stage("skipped")
+                if l4_mode:
+                    result["stages"]["L4"] = stage("skipped", error="L2 did not pass, so the browser was not started.")
+            elif l4_mode:
+                result["stages"]["L3"] = stage("skipped", error=L3_SKIPPED_FOR_L4)
+                expect = dict(plugin.get("l4") or {})
+                print(f"  L4 web CDP {slug}", flush=True)
+                result["stages"]["L4"] = boot_and_probe(prof, expect, log_dir, log_path, env, secrets)
             else:
                 code, text, dur = run_cmd(
                     ["dsh", "--profile", prof, L3_PROMPT],
@@ -548,13 +858,14 @@ def verify_plugin(plugin: dict, home: Path, log_dir: Path, env: dict, secrets: l
                     l3_error,
                     backend="deepseek" if key_present else "unset",
                 )
-        result["stages"]["L4"] = stage("skipped", error=L4_REASON)
+        if "L4" not in result["stages"]:
+            result["stages"]["L4"] = stage("skipped", error=L4_REASON)
     except Exception as exc:
         message = snippet(redact(str(exc), secrets)) or exc.__class__.__name__
         result["stages"].setdefault("L1", stage("fail", error=message))
         result["stages"].setdefault("L2", stage("skipped"))
         result["stages"].setdefault("L3", stage("skipped"))
-        result["stages"].setdefault("L4", stage("skipped", error=L4_REASON))
+        result["stages"].setdefault("L4", stage("fail" if l4_mode else "skipped", error=message if l4_mode else L4_REASON))
         print(f"  {slug} raised {exc.__class__.__name__}: {message}", flush=True)
     finally:
         shutil.rmtree(prof_dir, ignore_errors=True)
@@ -562,12 +873,16 @@ def verify_plugin(plugin: dict, home: Path, log_dir: Path, env: dict, secrets: l
     l1 = result["stages"]["L1"]["status"]
     l2 = result["stages"]["L2"]["status"]
     l3 = result["stages"]["L3"]["status"]
-    result["verdict"] = verdict_for(l1, l2, l3)
-    # A headless pass would qualify under the audit rule, but this pilot never
-    # writes that claim back to the catalog.
-    result["verifiedClaim"] = result["verdict"] == "l3-pass"
+    l4 = result["stages"]["L4"]["status"]
+    if l4_mode:
+        result["verdict"] = verdict_for_l4(l1, l2, l4)
+    else:
+        result["verdict"] = verdict_for(l1, l2, l3)
+    # Evidence only. merge-verify.py and merge-webonly.py are not run, and an
+    # L4 pass in this file is not a catalog Verified badge.
+    result["verifiedClaim"] = False if l4_mode else result["verdict"] == "l3-pass"
     result["durationMs"] = int((time.monotonic() - started) * 1000)
-    print(f"== {slug} -> {result['verdict']} (L1 {l1}, L2 {l2}, L3 {l3})", flush=True)
+    print(f"== {slug} -> {result['verdict']} (L1 {l1}, L2 {l2}, L3 {l3}, L4 {l4})", flush=True)
     return result
 
 
@@ -576,8 +891,10 @@ def settle_hmr_race() -> str:
 
     The HMR fiber is still LOADING at that point, so the service is missing and
     every headless prompt dies before the model call. One second is enough for
-    the fiber to become ACTIVE on Node 22 and Node 24. The edit is local to the
-    installed CLI and is marked so it runs once.
+    the fiber to become ACTIVE on Node 22 and Node 24. Web profiles disable the
+    hmr row; the fallback service then has no registerConfig, and that throw
+    kills a server that is already listening. User-patch watching is skipped
+    in that case. The edit stays on the runner. It is not a catalog change.
     """
     dsh_bin = shutil.which("dsh")
     if not dsh_bin:
@@ -591,20 +908,43 @@ def settle_hmr_race() -> str:
         delay = "1000"
     marker = "pilot-hmr-settle"
     needle = "\t\tawait watchUserPatches(ctx, {\n\t\t\tbinName: NAME,\n\t\t\tfilename: composed.profile.patchPath,"
-    insert = f"\t\tawait new Promise((resolve) => setTimeout(resolve, {delay})); // {marker}\n"
+    delay_line = f"\t\tawait new Promise((resolve) => setTimeout(resolve, {delay})); // {marker}\n"
+    watch_block = (
+        "\t\tawait watchUserPatches(ctx, {\n"
+        "\t\t\tbinName: NAME,\n"
+        "\t\t\tfilename: composed.profile.patchPath,\n"
+        "\t\t\tcompose: composeLive\n"
+        "\t\t});\n"
+        "\t\tawait watchUserPatches(ctx, {\n"
+        "\t\t\tbinName: NAME,\n"
+        "\t\t\tfilename: homePatchPath(),\n"
+        "\t\t\tcompose: composeLive\n"
+        "\t\t});"
+    )
+    guarded = (
+        "\t\tif (typeof ctx.get(\"hmr\")?.registerConfig === \"function\") { // "
+        + marker
+        + "\n"
+        + watch_block
+        + "\n\t\t}"
+    )
     notes = []
     patched = False
     for path in candidates:
         text = path.read_text(encoding="utf-8")
-        if marker in text:
+        original = text
+        if delay_line not in text and needle in text:
+            text = text.replace(needle, delay_line + needle, 1)
+            notes.append(f"inserted {delay}ms settle in {path.name}")
+        if "registerConfig === \"function\"" not in text and watch_block in text:
+            text = text.replace(watch_block, guarded, 1)
+            notes.append(f"skip user-patch watch when registerConfig is missing ({path.name})")
+        if text != original:
+            path.write_text(text, encoding="utf-8")
+            patched = True
+        elif marker in text or "registerConfig === \"function\"" in text:
             notes.append(f"already settled ({path.name})")
             patched = True
-            continue
-        if needle not in text:
-            continue
-        path.write_text(text.replace(needle, insert + needle, 1), encoding="utf-8")
-        notes.append(f"inserted {delay}ms settle in {path.name}")
-        patched = True
     if not patched:
         names = ", ".join(path.name for path in candidates)
         return f"pattern not found in {names}; HMR race left unchanged"
@@ -623,7 +963,66 @@ def tool_version(cmd: list[str], env: dict) -> str:
     return first
 
 
+def recommendation_l4(report: dict) -> str:
+    plugins = report["plugins"]
+    passed = [p["slug"] for p in plugins if p["verdict"] == "l4-pass"]
+    failed = [p["slug"] for p in plugins if p["verdict"] == "l4-fail"]
+    other = [p["slug"] for p in plugins if p["verdict"] not in ("l4-pass", "l4-fail")]
+    quota = next((p for p in plugins if p["slug"] == "yumiku-dsh-commandcode-quota"), None)
+    lines = [
+        f"L4 browser check ran {len(plugins)} plugin(s) on {report['runner']}. "
+        f"l4-pass ({len(passed)}): {', '.join(passed) or 'none'}. "
+        f"l4-fail ({len(failed)}): {', '.join(failed) or 'none'}. "
+        f"Other ({len(other)}): {', '.join(other) or 'none'}.",
+        "Catalog badges were not changed. merge-webonly.py was not run. "
+        "An l4-pass in this file is evidence only and is not a Verified badge. "
+        "The browser check does not send a model prompt, so DEEPSEEK_API_KEY was not used.",
+    ]
+    if quota and quota["verdict"] == "l4-pass":
+        lines.append(
+            "The known web-only plugin @yumiku/dsh-commandcode-quota is no longer "
+            "stuck on webServer: the web shell mounted and the browser saw the "
+            "plugin client plus a JSON host route. Recommend making this L4 job the "
+            "default follow-up for intakes whose headless L3 is web-only, still as "
+            "workflow_dispatch rather than on every catalog sync, until two or three "
+            "more web-only plugins pass the same kind of probe. Keep the badge write "
+            "on merge-webonly.py. A metadata test=verified row is not confirmed here."
+        )
+    elif quota:
+        route = ((quota.get("stages") or {}).get("L4") or {}).get("route") or {}
+        if route.get("json"):
+            lines.append(
+                "The web shell mounted and the plugin host route returned JSON, so the "
+                "entry is not still stuck on webServer. The client UI was not in the page "
+                f"on dsh {DSH_VERSION}. Do not make L4 the default badge step, and do not "
+                "write Verified, until that client is visible. Keep this job on "
+                "workflow_dispatch as a report for web-only intakes."
+            )
+        else:
+            lines.append(
+                "The known web-only plugin did not pass L4. Do not make the browser job "
+                "the default for web-only intakes until @yumiku/dsh-commandcode-quota is "
+                "green. The failure is in this report. It is not a Verified result and it "
+                "does not clear the existing metadata badge."
+            )
+    else:
+        lines.append(
+            "This run did not include @yumiku/dsh-commandcode-quota. Do not generalize "
+            "from the optional plugins alone; the web-only case is the one that was "
+            "blocked on webServer."
+        )
+    lines.append(
+        "Headless L3 stays the check for plugins that answer in the terminal. "
+        "L4 should stay limited to web-only results: a browser boot is slower, and a "
+        "model round-trip is a separate check that needs DEEPSEEK_API_KEY. This job "
+        "does not send that prompt. Do not retune the audit pin from this report."
+    )
+    return " ".join(lines)
+
+
 def recommendation(report: dict) -> str:
+    if report.get("mode") == "l4":
+        return recommendation_l4(report)
     plugins = report["plugins"]
     n = len(plugins)
     l3_pass = sum(1 for p in plugins if p["verdict"] == "l3-pass")
@@ -661,10 +1060,10 @@ def recommendation(report: dict) -> str:
             "as scripts/verify-runtime.sh."
         )
     lines.append(
-        "L4 still depends on scripts/verify-webonly.sh and a host-local browser script that "
-        "ubuntu-latest does not have. Keep that CDP step on the existing long-lived verify "
-        "host until the script is vendored. Do not retune the audit pin, and do not treat "
-        "Actions as the only verifier, until a follow-up covers a 0.2.x runtime for intakes "
+        "L4 browser checks are scripts/l4-cdp.mjs via --l4 and "
+        ".github/workflows/verify-pilot-l4.yml. This L1–L3 job does not run them and does "
+        "not invent a CDP result. Do not retune the audit pin, and do not treat an L3 pass "
+        "here as a catalog write, until a follow-up covers a 0.2.x runtime for intakes "
         "that declare dsh >=0.2."
     )
     return " ".join(lines)
@@ -683,11 +1082,19 @@ def render_markdown(report: dict) -> str:
         f"- dsh actual: {report['dshVersionActual']}",
         f"- HMR workaround: {report.get('hmrWorkaround', '')}",
         f"- DEEPSEEK_API_KEY present: {str(report['deepseekApiKeyPresent']).lower()}",
+        f"- Mode: {report.get('mode') or 'l3'}",
         f"- Catalog updated: false",
         "",
-        "Verified on dshbase requires L1 + L2 + L3 `pass` on the pinned runtime. "
-        "L3 `web-only` is not a pass; L4 would be required and was skipped. "
-        "`needs-env` means a credential was missing.",
+        (
+            "This run is L4 only. L3 was not called and DEEPSEEK_API_KEY was not used. "
+            "`l4-pass` means the web shell mounted and the plugin probe matched. "
+            "It does not change the catalog Verified badge."
+            if report.get("mode") == "l4"
+            else
+            "Verified on dshbase requires L1 + L2 + L3 `pass` on the pinned runtime. "
+            "L3 `web-only` is not a pass; L4 is a separate browser job. "
+            "`needs-env` means a credential was missing."
+        ),
         "",
         "| Plugin | Install spec | Catalog test | L1 | L2 | L3 | L4 | Verdict | Duration |",
         "|---|---|---|---|---|---|---|---|---|",
@@ -723,6 +1130,15 @@ def render_markdown(report: dict) -> str:
         for name in ("L1", "L2", "L3", "L4"):
             row = plugin["stages"][name]
             lines.append(f"- {name}: `{row['status']}` ({row.get('durationMs', 0)} ms)")
+            if name == "L4":
+                if row.get("browser"):
+                    lines.append(f"  - browser: `{row['browser']}`")
+                if row.get("url"):
+                    lines.append(f"  - url: `{row['url']}`")
+                if row.get("detail"):
+                    lines.append(f"  - detail: {row['detail']}")
+                if row.get("screenshot"):
+                    lines.append(f"  - screenshot: `{row['screenshot']}`")
             if row.get("error"):
                 lines.append("")
                 lines.append("```")
@@ -763,6 +1179,43 @@ def self_check() -> None:
     assert verdict_for("pass", "pass", "needs-env") == "needs-env"
     assert verdict_for("fail", "skipped", "skipped") == "fail"
     assert verdict_for("pass", "fail", "skipped") == "fail"
+    assert verdict_for_l4("pass", "pass", "pass") == "l4-pass"
+    assert verdict_for_l4("pass", "pass", "fail") == "l4-fail"
+    assert verdict_for_l4("fail", "skipped", "skipped") == "fail"
+    ready, note = l4_ready(
+        {
+            "shellMounted": True,
+            "selectors": {".dcq-float": True, "#dcq-boot-error": False},
+            "route": {"status": 200, "json": True},
+        },
+        {
+            "selectorsAny": [".dcq-float", "#dcq-style"],
+            "forbid": ["#dcq-boot-error"],
+            "route": "/dsh-commandcode/api/key",
+            "routeExpect": "json",
+        },
+    )
+    assert ready and ".dcq-float" in note and "JSON 200" in note
+    missed, why = l4_ready(
+        {"shellMounted": True, "selectors": {".dcq-float": False}, "route": {"status": 200, "json": True}},
+        {"selectorsAny": [".dcq-float"], "route": "/x", "routeExpect": "json"},
+    )
+    assert not missed and "selectors" in why
+    loading, why = l4_ready({"shellMounted": False, "bootText": "Loading plugins"}, {"selectorsAny": [".x"]})
+    assert not loading and "Loading" in why
+    broken, why = l4_ready({"harnessError": "no browser"}, {"selectorsAny": [".x"]})
+    assert not broken and why == "no browser"
+    advice = recommendation({
+        "mode": "l4",
+        "runner": "self-check",
+        "deepseekApiKeyPresent": False,
+        "plugins": [{
+            "slug": "yumiku-dsh-commandcode-quota",
+            "verdict": "l4-pass",
+            "stages": {"L1": {"status": "pass", "error": ""}},
+        }],
+    })
+    assert "not a Verified badge" in advice and "default follow-up" in advice and "DEEPSEEK_API_KEY was not used" in advice
     keys = parse_allow_build_keys("  '@scope/pkg': true\nIgnored build scripts: left-pad@1.0.0, other@2\n")
     assert "@scope/pkg" in keys and "left-pad@1.0.0" in keys
     parsed = parse_plugin_lines("slug-a|pkg@1.0.0|note\n# c\nslug-b\tpkgb\n")
@@ -827,9 +1280,23 @@ def build_env(home: Path, secrets: list[str]) -> dict:
     return env
 
 
+def attach_l4_probes(plugins: list[dict]) -> None:
+    known = {row["slug"]: row for row in L4_PLUGINS}
+    for plugin in plugins:
+        row = known.get(plugin["slug"])
+        if not row:
+            continue
+        plugin["l4"] = dict(row.get("l4") or {})
+        if not plugin.get("role"):
+            plugin["role"] = row.get("role") or ""
+        if not plugin.get("catalogTest"):
+            plugin["catalogTest"] = row.get("catalogTest") or ""
+
+
 def main(argv: list[str]) -> int:
-    parser = argparse.ArgumentParser(description="Pilot L1–L3 dsh plugin verification. Does not edit the catalog.")
+    parser = argparse.ArgumentParser(description="Pilot dsh plugin verification. Does not edit the catalog.")
     parser.add_argument("--self-check", action="store_true")
+    parser.add_argument("--l4", action="store_true", help="Boot dsh-web-app and run scripts/l4-cdp.mjs. Skips the headless model call.")
     parser.add_argument("--out-dir", default="pilot-report")
     parser.add_argument("--only", action="append", default=[])
     parser.add_argument("--plugins-file", default="")
@@ -848,10 +1315,19 @@ def main(argv: list[str]) -> int:
         explicit = Path(args.plugins_file).read_text(encoding="utf-8")
     elif os.environ.get("PILOT_PLUGINS"):
         explicit = os.environ["PILOT_PLUGINS"]
-    plugins = resolve_plugins(explicit, args.only or None)
+    if args.l4 and not explicit.strip() and not args.only:
+        plugins = [dict(row) for row in L4_PLUGINS]
+    else:
+        plugins = resolve_plugins(explicit, args.only or None)
+        if args.l4:
+            attach_l4_probes(plugins)
     if not plugins:
         print("no plugins selected", file=sys.stderr)
         return 2
+
+    # The browser job must not turn a developer key into a model call.
+    if args.l4:
+        os.environ.pop("DEEPSEEK_API_KEY", None)
 
     home = Path(os.environ.get("DSH_HOME") or "/tmp/dsh-pilot-home").resolve()
     if home.exists():
@@ -883,7 +1359,8 @@ def main(argv: list[str]) -> int:
 
     report = {
         "reportVersion": 1,
-        "pilot": "gha-ubuntu-latest",
+        "pilot": "gha-ubuntu-latest-l4" if args.l4 else "gha-ubuntu-latest",
+        "mode": "l4" if args.l4 else "l3",
         "startedAt": utc_now(),
         "finishedAt": "",
         "runner": os.environ.get("RUNNER_NAME") or os.environ.get("RUNNER_OS") or "local",
@@ -895,7 +1372,16 @@ def main(argv: list[str]) -> int:
         "deepseekApiKeyPresent": key_present,
         "githubActions": os.environ.get("GITHUB_ACTIONS") == "true",
         "catalogUpdated": False,
-        "l4": {"status": "skipped", "reason": L4_REASON},
+        "l4": (
+            {
+                "status": "ran",
+                "script": "scripts/l4-cdp.mjs",
+                "browser": "playwright; system Chrome or bundled Chromium",
+                "modelCall": False,
+            }
+            if args.l4
+            else {"status": "skipped", "reason": L4_REASON}
+        ),
         "runUrl": run_url,
         "plugins": [],
         "recommendation": "",
@@ -905,13 +1391,22 @@ def main(argv: list[str]) -> int:
         return 2
 
     for plugin in plugins:
-        report["plugins"].append(verify_plugin(plugin, home, log_dir, env, secrets, key_present))
+        report["plugins"].append(verify_plugin(plugin, home, log_dir, env, secrets, key_present, l4_mode=args.l4))
     report["finishedAt"] = utc_now()
     report["recommendation"] = recommendation(report)
     write_report(report, out_dir)
     print(f"wrote {out_dir / 'report.json'}", flush=True)
     print(report["recommendation"], flush=True)
     shutil.rmtree(home, ignore_errors=True)
+    if not args.l4:
+        return 0
+    if any(plugin["stages"].get("L4", {}).get("harness") for plugin in report["plugins"]):
+        print("L4 harness failed to start a browser", file=sys.stderr)
+        return 2
+    attempted = any(plugin["stages"].get("L4", {}).get("status") in ("pass", "fail") for plugin in report["plugins"])
+    if not attempted:
+        print("L4 was not attempted", file=sys.stderr)
+        return 1
     return 0
 
 

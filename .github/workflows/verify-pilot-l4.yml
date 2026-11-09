@@ -1,0 +1,108 @@
+# L4 web CDP pilot. workflow_dispatch is listed after this file is on the
+# default branch. Until then, a push to cursor/dsh-verify-l4-cdp-7249 that
+# touches this workflow or the L4 scripts starts one run.
+#
+# Does not edit src/data/plugins.json and does not use CATALOG_REPO_TOKEN.
+# Does not read DEEPSEEK_API_KEY: the browser check does not send a model prompt.
+# The prior L1–L3 pilot already classified @yumiku/dsh-commandcode-quota as
+# web-only (waiting for service: webServer) before any model answer.
+name: Plugin verify pilot L4
+
+on:
+  workflow_dispatch:
+    inputs:
+      plugins:
+        description: >-
+          Optional plugin list. One per line: slug|install-spec.
+          Empty uses the L4 set (yumiku-dsh-commandcode-quota,
+          dsh-processing-status, vacum972-dsh-usage-billing).
+        required: false
+        default: ''
+        type: string
+  push:
+    branches:
+      - cursor/dsh-verify-l4-cdp-7249
+    paths:
+      - .github/workflows/verify-pilot-l4.yml
+      - scripts/verify-pilot.py
+      - scripts/l4-cdp.mjs
+      - scripts/dsh-overrides.yaml
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: verify-pilot-l4-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  l4:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Require Node >=24.9 <25
+        run: |
+          node -e 'const p=process.versions.node.split(".").map(Number); if(!(p[0]===24 && p[1]>=9)){console.error("need Node >=24.9 <25, got", process.version); process.exit(1)}'
+          node --version
+          command -v google-chrome || command -v google-chrome-stable || command -v chromium
+
+      - name: Install pinned dsh and pnpm
+        run: |
+          set -euo pipefail
+          if ! npm install -g --allow-scripts=@deepseek-ai/dsh-subprocess-local,koffi,node-pty,@google/genai,protobufjs pnpm@10 @deepseek-ai/dsh@0.1.0-rc.8; then
+            npm install -g pnpm@10 @deepseek-ai/dsh@0.1.0-rc.8
+          fi
+          pnpm --version
+          dsh --version
+
+      - name: Install Playwright
+        run: |
+          set -euo pipefail
+          npm install --prefix /tmp/l4-browser playwright@1.65.0
+          # ubuntu-latest ships Google Chrome. Playwright's Chromium is the
+          # fallback when the system binary's protocol does not match.
+          # xvfb is already on the image; headless Chrome does not need it.
+          if ! npx --prefix /tmp/l4-browser playwright install chromium; then
+            echo "bundled Chromium install failed; the script will use system Chrome"
+          fi
+
+      - name: Self-check report classifier
+        run: python3 scripts/verify-pilot.py --self-check
+
+      - name: Run L4 browser pilot
+        env:
+          DSH_VERSION: 0.1.0-rc.8
+          DSH_HOME: /tmp/dsh-pilot-home
+          L4_BROWSER_DIR: /tmp/l4-browser
+          PILOT_PLUGINS: ${{ github.event.inputs.plugins }}
+          PILOT_L1_TIMEOUT: "360"
+          PILOT_WEB_BOOT_TIMEOUT: "120"
+          PILOT_L4_TIMEOUT: "75"
+        run: python3 scripts/verify-pilot.py --l4 --out-dir pilot-report
+
+      - name: Job summary
+        if: always()
+        run: |
+          if [ -f pilot-report/summary.md ]; then
+            cat pilot-report/summary.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "L4 report was not written." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verify-pilot-l4-report
+          path: |
+            pilot-report/report.json
+            pilot-report/summary.md
+            pilot-report/logs/
+          if-no-files-found: warn
