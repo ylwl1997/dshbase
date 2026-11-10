@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
-import { presentEvidence, validateEvidence, filledSections, REQUESTED_DIST_TAG } from './plugin-evidence.js';
+import { claimsVerifiedBadge, presentEvidence, validateEvidence, filledSections, REQUESTED_DIST_TAG } from './plugin-evidence.js';
 
 const file = JSON.parse(readFileSync(new URL('../data/plugin-evidence.json', import.meta.url), 'utf8'));
 
@@ -42,8 +42,21 @@ test('schema examples are valid evidence and not catalog results', () => {
   }
 });
 
-test('shipped evidence file has no plugin results', () => {
-  assert.deepEqual(file.plugins, {});
+test('shipped evidence records validate and do not claim Verified', () => {
+  const slugs = Object.keys(file.plugins);
+  assert.ok(slugs.length > 0);
+  for (const slug of slugs) {
+    const entry = file.plugins[slug];
+    const result = validateEvidence(entry);
+    assert.equal(result.ok, true, `${slug}: ${result.error || ''}`);
+    const zh = presentEvidence(slug, { locale: 'zh', data: file });
+    const en = presentEvidence(slug, { locale: 'en', data: file });
+    assert.equal(zh.hasEvidence, true, slug);
+    assert.equal(en.hasEvidence, true, slug);
+    assert.equal(claimsVerifiedBadge(entry.conclusion), false, `${slug} conclusion`);
+    assert.equal(claimsVerifiedBadge(entry.conclusion_zh), false, `${slug} conclusion_zh`);
+    assert.doesNotMatch(`${entry.conclusion}\n${entry.conclusion_zh}`, /Verified|verified|已验证/);
+  }
   assert.equal(presentEvidence('modlens', { locale: 'zh', data: file }).hasEvidence, false);
   assert.equal(presentEvidence('modlens', { locale: 'en', data: file, archived: true }).hasEvidence, false);
 });
