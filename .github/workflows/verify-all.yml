@@ -1,3 +1,8 @@
+# Git-hosted prepare: scripts/verify-all.sh copies the exact pnpm
+# onlyBuiltDependencies / allowBuilds key into the profile and retries.
+# Scope is this verify install's git-hosted plugin prepare. It does not
+# relax engines.dsh checks and it does not pass
+# `dsh plugin allow-version --accept-risk`.
 name: Verify all plugins
 
 on:

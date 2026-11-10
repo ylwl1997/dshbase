@@ -12,6 +12,16 @@ Writes a JSON report and a Markdown summary. Does not edit plugins.json,
 does not call merge-verify.py or merge-webonly.py, and does not talk to the
 catalog mirror.
 
+Git-hosted prepare, this verify pipeline only: when pnpm refuses a git
+dependency's prepare script (ERR_PNPM_GIT_DEP_PREPARE_NOT_ALLOWED, the
+onlyBuiltDependencies / allowBuilds gate), the exact key pnpm prints is
+written under that profile's allowBuilds and the same `dsh plugin add` is
+retried. The key is the resolved dep path, not the package name. This does
+not relax engines.dsh checks and does not pass
+`dsh plugin allow-version --accept-risk`. A retry that still ends on that
+pnpm error is failureClass `prepare-blocked`, which is not an engine
+mismatch and not a generic install-fail.
+
 Stages (same meanings as https://dshbase.com/audit/):
   L1  dsh plugin add into a clean profile, with dsh-base plus either
       dsh-headless (default) or dsh-web-app (--l4), at the versions the
@@ -86,8 +96,11 @@ L3_SKIPPED_FOR_L4 = (
     "webServer) before any model answer."
 )
 
-# Historical allowBuilds seed from scripts/verify-runtime.sh. Further keys are
-# appended only when pnpm prints them.
+# Registry packages whose lifecycle scripts this verify install already trusts.
+# Git-hosted prepare keys are not seeded: pnpm requires the resolved dep path
+# (package name plus the commit tarball URL), which exists only after the first
+# attempt. parse_allow_build_keys copies that exact key. Scope is this
+# repository's verify install, not an engines.dsh exemption.
 ALLOW_BUILD_SEED = [
     "@deepseek-ai/dsh-subprocess-local",
     "@google/genai",
@@ -381,29 +394,151 @@ def workspace_text(extra_keys: list[str] | None = None) -> str:
         "allowBuilds:",
     ]
     for key in keys:
-        lines.append(f'  "{key}": true')
+        lines.append(f"  {json.dumps(key, ensure_ascii=False)}: true")
     # No pnpm overrides. Official @deepseek-ai/* versions come from the
     # packages @latest declares, not from a frozen list in this repo.
     return "\n".join(lines) + "\n"
 
 
+def _unquote_yaml(value: str) -> str:
+    text = value.strip()
+    if len(text) >= 2 and text[0] == text[-1] and text[0] in {'"', "'"}:
+        quote = text[0]
+        text = text[1:-1]
+        if quote == '"':
+            text = text.replace('\\"', '"').replace("\\\\", "\\")
+    return text
+
+
+def _looks_like_version(value: str) -> bool:
+    return bool(value) and value[0].isdigit() and "://" not in value
+
+
+def package_name_only(spec: str) -> str:
+    """Drop a trailing semver from pnpm's printed `name@version` phrase."""
+    if spec.startswith("@"):
+        name, sep, version = spec[1:].rpartition("@")
+        if sep and name and _looks_like_version(version):
+            return "@" + name
+        return spec
+    name, sep, version = spec.rpartition("@")
+    if sep and name and _looks_like_version(version):
+        return name
+    return spec
+
+
+def _yaml_list_items(header: str, log: str) -> list[str]:
+    found: list[str] = []
+    lines = log.splitlines()
+    index = 0
+    while index < len(lines):
+        if lines[index].strip() != header:
+            index += 1
+            continue
+        index += 1
+        while index < len(lines):
+            line = lines[index]
+            if not line.strip():
+                break
+            item = re.match(r"^[ \t]*-[ \t]+(.+?)\s*$", line)
+            if not item:
+                break
+            value = _unquote_yaml(item.group(1))
+            if value:
+                found.append(value)
+            index += 1
+    return found
+
+
 def parse_allow_build_keys(log: str) -> list[str]:
+    """Keys pnpm told us to put in allowBuilds / onlyBuiltDependencies.
+
+    Git-hosted prepare (pnpm 10.26 and later) prints the resolved dep path,
+    not the package name:
+
+        onlyBuiltDependencies:
+          - "<name>@<resolved git or codeload url>"
+
+    dsh says to copy that exact key under allowBuilds. Older hints still use
+    `key: true` and `Ignored build scripts:`.
+    """
     keys: list[str] = []
-    for match in re.finditer(r"^\s{2}(\S+): true$", log, re.M):
-        key = match.group(1).strip("'\"")
+    for match in re.finditer(r"(?m)^[ \t]{2,}(\S+):[ \t]*true[ \t]*$", log):
+        key = _unquote_yaml(match.group(1))
+        # A leading @ without a slash is not a package key. @scope/name and
+        # git dep paths both contain a slash.
         if not key.startswith("@") or "/" in key:
             keys.append(key)
     ignored = re.search(r"Ignored build scripts:\s*(.+)$", log, re.M)
     if ignored:
         for part in ignored.group(1).split(","):
-            part = part.strip().strip("'\"")
+            part = _unquote_yaml(part.strip())
             if part:
                 keys.append(part)
+    listed = _yaml_list_items("onlyBuiltDependencies:", log)
+    keys.extend(listed)
+    # The YAML example is the dep path pnpm actually checks. The prose
+    # "fetched from" URL sometimes omits the commit, so it is only a fallback
+    # when pnpm did not print that list.
+    if not listed:
+        for match in re.finditer(
+            r'Failed to prepare git-hosted package fetched from "([^"]+)"\s*:\s*'
+            r'The git-hosted package "([^"]+)" needs to execute build scripts',
+            log,
+        ):
+            fetch_url, printed = match.group(1).strip(), match.group(2).strip()
+            name = package_name_only(printed)
+            if name and fetch_url:
+                keys.append(f"{name}@{fetch_url}")
     seen: list[str] = []
     for key in keys:
         if key and key not in seen:
             seen.append(key)
     return seen
+
+
+def is_prepare_blocked(log: str) -> bool:
+    """pnpm refused a git-hosted prepare script.
+
+    dsh prints an allowBuilds hint for every git-spec failure, including a
+    missing repository, so that sentence alone is not this class.
+    """
+    return re.search(
+        r"ERR_PNPM_GIT_DEP_PREPARE_NOT_ALLOWED|"
+        r"needs to execute build scripts but is not in the "
+        r".(?:onlyBuiltDependencies|allowBuilds). allowlist",
+        log,
+    ) is not None
+
+
+def l1_failure_class(log: str) -> str:
+    """Separate a prepare gate from an engine mismatch and a real install failure.
+
+    An engines.dsh rejection wins when both appear, so it is never relabeled
+    as prepare-blocked and never waived.
+    """
+    if is_engine_mismatch(log):
+        return "engine-mismatch"
+    if is_prepare_blocked(log):
+        return "prepare-blocked"
+    if is_network_failure(log):
+        return "network-fail"
+    return "install-fail"
+
+
+def l1_failure_why(log: str) -> str:
+    kind = l1_failure_class(log)
+    if kind == "engine-mismatch":
+        return "install-fail (engine mismatch against official @deepseek-ai/dsh@latest)"
+    if kind == "prepare-blocked":
+        return (
+            "prepare-blocked (pnpm refused the git-hosted prepare script via "
+            "onlyBuiltDependencies/allowBuilds; the verify pipeline retry did not clear it. "
+            "This is not an engines.dsh rejection and not evidence the plugin package is broken.)"
+        )
+    if kind == "network-fail":
+        return "network-fail"
+    return "install-fail"
 
 
 def is_network_failure(log: str) -> bool:
@@ -795,6 +930,7 @@ def verify_plugin(plugin: dict, home: Path, log_dir: Path, env: dict, secrets: l
 
     l1_ms = 0
     l1_text = ""
+    l1_last = ""
     l1_code = 1
     attempts = 0
     extra_keys: list[str] = []
@@ -811,9 +947,13 @@ def verify_plugin(plugin: dict, home: Path, log_dir: Path, env: dict, secrets: l
             )
             l1_ms += dur
             l1_text += "\n" + text
+            l1_last = text
             l1_code = code
             if code == 0:
                 break
+            # Git prepare and other pnpm build gates: copy the exact key pnpm
+            # printed into this profile's allowBuilds and retry the same add.
+            # Engines.dsh failures have no such key and are not retried here.
             new_keys = parse_allow_build_keys(text)
             existing = (prof_dir / "pnpm-workspace.yaml").read_text(encoding="utf-8") if (prof_dir / "pnpm-workspace.yaml").is_file() else ""
             fresh = [key for key in new_keys if f'"{key}": true' not in existing and f"  {key}:" not in existing]
@@ -822,7 +962,8 @@ def verify_plugin(plugin: dict, home: Path, log_dir: Path, env: dict, secrets: l
                     if key not in extra_keys:
                         extra_keys.append(key)
                 (prof_dir / "pnpm-workspace.yaml").write_text(workspace_text(extra_keys), encoding="utf-8")
-                print(f"  L1 retry {attempt}: allowBuilds {', '.join(fresh)}", flush=True)
+                label = "git prepare allowBuilds" if is_prepare_blocked(text) else "allowBuilds"
+                print(f"  L1 retry {attempt}: {label} {', '.join(fresh)}", flush=True)
                 continue
             if is_network_failure(text) and attempt < 3:
                 time.sleep(5)
@@ -836,13 +977,19 @@ def verify_plugin(plugin: dict, home: Path, log_dir: Path, env: dict, secrets: l
                 l1_error = "Install exited 0 but the log mentions an engine mismatch."
         else:
             l1_status = "fail"
-            why = "network-fail" if is_network_failure(l1_text) else "install-fail"
-            if is_engine_mismatch(l1_text):
-                why = "install-fail (engine mismatch against official @deepseek-ai/dsh@latest)"
-            l1_error = snippet(l1_text) or why
+            # Classify the last attempt. An earlier prepare gate that the retry
+            # got past must not hide a later engines.dsh rejection, and an
+            # engines rejection must not be called a generic install-fail.
+            why = l1_failure_why(l1_last)
+            l1_error = snippet(l1_last) or why
             if why not in l1_error:
                 l1_error = why + "\n" + l1_error
-        result["stages"]["L1"] = stage(l1_status, l1_ms, l1_error, attempts=attempts)
+        stage_extra: dict = {"attempts": attempts}
+        if extra_keys:
+            stage_extra["allowBuilds"] = list(extra_keys)
+        if l1_status != "pass":
+            stage_extra["failureClass"] = l1_failure_class(l1_last)
+        result["stages"]["L1"] = stage(l1_status, l1_ms, l1_error, **stage_extra)
 
         if l1_status != "pass":
             result["stages"]["L2"] = stage("skipped")
@@ -1070,6 +1217,18 @@ def recommendation_l4(report: dict) -> str:
     return " ".join(lines)
 
 
+def _l1_is(plugin: dict, kind: str) -> bool:
+    row = (plugin.get("stages") or {}).get("L1") or {}
+    if row.get("failureClass") == kind:
+        return True
+    error = (row.get("error") or "").lower()
+    if kind == "engine-mismatch":
+        return "engine mismatch" in error
+    if kind == "prepare-blocked":
+        return error.startswith("prepare-blocked")
+    return False
+
+
 def recommendation(report: dict) -> str:
     if report.get("mode") == "l4":
         return recommendation_l4(report)
@@ -1079,16 +1238,22 @@ def recommendation(report: dict) -> str:
     l1_pass = sum(1 for p in plugins if p["stages"].get("L1", {}).get("status") == "pass")
     web_only = sum(1 for p in plugins if p["verdict"] == "web-only")
     needs_env = sum(1 for p in plugins if p["verdict"] == "needs-env")
-    engine = sum(
-        1 for p in plugins
-        if "engine mismatch" in (p["stages"].get("L1", {}).get("error") or "").lower()
-    )
+    engine = sum(1 for p in plugins if _l1_is(p, "engine-mismatch"))
+    prepare_blocked = sum(1 for p in plugins if _l1_is(p, "prepare-blocked"))
     lines = [
         f"Ran {n} plugin(s) on {report['runner']}. L1 passed for {l1_pass}. "
         f"Headless L3 passed for {l3_pass}. Web-only: {web_only}. Needs credentials: {needs_env}. "
-        f"Engine-mismatch install failures: {engine}.",
+        f"Engine-mismatch install failures: {engine}. "
+        f"Git prepare blocked by pnpm allowlist: {prepare_blocked}.",
         "Catalog badges were not changed. web-only is not Verified. needs-env is not Verified. "
         "An L3 pass in this file is evidence only; merge-verify.py was not run.",
+        "A prepare-blocked L1 is ERR_PNPM_GIT_DEP_PREPARE_NOT_ALLOWED "
+        "(onlyBuiltDependencies / allowBuilds): pnpm refused a git-hosted prepare script. "
+        "That is a verify-pipeline allowlist miss, not an engines.dsh rejection and not evidence "
+        "the plugin package is broken. This job copies the exact key pnpm prints into that "
+        "profile's allowBuilds and retries the same install. The allow covers git-hosted prepare "
+        "inside this repository's verify install only. It does not relax engine checks and it "
+        "does not run allow-version --accept-risk.",
     ]
     if report["deepseekApiKeyPresent"]:
         lines.append("DEEPSEEK_API_KEY was present, so L3 called the DeepSeek model.")
@@ -1183,6 +1348,13 @@ def render_markdown(report: dict) -> str:
         for name in ("L1", "L2", "L3", "L4"):
             row = plugin["stages"][name]
             lines.append(f"- {name}: `{row['status']}` ({row.get('durationMs', 0)} ms)")
+            if name == "L1":
+                if row.get("failureClass"):
+                    lines.append(f"  - failure class: `{row['failureClass']}`")
+                allowed = row.get("allowBuilds") or []
+                if allowed:
+                    shown = ", ".join(f"`{item}`" for item in allowed)
+                    lines.append(f"  - allowBuilds added for this install: {shown}")
             if name == "L4":
                 if row.get("browser"):
                     lines.append(f"  - browser: `{row['browser']}`")
@@ -1271,6 +1443,123 @@ def self_check() -> None:
     assert "not a Verified badge" in advice and "default follow-up" in advice and "DEEPSEEK_API_KEY was not used" in advice
     keys = parse_allow_build_keys("  '@scope/pkg': true\nIgnored build scripts: left-pad@1.0.0, other@2\n")
     assert "@scope/pkg" in keys and "left-pad@1.0.0" in keys
+    tui_key = (
+        "@deepseek-harness-tui/dsh-tui@https://codeload.github.com/ccch1mneyyy/"
+        "dsh-TUI/tar.gz/4c6131e763945cd5d7047d4ae841d4163bdf090f"
+    )
+    sidebar_key = (
+        "dsh-better-sidebar@https://codeload.github.com/omdsh-dev/"
+        "DSH-better-sidebar/tar.gz/bd6363021dd4af8ca9df239e0c59df35b873d6b4"
+    )
+    univer_key = (
+        "dsh-univer-office@https://codeload.github.com/dream-num/"
+        "dsh-univer-office/tar.gz/b7dea7cb03e4bfeeba2b1a6723e30eaa6b264ba2"
+    )
+    genui_key = (
+        "@changfenhuang/dsh-genui@https://codeload.github.com/omdsh-dev/"
+        "dsh-genui/tar.gz/8ed3999147d0d1a4815706d087a6f6e1fca9268f"
+    )
+    # Wave-1 pnpm text: onlyBuiltDependencies list, not `key: true`. The dsh
+    # hint mentions allowBuilds for every git failure and must not add a key.
+    tui_log = (
+        "ERR_PNPM_GIT_DEP_PREPARE_NOT_ALLOWED Failed to prepare git-hosted package "
+        'fetched from "https://codeload.github.com/ccch1mneyyy/dsh-TUI/tar.gz/'
+        '4c6131e763945cd5d7047d4ae841d4163bdf090f": The git-hosted package '
+        '"@deepseek-harness-tui/dsh-tui@0.19.0" needs to execute build scripts but '
+        'is not in the "onlyBuiltDependencies" allowlist.\n'
+        "onlyBuiltDependencies:\n"
+        f'  - "{tui_key}"\n'
+        "dsh: git-hosted plugins build on install via their prepare script, which "
+        "pnpm blocks until allowed — add the exact key pnpm printed above under "
+        "allowBuilds in /tmp/pnpm-workspace.yaml, then re-run\n"
+    )
+    assert parse_allow_build_keys(tui_log) == [tui_key]
+    assert is_prepare_blocked(tui_log)
+    assert l1_failure_class(tui_log) == "prepare-blocked"
+    tui_why = l1_failure_why(tui_log)
+    assert tui_why.startswith("prepare-blocked")
+    assert "engine mismatch" not in tui_why.lower()
+    prose_only = (
+        "Failed to prepare git-hosted package fetched from "
+        '"https://codeload.github.com/omdsh-dev/DSH-better-sidebar/tar.gz/'
+        'bd6363021dd4af8ca9df239e0c59df35b873d6b4": The git-hosted package '
+        '"dsh-better-sidebar@0.30.1" needs to execute build scripts but is not '
+        'in the "onlyBuiltDependencies" allowlist.'
+    )
+    assert sidebar_key in parse_allow_build_keys(prose_only)
+    file_log = (
+        'ERR_PNPM_GIT_DEP_PREPARE_NOT_ALLOWED Failed to prepare git-hosted package '
+        'fetched from "file:///tmp/tiny-prepare": The git-hosted package '
+        '"tiny-prepare@1.0.0" needs to execute build scripts but is not in the '
+        '"onlyBuiltDependencies" allowlist.\n'
+        "onlyBuiltDependencies:\n"
+        '  - "tiny-prepare@git+file:///tmp/tiny-prepare#d3b25e219bf5fd48c1f7de6f368cab9306d3e84f"\n'
+    )
+    assert parse_allow_build_keys(file_log) == [
+        "tiny-prepare@git+file:///tmp/tiny-prepare#d3b25e219bf5fd48c1f7de6f368cab9306d3e84f"
+    ]
+    assert univer_key in parse_allow_build_keys(
+        "onlyBuiltDependencies:\n"
+        f"  - {univer_key}\n"
+    )
+    assert genui_key in parse_allow_build_keys(
+        "allowBuilds:\n"
+        f"  {genui_key}: true\n"
+    )
+    quoted_map = (
+        "allowBuilds:\n"
+        f'  "{genui_key}": true\n'
+    )
+    assert parse_allow_build_keys(quoted_map) == [genui_key]
+    missing_repo = (
+        "fatal: repository 'https://github.com/example/missing.git/' not found\n"
+        "dsh: git-hosted plugins build on install via their prepare script, which "
+        "pnpm blocks until allowed — add the exact key pnpm printed above under "
+        "allowBuilds in /tmp/pnpm-workspace.yaml, then re-run\n"
+    )
+    assert parse_allow_build_keys(missing_repo) == []
+    assert not is_prepare_blocked(missing_repo)
+    assert l1_failure_class(missing_repo) == "install-fail"
+    engine_log = (
+        "ERR_PNPM_UNSUPPORTED_ENGINE dsh-plugin-observatory requires "
+        "@deepseek-ai/dsh-invariants >=0.1.0-rc.6 <0.2.0\n"
+        + tui_log
+    )
+    assert l1_failure_class(engine_log) == "engine-mismatch"
+    assert "engine mismatch" in l1_failure_why(engine_log)
+    workspace = workspace_text([tui_key])
+    assert f'  {json.dumps(tui_key)}: true' in workspace
+    assert "allow-version" not in workspace
+    assert "onlyBuiltDependencies:" not in workspace
+    class_report = recommendation({
+        "runner": "self-check",
+        "deepseekApiKeyPresent": False,
+        "dshVersionActual": "0.2.2-rc.1",
+        "plugins": [
+            {
+                "slug": "dsh-TUI",
+                "verdict": "fail",
+                "stages": {"L1": {
+                    "status": "fail",
+                    "error": tui_why,
+                    "failureClass": "prepare-blocked",
+                }},
+            },
+            {
+                "slug": "dsh-plugin-observatory",
+                "verdict": "fail",
+                "stages": {"L1": {
+                    "status": "fail",
+                    "error": l1_failure_why(engine_log),
+                    "failureClass": "engine-mismatch",
+                }},
+            },
+        ],
+    })
+    assert "Git prepare blocked by pnpm allowlist: 1." in class_report
+    assert "Engine-mismatch install failures: 1." in class_report
+    assert "allow-version --accept-risk" in class_report
+    assert "not an engines.dsh rejection" in class_report
     parsed = parse_plugin_lines("slug-a|pkg@1.0.0|note\n# c\nslug-b\tpkgb\n")
     assert parsed[0]["slug"] == "slug-a" and parsed[0]["installSpec"] == "pkg@1.0.0"
     assert parsed[1]["slug"] == "slug-b" and parsed[1]["installSpec"] == "pkgb"

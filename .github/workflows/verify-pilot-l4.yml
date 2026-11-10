@@ -4,6 +4,12 @@
 #
 # Does not edit src/data/plugins.json and does not use CATALOG_REPO_TOKEN.
 # Does not read DEEPSEEK_API_KEY: the browser check does not send a model prompt.
+#
+# Git-hosted prepare uses the same installer as the L1–L3 pilot: the exact
+# pnpm onlyBuiltDependencies / allowBuilds key is written into the profile and
+# the install is retried. Scope is this verify pipeline's git-hosted plugin
+# prepare. It does not relax engines.dsh checks and it does not pass
+# `dsh plugin allow-version --accept-risk`.
 # The prior L1–L3 pilot already classified @yumiku/dsh-commandcode-quota as
 # web-only (waiting for service: webServer) before any model answer.
 name: Plugin verify pilot L4

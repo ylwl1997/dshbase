@@ -6,6 +6,7 @@
 # 用法：bash scripts/verify-all.sh [起始索引] [结束索引]   # 支持分批（配合 CI matrix）
 set -uo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PYTHON="${PYTHON:-python3}"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DSH_BASE_SPEC="$("$PYTHON" "$SCRIPT_DIR/dsh_official_spec.py" @deepseek-ai/dsh-base)" || exit 1
@@ -79,7 +80,44 @@ YAML
       installed=1
       break
     fi
-    # 允许所有构建脚本（github 源码插件的 prepare 脚本被 pnpm 阻止时，占位符 -> true 后重试）
+    # git 托管 prepare：把 pnpm 打印的精确 onlyBuiltDependencies / allowBuilds key
+    # 写入本 profile 再重试。范围只限本仓库 verify 安装，不放宽 engines，
+    # 也不使用 dsh plugin allow-version --accept-risk。占位符仍改成 true。
+    new_keys=$(python3 - "$log" "$SCRIPT_DIR/verify-pilot.py" <<'PYEOF'
+import runpy, sys
+log = open(sys.argv[1], encoding='utf-8', errors='replace').read()
+mod = runpy.run_path(sys.argv[2])
+print('\n'.join(mod['parse_allow_build_keys'](log)))
+PYEOF
+)
+    if [ -n "$new_keys" ]; then
+      python3 - "$profdir/pnpm-workspace.yaml" "$new_keys" <<'PYEOF'
+import sys
+ws, keys = sys.argv[1], sys.argv[2].splitlines()
+s = open(ws, encoding='utf-8').read()
+add = []
+for k in keys:
+    kk = k.strip()
+    if not kk:
+        continue
+    quoted = f'"{kk}": true'
+    if f'  {quoted}' not in s and f'  {kk}:' not in s:
+        add.append(f'  {quoted}')
+if add:
+    lines = s.splitlines()
+    out = []
+    inserted = False
+    for line in lines:
+        out.append(line)
+        if line.strip() == 'allowBuilds:' and not inserted:
+            out.extend(add)
+            inserted = True
+    if not inserted:
+        out = ['allowBuilds:'] + add + out
+    open(ws, 'w', encoding='utf-8').write('\n'.join(out) + '\n')
+    print('added allowBuilds:', ', '.join(k.strip() for k in keys if k.strip()), file=sys.stderr)
+PYEOF
+    fi
     sed -i 's/set this to true or false/true/g' "$profdir/pnpm-workspace.yaml" 2>/dev/null
     sleep 8
   done
