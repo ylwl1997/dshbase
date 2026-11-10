@@ -15,7 +15,8 @@ on:
         description: >-
           Optional plugin list. One per line: slug|install-spec.
           Empty uses the L4 set (yumiku-dsh-commandcode-quota,
-          dsh-processing-status, vacum972-dsh-usage-billing).
+          dsh-processing-status, vacum972-dsh-usage-billing,
+          dsh-kimino-theme).
         required: false
         default: ''
         type: string

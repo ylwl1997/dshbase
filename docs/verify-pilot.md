@@ -48,6 +48,7 @@ Default set:
 | `yumiku-dsh-commandcode-quota` | Known web-only (`waiting for service: webServer` on Actions run 42562689033). Pass means the shell mounted, `.dcq-float` or `#dcq-style` is in the page, and `GET /dsh-commandcode/api/key` returns JSON. No Command Code key is set. |
 | `dsh-processing-status` | Optional. The status line is hidden until a task runs. The idle signal is `style[data-plugin="dsh-processing-status"]`. |
 | `vacum972-dsh-usage-billing` | Optional. Headless L3 already passed, so L4 is not required. The probe is the composer pill `[data-composer-stat="billing"]`. |
+| `dsh-kimino-theme` | Idle skin, no account. `github:niiang/dsh-kimino-theme#v68.4.2`. No `engines.dsh` field. Probe is `html[data-kimino-theme="on"]`, `#kimino-theme`, `style[data-plugin="dsh-kimino-theme"]`, or `[data-kimino-backdrop]`. |
 
 L3 is not repeated. `DEEPSEEK_API_KEY` is not read. `l4-pass` in the artifact is not a catalog Verified badge, and a metadata `test=verified` row is not confirmed by this job.
 
