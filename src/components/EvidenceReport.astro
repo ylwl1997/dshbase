@@ -1,13 +1,18 @@
 ---
 /**
  * Review (我们的评价 / Our take) and test report (实测报告 / Test report).
- * `view` comes from presentEvidence(). Empty data renders the honest fallback.
+ * Empty data uses the same fallback in both modules. A filled record is one
+ * object: review shows the conclusion, needs, and disclaimer; the test report
+ * shows the dist-tag, resolved version, date, L1–L4, and needs.
  */
+import { filledSections } from '../lib/plugin-evidence.js';
+
 const { view, locale = 'en', variant = 'review' } = Astro.props;
 const title = variant === 'report'
   ? (locale === 'zh' ? '实测报告' : 'Test report')
   : (locale === 'zh' ? '我们的评价' : 'Our take');
 const filled = !!view?.hasEvidence;
+const sections = filledSections(variant);
 ---
 <section
   class:list={['evidence', variant, filled ? 'is-report' : 'is-empty']}
@@ -16,36 +21,36 @@ const filled = !!view?.hasEvidence;
   data-evidence-variant={variant}
 >
   {variant === 'report' ? <h2>{title}</h2> : <strong class="kicker">{title}</strong>}
-  <p class="headline">{view.headline}</p>
-  {view.body && <p class="body">{view.body}</p>}
-  {filled && (
-    <Fragment>
-      <p class="meta">
-        {view.requestedLabel}: <code>{view.dshVersionRequested}</code>
-        <span class="note">({view.requestedNote})</span><br />
-        {view.actualLabel}: <strong>{view.dshVersionActual}</strong><br />
-        {view.dateLabel}: <time datetime={view.testDate}>{view.testDate}</time>
-      </p>
-      <ul class="levels">
-        {view.levels.map((level) => (
-          <li class={`lvl st-${level.status}`} data-level={level.id} data-status={level.status}>
-            <div class="lvl-top">
-              <span>{level.name}</span>
-              <span class="lvl-status">{level.status} · {level.statusLabel}</span>
-            </div>
-            <p class="lvl-reason">{level.reason}</p>
-          </li>
-        ))}
-      </ul>
-      {view.needs && (
-        <div class="needs" data-evidence-needs="yes">
-          <strong>{view.needsLabel}</strong>
-          <p>{view.needs}</p>
-        </div>
-      )}
-      <p class="disclaimer">{view.disclaimer}</p>
-    </Fragment>
+  {(!filled || sections.conclusion) && <p class="headline">{view.headline}</p>}
+  {!filled && view.body && <p class="body">{view.body}</p>}
+  {filled && sections.meta && (
+    <p class="meta">
+      {view.requestedLabel}: <code>{view.dshVersionRequested}</code>
+      <span class="note">({view.requestedNote})</span><br />
+      {view.actualLabel}: <strong>{view.dshVersionActual}</strong><br />
+      {view.dateLabel}: <time datetime={view.testDate}>{view.testDate}</time>
+    </p>
   )}
+  {filled && sections.levels && (
+    <ul class="levels">
+      {view.levels.map((level) => (
+        <li class={`lvl st-${level.status}`} data-level={level.id} data-status={level.status}>
+          <div class="lvl-top">
+            <span>{level.name}</span>
+            <span class="lvl-status">{level.status} · {level.statusLabel}</span>
+          </div>
+          <p class="lvl-reason">{level.reason}</p>
+        </li>
+      ))}
+    </ul>
+  )}
+  {filled && sections.needs && view.needs && (
+    <div class="needs" data-evidence-needs="yes">
+      <strong>{view.needsLabel}</strong>
+      <p>{view.needs}</p>
+    </div>
+  )}
+  {filled && sections.disclaimer && <p class="disclaimer">{view.disclaimer}</p>}
   {view.archivedNote && <p class="archived">{view.archivedNote}</p>}
 </section>
 

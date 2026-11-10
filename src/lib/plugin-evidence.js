@@ -19,6 +19,13 @@
  *     status: pass | skip | fail | needs
  *     web-only (GUI service, no headless pass) is skip, never pass or fail
  *     a missing external account/service is needs, never pass or fail
+ *   conclusion / conclusion_zh must not contain the word Verified or 「已验证」.
+ *     A passing L3, or a skipped L4 on a theme/Web plugin, is layer evidence
+ *     only. The validator rejects badge wording; pages do not rewrite it.
+ *
+ * Filled presentation (same record, two modules):
+ *   review  conclusion, needs when present, disclaimer
+ *   report  dist-tag, dsh --version, test date, L1–L4, needs
  */
 
 export const REQUESTED_DIST_TAG = '@deepseek-ai/dsh@latest';
@@ -77,6 +84,12 @@ function looksLikeRawLog(value) {
   const lines = s.split(/\n/).map((line) => line.trim()).filter(Boolean);
   if (lines.length >= 4) return true;
   return false;
+}
+
+/** Badge words. English matches the word Verified in any case. Chinese matches 已验证 exactly. */
+export function claimsVerifiedBadge(value) {
+  const s = text(value);
+  return /\bverified\b/i.test(s) || s.includes('已验证');
 }
 
 function isHumanText(value, { min = 8, max = 400 } = {}) {
@@ -139,6 +152,12 @@ export function validateEvidence(entry) {
   }
   if (!isHumanText(conclusionZh, { max: 320 })) {
     return { ok: false, error: 'conclusion_zh must be a short human sentence' };
+  }
+  if (claimsVerifiedBadge(conclusion)) {
+    return { ok: false, error: 'conclusion must not claim Verified or 已验证' };
+  }
+  if (claimsVerifiedBadge(conclusionZh)) {
+    return { ok: false, error: 'conclusion_zh must not claim Verified or 已验证' };
   }
   const requested = text(entry.dshVersionRequested);
   if (!REQUESTED_OK.has(requested)) {
@@ -210,6 +229,21 @@ export function evidenceEntries(data) {
     if (value && typeof value === 'object' && !Array.isArray(value)) out[key] = value;
   }
   return out;
+}
+
+/**
+ * Which parts of one evidence record each filled module shows.
+ * Empty pages ignore this and keep the shared “no short evidence report” copy.
+ */
+export function filledSections(variant) {
+  const report = variant === 'report';
+  return {
+    conclusion: !report,
+    meta: report,
+    levels: report,
+    needs: true,
+    disclaimer: !report,
+  };
 }
 
 function emptyView(locale, archived) {

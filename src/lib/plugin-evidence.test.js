@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
-import { presentEvidence, validateEvidence, REQUESTED_DIST_TAG } from './plugin-evidence.js';
+import { presentEvidence, validateEvidence, filledSections, REQUESTED_DIST_TAG } from './plugin-evidence.js';
 
 const file = JSON.parse(readFileSync(new URL('../data/plugin-evidence.json', import.meta.url), 'utf8'));
 
@@ -162,6 +162,54 @@ test('actual version may be the rc that latest resolved to', () => {
   assert.equal(result.value.dshVersionRequested, REQUESTED_DIST_TAG);
   assert.equal(validateEvidence(record({ dshVersionActual: '@deepseek-ai/dsh@latest' })).ok, false);
   assert.equal(validateEvidence(record({ dshVersionActual: 'latest' })).ok, false);
+});
+
+test('filled review and report show different fields of the same record', () => {
+  assert.deepEqual(filledSections('review'), {
+    conclusion: true,
+    meta: false,
+    levels: false,
+    needs: true,
+    disclaimer: true,
+  });
+  assert.deepEqual(filledSections('report'), {
+    conclusion: false,
+    meta: true,
+    levels: true,
+    needs: true,
+    disclaimer: false,
+  });
+});
+
+test('conclusions that say Verified or 已验证 are rejected', () => {
+  const rejected = [
+    { conclusion: 'Install and load succeeded. This plugin is Verified.' },
+    { conclusion: 'Install and load succeeded. Status: VERIFIED today.' },
+    { conclusion: 'Install and load succeeded and the result is verified.' },
+    { conclusion: '安装和加载都已验证，记录写在最新发行标签上。' },
+    { conclusion_zh: '安装和加载都成功，该插件已验证。' },
+    { conclusion_zh: 'Install and load succeeded. This plugin is Verified.' },
+  ];
+  for (const patch of rejected) {
+    const result = validateEvidence(record(patch));
+    assert.equal(result.ok, false, JSON.stringify(patch));
+    assert.match(result.error, /Verified|已验证/);
+  }
+
+  const blocked = presentEvidence('s', {
+    locale: 'zh',
+    data: { plugins: { s: record({ conclusion_zh: '安装和加载都成功，该插件已验证。' }) } },
+  });
+  assert.equal(blocked.hasEvidence, false);
+  assert.equal(blocked.headline, '尚无短证据报告');
+
+  const allowed = validateEvidence(record({
+    conclusion: 'Install and load succeeded on the version resolved from the latest dist-tag.',
+    conclusion_zh: '这次只记下安装和加载。未验证不是徽章结论。',
+  }));
+  assert.equal(allowed.ok, true, allowed.error);
+  assert.doesNotMatch(allowed.value.conclusion, /verified/i);
+  assert.equal(allowed.value.conclusion_zh.includes('已验证'), false);
 });
 
 test('incomplete records do not render', () => {
