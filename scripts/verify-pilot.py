@@ -2,15 +2,20 @@
 """Pilot plugin check for GitHub-hosted runners.
 
 Reuses the install / dump-config / headless commands from
-scripts/verify-runtime.sh and the package pin in scripts/dsh-overrides.yaml.
+scripts/verify-runtime.sh. The CLI is official @deepseek-ai/dsh@latest.
+Profile adds use the dsh-base and dsh-headless or dsh-web-app versions that
+installed CLI declares (scripts/dsh_official_spec.py). Those packages' own
+`latest` dist-tags can lag the CLI, so they are not installed as @latest.
+Transitive @deepseek-ai/* versions stay on whatever those packages declare.
+There is no pnpm overrides file freezing official packages.
 Writes a JSON report and a Markdown summary. Does not edit plugins.json,
 does not call merge-verify.py or merge-webonly.py, and does not talk to the
 catalog mirror.
 
 Stages (same meanings as https://dshbase.com/audit/):
   L1  dsh plugin add into a clean profile, with dsh-base plus either
-      dsh-headless (default) or dsh-web-app (--l4), pinned to DSH_VERSION
-      (default 0.1.0-rc.8).
+      dsh-headless (default) or dsh-web-app (--l4), at the versions the
+      installed CLI depends on. The report records `dsh --version`.
   L2  dsh --dump-config, and the plugin package is in dsh.profile.bundles.
   L3  headless prompt "Reply with exactly: OK".
       web-only (GUI service missing) is not a pass.
@@ -46,13 +51,14 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-OVERRIDES = Path(__file__).resolve().parent / "dsh-overrides.yaml"
 PLUGINS_JSON = ROOT / "src" / "data" / "plugins.json"
 
-DSH_VERSION = os.environ.get("DSH_VERSION", "0.1.0-rc.8").strip() or "0.1.0-rc.8"
-BASE_PKG = f"@deepseek-ai/dsh-base@{DSH_VERSION}"
-HEADLESS_PKG = f"@deepseek-ai/dsh-headless@{DSH_VERSION}"
-WEB_PKG = f"@deepseek-ai/dsh-web-app@{DSH_VERSION}"
+# Dist-tag of the CLI. Profile package specs are filled from the installed
+# CLI before any plugin add (see bind_official_packages).
+DSH_DIST_TAG = "latest"
+BASE_PKG = ""
+HEADLESS_PKG = ""
+WEB_PKG = ""
 OFFICIAL_DEPS = {
     "@deepseek-ai/dsh-base",
     "@deepseek-ai/dsh-headless",
@@ -98,7 +104,7 @@ DEFAULT_PLUGINS = [
         "role": (
             "Historical headless L3 pass on dsh 0.1.0-rc.6 (install + load + Q&A). "
             "Peers @deepseek-ai/dsh-tools and dsh-invariants at >=0.1.0-rc.6 <0.2.0, "
-            "which matches this audit pin. No external account."
+            "which may not include current official latest. No external account."
         ),
     },
     {
@@ -206,14 +212,13 @@ L4_PLUGINS = [
         "installSpec": "github:niiang/dsh-kimino-theme#v68.4.2",
         "catalogTest": "verified",
         "role": (
-            "Idle web skin on the pinned runtime. package.json has no engines.dsh "
-            "field, so a >=0.2 range does not exclude 0.1.0-rc.8. The client injects "
-            "the theme service (ctx.theme.overrideTokens exists on "
-            "@deepseek-ai/dsh-client-ui-theme@0.1.0-rc.8) and does not call "
-            "hmr.registerConfig. On apply, bundle/client.js at v68.4.2 sets "
-            "html[data-kimino-theme=on], appends style#kimino-theme "
-            "(data-plugin=dsh-kimino-theme), and mounts [data-kimino-backdrop] "
-            "while live wallpaper is on (the default). No account. "
+            "Idle web skin. package.json has no engines.dsh field. The client "
+            "injects the theme service and does not call hmr.registerConfig. "
+            "On apply, bundle/client.js at v68.4.2 sets html[data-kimino-theme=on], "
+            "appends style#kimino-theme (data-plugin=dsh-kimino-theme), and mounts "
+            "[data-kimino-backdrop] while live wallpaper is on (the default). "
+            "No account. An earlier L4 pass was recorded on dsh 0.1.0-rc.8, where "
+            "ctx.theme.overrideTokens existed on @deepseek-ai/dsh-client-ui-theme. "
             "dsh-caption-balance declares dsh >=0.2.2-rc.1; dsh-balance-ball "
             "declares dsh >=0.2.0 and reads an OAuth balance. Neither is this run."
         ),
@@ -341,6 +346,22 @@ def resolve_plugins(explicit: str, only: list[str] | None) -> list[dict]:
     return resolved
 
 
+def bind_official_packages() -> None:
+    """Set BASE/HEADLESS/WEB from the installed @deepseek-ai/dsh@latest CLI."""
+    global BASE_PKG, HEADLESS_PKG, WEB_PKG
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from dsh_official_spec import official_spec
+
+    manifest_specs = {
+        "base": official_spec("@deepseek-ai/dsh-base"),
+        "headless": official_spec("@deepseek-ai/dsh-headless"),
+        "web": official_spec("@deepseek-ai/dsh-web-app"),
+    }
+    BASE_PKG = manifest_specs["base"]
+    HEADLESS_PKG = manifest_specs["headless"]
+    WEB_PKG = manifest_specs["web"]
+
+
 def profile_name(slug: str) -> str:
     safe = re.sub(r"[^A-Za-z0-9_-]", "", slug)[:40] or "plugin"
     return f"p_{safe}"
@@ -361,11 +382,9 @@ def workspace_text(extra_keys: list[str] | None = None) -> str:
     ]
     for key in keys:
         lines.append(f'  "{key}": true')
-    lines.append("overrides:")
-    overlay = OVERRIDES.read_text(encoding="utf-8")
-    if not overlay.endswith("\n"):
-        overlay += "\n"
-    return "\n".join(lines) + "\n" + overlay
+    # No pnpm overrides. Official @deepseek-ai/* versions come from the
+    # packages @latest declares, not from a frozen list in this repo.
+    return "\n".join(lines) + "\n"
 
 
 def parse_allow_build_keys(log: str) -> list[str]:
@@ -819,7 +838,7 @@ def verify_plugin(plugin: dict, home: Path, log_dir: Path, env: dict, secrets: l
             l1_status = "fail"
             why = "network-fail" if is_network_failure(l1_text) else "install-fail"
             if is_engine_mismatch(l1_text):
-                why = "install-fail (engine mismatch against pinned dsh " + DSH_VERSION + ")"
+                why = "install-fail (engine mismatch against official @deepseek-ai/dsh@latest)"
             l1_error = snippet(l1_text) or why
             if why not in l1_error:
                 l1_error = why + "\n" + l1_error
@@ -914,14 +933,17 @@ def verify_plugin(plugin: dict, home: Path, log_dir: Path, env: dict, secrets: l
 
 
 def settle_hmr_race() -> str:
-    """dsh 0.1.0-rc.8 checks ctx.get("hmr") immediately after loader.create().
+    """Best-effort edit for the 0.1.0-rc.8 headless HMR race.
 
-    The HMR fiber is still LOADING at that point, so the service is missing and
-    every headless prompt dies before the model call. One second is enough for
-    the fiber to become ACTIVE on Node 22 and Node 24. Web profiles disable the
-    hmr row; the fallback service then has no registerConfig, and that throw
-    kills a server that is already listening. User-patch watching is skipped
-    in that case. The edit stays on the runner. It is not a catalog change.
+    That CLI checked ctx.get("hmr") immediately after loader.create(), while
+    the fiber was still LOADING, so every headless prompt died before the
+    model call. Web profiles disabled the hmr row; the fallback service then
+    had no registerConfig, and that throw killed a server that was already
+    listening. When the installed profile-boot bundle still contains that
+    pattern, insert a one-second settle and skip user-patch watching if
+    registerConfig is missing. Official latest moved this watcher out of
+    profile-boot-*.js; the function then leaves the CLI unchanged. The edit
+    stays on the runner. It is not a catalog change.
     """
     dsh_bin = shutil.which("dsh")
     if not dsh_bin:
@@ -1021,7 +1043,7 @@ def recommendation_l4(report: dict) -> str:
             lines.append(
                 "The web shell mounted and the plugin host route returned JSON, so the "
                 "entry is not still stuck on webServer. The client UI was not in the page "
-                f"on dsh {DSH_VERSION}. Do not make L4 the default badge step, and do not "
+                "on the resolved official latest. Do not make L4 the default badge step, and do not "
                 "write Verified, until that client is visible. Keep this job on "
                 "workflow_dispatch as a report for web-only intakes."
             )
@@ -1042,7 +1064,8 @@ def recommendation_l4(report: dict) -> str:
         "Headless L3 stays the check for plugins that answer in the terminal. "
         "L4 should stay limited to web-only results: a browser boot is slower, and a "
         "model round-trip is a separate check that needs DEEPSEEK_API_KEY. This job "
-        "does not send that prompt. Do not retune the audit pin from this report."
+        "does not send that prompt. This job follows official @deepseek-ai/dsh@latest "
+        "and records the resolved version. Do not freeze that runtime from this report."
     )
     return " ".join(lines)
 
@@ -1076,10 +1099,12 @@ def recommendation(report: dict) -> str:
             "needs-env L3 as a plugin defect."
         )
     if engine:
+        resolved = report.get("dshVersionActual") or "unknown"
         lines.append(
-            f"The audit pages pin dsh {DSH_VERSION}. Several November 2026 intakes declare "
-            "dsh >=0.2.x. An engine mismatch on this pin means the plugin is not verified on "
-            "the published audit runtime."
+            "The runners install official @deepseek-ai/dsh@latest and record the resolved "
+            f"CLI version ({resolved}). Several November 2026 intakes declare dsh >=0.2.x. "
+            "An engine mismatch means the plugin's range does not include that resolved "
+            "release, so it is not verified on the current official runtime."
         )
     if report.get("githubActions"):
         lines.append(
@@ -1089,9 +1114,8 @@ def recommendation(report: dict) -> str:
     lines.append(
         "L4 browser checks are scripts/l4-cdp.mjs via --l4 and "
         ".github/workflows/verify-pilot-l4.yml. This L1–L3 job does not run them and does "
-        "not invent a CDP result. Do not retune the audit pin, and do not treat an L3 pass "
-        "here as a catalog write, until a follow-up covers a 0.2.x runtime for intakes "
-        "that declare dsh >=0.2."
+        "not invent a CDP result. Do not freeze the audit runtime, and do not treat an L3 "
+        "pass here as a catalog write."
     )
     return " ".join(lines)
 
@@ -1107,6 +1131,7 @@ def render_markdown(report: dict) -> str:
         f"- pnpm: {report['pnpm']}",
         f"- dsh requested: {report['dshVersionRequested']}",
         f"- dsh actual: {report['dshVersionActual']}",
+        f"- profile packages: {report.get('officialPackages') or ''}",
         f"- HMR workaround: {report.get('hmrWorkaround', '')}",
         f"- DEEPSEEK_API_KEY present: {str(report['deepseekApiKeyPresent']).lower()}",
         f"- Mode: {report.get('mode') or 'l3'}",
@@ -1118,7 +1143,8 @@ def render_markdown(report: dict) -> str:
             "It does not change the catalog Verified badge."
             if report.get("mode") == "l4"
             else
-            "Verified on dshbase requires L1 + L2 + L3 `pass` on the pinned runtime. "
+            "Verified on dshbase requires L1 + L2 + L3 `pass` on official @deepseek-ai/dsh@latest. "
+            "The resolved version is the `dsh actual` line above. "
             "L3 `web-only` is not a pass; L4 is a separate browser job. "
             "`needs-env` means a credential was missing."
         ),
@@ -1256,8 +1282,8 @@ def self_check() -> None:
         "runner": "self-check",
         "node": "v24",
         "pnpm": "10",
-        "dshVersionRequested": DSH_VERSION,
-        "dshVersionActual": DSH_VERSION,
+        "dshVersionRequested": DSH_DIST_TAG,
+        "dshVersionActual": "resolved-at-runtime",
         "hmrWorkaround": "self-check",
         "deepseekApiKeyPresent": False,
         "runUrl": "",
@@ -1333,10 +1359,6 @@ def main(argv: list[str]) -> int:
         self_check()
         return 0
 
-    if not OVERRIDES.is_file():
-        print(f"missing {OVERRIDES}", file=sys.stderr)
-        return 2
-
     explicit = ""
     if args.plugins_file:
         explicit = Path(args.plugins_file).read_text(encoding="utf-8")
@@ -1374,8 +1396,13 @@ def main(argv: list[str]) -> int:
     if dsh_actual.startswith("unavailable") or dsh_actual.startswith("exit"):
         print(f"dsh CLI not usable: {dsh_actual}", file=sys.stderr)
         return 2
-    if DSH_VERSION not in dsh_actual:
-        print(f"warning: requested dsh {DSH_VERSION} but CLI reports {dsh_actual}", flush=True)
+    print(f"dsh dist-tag {DSH_DIST_TAG} resolved to {dsh_actual}", flush=True)
+    try:
+        bind_official_packages()
+    except RuntimeError as exc:
+        print(str(exc), file=sys.stderr)
+        return 2
+    print(f"profile packages: base {BASE_PKG}; headless {HEADLESS_PKG}; web {WEB_PKG}", flush=True)
     hmr_note = settle_hmr_race()
     print(f"hmr: {hmr_note}", flush=True)
 
@@ -1393,8 +1420,13 @@ def main(argv: list[str]) -> int:
         "runner": os.environ.get("RUNNER_NAME") or os.environ.get("RUNNER_OS") or "local",
         "node": tool_version(["node", "--version"], env),
         "pnpm": tool_version(["pnpm", "--version"], env),
-        "dshVersionRequested": DSH_VERSION,
+        "dshVersionRequested": DSH_DIST_TAG,
         "dshVersionActual": dsh_actual,
+        "officialPackages": {
+            "base": BASE_PKG,
+            "headless": HEADLESS_PKG,
+            "web": WEB_PKG,
+        },
         "hmrWorkaround": hmr_note,
         "deepseekApiKeyPresent": key_present,
         "githubActions": os.environ.get("GITHUB_ACTIONS") == "true",

@@ -24,7 +24,7 @@ on:
     paths:
       - .github/workflows/verify-pilot.yml
       - scripts/verify-pilot.py
-      - scripts/dsh-overrides.yaml
+      - scripts/dsh_official_spec.py
 
 permissions:
   contents: read
@@ -50,13 +50,16 @@ jobs:
           node -e 'const p=process.versions.node.split(".").map(Number); if(!(p[0]===24 && p[1]>=9)){console.error("need Node >=24.9 <25 for dsh-sherlock, got", process.version); process.exit(1)}'
           node --version
 
-      - name: Install pinned dsh and pnpm
+      - name: Install official dsh latest and pnpm
         run: |
           set -euo pipefail
-          if ! npm install -g --allow-scripts=@deepseek-ai/dsh-subprocess-local,koffi,node-pty,@google/genai,protobufjs pnpm@10 @deepseek-ai/dsh@0.1.0-rc.8; then
-            npm install -g pnpm@10 @deepseek-ai/dsh@0.1.0-rc.8
+          # Dist-tag latest. The resolved version is printed below and again
+          # in the pilot report (dsh --version). Do not freeze a semver here.
+          if ! npm install -g --allow-scripts=@deepseek-ai/dsh-subprocess-local,koffi,node-pty,@google/genai,protobufjs pnpm@10 @deepseek-ai/dsh@latest; then
+            npm install -g pnpm@10 @deepseek-ai/dsh@latest
           fi
           pnpm --version
+          npm view @deepseek-ai/dsh version
           dsh --version
 
       - name: Self-check report classifier
@@ -64,7 +67,6 @@ jobs:
 
       - name: Run L1–L3 pilot
         env:
-          DSH_VERSION: 0.1.0-rc.8
           DSH_HOME: /tmp/dsh-pilot-home
           # Empty when the secret is not configured. The script records L3 as
           # needs-env instead of inventing a model answer.

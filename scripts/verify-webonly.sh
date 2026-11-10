@@ -16,8 +16,8 @@
 #   status: ok / load-fail / install-fail / runtime-fail
 #
 # 依赖（服务器已装）:
-#   dsh 0.1.0-rc.8, node, pnpm 11, puppeteer+Chromium (~/webverify/l3.mjs)
-#   $DSH_OVERRIDES  可指定 overrides yaml 路径（默认仓库 scripts/dsh-overrides.yaml）
+#   official @deepseek-ai/dsh@latest, node, pnpm, puppeteer+Chromium (~/webverify/l3.mjs)
+#   Official @deepseek-ai/* packages are not version-locked in this repo.
 # GitHub-hosted L4 does not use this file. It runs scripts/l4-cdp.mjs
 # (Playwright, no ~/webverify) via scripts/verify-pilot.py --l4.
 set -uo pipefail
@@ -26,15 +26,11 @@ PROF_ROOT="$HOME/.dsh/profiles"
 WEB_PORT="${WEB_PORT:-3080}"
 CHROME='/root/.cache/puppeteer/chrome/linux-152.0.7977.42/chrome-linux64/chrome'
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-export SCRIPT_DIR
+DSH_BASE_SPEC="$(python3 "$SCRIPT_DIR/dsh_official_spec.py" @deepseek-ai/dsh-base)" || exit 1
+DSH_WEB_SPEC="$(python3 "$SCRIPT_DIR/dsh_official_spec.py" @deepseek-ai/dsh-web-app)" || exit 1
 WEBVERIFY_DIR="${WEBVERIFY_DIR:-$HOME/webverify}"
 L3="$WEBVERIFY_DIR/l3.mjs"
 export L3
-
-# overrides：默认取仓库里 189 包全 pin 版本
-if [ -z "${DSH_OVERRIDES:-}" ]; then
-  DSH_OVERRIDES="$SCRIPT_DIR/dsh-overrides.yaml"
-fi
 
 log() { echo "[$(date '+%H:%M:%S')] $*" >&2; }
 
@@ -47,8 +43,6 @@ make_workspace() {
     echo "  koffi: true"
     echo "  node-pty: true"
     echo "  protobufjs: true"
-    echo "overrides:"
-    cat "$DSH_OVERRIDES"
   } > "$PROF_ROOT/$prof/pnpm-workspace.yaml"
 }
 
@@ -106,8 +100,8 @@ verify_one() {
   local installed="no"
   for attempt in 1 2 3; do
     if timeout 300 dsh plugin --profile "$prof" add \
-        "@deepseek-ai/dsh-base@0.1.0-rc.8" \
-        "@deepseek-ai/dsh-web-app@0.1.0-rc.8" \
+        "$DSH_BASE_SPEC" \
+        "$DSH_WEB_SPEC" \
         "$src" > "$logf" 2>&1; then
       installed="yes"
       break
