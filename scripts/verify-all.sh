@@ -7,6 +7,8 @@
 set -uo pipefail
 
 PYTHON="${PYTHON:-python3}"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DSH_BASE_SPEC="$("$PYTHON" "$SCRIPT_DIR/dsh_official_spec.py" @deepseek-ai/dsh-base)" || exit 1
 DATA="src/data/plugins.json"
 export DSH_HOME="${DSH_HOME:-/tmp/dsh-verify}"
 mkdir -p "$DSH_HOME/profiles"
@@ -70,10 +72,10 @@ YAML
   status="unknown"
   log="/tmp/verify-$name.log"
 
-  # 安装（显式 pin dsh-base 到 0.1.0-rc.8，latest 标签可能仍指向旧 rc）
+  # DSH_BASE_SPEC is the version the installed @deepseek-ai/dsh@latest CLI depends on.
   installed=0
   for attempt in 1 2 3; do
-    if timeout 240 dsh plugin --profile "$prof" add "@deepseek-ai/dsh-base@0.1.0-rc.8" "$src" >"$log" 2>&1; then
+    if timeout 240 dsh plugin --profile "$prof" add "$DSH_BASE_SPEC" "$src" >"$log" 2>&1; then
       installed=1
       break
     fi

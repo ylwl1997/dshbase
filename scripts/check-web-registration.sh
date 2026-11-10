@@ -65,12 +65,13 @@ profdir="$PROFILE_ROOT/$prof"
 rm -rf "$profdir"; mkdir -p "$profdir"
 {
   echo "dangerouslyAllowAllBuilds: true"
-  echo "overrides:"
-  cat "$SCRIPT_DIR/dsh-overrides.yaml"
 } > "$profdir/pnpm-workspace.yaml"
 
-# base surface first (web-app, NOT headless — the two are parallel surfaces)
-dsh plugin --profile "$prof" add "@deepseek-ai/dsh-base@0.1.0-rc.8" "@deepseek-ai/dsh-web-app@0.1.0-rc.8" >/tmp/webcheck-base.log 2>&1 || true
+# base surface first (web-app, NOT headless — the two are parallel surfaces).
+# Specs are the versions the installed @deepseek-ai/dsh@latest CLI depends on.
+DSH_BASE_SPEC="$(python3 "$SCRIPT_DIR/dsh_official_spec.py" @deepseek-ai/dsh-base)" || exit 1
+DSH_WEB_SPEC="$(python3 "$SCRIPT_DIR/dsh_official_spec.py" @deepseek-ai/dsh-web-app)" || exit 1
+dsh plugin --profile "$prof" add "$DSH_BASE_SPEC" "$DSH_WEB_SPEC" >/tmp/webcheck-base.log 2>&1 || true
 while read -r pkg; do
   [ -z "$pkg" ] && continue
   dsh plugin --profile "$prof" add "$pkg" >/dev/null 2>>/tmp/webcheck-base.log || true

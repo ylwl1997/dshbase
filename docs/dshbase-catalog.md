@@ -21,6 +21,8 @@ On dshbase (and in the catalog JSON this plugin ships), **Verified** means:
 
 Headless `ok` → verified without L4. L3 `web-only` is **not** a pass.
 
+The audit runtime is official `@deepseek-ai/dsh@latest`. A run records the resolved `dsh --version`. Earlier passes were recorded on dsh 0.1.0-rc.8. Official `@deepseek-ai/*` packages are not frozen in this repo.
+
 Ops helpers: `bash scripts/verify-full.sh` (L3 then L4), `python3 scripts/list-l4-queue.py` (true awaiting-L4 vs L4-fail vs old backlog).
 
 It is **not** a GitHub `dsh-plugin` topic count, and **not** “manifest looks installable.”

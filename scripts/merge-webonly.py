@@ -15,9 +15,31 @@ L4 是 web-only 插件的必经关：L3 headless 标 web-only 后，只有本脚
 import json
 import os
 import re
+import subprocess
 import sys
 
 DATA = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src", "data", "plugins.json"))
+
+
+def resolved_dsh_label():
+    """Version stamp for notes. Never invent a frozen semver."""
+    recorded = os.environ.get("DSH_VERSION_ACTUAL", "").strip()
+    if recorded:
+        return recorded.splitlines()[0].strip()
+    try:
+        out = subprocess.check_output(
+            ["dsh", "--version"],
+            text=True,
+            timeout=30,
+            stderr=subprocess.STDOUT,
+        )
+    except (OSError, subprocess.TimeoutExpired, subprocess.CalledProcessError):
+        return "official @deepseek-ai/dsh@latest"
+    for raw in out.splitlines():
+        line = raw.strip()
+        if line:
+            return line
+    return "official @deepseek-ai/dsh@latest"
 
 
 def main():
@@ -37,6 +59,7 @@ def main():
         status[name] = st
 
     db = json.load(open(DATA, encoding="utf-8"))
+    dsh_label = resolved_dsh_label()
     updated = {"ok": 0, "runtime-fail": 0, "load-fail": 0, "install-fail": 0}
     not_found = []
 
@@ -63,7 +86,7 @@ def main():
                     if "web l3" in low or "l4 web" in low or part.startswith("验证:"):
                         continue
                     keep.append(part)
-                add = "L4 web CDP verified on dsh 0.1.0-rc.8."
+                add = f"L4 web CDP verified on dsh {dsh_label}."
                 p["note"] = ("；".join(keep) + "；" + add) if keep else add
                 # Keep webonly=True so catalog knows this passed via web profile, not headless-only.
                 p["webonly"] = True
@@ -72,14 +95,14 @@ def main():
                 p["test"] = "pending"
                 p["webonly"] = True
                 note = p.get("note", "")
-                add = "L4 still web-only on dsh 0.1.0-rc.8 (unexpected)."
+                add = f"L4 still web-only on dsh {dsh_label} (unexpected)."
                 p["note"] = (note + "；" + add) if note else add
                 updated["web-only"] = updated.get("web-only", 0) + 1
             else:
                 p["test"] = "pending"
                 p["webonly"] = True
                 note = p.get("note", "")
-                add = f"L4 web CDP {st} on dsh 0.1.0-rc.8."
+                add = f"L4 web CDP {st} on dsh {dsh_label}."
                 p["note"] = (note + "；" + add) if note else add
                 updated[st] = updated.get(st, 0) + 1
 

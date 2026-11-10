@@ -7,9 +7,13 @@
 #   WORKERS=6 bash scripts/verify-runtime.sh          # 并行度（默认 6）
 set -uo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-export SCRIPT_DIR  # verify_one 经 xargs bash -c 在子 shell 运行，必须显式导出，否则 cat $SCRIPT_DIR/dsh-overrides.yaml 变 /dsh-overrides.yaml
 
 PYTHON="${PYTHON:-python3}"
+# Versions the installed @deepseek-ai/dsh@latest CLI depends on. Not each
+# package's own latest dist-tag, and not a version frozen in this repo.
+DSH_BASE_SPEC="$("$PYTHON" "$SCRIPT_DIR/dsh_official_spec.py" @deepseek-ai/dsh-base)" || exit 1
+DSH_HEADLESS_SPEC="$("$PYTHON" "$SCRIPT_DIR/dsh_official_spec.py" @deepseek-ai/dsh-headless)" || exit 1
+export DSH_BASE_SPEC DSH_HEADLESS_SPEC
 DATA="src/data/plugins.json"
 # dsh 实际把 profile 放在 ~/.dsh/profiles（不认 DSH_HOME 环境变量）
 export PROFILE_ROOT="${DSH_PROFILE_ROOT:-$HOME/.dsh/profiles}"
@@ -87,11 +91,11 @@ verify_one() {
     echo "  koffi: true"
     echo "  node-pty: true"
     echo "  protobufjs: true"
-    echo "overrides:"
-    cat "$SCRIPT_DIR/dsh-overrides.yaml"
   } > "$profdir/pnpm-workspace.yaml"
   for attempt in 1 2 3; do
-    if timeout 240 dsh plugin --profile "$prof" add "@deepseek-ai/dsh-base@0.1.0-rc.8" "@deepseek-ai/dsh-headless@0.1.0-rc.8" "$src" >"$log" 2>&1; then
+    # Specs come from the installed CLI (see DSH_BASE_SPEC). Transitive
+    # @deepseek-ai/* versions stay on what those packages declare.
+    if timeout 240 dsh plugin --profile "$prof" add "$DSH_BASE_SPEC" "$DSH_HEADLESS_SPEC" "$src" >"$log" 2>&1; then
       installed=1; break
     fi
     # 解析 pnpm 提示的 allowBuilds key（含 @/:/ 的 key 必须加引号，否则 YAML 解析错）

@@ -16,10 +16,17 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
-      - name: Install dsh + pnpm
-        run: npm install -g @deepseek-ai/dsh@latest pnpm@latest
+      - name: Require Node >=24.9
+        run: |
+          node -e 'const p=process.versions.node.split(".").map(Number); if(!(p[0]>24 || (p[0]===24 && p[1]>=9))){console.error("need Node >=24.9 for official @deepseek-ai/dsh@latest, got", process.version); process.exit(1)}'
+          node --version
+
+      - name: Install official dsh latest and pnpm
+        run: |
+          npm install -g @deepseek-ai/dsh@latest pnpm@latest
+          dsh --version
 
       - name: Run compatibility check
         run: bash scripts/compat-check.sh

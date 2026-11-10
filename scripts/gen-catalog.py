@@ -83,8 +83,9 @@ out = {
     "updated": date.today().isoformat(),
     "count": len(plugins),
     "verified_definition": (
-        "L1 install + L2 load + L3 runtime Q&A on dsh 0.1.0-rc.8 "
-        "(not topic count / manifest-only installability)"
+        "L1 install + L2 load + L3 runtime Q&A on official @deepseek-ai/dsh@latest "
+        "(resolved dsh --version recorded per run; earlier passes used dsh 0.1.0-rc.8; "
+        "not topic count / manifest-only installability)"
     ),
     "plugins": plugins,
     "packs": packs_out,
