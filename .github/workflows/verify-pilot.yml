@@ -1,6 +1,13 @@
 # Pilot only. Runs real L1–L3 checks and uploads a report.
 # Does not edit src/data/plugins.json and does not use CATALOG_REPO_TOKEN.
 #
+# Git-hosted prepare: scripts/verify-pilot.py copies the exact key pnpm prints
+# (ERR_PNPM_GIT_DEP_PREPARE_NOT_ALLOWED, onlyBuiltDependencies / allowBuilds)
+# into that profile's allowBuilds and retries. Scope is this verify pipeline's
+# git-hosted plugin prepare. It does not relax engines.dsh checks and it does
+# not pass `dsh plugin allow-version --accept-risk`. A retry that still fails
+# that gate is reported as prepare-blocked, not as an engine mismatch.
+#
 # workflow_dispatch appears in the Actions tab after this file is on the
 # default branch. Until then, a push to cursor/dsh-verify-pilot-2277 that
 # touches this workflow or scripts/verify-pilot.py starts a run.

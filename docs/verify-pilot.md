@@ -29,6 +29,45 @@ workflow is `.github/workflows/verify-pilot-l4.yml`.
 A missing `DEEPSEEK_API_KEY` is recorded as `needs-env` on L3. That is not a
 plugin failure and it is not Verified. `web-only` is not Verified.
 
+## Git-hosted prepare
+
+Scope: git-hosted plugin `prepare` inside this repository's verify install
+(`scripts/verify-pilot.py`, and the same install retry in
+`scripts/verify-runtime.sh`, `scripts/verify-webonly.sh`, and
+`scripts/verify-all.sh`). It does not relax `engines.dsh` checks. It does not
+run `dsh plugin allow-version --accept-risk`. It does not edit
+`src/data/plugins.json` or public badges.
+
+pnpm 10.26 and later refuses a git dependency's `prepare` script until the
+resolved dep path is listed. The error is `ERR_PNPM_GIT_DEP_PREPARE_NOT_ALLOWED`.
+The hint names `onlyBuiltDependencies` or `allowBuilds`, and the key is the
+package name plus the resolved URL (a `codeload.github.com` tarball for
+`github:owner/repo`), not the package name alone. dsh tells you to copy that
+exact key under the profile's `allowBuilds` and run the install again.
+
+The first attempt cannot seed that key: the commit URL exists only after pnpm
+resolves the spec. On that error the verify install copies the printed key
+into the profile `pnpm-workspace.yaml` `allowBuilds` map and retries the same
+`dsh plugin add`. Native lifecycle scripts that pnpm prints as `key: true` or
+`Ignored build scripts:` still use the existing retry.
+
+Wave 1 on official `@deepseek-ai/dsh@latest` (resolved `0.2.2-rc.1`) hit this
+gate, not a broken package, for:
+
+| Slug | Install spec | Package pnpm named |
+|---|---|---|
+| `dsh-TUI` | `github:ccch1mneyyy/dsh-TUI` | `@deepseek-harness-tui/dsh-tui` |
+| `DSH-better-sidebar` | `github:omdsh-dev/DSH-better-sidebar` | `dsh-better-sidebar` |
+| `dsh-univer-office` | `github:dream-num/dsh-univer-office` | `dsh-univer-office` |
+| `dsh-genui` | `github:omdsh-dev/dsh-genui` | `@changfenhuang/dsh-genui` |
+
+If the retry still ends on that pnpm error, L1 `failureClass` is
+`prepare-blocked`. The summary counts it separately from engine-mismatch and
+from a generic install-fail. npm packages rejected for their engine range
+(for example `dsh-plugin-observatory`, `dsh-cc-tui`, and `dsh-web-ui`) stay
+engine mismatches. A dsh allowBuilds sentence on some other git failure, such
+as a missing repository, is not `prepare-blocked`.
+
 ## Run on Actions
 
 Workflow: `.github/workflows/verify-pilot.yml`.

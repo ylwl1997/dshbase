@@ -95,8 +95,10 @@ verify_one() {
   make_workspace "$prof"
 
   # 2. L1+L2: 装 base+web-app+插件，dump-config 判定。
-  #    git 源插件 prepare 脚本会被 pnpm 拦（GIT_DEP_PREPARE_NOT_ALLOWED / IGNORED_BUILDS），
-  #    自动解析 pnpm 提示的 key 追加进 allowBuilds 重试（最多 3 次）。
+  #    git 源插件 prepare 会被 pnpm 拦（ERR_PNPM_GIT_DEP_PREPARE_NOT_ALLOWED /
+  #    onlyBuiltDependencies）。把 pnpm 打印的精确 key 写入 allowBuilds 再重试
+  #    （解析在 scripts/verify-pilot.py，最多 3 次）。范围只限本仓库 verify 安装，
+  #    不放宽 engines，也不使用 dsh plugin allow-version --accept-risk。
   local installed="no"
   for attempt in 1 2 3; do
     if timeout 300 dsh plugin --profile "$prof" add \
@@ -107,26 +109,11 @@ verify_one() {
       break
     fi
     local new_keys
-    new_keys=$(python3 - "$logf" <<'PYEOF'
-import re, sys
+    new_keys=$(python3 - "$logf" "$SCRIPT_DIR/verify-pilot.py" <<'PYEOF'
+import runpy, sys
 log = open(sys.argv[1], encoding='utf-8', errors='replace').read()
-keys = []
-# pnpm 报错格式 1: allowBuilds:\n  <key>: true
-for m in re.finditer(r'^\s{2}(\S+): true$', log, re.M):
-    if not m.group(1).startswith('@') or '/' in m.group(1):
-        keys.append(m.group(1))
-# 报错格式 2: Ignored build scripts: a@1.0.0, b@2.0.0
-m = re.search(r'Ignored build scripts:\s*(.+)$', log, re.M)
-if m:
-    for part in m.group(1).split(','):
-        part = part.strip()
-        if part:
-            keys.append(part)
-seen = []
-for k in keys:
-    if k and k not in seen:
-        seen.append(k)
-print('\n'.join(seen))
+mod = runpy.run_path(sys.argv[2])
+print('\n'.join(mod['parse_allow_build_keys'](log)))
 PYEOF
 )
     if [ -z "$new_keys" ]; then

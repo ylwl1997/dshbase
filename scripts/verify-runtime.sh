@@ -82,8 +82,12 @@ verify_one() {
   local log="/tmp/verify-$prof.log"   # sanitize (scoped pkg @a/b has /)
   local status="unknown"
   local installed=0
-  # allowBuilds 白名单：native 依赖先放行；git 插件自身的 prepare 脚本在安装报错时
-  # 动态解析 pnpm 提示的 exact key 追加重试（dangerouslyAllowAllBuilds 在 pnpm 11.22 已失效）。
+  # allowBuilds 白名单：native 依赖先放行。git 托管插件的 prepare 被
+  # ERR_PNPM_GIT_DEP_PREPARE_NOT_ALLOWED / onlyBuiltDependencies 拦住时，
+  # 把 pnpm 打印的精确 key 写入本 profile 的 allowBuilds 再重试
+  # （解析在 scripts/verify-pilot.py）。范围只限本仓库 verify 安装，
+  # 不放宽 engines，也不使用 dsh plugin allow-version --accept-risk。
+  # dangerouslyAllowAllBuilds 在 pnpm 11.22 已失效。
   {
     echo "allowBuilds:"
     echo "  '@deepseek-ai/dsh-subprocess-local': true"
@@ -100,24 +104,11 @@ verify_one() {
     fi
     # 解析 pnpm 提示的 allowBuilds key（含 @/:/ 的 key 必须加引号，否则 YAML 解析错）
     local new_keys
-    new_keys=$(python3 - "$log" <<'PYEOF'
-import re, sys
+    new_keys=$(python3 - "$log" "$SCRIPT_DIR/verify-pilot.py" <<'PYEOF'
+import runpy, sys
 log = open(sys.argv[1], encoding='utf-8', errors='replace').read()
-keys = []
-for m in re.finditer(r'^\s{2}(\S+): true$', log, re.M):
-    if not m.group(1).startswith('@') or '/' in m.group(1):
-        keys.append(m.group(1))
-m = re.search(r'Ignored build scripts:\s*(.+)$', log, re.M)
-if m:
-    for part in m.group(1).split(','):
-        part = part.strip()
-        if part:
-            keys.append(part)
-seen = []
-for k in keys:
-    if k and k not in seen:
-        seen.append(k)
-print('\n'.join(seen))
+mod = runpy.run_path(sys.argv[2])
+print('\n'.join(mod['parse_allow_build_keys'](log)))
 PYEOF
 )
     if [ -z "$new_keys" ]; then
