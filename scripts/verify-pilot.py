@@ -201,6 +201,33 @@ L4_PLUGINS = [
             "note": "Pill is the composer dock. No account session is started.",
         },
     },
+    {
+        "slug": "dsh-kimino-theme",
+        "installSpec": "github:niiang/dsh-kimino-theme#v68.4.2",
+        "catalogTest": "verified",
+        "role": (
+            "Idle web skin on the pinned runtime. package.json has no engines.dsh "
+            "field, so a >=0.2 range does not exclude 0.1.0-rc.8. The client injects "
+            "the theme service (ctx.theme.overrideTokens exists on "
+            "@deepseek-ai/dsh-client-ui-theme@0.1.0-rc.8) and does not call "
+            "hmr.registerConfig. On apply, bundle/client.js at v68.4.2 sets "
+            "html[data-kimino-theme=on], appends style#kimino-theme "
+            "(data-plugin=dsh-kimino-theme), and mounts [data-kimino-backdrop] "
+            "while live wallpaper is on (the default). No account. "
+            "dsh-caption-balance declares dsh >=0.2.2-rc.1; dsh-balance-ball "
+            "declares dsh >=0.2.0 and reads an OAuth balance. Neither is this run."
+        ),
+        "l4": {
+            "selectorsAny": [
+                'html[data-kimino-theme="on"]',
+                "#kimino-theme",
+                'style[data-plugin="dsh-kimino-theme"]',
+                "[data-kimino-backdrop]",
+            ],
+            "forbid": [],
+            "note": "Selectors are from bundle/client.js at tag v68.4.2. No sign-in. The backdrop div is appended when live wallpaper is on.",
+        },
+    },
 ]
 
 
