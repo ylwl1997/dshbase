@@ -16,18 +16,33 @@ PACKS = os.path.join(os.path.dirname(__file__), "..", "src", "data", "packs.json
 def owner_repo(url):
     return (url or "").replace("https://github.com/", "").rstrip("/")
 
+
+def install_command(p, repo):
+    """Agent-catalog install line.
+
+    Mirrors catalogInstall() in src/lib/plugin-install-cmd.js. When both
+    installPreferred and installManual are set, emit installManual — the
+    manual equivalent — not the npm -g preferred line and not a bare
+    `dsh plugin add <pkg>`. Otherwise keep the historical installPkg / npm /
+    github branches.
+    """
+    preferred = str(p.get("installPreferred") or "").strip()
+    manual = str(p.get("installManual") or "").strip()
+    if preferred and manual:
+        return manual
+    if p.get("installPkg"):
+        return f"dsh plugin --profile web add {p['installPkg']}"
+    if p.get("npm") and p.get("pkg"):
+        return f"dsh plugin add {p['pkg']}"
+    return f"dsh plugin add github:{repo}"
+
 d = json.load(open(DB, encoding="utf-8"))
 plugins = []
 slug_map = {}
 for cat, items in d.items():
     for p in items:
         repo = owner_repo(p.get("url"))
-        if p.get("installPkg"):
-            install = f"dsh plugin --profile web add {p['installPkg']}"
-        elif p.get("npm") and p.get("pkg"):
-            install = f"dsh plugin add {p['pkg']}"
-        else:
-            install = f"dsh plugin add github:{repo}"
+        install = install_command(p, repo)
         row = {
             "name": p["name"],
             "slug": p.get("slug") or p["name"],

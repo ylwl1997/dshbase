@@ -11,6 +11,7 @@ import { pluginStatus } from '../../../lib/plugin-status.js';
 import evidenceData from '../../../data/plugin-evidence.json';
 import { presentEvidence } from '../../../lib/plugin-evidence.js';
 import EvidenceReport from '../../../components/EvidenceReport.astro';
+import { astroDetailBlocks, metaInstallPhrase, pluginInstall } from '../../../lib/plugin-install-cmd.js';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -34,8 +35,10 @@ const note = notes[p.name];
 const catId = cat.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 const dirUrl = getRelativeLocaleUrl('zh', '/plugins/directory/');
 const catUrl = `${dirUrl}#${catId}`;
-const repo = p.url.replace('https://github.com/', '');
 const npmHome = p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
+const ins = pluginInstall(p);
+const detailBlocks = astroDetailBlocks(p, 'zh');
+const metaHow = metaInstallPhrase(p, 'zh');
 const rawReadme = readmes[p.slug]?.html || '';
 const readmeHtml = withCfEmailOff(demoteReadmeHeadings(rawReadme));
 const st = pluginStatus(p);
@@ -91,7 +94,7 @@ const jsonLd = {
   ...(p.ver ? { softwareVersion: p.ver } : {}),
 };
 ---
-<Base title={pageTitle} description={`${desc} — 如何安装 ${p.name}（${p.npm ? `dsh plugin add ${p.pkg}` : 'npm 源码'}）。${evidence.hasEvidence ? `实测时 dsh --version 为 ${evidence.dshVersionActual}。` : ''}`} currentPath={`/plugins/${p.slug}/`}>
+<Base title={pageTitle} description={`${desc} — 如何安装 ${p.name}（${metaHow}）。${evidence.hasEvidence ? `实测时 dsh --version 为 ${evidence.dshVersionActual}。` : ''}`} currentPath={`/plugins/${p.slug}/`}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <section class="hero wrap">
     <p class="eyebrow"><a href={dirUrl}>插件目录</a> / <a href={catUrl}>{cat}</a> / {p.name}</p>
@@ -177,30 +180,27 @@ const jsonLd = {
             <p class="muted small">然后对 agent 说「帮我装 <em>{p.name}</em>」，它会在目录里找到并自动安装。文档：<a href="https://github.com/ylwl1997/dshbase/blob/main/docs/dshbase-catalog.md">dshbase-catalog</a> · <a href="/zh/packs/">已验证场景包</a>。</p>
           </div>
         )}
-        {p.npm && p.pkg ? (
+        {!ins.official && !(p.npm && p.pkg) && (
+          <p>该插件是 <strong>GitHub 源码</strong>（未发 npm）——直接从仓库装：</p>
+        )}
+        {detailBlocks.map((block) => (
           <Fragment>
-            <p class="muted small">Web profile：</p>
-            <pre class="code-block"><code>dsh plugin --profile web add {p.installPkg || p.pkg}</code></pre>
-            <p class="muted small">Headless（CLI）profile：</p>
-            <pre class="code-block"><code>dsh plugin --profile headless add {p.pkg}</code></pre>
+            <p class="muted small">{block.label}</p>
+            <pre class="code-block"><code>{block.command}</code></pre>
+          </Fragment>
+        ))}
+        {!ins.official && !(p.npm && p.pkg) && buildsMap[p.name] && (
+          <div class="build-box">
+            <strong>⚡ 有预构建版</strong> — 跳过构建步骤，直接装编译好的版本：
+            <pre class="code-block"><code>dsh plugin --profile web add https://dshbase.com/builds/{buildsMap[p.name]}</code></pre>
+          </div>
+        )}
+        {p.npm && p.pkg && (
+          <Fragment>
             <h2 style="margin-top:20px">包信息</h2>
             <p>npm：<a href={npmHome} target="_blank" rel="noopener">{p.pkg}</a> · 版本 <strong>{p.ver || '—'}</strong>{evidence.hasEvidence && <Fragment> · 实测时 <code>dsh --version</code> 为 <strong>{evidence.dshVersionActual}</strong></Fragment>}</p>
             {p.bareNpm === 'missing-dep' && (
               <p class="honest-note">⚠ 裸 <code>npm install {p.pkg}</code> 无法导入该包——某个依赖可能被声明在 <code>devDependencies</code> 而非 <code>dependencies</code>，只有经 <code>dsh plugin add</code> 才能干净安装。</p>
-            )}
-          </Fragment>
-        ) : (
-          <Fragment>
-            <p>该插件是 <strong>GitHub 源码</strong>（未发 npm）——直接从仓库装：</p>
-            <p class="muted small">Web profile：</p>
-            <pre class="code-block"><code>dsh plugin --profile web add github:{repo}</code></pre>
-            <p class="muted small">Headless（CLI）profile：</p>
-            <pre class="code-block"><code>dsh plugin --profile headless add github:{repo}</code></pre>
-            {buildsMap[p.name] && (
-              <div class="build-box">
-                <strong>⚡ 有预构建版</strong> — 跳过构建步骤，直接装编译好的版本：
-                <pre class="code-block"><code>dsh plugin --profile web add https://dshbase.com/builds/{buildsMap[p.name]}</code></pre>
-              </div>
             )}
           </Fragment>
         )}

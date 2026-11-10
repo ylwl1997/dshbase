@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import packsData from '../../data/packs.json';
 import plugins from '../../data/plugins.json';
+import { singleInstallCommand } from '../../lib/plugin-install-cmd.js';
 
 const auditUrl = getRelativeLocaleUrl('en', '/audit/');
 const dirUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
@@ -21,9 +22,7 @@ Object.values(plugins).flat().forEach((p) => { bySlug[p.slug] = p; });
 
 function installCmd(p) {
   if (!p) return '';
-  if (p.npm && p.pkg) return `dsh plugin add ${p.pkg}`;
-  const repo = (p.url || '').replace(/^https:\/\/github\.com\//, '').replace(/\.git$/, '');
-  return repo ? `dsh plugin add github:${repo}` : '';
+  return singleInstallCommand(p);
 }
 
 function resolvePack(pack) {

@@ -3,8 +3,8 @@
 import type { APIRoute } from 'astro';
 import plugins from '../data/plugins.json';
 import blogPosts from '../data/blog-posts.json';
+import { singleInstallCommand } from '../lib/plugin-install-cmd.js';
 
-const repo = (u: string) => (u || '').replace('https://github.com/', '');
 const owner = (u: string) => (u || '').replace('https://github.com/', '').split('/')[0] || '';
 
 // Static pages (path is the canonical en route; zh is derived client-side via `/zh` prefix).
@@ -33,9 +33,7 @@ export const GET: APIRoute = () => {
       const descZh = (p.desc_zh as string) || '';
       const ucs = (p.ucs as string[]) || [];
       const license = (p.license as string) || '';
-      const cmd = (p.npm && p.pkg)
-        ? `dsh plugin add ${p.pkg}`
-        : `dsh plugin add github:${repo(p.url as string)}`;
+      const cmd = singleInstallCommand(p);
       const q = `${name} ${owner(p.url as string)} ${p.pkg || ''} ${descEn} ${descZh} ${cat} ${ucs.join(' ')} ${license}`.toLowerCase();
       pluginList.push({
         name,

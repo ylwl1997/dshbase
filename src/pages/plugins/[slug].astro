@@ -11,6 +11,7 @@ import { pluginStatus } from '../../lib/plugin-status.js';
 import evidenceData from '../../data/plugin-evidence.json';
 import { presentEvidence } from '../../lib/plugin-evidence.js';
 import EvidenceReport from '../../components/EvidenceReport.astro';
+import { astroDetailBlocks, metaInstallPhrase, pluginInstall } from '../../lib/plugin-install-cmd.js';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -35,8 +36,10 @@ const note = notes[p.name];
 const catId = cat.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 const dirUrl = getRelativeLocaleUrl('en', '/plugins/directory/');
 const catUrl = `${dirUrl}#${catId}`;
-const repo = p.url.replace('https://github.com/', '');
 const npmHome = p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
+const ins = pluginInstall(p);
+const detailBlocks = astroDetailBlocks(p, 'en');
+const metaHow = metaInstallPhrase(p, 'en');
 const rawReadme = readmes[p.slug]?.html || '';
 const readmeHtml = withCfEmailOff(demoteReadmeHeadings(rawReadme));
 const st = pluginStatus(p);
@@ -92,7 +95,7 @@ const jsonLd = {
   ...(p.ver ? { softwareVersion: p.ver } : {}),
 };
 ---
-<Base title={pageTitle} description={`${desc} — how to install ${p.name} (${p.npm ? `dsh plugin add ${p.pkg}` : 'npm source'}).${evidence.hasEvidence ? ` dsh --version at test time was ${evidence.dshVersionActual}.` : ''}`} currentPath={`/plugins/${p.slug}/`}>
+<Base title={pageTitle} description={`${desc} — how to install ${p.name} (${metaHow}).${evidence.hasEvidence ? ` dsh --version at test time was ${evidence.dshVersionActual}.` : ''}`} currentPath={`/plugins/${p.slug}/`}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <section class="hero wrap">
     <p class="eyebrow"><a href={dirUrl}>Plugin directory</a> / <a href={catUrl}>{cat}</a> / {p.name}</p>
@@ -178,30 +181,27 @@ const jsonLd = {
             <p class="muted small">Then say <em>"install {p.name} for me"</em> — your agent finds it in the directory and installs it. Docs: <a href="https://github.com/ylwl1997/dshbase/blob/main/docs/dshbase-catalog.md">dshbase-catalog</a> · <a href="/packs/">verified packs</a>.</p>
           </div>
         )}
-        {p.npm && p.pkg ? (
+        {!ins.official && !(p.npm && p.pkg) && (
+          <p>This plugin is <strong>GitHub source</strong> (not published to npm) — install it straight from the repo:</p>
+        )}
+        {detailBlocks.map((block) => (
           <Fragment>
-            <p class="muted small">Web profile:</p>
-            <pre class="code-block"><code>dsh plugin --profile web add {p.installPkg || p.pkg}</code></pre>
-            <p class="muted small">Headless (CLI) profile:</p>
-            <pre class="code-block"><code>dsh plugin --profile headless add {p.pkg}</code></pre>
+            <p class="muted small">{block.label}</p>
+            <pre class="code-block"><code>{block.command}</code></pre>
+          </Fragment>
+        ))}
+        {!ins.official && !(p.npm && p.pkg) && buildsMap[p.name] && (
+          <div class="build-box">
+            <strong>⚡ Prebuilt copy available</strong> — skip the build step, install the compiled version directly:
+            <pre class="code-block"><code>dsh plugin --profile web add https://dshbase.com/builds/{buildsMap[p.name]}</code></pre>
+          </div>
+        )}
+        {p.npm && p.pkg && (
+          <Fragment>
             <h2 style="margin-top:20px">Package</h2>
             <p>npm: <a href={npmHome} target="_blank" rel="noopener">{p.pkg}</a> · version <strong>{p.ver || '—'}</strong>{evidence.hasEvidence && <Fragment> · <code>dsh --version</code> at test time <strong>{evidence.dshVersionActual}</strong></Fragment>}</p>
             {p.bareNpm === 'missing-dep' && (
               <p class="honest-note">⚠ A bare <code>npm install {p.pkg}</code> fails to import this package — a dependency is likely declared under <code>devDependencies</code> instead of <code>dependencies</code>, so it only installs cleanly via <code>dsh plugin add</code>.</p>
-            )}
-          </Fragment>
-        ) : (
-          <Fragment>
-            <p>This plugin is <strong>GitHub source</strong> (not published to npm) — install it straight from the repo:</p>
-            <p class="muted small">Web profile:</p>
-            <pre class="code-block"><code>dsh plugin --profile web add github:{repo}</code></pre>
-            <p class="muted small">Headless (CLI) profile:</p>
-            <pre class="code-block"><code>dsh plugin --profile headless add github:{repo}</code></pre>
-            {buildsMap[p.name] && (
-              <div class="build-box">
-                <strong>⚡ Prebuilt copy available</strong> — skip the build step, install the compiled version directly:
-                <pre class="code-block"><code>dsh plugin --profile web add https://dshbase.com/builds/{buildsMap[p.name]}</code></pre>
-              </div>
             )}
           </Fragment>
         )}

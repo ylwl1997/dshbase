@@ -552607,9 +552607,9 @@
   {
    "name": "dsh-TUI",
    "url": "https://github.com/ccch1mneyyy/dsh-TUI",
-   "pkg": "",
-   "ver": "",
-   "npm": false,
+   "pkg": "@deepseek-harness-tui/dsh-tui",
+   "ver": "0.19.0",
+   "npm": true,
    "test": "verified",
    "desc": "A stopgap for DSH's lack of official terminal TUI, for CLI-loving geeks: Claude Code-style full-screen interactive terminal plugin — pixel whale top bar, real-time work status line, streaming thought expansion, double-Esc rollback, context progress bar + TPS gauge. One-click npm install.",
    "desc_en": "A stopgap for DSH's lack of official terminal TUI, for CLI-loving geeks: Claude Code-style full-screen interactive terminal plugin — pixel whale top bar, real-time work status line, streaming thought expansion, double-Esc rollback, context progress bar + TPS gauge. One-click npm install.",
@@ -552629,12 +552629,14 @@
    "slug": "dsh-TUI",
    "platform": "any",
    "webonly": false,
-   "note": "验证: install-fail (0.1.0-rc.6)",
+   "note": "目录安装规格改为官方 npm 包 @deepseek-harness-tui/dsh-tui（2026-11-10 的 latest 为 0.19.0）。git tarball 仍缺 vendor/dsh-std，已不再作为推荐安装。",
    "contributors": 74,
    "depCount": 78,
    "depsOfficial": 38,
    "repoOwner": "ccch1mneyyy",
-   "_enriched": "2026-10-13|"
+   "_enriched": "2026-10-13|",
+   "installPreferred": "npm install -g @deepseek-ai/dsh @deepseek-harness-tui/dsh-tui",
+   "installManual": "dsh plugin --profile dsh-tui add @deepseek-harness-tui/dsh-tui"
   },
   {
    "name": "dsh-gitbash-preset",

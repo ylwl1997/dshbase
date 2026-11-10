@@ -1,11 +1,11 @@
 ---
 import { cfSafeTextHtml, looksLikeEmail } from '../lib/email-off.js';
+import { singleInstallCommand } from '../lib/plugin-install-cmd.js';
 
 const { plugin: p, cat = '', lang = 'en' } = Astro.props;
-const _repo = (u) => (u || '').replace('https://github.com/', '');
 const _owner = (u) => (u || '').replace('https://github.com/', '').split('/')[0] || '';
 const isNpm = p.npm && !!p.pkg;
-const installCmd = isNpm ? `dsh plugin add ${p.pkg}` : `dsh plugin add github:${_repo(p.url)}`;
+const installCmd = singleInstallCommand(p);
 const statusLabel = p.test === 'verified' ? (lang === 'zh' ? '已验证' : 'Verified') : p.test === 'pending' ? (lang === 'zh' ? '未验证' : 'Unverified') : (lang === 'zh' ? '已收录' : 'Listed');
 const copyLabel = lang === 'zh' ? '📋 安装' : '📋 copy';
 const statusClass = p.test === 'verified' ? 'st-ok' : p.test === 'pending' ? 'st-warn' : 'st-listed';
@@ -37,7 +37,7 @@ const trustClass = { Silver: 't-silver', Bronze: 't-bronze', Gold: 't-gold' }[tr
     <span class="pcard-stars">★ {p.stars ?? 0}</span>
     {isNpm ? (
       <Fragment>
-        <span class="pcard-inst pcard-inst-npm" title={`Install via npm: dsh plugin add ${p.pkg}`}>npm</span>
+        <span class="pcard-inst pcard-inst-npm" title={`Install via npm: ${installCmd}`}>npm</span>
         <span class="pcard-inst pcard-inst-git" title="Install from GitHub source">git</span>
       </Fragment>
     ) : (
