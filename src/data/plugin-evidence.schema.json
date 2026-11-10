@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dshbase.com/schema/plugin-evidence.schema.json",
+  "title": "dshbase plugin evidence",
+  "description": "Short per-plugin evidence for the Chinese and English detail pages. A follow-up verification PR fills plugins.<slug>. An empty plugins object means every page uses the honest fallback. This file does not change catalog test badges.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$comment": { "type": "string" },
+    "plugins": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/evidence" },
+      "description": "Map of plugin slug to one evidence record. Slugs match plugins.json slug."
+    }
+  },
+  "required": ["plugins"],
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "conclusion",
+        "conclusion_zh",
+        "dshVersionRequested",
+        "dshVersionActual",
+        "testDate",
+        "levels"
+      ],
+      "properties": {
+        "conclusion": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 320,
+          "description": "Short English conclusion in a sentence, not a badge word and not a raw log."
+        },
+        "conclusion_zh": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 320,
+          "description": "Short Chinese conclusion. Required so the zh page does not fall back to English or to catalog boilerplate."
+        },
+        "dshVersionRequested": {
+          "type": "string",
+          "enum": ["@deepseek-ai/dsh@latest", "latest"],
+          "description": "Dist-tag that was installed. Always official @deepseek-ai/dsh@latest. The pilot report stores this as latest; the page displays @deepseek-ai/dsh@latest. A frozen rc or exact version is rejected."
+        },
+        "dshVersionActual": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 80,
+          "description": "First line of `dsh --version` after that dist-tag resolved. May itself be an rc if latest pointed at one. Not the dist-tag and not a version the catalog pinned in advance."
+        },
+        "testDate": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "description": "Calendar date of the run (YYYY-MM-DD)."
+        },
+        "needs": {
+          "type": "string",
+          "maxLength": 400,
+          "description": "English description of external accounts or services required for a level marked needs. Omit or use an empty string when nothing external is required. needs is not a failure and not Verified."
+        },
+        "needs_zh": {
+          "type": "string",
+          "maxLength": 400,
+          "description": "Chinese description of the same external requirement. Required when needs is set, and when any level status is needs."
+        },
+        "levels": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["L1", "L2", "L3", "L4"],
+          "properties": {
+            "L1": { "$ref": "#/$defs/level" },
+            "L2": { "$ref": "#/$defs/level" },
+            "L3": { "$ref": "#/$defs/level" },
+            "L4": { "$ref": "#/$defs/level" }
+          }
+        }
+      }
+    },
+    "level": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "reason", "reason_zh"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["pass", "skip", "fail", "needs"],
+          "description": "pass: the level ran and succeeded. skip: not run or not applicable, including L3 web-only (a GUI plugin waiting on a browser service is skip, not fail, and not pass). fail: the level ran and did not succeed for a reason other than web-only or a missing external account. needs: an external account or service was required, so the level could not be completed. needs is not a plugin failure and not Verified."
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 400,
+          "description": "One short English sentence a person can read. Not a stack trace and not only the words web-only or needs-env."
+        },
+        "reason_zh": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 400,
+          "description": "The same reason in Chinese."
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "plugins": {
+        "example-headless": {
+          "conclusion": "Install and load succeeded on the dsh version resolved from @latest. The headless prompt did not call the model because no API key was configured.",
+          "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装和加载成功。因为没有配置 API key，无头提问没有调用模型。",
+          "dshVersionRequested": "@deepseek-ai/dsh@latest",
+          "dshVersionActual": "0.2.4",
+          "testDate": "2026-11-10",
+          "needs": "A DeepSeek API key for the headless model call. This run did not set one.",
+          "needs_zh": "无头模型调用需要 DeepSeek API key。这次没有配置。",
+          "levels": {
+            "L1": {
+              "status": "pass",
+              "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
+              "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+            },
+            "L2": {
+              "status": "pass",
+              "reason": "The profile booted and dump-config listed the plugin bundle.",
+              "reason_zh": "profile 能启动，dump-config 列出了该插件 bundle。"
+            },
+            "L3": {
+              "status": "needs",
+              "reason": "The headless prompt never called the model because DEEPSEEK_API_KEY was not set.",
+              "reason_zh": "没有设置 DEEPSEEK_API_KEY，无头提问没有调用模型。"
+            },
+            "L4": {
+              "status": "skip",
+              "reason": "Web CDP was not run. L3 was not web-only, and a missing API key is not a browser result.",
+              "reason_zh": "没有跑 Web CDP。L3 不是 web-only，缺 API key 也不是浏览器结果。"
+            }
+          }
+        }
+      }
+    },
+    {
+      "plugins": {
+        "example-web-only": {
+          "conclusion": "Install and load succeeded. Headless L3 stopped on a GUI service, so it is web-only: not a pass and not a plugin failure. Web CDP was not run.",
+          "conclusion_zh": "安装和加载成功。无头 L3 停在图形界面服务上，属于 web-only：不是通过，也不是插件故障。没有跑 Web CDP。",
+          "dshVersionRequested": "latest",
+          "dshVersionActual": "0.2.4",
+          "testDate": "2026-11-10",
+          "levels": {
+            "L1": {
+              "status": "pass",
+              "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
+              "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+            },
+            "L2": {
+              "status": "pass",
+              "reason": "The profile booted and dump-config listed the plugin bundle.",
+              "reason_zh": "profile 能启动，dump-config 列出了该插件 bundle。"
+            },
+            "L3": {
+              "status": "skip",
+              "reason": "Headless stopped while waiting for service webServer. That web-only result is not a pass and not a plugin failure.",
+              "reason_zh": "无头模式停在 waiting for service webServer。这个 web-only 结果不是通过，也不是插件故障。"
+            },
+            "L4": {
+              "status": "skip",
+              "reason": "Web CDP was not run for this record, so there is no browser result to report.",
+              "reason_zh": "这条记录没有跑 Web CDP，所以没有浏览器结果。"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

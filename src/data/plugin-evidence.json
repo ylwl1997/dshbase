@@ -1,0 +1,817 @@
+{
+  "$comment": "Per-plugin evidence for the detail-page review and test report. Records live under plugins, keyed by slug. Shape and examples: src/data/plugin-evidence.schema.json and src/lib/plugin-evidence.js. First-wave L1–L3 on 2026-11-10 against official @deepseek-ai/dsh@latest (actual 0.2.2-rc.1). Do not invent results from catalog test, stars, note, web-only, or needs. Do not write Verified or 已验证.",
+  "plugins": {
+    "dsh-inline-diff": {
+      "conclusion": "Install, load, and a headless prompt succeeded on the dsh version resolved from @latest. Web CDP was not run in this wave.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和无头提问均成功。本波未跑 Web CDP。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "pass",
+          "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
+          "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+        },
+        "L2": {
+          "status": "pass",
+          "reason": "The profile booted and dump-config listed the plugin bundle.",
+          "reason_zh": "profile 已启动，dump-config 列出了该插件 bundle。"
+        },
+        "L3": {
+          "status": "pass",
+          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
+          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "This L1–L3 job did not run Web CDP, so there is no browser result to report.",
+          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP，因此没有浏览器结果。"
+        }
+      }
+    },
+    "dsh-sherlock": {
+      "conclusion": "Install, load, and a headless prompt succeeded on the dsh version resolved from @latest. Web CDP was not run in this wave.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和无头提问均成功。本波未跑 Web CDP。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "pass",
+          "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
+          "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+        },
+        "L2": {
+          "status": "pass",
+          "reason": "The profile booted and dump-config listed the plugin bundle.",
+          "reason_zh": "profile 已启动，dump-config 列出了该插件 bundle。"
+        },
+        "L3": {
+          "status": "pass",
+          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
+          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "This L1–L3 job did not run Web CDP, so there is no browser result to report.",
+          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP，因此没有浏览器结果。"
+        }
+      }
+    },
+    "dsh-processing-status": {
+      "conclusion": "Install, load, and a headless prompt succeeded on the dsh version resolved from @latest. Web CDP was not run in this wave.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和无头提问均成功。本波未跑 Web CDP。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "pass",
+          "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
+          "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+        },
+        "L2": {
+          "status": "pass",
+          "reason": "The profile booted and dump-config listed the plugin bundle.",
+          "reason_zh": "profile 已启动，dump-config 列出了该插件 bundle。"
+        },
+        "L3": {
+          "status": "pass",
+          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
+          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "This L1–L3 job did not run Web CDP, so there is no browser result to report.",
+          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP，因此没有浏览器结果。"
+        }
+      }
+    },
+    "vacum972-dsh-usage-billing": {
+      "conclusion": "Install, load, and a headless prompt succeeded on the dsh version resolved from @latest. Web CDP was not run in this wave.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和无头提问均成功。本波未跑 Web CDP。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "pass",
+          "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
+          "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+        },
+        "L2": {
+          "status": "pass",
+          "reason": "The profile booted and dump-config listed the plugin bundle.",
+          "reason_zh": "profile 已启动，dump-config 列出了该插件 bundle。"
+        },
+        "L3": {
+          "status": "pass",
+          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
+          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "This L1–L3 job did not run Web CDP, so there is no browser result to report.",
+          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP，因此没有浏览器结果。"
+        }
+      }
+    },
+    "yumiku-dsh-commandcode-quota": {
+      "conclusion": "Install, load, and a headless prompt succeeded on the dsh version resolved from @latest. Web CDP was not run in this wave.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和无头提问均成功。本波未跑 Web CDP。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "pass",
+          "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
+          "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+        },
+        "L2": {
+          "status": "pass",
+          "reason": "The profile booted and dump-config listed the plugin bundle.",
+          "reason_zh": "profile 已启动，dump-config 列出了该插件 bundle。"
+        },
+        "L3": {
+          "status": "pass",
+          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
+          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "This L1–L3 job did not run Web CDP, so there is no browser result to report.",
+          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP，因此没有浏览器结果。"
+        }
+      }
+    },
+    "dsh-context": {
+      "conclusion": "Install, load, and a headless prompt succeeded on the dsh version resolved from @latest. Web CDP was not run in this wave.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和无头提问均成功。本波未跑 Web CDP。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "pass",
+          "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
+          "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+        },
+        "L2": {
+          "status": "pass",
+          "reason": "The profile booted and dump-config listed the plugin bundle.",
+          "reason_zh": "profile 已启动，dump-config 列出了该插件 bundle。"
+        },
+        "L3": {
+          "status": "pass",
+          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
+          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "This L1–L3 job did not run Web CDP, so there is no browser result to report.",
+          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP，因此没有浏览器结果。"
+        }
+      }
+    },
+    "dsh-agent-teams": {
+      "conclusion": "Install, load, and a headless prompt succeeded on the dsh version resolved from @latest. Web CDP was not run in this wave.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和无头提问均成功。本波未跑 Web CDP。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "pass",
+          "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
+          "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+        },
+        "L2": {
+          "status": "pass",
+          "reason": "The profile booted and dump-config listed the plugin bundle.",
+          "reason_zh": "profile 已启动，dump-config 列出了该插件 bundle。"
+        },
+        "L3": {
+          "status": "pass",
+          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
+          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "This L1–L3 job did not run Web CDP, so there is no browser result to report.",
+          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP，因此没有浏览器结果。"
+        }
+      }
+    },
+    "dsh-mnemon": {
+      "conclusion": "Install, load, and a headless prompt succeeded on the dsh version resolved from @latest. Web CDP was not run in this wave.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和无头提问均成功。本波未跑 Web CDP。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "pass",
+          "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
+          "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+        },
+        "L2": {
+          "status": "pass",
+          "reason": "The profile booted and dump-config listed the plugin bundle.",
+          "reason_zh": "profile 已启动，dump-config 列出了该插件 bundle。"
+        },
+        "L3": {
+          "status": "pass",
+          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
+          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "This L1–L3 job did not run Web CDP, so there is no browser result to report.",
+          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP，因此没有浏览器结果。"
+        }
+      }
+    },
+    "dsh-cost-meter": {
+      "conclusion": "Install, load, and a headless prompt succeeded on the dsh version resolved from @latest. Web CDP was not run in this wave.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和无头提问均成功。本波未跑 Web CDP。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "pass",
+          "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
+          "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+        },
+        "L2": {
+          "status": "pass",
+          "reason": "The profile booted and dump-config listed the plugin bundle.",
+          "reason_zh": "profile 已启动，dump-config 列出了该插件 bundle。"
+        },
+        "L3": {
+          "status": "pass",
+          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
+          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "This L1–L3 job did not run Web CDP, so there is no browser result to report.",
+          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP，因此没有浏览器结果。"
+        }
+      }
+    },
+    "dsh-skills-manager-plus": {
+      "conclusion": "Install, load, and a headless prompt succeeded on the dsh version resolved from @latest. Web CDP was not run in this wave.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和无头提问均成功。本波未跑 Web CDP。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "pass",
+          "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
+          "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+        },
+        "L2": {
+          "status": "pass",
+          "reason": "The profile booted and dump-config listed the plugin bundle.",
+          "reason_zh": "profile 已启动，dump-config 列出了该插件 bundle。"
+        },
+        "L3": {
+          "status": "pass",
+          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
+          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "This L1–L3 job did not run Web CDP, so there is no browser result to report.",
+          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP，因此没有浏览器结果。"
+        }
+      }
+    },
+    "wulongxi-dsh-skills-hub": {
+      "conclusion": "Install, load, and a headless prompt succeeded on the dsh version resolved from @latest. Web CDP was not run in this wave.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和无头提问均成功。本波未跑 Web CDP。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "pass",
+          "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
+          "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+        },
+        "L2": {
+          "status": "pass",
+          "reason": "The profile booted and dump-config listed the plugin bundle.",
+          "reason_zh": "profile 已启动，dump-config 列出了该插件 bundle。"
+        },
+        "L3": {
+          "status": "pass",
+          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
+          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "This L1–L3 job did not run Web CDP, so there is no browser result to report.",
+          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP，因此没有浏览器结果。"
+        }
+      }
+    },
+    "stmol-dsh-rub-cost": {
+      "conclusion": "Install, load, and a headless prompt succeeded on the dsh version resolved from @latest. Web CDP was not run in this wave.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和无头提问均成功。本波未跑 Web CDP。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "pass",
+          "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
+          "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+        },
+        "L2": {
+          "status": "pass",
+          "reason": "The profile booted and dump-config listed the plugin bundle.",
+          "reason_zh": "profile 已启动，dump-config 列出了该插件 bundle。"
+        },
+        "L3": {
+          "status": "pass",
+          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
+          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "This L1–L3 job did not run Web CDP, so there is no browser result to report.",
+          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP，因此没有浏览器结果。"
+        }
+      }
+    },
+    "mnemon": {
+      "conclusion": "Install, load, and a headless prompt succeeded on the dsh version resolved from @latest. Web CDP was not run in this wave.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和无头提问均成功。本波未跑 Web CDP。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "pass",
+          "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
+          "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+        },
+        "L2": {
+          "status": "pass",
+          "reason": "The profile booted and dump-config listed the bundle as @mnemon-dev/dsh-mnemon.",
+          "reason_zh": "profile 已启动，dump-config 列出的 bundle 为 @mnemon-dev/dsh-mnemon。"
+        },
+        "L3": {
+          "status": "pass",
+          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
+          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "This L1–L3 job did not run Web CDP, so there is no browser result to report.",
+          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP，因此没有浏览器结果。"
+        }
+      }
+    },
+    "dsh-DSTuber": {
+      "conclusion": "Install, load, and a headless prompt succeeded on the dsh version resolved from @latest. Web CDP was not run in this wave.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和无头提问均成功。本波未跑 Web CDP。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "pass",
+          "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
+          "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+        },
+        "L2": {
+          "status": "pass",
+          "reason": "The profile booted and dump-config listed the bundle as dsh-dstuber.",
+          "reason_zh": "profile 已启动，dump-config 列出的 bundle 为 dsh-dstuber。"
+        },
+        "L3": {
+          "status": "pass",
+          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
+          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "This L1–L3 job did not run Web CDP, so there is no browser result to report.",
+          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP，因此没有浏览器结果。"
+        }
+      }
+    },
+    "dsh-browser-setup": {
+      "conclusion": "Install, load, and a headless prompt succeeded on the dsh version resolved from @latest. Web CDP was not run in this wave.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和无头提问均成功。本波未跑 Web CDP。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "pass",
+          "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
+          "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+        },
+        "L2": {
+          "status": "pass",
+          "reason": "The profile booted and the plugin loaded as the bundle dsh-chrome-control-zh.",
+          "reason_zh": "profile 已启动，该插件以 bundle dsh-chrome-control-zh 加载。"
+        },
+        "L3": {
+          "status": "pass",
+          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
+          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "This L1–L3 job did not run Web CDP, so there is no browser result to report.",
+          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP，因此没有浏览器结果。"
+        }
+      }
+    },
+    "dsh-kimino-theme": {
+      "conclusion": "Install, load, and headless L3 succeeded on the dsh version resolved from @latest. This plugin looks like a theme or Web UI, so a skipped L4 in this wave only means the browser check is still outstanding.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和 headless L3 均成功。该插件更像主题或 Web UI，本波跳过的 L4 只说明浏览器检查尚未做。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "pass",
+          "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
+          "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+        },
+        "L2": {
+          "status": "pass",
+          "reason": "The profile booted and dump-config listed the plugin bundle.",
+          "reason_zh": "profile 已启动，dump-config 列出了该插件 bundle。"
+        },
+        "L3": {
+          "status": "pass",
+          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
+          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "This L1–L3 job did not run Web CDP. A generic L4 check is still needed for this theme or Web UI plugin.",
+          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP。该插件更像主题或 Web UI，还需一次通用 L4 检查。"
+        }
+      }
+    },
+    "dsh-pet": {
+      "conclusion": "Install, load, and headless L3 succeeded on the dsh version resolved from @latest. This plugin looks like a theme or Web UI, so a skipped L4 in this wave only means the browser check is still outstanding.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和 headless L3 均成功。该插件更像主题或 Web UI，本波跳过的 L4 只说明浏览器检查尚未做。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "pass",
+          "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
+          "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+        },
+        "L2": {
+          "status": "pass",
+          "reason": "The profile booted and dump-config listed the plugin bundle.",
+          "reason_zh": "profile 已启动，dump-config 列出了该插件 bundle。"
+        },
+        "L3": {
+          "status": "pass",
+          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
+          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "This L1–L3 job did not run Web CDP. A generic L4 check is still needed for this theme or Web UI plugin.",
+          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP。该插件更像主题或 Web UI，还需一次通用 L4 检查。"
+        }
+      }
+    },
+    "dsh-browser": {
+      "conclusion": "Install, load, and headless L3 succeeded on the dsh version resolved from @latest. This plugin looks like a theme or Web UI, so a skipped L4 in this wave only means the browser check is still outstanding.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和 headless L3 均成功。该插件更像主题或 Web UI，本波跳过的 L4 只说明浏览器检查尚未做。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "pass",
+          "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
+          "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+        },
+        "L2": {
+          "status": "pass",
+          "reason": "The profile booted and dump-config listed the plugin bundle.",
+          "reason_zh": "profile 已启动，dump-config 列出了该插件 bundle。"
+        },
+        "L3": {
+          "status": "pass",
+          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
+          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "This L1–L3 job did not run Web CDP. A generic L4 check is still needed for this theme or Web UI plugin.",
+          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP。该插件更像主题或 Web UI，还需一次通用 L4 检查。"
+        }
+      }
+    },
+    "DSH-better-sidebar": {
+      "conclusion": "Install, load, and headless L3 succeeded on the dsh version resolved from @latest. This plugin looks like a theme or Web UI, so a skipped L4 in this wave only means the browser check is still outstanding.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和 headless L3 均成功。该插件更像主题或 Web UI，本波跳过的 L4 只说明浏览器检查尚未做。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "pass",
+          "reason": "dsh plugin add finished after the verify pipeline wrote the pnpm allowBuilds key for this git package and retried the install. That retry is not a prepare-blocked result.",
+          "reason_zh": "verify 管线写入该 git 包的 allowBuilds key 并重试安装后，dsh plugin add 完成。这次不是 prepare-blocked。"
+        },
+        "L2": {
+          "status": "pass",
+          "reason": "The profile booted and dump-config listed the plugin bundle.",
+          "reason_zh": "profile 已启动，dump-config 列出了该插件 bundle。"
+        },
+        "L3": {
+          "status": "pass",
+          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
+          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "This L1–L3 job did not run Web CDP. A generic L4 check is still needed for this theme or Web UI plugin.",
+          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP。该插件更像主题或 Web UI，还需一次通用 L4 检查。"
+        }
+      }
+    },
+    "dsh-univer-office": {
+      "conclusion": "Install, load, and headless L3 succeeded on the dsh version resolved from @latest. This plugin looks like a theme or Web UI, so a skipped L4 in this wave only means the browser check is still outstanding.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和 headless L3 均成功。该插件更像主题或 Web UI，本波跳过的 L4 只说明浏览器检查尚未做。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "pass",
+          "reason": "dsh plugin add finished after the verify pipeline wrote the pnpm allowBuilds key for this git package and retried the install. That retry is not a prepare-blocked result.",
+          "reason_zh": "verify 管线写入该 git 包的 allowBuilds key 并重试安装后，dsh plugin add 完成。这次不是 prepare-blocked。"
+        },
+        "L2": {
+          "status": "pass",
+          "reason": "The profile booted and dump-config listed the plugin bundle.",
+          "reason_zh": "profile 已启动，dump-config 列出了该插件 bundle。"
+        },
+        "L3": {
+          "status": "pass",
+          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
+          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "This L1–L3 job did not run Web CDP. A generic L4 check is still needed for this theme or Web UI plugin.",
+          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP。该插件更像主题或 Web UI，还需一次通用 L4 检查。"
+        }
+      }
+    },
+    "dsh-genui": {
+      "conclusion": "Install, load, and headless L3 succeeded on the dsh version resolved from @latest. This plugin looks like a theme or Web UI, so a skipped L4 in this wave only means the browser check is still outstanding.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和 headless L3 均成功。该插件更像主题或 Web UI，本波跳过的 L4 只说明浏览器检查尚未做。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "pass",
+          "reason": "dsh plugin add finished after the verify pipeline wrote the pnpm allowBuilds key for this git package and retried the install. That retry is not a prepare-blocked result.",
+          "reason_zh": "verify 管线写入该 git 包的 allowBuilds key 并重试安装后，dsh plugin add 完成。这次不是 prepare-blocked。"
+        },
+        "L2": {
+          "status": "pass",
+          "reason": "The profile booted and dump-config listed the bundle as @changfenhuang/dsh-genui.",
+          "reason_zh": "profile 已启动，dump-config 列出的 bundle 为 @changfenhuang/dsh-genui。"
+        },
+        "L3": {
+          "status": "pass",
+          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
+          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "This L1–L3 job did not run Web CDP. A generic L4 check is still needed for this theme or Web UI plugin.",
+          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP。该插件更像主题或 Web UI，还需一次通用 L4 检查。"
+        }
+      }
+    },
+    "dsh-plugin-observatory": {
+      "conclusion": "Install was rejected on the dsh version resolved from @latest because the plugin requires @deepseek-ai/dsh-invariants and @deepseek-ai/dsh-tools in the 0.1.x range, which does not include 0.2.2-rc.1.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上安装被拒绝：插件要求 @deepseek-ai/dsh-invariants 和 @deepseek-ai/dsh-tools 处于 0.1.x 范围，不包含本次的 0.2.2-rc.1。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "fail",
+          "reason": "dsh rejected the install as incompatible: the plugin asks for @deepseek-ai/dsh-invariants and @deepseek-ai/dsh-tools >=0.1.0-rc.6 <0.2.0. No allow-version exemption was used.",
+          "reason_zh": "dsh 以不兼容为由拒绝安装：插件要求 @deepseek-ai/dsh-invariants 和 @deepseek-ai/dsh-tools 为 >=0.1.0-rc.6 <0.2.0。未使用 allow-version。"
+        },
+        "L2": {
+          "status": "skip",
+          "reason": "Load was not checked because install did not succeed.",
+          "reason_zh": "安装没有成功，因此没有做加载检查。"
+        },
+        "L3": {
+          "status": "skip",
+          "reason": "Headless L3 was not run because an earlier level did not pass.",
+          "reason_zh": "更早的层级没有通过，因此没有跑 headless L3。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "Web CDP was not run because an earlier level did not pass.",
+          "reason_zh": "更早的层级没有通过，因此没有跑 Web CDP。"
+        }
+      }
+    },
+    "dsh-cc-tui": {
+      "conclusion": "Install was rejected on the dsh version resolved from @latest because the plugin requires @deepseek-ai/dsh-invariants ^0.1.0-rc.6, which does not include 0.2.2-rc.1.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上安装被拒绝：插件要求 @deepseek-ai/dsh-invariants 为 ^0.1.0-rc.6，不包含本次的 0.2.2-rc.1。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "fail",
+          "reason": "dsh rejected the install as incompatible: the plugin asks for @deepseek-ai/dsh-invariants ^0.1.0-rc.6. No allow-version exemption was used.",
+          "reason_zh": "dsh 以不兼容为由拒绝安装：插件要求 @deepseek-ai/dsh-invariants 为 ^0.1.0-rc.6。未使用 allow-version。"
+        },
+        "L2": {
+          "status": "skip",
+          "reason": "Load was not checked because install did not succeed.",
+          "reason_zh": "安装没有成功，因此没有做加载检查。"
+        },
+        "L3": {
+          "status": "skip",
+          "reason": "Headless L3 was not run because an earlier level did not pass.",
+          "reason_zh": "更早的层级没有通过，因此没有跑 headless L3。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "Web CDP was not run because an earlier level did not pass.",
+          "reason_zh": "更早的层级没有通过，因此没有跑 Web CDP。"
+        }
+      }
+    },
+    "dsh-web-ui": {
+      "conclusion": "Install failed on the dsh version resolved from @latest. Several bundled plugins declare 0.1.x engine ranges that 0.2.2-rc.1 rejects, and pnpm also reported an invalid version union for ssh2.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上安装失败。聚合包内多个子插件声明了 0.1.x 引擎范围，被 0.2.2-rc.1 拒绝；随后 pnpm 还报了 ssh2 的非法版本联合。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "fail",
+          "reason": "The meta package @linxin666/dsh-web-ui-all pulled subplugins such as dsh-better-sidebar and @morlay/session-branch that require dsh 0.1.x, then pnpm reported ERR_PNPM_INVALID_VERSION_UNION for ssh2.",
+          "reason_zh": "聚合包 @linxin666/dsh-web-ui-all 拉入的 dsh-better-sidebar、@morlay/session-branch 等子插件要求 dsh 0.1.x，随后 pnpm 对 ssh2 报了 ERR_PNPM_INVALID_VERSION_UNION。"
+        },
+        "L2": {
+          "status": "skip",
+          "reason": "Load was not checked because install did not succeed.",
+          "reason_zh": "安装没有成功，因此没有做加载检查。"
+        },
+        "L3": {
+          "status": "skip",
+          "reason": "Headless L3 was not run because an earlier level did not pass.",
+          "reason_zh": "更早的层级没有通过，因此没有跑 headless L3。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "Web CDP was not run because an earlier level did not pass.",
+          "reason_zh": "更早的层级没有通过，因此没有跑 Web CDP。"
+        }
+      }
+    },
+    "dsh-ads": {
+      "conclusion": "The package installed on the dsh version resolved from @latest, but it did not join dsh.profile.bundles, so it was treated as not loaded.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上包已安装，但没有进入 dsh.profile.bundles，因此视为未加载。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "pass",
+          "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
+          "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+        },
+        "L2": {
+          "status": "fail",
+          "reason": "dump-config finished, but dsh-ads stayed inactive and did not join dsh.profile.bundles.",
+          "reason_zh": "dump-config 已结束，但 dsh-ads 仍为未激活，没有进入 dsh.profile.bundles。"
+        },
+        "L3": {
+          "status": "skip",
+          "reason": "Headless L3 was not run because an earlier level did not pass.",
+          "reason_zh": "更早的层级没有通过，因此没有跑 headless L3。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "Web CDP was not run because an earlier level did not pass.",
+          "reason_zh": "更早的层级没有通过，因此没有跑 Web CDP。"
+        }
+      }
+    },
+    "deepseek-harness-studio": {
+      "conclusion": "The install finished on the dsh version resolved from @latest, but the target plugin did not activate. The profile bundles only listed an inactive @deepseek-ai/dsh-root.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上安装完成，但目标插件没有激活。profile bundles 里只有未激活的 @deepseek-ai/dsh-root。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "pass",
+          "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
+          "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+        },
+        "L2": {
+          "status": "fail",
+          "reason": "dump-config finished, but the added dependency did not join dsh.profile.bundles; only an inactive @deepseek-ai/dsh-root was present.",
+          "reason_zh": "dump-config 已结束，但新增依赖没有进入 dsh.profile.bundles，只有未激活的 @deepseek-ai/dsh-root。"
+        },
+        "L3": {
+          "status": "skip",
+          "reason": "Headless L3 was not run because an earlier level did not pass.",
+          "reason_zh": "更早的层级没有通过，因此没有跑 headless L3。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "Web CDP was not run because an earlier level did not pass.",
+          "reason_zh": "更早的层级没有通过，因此没有跑 Web CDP。"
+        }
+      }
+    },
+    "dsh-deep-whale": {
+      "conclusion": "Install did not complete on the dsh version resolved from @latest: pnpm recorded the git dependency, but dsh could not resolve the profile bundle named dsh-deep-whale.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上安装未完成：pnpm 已写入该 git 依赖，但 dsh 无法解析名为 dsh-deep-whale 的 profile bundle。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "fail",
+          "reason": "pnpm added github:Small-tailqwq/dsh-deep-whale, then dsh exited because it could not resolve profile bundle dsh-deep-whale from the installation or the profile directory.",
+          "reason_zh": "pnpm 已添加 github:Small-tailqwq/dsh-deep-whale，随后 dsh 退出，因为它无法从安装目录或 profile 解析 bundle dsh-deep-whale。"
+        },
+        "L2": {
+          "status": "skip",
+          "reason": "Load was not checked because install did not succeed.",
+          "reason_zh": "安装没有成功，因此没有做加载检查。"
+        },
+        "L3": {
+          "status": "skip",
+          "reason": "Headless L3 was not run because an earlier level did not pass.",
+          "reason_zh": "更早的层级没有通过，因此没有跑 headless L3。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "Web CDP was not run because an earlier level did not pass.",
+          "reason_zh": "更早的层级没有通过，因此没有跑 Web CDP。"
+        }
+      }
+    },
+    "dsh-TUI": {
+      "conclusion": "After the verify pipeline allowed the git prepare script, install still failed on the dsh version resolved from @latest: the git tarball is missing the vendor/dsh-std submodule, and pnpm reported ERR_PNPM_PREPARE_PACKAGE.",
+      "conclusion_zh": "verify 管线放行 git prepare 之后，在 @latest 解析出的 dsh 版本上安装仍然失败：git tarball 缺少 vendor/dsh-std 子模块，pnpm 报 ERR_PNPM_PREPARE_PACKAGE。",
+      "dshVersionRequested": "@deepseek-ai/dsh@latest",
+      "dshVersionActual": "0.2.2-rc.1",
+      "testDate": "2026-11-10",
+      "levels": {
+        "L1": {
+          "status": "fail",
+          "reason": "The pipeline wrote the allowBuilds key and retried, so this is not prepare-blocked. The second install failed because prepare-guard found vendor/dsh-std missing from the git tarball of github:ccch1mneyyy/dsh-TUI.",
+          "reason_zh": "管线已写入 allowBuilds key 并重试，因此不是 prepare-blocked。第二次安装失败，是因为 prepare-guard 发现 github:ccch1mneyyy/dsh-TUI 的 git tarball 里没有 vendor/dsh-std。"
+        },
+        "L2": {
+          "status": "skip",
+          "reason": "Load was not checked because install did not succeed.",
+          "reason_zh": "安装没有成功，因此没有做加载检查。"
+        },
+        "L3": {
+          "status": "skip",
+          "reason": "Headless L3 was not run because an earlier level did not pass.",
+          "reason_zh": "更早的层级没有通过，因此没有跑 headless L3。"
+        },
+        "L4": {
+          "status": "skip",
+          "reason": "Web CDP was not run because an earlier level did not pass.",
+          "reason_zh": "更早的层级没有通过，因此没有跑 Web CDP。"
+        }
+      }
+    }
+  }
+}

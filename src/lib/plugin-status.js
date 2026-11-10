@@ -23,9 +23,11 @@ export function isUntested(p) {
 }
 
 /**
- * dsh version from a real (passing) test result recorded in data (note text such as
- * "Headless L3 PASS on dsh 0.1.0-rc.8" or "验证: ok (0.1.0-rc.6)"), or a
- * peer/engines declaration if the row carries one. Returns '' when unknown.
+ * dsh version guessed from catalog note text (for example "验证: ok (0.1.0-rc.6)")
+ * or a peer/engines declaration. Returns '' when unknown.
+ *
+ * Plugin detail pages do not use this for 我们的评价 / 实测报告. A parsed note is
+ * not `dsh --version` output. See src/lib/plugin-evidence.js.
  */
 export function dshVersionFor(p) {
   if (!p) return '';
