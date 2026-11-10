@@ -20,7 +20,7 @@ def owner_repo(url):
 def install_command(p, repo):
     """Agent-catalog install line.
 
-    Mirrors catalogInstall() in src/lib/plugin-install-cmd.js. When both
+    Mirrors catalogInstall() in functions/_data/plugin-install-cmd.js. When both
     installPreferred and installManual are set, emit installManual — the
     manual equivalent — not the npm -g preferred line and not a bare
     `dsh plugin add <pkg>`. Otherwise keep the historical installPkg / npm /

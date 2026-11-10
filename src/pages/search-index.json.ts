@@ -3,7 +3,7 @@
 import type { APIRoute } from 'astro';
 import plugins from '../data/plugins.json';
 import blogPosts from '../data/blog-posts.json';
-import { singleInstallCommand } from '../lib/plugin-install-cmd.js';
+import { singleInstallCommand } from '../../functions/_data/plugin-install-cmd.js';
 
 const owner = (u: string) => (u || '').replace('https://github.com/', '').split('/')[0] || '';
 

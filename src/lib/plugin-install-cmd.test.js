@@ -11,7 +11,7 @@ import {
   metaInstallPhrase,
   pluginInstall,
   singleInstallCommand,
-} from './plugin-install-cmd.js';
+} from '../../functions/_data/plugin-install-cmd.js';
 
 const PREFERRED = 'npm install -g @deepseek-ai/dsh @deepseek-harness-tui/dsh-tui';
 const MANUAL = 'dsh plugin --profile dsh-tui add @deepseek-harness-tui/dsh-tui';

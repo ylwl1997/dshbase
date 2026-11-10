@@ -1,4 +1,4 @@
-import { functionDetailBlocks } from '../../src/lib/plugin-install-cmd.js';
+import { functionDetailBlocks } from './plugin-install-cmd.js';
 
 function esc(s) {
   return String(s || '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));

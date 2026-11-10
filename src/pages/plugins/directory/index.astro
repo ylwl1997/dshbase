@@ -2,7 +2,7 @@
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import Base from '../../../layouts/Base.astro';
 import PluginCard from '../../../components/PluginCard.astro';
-import { singleInstallCommand } from '../../../lib/plugin-install-cmd.js';
+import { singleInstallCommand } from '../../../../functions/_data/plugin-install-cmd.js';
 import plugins from '../../../data/plugins.json';
 import syncDate from '../../../data/sync-date.json';
 const auditUrl = getRelativeLocaleUrl('en', '/audit/');

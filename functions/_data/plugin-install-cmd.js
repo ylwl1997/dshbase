@@ -1,6 +1,13 @@
 /**
  * Install commands for one catalog plugin.
  *
+ * Lives in functions/_data/ so the Pages Function bundle includes it.
+ * functions/plugins/[slug].js and functions/zh/plugins/[slug].js render
+ * through functions/_data/render-plugin.js, which imports this file as a
+ * sibling. Cloudflare Pages bundles modules reached from functions/; a
+ * functions/ → src/ import is outside that graph. Astro pages, cards,
+ * search, packs, and the install-cmd tests import this same file. One copy.
+ *
  * Official pair: when both `installPreferred` and `installManual` are
  * non-empty, those strings are the commands.
  *   - Detail pages (en/zh Astro and functions/_data/render-plugin.js) show
