@@ -1,0 +1,4 @@
+{
+  "$comment": "Per-plugin evidence for the detail-page review and test report. Records live under plugins, keyed by slug. This file ships with an empty plugins object: do not invent results from catalog test, stars, note, web-only, or needs. Shape and examples: src/data/plugin-evidence.schema.json and src/lib/plugin-evidence.js.",
+  "plugins": {}
+}

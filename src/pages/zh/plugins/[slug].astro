@@ -7,7 +7,10 @@ import { demoteReadmeHeadings } from '../../../lib/plugin-index.js';
 import { withCfEmailOff, cfSafeTextHtml, looksLikeEmail } from '../../../lib/email-off.js';
 import readmes from '../../../data/readmes.json';
 import { zhStaticPaths } from '../../../lib/ssg-plugins.js';
-import { pluginStatus, isUntested, dshVersionFor } from '../../../lib/plugin-status.js';
+import { pluginStatus } from '../../../lib/plugin-status.js';
+import evidenceData from '../../../data/plugin-evidence.json';
+import { presentEvidence } from '../../../lib/plugin-evidence.js';
+import EvidenceReport from '../../../components/EvidenceReport.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -36,9 +39,7 @@ const npmHome = p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
 const rawReadme = readmes[p.slug]?.html || '';
 const readmeHtml = withCfEmailOff(demoteReadmeHeadings(rawReadme));
 const st = pluginStatus(p);
-const untested = isUntested(p);
-const dshVer = dshVersionFor(p);
-const LISTED_COPY = '依据 npm/GitHub 元数据收录；dshbase 尚未做安装实测。';
+const evidence = presentEvidence(p.slug, { locale: 'zh', archived: !!p.archived, data: evidenceData });
 const statusLabel = {
   verified: '已验证 · 实测可装',
   listed: '已收录 · 尚未实测',
@@ -71,33 +72,12 @@ const SLOT_ZH = {
 const slotZh = SLOT_ZH[cat] || '插件';
 const pageTitle = `${p.name} — ${slotZh}插件 | dshbase`;
 const fmt = (n) => (n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n ?? 0));
-const stars = p.stars ?? 0;
 // 头部富化：作者 / 维护状态 / 官方包数（来自 fetch-repo-enrich.py）
 const repoOwner = p.repoOwner || (p.url ? p.url.replace('https://github.com/', '').split('/')[0] : '');
 const contribs = p.contributors ?? 0;
 const depsOff = p.depsOfficial ?? 0;
 const maintained = !p.archived && (p.updated || '') >= new Date(Date.now() - 90 * 864e5).toISOString().slice(0, 10);
 const langPure = (p.language || '').toLowerCase();
-const verdict = p.archived
-  ? { label: '已归档 — 不再维护，谨慎使用', cls: 'v-warn', icon: '⚠️' }
-  : st === 'verified'
-    ? stars >= 100
-      ? { label: '推荐 — 实测可用且热门', cls: 'v-ok', icon: '✅' }
-      : stars >= 20
-        ? { label: '可用 — 实测通过，社区增长中', cls: 'v-ok', icon: '✅' }
-        : { label: '可用 — 实测通过，早期项目', cls: 'v-ok', icon: '✅' }
-    : st === 'listed'
-      ? { label: '已收录 — 依据 npm/GitHub 元数据，尚未实测', cls: 'v-warn', icon: '📋' }
-      : { label: '未验证 — 尚未实测', cls: 'v-warn', icon: '⏳' };
-const review = p.archived
-  ? `该插件已归档、不再维护——除非你愿意自己维护，否则慎用。`
-  : st === 'verified'
-    ? `${desc} 在我们的实测中能干净安装、正常启动。${stars >= 100 ? `${stars}+ stars，社区认可度高，是低风险选择。` : stars >= 20 ? `社区在增长，是个稳妥选择。` : `早期项目，但功能可用。`}`
-    : untested
-      ? `${desc} ${LISTED_COPY}${p.needs ? '它需要外部账号或服务（我们的沙箱无法提供），在你自己的环境里可能需要额外配置。' : ''}`
-      : p.needs
-        ? `${desc} 尚未验证——它需要外部账号或服务，我们的沙箱无法提供，因此未能完整安装测试。它在你自己的环境里可能工作正常。`
-        : `${desc} 尚未验证——请自行安装测试。`;
 const related = (plugins[cat] || []).filter((x) => x.slug !== p.slug).slice(0, 6);
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -111,7 +91,7 @@ const jsonLd = {
   ...(p.ver ? { softwareVersion: p.ver } : {}),
 };
 ---
-<Base title={pageTitle} description={`${desc} — 如何安装 ${p.name}（${p.npm ? `dsh plugin add ${p.pkg}` : 'npm 源码'}）${dshVer ? `及其与 dsh ${dshVer} 的兼容性` : ''}。`} currentPath={`/plugins/${p.slug}/`}>
+<Base title={pageTitle} description={`${desc} — 如何安装 ${p.name}（${p.npm ? `dsh plugin add ${p.pkg}` : 'npm 源码'}）。${evidence.hasEvidence ? `实测时 dsh --version 为 ${evidence.dshVersionActual}。` : ''}`} currentPath={`/plugins/${p.slug}/`}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <section class="hero wrap">
     <p class="eyebrow"><a href={dirUrl}>插件目录</a> / <a href={catUrl}>{cat}</a> / {p.name}</p>
@@ -150,11 +130,7 @@ const jsonLd = {
         ? <p class="what-it-does" set:html={cfSafeTextHtml(desc)} />
         : <p class="what-it-does">{desc}</p>}
 
-      <div class={`verdict ${verdict.cls}`}>
-        <span class="v-icon">{verdict.icon}</span>
-        <div><strong>我们的评价</strong><br/>{verdict.label}</div>
-      </div>
-      <p class="review-text">{review}</p>
+      <EvidenceReport view={evidence} locale="zh" variant="review" />
 
       <p class="honest-note">「{statusLabel[st].split(' · ')[0]}」表示{st === 'listed' ? '该条目依据 npm/GitHub 元数据收录，我们的自动化 CI' : '我们的自动化 CI'}{' '}
         {st === 'verified' ? (
@@ -165,10 +141,10 @@ const jsonLd = {
 
       {p.needs && (
         <div class="needs-cta">
-          <strong>⚠ 需要外部账号 / 服务</strong> — 该插件未通过完整验证，因为它需要我们的沙箱无法提供的东西：
-          <em>{p.needsZh || p.needs}</em>。它在你自己的环境里可能工作正常。
+          <strong>需要外部账号 / 服务</strong> — 目录记录它需要我们的沙箱提供不了的东西：
+          <em>{p.needsZh || p.needs}</em>。这不是插件失败，也不是逐级实测结论。在你自己的环境里可能要额外配置。
           <p style="margin-top:10px">你是作者？可以提供所需账号 / 服务，<strong>或提交一份自测报告</strong>
-            （环境 + 安装步骤 + 运行结果），我们审核后点亮徽章。
+            （环境 + 安装步骤 + 运行结果），我们审核后更新目录。
             <a class="btn btn-ghost btn-sm" href={verifyUrl} target="_blank" rel="noopener">提交证据或自测报告 ↗</a></p>
         </div>
       )}
@@ -208,21 +184,7 @@ const jsonLd = {
             <p class="muted small">Headless（CLI）profile：</p>
             <pre class="code-block"><code>dsh plugin --profile headless add {p.pkg}</code></pre>
             <h2 style="margin-top:20px">包信息</h2>
-            <p>npm：<a href={npmHome} target="_blank" rel="noopener">{p.pkg}</a> · 版本 <strong>{p.ver || '—'}</strong>{dshVer && <Fragment> · 实测环境 dsh <strong>{dshVer}</strong></Fragment>}</p>
-            <h2 style="margin-top:20px">实测报告</h2>
-            <p>{st === 'verified' && `验证通过：dshbase 已做安装实测${dshVer ? `（dsh ${dshVer}）` : ''}${p.testDate ? `，最近测试 ${p.testDate}` : ''}。`}
-               {untested && LISTED_COPY}
-               {st === 'pending' && !untested && '尚未 L3 验证——若已跑过，见下方失败备注。'}</p>
-            {st === 'pending' && !untested && (
-              <div class="honest-note">
-                <strong>状态：</strong>pending
-                {p.testDate ? <> · 最近测试 <code>{p.testDate}</code></> : null}
-                {p.webonly ? <> · 标记 webonly</> : null}
-                <br />
-                <strong>备注：</strong>{p.note || '尚无失败备注——排队中或尚未跑过。'}
-                {' '}<a href="/zh/audit/#pending">浏览全部待验证失败 →</a>
-              </div>
-            )}
+            <p>npm：<a href={npmHome} target="_blank" rel="noopener">{p.pkg}</a> · 版本 <strong>{p.ver || '—'}</strong>{evidence.hasEvidence && <Fragment> · 实测时 <code>dsh --version</code> 为 <strong>{evidence.dshVersionActual}</strong></Fragment>}</p>
             {p.bareNpm === 'missing-dep' && (
               <p class="honest-note">⚠ 裸 <code>npm install {p.pkg}</code> 无法导入该包——某个依赖可能被声明在 <code>devDependencies</code> 而非 <code>dependencies</code>，只有经 <code>dsh plugin add</code> 才能干净安装。</p>
             )}
@@ -240,25 +202,17 @@ const jsonLd = {
                 <pre class="code-block"><code>dsh plugin --profile web add https://dshbase.com/builds/{buildsMap[p.name]}</code></pre>
               </div>
             )}
-            {p.test !== 'not-on-npm' && (
-              <Fragment>
-                <h2 style="margin-top:20px">实测报告</h2>
-                <p>{st === 'verified' && `验证通过：dshbase 已从 GitHub 源码做安装实测${dshVer ? `（dsh ${dshVer}）` : ''}${p.testDate ? `，最近测试 ${p.testDate}` : ''}。`}
-                   {untested && LISTED_COPY}
-                   {st === 'pending' && !untested && '尚未 L3 验证——若已跑过，见下方失败备注。'}</p>
-                {st === 'pending' && !untested && (
-                  <div class="honest-note">
-                    <strong>状态：</strong>pending
-                    {p.testDate ? <> · 最近测试 <code>{p.testDate}</code></> : null}
-                    {p.webonly ? <> · 标记 webonly</> : null}
-                    <br />
-                    <strong>备注：</strong>{p.note || '尚无失败备注——排队中或尚未跑过。'}
-                    {' '}<a href="/zh/audit/#pending">浏览全部待验证失败 →</a>
-                  </div>
-                )}
-              </Fragment>
-            )}
           </Fragment>
+        )}
+
+        <EvidenceReport view={evidence} locale="zh" variant="report" />
+        {!evidence.hasEvidence && st === 'pending' && (p.note || p.testDate) && (
+          <div class="honest-note">
+            <strong>目录备注（不是逐级证据）：</strong>
+            {p.testDate ? <>记录日期 <code>{p.testDate}</code>。 </> : null}
+            {p.note || '无备注正文。'}
+            {' '}<a href="/zh/audit/#pending">浏览 pending 列表 →</a>
+          </div>
         )}
 
         {note && (
@@ -332,7 +286,6 @@ const jsonLd = {
   .st-warn { color: #9a6700; border-color: #e5c27a; background: #fff8e6; }
   .st-listed { color: #4b5563; border-color: #d1d5db; background: #f3f4f6; }
   .what-it-does { font-size: 15px; line-height: 1.7; color: var(--ink); background: #f7f8fc; border-left: 3px solid var(--primary); padding: 14px 16px; border-radius: 8px; }
-  .review-text { font-size: 14px; line-height: 1.7; color: var(--ink-2); margin: 10px 0 4px; }
   .honest-note { font-size: 12.5px; line-height: 1.6; color: var(--ink-3); background: #f8fafc; border: 1px dashed var(--border); border-radius: 8px; padding: 10px 12px; margin: 12px 0; }
   .sec-box { font-size: 13px; line-height: 1.6; color: var(--ink-2); background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin: 12px 0; }
   .sec-badge { font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 6px; white-space: nowrap; }
@@ -380,11 +333,6 @@ const jsonLd = {
   .chip { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; color: var(--ink-2); background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 999px; padding: 4px 12px; }
   .chip-ok { background: #f0fff4; border-color: #b7e0c0; color: #1a4d2e; }
   .btn-row { display: flex; flex-wrap: wrap; gap: 8px; }
-  .verdict { display: flex; align-items: center; gap: 12px; margin: 18px 0 6px; padding: 14px 16px; border-radius: 10px; font-size: 14px; line-height: 1.5; }
-  .v-icon { font-size: 22px; }
-  .v-ok { background: #f0fff4; border: 1px solid #b7e0c0; color: #1a4d2e; }
-  .v-warn { background: #fff8e6; border: 1px solid #e5c27a; color: #6b4d00; }
-  .v-src { background: #f1f5f9; border: 1px solid #e2e8f0; color: #334155; }
   .catalog-box { font-size: 13.5px; line-height: 1.6; color: var(--ink-2); background: linear-gradient(180deg, #f5f8ff, #eef3ff); border: 1px solid #c7d7fe; border-radius: 10px; padding: 12px 16px; margin: 14px 0; }
   .catalog-box strong { color: #2f3f77; }
   .catalog-box .code-block { margin: 8px 0; }

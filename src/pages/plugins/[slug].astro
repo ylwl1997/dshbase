@@ -7,7 +7,10 @@ import { demoteReadmeHeadings } from '../../lib/plugin-index.js';
 import { withCfEmailOff, cfSafeTextHtml, looksLikeEmail } from '../../lib/email-off.js';
 import readmes from '../../data/readmes.json';
 import { enStaticPaths } from '../../lib/ssg-plugins.js';
-import { pluginStatus, isUntested, dshVersionFor } from '../../lib/plugin-status.js';
+import { pluginStatus } from '../../lib/plugin-status.js';
+import evidenceData from '../../data/plugin-evidence.json';
+import { presentEvidence } from '../../lib/plugin-evidence.js';
+import EvidenceReport from '../../components/EvidenceReport.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -37,9 +40,7 @@ const npmHome = p.pkg ? `https://www.npmjs.com/package/${p.pkg}` : '';
 const rawReadme = readmes[p.slug]?.html || '';
 const readmeHtml = withCfEmailOff(demoteReadmeHeadings(rawReadme));
 const st = pluginStatus(p);
-const untested = isUntested(p);
-const dshVer = dshVersionFor(p);
-const LISTED_COPY = 'Listed from npm/GitHub metadata; not yet install-tested by dshbase.';
+const evidence = presentEvidence(p.slug, { locale: 'en', archived: !!p.archived, data: evidenceData });
 const statusLabel = {
   verified: 'Verified · install-tested on dsh',
   listed: 'Listed · not yet install-tested',
@@ -72,33 +73,12 @@ const SLOT = {
 const slot = SLOT[cat] || 'Plugin';
 const pageTitle = `${p.name} — ${slot} plugin for DeepSeek Harness | dshbase`;
 const fmt = (n) => (n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n ?? 0));
-const stars = p.stars ?? 0;
 // 头部富化：作者 / 维护状态 / 官方包数（来自 fetch-repo-enrich.py）
 const repoOwner = p.repoOwner || (p.url ? p.url.replace('https://github.com/', '').split('/')[0] : '');
 const contribs = p.contributors ?? 0;
 const depsOff = p.depsOfficial ?? 0;
 const maintained = !p.archived && (p.updated || '') >= new Date(Date.now() - 90 * 864e5).toISOString().slice(0, 10);
 const langPure = (p.language || '').toLowerCase();
-const verdict = p.archived
-  ? { label: 'Archived — no longer maintained, use with caution', cls: 'v-warn', icon: '⚠️' }
-  : st === 'verified'
-    ? stars >= 100
-      ? { label: 'Recommended — verified working and popular', cls: 'v-ok', icon: '✅' }
-      : stars >= 20
-        ? { label: 'Works — verified, growing community', cls: 'v-ok', icon: '✅' }
-        : { label: 'Works — verified, early-stage project', cls: 'v-ok', icon: '✅' }
-    : st === 'listed'
-      ? { label: 'Listed — from npm/GitHub metadata, not yet install-tested', cls: 'v-warn', icon: '📋' }
-      : { label: 'Unverified — not yet verified', cls: 'v-warn', icon: '⏳' };
-const review = p.archived
-  ? `This plugin has been archived and is no longer maintained — use it only if you're willing to maintain it yourself.`
-  : st === 'verified'
-    ? `${desc} It installs cleanly in our testing and boots without issues. ${stars >= 100 ? `With ${stars}+ stars it's a community-endorsed, low-risk pick.` : stars >= 20 ? `It has a growing community — a solid choice.` : `It's early-stage but functional.`}`
-    : untested
-      ? `${desc} ${LISTED_COPY}${p.needs ? ` It needs an external account or service our sandbox can't provide, so it may need extra setup in your own environment.` : ''}`
-      : p.needs
-        ? `${desc} Not yet verified — it needs an external account or service our sandbox can't provide, so we couldn't run a full install test. It may work fine in your own environment.`
-        : `${desc} Not yet verified — install and test it yourself.`;
 const related = (plugins[cat] || []).filter((x) => x.slug !== p.slug).slice(0, 6);
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -112,7 +92,7 @@ const jsonLd = {
   ...(p.ver ? { softwareVersion: p.ver } : {}),
 };
 ---
-<Base title={pageTitle} description={`${desc} — how to install ${p.name} (${p.npm ? `dsh plugin add ${p.pkg}` : 'npm source'})${dshVer ? ` and compatibility with dsh ${dshVer}` : ''}.`} currentPath={`/plugins/${p.slug}/`}>
+<Base title={pageTitle} description={`${desc} — how to install ${p.name} (${p.npm ? `dsh plugin add ${p.pkg}` : 'npm source'}).${evidence.hasEvidence ? ` dsh --version at test time was ${evidence.dshVersionActual}.` : ''}`} currentPath={`/plugins/${p.slug}/`}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <section class="hero wrap">
     <p class="eyebrow"><a href={dirUrl}>Plugin directory</a> / <a href={catUrl}>{cat}</a> / {p.name}</p>
@@ -151,11 +131,7 @@ const jsonLd = {
         ? <p class="what-it-does" set:html={cfSafeTextHtml(desc)} />
         : <p class="what-it-does">{desc}</p>}
 
-      <div class={`verdict ${verdict.cls}`}>
-        <span class="v-icon">{verdict.icon}</span>
-        <div><strong>Our take</strong><br/>{verdict.label}</div>
-      </div>
-      <p class="review-text">{review}</p>
+      <EvidenceReport view={evidence} locale="en" variant="review" />
 
       <p class="honest-note">“{statusLabel[st].split(' · ')[0]}” means {st === 'listed' ? 'this entry comes from npm/GitHub metadata and our automated CI' : 'our automated CI'}{' '}
         {st === 'verified' ? (
@@ -166,10 +142,10 @@ const jsonLd = {
 
       {p.needs && (
         <div class="needs-cta">
-          <strong>⚠ External account / service required</strong> — this plugin was not fully verified because it needs
-          something our sandbox can't provide: <em>{p.needs}</em>. It may work fine in your own environment.
+          <strong>External account / service required</strong> — the catalog says it needs
+          something our sandbox can't provide: <em>{p.needs}</em>. That requirement is not a plugin failure and not a per-level test result. It may need extra setup in your own environment.
           <p style="margin-top:10px">Author? Either provide the required account/service, <strong>or submit a self-test
-            report</strong> (environment + install + run evidence) — we'll review and flip the badge.
+            report</strong> (environment + install + run evidence) — we'll review it and update the catalog.
             <a class="btn btn-ghost btn-sm" href={verifyUrl} target="_blank" rel="noopener">Submit evidence or self-test report ↗</a></p>
         </div>
       )}
@@ -209,22 +185,7 @@ const jsonLd = {
             <p class="muted small">Headless (CLI) profile:</p>
             <pre class="code-block"><code>dsh plugin --profile headless add {p.pkg}</code></pre>
             <h2 style="margin-top:20px">Package</h2>
-            <p>npm: <a href={npmHome} target="_blank" rel="noopener">{p.pkg}</a> · version <strong>{p.ver || '—'}</strong>{dshVer && <Fragment> · tested on dsh <strong>{dshVer}</strong></Fragment>}</p>
-            <h2 style="margin-top:20px">Test report</h2>
-            <p>{st === 'verified' && `Verified: install-tested by dshbase${dshVer ? ` on dsh ${dshVer}` : ''}${p.testDate ? ` (last test ${p.testDate})` : ''}.`}
-               {untested && LISTED_COPY}
-               {st === 'pending' && !untested && 'Not yet L3-verified — see failure note below if we already ran it.'}
-</p>
-            {st === 'pending' && !untested && (
-              <div class="honest-note">
-                <strong>Status:</strong> pending
-                {p.testDate ? <> · last test <code>{p.testDate}</code></> : null}
-                {p.webonly ? <> · flagged webonly</> : null}
-                <br />
-                <strong>Note:</strong> {p.note || 'No failure note yet — queued or not yet run.'}
-                {' '}<a href="/audit/#pending">Browse all pending failures →</a>
-              </div>
-            )}
+            <p>npm: <a href={npmHome} target="_blank" rel="noopener">{p.pkg}</a> · version <strong>{p.ver || '—'}</strong>{evidence.hasEvidence && <Fragment> · <code>dsh --version</code> at test time <strong>{evidence.dshVersionActual}</strong></Fragment>}</p>
             {p.bareNpm === 'missing-dep' && (
               <p class="honest-note">⚠ A bare <code>npm install {p.pkg}</code> fails to import this package — a dependency is likely declared under <code>devDependencies</code> instead of <code>dependencies</code>, so it only installs cleanly via <code>dsh plugin add</code>.</p>
             )}
@@ -242,26 +203,17 @@ const jsonLd = {
                 <pre class="code-block"><code>dsh plugin --profile web add https://dshbase.com/builds/{buildsMap[p.name]}</code></pre>
               </div>
             )}
-            {p.test !== 'not-on-npm' && (
-              <Fragment>
-                <h2 style="margin-top:20px">Test report</h2>
-                <p>{st === 'verified' && `Verified: install-tested from GitHub source by dshbase${dshVer ? ` on dsh ${dshVer}` : ''}${p.testDate ? ` (last test ${p.testDate})` : ''}.`}
-                   {untested && LISTED_COPY}
-                   {st === 'pending' && !untested && 'Not yet L3-verified — see failure note below if we already ran it.'}
-</p>
-                {st === 'pending' && !untested && (
-                  <div class="honest-note">
-                    <strong>Status:</strong> pending
-                    {p.testDate ? <> · last test <code>{p.testDate}</code></> : null}
-                    {p.webonly ? <> · flagged webonly</> : null}
-                    <br />
-                    <strong>Note:</strong> {p.note || 'No failure note yet — queued or not yet run.'}
-                    {' '}<a href="/audit/#pending">Browse all pending failures →</a>
-                  </div>
-                )}
-              </Fragment>
-            )}
           </Fragment>
+        )}
+
+        <EvidenceReport view={evidence} locale="en" variant="report" />
+        {!evidence.hasEvidence && st === 'pending' && (p.note || p.testDate) && (
+          <div class="honest-note">
+            <strong>Catalog note (not a per-level result):</strong>
+            {p.testDate ? <>recorded <code>{p.testDate}</code>. </> : null}
+            {p.note || 'No note text.'}
+            {' '}<a href="/audit/#pending">Browse the pending list →</a>
+          </div>
         )}
 
         {note && (
@@ -335,7 +287,6 @@ const jsonLd = {
   .st-warn { color: #9a6700; border-color: #e5c27a; background: #fff8e6; }
   .st-listed { color: #4b5563; border-color: #d1d5db; background: #f3f4f6; }
   .what-it-does { font-size: 15px; line-height: 1.7; color: var(--ink); background: #f7f8fc; border-left: 3px solid var(--primary); padding: 14px 16px; border-radius: 8px; }
-  .review-text { font-size: 14px; line-height: 1.7; color: var(--ink-2); margin: 10px 0 4px; }
   .honest-note { font-size: 12.5px; line-height: 1.6; color: var(--ink-3); background: #f8fafc; border: 1px dashed var(--border); border-radius: 8px; padding: 10px 12px; margin: 12px 0; }
   .sec-box { font-size: 13px; line-height: 1.6; color: var(--ink-2); background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin: 12px 0; }
   .sec-badge { font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 6px; white-space: nowrap; }
@@ -383,11 +334,6 @@ const jsonLd = {
   .chip { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; color: var(--ink-2); background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 999px; padding: 4px 12px; }
   .chip-ok { background: #f0fff4; border-color: #b7e0c0; color: #1a4d2e; }
   .btn-row { display: flex; flex-wrap: wrap; gap: 8px; }
-  .verdict { display: flex; align-items: center; gap: 12px; margin: 18px 0 6px; padding: 14px 16px; border-radius: 10px; font-size: 14px; line-height: 1.5; }
-  .v-icon { font-size: 22px; }
-  .v-ok { background: #f0fff4; border: 1px solid #b7e0c0; color: #1a4d2e; }
-  .v-warn { background: #fff8e6; border: 1px solid #e5c27a; color: #6b4d00; }
-  .v-src { background: #f1f5f9; border: 1px solid #e2e8f0; color: #334155; }
   .catalog-box { font-size: 13.5px; line-height: 1.6; color: var(--ink-2); background: linear-gradient(180deg, #f5f8ff, #eef3ff); border: 1px solid #c7d7fe; border-radius: 10px; padding: 12px 16px; margin: 14px 0; }
   .catalog-box strong { color: #2f3f77; }
   .catalog-box .code-block { margin: 8px 0; }

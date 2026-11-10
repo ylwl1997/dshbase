@@ -1,0 +1,74 @@
+---
+/**
+ * Review (我们的评价 / Our take) and test report (实测报告 / Test report).
+ * `view` comes from presentEvidence(). Empty data renders the honest fallback.
+ */
+const { view, locale = 'en', variant = 'review' } = Astro.props;
+const title = variant === 'report'
+  ? (locale === 'zh' ? '实测报告' : 'Test report')
+  : (locale === 'zh' ? '我们的评价' : 'Our take');
+const filled = !!view?.hasEvidence;
+---
+<section
+  class:list={['evidence', variant, filled ? 'is-report' : 'is-empty']}
+  id={variant === 'report' ? 'test-report' : 'our-take'}
+  data-evidence={filled ? 'report' : 'empty'}
+  data-evidence-variant={variant}
+>
+  {variant === 'report' ? <h2>{title}</h2> : <strong class="kicker">{title}</strong>}
+  <p class="headline">{view.headline}</p>
+  {view.body && <p class="body">{view.body}</p>}
+  {filled && (
+    <Fragment>
+      <p class="meta">
+        {view.requestedLabel}: <code>{view.dshVersionRequested}</code>
+        <span class="note">({view.requestedNote})</span><br />
+        {view.actualLabel}: <strong>{view.dshVersionActual}</strong><br />
+        {view.dateLabel}: <time datetime={view.testDate}>{view.testDate}</time>
+      </p>
+      <ul class="levels">
+        {view.levels.map((level) => (
+          <li class={`lvl st-${level.status}`} data-level={level.id} data-status={level.status}>
+            <div class="lvl-top">
+              <span>{level.name}</span>
+              <span class="lvl-status">{level.status} · {level.statusLabel}</span>
+            </div>
+            <p class="lvl-reason">{level.reason}</p>
+          </li>
+        ))}
+      </ul>
+      {view.needs && (
+        <div class="needs" data-evidence-needs="yes">
+          <strong>{view.needsLabel}</strong>
+          <p>{view.needs}</p>
+        </div>
+      )}
+      <p class="disclaimer">{view.disclaimer}</p>
+    </Fragment>
+  )}
+  {view.archivedNote && <p class="archived">{view.archivedNote}</p>}
+</section>
+
+<style>
+  .evidence { margin: 18px 0 6px; padding: 14px 16px; border-radius: 10px; font-size: 14px; line-height: 1.6; }
+  .evidence.report { margin-top: 20px; }
+  .evidence.is-empty { background: #f1f5f9; border: 1px solid #e2e8f0; color: #334155; }
+  .evidence.is-report { background: #f8fafc; border: 1px solid var(--border, #e2e8f0); color: var(--ink, #1f2937); }
+  .evidence h2 { margin: 0 0 8px; font-size: 16px; }
+  .kicker { display: block; margin-bottom: 4px; }
+  .headline, .body, .lvl-reason, .needs p, .disclaimer, .archived { margin: 0; }
+  .body, .disclaimer, .archived { margin-top: 8px; font-size: 12.5px; color: var(--ink-3, #64748b); }
+  .meta { margin: 10px 0 0; font-size: 13px; }
+  .meta .note { color: var(--ink-3, #64748b); }
+  .levels { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 8px; }
+  .lvl { border-radius: 8px; padding: 8px 10px; background: #fff; border: 1px solid var(--border, #e5e7eb); }
+  .lvl-top { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; font-size: 12.5px; font-weight: 700; }
+  .lvl-reason { margin-top: 4px; font-size: 13px; font-weight: 400; color: var(--ink-2, #3f4a5a); }
+  .st-pass .lvl-status { color: #1a7f37; }
+  .st-skip .lvl-status { color: #4b5563; }
+  .st-fail .lvl-status { color: #b91c1c; }
+  .st-needs .lvl-status { color: #9a6700; }
+  .needs { margin-top: 10px; padding: 8px 10px; border-radius: 8px; background: #fff8e6; border: 1px solid #f2d894; font-size: 13px; }
+  .needs p { margin-top: 4px; }
+  .disclaimer { color: var(--ink-3, #64748b); }
+</style>
