@@ -785,31 +785,31 @@
       }
     },
     "dsh-TUI": {
-      "conclusion": "After the verify pipeline allowed the git prepare script, install still failed on the dsh version resolved from @latest: the git tarball is missing the vendor/dsh-std submodule, and pnpm reported ERR_PNPM_PREPARE_PACKAGE.",
-      "conclusion_zh": "verify 管线放行 git prepare 之后，在 @latest 解析出的 dsh 版本上安装仍然失败：git tarball 缺少 vendor/dsh-std 子模块，pnpm 报 ERR_PNPM_PREPARE_PACKAGE。",
+      "conclusion": "On the dsh version resolved from @latest, the official npm package @deepseek-harness-tui/dsh-tui@0.19.0 installed, loaded, and completed a headless prompt. This is a terminal UI, so this job did not run Web CDP. The git tarball is still missing vendor/dsh-std and is no longer the recommended install.",
+      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，官方 npm 包 @deepseek-harness-tui/dsh-tui@0.19.0 完成了安装、加载和无头提问。这是终端 UI，本任务未跑 Web CDP。git tarball 仍缺 vendor/dsh-std，已不再作为推荐安装。",
       "dshVersionRequested": "@deepseek-ai/dsh@latest",
       "dshVersionActual": "0.2.2-rc.1",
       "testDate": "2026-11-10",
       "levels": {
         "L1": {
-          "status": "fail",
-          "reason": "The pipeline wrote the allowBuilds key and retried, so this is not prepare-blocked. The second install failed because prepare-guard found vendor/dsh-std missing from the git tarball of github:ccch1mneyyy/dsh-TUI.",
-          "reason_zh": "管线已写入 allowBuilds key 并重试，因此不是 prepare-blocked。第二次安装失败，是因为 prepare-guard 发现 github:ccch1mneyyy/dsh-TUI 的 git tarball 里没有 vendor/dsh-std。"
+          "status": "pass",
+          "reason": "dsh plugin add finished in a clean profile for @deepseek-harness-tui/dsh-tui@latest, which resolved to 0.19.0. A react peer warning (wanted ^18.2.0, found 19.3.1) and patch warnings for missing entries tool-ralph and tool-subagent-list-agents were recorded and did not fail the install.",
+          "reason_zh": "干净 profile 里对 @deepseek-harness-tui/dsh-tui@latest 的 dsh plugin add 已完成，包解析为 0.19.0。记录了 react peer 警告（要求 ^18.2.0，实际 19.3.1）以及 patch 警告 entry tool-ralph、tool-subagent-list-agents not found，均未导致安装失败。"
         },
         "L2": {
-          "status": "skip",
-          "reason": "Load was not checked because install did not succeed.",
-          "reason_zh": "安装没有成功，因此没有做加载检查。"
+          "status": "pass",
+          "reason": "The profile booted and dump-config listed the bundle as @deepseek-harness-tui/dsh-tui.",
+          "reason_zh": "profile 已启动，dump-config 列出的 bundle 为 @deepseek-harness-tui/dsh-tui。"
         },
         "L3": {
-          "status": "skip",
-          "reason": "Headless L3 was not run because an earlier level did not pass.",
-          "reason_zh": "更早的层级没有通过，因此没有跑 headless L3。"
+          "status": "pass",
+          "reason": "A headless prompt ran against the DeepSeek model and completed: the job asked for exactly OK and the model replied OK.",
+          "reason_zh": "无头提问调用了 DeepSeek 模型并正常结束：任务要求只回复 OK，模型回复了 OK。"
         },
         "L4": {
           "status": "skip",
-          "reason": "Web CDP was not run because an earlier level did not pass.",
-          "reason_zh": "更早的层级没有通过，因此没有跑 Web CDP。"
+          "reason": "This is a terminal UI, not a Web or theme plugin. This L1–L3 job did not run Web CDP.",
+          "reason_zh": "这是终端 UI，不是 Web 或主题插件。本次 L1–L3 任务没有跑 Web CDP。"
         }
       }
     }

@@ -1,3 +1,5 @@
+import { functionDetailBlocks } from './plugin-install-cmd.js';
+
 function esc(s) {
   return String(s || '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
@@ -117,11 +119,9 @@ export function renderPluginPage(p, lang) {
   const dir = zh ? '/zh/plugins/directory/' : '/plugins/directory/';
   const catId = String(cat).toLowerCase().replace(/[^a-z0-9]+/g, '-');
   const catUrl = `${dir}page/1/#${catId}`;
-  const repo = (p.url || '').replace(/^https?:\/\/github\.com\//, '');
-  const spec = p.installPkg || p.pkg;
-  const install = p.npm && spec
-    ? `dsh plugin --profile web add ${spec}`
-    : `dsh plugin --profile web add github:${repo}`;
+  const installHtml = functionDetailBlocks(p, zh ? 'zh' : 'en').map((block) => (
+    `<p class="muted small">${esc(block.label)}</p>\n        <pre class="code-block"><code>${esc(block.command)}</code></pre>`
+  )).join('\n        ');
   const verified = p.test === 'verified';
   const listed = !verified && p.test !== 'pending';
   const statusLabel = zh
@@ -253,8 +253,7 @@ document.addEventListener("keydown",e=>{e.key==="Escape"&&t.forEach(n=>{n.open=!
           <p>${t.catalogHint}</p>
           <pre class="code-block"><code>dsh plugin add dshbase-catalog</code></pre>
         </div>
-        <p class="muted small">${zh ? 'Web 配置：' : 'Web profile:'}</p>
-        <pre class="code-block"><code>${esc(install)}</code></pre>
+        ${installHtml}
         ${p.url ? `<p style="margin-top:14px"><a href="${esc(p.url)}" rel="noopener" target="_blank">${t.github} ↗</a></p>` : ''}
       </div>
     </div>

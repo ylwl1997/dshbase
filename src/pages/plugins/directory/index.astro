@@ -2,6 +2,7 @@
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import Base from '../../../layouts/Base.astro';
 import PluginCard from '../../../components/PluginCard.astro';
+import { singleInstallCommand } from '../../../../functions/_data/plugin-install-cmd.js';
 import plugins from '../../../data/plugins.json';
 import syncDate from '../../../data/sync-date.json';
 const auditUrl = getRelativeLocaleUrl('en', '/audit/');
@@ -50,8 +51,7 @@ const page1Url = `/plugins/directory/page/1/`;
 const ourPlugins = all.filter((p) => (p.url || '').includes('ylwl1997'));
 const top5 = [...all].sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0)).slice(0, 5);
 const carousel = [...ourPlugins, ...top5].filter((p, i, arr) => arr.findIndex((x) => x.name === p.name) === i);
-const repo = (u) => (u || '').replace('https://github.com/', '');
-const installCmd = (p) => p.npm && p.pkg ? `dsh plugin add ${p.pkg}` : `dsh plugin add github:${repo(p.url)}`;
+const installCmd = (p) => singleInstallCommand(p);
 
 // use-cases second axis
 const USE_CASES = ['Terminal / Shell', 'File', 'Vision / OCR', 'Memory', 'Database', 'Web search', 'Storage', 'GitHub integration', 'Code review', 'Notifications'];
