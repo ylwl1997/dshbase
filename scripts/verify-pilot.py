@@ -33,8 +33,11 @@ Stages (same meanings as https://dshbase.com/audit/):
       --l4 skips this call. The browser job does not read the API key.
   L4  --l4 only. Boot `dsh --profile <name> --host 127.0.0.1 --port <port>
       --no-open` and run scripts/l4-cdp.mjs (Playwright, system Chrome or
-      bundled Chromium). No ~/webverify path. A pass is browser evidence,
-      not a catalog Verified badge.
+      bundled Chromium). wait_http and Playwright both open the exact
+      `dsh web: http://…/?token=…` URL printed in that process log. The
+      tokenless root is not requested, and a token is never invented.
+      No ~/webverify path. A pass is browser evidence, not a catalog
+      Verified badge.
 
 Usage:
   python3 scripts/verify-pilot.py --self-check
@@ -46,6 +49,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import http.client
 import json
 import os
 import re
@@ -54,10 +58,12 @@ import signal
 import socket
 import subprocess
 import sys
+import tempfile
+import threading
 import time
-import urllib.error
-import urllib.request
+import urllib.parse
 from datetime import datetime, timezone
+from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -770,37 +776,178 @@ def stop_process_group(proc: subprocess.Popen) -> None:
         pass
 
 
-def wait_http(url: str, proc: subprocess.Popen, timeout: int) -> bool:
-    deadline = time.monotonic() + timeout
+# A complete `dsh web: <url>` line. The URL must already be on its own line so
+# a torn write cannot yield a shortened token. The token is not synthesized.
+_ANSI_RE = re.compile(r"\x1b\[[0-9;?]*[A-Za-z]")
+_DSH_WEB_URL_RE = re.compile(r"dsh web:[ \t]+(https?://[^\s]+)[ \t]*\r?\n")
+
+
+def extract_web_token_url(text: str) -> str:
+    """Exact printed `dsh web:` URL that already carries a token, or ''."""
+    raw = text or ""
+    marker = "--- L4 web boot ---"
+    if marker in raw:
+        raw = raw.split(marker, 1)[-1]
+    cleaned = _ANSI_RE.sub("", raw.replace("\r\n", "\n"))
+    found = ""
+    for match in _DSH_WEB_URL_RE.finditer(cleaned):
+        url = match.group(1)
+        if _url_has_token(url):
+            found = url
+    return found
+
+
+def _url_has_token(url: str) -> bool:
+    try:
+        parsed = urllib.parse.urlparse(url)
+    except ValueError:
+        return False
+    if parsed.scheme not in ("http", "https") or not parsed.netloc:
+        return False
+    try:
+        pairs = urllib.parse.parse_qsl(parsed.query, keep_blank_values=True)
+    except ValueError:
+        return False
+    return any(key == "token" and value != "" for key, value in pairs)
+
+
+def _read_log(path: Path) -> str:
+    try:
+        return path.read_text(encoding="utf-8", errors="replace")
+    except OSError:
+        return ""
+
+
+def _timeout_label(timeout: float) -> str:
+    if float(timeout).is_integer():
+        return f"{int(timeout)}s"
+    return f"{timeout:.1f}s"
+
+
+def http_status(url: str, timeout: float = 3) -> int | None:
+    """HTTP status of `url` itself. Redirects are not followed.
+
+    On @deepseek-ai/dsh@0.2.2-rc.1 the printed token URL answers 303 See
+    Other and sets the session cookie. Following that redirect without the
+    cookie requests the tokenless root, which answers 401. urllib.request
+    follows the 303 and then raises HTTPError, and HTTPError is a URLError,
+    so the status < 500 check never saw either response.
+    """
+    try:
+        parsed = urllib.parse.urlsplit(url)
+    except ValueError:
+        return None
+    if parsed.scheme not in ("http", "https") or not parsed.hostname:
+        return None
+    path = parsed.path or "/"
+    if parsed.query:
+        path = f"{path}?{parsed.query}"
+    port = parsed.port or (443 if parsed.scheme == "https" else 80)
+    conn_cls = http.client.HTTPSConnection if parsed.scheme == "https" else http.client.HTTPConnection
+    conn = conn_cls(parsed.hostname, port, timeout=timeout)
+    try:
+        conn.request(
+            "GET",
+            path,
+            headers={"Host": parsed.netloc, "Connection": "close", "Accept": "*/*"},
+        )
+        response = conn.getresponse()
+        status = int(response.status)
+        response.read(64)
+        return status
+    except (TimeoutError, OSError, http.client.HTTPException, ValueError):
+        return None
+    finally:
+        conn.close()
+
+
+def wait_http(url: str, proc: subprocess.Popen, timeout: float) -> bool:
+    """True when `url` itself returns an HTTP status below 500.
+
+    A direct 401 is below 500. The tokenless root on dsh 0.2.2-rc.1 is a
+    fast 401, so this must be called with the printed token URL, not `/`.
+    """
+    deadline = time.monotonic() + max(0.0, timeout)
     while time.monotonic() < deadline:
         if proc.poll() is not None:
             return False
-        try:
-            with urllib.request.urlopen(url, timeout=3) as response:
-                if response.status < 500:
-                    return True
-        except (urllib.error.URLError, TimeoutError, OSError):
-            time.sleep(1)
+        remaining = deadline - time.monotonic()
+        status = http_status(url, timeout=min(3.0, max(0.2, remaining)))
+        if status is not None and status < 500:
+            return True
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            break
+        time.sleep(min(0.5, remaining))
     return False
 
 
+def wait_for_web_token(log_path: Path, proc: subprocess.Popen, timeout: float) -> tuple[str, str]:
+    """Wait until the boot log prints a token URL and that URL accepts HTTP.
+
+    Returns (url, error). `error` is empty on success. The tokenless root is
+    not requested. If the log has no token URL, wait out `timeout` and return
+    a human-readable reason. The token is never invented.
+    """
+    deadline = time.monotonic() + max(0.0, timeout)
+    token_seen = ""
+    while True:
+        token_url = extract_web_token_url(_read_log(log_path))
+        if token_url:
+            token_seen = token_url
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                break
+            if wait_http(token_url, proc, remaining):
+                return token_url, ""
+            if proc.poll() is not None:
+                return "", (
+                    "Web process exited after printing a dsh web token URL, "
+                    "before that URL accepted HTTP."
+                )
+            return "", (
+                "Web server printed a dsh web token URL but that URL did not "
+                f"accept HTTP before the boot timeout ({_timeout_label(timeout)})."
+            )
+        if proc.poll() is not None:
+            return "", "Web process exited before it printed a dsh web token URL."
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            break
+        time.sleep(min(0.25, remaining))
+    if token_seen:
+        return "", (
+            "Web server printed a dsh web token URL but that URL did not "
+            f"accept HTTP before the boot timeout ({_timeout_label(timeout)})."
+        )
+    return "", (
+        "Web boot did not print a dsh web token URL "
+        "(expected a line like `dsh web: http://127.0.0.1:<port>/?token=...`) "
+        f"before the boot timeout ({_timeout_label(timeout)})."
+    )
+
+
+def l4_browser_command(url: str, expect: dict, out_json: Path, screenshot: Path) -> list[str]:
+    """argv for scripts/l4-cdp.mjs. `--url` is passed through unchanged."""
+    return [
+        "node",
+        str(L4_SCRIPT),
+        "--url",
+        url,
+        "--out",
+        str(out_json),
+        "--screenshot",
+        str(screenshot),
+        "--timeout",
+        str(L4_TIMEOUT * 1000),
+        "--expect",
+        json.dumps(expect, ensure_ascii=False),
+    ]
+
+
 def run_l4_browser(url: str, expect: dict, out_json: Path, screenshot: Path, log_path: Path, env: dict, secrets: list[str]) -> tuple[int, dict, int]:
-    payload = json.dumps(expect, ensure_ascii=False)
     code, text, duration = run_cmd(
-        [
-            "node",
-            str(L4_SCRIPT),
-            "--url",
-            url,
-            "--out",
-            str(out_json),
-            "--screenshot",
-            str(screenshot),
-            "--timeout",
-            str(L4_TIMEOUT * 1000),
-            "--expect",
-            payload,
-        ],
+        l4_browser_command(url, expect, out_json, screenshot),
         L4_TIMEOUT + 30,
         log_path,
         env,
@@ -824,7 +971,6 @@ def run_l4_browser(url: str, expect: dict, out_json: Path, screenshot: Path, log
 def boot_and_probe(prof: str, expect: dict, log_dir: Path, log_path: Path, env: dict, secrets: list[str]) -> dict:
     """Start the web profile and run the vendored CDP script. Caller owns cleanup."""
     port = free_port()
-    url = f"http://127.0.0.1:{port}/"
     handle = log_path.open("a", encoding="utf-8")
     handle.write(f"\n--- L4 web boot ---\n$ dsh --profile {prof} --host 127.0.0.1 --port {port} --no-open\n")
     handle.flush()
@@ -837,24 +983,28 @@ def boot_and_probe(prof: str, expect: dict, log_dir: Path, log_path: Path, env: 
     )
     started = time.monotonic()
     try:
-        up = wait_http(url, proc, WEB_BOOT_TIMEOUT)
+        # Probe the printed token URL only. The tokenless root is not a
+        # readiness check: on dsh 0.2.2-rc.1 it answers 401, and urllib
+        # used to hide that status until the boot timeout elapsed.
+        token_url, boot_error = wait_for_web_token(log_path, proc, WEB_BOOT_TIMEOUT)
         boot_ms = int((time.monotonic() - started) * 1000)
-        if not up:
+        if boot_error:
             tail = ""
             if log_path.is_file():
                 tail = snippet(log_path.read_text(encoding="utf-8", errors="replace").split("--- L4 web boot ---", 1)[-1])
             alive = proc.poll() is None
+            error = boot_error if not tail else boot_error + "\n" + tail
             return stage(
                 "fail",
                 boot_ms,
-                tail or "Web server did not accept HTTP.",
-                url=url,
+                error,
+                url=token_url,
                 serverAlive=alive,
                 harness=False,
             )
         out_json = log_dir / f"{profile_name_file(prof)}-l4.json"
         screenshot = log_dir / f"{profile_name_file(prof)}-l4.png"
-        code, cdp, dur = run_l4_browser(url, expect, out_json, screenshot, log_path, env, secrets)
+        code, cdp, dur = run_l4_browser(token_url, expect, out_json, screenshot, log_path, env, secrets)
         ready, detail = l4_ready(cdp, expect)
         harness = bool(cdp.get("harnessError")) or code == 2
         status = "pass" if ready else "fail"
@@ -867,7 +1017,7 @@ def boot_and_probe(prof: str, expect: dict, log_dir: Path, log_path: Path, env: 
             status,
             boot_ms + dur,
             error,
-            url=url,
+            url=token_url,
             browser=cdp.get("browser") or "",
             shellMounted=bool(cdp.get("shellMounted")),
             bootFailed=bool(cdp.get("bootFailed")),
@@ -1382,6 +1532,148 @@ def write_report(report: dict, out_dir: Path) -> None:
     (out_dir / "summary.md").write_text(render_markdown(report), encoding="utf-8")
 
 
+def _self_check_web_token() -> None:
+    """URL extraction, and wait_http / Playwright both receiving that URL."""
+    printed = "http://127.0.0.1:41621/?token=Ab_cd-12EFghij"
+    sample = (
+        "$ dsh --profile p_dsh-kimino-theme --host 127.0.0.1 --port 41621 --no-open\n"
+        "[kimino-theme] host half active (4/4 asset routes registered)\n"
+        f"dsh web: {printed}\n"
+    )
+    assert extract_web_token_url(sample) == printed
+    stale = (
+        "dsh web: http://127.0.0.1:1/?token=stale\n"
+        "--- L4 web boot ---\n"
+        f"dsh web: {printed}\n"
+    )
+    assert extract_web_token_url(stale) == printed
+    later = (
+        "dsh web: http://127.0.0.1:1/?token=first\n"
+        "dsh web: http://127.0.0.1:2/?token=second\n"
+    )
+    assert extract_web_token_url(later) == "http://127.0.0.1:2/?token=second"
+    https_url = "https://127.0.0.1:8443/ui/?token=abc&x=1"
+    assert extract_web_token_url(f"dsh web: {https_url}\n") == https_url
+    colored = "\x1b[32mdsh web: http://127.0.0.1:9/?token=abc_DEF-01\x1b[0m\n"
+    assert extract_web_token_url(colored) == "http://127.0.0.1:9/?token=abc_DEF-01"
+    assert extract_web_token_url("dsh web: http://127.0.0.1:9/?token=partial") == ""
+    assert extract_web_token_url("dsh web: http://127.0.0.1:9/\n") == ""
+    assert extract_web_token_url("dsh web: http://127.0.0.1:9/?token=\n") == ""
+    assert extract_web_token_url("dsh web: listening on 127.0.0.1 over plain HTTP\n") == ""
+    assert extract_web_token_url("dsh web: opening the default browser; pass --no-open to disable\n") == ""
+    assert extract_web_token_url("token=not-a-url\n") == ""
+
+    paths: list[str] = []
+
+    class Handler(BaseHTTPRequestHandler):
+        def do_GET(self) -> None:  # noqa: N802
+            paths.append(self.path)
+            extra: list[tuple[str, str]] = []
+            if self.path.startswith("/?token=down"):
+                status = 503
+            elif self.path.startswith("/?token=nope"):
+                status = 401
+            elif "token=" in self.path:
+                status = 303
+                extra = [("Location", "./")]
+            else:
+                status = 401
+            body = b"" if status == 303 else b"no\n"
+            self.send_response(status)
+            for key, value in extra:
+                self.send_header(key, value)
+            self.send_header("Content-Length", str(len(body)))
+            self.send_header("Connection", "close")
+            self.end_headers()
+            if body:
+                self.wfile.write(body)
+
+        def log_message(self, fmt: str, *args: object) -> None:
+            return
+
+    class Alive:
+        def poll(self) -> None:
+            return None
+
+    class Dead:
+        def poll(self) -> int:
+            return 1
+
+    server = HTTPServer(("127.0.0.1", 0), Handler)
+    thread = threading.Thread(target=server.serve_forever, daemon=True)
+    thread.start()
+    try:
+        port = int(server.server_address[1])
+        token_url = f"http://127.0.0.1:{port}/?token=Ab_cd-12EFghij"
+        nope_url = f"http://127.0.0.1:{port}/?token=nope"
+        down_url = f"http://127.0.0.1:{port}/?token=down"
+        assert http_status(token_url, timeout=2) == 303
+        assert wait_http(token_url, Alive(), 2) is True
+        assert http_status(nope_url, timeout=2) == 401
+        # A direct 401 is status < 500, so it counts as HTTP. The boot loop
+        # must still not pass the tokenless root: that root is this 401.
+        assert wait_http(nope_url, Alive(), 2) is True
+        assert wait_http(down_url, Alive(), 0.7) is False
+        assert paths and all("token=" in item for item in paths)
+        assert not any(item.split("?", 1)[0] == "/" and "token=" not in item for item in paths)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            log_path = Path(tmp) / "boot.log"
+            log_path.write_text("--- L4 web boot ---\n$ dsh --no-open\n", encoding="utf-8")
+
+            def write_later() -> None:
+                time.sleep(0.3)
+                with log_path.open("a", encoding="utf-8") as handle:
+                    handle.write(f"dsh web: {token_url}\n")
+
+            threading.Thread(target=write_later, daemon=True).start()
+            started = time.monotonic()
+            got, err = wait_for_web_token(log_path, Alive(), 5)
+            elapsed = time.monotonic() - started
+            assert err == "", err
+            assert got == token_url
+            assert elapsed < 3, elapsed
+            cmd = l4_browser_command(
+                got,
+                {"selectorsAny": [".widget"]},
+                Path(tmp) / "out.json",
+                Path(tmp) / "shot.png",
+            )
+            assert cmd[cmd.index("--url") + 1] == token_url
+            cdp_source = L4_SCRIPT.read_text(encoding="utf-8")
+            assert 'const url = arg("--url")' in cdp_source
+            assert "page.goto(url," in cdp_source
+
+            before = len(paths)
+            bare = Path(tmp) / "bare.log"
+            bare.write_text(
+                "--- L4 web boot ---\n"
+                "dsh web: listening on 127.0.0.1 over plain HTTP\n"
+                "dsh web: http://127.0.0.1:9/\n",
+                encoding="utf-8",
+            )
+            missing, reason = wait_for_web_token(bare, Alive(), 0.6)
+            assert missing == ""
+            assert "did not print a dsh web token URL" in reason
+            assert len(paths) == before
+
+            before = len(paths)
+            dead_log = Path(tmp) / "dead.log"
+            dead_log.write_text(f"--- L4 web boot ---\ndsh web: {token_url}\n", encoding="utf-8")
+            exited, why = wait_for_web_token(dead_log, Dead(), 2)
+            assert exited == "" and "exited after printing" in why
+            assert len(paths) == before
+
+            early = Path(tmp) / "early.log"
+            early.write_text("--- L4 web boot ---\n", encoding="utf-8")
+            gone, why = wait_for_web_token(early, Dead(), 2)
+            assert gone == "" and "exited before it printed" in why
+    finally:
+        server.shutdown()
+        server.server_close()
+        thread.join(timeout=2)
+
+
 def self_check() -> None:
     assert classify_l3(0, "OK\n", False)[0] == "pass"
     assert classify_l3(0, "Reply with exactly: OK\n", False)[0] == "fail"
@@ -1598,6 +1890,7 @@ def self_check() -> None:
     md = render_markdown(sample)
     assert "example" in md and "web-only" in md and "Catalog updated: false" in md
     assert "sample recommendation" in md
+    _self_check_web_token()
     print("self-check ok", flush=True)
 
 
