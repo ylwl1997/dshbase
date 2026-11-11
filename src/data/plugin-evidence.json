@@ -437,176 +437,176 @@
       }
     },
     "dsh-kimino-theme": {
-      "conclusion": "Install, load, and headless L3 succeeded on the dsh version resolved from @latest. This plugin looks like a theme or Web UI, so a skipped L4 in this wave only means the browser check is still outstanding.",
-      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和 headless L3 均成功。该插件更像主题或 Web UI，本波跳过的 L4 只说明浏览器检查尚未做。",
+      "conclusion": "On 2026-11-11 (08:16:05–08:18:29 Asia/Shanghai), install and load passed. The dedicated theme selector probe matched all four selectors. That layer is not a full feature check and not a model-output test.",
+      "conclusion_zh": "2026-11-11（北京时间 08:16:05–08:18:29）安装与加载通过。专用主题选择器探针命中全部四个选择器。这一层不是完整功能检查，也不是模型输出测试。",
       "dshVersionRequested": "@deepseek-ai/dsh@latest",
       "dshVersionActual": "0.2.2-rc.1",
-      "testDate": "2026-11-10",
+      "testDate": "2026-11-11",
       "levels": {
         "L1": {
           "status": "pass",
-          "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
-          "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+          "reason": "dsh plugin add github:niiang/dsh-kimino-theme passed on the first attempt. Requested @deepseek-ai/dsh@latest resolved to 0.2.2-rc.1. Tested main 4d51943451024fd8cd4ded1d5f299301b1d1e9c6. Source https://github.com/ylwl1997/dshbase/actions/runs/42929850925.",
+          "reason_zh": "安装规格 github:niiang/dsh-kimino-theme 第一次尝试即通过。请求的 @deepseek-ai/dsh@latest 解析为 0.2.2-rc.1。测试的 main 为 4d51943451024fd8cd4ded1d5f299301b1d1e9c6。来源 https://github.com/ylwl1997/dshbase/actions/runs/42929850925。"
         },
         "L2": {
           "status": "pass",
-          "reason": "The profile booted and dump-config listed the plugin bundle.",
-          "reason_zh": "profile 已启动，dump-config 列出了该插件 bundle。"
+          "reason": "The profile booted and dump-config listed the activated package dsh-kimino-theme.",
+          "reason_zh": "profile 已启动，dump-config 列出已激活包 dsh-kimino-theme。"
         },
         "L3": {
-          "status": "pass",
-          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
-          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+          "status": "skip",
+          "reason": "Skipped because this Web CDP job sent no headless prompt and no model call, so this run is not an L3 pass. The checks performed here did not use an outside login. Test execution was 2026-11-11T00:16:05Z to 2026-11-11T00:18:29Z (08:16:05–08:18:29 Asia/Shanghai). The workflow envelope 08:15:01–08:18:32 Asia/Shanghai is not that window.",
+          "reason_zh": "跳过：本次 Web CDP 任务没有发送无头提问，也没有模型调用，因此这次不是 L3 通过。这里做的检查没有使用外部登录。测试执行是 2026-11-11T00:16:05Z 至 2026-11-11T00:18:29Z（北京时间 08:16:05–08:18:29）。工作流包络 08:15:01–08:18:32（北京时间）不是这个窗口。"
         },
         "L4": {
-          "status": "skip",
-          "reason": "This L1–L3 job did not run Web CDP. A generic L4 check is still needed for this theme or Web UI plugin.",
-          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP。该插件更像主题或 Web UI，还需一次通用 L4 检查。"
+          "status": "pass",
+          "reason": "The dedicated theme selector probe matched all four selectors from bundle/client.js at v68.4.2: html[data-kimino-theme=on], #kimino-theme, style[data-plugin=dsh-kimino-theme], and [data-kimino-backdrop]. Printed token URL used; shellMounted=true, bootFailed=false, serverAlive=true. No page or console errors. This is only that selector layer, not a full feature check or a model-output test.",
+          "reason_zh": "专用主题选择器探针命中全部四个选择器（来自 bundle/client.js 标签 v68.4.2）：html[data-kimino-theme=on]、#kimino-theme、style[data-plugin=dsh-kimino-theme]、[data-kimino-backdrop]。使用了打印出的 token 地址；shellMounted=true，bootFailed=false，serverAlive=true。没有页面或控制台错误。这只是该选择器层，不是完整功能检查，也不是模型输出测试。"
         }
       }
     },
     "dsh-pet": {
-      "conclusion": "Install, load, and headless L3 succeeded on the dsh version resolved from @latest. This plugin looks like a theme or Web UI, so a skipped L4 in this wave only means the browser check is still outstanding.",
-      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和 headless L3 均成功。该插件更像主题或 Web UI，本波跳过的 L4 只说明浏览器检查尚未做。",
+      "conclusion": "Installation and loading passed, the Web shell starts; plugin interactions, business functionality and model output were not tested. Test execution was 08:16:05–08:18:29 Asia/Shanghai on 2026-11-11.",
+      "conclusion_zh": "安装与加载通过，Web 外壳可启动；未验证插件交互、业务功能或模型输出。测试执行窗口为北京时间 2026-11-11 08:16:05–08:18:29。",
       "dshVersionRequested": "@deepseek-ai/dsh@latest",
       "dshVersionActual": "0.2.2-rc.1",
-      "testDate": "2026-11-10",
+      "testDate": "2026-11-11",
       "levels": {
         "L1": {
           "status": "pass",
-          "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
-          "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+          "reason": "dsh plugin add dsh-pet passed on the first attempt. Requested @deepseek-ai/dsh@latest resolved to 0.2.2-rc.1. Tested main 4d51943451024fd8cd4ded1d5f299301b1d1e9c6. Source https://github.com/ylwl1997/dshbase/actions/runs/42929850925.",
+          "reason_zh": "安装规格 dsh-pet 第一次尝试即通过。请求的 @deepseek-ai/dsh@latest 解析为 0.2.2-rc.1。测试的 main 为 4d51943451024fd8cd4ded1d5f299301b1d1e9c6。来源 https://github.com/ylwl1997/dshbase/actions/runs/42929850925。"
         },
         "L2": {
           "status": "pass",
-          "reason": "The profile booted and dump-config listed the plugin bundle.",
-          "reason_zh": "profile 已启动，dump-config 列出了该插件 bundle。"
+          "reason": "The profile booted and dump-config listed the activated package dsh-pet.",
+          "reason_zh": "profile 已启动，dump-config 列出已激活包 dsh-pet。"
         },
         "L3": {
-          "status": "pass",
-          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
-          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+          "status": "skip",
+          "reason": "Skipped because this Web CDP job sent no headless prompt and no model call, so this run is not an L3 pass. The checks performed here did not use an outside login. Test execution was 2026-11-11T00:16:05Z to 2026-11-11T00:18:29Z (08:16:05–08:18:29 Asia/Shanghai). The workflow envelope 08:15:01–08:18:32 Asia/Shanghai is not that window.",
+          "reason_zh": "跳过：本次 Web CDP 任务没有发送无头提问，也没有模型调用，因此这次不是 L3 通过。这里做的检查没有使用外部登录。测试执行是 2026-11-11T00:16:05Z 至 2026-11-11T00:18:29Z（北京时间 08:16:05–08:18:29）。工作流包络 08:15:01–08:18:32（北京时间）不是这个窗口。"
         },
         "L4": {
-          "status": "skip",
-          "reason": "This L1–L3 job did not run Web CDP. A generic L4 check is still needed for this theme or Web UI plugin.",
-          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP。该插件更像主题或 Web UI，还需一次通用 L4 检查。"
+          "status": "pass",
+          "reason": "Installation and loading passed, the Web shell starts; plugin interactions, business functionality and model output were not tested. L4 pass is only generic shell-mounted criteria: printed token URL used, shellMounted=true, bootFailed=false, serverAlive=true, no dedicated selector probe. No page or console errors in this run, which is not functionality proof.",
+          "reason_zh": "安装与加载通过，Web 外壳可启动；未验证插件交互、业务功能或模型输出。L4 通过只代表通用外壳挂载：使用了打印出的 token 地址，shellMounted=true，bootFailed=false，serverAlive=true，没有专用选择器探针。本次没有页面或控制台错误，这本身不是功能证明。"
         }
       }
     },
     "dsh-browser": {
-      "conclusion": "Install, load, and headless L3 succeeded on the dsh version resolved from @latest. This plugin looks like a theme or Web UI, so a skipped L4 in this wave only means the browser check is still outstanding.",
-      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和 headless L3 均成功。该插件更像主题或 Web UI，本波跳过的 L4 只说明浏览器检查尚未做。",
+      "conclusion": "Installation and loading passed, the Web shell starts; plugin interactions, business functionality and model output were not tested. Test execution was 08:16:05–08:18:29 Asia/Shanghai on 2026-11-11.",
+      "conclusion_zh": "安装与加载通过，Web 外壳可启动；未验证插件交互、业务功能或模型输出。测试执行窗口为北京时间 2026-11-11 08:16:05–08:18:29。",
       "dshVersionRequested": "@deepseek-ai/dsh@latest",
       "dshVersionActual": "0.2.2-rc.1",
-      "testDate": "2026-11-10",
+      "testDate": "2026-11-11",
       "levels": {
         "L1": {
           "status": "pass",
-          "reason": "dsh plugin add finished in a clean profile and the package was recorded there.",
-          "reason_zh": "干净 profile 里 dsh plugin add 完成，包已写入该 profile。"
+          "reason": "dsh plugin add dsh-browser@0.1.0 passed on the first attempt. Requested @deepseek-ai/dsh@latest resolved to 0.2.2-rc.1. Tested main 4d51943451024fd8cd4ded1d5f299301b1d1e9c6. Source https://github.com/ylwl1997/dshbase/actions/runs/42929850925.",
+          "reason_zh": "安装规格 dsh-browser@0.1.0 第一次尝试即通过。请求的 @deepseek-ai/dsh@latest 解析为 0.2.2-rc.1。测试的 main 为 4d51943451024fd8cd4ded1d5f299301b1d1e9c6。来源 https://github.com/ylwl1997/dshbase/actions/runs/42929850925。"
         },
         "L2": {
           "status": "pass",
-          "reason": "The profile booted and dump-config listed the plugin bundle.",
-          "reason_zh": "profile 已启动，dump-config 列出了该插件 bundle。"
+          "reason": "The profile booted and dump-config listed the activated package dsh-browser.",
+          "reason_zh": "profile 已启动，dump-config 列出已激活包 dsh-browser。"
         },
         "L3": {
-          "status": "pass",
-          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
-          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+          "status": "skip",
+          "reason": "Skipped because this Web CDP job sent no headless prompt and no model call, so this run is not an L3 pass. The checks performed here did not use an outside login. Test execution was 2026-11-11T00:16:05Z to 2026-11-11T00:18:29Z (08:16:05–08:18:29 Asia/Shanghai). The workflow envelope 08:15:01–08:18:32 Asia/Shanghai is not that window.",
+          "reason_zh": "跳过：本次 Web CDP 任务没有发送无头提问，也没有模型调用，因此这次不是 L3 通过。这里做的检查没有使用外部登录。测试执行是 2026-11-11T00:16:05Z 至 2026-11-11T00:18:29Z（北京时间 08:16:05–08:18:29）。工作流包络 08:15:01–08:18:32（北京时间）不是这个窗口。"
         },
         "L4": {
-          "status": "skip",
-          "reason": "This L1–L3 job did not run Web CDP. A generic L4 check is still needed for this theme or Web UI plugin.",
-          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP。该插件更像主题或 Web UI，还需一次通用 L4 检查。"
+          "status": "pass",
+          "reason": "Installation and loading passed, the Web shell starts; plugin interactions, business functionality and model output were not tested. L4 pass is only generic shell-mounted criteria: printed token URL used, shellMounted=true, bootFailed=false, serverAlive=true, no dedicated selector probe. No page or console errors in this run, which is not functionality proof.",
+          "reason_zh": "安装与加载通过，Web 外壳可启动；未验证插件交互、业务功能或模型输出。L4 通过只代表通用外壳挂载：使用了打印出的 token 地址，shellMounted=true，bootFailed=false，serverAlive=true，没有专用选择器探针。本次没有页面或控制台错误，这本身不是功能证明。"
         }
       }
     },
     "DSH-better-sidebar": {
-      "conclusion": "Install, load, and headless L3 succeeded on the dsh version resolved from @latest. This plugin looks like a theme or Web UI, so a skipped L4 in this wave only means the browser check is still outstanding.",
-      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和 headless L3 均成功。该插件更像主题或 Web UI，本波跳过的 L4 只说明浏览器检查尚未做。",
+      "conclusion": "Installation and loading passed, the Web shell starts; plugin interactions, business functionality and model output were not tested. Test execution was 08:16:05–08:18:29 Asia/Shanghai on 2026-11-11.",
+      "conclusion_zh": "安装与加载通过，Web 外壳可启动；未验证插件交互、业务功能或模型输出。测试执行窗口为北京时间 2026-11-11 08:16:05–08:18:29。",
       "dshVersionRequested": "@deepseek-ai/dsh@latest",
       "dshVersionActual": "0.2.2-rc.1",
-      "testDate": "2026-11-10",
+      "testDate": "2026-11-11",
       "levels": {
         "L1": {
           "status": "pass",
-          "reason": "dsh plugin add finished after the verify pipeline wrote the pnpm allowBuilds key for this git package and retried the install. That retry is not a prepare-blocked result.",
-          "reason_zh": "verify 管线写入该 git 包的 allowBuilds key 并重试安装后，dsh plugin add 完成。这次不是 prepare-blocked。"
+          "reason": "dsh plugin add github:omdsh-dev/DSH-better-sidebar passed on the second attempt after the approved allowBuilds/prepare retry. That retry is a pipeline allowance, not an install failure. Requested @deepseek-ai/dsh@latest resolved to 0.2.2-rc.1. Tested main 4d51943451024fd8cd4ded1d5f299301b1d1e9c6. Source https://github.com/ylwl1997/dshbase/actions/runs/42929850925.",
+          "reason_zh": "安装规格 github:omdsh-dev/DSH-better-sidebar 在第二次尝试通过：先走已批准的 allowBuilds/prepare 重试。该重试是管线允许，不是安装失败。请求的 @deepseek-ai/dsh@latest 解析为 0.2.2-rc.1。测试的 main 为 4d51943451024fd8cd4ded1d5f299301b1d1e9c6。来源 https://github.com/ylwl1997/dshbase/actions/runs/42929850925。"
         },
         "L2": {
           "status": "pass",
-          "reason": "The profile booted and dump-config listed the plugin bundle.",
-          "reason_zh": "profile 已启动，dump-config 列出了该插件 bundle。"
+          "reason": "The profile booted and dump-config listed the activated package dsh-better-sidebar.",
+          "reason_zh": "profile 已启动，dump-config 列出已激活包 dsh-better-sidebar。"
         },
         "L3": {
-          "status": "pass",
-          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
-          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+          "status": "skip",
+          "reason": "Skipped because this Web CDP job sent no headless prompt and no model call, so this run is not an L3 pass. The checks performed here did not use an outside login. Test execution was 2026-11-11T00:16:05Z to 2026-11-11T00:18:29Z (08:16:05–08:18:29 Asia/Shanghai). The workflow envelope 08:15:01–08:18:32 Asia/Shanghai is not that window.",
+          "reason_zh": "跳过：本次 Web CDP 任务没有发送无头提问，也没有模型调用，因此这次不是 L3 通过。这里做的检查没有使用外部登录。测试执行是 2026-11-11T00:16:05Z 至 2026-11-11T00:18:29Z（北京时间 08:16:05–08:18:29）。工作流包络 08:15:01–08:18:32（北京时间）不是这个窗口。"
         },
         "L4": {
-          "status": "skip",
-          "reason": "This L1–L3 job did not run Web CDP. A generic L4 check is still needed for this theme or Web UI plugin.",
-          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP。该插件更像主题或 Web UI，还需一次通用 L4 检查。"
+          "status": "pass",
+          "reason": "Installation and loading passed, the Web shell starts; plugin interactions, business functionality and model output were not tested. L4 pass is only generic shell-mounted criteria: printed token URL used, shellMounted=true, bootFailed=false, serverAlive=true, no dedicated selector probe. No page or console errors in this run, which is not functionality proof.",
+          "reason_zh": "安装与加载通过，Web 外壳可启动；未验证插件交互、业务功能或模型输出。L4 通过只代表通用外壳挂载：使用了打印出的 token 地址，shellMounted=true，bootFailed=false，serverAlive=true，没有专用选择器探针。本次没有页面或控制台错误，这本身不是功能证明。"
         }
       }
     },
     "dsh-univer-office": {
-      "conclusion": "Install, load, and headless L3 succeeded on the dsh version resolved from @latest. This plugin looks like a theme or Web UI, so a skipped L4 in this wave only means the browser check is still outstanding.",
-      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和 headless L3 均成功。该插件更像主题或 Web UI，本波跳过的 L4 只说明浏览器检查尚未做。",
+      "conclusion": "Installation and loading passed, the Web shell starts; plugin interactions, business functionality and model output were not tested. Test execution was 08:16:05–08:18:29 Asia/Shanghai on 2026-11-11.",
+      "conclusion_zh": "安装与加载通过，Web 外壳可启动；未验证插件交互、业务功能或模型输出。测试执行窗口为北京时间 2026-11-11 08:16:05–08:18:29。",
       "dshVersionRequested": "@deepseek-ai/dsh@latest",
       "dshVersionActual": "0.2.2-rc.1",
-      "testDate": "2026-11-10",
+      "testDate": "2026-11-11",
       "levels": {
         "L1": {
           "status": "pass",
-          "reason": "dsh plugin add finished after the verify pipeline wrote the pnpm allowBuilds key for this git package and retried the install. That retry is not a prepare-blocked result.",
-          "reason_zh": "verify 管线写入该 git 包的 allowBuilds key 并重试安装后，dsh plugin add 完成。这次不是 prepare-blocked。"
+          "reason": "dsh plugin add github:dream-num/dsh-univer-office passed on the second attempt after the approved allowBuilds/prepare retry. That retry is a pipeline allowance, not an install failure. Requested @deepseek-ai/dsh@latest resolved to 0.2.2-rc.1. Tested main 4d51943451024fd8cd4ded1d5f299301b1d1e9c6. Source https://github.com/ylwl1997/dshbase/actions/runs/42929850925.",
+          "reason_zh": "安装规格 github:dream-num/dsh-univer-office 在第二次尝试通过：先走已批准的 allowBuilds/prepare 重试。该重试是管线允许，不是安装失败。请求的 @deepseek-ai/dsh@latest 解析为 0.2.2-rc.1。测试的 main 为 4d51943451024fd8cd4ded1d5f299301b1d1e9c6。来源 https://github.com/ylwl1997/dshbase/actions/runs/42929850925。"
         },
         "L2": {
           "status": "pass",
-          "reason": "The profile booted and dump-config listed the plugin bundle.",
-          "reason_zh": "profile 已启动，dump-config 列出了该插件 bundle。"
+          "reason": "The profile booted and dump-config listed the activated package dsh-univer-office.",
+          "reason_zh": "profile 已启动，dump-config 列出已激活包 dsh-univer-office。"
         },
         "L3": {
-          "status": "pass",
-          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
-          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+          "status": "skip",
+          "reason": "Skipped because this Web CDP job sent no headless prompt and no model call, so this run is not an L3 pass. The checks performed here did not use an outside login. Test execution was 2026-11-11T00:16:05Z to 2026-11-11T00:18:29Z (08:16:05–08:18:29 Asia/Shanghai). The workflow envelope 08:15:01–08:18:32 Asia/Shanghai is not that window.",
+          "reason_zh": "跳过：本次 Web CDP 任务没有发送无头提问，也没有模型调用，因此这次不是 L3 通过。这里做的检查没有使用外部登录。测试执行是 2026-11-11T00:16:05Z 至 2026-11-11T00:18:29Z（北京时间 08:16:05–08:18:29）。工作流包络 08:15:01–08:18:32（北京时间）不是这个窗口。"
         },
         "L4": {
-          "status": "skip",
-          "reason": "This L1–L3 job did not run Web CDP. A generic L4 check is still needed for this theme or Web UI plugin.",
-          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP。该插件更像主题或 Web UI，还需一次通用 L4 检查。"
+          "status": "pass",
+          "reason": "Installation and loading passed, the Web shell starts; plugin interactions, business functionality and model output were not tested. L4 pass is only generic shell-mounted criteria: printed token URL used, shellMounted=true, bootFailed=false, serverAlive=true, no dedicated selector probe. No page or console errors in this run, which is not functionality proof.",
+          "reason_zh": "安装与加载通过，Web 外壳可启动；未验证插件交互、业务功能或模型输出。L4 通过只代表通用外壳挂载：使用了打印出的 token 地址，shellMounted=true，bootFailed=false，serverAlive=true，没有专用选择器探针。本次没有页面或控制台错误，这本身不是功能证明。"
         }
       }
     },
     "dsh-genui": {
-      "conclusion": "Install, load, and headless L3 succeeded on the dsh version resolved from @latest. This plugin looks like a theme or Web UI, so a skipped L4 in this wave only means the browser check is still outstanding.",
-      "conclusion_zh": "在 @latest 解析出的 dsh 版本上，安装、加载和 headless L3 均成功。该插件更像主题或 Web UI，本波跳过的 L4 只说明浏览器检查尚未做。",
+      "conclusion": "Installation and loading passed, the Web shell starts; plugin interactions, business functionality and model output were not tested. Test execution was 08:16:05–08:18:29 Asia/Shanghai on 2026-11-11.",
+      "conclusion_zh": "安装与加载通过，Web 外壳可启动；未验证插件交互、业务功能或模型输出。测试执行窗口为北京时间 2026-11-11 08:16:05–08:18:29。",
       "dshVersionRequested": "@deepseek-ai/dsh@latest",
       "dshVersionActual": "0.2.2-rc.1",
-      "testDate": "2026-11-10",
+      "testDate": "2026-11-11",
       "levels": {
         "L1": {
           "status": "pass",
-          "reason": "dsh plugin add finished after the verify pipeline wrote the pnpm allowBuilds key for this git package and retried the install. That retry is not a prepare-blocked result.",
-          "reason_zh": "verify 管线写入该 git 包的 allowBuilds key 并重试安装后，dsh plugin add 完成。这次不是 prepare-blocked。"
+          "reason": "dsh plugin add github:omdsh-dev/dsh-genui passed on the second attempt after the approved allowBuilds/prepare retry. That retry is a pipeline allowance, not an install failure. Requested @deepseek-ai/dsh@latest resolved to 0.2.2-rc.1. Tested main 4d51943451024fd8cd4ded1d5f299301b1d1e9c6. Source https://github.com/ylwl1997/dshbase/actions/runs/42929850925.",
+          "reason_zh": "安装规格 github:omdsh-dev/dsh-genui 在第二次尝试通过：先走已批准的 allowBuilds/prepare 重试。该重试是管线允许，不是安装失败。请求的 @deepseek-ai/dsh@latest 解析为 0.2.2-rc.1。测试的 main 为 4d51943451024fd8cd4ded1d5f299301b1d1e9c6。来源 https://github.com/ylwl1997/dshbase/actions/runs/42929850925。"
         },
         "L2": {
           "status": "pass",
-          "reason": "The profile booted and dump-config listed the bundle as @changfenhuang/dsh-genui.",
-          "reason_zh": "profile 已启动，dump-config 列出的 bundle 为 @changfenhuang/dsh-genui。"
+          "reason": "The profile booted and dump-config listed the activated package @changfenhuang/dsh-genui.",
+          "reason_zh": "profile 已启动，dump-config 列出已激活包 @changfenhuang/dsh-genui。"
         },
         "L3": {
-          "status": "pass",
-          "reason": "A headless prompt ran against the DeepSeek model in this job and completed without a runtime error.",
-          "reason_zh": "本次任务里的无头提问调用了 DeepSeek 模型，并且正常结束，没有运行时错误。"
+          "status": "skip",
+          "reason": "Skipped because this Web CDP job sent no headless prompt and no model call, so this run is not an L3 pass. The checks performed here did not use an outside login. Test execution was 2026-11-11T00:16:05Z to 2026-11-11T00:18:29Z (08:16:05–08:18:29 Asia/Shanghai). The workflow envelope 08:15:01–08:18:32 Asia/Shanghai is not that window.",
+          "reason_zh": "跳过：本次 Web CDP 任务没有发送无头提问，也没有模型调用，因此这次不是 L3 通过。这里做的检查没有使用外部登录。测试执行是 2026-11-11T00:16:05Z 至 2026-11-11T00:18:29Z（北京时间 08:16:05–08:18:29）。工作流包络 08:15:01–08:18:32（北京时间）不是这个窗口。"
         },
         "L4": {
-          "status": "skip",
-          "reason": "This L1–L3 job did not run Web CDP. A generic L4 check is still needed for this theme or Web UI plugin.",
-          "reason_zh": "本次只跑了 L1–L3，没有跑 Web CDP。该插件更像主题或 Web UI，还需一次通用 L4 检查。"
+          "status": "pass",
+          "reason": "Installation and loading passed, the Web shell starts; plugin interactions, business functionality and model output were not tested. L4 pass is only generic shell-mounted criteria: printed token URL used, shellMounted=true, bootFailed=false, serverAlive=true, no dedicated selector probe. No page or console errors in this run, which is not functionality proof.",
+          "reason_zh": "安装与加载通过，Web 外壳可启动；未验证插件交互、业务功能或模型输出。L4 通过只代表通用外壳挂载：使用了打印出的 token 地址，shellMounted=true，bootFailed=false，serverAlive=true，没有专用选择器探针。本次没有页面或控制台错误，这本身不是功能证明。"
         }
       }
     },
