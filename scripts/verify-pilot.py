@@ -36,6 +36,10 @@ Stages (same meanings as https://dshbase.com/audit/):
       bundled Chromium). wait_http and Playwright both open the exact
       `dsh web: http://…/?token=…` URL printed in that process log. The
       tokenless root is not requested, and a token is never invented.
+      With no dedicated selector, text, or route probe, a pass is the
+      generic shell-mounted criteria: that token URL was used, the shell
+      mounted, boot did not fail, and the server stayed alive. A missing
+      probe is not a failure. A configured probe still has to match.
       No ~/webverify path. A pass is browser evidence, not a catalog
       Verified badge.
 
@@ -169,6 +173,8 @@ DEFAULT_PLUGINS = [
 # Browser probes. selectorsAny is OR. A route probe asks the page to fetch a
 # same-origin path and requires JSON, which is how a host row proves it left
 # "waiting for service: webServer". Live account data is not required.
+# A slug with no entry here has no dedicated probe. l4_ready then uses the
+# generic shell-mounted criteria. Do not add a probe solely to avoid that path.
 L4_PLUGINS = [
     {
         "slug": "yumiku-dsh-commandcode-quota",
@@ -693,10 +699,60 @@ def verdict_for_l4(l1: str, l2: str, l4: str) -> str:
     return "l4-fail"
 
 
+def _has_dedicated_l4_probe(expect: dict) -> bool:
+    """True when this plugin configured a selector, text, or route condition."""
+    if list(expect.get("selectorsAny") or []):
+        return True
+    if list(expect.get("textAny") or []):
+        return True
+    if str(expect.get("route") or "").strip():
+        return True
+    return False
+
+
+# Recorded on a generic pass. The token URL was already required by
+# wait_for_web_token before l4_ready runs; this sentence says which criteria
+# produced the pass.
+_GENERIC_L4_PASS_DETAIL = (
+    "Generic L4 pass using shell-mounted criteria, not a dedicated selector probe. "
+    "The printed dsh web token URL was used, the web shell mounted, boot did not fail, "
+    "and the server stayed alive."
+)
+
+
+def _generic_l4_failure_reason(cdp: dict) -> str:
+    """Name every generic criterion that failed. A missing probe is not one of them."""
+    reasons = []
+    if not cdp.get("shellMounted"):
+        extra = str(cdp.get("bootText") or cdp.get("detail") or "").strip()
+        reasons.append("shell not mounted" + (f" ({extra})" if extra else ""))
+    if cdp.get("bootFailed"):
+        extra = str(cdp.get("bootText") or "").strip()
+        reasons.append("boot failed" + (f" ({extra})" if extra else ""))
+    # Fail closed when boot_and_probe did not record the web process as alive.
+    if not cdp.get("serverAlive"):
+        reasons.append("server not alive")
+    return "L4 generic criteria failed: " + "; ".join(reasons) + "."
+
+
 def l4_ready(cdp: dict, expect: dict) -> tuple[bool, str]:
-    """Decide the browser probe. Facts come from l4-cdp.mjs; this is the verdict."""
+    """Decide the browser probe. Facts come from l4-cdp.mjs; this is the verdict.
+
+    A dedicated probe is selectorsAny, textAny, or route. Those conditions
+    still have to match, and a miss is a failure. Shell and boot failures
+    on that path are unchanged. serverAlive is not part of a dedicated pass.
+
+    With no dedicated probe, the generic shell-mounted criteria apply:
+    shell mounted, boot did not fail, and serverAlive. Missing probe
+    configuration is not a failure. serverAlive is stamped by boot_and_probe
+    from the web process; a caller that omits it fails the generic check.
+    """
     if cdp.get("harnessError"):
         return False, str(cdp["harnessError"])
+    if not _has_dedicated_l4_probe(expect):
+        if not cdp.get("shellMounted") or cdp.get("bootFailed") or not cdp.get("serverAlive"):
+            return False, _generic_l4_failure_reason(cdp)
+        return True, _GENERIC_L4_PASS_DETAIL
     if not cdp.get("shellMounted"):
         return False, cdp.get("bootText") or cdp.get("detail") or "Web shell did not mount."
     if cdp.get("bootFailed"):
@@ -730,8 +786,6 @@ def l4_ready(cdp: dict, expect: dict) -> tuple[bool, str]:
     info = cdp.get("route") or {}
     if route and expect.get("routeExpect") == "json" and not info.get("json"):
         return False, f"Route {route} did not return JSON (status {info.get('status')})."
-    if not wanted and not route:
-        return False, "No L4 probe configured."
     notes = []
     hit = [sel for sel in wanted if found.get(sel)]
     if hit:
@@ -1005,7 +1059,11 @@ def boot_and_probe(prof: str, expect: dict, log_dir: Path, log_path: Path, env: 
         out_json = log_dir / f"{profile_name_file(prof)}-l4.json"
         screenshot = log_dir / f"{profile_name_file(prof)}-l4.png"
         code, cdp, dur = run_l4_browser(token_url, expect, out_json, screenshot, log_path, env, secrets)
-        ready, detail = l4_ready(cdp, expect)
+        # Same snapshot the stage records. Generic L4 fails closed without it.
+        alive = proc.poll() is None
+        judged = dict(cdp)
+        judged["serverAlive"] = alive
+        ready, detail = l4_ready(judged, expect)
         harness = bool(cdp.get("harnessError")) or code == 2
         status = "pass" if ready else "fail"
         error = "" if ready else detail
@@ -1027,7 +1085,7 @@ def boot_and_probe(prof: str, expect: dict, log_dir: Path, log_path: Path, env: 
             pageErrors=[redact(item, secrets) for item in (cdp.get("pageErrors") or [])],
             screenshot=str(screenshot) if screenshot.is_file() else "",
             pluginResponses=cdp.get("pluginResponses") or [],
-            serverAlive=proc.poll() is None,
+            serverAlive=alive,
             harness=harness,
             detail=detail,
         )
@@ -1454,7 +1512,9 @@ def render_markdown(report: dict) -> str:
         "",
         (
             "This run is L4 only. L3 was not called and DEEPSEEK_API_KEY was not used. "
-            "`l4-pass` means the web shell mounted and the plugin probe matched. "
+            "`l4-pass` means a dedicated selector, text, or route probe matched, "
+            "or there was no dedicated probe and the generic shell-mounted criteria passed "
+            "(printed token URL, shell mounted, boot did not fail, server stayed alive). "
             "It does not change the catalog Verified badge."
             if report.get("mode") == "l4"
             else
@@ -1722,6 +1782,127 @@ def self_check() -> None:
     assert not loading and "Loading" in why
     broken, why = l4_ready({"harnessError": "no browser"}, {"selectorsAny": [".x"]})
     assert not broken and why == "no browser"
+    # No dedicated probe. Generic shell-mounted criteria, not a probe-missing failure.
+    generic_cdp = {
+        "shellMounted": True,
+        "bootFailed": False,
+        "serverAlive": True,
+        "selectors": {},
+        "detail": "shell mounted",
+    }
+    generic_ok, generic_note = l4_ready(generic_cdp, {})
+    assert generic_ok, generic_note
+    assert verdict_for_l4("pass", "pass", "pass" if generic_ok else "fail") == "l4-pass"
+    assert "No L4 probe configured" not in generic_note
+    assert "shell-mounted criteria" in generic_note
+    assert "dedicated selector probe" in generic_note
+    assert "shell mounted, boot did not fail, and the server stayed alive" in generic_note
+    note_only, note_only_why = l4_ready(generic_cdp, {"note": "not a probe"})
+    assert note_only and "shell-mounted criteria" in note_only_why
+    shell_down, shell_why = l4_ready(
+        {"shellMounted": False, "bootFailed": False, "serverAlive": True, "bootText": "Loading plugins"},
+        {},
+    )
+    assert not shell_down and verdict_for_l4("pass", "pass", "fail") == "l4-fail"
+    assert "shell not mounted" in shell_why and "Loading plugins" in shell_why
+    assert "boot failed" not in shell_why and "server not alive" not in shell_why
+    assert "No L4 probe configured" not in shell_why
+    boot_down, boot_why = l4_ready(
+        {"shellMounted": True, "bootFailed": True, "serverAlive": True, "bootText": "overlay failed"},
+        {},
+    )
+    assert not boot_down and "boot failed" in boot_why and "overlay failed" in boot_why
+    assert "shell not mounted" not in boot_why and "server not alive" not in boot_why
+    assert "No L4 probe configured" not in boot_why
+    server_down, server_why = l4_ready(
+        {"shellMounted": True, "bootFailed": False, "serverAlive": False},
+        {},
+    )
+    assert not server_down and server_why == "L4 generic criteria failed: server not alive."
+    assert "No L4 probe configured" not in server_why
+    missing_alive, missing_why = l4_ready({"shellMounted": True, "bootFailed": False}, {})
+    assert not missing_alive and "server not alive" in missing_why
+    all_down, all_why = l4_ready(
+        {"shellMounted": False, "bootFailed": True, "serverAlive": False, "bootText": "failed"},
+        {},
+    )
+    assert not all_down
+    assert "shell not mounted" in all_why and "boot failed" in all_why and "server not alive" in all_why
+    assert "No L4 probe configured" not in all_why
+    harness_generic, harness_why = l4_ready(
+        {"harnessError": "no browser", "shellMounted": False, "serverAlive": True},
+        {},
+    )
+    assert not harness_generic and harness_why == "no browser"
+    # Dedicated probes stay required. A miss is a probe miss, including when
+    # the generic shell facts would otherwise pass. serverAlive is not consulted.
+    kimino_expect = {
+        "selectorsAny": [
+            'html[data-kimino-theme="on"]',
+            "#kimino-theme",
+            'style[data-plugin="dsh-kimino-theme"]',
+            "[data-kimino-backdrop]",
+        ],
+    }
+    kimino_hit, kimino_note = l4_ready(
+        {"shellMounted": True, "selectors": {"#kimino-theme": True}},
+        kimino_expect,
+    )
+    assert kimino_hit and "#kimino-theme" in kimino_note
+    assert "shell-mounted criteria" not in kimino_note
+    kimino_miss, kimino_why = l4_ready(
+        {
+            "shellMounted": True,
+            "bootFailed": False,
+            "serverAlive": True,
+            "selectors": {
+                'html[data-kimino-theme="on"]': False,
+                "#kimino-theme": False,
+                'style[data-plugin="dsh-kimino-theme"]': False,
+                "[data-kimino-backdrop]": False,
+            },
+        },
+        kimino_expect,
+    )
+    assert not kimino_miss and "selectors" in kimino_why
+    assert "shell-mounted criteria" not in kimino_why
+    assert "No L4 probe configured" not in kimino_why
+    assert verdict_for_l4("pass", "pass", "pass" if kimino_miss else "fail") == "l4-fail"
+    text_hit, text_note = l4_ready(
+        {"shellMounted": True, "serverAlive": False, "texts": {"Hello": True}},
+        {"textAny": ["Hello"]},
+    )
+    assert text_hit and "Hello" in text_note
+    text_miss, text_why = l4_ready(
+        {"shellMounted": True, "serverAlive": True, "texts": {"Hello": False}},
+        {"textAny": ["Hello"]},
+    )
+    assert not text_miss and "text Hello" in text_why
+    route_miss, route_why = l4_ready(
+        {"shellMounted": True, "serverAlive": True, "route": {"status": 404, "json": False}},
+        {"route": "/plugins/events", "routeExpect": "json"},
+    )
+    assert not route_miss and "did not return JSON" in route_why
+    route_hit, route_note = l4_ready(
+        {"shellMounted": True, "serverAlive": False, "route": {"status": 200, "json": True}},
+        {"route": "/plugins/events", "routeExpect": "json"},
+    )
+    assert route_hit and "JSON 200" in route_note
+    dedicated_alive_off, dedicated_note = l4_ready(
+        {
+            "shellMounted": True,
+            "serverAlive": False,
+            "selectors": {".dcq-float": True},
+            "route": {"status": 200, "json": True},
+        },
+        {"selectorsAny": [".dcq-float"], "route": "/x", "routeExpect": "json"},
+    )
+    assert dedicated_alive_off and ".dcq-float" in dedicated_note
+    forbid_hit, forbid_why = l4_ready(
+        {"shellMounted": True, "selectors": {"#dcq-boot-error": True, ".dcq-float": True}},
+        {"selectorsAny": [".dcq-float"], "forbid": ["#dcq-boot-error"]},
+    )
+    assert not forbid_hit and forbid_why.startswith("Plugin boot error UI present")
     advice = recommendation({
         "mode": "l4",
         "runner": "self-check",
@@ -1890,6 +2071,30 @@ def self_check() -> None:
     md = render_markdown(sample)
     assert "example" in md and "web-only" in md and "Catalog updated: false" in md
     assert "sample recommendation" in md
+    l4_sample = dict(sample)
+    l4_sample["mode"] = "l4"
+    l4_plugin = dict(sample["plugins"][0])
+    l4_plugin["slug"] = "dsh-pet"
+    l4_plugin["verdict"] = "l4-pass"
+    l4_plugin["stages"] = {
+        "L1": stage("pass", 10),
+        "L2": stage("pass", 20),
+        "L3": stage("skipped"),
+        "L4": stage(
+            "pass",
+            30,
+            detail=_GENERIC_L4_PASS_DETAIL,
+            shellMounted=True,
+            bootFailed=False,
+            serverAlive=True,
+        ),
+    }
+    l4_sample["plugins"] = [l4_plugin]
+    l4_md = render_markdown(l4_sample)
+    assert "dsh-pet" in l4_md and "l4-pass" in l4_md
+    assert "shell-mounted criteria" in l4_md
+    assert "dedicated selector probe" in l4_md
+    assert "No L4 probe configured" not in l4_md
     _self_check_web_token()
     print("self-check ok", flush=True)
 
