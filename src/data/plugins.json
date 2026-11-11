@@ -2736,7 +2736,7 @@
    "trust": "Gold",
    "slug": "dsh-codex-connect",
    "platform": "any",
-   "bareNpm": "install-fail",
+   "bareNpm": "other",
    "contributors": 12,
    "depCount": 25,
    "depsOfficial": 22,
@@ -8740,7 +8740,7 @@
    "trust": "Gold",
    "slug": "dsh-humanizer",
    "platform": "any",
-   "bareNpm": "install-fail",
+   "bareNpm": "other",
    "contributors": 2,
    "depCount": 3,
    "depsOfficial": 3,
@@ -24392,7 +24392,7 @@
    "depsOfficial": 0,
    "repoOwner": "LongSir0419",
    "_enriched": "2026-08-21|0.1.6",
-   "bareNpm": "install-fail",
+   "bareNpm": "other",
    "trust": "Gold",
    "ucs": [
     "GitHub integration"
@@ -313063,7 +313063,7 @@
    "trust": "Unrated",
    "slug": "dsh-web-ui",
    "platform": "any",
-   "bareNpm": "install-fail",
+   "bareNpm": "other",
    "contributors": 114,
    "depCount": 19,
    "depsOfficial": 0,
@@ -494924,7 +494924,7 @@
    "trust": "Gold",
    "slug": "dsh-auto-approval",
    "platform": "any",
-   "bareNpm": "install-fail",
+   "bareNpm": "other",
    "webonly": false,
    "testDate": "2026-08-18",
    "note": "验证: ok (0.1.0-rc.6)",
@@ -552636,7 +552636,8 @@
    "repoOwner": "ccch1mneyyy",
    "_enriched": "2026-10-13|",
    "installPreferred": "npm install -g @deepseek-ai/dsh @deepseek-harness-tui/dsh-tui",
-   "installManual": "dsh plugin --profile dsh-tui add @deepseek-harness-tui/dsh-tui"
+   "installManual": "dsh plugin --profile dsh-tui add @deepseek-harness-tui/dsh-tui",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-gitbash-preset",
