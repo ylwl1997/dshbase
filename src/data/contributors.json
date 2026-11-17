@@ -1878,6 +1878,18 @@
   ]
  },
  {
+  "github": "uia040808-design",
+  "avatar": "https://avatars.githubusercontent.com/u/226975763?v=4",
+  "plugins": [
+   {
+    "name": "dsh-connect-sensetime",
+    "slug": "dsh-connect-sensetime",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "vacum972",
   "avatar": "https://avatars.githubusercontent.com/u/219677025?v=4",
   "plugins": [
