@@ -634264,21 +634264,21 @@
   {
    "name": "@hoyyang/dsh-project-manager",
    "url": "https://github.com/hoyyang/dsh-project-manager",
-   "pkg": "",
-   "ver": "",
-   "npm": false,
+   "pkg": "dsh-project-manager",
+   "ver": "0.79.0",
+   "npm": true,
    "test": "pending",
-   "desc": "Project board for DeepSeek Harness: kanban card groups, cards linked to landfill-project memory, mounted repos and sessions.",
-   "desc_en": "Project board for DeepSeek Harness: kanban card groups, cards linked to landfill-project memory, mounted repos and sessions.",
-   "desc_zh": "",
-   "stars": 5,
-   "forks": 0,
-   "issues": 0,
-   "language": "",
-   "updated": "",
+   "desc": "Project board, task schedule (gantt) and project memory for DeepSeek Harness: sessions opened from a card auto-load it.",
+   "desc_en": "Project board, task schedule (gantt) and project memory for DeepSeek Harness: sessions opened from a card auto-load it.",
+   "desc_zh": "专为 DeepSeek Harness 打造的本地项目管理插件：卡片组（父项目）× 卡片，卡片可与落盘项目记忆（长期 STATE）多对多关联，并挂载多个本地仓库。从卡片或任务开的会话自动带出项目上下文；另有富文本知识库、阶段看板、卡片详情和任务日程甘特图，跨 00:00 自动记录执行。界面可跟随 DSH、固定中文或 English。数据只在本地，无需外部账号。",
+   "stars": 9,
+   "forks": 1,
+   "issues": 1,
+   "language": "JavaScript",
+   "updated": "2026-11-17",
    "archived": false,
    "added": "2026-10-14",
-   "license": "",
+   "license": "MIT",
    "ucs": [
     "Memory",
     "File",
@@ -634286,7 +634286,9 @@
    ],
    "trust": "Gold",
    "slug": "dsh-project-manager-3",
-   "platform": "any"
+   "platform": "any",
+   "repoOwner": "hoyyang",
+   "note": "Issue #340 refresh of the existing Productivity row (slug dsh-project-manager-3, display name @hoyyang/dsh-project-manager, added 2026-10-14). Same GitHub repo; scripts/ingest-plugin.py matches canonical owner/repo and does not mint a new slug, so this row stays dsh-project-manager-3. Hard gates re-checked 2026-11-17: public repo, topics include dsh-plugin, MIT LICENSE file, cordis.patch.yml at repo root, pushed_at 2026-11-17T01:51:13Z (HEAD 6e7d78e45a6db01a955da5d09e6af230b162773b, same as npm gitHead). test stays pending; no testDate; trust stays Gold; marketplace L1-L4 not run. npm dsh-project-manager@0.79.0 (unscoped; repository git+https://github.com/hoyyang/dsh-project-manager.git; maintainer hoyyang; published 2026-11-17T01:55:02.116Z). The scoped name @hoyyang/dsh-project-manager is not on npm. This package is not wired to slug dsh-project-manager (https://github.com/br1nosense/dsh-project-manager, package.json name @dsh-user/dsh-project-manager, not published) or slug dsh-project-manager-2 (https://github.com/rexcoding-yu/dsh-project-manager; root package.json name dsh-project-manager is private; workspace package @dsh-project-manager/plugin is not on npm). Install: dsh plugin add dsh-project-manager. Web client. No external account. Project memory needs local python3 and is disabled on Windows."
   },
   {
    "name": "@shuiqian520/dsh-session-delete",
@@ -693542,9 +693544,9 @@
    "platform": "any",
    "testDate": "2026-11-17",
    "repoOwner": "Digiforge6688",
-   "needs": "Needs a ZipX account and a ZipX backend (FastAPI, can be self-hosted; default http://localhost:8000, baseUrl in the cordis config) with the DSH channel enabled (DIALOGUE_CHANNELS=dsh). The plugin still installs and can show connection and diagnostics without that backend.",
-   "needsZh": "需要 ZipX 账号，以及 ZipX 后端（FastAPI，可自部署，默认 http://localhost:8000，可在 cordis 配置里改 baseUrl），并打开 DSH 渠道（DIALOGUE_CHANNELS=dsh）。不连后端时插件仍可安装，并显示连接与诊断。",
-   "note": "Issue #336 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm @zipx/dsh-plugin@0.3.0 (repository Digiforge6688/zipx-dsh-plugin; gitHead 859835bf7ca65fb00beaa8e9bb3768dff2b57099; published 2026-11-17T01:37:12Z). Alias dsh-zipx@0.3.0 publishes the same repository; the catalog install uses the scoped package, not the alias and not only github:Digiforge6688/zipx-dsh-plugin. Install: dsh plugin --profile web add @zipx/dsh-plugin. GitHub Release v0.3.0. Declares node >=22.19.0 and dsh >=0.2.0 <0.3.0. Web client. Issue category Creation（创作） is stored as Content. External ZipX account and backend required for a full run."
+   "needs": "Needs a ZipX account and a ZipX backend (FastAPI, can be self-hosted; default http://localhost:8000, baseUrl in the cordis config) with the DSH channel enabled (DIALOGUE_CHANNELS=dsh). Sign up at https://www.zipx.ai (international) or https://www.zipx.vip (China); after signup, sign in under DSH Settings → ZipX. The plugin still installs and can show connection and diagnostics without that backend.",
+   "needsZh": "需要 ZipX 账号，以及 ZipX 后端（FastAPI，可自部署，默认 http://localhost:8000，可在 cordis 配置里改 baseUrl），并打开 DSH 渠道（DIALOGUE_CHANNELS=dsh）。注册：国际站 https://www.zipx.ai ，中国站 https://www.zipx.vip ；注册后在 DSH 的设置 → ZipX 登录。不连后端时插件仍可安装，并显示连接与诊断。",
+   "note": "Issue #336 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm @zipx/dsh-plugin@0.3.0 (repository Digiforge6688/zipx-dsh-plugin; gitHead 859835bf7ca65fb00beaa8e9bb3768dff2b57099; published 2026-11-17T01:37:12Z). Alias dsh-zipx@0.3.0 publishes the same repository; the catalog install uses the scoped package, not the alias and not only github:Digiforge6688/zipx-dsh-plugin. Install: dsh plugin --profile web add @zipx/dsh-plugin. GitHub Release v0.3.0. Declares node >=22.19.0 and dsh >=0.2.0 <0.3.0. Web client. Issue category Creation（创作） is stored as Content. External ZipX account and backend required for a full run. Issue #336 comment 2026-11-17T08:26:36Z: official signup is https://www.zipx.ai (international) and https://www.zipx.vip (China); after signup, sign in under DSH Settings → ZipX. Those URLs are on needs and needsZh. test, testDate, and trust unchanged."
   },
   {
    "name": "agent-ear",
