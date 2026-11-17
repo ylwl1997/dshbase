@@ -232528,7 +232528,8 @@
    "platform": "any",
    "testDate": "2026-11-17",
    "repoOwner": "Him666233",
-   "note": "Issue #311 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml in plugin/). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm @him666233/dsh-inline-diff@1.4.0 (repository Him666233/dsh-inline-diff; no gitHead on the registry version; published 2026-11-12T16:10:34Z). Slug him666233-dsh-inline-diff because slug dsh-inline-diff already belongs to janeickholt/dsh-inline-diff; that row was not changed. Workspace root package dsh-inline-diff-workspace is private. Install: dsh plugin add @him666233/dsh-inline-diff. Declares dsh >=0.2.2-rc.1 <0.3.0. No external account."
+   "note": "Issue #311 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml in plugin/). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm @him666233/dsh-inline-diff@1.4.0 (repository Him666233/dsh-inline-diff; no gitHead on the registry version; published 2026-11-12T16:10:34Z). Slug him666233-dsh-inline-diff because slug dsh-inline-diff already belongs to janeickholt/dsh-inline-diff; that row was not changed. Workspace root package dsh-inline-diff-workspace is private. Install: dsh plugin add @him666233/dsh-inline-diff. Declares dsh >=0.2.2-rc.1 <0.3.0. No external account.",
+   "bareNpm": "other"
   },
   {
    "name": "dsh-connect-sensetime",
@@ -493743,7 +493744,8 @@
    "platform": "any",
    "testDate": "2026-11-17",
    "repoOwner": "jjjjjjjjnnjnn",
-   "note": "Issue #322 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml in packages/dsh-ai-terminal-pet; the repo root is a private shim whose dsh.bundle points at that file). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. Issue left npm blank. Registry now has dsh-ai-terminal-pet@1.2.27 (maintainer jjjjjjjjnnjnn; repository jjjjjjjjnnjnn/ai-terminal-pet directory packages/dsh-ai-terminal-pet; gitHead c9733d213b1b80ad32564660e1726978cfca7ba1; published 2026-11-16T20:43:42Z). Install: dsh plugin add dsh-ai-terminal-pet. Declares node >=24.9.0 and dsh >=0.2.0-0 <0.3.0-0. Catalog version is the published 1.2.27; the issue did not name a version. No external account."
+   "note": "Issue #322 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml in packages/dsh-ai-terminal-pet; the repo root is a private shim whose dsh.bundle points at that file). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. Issue left npm blank. Registry now has dsh-ai-terminal-pet@1.2.27 (maintainer jjjjjjjjnnjnn; repository jjjjjjjjnnjnn/ai-terminal-pet directory packages/dsh-ai-terminal-pet; gitHead c9733d213b1b80ad32564660e1726978cfca7ba1; published 2026-11-16T20:43:42Z). Install: dsh plugin add dsh-ai-terminal-pet. Declares node >=24.9.0 and dsh >=0.2.0-0 <0.3.0-0. Catalog version is the published 1.2.27; the issue did not name a version. No external account.",
+   "bareNpm": "other"
   }
  ],
  "Automation": [
@@ -560955,7 +560957,8 @@
    "platform": "any",
    "testDate": "2026-11-17",
    "repoOwner": "Nikodem5",
-   "note": "Issue #333 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml in packages/terminal). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm @nikodem5/dsh-web-terminal@0.2.1 (repository Nikodem5/dsh-web-terminal directory packages/terminal; gitHead af776280c6fb2826065f741f1b5b8016a9245250; published 2026-11-14T20:51:04Z). Slug nikodem5-dsh-web-terminal because slug dsh-web-terminal already belongs to helays/dsh-web-terminal; that row was not changed. Monorepo root package dsh-web-terminal-monorepo is private. Install this package, not the private root: dsh plugin --profile web add @nikodem5/dsh-web-terminal. The same repository also publishes @nikodem5/dsh-code-editor as its own row. Declares node >=22. Web client. No external account."
+   "note": "Issue #333 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml in packages/terminal). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm @nikodem5/dsh-web-terminal@0.2.1 (repository Nikodem5/dsh-web-terminal directory packages/terminal; gitHead af776280c6fb2826065f741f1b5b8016a9245250; published 2026-11-14T20:51:04Z). Slug nikodem5-dsh-web-terminal because slug dsh-web-terminal already belongs to helays/dsh-web-terminal; that row was not changed. Monorepo root package dsh-web-terminal-monorepo is private. Install this package, not the private root: dsh plugin --profile web add @nikodem5/dsh-web-terminal. The same repository also publishes @nikodem5/dsh-code-editor as its own row. Declares node >=22. Web client. No external account.",
+   "bareNpm": "other"
   },
   {
    "name": "@nikodem5/dsh-code-editor",
@@ -560979,7 +560982,8 @@
    "platform": "any",
    "testDate": "2026-11-17",
    "repoOwner": "Nikodem5",
-   "note": "Issue #333 intake, second package in Nikodem5/dsh-web-terminal. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml in packages/code-editor). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm @nikodem5/dsh-code-editor@0.2.1 (repository directory packages/code-editor; gitHead af776280c6fb2826065f741f1b5b8016a9245250; published 2026-11-14T20:52:19Z). Listed separately because it is its own installable package; ingest-plugin.py dedups by repository URL, so this row was added beside @nikodem5/dsh-web-terminal. Install: dsh plugin --profile web add @nikodem5/dsh-code-editor. Declares node >=22. Web client. No external account. Does not replace helays/dsh-web-terminal."
+   "note": "Issue #333 intake, second package in Nikodem5/dsh-web-terminal. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml in packages/code-editor). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm @nikodem5/dsh-code-editor@0.2.1 (repository directory packages/code-editor; gitHead af776280c6fb2826065f741f1b5b8016a9245250; published 2026-11-14T20:52:19Z). Listed separately because it is its own installable package; ingest-plugin.py dedups by repository URL, so this row was added beside @nikodem5/dsh-web-terminal. Install: dsh plugin --profile web add @nikodem5/dsh-code-editor. Declares node >=22. Web client. No external account. Does not replace helays/dsh-web-terminal.",
+   "bareNpm": "other"
   }
  ],
  "Storage": [
@@ -575055,7 +575059,8 @@
    "repoOwner": "EnderDAG",
    "needs": "QQ capture and repost are optional and need SnowLuma (an OneBot v11 HTTP gateway) running on this machine. Local archive, the management page, and search do not need an account.",
    "needsZh": "QQ 采集与回发是可选功能，需要本机运行 SnowLuma（OneBot v11 HTTP 网关）。本地归档、管理页和检索不需要账号。",
-   "note": "Issue #321 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. The issue said npm was not published yet. Registry now has dsh-quote-archive@0.17.0 (maintainer enderdag; repository EnderDAG/dsh-quote-archive; gitHead be6c7129dcf3a80a371b5b8b1ea7e7219e249cc2; published 2026-11-16T15:14:40Z). Install: dsh plugin add dsh-quote-archive. Declares node >=22.13 and dsh >=0.2.2-rc.1 <0.3.0-0. Web client. Optional SnowLuma / OneBot v11 for QQ capture and repost."
+   "note": "Issue #321 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. The issue said npm was not published yet. Registry now has dsh-quote-archive@0.17.0 (maintainer enderdag; repository EnderDAG/dsh-quote-archive; gitHead be6c7129dcf3a80a371b5b8b1ea7e7219e249cc2; published 2026-11-16T15:14:40Z). Install: dsh plugin add dsh-quote-archive. Declares node >=22.13 and dsh >=0.2.2-rc.1 <0.3.0-0. Web client. Optional SnowLuma / OneBot v11 for QQ capture and repost.",
+   "bareNpm": "other"
   }
  ],
  "Vision": [
@@ -634288,7 +634293,8 @@
    "slug": "dsh-project-manager-3",
    "platform": "any",
    "repoOwner": "hoyyang",
-   "note": "Issue #340 refresh of the existing Productivity row (slug dsh-project-manager-3, display name @hoyyang/dsh-project-manager, added 2026-10-14). Same GitHub repo; scripts/ingest-plugin.py matches canonical owner/repo and does not mint a new slug, so this row stays dsh-project-manager-3. Hard gates re-checked 2026-11-17: public repo, topics include dsh-plugin, MIT LICENSE file, cordis.patch.yml at repo root, pushed_at 2026-11-17T01:51:13Z (HEAD 6e7d78e45a6db01a955da5d09e6af230b162773b, same as npm gitHead). test stays pending; no testDate; trust stays Gold; marketplace L1-L4 not run. npm dsh-project-manager@0.79.0 (unscoped; repository git+https://github.com/hoyyang/dsh-project-manager.git; maintainer hoyyang; published 2026-11-17T01:55:02.116Z). The scoped name @hoyyang/dsh-project-manager is not on npm. This package is not wired to slug dsh-project-manager (https://github.com/br1nosense/dsh-project-manager, package.json name @dsh-user/dsh-project-manager, not published) or slug dsh-project-manager-2 (https://github.com/rexcoding-yu/dsh-project-manager; root package.json name dsh-project-manager is private; workspace package @dsh-project-manager/plugin is not on npm). Install: dsh plugin add dsh-project-manager. Web client. No external account. Project memory needs local python3 and is disabled on Windows."
+   "note": "Issue #340 refresh of the existing Productivity row (slug dsh-project-manager-3, display name @hoyyang/dsh-project-manager, added 2026-10-14). Same GitHub repo; scripts/ingest-plugin.py matches canonical owner/repo and does not mint a new slug, so this row stays dsh-project-manager-3. Hard gates re-checked 2026-11-17: public repo, topics include dsh-plugin, MIT LICENSE file, cordis.patch.yml at repo root, pushed_at 2026-11-17T01:51:13Z (HEAD 6e7d78e45a6db01a955da5d09e6af230b162773b, same as npm gitHead). test stays pending; no testDate; trust stays Gold; marketplace L1-L4 not run. npm dsh-project-manager@0.79.0 (unscoped; repository git+https://github.com/hoyyang/dsh-project-manager.git; maintainer hoyyang; published 2026-11-17T01:55:02.116Z). The scoped name @hoyyang/dsh-project-manager is not on npm. This package is not wired to slug dsh-project-manager (https://github.com/br1nosense/dsh-project-manager, package.json name @dsh-user/dsh-project-manager, not published) or slug dsh-project-manager-2 (https://github.com/rexcoding-yu/dsh-project-manager; root package.json name dsh-project-manager is private; workspace package @dsh-project-manager/plugin is not on npm). Install: dsh plugin add dsh-project-manager. Web client. No external account. Project memory needs local python3 and is disabled on Windows.",
+   "bareNpm": "other"
   },
   {
    "name": "@shuiqian520/dsh-session-delete",
@@ -659237,7 +659243,8 @@
    "needsZh": "读取和关闭通知需要你自己的 GitHub 账号登录；邮件是只读 IMAP，需要你自己的邮箱。手动交代的到期事项不需要外部账号。",
    "repoOwner": "AIcivilization",
    "testDate": "2026-11-17",
-   "note": "Issue #328 intake of the existing dsh.so stub (slug dsh-mishu, name @AIcivilization/dsh-mishu kept). Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm dsh-mishu@0.9.0 (repository AIcivilization/dsh-mishu; gitHead f192314c829356b38ffa1552aab9521a3e6b6022; published 2026-11-16T03:13:58Z). Install: dsh plugin add dsh-mishu. Declares node >=22.18. Web client. The 0.9.0 package description also says the mail tab can draft and send; the issue text says mail is read-only, and the catalog description follows the issue. GitHub login for notifications; mailbox for IMAP."
+   "note": "Issue #328 intake of the existing dsh.so stub (slug dsh-mishu, name @AIcivilization/dsh-mishu kept). Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm dsh-mishu@0.9.0 (repository AIcivilization/dsh-mishu; gitHead f192314c829356b38ffa1552aab9521a3e6b6022; published 2026-11-16T03:13:58Z). Install: dsh plugin add dsh-mishu. Declares node >=22.18. Web client. The 0.9.0 package description also says the mail tab can draft and send; the issue text says mail is read-only, and the catalog description follows the issue. GitHub login for notifications; mailbox for IMAP.",
+   "bareNpm": "other"
   },
   {
    "name": "@AhaCrazy/dsh-nav-history",
@@ -663786,7 +663793,8 @@
    "platform": "any",
    "repoOwner": "Rayle8",
    "testDate": "2026-11-17",
-   "note": "Issue #330 intake of the existing dsh.so stub (slug dsh-aside-note, name @Rayle8/dsh-aside-note kept). Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm dsh-aside-note@1.1.3 (repository Rayle8/dsh-aside-note; gitHead e93182046a203859cc16dba1134831b0178b1485; published 2026-11-15T13:55:14Z). Install: dsh plugin add dsh-aside-note. Web client. No external account."
+   "note": "Issue #330 intake of the existing dsh.so stub (slug dsh-aside-note, name @Rayle8/dsh-aside-note kept). Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm dsh-aside-note@1.1.3 (repository Rayle8/dsh-aside-note; gitHead e93182046a203859cc16dba1134831b0178b1485; published 2026-11-15T13:55:14Z). Install: dsh plugin add dsh-aside-note. Web client. No external account.",
+   "bareNpm": "other"
   },
   {
    "name": "@altmanWang/dsh-qq-email",
@@ -693546,7 +693554,8 @@
    "repoOwner": "Digiforge6688",
    "needs": "Needs a ZipX account and a ZipX backend (FastAPI, can be self-hosted; default http://localhost:8000, baseUrl in the cordis config) with the DSH channel enabled (DIALOGUE_CHANNELS=dsh). Sign up at https://www.zipx.ai (international) or https://www.zipx.vip (China); after signup, sign in under DSH Settings → ZipX. The plugin still installs and can show connection and diagnostics without that backend.",
    "needsZh": "需要 ZipX 账号，以及 ZipX 后端（FastAPI，可自部署，默认 http://localhost:8000，可在 cordis 配置里改 baseUrl），并打开 DSH 渠道（DIALOGUE_CHANNELS=dsh）。注册：国际站 https://www.zipx.ai ，中国站 https://www.zipx.vip ；注册后在 DSH 的设置 → ZipX 登录。不连后端时插件仍可安装，并显示连接与诊断。",
-   "note": "Issue #336 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm @zipx/dsh-plugin@0.3.0 (repository Digiforge6688/zipx-dsh-plugin; gitHead 859835bf7ca65fb00beaa8e9bb3768dff2b57099; published 2026-11-17T01:37:12Z). Alias dsh-zipx@0.3.0 publishes the same repository; the catalog install uses the scoped package, not the alias and not only github:Digiforge6688/zipx-dsh-plugin. Install: dsh plugin --profile web add @zipx/dsh-plugin. GitHub Release v0.3.0. Declares node >=22.19.0 and dsh >=0.2.0 <0.3.0. Web client. Issue category Creation（创作） is stored as Content. External ZipX account and backend required for a full run. Issue #336 comment 2026-11-17T08:26:36Z: official signup is https://www.zipx.ai (international) and https://www.zipx.vip (China); after signup, sign in under DSH Settings → ZipX. Those URLs are on needs and needsZh. test, testDate, and trust unchanged."
+   "note": "Issue #336 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm @zipx/dsh-plugin@0.3.0 (repository Digiforge6688/zipx-dsh-plugin; gitHead 859835bf7ca65fb00beaa8e9bb3768dff2b57099; published 2026-11-17T01:37:12Z). Alias dsh-zipx@0.3.0 publishes the same repository; the catalog install uses the scoped package, not the alias and not only github:Digiforge6688/zipx-dsh-plugin. Install: dsh plugin --profile web add @zipx/dsh-plugin. GitHub Release v0.3.0. Declares node >=22.19.0 and dsh >=0.2.0 <0.3.0. Web client. Issue category Creation（创作） is stored as Content. External ZipX account and backend required for a full run. Issue #336 comment 2026-11-17T08:26:36Z: official signup is https://www.zipx.ai (international) and https://www.zipx.vip (China); after signup, sign in under DSH Settings → ZipX. Those URLs are on needs and needsZh. test, testDate, and trust unchanged.",
+   "bareNpm": "other"
   },
   {
    "name": "agent-ear",
@@ -693572,7 +693581,8 @@
    "repoOwner": "HudsonHuang",
    "needs": "Basic analysis needs your own Qwen Omni API key. Local mixcheck and compare do not. The CLI is installed with uv tool install agent-ear.",
    "needsZh": "基础分析需要你自己的 Qwen Omni API key。本地 mixcheck 和 compare 不需要。CLI 通过 uv tool install agent-ear 安装。",
-   "note": "Issue #324 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm agent-ear@0.2.10 (repository HudsonHuang/agent-ear; gitHead b79bf3f7f133b4d11b74b583938d5c29e8d33671; published 2026-11-11T17:36:23Z). Install: dsh plugin add agent-ear. Declares node >=22.19.0. Issue listed AI Models and Content; stored under Content. Basic analysis needs a Qwen Omni API key; local mixcheck and compare do not."
+   "note": "Issue #324 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm agent-ear@0.2.10 (repository HudsonHuang/agent-ear; gitHead b79bf3f7f133b4d11b74b583938d5c29e8d33671; published 2026-11-11T17:36:23Z). Install: dsh plugin add agent-ear. Declares node >=22.19.0. Issue listed AI Models and Content; stored under Content. Basic analysis needs a Qwen Omni API key; local mixcheck and compare do not.",
+   "bareNpm": "other"
   }
  ]
 }
