@@ -232529,6 +232529,32 @@
    "testDate": "2026-11-17",
    "repoOwner": "Him666233",
    "note": "Issue #311 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml in plugin/). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. npm @him666233/dsh-inline-diff@1.4.0 (repository Him666233/dsh-inline-diff; no gitHead on the registry version; published 2026-11-12T16:10:34Z). Slug him666233-dsh-inline-diff because slug dsh-inline-diff already belongs to janeickholt/dsh-inline-diff; that row was not changed. Workspace root package dsh-inline-diff-workspace is private. Install: dsh plugin add @him666233/dsh-inline-diff. Declares dsh >=0.2.2-rc.1 <0.3.0. No external account."
+  },
+  {
+   "name": "dsh-connect-sensetime",
+   "url": "https://github.com/uia040808-design/dsh-connect-sensetime",
+   "pkg": "",
+   "ver": "0.1.0",
+   "npm": false,
+   "test": "verified",
+   "desc": "DSH bundle plugin that bridges the locally signed-in SenseTime Raccoon desktop client into DeepSeek Harness: sidebar credits/model panel plus an OpenAI-compatible endpoint.",
+   "desc_en": "DSH bundle plugin that bridges the locally signed-in SenseTime Raccoon desktop client into DeepSeek Harness: sidebar credits/model panel plus an OpenAI-compatible endpoint.",
+   "desc_zh": "把本机已登录的商汤小浣熊（SenseTime Raccoon）桌面客户端接进 DSH：左栏看积分和模型目录，并暴露 OpenAI 兼容端点，让自定义模型 API 发现并调用小浣熊的模型。",
+   "stars": 0,
+   "forks": 0,
+   "issues": 0,
+   "language": "JavaScript",
+   "updated": "2026-11-16",
+   "archived": false,
+   "added": "2026-11-17T02:25:17",
+   "license": "MIT",
+   "slug": "dsh-connect-sensetime",
+   "platform": "any",
+   "testDate": "2026-11-17",
+   "repoOwner": "uia040808-design",
+   "needs": "Needs the SenseTime Raccoon (商汤小浣熊) desktop client installed and signed in on this Windows machine. The plugin reads that local login and does not create an account. Without it, the panel reports the session as unavailable or expired.",
+   "needsZh": "需要本机已安装并登录的商汤小浣熊桌面客户端。插件只读这份登录态，不代为注册账号。没有登录态时，面板会显示登录态不可用或已过期。",
+   "note": "Issue #323 and #335 intake. Hard gates present (dsh-plugin topic + MIT LICENSE + cordis.patch.yml at repo root). Verified on intake — no real-device check; marketplace runtime L1–L3/L4 not run by dshbase. Not on npm (package.json private:true; registry 404 for dsh-connect-sensetime and @local/dsh-raccoon). Package id @local/dsh-raccoon@0.1.0. Unscoped npm dsh-raccoon@0.0.1 (repository dushaobindoudou/dsh-plugin) is a name reservation and is unrelated; do not install it for this plugin. Install: dsh plugin --profile desktop add github:uia040808-design/dsh-connect-sensetime. No git tag or GitHub Release; pin github:uia040808-design/dsh-connect-sensetime (5f9745d098338d503f6a19097140b764d504224e). No engines field. README says development was on DSH desktop 0.2.2-rc.1. Web client (dsh.client.platform web) plus a loopback OpenAI endpoint on 127.0.0.1:8787. Windows only; macOS and Linux are untested. Issue #323 said no external account. Issue #335 and the README require the signed-in Raccoon desktop client, and the catalog follows that. #323 was closed completed without a catalog row; #335 is the same repository and the same description. Distinct from zhlcba/dsh-raccoon-connect (slug dsh-raccoon-connect)."
   }
  ],
  "AI Models": [
