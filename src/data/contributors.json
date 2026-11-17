@@ -390,6 +390,24 @@
   ]
  },
  {
+  "github": "Nikodem5",
+  "avatar": "https://avatars.githubusercontent.com/u/94792326?v=4",
+  "plugins": [
+   {
+    "name": "@nikodem5/dsh-code-editor",
+    "slug": "nikodem5-dsh-code-editor",
+    "npm": true,
+    "pkg": "@nikodem5/dsh-code-editor"
+   },
+   {
+    "name": "@nikodem5/dsh-web-terminal",
+    "slug": "nikodem5-dsh-web-terminal",
+    "npm": true,
+    "pkg": "@nikodem5/dsh-web-terminal"
+   }
+  ]
+ },
+ {
   "github": "PolinniZhong",
   "avatar": "https://avatars.githubusercontent.com/u/260301152?v=4",
   "plugins": [
@@ -440,6 +458,24 @@
     "slug": "pack-agent-dsh",
     "npm": true,
     "pkg": "@sakikotgw/pack-agent-dsh"
+   }
+  ]
+ },
+ {
+  "github": "Starlit-Sky-code",
+  "avatar": "https://avatars.githubusercontent.com/u/263146998?v=4",
+  "plugins": [
+   {
+    "name": "dsh-plugin-recipe",
+    "slug": "dsh-plugin-recipe",
+    "npm": false,
+    "pkg": ""
+   },
+   {
+    "name": "dsh-plugin-trim",
+    "slug": "dsh-plugin-trim",
+    "npm": false,
+    "pkg": ""
    }
   ]
  },
@@ -590,6 +626,18 @@
     "slug": "dsh-plugin-lx-music",
     "npm": false,
     "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "AIcivilization",
+  "avatar": "https://avatars.githubusercontent.com/u/268566591?v=4",
+  "plugins": [
+   {
+    "name": "@AIcivilization/dsh-mishu",
+    "slug": "dsh-mishu",
+    "npm": true,
+    "pkg": "dsh-mishu"
    }
   ]
  },
@@ -846,6 +894,18 @@
   ]
  },
  {
+  "github": "cry-flu",
+  "avatar": "https://avatars.githubusercontent.com/u/293795074?v=4",
+  "plugins": [
+   {
+    "name": "dsh-session-rotate",
+    "slug": "dsh-session-rotate",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
   "github": "CTX666666",
   "avatar": "https://avatars.githubusercontent.com/u/296767890?v=4",
   "plugins": [
@@ -866,6 +926,18 @@
     "slug": "dsh-factory-provider",
     "npm": false,
     "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "Digiforge6688",
+  "avatar": "https://avatars.githubusercontent.com/u/168167970?v=4",
+  "plugins": [
+   {
+    "name": "@zipx/dsh-plugin",
+    "slug": "zipx-dsh-plugin",
+    "npm": true,
+    "pkg": "@zipx/dsh-plugin"
    }
   ]
  },
@@ -918,6 +990,18 @@
   ]
  },
  {
+  "github": "EnderDAG",
+  "avatar": "https://avatars.githubusercontent.com/u/91041697?v=4",
+  "plugins": [
+   {
+    "name": "dsh-quote-archive",
+    "slug": "dsh-quote-archive",
+    "npm": true,
+    "pkg": "dsh-quote-archive"
+   }
+  ]
+ },
+ {
   "github": "FantasyStarry",
   "avatar": "https://avatars.githubusercontent.com/u/165247386?v=4",
   "plugins": [
@@ -938,6 +1022,18 @@
     "slug": "dsh-models-sort",
     "npm": false,
     "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "flymysql",
+  "avatar": "https://avatars.githubusercontent.com/u/37113068?v=4",
+  "plugins": [
+   {
+    "name": "dsh-remote",
+    "slug": "dsh-remote",
+    "npm": true,
+    "pkg": "dsh-remote"
    }
   ]
  },
@@ -1062,6 +1158,18 @@
   ]
  },
  {
+  "github": "Him666233",
+  "avatar": "https://avatars.githubusercontent.com/u/227797530?v=4",
+  "plugins": [
+   {
+    "name": "@him666233/dsh-inline-diff",
+    "slug": "him666233-dsh-inline-diff",
+    "npm": true,
+    "pkg": "@him666233/dsh-inline-diff"
+   }
+  ]
+ },
+ {
   "github": "HiNEM66",
   "avatar": "https://avatars.githubusercontent.com/u/92151998?v=4",
   "plugins": [
@@ -1094,6 +1202,18 @@
     "slug": "Martty",
     "npm": true,
     "pkg": "martty"
+   }
+  ]
+ },
+ {
+  "github": "HudsonHuang",
+  "avatar": "https://avatars.githubusercontent.com/u/5734717?v=4",
+  "plugins": [
+   {
+    "name": "agent-ear",
+    "slug": "agent-ear",
+    "npm": true,
+    "pkg": "agent-ear"
    }
   ]
  },
@@ -1178,6 +1298,18 @@
     "slug": "deepseek-harness-forge-plugins",
     "npm": false,
     "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "jjjjjjjjnnjnn",
+  "avatar": "https://avatars.githubusercontent.com/u/236163329?v=4",
+  "plugins": [
+   {
+    "name": "dsh-ai-terminal-pet",
+    "slug": "dsh-ai-terminal-pet",
+    "npm": true,
+    "pkg": "dsh-ai-terminal-pet"
    }
   ]
  },
@@ -1530,6 +1662,18 @@
   ]
  },
  {
+  "github": "Rayle8",
+  "avatar": "https://avatars.githubusercontent.com/u/6244732?v=4",
+  "plugins": [
+   {
+    "name": "@Rayle8/dsh-aside-note",
+    "slug": "dsh-aside-note",
+    "npm": true,
+    "pkg": "dsh-aside-note"
+   }
+  ]
+ },
+ {
   "github": "resnowh",
   "avatar": "https://avatars.githubusercontent.com/u/74843108?v=4",
   "plugins": [
@@ -1848,6 +1992,18 @@
    {
     "name": "dsh-clear-usage",
     "slug": "dsh-clear-usage",
+    "npm": false,
+    "pkg": ""
+   }
+  ]
+ },
+ {
+  "github": "xiaoluoli45",
+  "avatar": "https://avatars.githubusercontent.com/u/213258319?v=4",
+  "plugins": [
+   {
+    "name": "dsh-code-explainer",
+    "slug": "dsh-code-explainer",
     "npm": false,
     "pkg": ""
    }
