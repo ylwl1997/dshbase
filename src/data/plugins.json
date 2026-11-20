@@ -14020,7 +14020,7 @@
    "trust": "Silver",
    "slug": "dsh-trellis",
    "platform": "any",
-   "bareNpm": "install-fail",
+   "bareNpm": "other",
    "contributors": 0,
    "depCount": 6,
    "depsOfficial": 6,
