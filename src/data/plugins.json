@@ -417022,7 +417022,7 @@
    "trust": "Gold",
    "slug": "sage-mem",
    "platform": "any",
-   "bareNpm": "install-fail",
+   "bareNpm": "other",
    "contributors": 2,
    "depCount": 6,
    "depsOfficial": 4,
